@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deutsch Lernen — German শিখুন বাংলায়</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#04080f;
+  --surface:#080e1a;
+  --surface2:#0c1322;
+  --surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;
+  --gold2:#e0a820;
+  --teal:#2dd4bf;
+  --rose:#fb7185;
+  --indigo:#818cf8;
+  --emerald:#34d399;
+  --muted:#64748b;
+  --sub:#94a3b8;
+  --text:#f0f4f8;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ── background orbs & grid ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 10% 10%,rgba(245,200,66,.06),transparent 60%),
+    radial-gradient(ellipse 60% 55% at 90% 90%,rgba(45,212,191,.05),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.03),transparent 60%);
+}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.007) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.007) 1px,transparent 1px);
+  background-size:52px 52px;
+}
+
+/* ── main layout ── */
+.page{
+  position:relative;z-index:1;
+  width:100%;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem 1rem;
+}
+
+.card{
+  width:100%;max-width:460px;
+  background:rgba(8,14,26,.85);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:2.4rem 2.2rem 2rem;
+  backdrop-filter:blur(32px);
+  box-shadow:0 8px 64px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.03);
+  position:relative;overflow:hidden;
+}
+
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);
+}
+
+/* ── logo ── */
+.logo{text-align:center;margin-bottom:1.8rem;}
+.logo-icon{
+  width:68px;height:68px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;margin:0 auto 1rem;
+  box-shadow:0 0 32px rgba(245,200,66,.15);
+}
+.logo h1{
+  font-size:1.9rem;font-weight:900;letter-spacing:-.5px;
+  background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.logo p{
+  font-size:11px;color:var(--muted);margin-top:4px;
+  font-family:'JetBrains Mono',monospace;letter-spacing:.8px;
+}
+
+/* ── tab switcher ── */
+.tabs{
+  display:flex;background:var(--surface2);border:1px solid var(--border);
+  border-radius:14px;padding:4px;gap:4px;margin-bottom:1.6rem;
+}
+.tab{
+  flex:1;padding:.55rem;border-radius:10px;text-align:center;
+  font-size:13.5px;font-weight:700;cursor:pointer;transition:.2s;
+  color:var(--muted);
+}
+.tab.active{
+  background:linear-gradient(135deg,rgba(245,200,66,.14),rgba(45,212,191,.08));
+  color:var(--gold);border:1px solid rgba(245,200,66,.22);
+}
+
+/* ── form panels ── */
+.panel{display:none;}
+.panel.active{display:block;}
+
+/* ── Google button ── */
+.btn-google{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:.75rem;border-radius:13px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05);color:var(--text);
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;
+  transition:.2s;margin-bottom:1.2rem;
+}
+.btn-google:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.18);}
+.btn-google svg{flex-shrink:0;}
+
+/* ── divider ── */
+.divider{
+  display:flex;align-items:center;gap:10px;margin-bottom:1.2rem;
+  color:var(--muted);font-size:11.5px;font-family:'JetBrains Mono',monospace;
+}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ── form fields ── */
+.field{margin-bottom:1rem;}
+.field label{
+  display:block;font-size:12px;font-weight:700;color:var(--sub);
+  margin-bottom:.45rem;letter-spacing:.4px;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+}
+.field-wrap{position:relative;}
+.field input{
+  width:100%;background:var(--surface2);border:1px solid var(--border);
+  border-radius:12px;padding:.75rem 1rem;color:var(--text);
+  font-family:'Outfit',sans-serif;font-size:14px;transition:.2s;outline:none;
+}
+.field input:focus{border-color:rgba(245,200,66,.4);background:var(--surface3);
+  box-shadow:0 0 0 3px rgba(245,200,66,.07);}
+.field input::placeholder{color:var(--muted);}
+.field input.has-icon{padding-right:2.8rem;}
+.field-icon{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  cursor:pointer;color:var(--muted);font-size:1.1rem;user-select:none;
+  transition:.2s;
+}
+.field-icon:hover{color:var(--sub);}
+.field-hint{font-size:11.5px;color:var(--muted);margin-top:.35rem;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* ── photo upload (register) ── */
+.photo-upload{
+  display:flex;align-items:center;gap:14px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:13px;padding:.8rem 1rem;margin-bottom:1rem;cursor:pointer;
+  transition:.2s;
+}
+.photo-upload:hover{border-color:rgba(245,200,66,.25);}
+.photo-preview{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.1));
+  border:2px solid rgba(245,200,66,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;overflow:hidden;flex-shrink:0;transition:.2s;
+}
+.photo-preview img{width:100%;height:100%;object-fit:cover;}
+.photo-text p{font-size:13.5px;font-weight:600;margin-bottom:2px;}
+.photo-text span{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+#photo-input{display:none;}
+
+/* ── submit button ── */
+.btn-primary{
+  width:100%;padding:.85rem;border-radius:13px;border:none;
+  background:linear-gradient(135deg,#f5c842,#e0a820);
+  color:#000;font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;
+  cursor:pointer;transition:.2s;letter-spacing:.2px;margin-top:.4rem;
+  position:relative;overflow:hidden;
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  opacity:0;transition:.2s;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(245,200,66,.3);}
+.btn-primary:hover::after{opacity:1;}
+.btn-primary:active{transform:translateY(0);}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* ── forgot password link ── */
+.forgot{
+  text-align:right;margin-top:-.4rem;margin-bottom:.9rem;
+}
+.forgot a{
+  font-size:12px;color:var(--muted);text-decoration:none;
+  font-family:'Noto Sans Bengali',sans-serif;transition:.2s;
+}
+.forgot a:hover{color:var(--gold);}
+
+/* ── error / success toast ── */
+.msg{
+  border-radius:11px;padding:.7rem 1rem;margin-bottom:1rem;
+  font-size:13px;line-height:1.5;display:none;
+  font-family:'Noto Sans Bengali',sans-serif;
+}
+.msg.error{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.25);color:#fb7185;}
+.msg.success{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:#34d399;}
+.msg.show{display:block;}
+
+/* ── loading spinner inside button ── */
+.spinner{
+  width:18px;height:18px;border:2.5px solid rgba(0,0,0,.3);
+  border-top-color:#000;border-radius:50%;
+  animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── password strength bar ── */
+.strength-wrap{margin-top:.4rem;}
+.strength-bar{height:3px;border-radius:2px;background:var(--border);overflow:hidden;margin-bottom:4px;}
+.strength-fill{height:100%;width:0;border-radius:2px;transition:.3s;}
+.strength-label{font-size:10.5px;font-family:'JetBrains Mono',monospace;color:var(--muted);}
+
+/* ── features strip (below card) ── */
+.features{
+  display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;
+  margin-top:1.6rem;
+}
+.feat{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;
+}
+.feat-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+
+/* ── responsive ── */
+@media(max-width:500px){
+  .card{padding:1.8rem 1.3rem 1.5rem;border-radius:22px;}
+  .logo h1{font-size:1.6rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div>
+    <div class="card">
+
+      <!-- stripe handled by ::before -->
+
+      <!-- LOGO -->
+      <div class="logo">
+        <div class="logo-icon">🇩🇪</div>
+        <h1>Deutsch Lernen</h1>
+        <p>GERMAN LEARNING PLATFORM · A1 TO C2</p>
+      </div>
+
+      <!-- ERROR / SUCCESS MSG -->
+      <div class="msg" id="msg"></div>
+
+      <!-- TAB SWITCHER -->
+      <div class="tabs">
+        <div class="tab active" id="tab-login"  onclick="switchTab('login')">লগইন</div>
+        <div class="tab"        id="tab-register" onclick="switchTab('register')">নতুন অ্যাকাউন্ট</div>
+      </div>
+
+      <!-- ══════════ LOGIN PANEL ══════════ -->
+      <div class="panel active" id="panel-login">
+
+        <button class="btn-google" id="btn-google-login">
+          <svg width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            <path fill="none" d="M0 0h48v48H0z"/>
+          </svg>
+          Google দিয়ে লগইন করুন
+        </button>
+
+        <div class="divider">অথবা email দিয়ে</div>
+
+        <div class="field">
+          <label>ইমেইল</label>
+          <input type="email" id="login-email" placeholder="example@email.com" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label>পাসওয়ার্ড</label>
+          <div class="field-wrap">
+            <input type="password" id="login-password" placeholder="পাসওয়ার্ড দিন" class="has-icon" autocomplete="current-password">
+            <span class="field-icon" id="toggle-login-pw">👁️</span>
+          </div>
+        </div>
+
+        <div class="forgot">
+          <a href="#" id="forgot-link">পাসওয়ার্ড ভুলে গেছেন?</a>
+        </div>
+
+        <button class="btn-primary" id="btn-login">লগইন করুন</button>
+      </div>
+
+      <!-- ══════════ REGISTER PANEL ══════════ -->
+      <div class="panel" id="panel-register">
+
+        <button class="btn-google" id="btn-google-register">
+          <svg width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            <path fill="none" d="M0 0h48v48H0z"/>
+          </svg>
+          Google দিয়ে রেজিস্ট্রেশন করুন
+        </button>
+
+        <div class="divider">অথবা email দিয়ে</div>
+
+        <!-- Profile photo upload -->
+        <label for="photo-input">
+          <div class="photo-upload" id="photo-upload-area">
+            <div class="photo-preview" id="photo-preview">📷</div>
+            <div class="photo-text">
+              <p>প্রোফাইল ছবি আপলোড করুন</p>
+              <span>ঐচ্ছিক · Cloudinary-তে সংরক্ষিত হবে</span>
+            </div>
+          </div>
+        </label>
+        <input type="file" id="photo-input" accept="image/*">
+
+        <div class="field">
+          <label>নাম</label>
+          <input type="text" id="reg-name" placeholder="আপনার পুরো নাম" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label>ইমেইল</label>
+          <input type="email" id="reg-email" placeholder="example@email.com" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label>পাসওয়ার্ড</label>
+          <div class="field-wrap">
+            <input type="password" id="reg-password" placeholder="কমপক্ষে ৮ অক্ষর" class="has-icon" autocomplete="new-password" oninput="checkStrength(this.value)">
+            <span class="field-icon" id="toggle-reg-pw">👁️</span>
+          </div>
+          <div class="strength-wrap">
+            <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+            <div class="strength-label" id="strength-label"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>পাসওয়ার্ড নিশ্চিত করুন</label>
+          <div class="field-wrap">
+            <input type="password" id="reg-confirm" placeholder="পাসওয়ার্ড আবার দিন" class="has-icon" autocomplete="new-password">
+            <span class="field-icon" id="toggle-reg-confirm">👁️</span>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="btn-register">অ্যাকাউন্ট তৈরি করুন</button>
+      </div>
+
+    </div><!-- /card -->
+
+    <!-- features strip -->
+    <div class="features">
+      <div class="feat"><div class="feat-dot" style="background:#f5c842"></div>A1 থেকে C2</div>
+      <div class="feat"><div class="feat-dot" style="background:#2dd4bf"></div>বাংলায় ব্যাখ্যা</div>
+      <div class="feat"><div class="feat-dot" style="background:#818cf8"></div>XP ও Streak</div>
+      <div class="feat"><div class="feat-dot" style="background:#34d399"></div>AI Writing Check</div>
+    </div>
+  </div>
+</div><!-- /page -->
+
+<script type="module">
+import {
+  auth, db, googleProvider, CLOUDINARY,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+  sendPasswordResetEmail,
+  redirectIfLoggedIn,
+  doc, setDoc, serverTimestamp,
+} from "./js/firebase-config.js";
+
+// ── redirect if already logged in ──────────────────
+redirectIfLoggedIn();
+
+// ── state ──────────────────────────────────────────
+let selectedPhotoFile = null;
+
+// ── TAB SWITCH ──────────────────────────────────────
+window.switchTab = function(tab) {
+  document.getElementById("panel-login").classList.toggle("active", tab === "login");
+  document.getElementById("panel-register").classList.toggle("active", tab === "register");
+  document.getElementById("tab-login").classList.toggle("active", tab === "login");
+  document.getElementById("tab-register").classList.toggle("active", tab === "register");
+  clearMsg();
+};
+
+// ── MESSAGE ─────────────────────────────────────────
+function showMsg(text, type = "error") {
+  const el = document.getElementById("msg");
+  el.textContent = text;
+  el.className = `msg ${type} show`;
+}
+function clearMsg() {
+  const el = document.getElementById("msg");
+  el.className = "msg";
+}
+
+// ── LOADING STATE ────────────────────────────────────
+function setLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  if (loading) {
+    btn.dataset.orig = btn.innerHTML;
+    btn.innerHTML = '<span class="spinner"></span>';
+    btn.disabled = true;
+  } else {
+    btn.innerHTML = btn.dataset.orig || btn.innerHTML;
+    btn.disabled = false;
+  }
+}
+
+// ── PASSWORD TOGGLE ──────────────────────────────────
+function togglePw(inputId, iconId) {
+  const input = document.getElementById(inputId);
+  const icon  = document.getElementById(iconId);
+  if (input.type === "password") {
+    input.type = "text";
+    icon.textContent = "🙈";
+  } else {
+    input.type = "password";
+    icon.textContent = "👁️";
+  }
+}
+document.getElementById("toggle-login-pw").onclick   = () => togglePw("login-password", "toggle-login-pw");
+document.getElementById("toggle-reg-pw").onclick     = () => togglePw("reg-password", "toggle-reg-pw");
+document.getElementById("toggle-reg-confirm").onclick = () => togglePw("reg-confirm", "toggle-reg-confirm");
+
+// ── PASSWORD STRENGTH ────────────────────────────────
+window.checkStrength = function(pw) {
+  const fill  = document.getElementById("strength-fill");
+  const label = document.getElementById("strength-label");
+  let score = 0;
+  if (pw.length >= 8)  score++;
+  if (/[A-Z]/.test(pw)) score++;
+  if (/[0-9]/.test(pw)) score++;
+  if (/[^A-Za-z0-9]/.test(pw)) score++;
+
+  const map = [
+    { pct:"0%",   color:"transparent", text:"" },
+    { pct:"25%",  color:"#fb7185", text:"দুর্বল" },
+    { pct:"50%",  color:"#fb923c", text:"মোটামুটি" },
+    { pct:"75%",  color:"#f5c842", text:"ভালো" },
+    { pct:"100%", color:"#34d399", text:"শক্তিশালী ✓" },
+  ];
+  fill.style.width      = map[score].pct;
+  fill.style.background = map[score].color;
+  label.textContent     = map[score].text;
+  label.style.color     = map[score].color;
+};
+
+// ── PHOTO UPLOAD PREVIEW ─────────────────────────────
+document.getElementById("photo-input").addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  selectedPhotoFile = file;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const prev = document.getElementById("photo-preview");
+    prev.innerHTML = `<img src="${ev.target.result}" alt="preview">`;
+  };
+  reader.readAsDataURL(file);
+});
+
+// ── UPLOAD PHOTO TO CLOUDINARY ───────────────────────
+async function uploadToCloudinary(file) {
+  const fd = new FormData();
+  fd.append("file", file);
+  fd.append("upload_preset", CLOUDINARY.uploadPreset);
+  fd.append("folder", "deutsch_lernen/avatars");
+
+  const res  = await fetch(CLOUDINARY.uploadUrl, { method: "POST", body: fd });
+  const data = await res.json();
+
+  if (!res.ok || data.error) {
+    throw new Error(data.error?.message || "Cloudinary upload failed");
+  }
+  return data.secure_url;
+}
+
+// ── CREATE USER DOC IN FIRESTORE ─────────────────────
+async function createUserDoc(uid, name, email, photoURL) {
+  await setDoc(doc(db, "users", uid), {
+    displayName:      name,
+    email:            email,
+    photoURL:         photoURL || "",
+    xp:               0,
+    streak:           0,
+    sessions:         0,
+    totalCorrect:     0,
+    masteredWords:    [],
+    completedTopics:  [],
+    role:             "user",
+    banned:           false,
+    createdAt:        serverTimestamp(),
+    lastLogin:        serverTimestamp(),
+  });
+}
+
+// ── GOOGLE SIGN-IN ───────────────────────────────────
+async function handleGoogle() {
+  clearMsg();
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    const user   = result.user;
+
+    // create doc only if new user
+    const snap = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js")
+      .then(m => m.getDoc(doc(db, "users", user.uid)));
+
+    if (!snap.exists()) {
+      await createUserDoc(user.uid, user.displayName || "Lerner", user.email, user.photoURL);
+    } else {
+      // update lastLogin
+      const { updateDoc } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+      await updateDoc(doc(db, "users", user.uid), { lastLogin: serverTimestamp() });
+    }
+
+    window.location.href = "dashboard.html";
+  } catch(err) {
+    if (err.code !== "auth/popup-closed-by-user") {
+      showMsg("Google লগইন ব্যর্থ হয়েছে: " + friendlyError(err.code));
+    }
+  }
+}
+
+document.getElementById("btn-google-login").onclick    = handleGoogle;
+document.getElementById("btn-google-register").onclick = handleGoogle;
+
+// ── EMAIL LOGIN ──────────────────────────────────────
+document.getElementById("btn-login").onclick = async () => {
+  clearMsg();
+  const email = document.getElementById("login-email").value.trim();
+  const pw    = document.getElementById("login-password").value;
+
+  if (!email || !pw) { showMsg("ইমেইল ও পাসওয়ার্ড দিন।"); return; }
+
+  setLoading("btn-login", true);
+  try {
+    const cred = await signInWithEmailAndPassword(auth, email, pw);
+
+    // update lastLogin
+    const { updateDoc } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+    await updateDoc(doc(db, "users", cred.user.uid), { lastLogin: serverTimestamp() })
+      .catch(() => {}); // doc may not exist yet — safe to ignore
+
+    window.location.href = "dashboard.html";
+  } catch(err) {
+    showMsg(friendlyError(err.code));
+  } finally {
+    setLoading("btn-login", false);
+  }
+};
+
+// ── EMAIL REGISTER ───────────────────────────────────
+document.getElementById("btn-register").onclick = async () => {
+  clearMsg();
+  const name    = document.getElementById("reg-name").value.trim();
+  const email   = document.getElementById("reg-email").value.trim();
+  const pw      = document.getElementById("reg-password").value;
+  const confirm = document.getElementById("reg-confirm").value;
+
+  if (!name)  { showMsg("নাম দিন।"); return; }
+  if (!email) { showMsg("ইমেইল দিন।"); return; }
+  if (pw.length < 8) { showMsg("পাসওয়ার্ড কমপক্ষে ৮ অক্ষর হতে হবে।"); return; }
+  if (pw !== confirm) { showMsg("পাসওয়ার্ড দুটো মিলছে না।"); return; }
+
+  setLoading("btn-register", true);
+  try {
+    // 1. Create Firebase Auth user
+    const cred = await createUserWithEmailAndPassword(auth, email, pw);
+    const user = cred.user;
+
+    // 2. Upload photo to Cloudinary (if selected)
+    let photoURL = "";
+    if (selectedPhotoFile) {
+      try {
+        photoURL = await uploadToCloudinary(selectedPhotoFile);
+      } catch(photoErr) {
+        console.warn("Photo upload failed, continuing without it:", photoErr);
+      }
+    }
+
+    // 3. Update Firebase Auth profile
+    await updateProfile(user, { displayName: name, photoURL });
+
+    // 4. Create Firestore user document
+    await createUserDoc(user.uid, name, email, photoURL);
+
+    showMsg("অ্যাকাউন্ট তৈরি হয়েছে! Dashboard-এ যাচ্ছেন...", "success");
+    setTimeout(() => { window.location.href = "dashboard.html"; }, 1200);
+  } catch(err) {
+    showMsg(friendlyError(err.code));
+  } finally {
+    setLoading("btn-register", false);
+  }
+};
+
+// ── FORGOT PASSWORD ──────────────────────────────────
+document.getElementById("forgot-link").onclick = async e => {
+  e.preventDefault();
+  const email = document.getElementById("login-email").value.trim();
+  if (!email) {
+    showMsg("আগে ইমেইল ঘরে আপনার ইমেইল দিন।");
+    document.getElementById("login-email").focus();
+    return;
+  }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    showMsg("পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে। ইমেইল চেক করুন।", "success");
+  } catch(err) {
+    showMsg(friendlyError(err.code));
+  }
+};
+
+// ── ENTER KEY support ────────────────────────────────
+document.getElementById("login-password").addEventListener("keydown", e => {
+  if (e.key === "Enter") document.getElementById("btn-login").click();
+});
+document.getElementById("reg-confirm").addEventListener("keydown", e => {
+  if (e.key === "Enter") document.getElementById("btn-register").click();
+});
+
+// ── FRIENDLY ERROR MESSAGES ──────────────────────────
+function friendlyError(code) {
+  const map = {
+    "auth/user-not-found":          "এই ইমেইলে কোনো অ্যাকাউন্ট নেই।",
+    "auth/wrong-password":          "পাসওয়ার্ড ভুল হয়েছে।",
+    "auth/invalid-credential":      "ইমেইল বা পাসওয়ার্ড ভুল।",
+    "auth/email-already-in-use":    "এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট আছে।",
+    "auth/invalid-email":           "ইমেইল ঠিকানা সঠিক নয়।",
+    "auth/weak-password":           "পাসওয়ার্ড আরো শক্তিশালী হতে হবে।",
+    "auth/too-many-requests":       "অনেকবার চেষ্টা হয়েছে। কিছুক্ষণ পর চেষ্টা করুন।",
+    "auth/network-request-failed":  "নেটওয়ার্ক সমস্যা। ইন্টারনেট সংযোগ চেক করুন।",
+    "auth/popup-blocked":           "Popup ব্লক হয়েছে। Browser-এ popup অনুমতি দিন।",
+    "auth/account-exists-with-different-credential":
+                                    "এই ইমেইলে অন্য পদ্ধতিতে অ্যাকাউন্ট আছে।",
+  };
+  return map[code] || "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।";
+}
+</script>
+
+</body>
+</html>

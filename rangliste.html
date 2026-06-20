@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rangliste — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);--gold:#f5c842;--gold2:#e0a820;
+  --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;
+  --orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+.wrap{max-width:900px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+
+/* ─── TOPBAR ─── */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  box-shadow:0 0 18px rgba(245,200,66,.12);flex-shrink:0;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;gap:6px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover,.nav-link.active{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.user-section{display:flex;align-items:center;gap:10px;}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;overflow:hidden;
+  border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;transition:.2s;box-shadow:0 0 14px rgba(245,200,66,.1);}
+.user-avatar:hover{border-color:var(--gold);}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);border-color:var(--rose);}
+
+/* ─── PAGE HEADER ─── */
+.page-head{text-align:center;margin:1.2rem 0 1.8rem;}
+.page-head h2{font-size:1.7rem;font-weight:800;letter-spacing:-.5px;
+  background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-head p{font-size:13px;color:var(--sub);margin-top:.3rem;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* ─── TOGGLE TABS (Weekly / All-time) ─── */
+.toggle-tabs{display:flex;justify-content:center;gap:4px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:14px;padding:4px;max-width:280px;margin:0 auto 1.8rem;}
+.ttab{flex:1;text-align:center;padding:.55rem;border-radius:10px;font-size:13px;font-weight:700;
+  color:var(--muted);cursor:pointer;transition:.2s;}
+.ttab.active{background:linear-gradient(135deg,rgba(245,200,66,.14),rgba(45,212,191,.08));
+  color:var(--gold);border:1px solid rgba(245,200,66,.22);}
+
+/* ─── PODIUM (TOP 3) ─── */
+.podium{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;align-items:end;margin-bottom:2rem;}
+.podium-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;
+  padding:1.2rem 1rem 1rem;text-align:center;position:relative;transition:.3s;}
+.podium-card.p1{order:2;padding-top:1.6rem;border-color:rgba(245,200,66,.3);
+  background:linear-gradient(180deg,rgba(245,200,66,.08),var(--surface2));box-shadow:0 0 30px rgba(245,200,66,.1);}
+.podium-card.p2{order:1;border-color:rgba(148,163,184,.25);}
+.podium-card.p3{order:3;border-color:rgba(251,146,60,.25);}
+.podium-rank{position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.4);}
+.p1 .podium-rank{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;width:36px;height:36px;font-size:16px;top:-18px;}
+.p2 .podium-rank{background:linear-gradient(135deg,#cbd5e1,#94a3b8);color:#000;}
+.p3 .podium-rank{background:linear-gradient(135deg,#fb923c,#ea580c);color:#000;}
+.podium-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto .6rem;overflow:hidden;
+  background:linear-gradient(135deg,rgba(245,200,66,.2),rgba(45,212,191,.2));
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;
+  border:3px solid var(--surface2);}
+.p1 .podium-avatar{width:74px;height:74px;font-size:1.8rem;border-color:rgba(245,200,66,.4);}
+.podium-avatar img{width:100%;height:100%;object-fit:cover;}
+.podium-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.podium-xp{font-size:11.5px;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+.podium-level{display:inline-block;margin-top:.4rem;padding:2px 8px;border-radius:10px;font-size:9.5px;font-weight:700;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--sub);font-family:'JetBrains Mono',monospace;}
+
+/* ─── LIST ─── */
+.lb-section{margin-top:1rem;}
+.lb-list{display:flex;flex-direction:column;gap:8px;}
+.lb-row{display:flex;align-items:center;gap:14px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:16px;padding:.85rem 1.1rem;transition:.2s;}
+.lb-row:hover{border-color:rgba(245,200,66,.18);transform:translateX(3px);}
+.lb-row.is-me{border-color:rgba(245,200,66,.4);background:rgba(245,200,66,.05);box-shadow:0 0 18px rgba(245,200,66,.08);}
+.lb-rank{width:30px;text-align:center;font-size:14px;font-weight:800;color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+.lb-avatar{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:700;
+  border:2px solid rgba(255,255,255,.08);}
+.lb-avatar img{width:100%;height:100%;object-fit:cover;}
+.lb-info{flex:1;min-width:0;}
+.lb-name{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px;}
+.lb-you-badge{font-size:9px;padding:1px 7px;border-radius:10px;background:rgba(245,200,66,.15);color:var(--gold);
+  font-family:'JetBrains Mono',monospace;font-weight:700;flex-shrink:0;}
+.lb-meta{font-size:11px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;}
+.lb-right{text-align:right;flex-shrink:0;}
+.lb-xp{font-size:1rem;font-weight:800;color:var(--gold);font-family:'JetBrains Mono',monospace;}
+.lb-streak{font-size:10.5px;color:var(--orange);margin-top:1px;}
+.lb-level-badge{font-size:9.5px;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+.lvl-a1{background:rgba(148,163,184,.12);color:#94a3b8;}
+.lvl-a2{background:rgba(45,212,191,.12);color:#2dd4bf;}
+.lvl-b1{background:rgba(129,140,248,.12);color:#818cf8;}
+.lvl-b2{background:rgba(167,139,250,.12);color:#a78bfa;}
+.lvl-c1{background:rgba(251,146,60,.12);color:#fb923c;}
+.lvl-c2{background:rgba(245,200,66,.15);color:#f5c842;}
+
+/* ─── YOUR RANK STICKY BANNER ─── */
+.my-rank-banner{position:sticky;bottom:16px;margin-top:1.4rem;background:rgba(8,14,26,.92);
+  border:1px solid rgba(245,200,66,.3);border-radius:16px;padding:.9rem 1.2rem;
+  backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,.5);display:flex;align-items:center;gap:12px;}
+.my-rank-banner .lb-rank{color:var(--gold);}
+
+/* ─── LOADING / EMPTY ─── */
+.loading-row,.empty-state{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;}
+.spinner-ring{width:32px;height:32px;border:3px solid rgba(245,200,66,.15);border-top-color:var(--gold);
+  border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:560px){
+  .topbar{flex-direction:column;align-items:flex-start;}
+  .nav-links{display:none;}
+  .podium{gap:6px;}
+  .podium-card{padding:1rem .6rem .8rem;}
+  .p1 .podium-avatar{width:60px;height:60px;font-size:1.4rem;}
+  .podium-avatar{width:48px;height:48px;font-size:1.1rem;}
+  .podium-name{font-size:11.5px;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text">
+        <h1>Deutsch Lernen</h1>
+        <p>GERMAN LEARNING PLATFORM · A1 TO C2</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <nav class="nav-links">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="lernreise.html" class="nav-link">Journey</a>
+        <a href="vokabelquiz.html" class="nav-link">Quiz</a>
+        <a href="grammatik.html" class="nav-link">Grammatik</a>
+        <a href="rangliste.html" class="nav-link active">Rangliste</a>
+        <a href="mein-profil.html" class="nav-link">Profil</a>
+      </nav>
+      <div class="user-section">
+        <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-head">
+    <h2>🏆 Rangliste</h2>
+    <p>Top learners দেখুন এবং ranking-এ নিজেকে এগিয়ে নিন</p>
+  </div>
+
+  <!-- TOGGLE -->
+  <div class="toggle-tabs">
+    <div class="ttab active" data-range="alltime">All-time</div>
+    <div class="ttab" data-range="weekly">এই সপ্তাহ</div>
+  </div>
+
+  <!-- PODIUM -->
+  <div id="podium-section">
+    <div class="loading-row"><div class="spinner-ring"></div>Rangliste লোড হচ্ছে...</div>
+  </div>
+
+  <!-- LIST -->
+  <div class="lb-section">
+    <div class="lb-list" id="lb-list"></div>
+  </div>
+
+</div><!-- end .wrap -->
+
+<!-- MY RANK STICKY -->
+<div class="wrap" style="padding-top:0;padding-bottom:0;position:sticky;bottom:0;">
+  <div class="my-rank-banner" id="my-rank-banner" style="display:none;"></div>
+</div>
+
+<script type="module">
+import {
+  auth, db, requireAuth, signOut,
+  doc, getDoc,
+  collection, query, orderBy, limit, getDocs,
+} from "./js/firebase-config.js";
+
+let meUID = null;
+let allUsers = [];
+
+/* ── LEVEL HELPER ── */
+function getLevel(xp) {
+  if (xp >= 18000) return "C2";
+  if (xp >= 10000) return "C1";
+  if (xp >= 5000)  return "B2";
+  if (xp >= 2000)  return "B1";
+  if (xp >= 500)   return "A2";
+  return "A1";
+}
+function levelClass(lvl) { return "lvl-" + lvl.toLowerCase(); }
+
+/* ── RENDER PODIUM (Top 3) ── */
+function renderPodium(top3) {
+  const section = document.getElementById("podium-section");
+  if (!top3.length) { section.innerHTML = ""; return; }
+
+  const order = [top3[1], top3[0], top3[2]]; // visual order: 2nd, 1st, 3rd
+  const ranks = [2, 1, 3];
+
+  section.innerHTML = `<div class="podium">` +
+    order.map((u, i) => {
+      if (!u) return `<div></div>`;
+      const rank = ranks[i];
+      const cls  = rank === 1 ? "p1" : rank === 2 ? "p2" : "p3";
+      const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : "🥉";
+      const initial = (u.displayName || "?")[0].toUpperCase();
+      const avatarContent = u.photoURL ? `<img src="${u.photoURL}">` : initial;
+      return `
+        <div class="podium-card ${cls}">
+          <div class="podium-rank">${medal}</div>
+          <div class="podium-avatar">${avatarContent}</div>
+          <div class="podium-name">${escapeHtml(u.displayName || "Lerner")}</div>
+          <div class="podium-xp">${(u.xp||0).toLocaleString()} XP</div>
+          <div class="podium-level">${getLevel(u.xp||0)}</div>
+        </div>`;
+    }).join("") +
+    `</div>`;
+}
+
+/* ── RENDER LIST (rank 4+) ── */
+function renderList(users, startRank) {
+  const list = document.getElementById("lb-list");
+  if (!users.length) {
+    list.innerHTML = `<div class="empty-state">আরো learner দরকার rangliste পূর্ণ করতে।</div>`;
+    return;
+  }
+  list.innerHTML = users.map((u, i) => {
+    const rank = startRank + i;
+    const isMe = u._uid === meUID;
+    const initial = (u.displayName || "?")[0].toUpperCase();
+    const avatarContent = u.photoURL ? `<img src="${u.photoURL}">` : initial;
+    const lvl = getLevel(u.xp || 0);
+    return `
+      <div class="lb-row ${isMe ? "is-me" : ""}">
+        <div class="lb-rank">#${rank}</div>
+        <div class="lb-avatar">${avatarContent}</div>
+        <div class="lb-info">
+          <div class="lb-name">${escapeHtml(u.displayName || "Lerner")} ${isMe ? '<span class="lb-you-badge">YOU</span>' : ""}</div>
+          <div class="lb-meta">${(u.streak||0)} দিন streak</div>
+        </div>
+        <span class="lb-level-badge ${levelClass(lvl)}">${lvl}</span>
+        <div class="lb-right">
+          <div class="lb-xp">${(u.xp||0).toLocaleString()}</div>
+          <div class="lb-streak">XP</div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+/* ── MY RANK BANNER (if not in visible top list) ── */
+function renderMyRankBanner(myData, myRank, totalUsers) {
+  const banner = document.getElementById("my-rank-banner");
+  if (!myData || myRank <= 20) { banner.style.display = "none"; return; }
+
+  const initial = (myData.displayName || "?")[0].toUpperCase();
+  const avatarContent = myData.photoURL ? `<img src="${myData.photoURL}">` : initial;
+  const lvl = getLevel(myData.xp || 0);
+
+  banner.style.display = "flex";
+  banner.innerHTML = `
+    <div class="lb-rank">#${myRank}</div>
+    <div class="lb-avatar">${avatarContent}</div>
+    <div class="lb-info">
+      <div class="lb-name">${escapeHtml(myData.displayName || "Lerner")} <span class="lb-you-badge">YOU</span></div>
+      <div class="lb-meta">${totalUsers} জনের মধ্যে #${myRank}</div>
+    </div>
+    <span class="lb-level-badge ${levelClass(lvl)}">${lvl}</span>
+    <div class="lb-right">
+      <div class="lb-xp">${(myData.xp||0).toLocaleString()}</div>
+      <div class="lb-streak">XP</div>
+    </div>`;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* ── LOAD LEADERBOARD ── */
+async function loadLeaderboard() {
+  document.getElementById("podium-section").innerHTML =
+    `<div class="loading-row"><div class="spinner-ring"></div>Rangliste লোড হচ্ছে...</div>`;
+  document.getElementById("lb-list").innerHTML = "";
+
+  try {
+    const q = query(collection(db, "users"), orderBy("xp", "desc"), limit(50));
+    const snap = await getDocs(q);
+
+    allUsers = snap.docs
+      .map(d => ({ _uid: d.id, ...d.data() }))
+      .filter(u => !u.banned);
+
+    if (!allUsers.length) {
+      document.getElementById("podium-section").innerHTML = "";
+      document.getElementById("lb-list").innerHTML = `<div class="empty-state">এখনো কোনো learner নেই।</div>`;
+      return;
+    }
+
+    const top3  = allUsers.slice(0, 3);
+    const rest  = allUsers.slice(3, 20);
+
+    renderPodium(top3);
+    renderList(rest, 4);
+
+    // my rank
+    const myIndex = allUsers.findIndex(u => u._uid === meUID);
+    if (myIndex >= 0) {
+      renderMyRankBanner(allUsers[myIndex], myIndex + 1, allUsers.length);
+    } else if (meUID) {
+      // current user not in top 50 — fetch their own doc for banner
+      try {
+        const mySnap = await getDoc(doc(db, "users", meUID));
+        if (mySnap.exists()) {
+          document.getElementById("my-rank-banner").style.display = "flex";
+          document.getElementById("my-rank-banner").innerHTML =
+            `<div class="lb-info"><div class="lb-meta">Top 50-এ নেই — আরো XP অর্জন করুন rangliste-এ উঠতে!</div></div>`;
+        }
+      } catch(e) { /* ignore */ }
+    }
+  } catch (err) {
+    console.error("Leaderboard load failed:", err);
+    document.getElementById("podium-section").innerHTML = "";
+    document.getElementById("lb-list").innerHTML =
+      `<div class="empty-state">❌ Rangliste লোড করা যায়নি। আবার চেষ্টা করুন।</div>`;
+  }
+}
+
+/* ── TOGGLE TABS (weekly = placeholder, all-time = real data) ── */
+document.querySelectorAll(".ttab").forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll(".ttab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    if (tab.dataset.range === "weekly") {
+      document.getElementById("podium-section").innerHTML = "";
+      document.getElementById("lb-list").innerHTML =
+        `<div class="empty-state">📅 Weekly rangliste শীঘ্রই আসছে!</div>`;
+      document.getElementById("my-rank-banner").style.display = "none";
+    } else {
+      loadLeaderboard();
+    }
+  };
+});
+
+/* ── LOGOUT ── */
+document.getElementById("btn-logout").onclick = () =>
+  signOut(auth).then(() => location.href = "index.html");
+
+/* ── INIT ── */
+requireAuth(async user => {
+  meUID = user.uid;
+
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const data = snap.exists() ? snap.data() : {};
+  const name = data.displayName || user.displayName || "Lerner";
+  const photo = data.photoURL || user.photoURL || "";
+
+  document.getElementById("nav-name").textContent = name;
+  const nav = document.getElementById("nav-avatar");
+  if (photo) nav.innerHTML = `<img src="${photo}">`;
+  else nav.textContent = name[0].toUpperCase();
+
+  await loadLeaderboard();
+});
+</script>
+
+</body>
+</html>
