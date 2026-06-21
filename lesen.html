@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesen — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;background:rgba(8,14,26,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 0 16px rgba(245,200,66,.1);flex-shrink:0;}
+.logo-text h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.4px;}
+.logo-text p{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:4px;}
+.nav-link{padding:.38rem .85rem;border-radius:10px;font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.nav-link.active{background:rgba(245,200,66,.09);border-color:rgba(245,200,66,.28);color:var(--gold);}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.9rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;transition:.2s;}
+.user-avatar:hover{border-color:var(--gold);box-shadow:0 0 18px rgba(245,200,66,.2);}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.38rem .85rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);border-color:var(--rose);}
+
+/* WRAP */
+.wrap{max-width:1160px;margin:0 auto;padding:2.4rem 1.5rem 5rem;position:relative;z-index:1;}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:2.5rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:1.1rem;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.22);color:var(--sky);}
+.hero h2{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;letter-spacing:-.6px;line-height:1.15;margin-bottom:.65rem;}
+.hero h2 .g{background:linear-gradient(135deg,#38bdf8,#818cf8,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:13.5px;color:var(--sub);line-height:1.75;max-width:560px;margin:0 auto;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem;}
+.scard{background:var(--surface2);border:1px solid var(--border);border-radius:15px;padding:1rem 1.1rem;display:flex;align-items:center;gap:11px;transition:.2s;position:relative;overflow:hidden;}
+.scard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;opacity:.7;}
+.scard:nth-child(1)::after{background:linear-gradient(90deg,transparent,#38bdf8,transparent);}
+.scard:nth-child(2)::after{background:linear-gradient(90deg,transparent,#34d399,transparent);}
+.scard:nth-child(3)::after{background:linear-gradient(90deg,transparent,#f5c842,transparent);}
+.scard:nth-child(4)::after{background:linear-gradient(90deg,transparent,#fb923c,transparent);}
+.scard:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.09);}
+.scard-icon{font-size:1.35rem;flex-shrink:0;}
+.scard-v{font-size:1.25rem;font-weight:800;}
+.scard-l{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;font-family:'JetBrains Mono',monospace;}
+
+/* FILTER BAR */
+.filter-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:1.8rem;background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:.8rem 1.1rem;}
+.filter-label{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.filter-btn{padding:.35rem .85rem;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--sub);font-family:'Outfit',sans-serif;transition:.2s;}
+.filter-btn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.filter-btn.active{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.35);color:var(--sky);}
+.filter-sep{width:1px;height:16px;background:var(--border);margin:0 2px;flex-shrink:0;}
+.search-wrap{margin-left:auto;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:10px;padding:.35rem .8rem;}
+.search-wrap input{background:none;border:none;outline:none;color:var(--text);font-family:'Outfit',sans-serif;font-size:12.5px;width:150px;}
+.search-wrap input::placeholder{color:var(--muted);}
+
+/* SECTION TITLE */
+.sec-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+
+/* TOPIC GRID (passage cards reuse this component) */
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:2.5rem;}
+.topic-card{
+  display:block;text-decoration:none;color:var(--text);
+  background:var(--surface2);border:1px solid var(--border);border-radius:20px;
+  overflow:hidden;cursor:pointer;transition:.3s;position:relative;
+}
+.topic-card:hover{transform:translateY(-6px);box-shadow:0 20px 55px rgba(0,0,0,.45);}
+.topic-card:focus-visible{outline:2px solid var(--sky);outline-offset:2px;}
+.tc-stripe{height:3px;width:100%;}
+.tc-body{padding:1.4rem;}
+.tc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.9rem;}
+.tc-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;flex-shrink:0;}
+.tc-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.tc-level{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:3px 10px;border-radius:20px;border:1px solid;}
+.tc-done-badge{font-size:9.5px;font-weight:700;padding:2px 9px;border-radius:20px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--emerald);display:none;}
+.tc-done-badge.show{display:block;}
+.tc-name{font-size:1.05rem;font-weight:800;margin-bottom:.3rem;letter-spacing:-.2px;}
+.tc-desc{font-size:11.5px;color:var(--sub);line-height:1.65;margin-bottom:.8rem;font-family:'Noto Sans Bengali',sans-serif;}
+.tc-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.9rem;}
+.tc-meta span{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:4px;}
+.tc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;}
+.tc-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04);color:var(--sub);}
+.tc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.05);}
+.tc-xp{font-size:11px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;}
+.tc-arrow{font-size:12.5px;font-weight:700;color:var(--sub);transition:.25s;}
+.topic-card:hover .tc-arrow{color:var(--text);transform:translateX(4px);}
+
+/* color themes */
+.tc-indigo .tc-stripe{background:linear-gradient(90deg,#818cf8,#6366f1,transparent);}
+.tc-indigo .tc-icon{background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.15);}
+.tc-indigo .tc-name{color:var(--indigo);}
+.tc-indigo .tc-level{background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.28);color:var(--indigo);}
+.tc-indigo:hover{border-color:rgba(129,140,248,.2);box-shadow:0 20px 55px rgba(129,140,248,.1);}
+
+.tc-teal .tc-stripe{background:linear-gradient(90deg,#2dd4bf,#06b6d4,transparent);}
+.tc-teal .tc-icon{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.15);}
+.tc-teal .tc-name{color:var(--teal);}
+.tc-teal .tc-level{background:rgba(45,212,191,.1);border-color:rgba(45,212,191,.28);color:var(--teal);}
+.tc-teal:hover{border-color:rgba(45,212,191,.2);box-shadow:0 20px 55px rgba(45,212,191,.08);}
+
+.tc-emerald .tc-stripe{background:linear-gradient(90deg,#34d399,#10b981,transparent);}
+.tc-emerald .tc-icon{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.15);}
+.tc-emerald .tc-name{color:var(--emerald);}
+.tc-emerald .tc-level{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.28);color:var(--emerald);}
+.tc-emerald:hover{border-color:rgba(52,211,153,.2);box-shadow:0 20px 55px rgba(52,211,153,.08);}
+
+.tc-gold .tc-stripe{background:linear-gradient(90deg,#f5c842,#e0a820,transparent);}
+.tc-gold .tc-icon{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.15);}
+.tc-gold .tc-name{color:var(--gold);}
+.tc-gold .tc-level{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.28);color:var(--gold);}
+.tc-gold:hover{border-color:rgba(245,200,66,.2);box-shadow:0 20px 55px rgba(245,200,66,.08);}
+
+.tc-rose .tc-stripe{background:linear-gradient(90deg,#fb7185,#f43f5e,transparent);}
+.tc-rose .tc-icon{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.15);}
+.tc-rose .tc-name{color:var(--rose);}
+.tc-rose .tc-level{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.28);color:var(--rose);}
+.tc-rose:hover{border-color:rgba(251,113,133,.2);box-shadow:0 20px 55px rgba(251,113,133,.08);}
+
+.tc-orange .tc-stripe{background:linear-gradient(90deg,#fb923c,#f97316,transparent);}
+.tc-orange .tc-icon{background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.15);}
+.tc-orange .tc-name{color:var(--orange);}
+.tc-orange .tc-level{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.28);color:var(--orange);}
+.tc-orange:hover{border-color:rgba(251,146,60,.2);box-shadow:0 20px 55px rgba(251,146,60,.08);}
+
+.tc-violet .tc-stripe{background:linear-gradient(90deg,#a78bfa,#8b5cf6,transparent);}
+.tc-violet .tc-icon{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.15);}
+.tc-violet .tc-name{color:var(--violet);}
+.tc-violet .tc-level{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.28);color:var(--violet);}
+.tc-violet:hover{border-color:rgba(167,139,250,.2);box-shadow:0 20px 55px rgba(167,139,250,.08);}
+
+.tc-sky .tc-stripe{background:linear-gradient(90deg,#38bdf8,#0ea5e9,transparent);}
+.tc-sky .tc-icon{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.15);}
+.tc-sky .tc-name{color:var(--sky);}
+.tc-sky .tc-level{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.28);color:var(--sky);}
+.tc-sky:hover{border-color:rgba(56,189,248,.2);box-shadow:0 20px 55px rgba(56,189,248,.08);}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
+.footer-inner{max-width:1160px;margin:auto;padding:2.2rem 1.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;}
+.footer-brand .brand-name{font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
+.footer-brand .brand-sub{font-size:11.5px;color:var(--muted);line-height:1.65;margin-bottom:.9rem;font-family:'Noto Sans Bengali',sans-serif;}
+.copyright-text{font-size:10.5px;color:#2d3748;line-height:1.8;font-family:'JetBrains Mono',monospace;}
+.footer-col h4{font-size:.88rem;font-weight:700;color:var(--sub);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.social-links{display:flex;flex-direction:column;gap:.5rem;}
+.social-link{display:flex;align-items:center;gap:10px;padding:.5rem .75rem;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid var(--border);text-decoration:none;color:var(--sub);font-size:12px;transition:.2s;}
+.social-link:hover{background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.2);color:var(--text);transform:translateX(3px);}
+.sl-icon{font-size:.9rem;width:20px;text-align:center;}
+.sl-label{font-weight:600;flex:1;}
+.sl-handle{color:var(--muted);font-size:10px;font-family:'JetBrains Mono',monospace;}
+.footer-bottom{max-width:1160px;margin:auto;padding:.8rem 1.5rem 1.3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-top:1px solid rgba(255,255,255,.04);font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+
+/* ===== READING VIEW (new for lesen.html) ===== */
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--sub);padding:.5rem 1rem;border-radius:11px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;margin-bottom:1.4rem;transition:.2s;}
+.back-btn:hover{background:rgba(255,255,255,.08);color:var(--text);}
+
+.reading-card{background:var(--surface2);border:1px solid var(--border);border-radius:22px;padding:1.8rem 1.9rem;margin-bottom:1.4rem;}
+.rc-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:.9rem;}
+.rc-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.18);flex-shrink:0;}
+.rc-level{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--sky);background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.28);padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:.4rem;}
+.rc-header h2{font-size:1.4rem;font-weight:800;letter-spacing:-.3px;}
+.rc-titlebn{font-size:12px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-top:.15rem;}
+.rc-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;padding-bottom:1.1rem;margin-bottom:1.1rem;border-bottom:1px solid rgba(255,255,255,.05);}
+.rc-meta span{display:flex;align-items:center;gap:5px;}
+
+.rc-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:1.1rem;}
+.toggle-btn{background:rgba(245,200,66,.09);border:1px solid rgba(245,200,66,.28);color:var(--gold);padding:.5rem 1rem;border-radius:11px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;transition:.2s;}
+.toggle-btn:hover{background:rgba(245,200,66,.16);}
+.toggle-btn.on{background:var(--gold);color:#000;}
+.rc-hint{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+
+.rc-text{font-size:16.5px;line-height:2.05;color:var(--text);}
+.rc-text p{margin-bottom:1.1rem;}
+.voc{border-bottom:1px dashed var(--gold);color:var(--gold);font-weight:600;cursor:help;position:relative;padding:0 2px;border-radius:4px;outline:none;}
+.voc:hover,.voc:focus{background:rgba(245,200,66,.14);}
+.voc:hover::after,.voc:focus::after{
+  content:attr(data-bn);position:absolute;bottom:128%;left:50%;transform:translateX(-50%);
+  background:var(--surface3);border:1px solid rgba(245,200,66,.3);color:var(--text);
+  padding:5px 11px;border-radius:9px;font-size:11.5px;white-space:nowrap;z-index:60;
+  font-family:'Noto Sans Bengali',sans-serif;box-shadow:0 10px 26px rgba(0,0,0,.5);
+}
+
+.rc-translation{margin-top:1.2rem;padding:1.1rem 1.2rem;background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.18);border-radius:14px;font-family:'Noto Sans Bengali',sans-serif;font-size:13px;line-height:1.9;color:var(--sub);}
+.rc-translation-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sky);margin-bottom:.6rem;}
+
+.btn-gold{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;border:none;border-radius:13px;padding:.8rem 1.7rem;font-family:'Outfit',sans-serif;font-size:13.5px;cursor:pointer;margin-top:1.5rem;transition:.2s;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(245,200,66,.25);}
+.btn-outline{background:rgba(255,255,255,.05);color:var(--text);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:.8rem 1.7rem;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;margin-top:1.5rem;margin-left:.7rem;transition:.2s;}
+.btn-outline:hover{background:rgba(255,255,255,.09);}
+
+.quiz-card{background:var(--surface2);border:1px solid var(--border);border-radius:22px;padding:1.8rem 1.9rem;}
+.quiz-card h3{font-size:1.1rem;font-weight:800;margin-bottom:1.2rem;}
+.q-block{margin-bottom:1.6rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.05);}
+.q-block:last-of-type{border-bottom:none;}
+.q-text{font-size:14px;font-weight:700;margin-bottom:.8rem;}
+.q-opt{display:flex;align-items:center;gap:10px;padding:.65rem .9rem;border-radius:11px;border:1px solid var(--border);background:rgba(255,255,255,.025);margin-bottom:.5rem;cursor:pointer;font-size:13px;transition:.18s;}
+.q-opt:hover{background:rgba(255,255,255,.05);}
+.q-opt input{accent-color:var(--gold);}
+.q-opt.correct{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.09);color:var(--emerald);}
+.q-opt.incorrect{border-color:rgba(251,113,133,.45);background:rgba(251,113,133,.09);color:var(--rose);}
+.q-opt.disabled{cursor:default;}
+
+.result-banner{display:none;align-items:center;gap:14px;padding:1.2rem 1.4rem;border-radius:16px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.3);margin-bottom:1.6rem;}
+.result-banner.show{display:flex;}
+.result-icon{font-size:2rem;flex-shrink:0;}
+.result-title{font-size:1.05rem;font-weight:800;color:var(--emerald);}
+.result-sub{font-size:12px;color:var(--sub);font-family:'JetBrains Mono',monospace;margin-top:.2rem;}
+.result-actions{display:none;}
+.result-actions.show{display:block;}
+
+@media(max-width:900px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:800px){.footer-inner{grid-template-columns:1fr;gap:1.5rem;}.nav-links{display:none;}}
+@media(max-width:640px){.topic-grid{grid-template-columns:1fr;}.wrap{padding:1.8rem 1rem 3rem;}.search-wrap{display:none;}.reading-card,.quiz-card{padding:1.4rem 1.2rem;}}
+@media(max-width:480px){.topbar{flex-direction:column;align-items:flex-start;}.stats-row{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text">
+      <h1>Deutsch Lernen</h1>
+      <p>LESEN · LESEVERSTÄNDNIS</p>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <nav class="nav-links">
+      <a href="dashboard.html"   class="nav-link">Home</a>
+      <a href="lernreise.html"   class="nav-link">Journey</a>
+      <a href="vokabelquiz.html" class="nav-link">Quiz</a>
+      <a href="grammatik.html"   class="nav-link">Grammatik</a>
+      <a href="lesen.html"       class="nav-link active">Lesen</a>
+      <a href="schreiben.html"   class="nav-link">Schreiben</a>
+    </nav>
+    <div class="user-section">
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===================== GRID VIEW ===================== -->
+  <div id="view-grid">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-tag">📖 Lesen · A1 → C2</div>
+      <h2>German <span class="g">Leseverständnis</span> অনুশীলন করো</h2>
+      <p class="hero-sub">প্রতিটি passage German-এ পড়ো, কঠিন শব্দে ক্লিক করে বাংলা অর্থ দেখো, এবং শেষে বোঝার পরীক্ষা দিয়ে XP অর্জন করো।</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="scard">
+        <div class="scard-icon">📚</div>
+        <div><div class="scard-v" style="color:var(--sky)" id="st-total">13</div><div class="scard-l">মোট Passages</div></div>
+      </div>
+      <div class="scard">
+        <div class="scard-icon">✅</div>
+        <div><div class="scard-v" style="color:var(--emerald)" id="st-done">0</div><div class="scard-l">সম্পন্ন</div></div>
+      </div>
+      <div class="scard">
+        <div class="scard-icon">⚡</div>
+        <div><div class="scard-v" style="color:var(--gold)" id="st-xp">0</div><div class="scard-l">মোট XP</div></div>
+      </div>
+      <div class="scard">
+        <div class="scard-icon">🔥</div>
+        <div><div class="scard-v" style="color:var(--orange)" id="st-streak">0</div><div class="scard-l">Streak</div></div>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <span class="filter-label">Level:</span>
+      <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="A1">A1</button>
+      <button class="filter-btn" data-filter="A2">A2</button>
+      <button class="filter-btn" data-filter="B1">B1</button>
+      <button class="filter-btn" data-filter="B2">B2</button>
+      <button class="filter-btn" data-filter="C1">C1</button>
+      <button class="filter-btn" data-filter="C2">C2</button>
+      <div class="filter-sep"></div>
+      <span class="filter-label">Thema:</span>
+      <button class="filter-btn active" data-cat="all">Alle</button>
+      <button class="filter-btn" data-cat="Alltag">Alltag</button>
+      <button class="filter-btn" data-cat="Reise">Reise</button>
+      <button class="filter-btn" data-cat="Gesundheit">Gesundheit</button>
+      <button class="filter-btn" data-cat="Umwelt">Umwelt</button>
+      <button class="filter-btn" data-cat="Geschichte">Geschichte</button>
+      <button class="filter-btn" data-cat="Wissenschaft">Wissenschaft</button>
+      <div class="search-wrap">
+        <span>🔍</span>
+        <input type="text" id="search-input" placeholder="passage খোঁজো...">
+      </div>
+    </div>
+
+    <!-- Dynamically rendered from Firestore (reading_passages collection) -->
+    <div id="passages-loading" style="text-align:center;padding:3rem 1rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12.5px;">
+      ⏳ Passage লোড হচ্ছে...
+    </div>
+    <div id="passages-empty" style="display:none;text-align:center;padding:3rem 1rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;">
+      এখনো কোনো passage যোগ করা হয়নি।
+    </div>
+    <div id="passages-container"></div>
+
+
+  </div><!-- /view-grid -->
+
+  <!-- ===================== READING VIEW ===================== -->
+  <div id="view-reading" style="display:none;">
+    <button class="back-btn" id="btn-back">← Passage তালিকায় ফিরে যাও</button>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-icon" id="rc-icon">📖</div>
+        <div>
+          <div class="rc-level" id="rc-level">A1</div>
+          <h2 id="rc-title">—</h2>
+          <div class="rc-titlebn" id="rc-titlebn">—</div>
+        </div>
+      </div>
+      <div class="rc-meta">
+        <span id="rc-words">📖 0 শব্দ</span>
+        <span id="rc-time">⏱ 0 মিনিট</span>
+        <span id="rc-xp">⚡ +0 XP</span>
+      </div>
+      <div class="rc-toolbar">
+        <button class="toggle-btn" id="btn-toggle-bn">🇧🇩 বাংলা অনুবাদ দেখাও</button>
+        <span class="rc-hint">💡 সোনালী রঙের শব্দে ক্লিক/hover করলে তার বাংলা অর্থ দেখাবে</span>
+      </div>
+      <div class="rc-text" id="rc-text"></div>
+      <div class="rc-translation" id="rc-translation" style="display:none;">
+        <div class="rc-translation-label">বাংলা অনুবাদ</div>
+        <div id="rc-translation-text"></div>
+      </div>
+      <button class="btn-gold" id="btn-start-quiz">বোঝার পরীক্ষা শুরু করো →</button>
+    </div>
+
+    <div class="quiz-card" id="quiz-card" style="display:none;">
+      <div class="result-banner" id="result-banner">
+        <div class="result-icon" id="result-icon">🎉</div>
+        <div>
+          <div class="result-title" id="result-title">দারুণ হয়েছে!</div>
+          <div class="result-sub" id="result-sub">5/5 সঠিক · +25 XP অর্জিত</div>
+        </div>
+      </div>
+      <h3>📝 বোঝার পরীক্ষা</h3>
+      <div id="quiz-questions"></div>
+      <button class="btn-gold" id="btn-submit-quiz">উত্তর জমা দাও</button>
+      <div class="result-actions" id="result-actions">
+        <button class="btn-gold" id="btn-retry">🔁 আবার চেষ্টা করো</button>
+        <button class="btn-outline" id="btn-to-list">📚 সব Passage দেখো</button>
+      </div>
+    </div>
+  </div><!-- /view-reading -->
+
+</div><!-- /wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">🇩🇪 Deutsch Lernen</div>
+      <div class="brand-sub">একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।</div>
+      <div class="copyright-text">© <span id="footer-year"></span> Deutsch Lernen<br><span>All rights reserved.</span></div>
+    </div>
+    <div class="footer-col">
+      <h4>🔗 Quick Links</h4>
+      <div class="social-links">
+        <a href="lernreise.html"   class="social-link"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
+        <a href="grammatik.html"   class="social-link"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle">A1–C2</span></a>
+        <a href="woerterbuch.html" class="social-link"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
+        <a href="rangliste.html"   class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle">Top Lerner</span></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>📚 Lernbereiche</h4>
+      <div class="social-links">
+        <a href="vokabelquiz.html"    class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Vokabelquiz</span><span class="sl-handle">A1–C2</span></a>
+        <a href="sprechen.html"       class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
+        <a href="hoeren.html"         class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
+        <a href="schreiben.html"      class="social-link"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2</div>
+  </div>
+</footer>
+
+<script type="module">
+import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, arrayUnion, increment, collection, getDocs } from "./js/firebase-config.js";
+/*
+  NOTE: This page needs updateDoc / arrayUnion / increment / collection / getDocs re-exported from
+  js/firebase-config.js, same way it currently re-exports doc / getDoc. If they aren't exported yet, add e.g.:
+    export { updateDoc, arrayUnion, increment, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.x.x/firebase-firestore.js";
+  to firebase-config.js.
+
+  Passages now live in Firestore (collection "reading_passages", doc id = slug) instead of being
+  hardcoded here. Use import-passages.html once to bulk-load seed-data/reading-passages.json into
+  Firestore. If Firestore has no passages yet (collection empty / import not run), this page falls
+  back to reading seed-data/reading-passages.json directly so it still works out of the box.
+*/
+
+document.getElementById("footer-year").textContent  = new Date().getFullYear();
+document.getElementById("footer-year2").textContent = new Date().getFullYear();
+
+document.getElementById("btn-logout").addEventListener("click", async () => {
+  await signOut(auth); location.href = "index.html";
+});
+
+/* ===================== PASSAGE DATA (loaded dynamically) ===================== */
+let PASSAGES = {};   // populated by loadPassages()
+let userData  = {};  // populated by requireAuth callback
+
+const LEVEL_META = {
+  A1:{emoji:"🟢",name:"Anfänger"},      A2:{emoji:"🔵",name:"Grundstufe"},
+  B1:{emoji:"🟣",name:"Mittelstufe"},   B2:{emoji:"🟠",name:"Oberstufe"},
+  C1:{emoji:"🔴",name:"Fortgeschritten"}, C2:{emoji:"🏆",name:"Meisterschaft"},
+};
+const LEVEL_ORDER = ["A1","A2","B1","B2","C1","C2"];
+
+async function loadPassages() {
+  try {
+    const snap = await getDocs(collection(db, "reading_passages"));
+    if (!snap.empty) {
+      snap.forEach(d => { PASSAGES[d.id] = d.data(); });
+      return;
+    }
+  } catch (e) {
+    console.error("Firestore reading_passages fetch failed, falling back to seed JSON:", e);
+  }
+  // Fallback so the page works even before import-passages.html has been run
+  try {
+    const res = await fetch("./seed-data/reading-passages.json");
+    const arr = await res.json();
+    arr.forEach(p => { const { slug, ...rest } = p; PASSAGES[slug] = rest; });
+  } catch (e) {
+    console.error("Seed JSON fallback also failed:", e);
+  }
+}
+
+function buildCard(id, p) {
+  const card = document.createElement("div");
+  card.className = `topic-card tc-${p.color || "gold"}`;
+  card.dataset.level = p.level;
+  card.dataset.cat = p.category || "";
+  card.dataset.id = id;
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  const isDone = (userData.completedReadings || []).includes(id);
+  card.innerHTML = `
+    <div class="tc-stripe"></div>
+    <div class="tc-body">
+      <div class="tc-top">
+        <div class="tc-icon">${p.icon || "📖"}</div>
+        <div class="tc-right"><span class="tc-level">${p.level}</span><span class="tc-done-badge${isDone ? " show" : ""}" id="done-${id}">✓ সম্পন্ন</span></div>
+      </div>
+      <div class="tc-name">${p.titleDe}</div>
+      <div class="tc-desc">${p.descBn || ""}</div>
+      <div class="tc-meta"><span>📖 ~${p.words ?? "?"} শব্দ</span><span>⏱ ~${p.time ?? "?"} মিনিট</span></div>
+      <div class="tc-tags"><span class="tc-tag">${p.category || "Lesen"}</span><span class="tc-tag">${p.level}</span></div>
+      <div class="tc-footer"><span class="tc-xp">⚡ +${p.xp ?? 25} XP</span><span class="tc-arrow">পড়তে যাও →</span></div>
+    </div>`;
+  card.addEventListener("click", () => openPassage(id));
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPassage(id); }
+  });
+  return card;
+}
+
+function renderGrid() {
+  document.getElementById("passages-loading").style.display = "none";
+  const ids = Object.keys(PASSAGES);
+  document.getElementById("st-total").textContent = ids.length;
+
+  if (ids.length === 0) {
+    document.getElementById("passages-empty").style.display = "";
+    return;
+  }
+
+  const byLevel = {};
+  ids.forEach(id => {
+    const lv = PASSAGES[id].level || "A1";
+    (byLevel[lv] = byLevel[lv] || []).push(id);
+  });
+
+  const container = document.getElementById("passages-container");
+  container.innerHTML = "";
+
+  LEVEL_ORDER.forEach(lv => {
+    const idsForLevel = byLevel[lv];
+    if (!idsForLevel || !idsForLevel.length) return;
+    const meta = LEVEL_META[lv] || { emoji:"📘", name: lv };
+
+    const sec = document.createElement("div");
+    sec.className = "sec-title";
+    sec.dataset.section = lv;
+    sec.innerHTML = `<span>${meta.emoji}</span> ${lv} — ${meta.name}`;
+    container.appendChild(sec);
+
+    const grid = document.createElement("div");
+    grid.className = "topic-grid";
+    grid.id = "grid-" + lv.toLowerCase();
+    idsForLevel.forEach(id => grid.appendChild(buildCard(id, PASSAGES[id])));
+    container.appendChild(grid);
+  });
+
+  applyFilter();
+}
+
+/* ===================== VIEW SWITCHING ===================== */
+const viewGrid    = document.getElementById("view-grid");
+const viewReading = document.getElementById("view-reading");
+let currentId = null;
+
+function showGrid() {
+  viewReading.style.display = "none";
+  viewGrid.style.display = "";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function openPassage(id) {
+  const p = PASSAGES[id];
+  if (!p) return;
+  currentId = id;
+
+  document.getElementById("rc-icon").textContent = p.icon;
+  document.getElementById("rc-level").textContent = p.level;
+  document.getElementById("rc-title").textContent = p.titleDe;
+  document.getElementById("rc-titlebn").textContent = p.titleBn;
+  document.getElementById("rc-words").textContent = `📖 ~${p.words} শব্দ`;
+  document.getElementById("rc-time").textContent  = `⏱ ~${p.time} মিনিট`;
+  document.getElementById("rc-xp").textContent    = `⚡ +${p.xp} XP`;
+  document.getElementById("rc-text").innerHTML = p.textDe;
+  document.getElementById("rc-translation-text").innerHTML = p.textBn;
+  document.getElementById("rc-translation").style.display = "none";
+  document.getElementById("btn-toggle-bn").classList.remove("on");
+  document.getElementById("btn-toggle-bn").textContent = "🇧🇩 বাংলা অনুবাদ দেখাও";
+
+  document.getElementById("quiz-card").style.display = "none";
+  resetQuizUI();
+
+  viewGrid.style.display = "none";
+  viewReading.style.display = "";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* Card click/keyboard listeners are attached per-card inside buildCard(),
+   since cards are now created dynamically after Firestore data loads. */
+document.getElementById("btn-back").addEventListener("click", showGrid);
+document.getElementById("btn-to-list").addEventListener("click", showGrid);
+
+/* Bengali full-translation toggle */
+document.getElementById("btn-toggle-bn").addEventListener("click", () => {
+  const box = document.getElementById("rc-translation");
+  const btn = document.getElementById("btn-toggle-bn");
+  const show = box.style.display === "none";
+  box.style.display = show ? "" : "none";
+  btn.classList.toggle("on", show);
+  btn.textContent = show ? "🇧🇩 বাংলা অনুবাদ লুকাও" : "🇧🇩 বাংলা অনুবাদ দেখাও";
+});
+
+/* ===================== QUIZ ===================== */
+document.getElementById("btn-start-quiz").addEventListener("click", () => {
+  document.getElementById("quiz-card").style.display = "";
+  document.getElementById("quiz-card").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+function resetQuizUI() {
+  document.getElementById("result-banner").classList.remove("show");
+  document.getElementById("result-actions").classList.remove("show");
+  document.getElementById("btn-submit-quiz").style.display = "";
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const p = PASSAGES[currentId];
+  const wrap = document.getElementById("quiz-questions");
+  wrap.innerHTML = "";
+  p.questions.forEach((q, qi) => {
+    const block = document.createElement("div");
+    block.className = "q-block";
+    block.innerHTML = `<div class="q-text">${qi+1}. ${q.q}</div>` +
+      q.opts.map((opt, oi) => `
+        <label class="q-opt" data-qi="${qi}" data-oi="${oi}">
+          <input type="radio" name="q${qi}" value="${oi}">
+          <span>${opt}</span>
+        </label>`).join("");
+    wrap.appendChild(block);
+  });
+}
+
+document.getElementById("btn-retry").addEventListener("click", () => {
+  resetQuizUI();
+});
+
+document.getElementById("btn-submit-quiz").addEventListener("click", async () => {
+  const p = PASSAGES[currentId];
+  let correctCount = 0;
+  let answeredAll = true;
+
+  p.questions.forEach((q, qi) => {
+    const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+    const allOpts = document.querySelectorAll(`.q-opt[data-qi="${qi}"]`);
+    if (!selected) answeredAll = false;
+    allOpts.forEach(optEl => {
+      optEl.classList.add("disabled");
+      const oi = Number(optEl.dataset.oi);
+      const input = optEl.querySelector("input");
+      input.disabled = true;
+      if (oi === q.correct) optEl.classList.add("correct");
+      else if (selected && Number(selected.value) === oi) optEl.classList.add("incorrect");
+    });
+    if (selected && Number(selected.value) === q.correct) correctCount++;
+  });
+
+  if (!answeredAll) {
+    alert("সব প্রশ্নের উত্তর দাও তারপর জমা দাও 🙂");
+    // re-enable since we disabled too early
+    document.querySelectorAll(".q-opt").forEach(el => { el.classList.remove("disabled","correct","incorrect"); el.querySelector("input").disabled = false; });
+    return;
+  }
+
+  const total = p.questions.length;
+  const alreadyDone = (userData.completedReadings || []).includes(currentId);
+  const xpEarned = alreadyDone ? 0 : Math.round((correctCount / total) * p.xp);
+
+  document.getElementById("result-icon").textContent = correctCount === total ? "🎉" : (correctCount >= total/2 ? "👍" : "📘");
+  document.getElementById("result-title").textContent =
+    correctCount === total ? "দারুণ হয়েছে — সব সঠিক!" : `${correctCount}/${total} সঠিক হয়েছে`;
+  document.getElementById("result-sub").textContent = alreadyDone
+    ? `${correctCount}/${total} সঠিক · এই passage আগেই সম্পন্ন হয়েছে, তাই নতুন XP যোগ হয়নি`
+    : `${correctCount}/${total} সঠিক · +${xpEarned} XP অর্জিত`;
+  document.getElementById("result-banner").classList.add("show");
+  document.getElementById("result-actions").classList.add("show");
+  document.getElementById("btn-submit-quiz").style.display = "none";
+
+  // optimistic local UI update
+  if (!alreadyDone) {
+    userData.completedReadings = [...(userData.completedReadings || []), currentId];
+    userData.xp = (userData.xp || 0) + xpEarned;
+    document.getElementById("st-xp").textContent = userData.xp;
+    document.getElementById("st-done").textContent = userData.completedReadings.length;
+    const badge = document.getElementById("done-" + currentId);
+    if (badge) badge.classList.add("show");
+  }
+
+  // persist to Firestore
+  try {
+    const user = auth.currentUser;
+    if (user && !alreadyDone) {
+      await updateDoc(doc(db, "users", user.uid), {
+        xp: increment(xpEarned),
+        sessions: increment(1),
+        totalCorrect: increment(correctCount),
+        completedReadings: arrayUnion(currentId),
+      });
+    }
+  } catch (err) {
+    console.error("Firestore update failed:", err);
+  }
+});
+
+/* ===================== FILTER (grid view) ===================== */
+let activeLevel = "all", activeCat = "all";
+
+document.querySelectorAll("[data-filter]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-filter]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeLevel = btn.dataset.filter;
+    applyFilter();
+  });
+});
+document.querySelectorAll("[data-cat]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-cat]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCat = btn.dataset.cat;
+    applyFilter();
+  });
+});
+document.getElementById("search-input").addEventListener("input", applyFilter);
+
+function applyFilter() {
+  const q = document.getElementById("search-input").value.toLowerCase();
+  document.querySelectorAll(".topic-card").forEach(card => {
+    const lvOk  = activeLevel === "all" || card.dataset.level === activeLevel;
+    const catOk = activeCat  === "all" || card.dataset.cat  === activeCat;
+    const txt   = card.textContent.toLowerCase();
+    const sqOk  = !q || txt.includes(q);
+    card.style.display = (lvOk && catOk && sqOk) ? "" : "none";
+  });
+  ["A1","A2","B1","B2","C1","C2"].forEach(lv => {
+    const grid = document.getElementById("grid-" + lv.toLowerCase());
+    const sec  = document.querySelector(`[data-section="${lv}"]`);
+    if (!grid || !sec) return;
+    const anyVisible = [...grid.querySelectorAll(".topic-card")].some(c => c.style.display !== "none");
+    sec.style.display = anyVisible ? "" : "none";
+    grid.style.display = anyVisible ? "" : "none";
+  });
+}
+
+/* ===================== AUTH / USER DATA ===================== */
+requireAuth(async user => {
+  const [userSnap] = await Promise.all([
+    getDoc(doc(db, "users", user.uid)),
+    loadPassages(),
+  ]);
+  const d = userSnap.exists() ? userSnap.data() : {};
+  userData = d;
+
+  const name  = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL    || user.photoURL    || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if (photo) av.innerHTML = `<img src="${photo}" alt="">`;
+  else av.textContent = name[0]?.toUpperCase() || "?";
+
+  document.getElementById("st-xp").textContent     = d.xp     || 0;
+  document.getElementById("st-streak").textContent = d.streak || 0;
+  document.getElementById("st-done").textContent   = (d.completedReadings || []).length;
+
+  renderGrid(); // PASSAGES + userData are both ready now — build the cards
+});
+</script>
+</body>
+</html>

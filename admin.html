@@ -1,34 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel — English Shekho</title>
+<title>Admin Panel — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
-<div class="wrap">
-
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="logo">
-      <div class="logo-icon">🛠️</div>
-      <div class="logo-text">
-        <h1>Admin Panel</h1>
-        <p>ENGLISH SHEKHO · MANAGEMENT CONSOLE</p>
-      </div>
-    </div>
-    <div class="topbar-right">
-      <a href="dashboard.html" class="nav-link">← Back to Site</a>
-      <div class="user-section">
-        <div class="user-avatar" id="nav-avatar">🛠️</div>
-        <div class="user-name" id="nav-name">Admin</div>
-        <button class="btn-logout" data-action="logout">Logout</button>
-      </div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon">🛠️</div>
+    <div class="logo-text">
+      <h1>Admin Panel</h1>
+      <p>DEUTSCH LERNEN · MANAGEMENT CONSOLE</p>
     </div>
   </div>
+  <div class="topbar-right">
+    <a href="dashboard.html" class="nav-link">← সাইটে ফিরে যাও</a>
+    <div class="user-section">
+      <div class="user-avatar" id="nav-avatar">🛠️</div>
+      <div class="user-name" id="nav-name">Admin</div>
+      <button class="btn-logout" data-action="logout">Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACCESS GATE (shown only if logged-in user is not role:"admin") -->
+<div class="wrap" id="gate-wrap" style="display:none;">
+  <div class="gate-screen">
+    <div class="gi">🔒</div>
+    <h2>এই page শুধু Admin-দের জন্য</h2>
+    <p>আপনার account-এ admin access নেই। কয়েক সেকেন্ডের মধ্যে dashboard-এ ফিরিয়ে নেওয়া হবে...</p>
+  </div>
+</div>
+
+<div class="wrap" id="admin-wrap" style="display:none;">
 
   <!-- TAB NAV -->
   <div class="admin-tabs">
@@ -49,33 +58,33 @@
         <div class="stat-label">Total Users</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🔥</div>
-        <div class="stat-value" id="stat-active-today">—</div>
-        <div class="stat-label">Active Today</div>
+        <div class="stat-icon">🚫</div>
+        <div class="stat-value" id="stat-banned-users">—</div>
+        <div class="stat-label">Banned Users</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">📖</div>
-        <div class="stat-value" id="stat-reading-sessions">—</div>
-        <div class="stat-label">Reading Sessions</div>
+        <div class="stat-value" id="stat-total-passages">—</div>
+        <div class="stat-label">Reading Passages</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🎧</div>
-        <div class="stat-value" id="stat-listening-sessions">—</div>
-        <div class="stat-label">Listening Sessions</div>
+        <div class="stat-icon">📘</div>
+        <div class="stat-value" id="stat-total-lessons">—</div>
+        <div class="stat-label">Grammar Lessons</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">✍️</div>
-        <div class="stat-value" id="stat-writings">—</div>
-        <div class="stat-label">Writing Submissions</div>
+        <div class="stat-icon">🗂️</div>
+        <div class="stat-value" id="stat-total-words">—</div>
+        <div class="stat-label">Wörterbuch Words</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">⭐</div>
         <div class="stat-value" id="stat-total-xp">—</div>
-        <div class="stat-label">Total XP Earned</div>
+        <div class="stat-label">Total XP (All Users)</div>
       </div>
     </div>
 
-    <div class="section-title">🏆 Top Learners <span class="badge-muted">By XP</span></div>
+    <div class="section-title">🏆 Top Lerner <span class="badge-muted">By XP</span></div>
     <div class="panel-card">
       <div class="table-wrap">
         <table class="admin-table" id="top-learners-table">
@@ -132,24 +141,25 @@
   <div class="tab-panel" id="tab-content">
 
     <div class="content-subtabs">
-      <div class="csub-tab active" data-csub="passages">📖 Reading Passages</div>
-      <div class="csub-tab" data-csub="lessons">📘 Grammar Lessons</div>
+      <div class="csub-tab active" data-csub="passages">📖 Lesen (Passages)</div>
+      <div class="csub-tab" data-csub="lessons">📘 Grammatik</div>
+      <div class="csub-tab" data-csub="vocab">🗂️ Wörterbuch</div>
     </div>
 
     <!-- PASSAGES SUB-TAB -->
     <div class="csub-panel active" id="csub-passages">
       <div class="content-toolbar">
         <div class="section-title" style="margin:0;">📖 Reading Passages (Firestore) <span class="badge-muted" id="passage-count-badge">0</span></div>
-        <button class="btn-primary" data-action="new-passage">+ Notun Passage</button>
+        <button class="btn-primary" data-action="new-passage">+ Neue Passage</button>
       </div>
       <div class="info-banner">
-        ℹ️ এখানে যা add করবেন তা <code>passages</code> Firestore collection-এ যাবে। বর্তমান Reading Center static <code>js/reading-data.js</code> file থেকে চলে — এখানের content আলাদা, future migration-এর জন্য প্রস্তুত করা।
+        ℹ️ এখানে যা save করবেন তা <code>reading_passages</code> Firestore collection-এ যাবে (doc id = slug) — ঠিক যেটা <code>lesen.html</code> পড়ে। নতুন passage save করলেই সাথে সাথে <code>lesen.html</code>-এ দেখা যাবে, code touch করার দরকার নেই।
       </div>
       <div class="panel-card">
         <div class="table-wrap">
           <table class="admin-table" id="passages-table">
-            <thead><tr><th>Title</th><th>Category</th><th>Level</th><th>XP</th><th>Actions</th></tr></thead>
-            <tbody id="passages-body"><tr><td colspan="5" class="empty-row">Loading...</td></tr></tbody>
+            <thead><tr><th>Title</th><th>Category</th><th>Level</th><th>Fragen</th><th>XP</th><th>Actions</th></tr></thead>
+            <tbody id="passages-body"><tr><td colspan="6" class="empty-row">Loading...</td></tr></tbody>
           </table>
         </div>
       </div>
@@ -159,10 +169,10 @@
     <div class="csub-panel" id="csub-lessons">
       <div class="content-toolbar">
         <div class="section-title" style="margin:0;">📘 Grammar Lessons (Firestore) <span class="badge-muted" id="lesson-count-badge">0</span></div>
-        <button class="btn-primary" data-action="new-lesson">+ Notun Lesson</button>
+        <button class="btn-primary" data-action="new-lesson">+ Neue Lesson</button>
       </div>
       <div class="info-banner">
-        ℹ️ এখানে যা add করবেন তা <code>grammar_lessons</code> Firestore collection-এ যাবে। বর্তমান Grammar Hub static HTML page থেকে চলে — এখানের content আলাদা, future migration-এর জন্য প্রস্তুত করা।
+        ℹ️ এখানে যা save করবেন তা <code>grammar_lessons</code> Firestore collection-এ যাবে। এই collection ভবিষ্যতে <code>grammatik.html</code>-এর সাথে যুক্ত করা যাবে (বর্তমানে hub page static topic card ব্যবহার করে)।
       </div>
       <div class="panel-card">
         <div class="table-wrap">
@@ -174,95 +184,171 @@
       </div>
     </div>
 
+    <!-- VOCAB SUB-TAB -->
+    <div class="csub-panel" id="csub-vocab">
+      <div class="content-toolbar">
+        <div class="section-title" style="margin:0;">🗂️ Wörterbuch Words (Firestore) <span class="badge-muted" id="vocab-count-badge">0</span></div>
+        <button class="btn-primary" data-action="new-vocab">+ Neues Wort</button>
+      </div>
+      <div class="info-banner">
+        ℹ️ এখানে যা save করবেন তা <code>vocab_words</code> Firestore collection-এ যাবে — <code>woerterbuch.html</code> (flashcards) তৈরি হলে এখান থেকে content টানবে।
+      </div>
+      <div class="panel-card">
+        <div class="table-wrap">
+          <table class="admin-table" id="vocab-table">
+            <thead><tr><th>German</th><th>Bengali</th><th>Category</th><th>Level</th><th>Actions</th></tr></thead>
+            <tbody id="vocab-body"><tr><td colspan="5" class="empty-row">Loading...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /tab-content -->
 
-</div><!-- end .wrap -->
+</div><!-- end #admin-wrap -->
 
 <!-- ════════════════════════════════
-     MODAL: Passage Editor
+     MODAL: Passage Editor (reading_passages schema)
 ════════════════════════════════ -->
 <div class="modal-overlay" id="passage-modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <h3 id="passage-modal-title">Notun Passage</h3>
+      <h3 id="passage-modal-title">Neue Passage</h3>
       <div class="modal-close" data-action="close-passage-modal">✕</div>
     </div>
     <div class="modal-body">
-      <input type="hidden" id="pm-id">
-      <label class="form-label">Title</label>
-      <input type="text" class="form-input" id="pm-title" placeholder="e.g. A Rainy Morning">
+      <input type="hidden" id="pm-slug-original">
 
-      <div class="form-row">
+      <label class="form-label">Slug (Firestore doc id — শুধু একবার সেট হয়, lowercase-hyphen)</label>
+      <input type="text" class="form-input" id="pm-slug" placeholder="e.g. im-park">
+
+      <div class="form-row cols-2">
         <div>
-          <label class="form-label">Category</label>
-          <select class="form-input" id="pm-category">
-            <option value="Story">Story</option>
-            <option value="Article">Article</option>
-          </select>
+          <label class="form-label">Titel (German)</label>
+          <input type="text" class="form-input" id="pm-titlede" placeholder="e.g. Im Park">
         </div>
+        <div>
+          <label class="form-label">শিরোনাম (Bengali)</label>
+          <input type="text" class="form-input" id="pm-titlebn" placeholder="e.g. পার্কে">
+        </div>
+      </div>
+
+      <label class="form-label">Card Description (বাংলা, এক লাইন)</label>
+      <input type="text" class="form-input" id="pm-descbn" placeholder="ছোট একটি বর্ণনা যা card-এ দেখা যাবে">
+
+      <div class="form-row cols-4">
         <div>
           <label class="form-label">Level</label>
           <select class="form-input" id="pm-level">
             <option value="A1">A1</option>
-            <option value="A2">A2</option>
+            <option value="A2" selected>A2</option>
             <option value="B1">B1</option>
             <option value="B2">B2</option>
             <option value="C1">C1</option>
+            <option value="C2">C2</option>
           </select>
         </div>
         <div>
-          <label class="form-label">XP Reward</label>
-          <input type="number" class="form-input" id="pm-xp" value="40" min="10" step="10">
+          <label class="form-label">Category</label>
+          <select class="form-input" id="pm-category">
+            <option value="Alltag">Alltag</option>
+            <option value="Reise">Reise</option>
+            <option value="Gesundheit">Gesundheit</option>
+            <option value="Umwelt">Umwelt</option>
+            <option value="Geschichte">Geschichte</option>
+            <option value="Wissenschaft">Wissenschaft</option>
+            <option value="Sonstiges">Sonstiges</option>
+          </select>
         </div>
-      </div>
-
-      <label class="form-label">Icon (emoji)</label>
-      <input type="text" class="form-input" id="pm-icon" placeholder="📖" maxlength="4">
-
-      <label class="form-label">Passage Text (এক প্যারাগ্রাফ এক লাইনে)</label>
-      <textarea class="form-textarea" id="pm-text" rows="6" placeholder="First paragraph here.&#10;Second paragraph here."></textarea>
-
-      <label class="form-label">Quiz Question</label>
-      <input type="text" class="form-input" id="pm-quiz-q" placeholder="What was the weather like?">
-
-      <label class="form-label">Options (কমা দিয়ে আলাদা করুন)</label>
-      <input type="text" class="form-input" id="pm-quiz-opts" placeholder="Sunny, Rainy, Snowy, Windy">
-
-      <div class="form-row">
         <div>
-          <label class="form-label">Correct Option Index (0,1,2,3)</label>
-          <input type="number" class="form-input" id="pm-quiz-ans" min="0" max="3" value="0">
+          <label class="form-label">Icon (emoji)</label>
+          <input type="text" class="form-input" id="pm-icon" placeholder="📖" maxlength="4">
+        </div>
+        <div>
+          <label class="form-label">Card Color</label>
+          <select class="form-input" id="pm-color">
+            <option value="gold">gold</option>
+            <option value="teal">teal</option>
+            <option value="indigo">indigo</option>
+            <option value="emerald">emerald</option>
+            <option value="rose">rose</option>
+            <option value="orange">orange</option>
+            <option value="violet">violet</option>
+            <option value="sky">sky</option>
+          </select>
         </div>
       </div>
 
-      <label class="form-label">Explanation (বাংলায়)</label>
-      <input type="text" class="form-input" id="pm-quiz-exp" placeholder="প্যাসেজে বলা হয়েছে...">
+      <div class="form-row cols-2">
+        <div>
+          <label class="form-label">শব্দ সংখ্যা (আনুমানিক)</label>
+          <input type="number" class="form-input" id="pm-words" value="110" min="10" step="5">
+        </div>
+        <div>
+          <label class="form-label">পড়ার সময় (মিনিট)</label>
+          <input type="number" class="form-input" id="pm-time" value="3" min="1" step="1">
+        </div>
+      </div>
+      <label class="form-label">XP Reward</label>
+      <input type="number" class="form-input" id="pm-xp" value="25" min="5" step="5">
+
+      <label class="form-label">German Text (পুরো passage)</label>
+      <textarea class="form-textarea" id="pm-textde" rows="7" placeholder="একটা প্যারাগ্রাফ এক blank line দিয়ে আলাদা লিখুন। সাধারণ &lt;p&gt; tag নিজে নিজে যোগ হয়ে যাবে।&#10;&#10;কঠিন শব্দ vocab-tooltip বানাতে এভাবে লিখুন:&#10;&lt;span class=&quot;voc&quot; tabindex=&quot;0&quot; data-bn=&quot;বাংলা অর্থ&quot;&gt;Wort&lt;/span&gt;"></textarea>
+      <div class="form-hint">💡 Blank line দিয়ে আলাদা প্যারাগ্রাফ লিখুন — save করলে নিজে নিজে &lt;p&gt;...&lt;/p&gt;-তে wrap হয়ে যাবে। কঠিন শব্দে tooltip দিতে চাইলে: <code>&lt;span class="voc" tabindex="0" data-bn="বাংলা অর্থ"&gt;Wort&lt;/span&gt;</code></div>
+
+      <label class="form-label">বাংলা অনুবাদ</label>
+      <textarea class="form-textarea" id="pm-textbn" rows="6" placeholder="সম্পূর্ণ অনুবাদ — blank line দিয়ে প্যারাগ্রাফ আলাদা করুন, save করলে নিজে নিজে &lt;br&gt;&lt;br&gt;-তে বদলে যাবে।"></textarea>
+
+      <label class="form-label">বোঝার প্রশ্ন (Quiz)</label>
+      <div id="pm-questions"></div>
+      <button type="button" class="qb-add-btn" data-action="add-question">+ প্রশ্ন যোগ করো</button>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-passage-modal">বাতিল</button>
-      <button class="btn-primary" data-action="save-passage">💾 Save Passage</button>
+      <button class="btn-primary" data-action="save-passage">💾 Passage Save করো</button>
     </div>
   </div>
 </div>
 
+<!-- Hidden template for a single question block -->
+<template id="qb-template">
+  <div class="qb-block">
+    <div class="qb-head"><strong>প্রশ্ন</strong><span class="qb-remove" data-action="remove-question">✕ মুছে ফেলো</span></div>
+    <input type="text" class="form-input" placeholder="German প্রশ্ন লিখুন (e.g. Wo geht die Person hin?)" data-field="q">
+    <div class="qb-opts">
+      <input type="text" class="form-input" placeholder="Option A" data-field="opt0">
+      <input type="text" class="form-input" placeholder="Option B" data-field="opt1">
+      <input type="text" class="form-input" placeholder="Option C" data-field="opt2">
+      <input type="text" class="form-input" placeholder="Option D" data-field="opt3">
+    </div>
+    <label class="form-label">সঠিক উত্তর</label>
+    <select class="form-input" data-field="correct">
+      <option value="0">Option A</option>
+      <option value="1">Option B</option>
+      <option value="2">Option C</option>
+      <option value="3">Option D</option>
+    </select>
+  </div>
+</template>
+
 <!-- ════════════════════════════════
-     MODAL: Lesson Editor
+     MODAL: Lesson Editor (grammar_lessons schema)
 ════════════════════════════════ -->
 <div class="modal-overlay" id="lesson-modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <h3 id="lesson-modal-title">Notun Grammar Lesson</h3>
+      <h3 id="lesson-modal-title">Neue Grammar Lesson</h3>
       <div class="modal-close" data-action="close-lesson-modal">✕</div>
     </div>
     <div class="modal-body">
       <input type="hidden" id="lm-id">
       <label class="form-label">Title</label>
-      <input type="text" class="form-input" id="lm-title" placeholder="e.g. Degrees of Comparison">
+      <input type="text" class="form-input" id="lm-title" placeholder="e.g. Akkusativ-Präpositionen">
 
-      <div class="form-row">
+      <div class="form-row cols-2">
         <div>
           <label class="form-label">Category</label>
-          <input type="text" class="form-input" id="lm-category" placeholder="e.g. Tenses">
+          <input type="text" class="form-input" id="lm-category" placeholder="e.g. Präposition, Kasus, Verben...">
         </div>
         <div>
           <label class="form-label">Level</label>
@@ -277,18 +363,68 @@
       <label class="form-label">Icon (emoji)</label>
       <input type="text" class="form-input" id="lm-icon" placeholder="📊" maxlength="4">
 
-      <label class="form-label">Explanation (বাংলায়)</label>
+      <label class="form-label">ব্যাখ্যা (বাংলায়)</label>
       <textarea class="form-textarea" id="lm-explanation" rows="4" placeholder="এই গ্রামার টপিকের ব্যাখ্যা বাংলায় লিখুন..."></textarea>
 
       <label class="form-label">Formula / Structure</label>
-      <input type="text" class="form-input" id="lm-formula" placeholder="e.g. Subject + Verb + er/ier + than">
+      <input type="text" class="form-input" id="lm-formula" placeholder="e.g. für, durch, gegen, ohne, um + Akkusativ">
 
-      <label class="form-label">Examples (এক লাইনে এক উদাহরণ)</label>
-      <textarea class="form-textarea" id="lm-examples" rows="3" placeholder="He is taller than his brother.&#10;She is the smartest student."></textarea>
+      <label class="form-label">উদাহরণ (এক লাইনে এক উদাহরণ)</label>
+      <textarea class="form-textarea" id="lm-examples" rows="3" placeholder="Das Geschenk ist für meinen Bruder.&#10;Wir laufen durch den Park."></textarea>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-lesson-modal">বাতিল</button>
-      <button class="btn-primary" data-action="save-lesson">💾 Save Lesson</button>
+      <button class="btn-primary" data-action="save-lesson">💾 Lesson Save করো</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     MODAL: Vocab Word Editor (vocab_words schema)
+════════════════════════════════ -->
+<div class="modal-overlay" id="vocab-modal-overlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="vocab-modal-title">Neues Wort</h3>
+      <div class="modal-close" data-action="close-vocab-modal">✕</div>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="vm-id">
+      <div class="form-row cols-2">
+        <div>
+          <label class="form-label">German</label>
+          <input type="text" class="form-input" id="vm-german" placeholder="e.g. der Apfel">
+        </div>
+        <div>
+          <label class="form-label">Bengali</label>
+          <input type="text" class="form-input" id="vm-bengali" placeholder="e.g. আপেল">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div>
+          <label class="form-label">Category</label>
+          <input type="text" class="form-input" id="vm-category" placeholder="e.g. Essen, Farben, Familie...">
+        </div>
+        <div>
+          <label class="form-label">Level</label>
+          <select class="form-input" id="vm-level">
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+          </select>
+        </div>
+      </div>
+      <label class="form-label">Example Sentence (German)</label>
+      <input type="text" class="form-input" id="vm-example" placeholder="e.g. Ich esse jeden Tag einen Apfel.">
+      <label class="form-label">Audio URL (Cloudinary, ঐচ্ছিক)</label>
+      <input type="text" class="form-input" id="vm-audiourl" placeholder="https://res.cloudinary.com/...">
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" data-action="close-vocab-modal">বাতিল</button>
+      <button class="btn-primary" data-action="save-vocab">💾 Word Save করো</button>
     </div>
   </div>
 </div>

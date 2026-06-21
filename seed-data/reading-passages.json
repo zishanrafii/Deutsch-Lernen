@@ -1,0 +1,1543 @@
+[
+  {
+    "slug": "familie",
+    "level": "A1",
+    "xp": 25,
+    "words": 95,
+    "time": 2,
+    "titleDe": "Meine Familie",
+    "titleBn": "আমার পরিবার",
+    "icon": "👪",
+    "textDe": "<p>Hallo! Ich heiße Lara und ich bin Studentin. Ich komme aus einer kleinen Stadt in der Nähe von München. Meine Familie ist nicht groß: meine Eltern, mein <span class=\"voc\" tabindex=\"0\" data-bn=\"ছোট ভাই\">kleiner Bruder</span> Tom und ich.</p>\n    <p>Mein Vater arbeitet als <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রকৌশলী\">Ingenieur</span>, und meine Mutter ist <span class=\"voc\" tabindex=\"0\" data-bn=\"শিক্ষিকা\">Lehrerin</span> an einer Grundschule. Wir wohnen in einem gemütlichen Haus mit einem kleinen <span class=\"voc\" tabindex=\"0\" data-bn=\"বাগান\">Garten</span>.</p>\n    <p>Am Wochenende kochen wir oft zusammen und spielen Karten. Ich liebe meine Familie sehr, weil wir immer füreinander da sind.</p>",
+    "textBn": "হ্যালো! আমার নাম লারা এবং আমি একজন ছাত্রী। আমি মিউনিখের কাছে একটি ছোট শহর থেকে এসেছি। আমার পরিবার খুব বড় না: আমার মা-বাবা, আমার ছোট ভাই টম, এবং আমি।<br><br>আমার বাবা একজন প্রকৌশলী, আর আমার মা একটি প্রাথমিক স্কুলে শিক্ষিকা। আমরা একটি ছোট বাগানসহ আরামদায়ক বাড়িতে থাকি।<br><br>সপ্তাহান্তে আমরা প্রায়ই একসাথে রান্না করি এবং তাস খেলি। আমি আমার পরিবারকে খুব ভালোবাসি, কারণ আমরা সবসময় একে অপরের পাশে থাকি।",
+    "questions": [
+      {
+        "q": "Woher kommt Lara?",
+        "opts": [
+          "Aus Berlin",
+          "Aus einer kleinen Stadt bei München",
+          "Aus Hamburg",
+          "Aus Österreich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist Laras Vater von Beruf?",
+        "opts": [
+          "Lehrer",
+          "Arzt",
+          "Ingenieur",
+          "Student"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was macht die Familie am Wochenende?",
+        "opts": [
+          "Sie reisen viel",
+          "Sie kochen zusammen und spielen Karten",
+          "Sie schauen Filme",
+          "Sie arbeiten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viele Geschwister hat Lara?",
+        "opts": [
+          "Keine",
+          "Einen Bruder",
+          "Eine Schwester",
+          "Zwei Brüder"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum liebt Lara ihre Familie?",
+        "opts": [
+          "Weil sie reich sind",
+          "Weil sie immer füreinander da sind",
+          "Weil sie in München wohnen",
+          "Weil ihr Vater Ingenieur ist"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Alltag",
+    "color": "indigo",
+    "descBn": "লারার পরিবার নিয়ে একটি সহজ পরিচিতিমূলক passage — basic vocabulary অনুশীলনের জন্য আদর্শ।"
+  },
+  {
+    "slug": "cafe",
+    "level": "A1",
+    "xp": 25,
+    "words": 90,
+    "time": 2,
+    "titleDe": "Im Café",
+    "titleBn": "ক্যাফেতে",
+    "icon": "☕",
+    "textDe": "<p>Es ist Samstagmorgen. Tim geht in ein <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যাফে\">Café</span> in der Stadt. Er setzt sich an einen Tisch am Fenster.</p>\n    <p>Die <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিচারিকা\">Kellnerin</span> kommt und fragt: \"Was möchten Sie trinken?\" Tim bestellt einen Kaffee mit Milch und ein Stück Kuchen. Das Café ist sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"আরামদায়ক\">gemütlich</span>, und draußen scheint die Sonne.</p>\n    <p>Tim liest eine Zeitung und hört leise Musik. Nach einer Stunde bezahlt er und geht nach Hause. Er findet diesen Café-Besuch sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"শান্তিদায়ক\">entspannend</span>.</p>",
+    "textBn": "আজ শনিবার সকাল। টিম শহরের একটি ক্যাফেতে যায়। সে জানালার পাশে একটি টেবিলে বসে।<br><br>পরিচারিকা এসে জিজ্ঞেস করে, \"আপনি কী পান করতে চান?\" টিম দুধ দিয়ে কফি ও এক টুকরা কেক অর্ডার করে। ক্যাফেটি খুবই আরামদায়ক, এবং বাইরে রোদ উঠেছে।<br><br>টিম একটি পত্রিকা পড়ে এবং আস্তে গান শোনে। এক ঘণ্টা পরে সে বিল দিয়ে বাড়ি চলে যায়। সে এই ক্যাফে ভ্রমণটি খুব শান্তিদায়ক মনে করে।",
+    "questions": [
+      {
+        "q": "Wann geht Tim ins Café?",
+        "opts": [
+          "Freitagabend",
+          "Samstagmorgen",
+          "Sonntagnachmittag",
+          "Montagmorgen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo setzt sich Tim hin?",
+        "opts": [
+          "An die Theke",
+          "An einen Tisch am Fenster",
+          "Draußen",
+          "Neben die Tür"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bestellt Tim?",
+        "opts": [
+          "Tee und Brot",
+          "Kaffee mit Milch und Kuchen",
+          "Nur Wasser",
+          "Saft und Kekse"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist das Wetter?",
+        "opts": [
+          "Es regnet",
+          "Es schneit",
+          "Die Sonne scheint",
+          "Es ist windig"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Wie findet Tim den Café-Besuch?",
+        "opts": [
+          "Langweilig",
+          "Stressig",
+          "Entspannend",
+          "Teuer"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "gold",
+    "descBn": "টিমের এক শনিবার সকালের ক্যাফে ভ্রমণ — দৈনন্দিন জীবনের সহজ German।"
+  },
+  {
+    "slug": "tag",
+    "level": "A1",
+    "xp": 25,
+    "words": 100,
+    "time": 2,
+    "titleDe": "Mein Tag",
+    "titleBn": "আমার দিন",
+    "icon": "⏰",
+    "textDe": "<p>Ich heiße Sara und ich erzähle dir von meinem Tag. Ich stehe jeden Morgen um sieben Uhr auf. Zuerst dusche ich, dann frühstücke ich mit meiner Familie.</p>\n    <p>Um acht Uhr gehe ich zur <span class=\"voc\" tabindex=\"0\" data-bn=\"বিশ্ববিদ্যালয়\">Universität</span>. Ich habe drei Stunden Unterricht. Mittags esse ich mit meinen Freunden in der <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যান্টিন\">Mensa</span>.</p>\n    <p>Am Nachmittag lerne ich in der Bibliothek. Abends koche ich zu Hause und sehe ein bisschen fern. Um zehn Uhr gehe ich ins Bett, weil ich früh schlafen möchte.</p>",
+    "textBn": "আমার নাম সারা এবং আমি তোমাকে আমার দিনের কথা বলছি। আমি প্রতিদিন সকাল সাতটায় ঘুম থেকে উঠি। প্রথমে আমি গোসল করি, তারপর পরিবারের সাথে নাশতা করি।<br><br>সকাল আটটায় আমি বিশ্ববিদ্যালয়ে যাই। আমার তিন ঘণ্টা ক্লাস থাকে। দুপুরে আমি বন্ধুদের সাথে ক্যান্টিনে খাই।<br><br>বিকেলে আমি লাইব্রেরিতে পড়াশোনা করি। সন্ধ্যায় আমি বাসায় রান্না করি এবং একটু টিভি দেখি। রাত দশটায় আমি ঘুমাতে যাই, কারণ আমি তাড়াতাড়ি ঘুমাতে চাই।",
+    "questions": [
+      {
+        "q": "Um wie viel Uhr steht Sara auf?",
+        "opts": [
+          "Sechs Uhr",
+          "Sieben Uhr",
+          "Acht Uhr",
+          "Neun Uhr"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo isst Sara mittags?",
+        "opts": [
+          "Zu Hause",
+          "In der Mensa",
+          "Im Café",
+          "Im Restaurant"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht Sara am Nachmittag?",
+        "opts": [
+          "Sie schläft",
+          "Sie lernt in der Bibliothek",
+          "Sie arbeitet",
+          "Sie kocht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht Sara am Abend?",
+        "opts": [
+          "Sie kocht und sieht fern",
+          "Sie geht ins Kino",
+          "Sie trifft Freunde",
+          "Sie reist"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Wann geht Sara ins Bett?",
+        "opts": [
+          "Acht Uhr",
+          "Neun Uhr",
+          "Zehn Uhr",
+          "Elf Uhr"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "teal",
+    "descBn": "সারার একটি সাধারণ দিনের রুটিন — সময়, daily activities ও Präsens vocabulary।"
+  },
+  {
+    "slug": "supermarkt",
+    "level": "A1",
+    "xp": 25,
+    "words": 95,
+    "time": 2,
+    "titleDe": "Im Supermarkt",
+    "titleBn": "সুপারমার্কেটে",
+    "icon": "🛒",
+    "textDe": "<p>Am Freitag gehe ich in den Supermarkt, weil der Kühlschrank leer ist. Ich brauche Brot, Milch, Eier und <span class=\"voc\" tabindex=\"0\" data-bn=\"পনির\">Käse</span>.</p>\n    <p>Im Supermarkt gibt es auch frisches Obst und Gemüse. Ich kaufe Äpfel, Bananen und Tomaten. An der <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যাশ কাউন্টার\">Kasse</span> bezahle ich mit Karte. Die Verkäuferin ist sehr freundlich.</p>\n    <p>Insgesamt kostet mein Einkauf zwanzig Euro. Ich packe alles in meine <span class=\"voc\" tabindex=\"0\" data-bn=\"ব্যাগ\">Tasche</span> und gehe zu Fuß nach Hause. Einkaufen macht mir Spaß, besonders wenn es nicht zu voll ist.</p>",
+    "textBn": "শুক্রবার আমি সুপারমার্কেটে যাই, কারণ ফ্রিজ খালি। আমার রুটি, দুধ, ডিম ও পনির দরকার।<br><br>সুপারমার্কেটে তাজা ফল ও সবজিও আছে। আমি আপেল, কলা ও টমেটো কিনি। ক্যাশ কাউন্টারে আমি কার্ড দিয়ে বিল দিই। বিক্রয়কর্মী খুবই বন্ধুত্বপূর্ণ।<br><br>মোট বাজার খরচ হয় বিশ ইউরো। আমি সবকিছু ব্যাগে ভরে হেঁটে বাসায় ফিরি। কেনাকাটা করতে আমার ভালো লাগে, বিশেষ করে যখন বেশি ভিড় থাকে না।",
+    "questions": [
+      {
+        "q": "Warum geht die Person in den Supermarkt?",
+        "opts": [
+          "Der Kühlschrank ist leer",
+          "Sie hat Geburtstag",
+          "Sie trifft Freunde",
+          "Es ist Sonntag"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was kauft die Person außer Brot und Milch noch?",
+        "opts": [
+          "Nur Fleisch",
+          "Eier und Käse",
+          "Nur Süßigkeiten",
+          "Kleidung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit bezahlt die Person?",
+        "opts": [
+          "Bar",
+          "Mit Karte",
+          "Mit einem Gutschein",
+          "Sie bezahlt nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viel kostet der Einkauf?",
+        "opts": [
+          "Zehn Euro",
+          "Zwanzig Euro",
+          "Dreißig Euro",
+          "Fünfzig Euro"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie geht die Person nach Hause?",
+        "opts": [
+          "Mit dem Bus",
+          "Mit dem Auto",
+          "Zu Fuß",
+          "Mit dem Fahrrad"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "emerald",
+    "descBn": "সুপারমার্কেটে এক সাধারণ কেনাকাটার গল্প — খাবারের vocabulary ও দৈনন্দিন expressions।"
+  },
+  {
+    "slug": "wetter",
+    "level": "A1",
+    "xp": 25,
+    "words": 105,
+    "time": 2,
+    "titleDe": "Das Wetter heute",
+    "titleBn": "আজকের আবহাওয়া",
+    "icon": "☀️",
+    "textDe": "<p>Heute ist ein schöner Tag. Die Sonne scheint, und der Himmel ist blau. Es ist nicht zu heiß und nicht zu kalt – die <span class=\"voc\" tabindex=\"0\" data-bn=\"তাপমাত্রা\">Temperatur</span> ist perfekt für einen Spaziergang.</p>\n    <p>Gestern war das Wetter anders: es hat den ganzen Tag geregnet, und der Himmel war grau. Im Winter ist es hier oft sehr kalt, und manchmal schneit es.</p>\n    <p>Im Sommer dagegen ist es warm, und viele Menschen gehen ins Schwimmbad. Mein Lieblingswetter ist der <span class=\"voc\" tabindex=\"0\" data-bn=\"বসন্ত\">Frühling</span>, weil dann die Blumen blühen und es weder zu heiß noch zu kalt ist.</p>",
+    "textBn": "আজ একটি সুন্দর দিন। সূর্য উঠেছে, এবং আকাশ নীল। এটা খুব গরমও না, খুব ঠান্ডাও না – তাপমাত্রা হাঁটাহাঁটির জন্য একদম উপযুক্ত।<br><br>গতকাল আবহাওয়া অন্যরকম ছিল: সারাদিন বৃষ্টি হয়েছে, এবং আকাশ ধূসর ছিল। শীতকালে এখানে প্রায়ই খুব ঠান্ডা থাকে, এবং কখনো কখনো তুষারপাত হয়।<br><br>অন্যদিকে গ্রীষ্মে গরম থাকে, এবং অনেক মানুষ সুইমিংপুলে যায়। আমার প্রিয় আবহাওয়া হলো বসন্তকাল, কারণ তখন ফুল ফোটে এবং না বেশি গরম, না বেশি ঠান্ডা থাকে।",
+    "questions": [
+      {
+        "q": "Wie ist das Wetter heute?",
+        "opts": [
+          "Es regnet",
+          "Die Sonne scheint",
+          "Es schneit",
+          "Es ist windig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war das Wetter gestern?",
+        "opts": [
+          "Sonnig",
+          "Es hat geregnet",
+          "Es war heiß",
+          "Es war windig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was machen viele Menschen im Sommer?",
+        "opts": [
+          "Sie bleiben zu Hause",
+          "Sie gehen ins Schwimmbad",
+          "Sie fahren Ski",
+          "Sie lesen viel"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist das Wetter im Winter oft?",
+        "opts": [
+          "Sehr warm",
+          "Sehr kalt",
+          "Windig und trocken",
+          "Wie im Sommer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist das Lieblingswetter der Person?",
+        "opts": [
+          "Sommer",
+          "Winter",
+          "Frühling",
+          "Herbst"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "sky",
+    "descBn": "আবহাওয়া নিয়ে একটি ছোট passage — ঋতু ও weather vocabulary শেখার জন্য।"
+  },
+  {
+    "slug": "zimmer",
+    "level": "A1",
+    "xp": 25,
+    "words": 100,
+    "time": 2,
+    "titleDe": "Mein Zimmer",
+    "titleBn": "আমার ঘর",
+    "icon": "🛏️",
+    "textDe": "<p>Ich möchte dir mein Zimmer beschreiben. Mein Zimmer ist klein, aber gemütlich. Es gibt ein Bett, einen <span class=\"voc\" tabindex=\"0\" data-bn=\"ডেস্ক\">Schreibtisch</span> und einen Schrank für meine Kleidung.</p>\n    <p>An der Wand hängen viele Fotos von meiner Familie und meinen Freunden. Auf dem Schreibtisch stehen mein Laptop und ein paar Bücher. Neben dem Bett steht eine kleine <span class=\"voc\" tabindex=\"0\" data-bn=\"ল্যাম্প\">Lampe</span>.</p>\n    <p>Ich habe auch eine Pflanze am Fenster – sie heißt \"Max\". Mein Zimmer ist nicht sehr ordentlich, aber ich finde immer alles, was ich brauche. Hier verbringe ich gern meine Freizeit.</p>",
+    "textBn": "আমি তোমাকে আমার ঘরের বর্ণনা দিতে চাই। আমার ঘরটা ছোট, কিন্তু আরামদায়ক। এখানে একটা বিছানা, একটা ডেস্ক এবং কাপড়ের জন্য একটা আলমারি আছে।<br><br>দেয়ালে আমার পরিবার ও বন্ধুদের অনেক ছবি ঝুলানো আছে। ডেস্কের উপর আমার ল্যাপটপ ও কিছু বই আছে। বিছানার পাশে একটা ছোট ল্যাম্প আছে।<br><br>জানালার পাশে আমার একটা গাছও আছে – তার নাম \"ম্যাক্স\"। আমার ঘর খুব গোছানো না, কিন্তু আমি সবসময় যা দরকার তা খুঁজে পাই। এখানে আমি আমার অবসর সময় কাটাতে পছন্দ করি।",
+    "questions": [
+      {
+        "q": "Wie ist das Zimmer laut Text?",
+        "opts": [
+          "Groß und leer",
+          "Klein, aber gemütlich",
+          "Sehr unordentlich und kalt",
+          "Neu renoviert"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was steht auf dem Schreibtisch?",
+        "opts": [
+          "Ein Fernseher",
+          "Laptop und Bücher",
+          "Essen",
+          "Kleidung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was steht neben dem Bett?",
+        "opts": [
+          "Ein Schrank",
+          "Eine Lampe",
+          "Ein Spiegel",
+          "Ein Stuhl"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie heißt die Pflanze der Person?",
+        "opts": [
+          "Tom",
+          "Max",
+          "Lisa",
+          "Sie hat keinen Namen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie findet die Person ihr Zimmer?",
+        "opts": [
+          "Sie hasst es",
+          "Sie verbringt dort gern ihre Freizeit",
+          "Sie ist nie dort",
+          "Sie möchte umziehen"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Alltag",
+    "color": "violet",
+    "descBn": "নিজের ঘর বর্ণনা করার একটি সহজ passage — furniture vocabulary ও \"es gibt\" structure।"
+  },
+  {
+    "slug": "wochenende",
+    "level": "A2",
+    "xp": 25,
+    "words": 110,
+    "time": 3,
+    "titleDe": "Mein Wochenende",
+    "titleBn": "আমার সপ্তাহান্ত",
+    "icon": "🗓️",
+    "textDe": "<p>Am Samstag bin ich früh aufgewacht und habe lange gefrühstückt. Danach habe ich mit meiner Freundin Sport gemacht – wir sind <span class=\"voc\" tabindex=\"0\" data-bn=\"দৌড়েছি\">gejoggt</span> im Park.</p>\n    <p>Am Nachmittag haben wir Einkäufe gemacht und neue Kleidung gekauft. Am Abend haben wir einen <span class=\"voc\" tabindex=\"0\" data-bn=\"চলচ্চিত্র\">Film</span> im Kino gesehen.</p>\n    <p>Am Sonntag habe ich meine Großeltern besucht. Wir haben zusammen <span class=\"voc\" tabindex=\"0\" data-bn=\"মধ্যাহ্নভোজ\">Mittagessen</span> gemacht und über alte Zeiten gesprochen. Mein Großvater hat mir Fotos von früher gezeigt. Es war ein <span class=\"voc\" tabindex=\"0\" data-bn=\"চমৎকার\">wunderbares</span> Wochenende.</p>",
+    "textBn": "শনিবার আমি তাড়াতাড়ি ঘুম থেকে উঠেছিলাম এবং অনেকক্ষণ ধরে নাশতা করেছিলাম। এরপর আমার বান্ধবীর সাথে খেলাধুলা করেছি – আমরা পার্কে দৌড়েছি।<br><br>বিকেলে আমরা কেনাকাটা করেছি এবং নতুন কাপড় কিনেছি। সন্ধ্যায় আমরা সিনেমা হলে একটি চলচ্চিত্র দেখেছি।<br><br>রবিবার আমি আমার দাদা-দাদীর কাছে গিয়েছিলাম। আমরা একসাথে মধ্যাহ্নভোজ করেছি এবং পুরনো দিনের কথা বলেছি। আমার দাদা আমাকে আগের ছবি দেখিয়েছেন। এটি একটি চমৎকার সপ্তাহান্ত ছিল।",
+    "questions": [
+      {
+        "q": "Was hat die Person am Samstagmorgen gemacht?",
+        "opts": [
+          "Sport im Fitnessstudio",
+          "Lange gefrühstückt",
+          "Eingekauft",
+          "Großeltern besucht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben sie am Nachmittag gemacht?",
+        "opts": [
+          "Sport gemacht",
+          "Eingekauft",
+          "Einen Film gesehen",
+          "Gekocht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wen hat die Person am Sonntag besucht?",
+        "opts": [
+          "Freunde",
+          "Eltern",
+          "Großeltern",
+          "Nachbarn"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was hat der Großvater gezeigt?",
+        "opts": [
+          "Ein Buch",
+          "Alte Fotos",
+          "Einen Film",
+          "Briefe"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war das Wochenende?",
+        "opts": [
+          "Langweilig",
+          "Stressig",
+          "Wunderbar",
+          "Kurz"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "teal",
+    "descBn": "Perfekt (past tense)-এ লেখা একটি সপ্তাহান্তের গল্প — past tense অনুশীলনের জন্য চমৎকার।"
+  },
+  {
+    "slug": "berlin",
+    "level": "A2",
+    "xp": 25,
+    "words": 120,
+    "time": 3,
+    "titleDe": "Eine Reise nach Berlin",
+    "titleBn": "বার্লিনে এক ভ্রমণ",
+    "icon": "🧳",
+    "textDe": "<p>Letzten Monat sind meine Freunde und ich nach Berlin gefahren. Wir sind mit dem Zug gereist, und die <span class=\"voc\" tabindex=\"0\" data-bn=\"যাত্রা\">Fahrt</span> hat etwa sechs Stunden gedauert.</p>\n    <p>In Berlin haben wir in einem kleinen Hostel in der Nähe vom Alexanderplatz <span class=\"voc\" tabindex=\"0\" data-bn=\"রাত্রিযাপন করেছি\">übernachtet</span>. Am ersten Tag haben wir das Brandenburger Tor und den Reichstag besichtigt. Am zweiten Tag sind wir mit dem Fahrrad durch die Stadt gefahren und haben die Berliner Mauer gesehen.</p>\n    <p>Das Essen in Berlin war sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"বৈচিত্র্যময়\">vielfältig</span> – wir haben Currywurst, Döner und auch vietnamesisches Essen probiert. Die Reise war anstrengend, aber wir haben viel über die Geschichte Deutschlands gelernt.</p>",
+    "textBn": "গত মাসে আমি ও আমার বন্ধুরা বার্লিনে গিয়েছিলাম। আমরা ট্রেনে ভ্রমণ করেছি, এবং যাত্রায় প্রায় ছয় ঘণ্টা লেগেছিল।<br><br>বার্লিনে আমরা আলেক্সান্ডারপ্লাৎসের কাছে একটি ছোট হোস্টেলে থেকেছি। প্রথম দিন আমরা ব্রান্ডেনবুর্গ গেট ও রাইখস্টাগ দেখেছি। দ্বিতীয় দিন আমরা সাইকেলে শহর ঘুরেছি এবং বার্লিনের প্রাচীর দেখেছি।<br><br>বার্লিনের খাবার ছিল খুব বৈচিত্র্যময় – আমরা কারিভুর্স্ট, ডোনার এবং ভিয়েতনামি খাবারও খেয়েছি। ভ্রমণটি ক্লান্তিকর ছিল, কিন্তু আমরা জার্মানির ইতিহাস সম্পর্কে অনেক কিছু শিখেছি।",
+    "questions": [
+      {
+        "q": "Wie sind sie nach Berlin gefahren?",
+        "opts": [
+          "Mit dem Auto",
+          "Mit dem Zug",
+          "Mit dem Flugzeug",
+          "Mit dem Bus"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo haben sie übernachtet?",
+        "opts": [
+          "Im Hotel",
+          "Bei Freunden",
+          "In einem Hostel",
+          "Im Zelt"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was haben sie am ersten Tag besichtigt?",
+        "opts": [
+          "Den Fernsehturm",
+          "Das Brandenburger Tor und den Reichstag",
+          "Den Zoo",
+          "Das Museum"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie sind sie am zweiten Tag durch die Stadt gefahren?",
+        "opts": [
+          "Zu Fuß",
+          "Mit dem Bus",
+          "Mit dem Fahrrad",
+          "Mit der U-Bahn"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Wie war das Essen laut Text?",
+        "opts": [
+          "Langweilig",
+          "Vielfältig",
+          "Zu teuer",
+          "Schlecht"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Reise",
+    "color": "sky",
+    "descBn": "বার্লিনে এক বন্ধুদলের ভ্রমণ — travel vocabulary ও past tense একসাথে।"
+  },
+  {
+    "slug": "wohnung",
+    "level": "B1",
+    "xp": 25,
+    "words": 150,
+    "time": 4,
+    "titleDe": "Die Wohnungssuche",
+    "titleBn": "বাসা খোঁজা",
+    "icon": "🏠",
+    "textDe": "<p>Seit drei Wochen suche ich eine neue Wohnung in München, weil meine alte Wohnung zu klein geworden ist. Die Wohnungssuche ist hier sehr schwierig, da die Mieten in den letzten Jahren stark gestiegen sind.</p>\n    <p>Ich habe schon mehrere <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিদর্শন\">Besichtigungen</span> gemacht, aber bisher hat es nicht geklappt. Bei der letzten Besichtigung waren über zwanzig Interessenten anwesend, obwohl die Wohnung nicht besonders groß war.</p>\n    <p>Ein Freund hat mir erzählt, dass man oft eine <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিচয়পত্র/ক্রেডিট রিপোর্ট\">Schufa-Auskunft</span> und einen Einkommensnachweis vorlegen muss, bevor der Vermieter überhaupt mit einem spricht. Trotz aller Schwierigkeiten gebe ich nicht auf, weil ich hoffe, bald eine passende Wohnung zu finden.</p>",
+    "textBn": "তিন সপ্তাহ ধরে আমি মিউনিখে নতুন একটি বাসা খুঁজছি, কারণ আমার পুরনো বাসাটি খুব ছোট হয়ে গেছে। এখানে বাসা খোঁজা খুব কঠিন, কারণ গত কয়েক বছরে ভাড়া অনেক বেড়ে গেছে।<br><br>আমি ইতিমধ্যে বেশ কয়েকটি বাসা পরিদর্শন করেছি, কিন্তু এখনো কাজ হয়নি। সর্বশেষ পরিদর্শনে বিশজনের বেশি আগ্রহী ব্যক্তি উপস্থিত ছিল, যদিও বাসাটি খুব বড় ছিল না।<br><br>একজন বন্ধু আমাকে বলেছে যে, বাড়িওয়ালা কথা বলার আগেই প্রায়ই একটি ক্রেডিট রিপোর্ট ও আয়ের প্রমাণ দেখাতে হয়। সব অসুবিধা সত্ত্বেও আমি হাল ছাড়ছি না, কারণ আমি আশা করি শীঘ্রই উপযুক্ত একটি বাসা পাব।",
+    "questions": [
+      {
+        "q": "Warum sucht die Person eine neue Wohnung?",
+        "opts": [
+          "Sie zieht in eine andere Stadt",
+          "Die alte Wohnung ist zu klein geworden",
+          "Die Miete ist zu niedrig",
+          "Sie möchte näher zur Arbeit wohnen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum ist die Wohnungssuche schwierig?",
+        "opts": [
+          "Es gibt zu viele leere Wohnungen",
+          "Die Mieten sind stark gestiegen",
+          "Es gibt keine Wohnungen in München",
+          "Die Vermieter antworten nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist bei der letzten Besichtigung passiert?",
+        "opts": [
+          "Niemand ist gekommen",
+          "Über zwanzig Leute waren da",
+          "Die Wohnung war schon vermietet",
+          "Der Vermieter war nicht da"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was muss man laut dem Freund oft vorlegen?",
+        "opts": [
+          "Einen Reisepass",
+          "Eine Schufa-Auskunft und einen Einkommensnachweis",
+          "Ein Empfehlungsschreiben",
+          "Einen Mietvertrag"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie reagiert die Person auf die Schwierigkeiten?",
+        "opts": [
+          "Sie gibt auf",
+          "Sie gibt nicht auf und bleibt hoffnungsvoll",
+          "Sie zieht zu ihren Eltern",
+          "Sie sucht keine Wohnung mehr"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Alltag",
+    "color": "violet",
+    "descBn": "München-এ বাসা খোঁজার বাস্তব অভিজ্ঞতা — subordinate clauses (weil, da, obwohl) সহ।"
+  },
+  {
+    "slug": "gesund",
+    "level": "B1",
+    "xp": 25,
+    "words": 150,
+    "time": 4,
+    "titleDe": "Gesund leben",
+    "titleBn": "স্বাস্থ্যকর জীবনযাপন",
+    "icon": "🥗",
+    "textDe": "<p>Immer mehr Menschen interessieren sich heute dafür, gesünder zu leben. Das bedeutet nicht nur, sich ausgewogen zu ernähren, sondern auch, sich regelmäßig zu bewegen und genug zu schlafen.</p>\n    <p>Viele Experten empfehlen, mindestens dreißig Minuten am Tag spazieren zu gehen. Außerdem spielt die <span class=\"voc\" tabindex=\"0\" data-bn=\"মানসিক স্বাস্থ্য\">psychische Gesundheit</span> eine wichtige Rolle: Stress kann zu vielen Krankheiten führen, wenn man ihn nicht <span class=\"voc\" tabindex=\"0\" data-bn=\"নিয়ন্ত্রণ করা\">kontrolliert</span>.</p>\n    <p>Auch die Ernährung ist entscheidend: Wer viel Gemüse, Obst und Vollkornprodukte isst und weniger Zucker konsumiert, fühlt sich oft <span class=\"voc\" tabindex=\"0\" data-bn=\"বেশি শক্তিশালী\">energiegeladener</span>. Ein gesunder Lebensstil ist also eine Kombination aus Bewegung, Ernährung und mentaler Balance.</p>",
+    "textBn": "আজকাল অধিকতর মানুষ স্বাস্থ্যকর জীবনযাপনে আগ্রহী হয়ে উঠছে। এর অর্থ শুধু সুষম খাদ্য গ্রহণ নয়, বরং নিয়মিত শরীরচর্চা ও পর্যাপ্ত ঘুমও।<br><br>অনেক বিশেষজ্ঞ পরামর্শ দেন যে দৈনিক অন্তত ত্রিশ মিনিট হাঁটাহাঁটি করা উচিত। এছাড়া মানসিক স্বাস্থ্যও গুরুত্বপূর্ণ ভূমিকা পালন করে: মানসিক চাপ নিয়ন্ত্রণ না করলে তা অনেক রোগের কারণ হতে পারে।<br><br>খাদ্যাভ্যাসও গুরুত্বপূর্ণ: যারা বেশি শাকসবজি, ফলমূল ও পূর্ণ শস্যজাত খাবার খান এবং চিনি কম খান, তারা প্রায়ই বেশি শক্তিশালী অনুভব করেন। সুতরাং স্বাস্থ্যকর জীবনযাপন আসলে শরীরচর্চা, খাদ্যাভ্যাস ও মানসিক ভারসাম্যের সমন্বয়।",
+    "questions": [
+      {
+        "q": "Was bedeutet \"gesund leben\" laut dem Text?",
+        "opts": [
+          "Nur viel Sport treiben",
+          "Ernährung, Bewegung und genug Schlaf",
+          "Nur gesund essen",
+          "Viel arbeiten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viel Bewegung empfehlen Experten mindestens?",
+        "opts": [
+          "10 Minuten",
+          "30 Minuten täglich",
+          "2 Stunden täglich",
+          "Nur am Wochenende"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kann passieren, wenn man Stress nicht kontrolliert?",
+        "opts": [
+          "Man wird kreativer",
+          "Es kann zu Krankheiten führen",
+          "Man schläft besser",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bewirkt eine Ernährung mit viel Gemüse und wenig Zucker?",
+        "opts": [
+          "Man fühlt sich müder",
+          "Man fühlt sich energiegeladener",
+          "Man wird größer",
+          "Keine Wirkung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Woraus besteht laut Text ein gesunder Lebensstil?",
+        "opts": [
+          "Nur aus Sport",
+          "Bewegung, Ernährung und mentale Balance",
+          "Nur aus Schlaf",
+          "Nur aus Ernährung"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Gesundheit",
+    "color": "emerald",
+    "descBn": "স্বাস্থ্যকর জীবনযাপন নিয়ে একটি তথ্যবহুল passage — opinion ও infinitive constructions।"
+  },
+  {
+    "slug": "klima",
+    "level": "B2",
+    "xp": 25,
+    "words": 180,
+    "time": 5,
+    "titleDe": "Klimawandel und Alltag",
+    "titleBn": "জলবায়ু পরিবর্তন ও দৈনন্দিন জীবন",
+    "icon": "🌍",
+    "textDe": "<p>Der Klimawandel gehört mittlerweile zu den größten <span class=\"voc\" tabindex=\"0\" data-bn=\"চ্যালেঞ্জ\">Herausforderungen</span> unserer Zeit, und immer mehr Menschen fragen sich, wie sie in ihrem Alltag etwas dagegen tun können.</p>\n    <p>Während manche glauben, dass nur große politische Entscheidungen wirklich etwas verändern können, sind andere der Meinung, dass auch individuelle Maßnahmen einen wichtigen Beitrag leisten. So könnte beispielsweise der bewusste Verzicht auf Plastikverpackungen oder die Nutzung öffentlicher Verkehrsmittel den persönlichen <span class=\"voc\" tabindex=\"0\" data-bn=\"কার্বন নিঃসরণ\">CO2-Fußabdruck</span> erheblich verringern.</p>\n    <p>Kritiker wenden allerdings ein, dass solche individuellen Veränderungen ohne strukturelle Reformen kaum ausreichen werden, um die Klimaziele zu erreichen. Trotzdem sind sich die meisten Experten einig, dass ein Umdenken auf beiden Ebenen notwendig ist, um die Erderwärmung wirksam zu bremsen.</p>",
+    "textBn": "জলবায়ু পরিবর্তন এখন আমাদের সময়ের সবচেয়ে বড় চ্যালেঞ্জগুলোর একটি, এবং ক্রমবর্ধমান মানুষ ভাবছে দৈনন্দিন জীবনে এর বিরুদ্ধে তারা কী করতে পারে।<br><br>কেউ কেউ মনে করেন শুধু বড় রাজনৈতিক সিদ্ধান্তই প্রকৃত পরিবর্তন আনতে পারে, আবার অন্যরা মনে করেন ব্যক্তিগত পদক্ষেপও গুরুত্বপূর্ণ অবদান রাখে। যেমন, প্লাস্টিক প্যাকেজিং সচেতনভাবে এড়িয়ে চলা বা গণপরিবহন ব্যবহার করলে ব্যক্তিগত কার্বন নিঃসরণ উল্লেখযোগ্যভাবে কমতে পারে।<br><br>তবে সমালোচকরা বলেন, কাঠামোগত সংস্কার ছাড়া শুধু ব্যক্তিগত পরিবর্তন জলবায়ু লক্ষ্য অর্জনের জন্য যথেষ্ট হবে না। তবুও অধিকাংশ বিশেষজ্ঞ একমত যে, বিশ্ব উষ্ণায়ন কার্যকরভাবে রোধ করতে উভয় পর্যায়েই চিন্তাধারা পরিবর্তন প্রয়োজন।",
+    "questions": [
+      {
+        "q": "Worüber sind sich die Menschen im Text uneinig?",
+        "opts": [
+          "Ob der Klimawandel existiert",
+          "Ob individuelle Maßnahmen wichtig sind oder nur Politik zählt",
+          "Ob man Auto fahren sollte",
+          "Ob Plastik schädlich ist"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welches Beispiel wird für individuelle Maßnahmen genannt?",
+        "opts": [
+          "Häuser bauen",
+          "Verzicht auf Plastik und öffentliche Verkehrsmittel",
+          "Mehr fliegen",
+          "Mehr Auto fahren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sagen Kritiker über individuelle Veränderungen?",
+        "opts": [
+          "Sie reichen allein nicht aus ohne strukturelle Reformen",
+          "Sie sind völlig nutzlos",
+          "Sie sind die einzige Lösung",
+          "Sie schaden der Wirtschaft"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Worüber sind sich die meisten Experten einig?",
+        "opts": [
+          "Nur Politik muss handeln",
+          "Nur Privatpersonen müssen handeln",
+          "Beide Ebenen müssen umdenken",
+          "Niemand muss etwas tun"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was beschreibt der \"CO2-Fußabdruck\" im Text?",
+        "opts": [
+          "Die Größe eines Hauses",
+          "Die persönliche Menge an verursachten Emissionen",
+          "Die Anzahl der Autos",
+          "Die Klimapolitik eines Landes"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Umwelt",
+    "color": "orange",
+    "descBn": "জলবায়ু পরিবর্তন নিয়ে দুই পক্ষের যুক্তি — argumentative German ও complex sentence structure।"
+  },
+  {
+    "slug": "wiedervereinigung",
+    "level": "C1",
+    "xp": 25,
+    "words": 210,
+    "time": 6,
+    "titleDe": "Die deutsche Wiedervereinigung",
+    "titleBn": "জার্মান পুনর্মিলন",
+    "icon": "🏛️",
+    "textDe": "<p>Am 3. Oktober 1990 wurde die deutsche Wiedervereinigung offiziell vollzogen, ein Ereignis, das die politische Landschaft Europas nachhaltig verändert hat. Nach mehr als vierzig Jahren der Teilung ermöglichten der Fall der Berliner Mauer im November 1989 sowie die friedlichen Revolutionen in Osteuropa diesen historischen Schritt.</p>\n    <p>Die <span class=\"voc\" tabindex=\"0\" data-bn=\"একীকরণ\">Vereinigung</span> brachte jedoch nicht nur Euphorie, sondern auch erhebliche wirtschaftliche und soziale Herausforderungen mit sich. In den neuen Bundesländern mussten Industrie, Infrastruktur und Verwaltung grundlegend umstrukturiert werden, was zu hoher Arbeitslosigkeit und einer anhaltenden <span class=\"voc\" tabindex=\"0\" data-bn=\"অভিবাসন\">Abwanderung</span> junger Menschen in den Westen führte.</p>\n    <p>Bis heute lassen sich, trotz erheblicher Investitionen, ökonomische Unterschiede zwischen den alten und neuen Bundesländern feststellen, was zeigt, dass die innere Einheit Deutschlands ein langwieriger gesellschaftlicher Prozess geblieben ist, der weit über das formale Datum der Wiedervereinigung hinausreicht.</p>",
+    "textBn": "১৯৯০ সালের ৩রা অক্টোবর জার্মানির আনুষ্ঠানিক পুনর্মিলন সম্পন্ন হয়, যা ইউরোপের রাজনৈতিক চিত্র দীর্ঘস্থায়ীভাবে বদলে দিয়েছিল। চল্লিশ বছরেরও বেশি সময় বিভক্ত থাকার পর, ১৯৮৯ সালের নভেম্বরে বার্লিন প্রাচীরের পতন এবং পূর্ব ইউরোপে শান্তিপূর্ণ বিপ্লবগুলো এই ঐতিহাসিক পদক্ষেপকে সম্ভব করে তোলে।<br><br>তবে এই একীকরণ শুধু আনন্দই নয়, বরং উল্লেখযোগ্য অর্থনৈতিক ও সামাজিক চ্যালেঞ্জও বয়ে এনেছিল। নতুন রাজ্যগুলোতে শিল্প, অবকাঠামো ও প্রশাসন মৌলিকভাবে পুনর্গঠন করতে হয়েছিল, যার ফলে উচ্চ বেকারত্ব ও পশ্চিমে তরুণদের ক্রমাগত অভিবাসন ঘটে।<br><br>যথেষ্ট বিনিয়োগ সত্ত্বেও আজও পুরনো ও নতুন রাজ্যগুলোর মধ্যে অর্থনৈতিক পার্থক্য দেখা যায়, যা প্রমাণ করে যে জার্মানির অভ্যন্তরীণ ঐক্য একটি দীর্ঘমেয়াদী সামাজিক প্রক্রিয়া, যা পুনর্মিলনের আনুষ্ঠানিক তারিখের চেয়ে অনেক বেশি বিস্তৃত।",
+    "questions": [
+      {
+        "q": "Wann wurde Deutschland offiziell wiedervereinigt?",
+        "opts": [
+          "November 1989",
+          "3. Oktober 1990",
+          "Januar 1991",
+          "Oktober 1989"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ermöglichte die Wiedervereinigung?",
+        "opts": [
+          "Der Fall der Berliner Mauer und friedliche Revolutionen in Osteuropa",
+          "Ein Krieg",
+          "Eine UN-Resolution",
+          "Ein Referendum allein in Westdeutschland"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Welche Herausforderung wird im Text genannt?",
+        "opts": [
+          "Zu viel Industrie im Osten",
+          "Hohe Arbeitslosigkeit und Abwanderung im Osten",
+          "Zu wenig Tourismus",
+          "Sprachprobleme"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigt der heutige Zustand laut Text?",
+        "opts": [
+          "Dass alle Unterschiede sofort verschwanden",
+          "Dass trotz Investitionen weiterhin Unterschiede bestehen",
+          "Dass der Osten reicher als der Westen wurde",
+          "Dass die Programme erfolglos abgebrochen wurden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie beschreibt der Text die \"innere Einheit\" Deutschlands?",
+        "opts": [
+          "Als abgeschlossenen, kurzen Prozess",
+          "Als langwierigen gesellschaftlichen Prozess",
+          "Als unwichtig",
+          "Als rein wirtschaftliches Thema"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Geschichte",
+    "color": "rose",
+    "descBn": "জার্মান পুনর্মিলন নিয়ে একটি academic-style passage — formal ও historical German।"
+  },
+  {
+    "slug": "ki-ethik",
+    "level": "C2",
+    "xp": 25,
+    "words": 230,
+    "time": 7,
+    "titleDe": "Künstliche Intelligenz und Ethik",
+    "titleBn": "কৃত্রিম বুদ্ধিমত্তা ও নৈতিকতা",
+    "icon": "🤖",
+    "textDe": "<p>Die rasante Entwicklung künstlicher Intelligenz wirft fundamentale ethische Fragen auf, die weit über rein technische Aspekte hinausreichen. Insbesondere die Frage der <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বচ্ছতা\">Transparenz</span> algorithmischer Entscheidungsprozesse stellt Gesellschaften vor erhebliche Herausforderungen.</p>\n    <p>Wenn Systeme, deren interne Funktionsweise selbst für Experten kaum vollständig nachvollziehbar ist, zunehmend Entscheidungen mit weitreichenden Konsequenzen treffen, stellt sich unweigerlich die Frage nach Verantwortlichkeit. Philosophisch betrachtet erfordert die zunehmende <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বায়ত্তশাসন\">Autonomie</span> solcher Systeme eine Neuverhandlung tradierter Konzepte von moralischer Handlungsfähigkeit.</p>\n    <p>Gleichzeitig warnen Kritiker davor, dass eine übermäßige Anthropomorphisierung von KI-Systemen den Blick auf die eigentlichen, von Menschen getroffenen Designentscheidungen verschleiern könnte. Eine verantwortungsvolle KI-Governance müsste daher sowohl technische Erklärbarkeit als auch klare institutionelle Verantwortungsstrukturen miteinander verbinden.</p>",
+    "textBn": "কৃত্রিম বুদ্ধিমত্তার দ্রুত বিকাশ এমন মৌলিক নৈতিক প্রশ্ন তোলে, যা নিছক প্রযুক্তিগত দিকের চেয়ে অনেক বেশি বিস্তৃত। বিশেষত অ্যালগরিদমিক সিদ্ধান্ত প্রক্রিয়ার স্বচ্ছতার প্রশ্ন সমাজের জন্য উল্লেখযোগ্য চ্যালেঞ্জ তৈরি করে।<br><br>যখন এমন সিস্টেম, যার অভ্যন্তরীণ কার্যপ্রণালী বিশেষজ্ঞদের কাছেও পুরোপুরি বোধগম্য নয়, ক্রমবর্ধমানভাবে সুদূরপ্রসারী ফলাফলযুক্ত সিদ্ধান্ত নিচ্ছে, তখন দায়বদ্ধতার প্রশ্ন অনিবার্যভাবে সামনে আসে। দার্শনিক দৃষ্টিকোণ থেকে বলা যায়, এমন সিস্টেমের ক্রমবর্ধমান স্বায়ত্তশাসন নৈতিক কর্মক্ষমতার প্রচলিত ধারণার পুনর্বিন্যাস দাবি করে।<br><br>একই সাথে সমালোচকরা সতর্ক করেন যে, এআই সিস্টেমকে অতিরিক্ত মানবিক বৈশিষ্ট্য আরোপ করলে তা মানুষের নেওয়া নকশা-সিদ্ধান্তগুলোকে আড়াল করে দিতে পারে। তাই একটি দায়িত্বশীল এআই-গভর্ন্যান্সে প্রযুক্তিগত ব্যাখ্যাযোগ্যতা এবং স্পষ্ট প্রাতিষ্ঠানিক দায়বদ্ধতা — উভয়কেই একত্রিত করতে হবে।",
+    "questions": [
+      {
+        "q": "Welches Hauptproblem wird bezüglich algorithmischer Entscheidungsprozesse genannt?",
+        "opts": [
+          "Sie sind zu langsam",
+          "Mangelnde Transparenz und Nachvollziehbarkeit",
+          "Sie sind zu teuer",
+          "Sie funktionieren nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "In welchen Bereichen werden laut Text KI-Entscheidungen mit weitreichenden Konsequenzen relevant?",
+        "opts": [
+          "Nur in der Unterhaltungsindustrie",
+          "Bereiche wie Kreditvergabe oder medizinische Diagnostik",
+          "Nur im Sport",
+          "Nur in der Werbung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fordert die zunehmende Autonomie von KI-Systemen laut Text?",
+        "opts": [
+          "Eine Abschaffung der KI",
+          "Eine Neuverhandlung ethischer Konzepte",
+          "Mehr Werbung für KI",
+          "Weniger Forschung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Kritiker im Zusammenhang mit Anthropomorphisierung?",
+        "opts": [
+          "Dass KI zu menschlich wirkt und so Verantwortung verschleiert wird",
+          "Dass KI zu billig wird",
+          "Dass KI keine Gefühle hat",
+          "Dass Menschen KI nicht nutzen"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was fordert der Text für eine verantwortungsvolle KI-Governance?",
+        "opts": [
+          "Nur technische Lösungen",
+          "Nur institutionelle Regeln",
+          "Technische Erklärbarkeit und institutionelle Verantwortung zusammen",
+          "Ein vollständiges Verbot von KI"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Wissenschaft",
+    "color": "violet",
+    "descBn": "AI ও নৈতিকতা নিয়ে একটি abstract, academic passage — C2-level vocabulary ও জটিল syntax।"
+  },
+  {
+    "slug": "arzt",
+    "level": "A2",
+    "category": "Gesundheit",
+    "color": "rose",
+    "icon": "🏥",
+    "xp": 25,
+    "words": 105,
+    "time": 3,
+    "titleDe": "Beim Arzt",
+    "titleBn": "ডাক্তারের কাছে",
+    "textDe": "<p>Letzte Woche hatte ich starke Kopfschmerzen und bin zum Arzt gegangen. Im <span class=\"voc\" tabindex=\"0\" data-bn=\"ওয়েটিং রুম\">Wartezimmer</span> habe ich fast zwanzig Minuten gewartet.</p><p>Dann hat mich die Ärztin untersucht und ein paar Fragen gestellt: Seit wann habe ich die Schmerzen? Habe ich Fieber? Die Ärztin hat gesagt, dass ich wahrscheinlich zu wenig <span class=\"voc\" tabindex=\"0\" data-bn=\"ঘুম\">Schlaf</span> bekomme und zu viel Stress habe.</p><p>Sie hat mir ein <span class=\"voc\" tabindex=\"0\" data-bn=\"ব্যথানাশক ওষুধ\">Schmerzmittel</span> verschrieben und gesagt, ich soll mehr Wasser trinken und früher schlafen gehen. Nach drei Tagen ging es mir schon viel besser.</p>",
+    "textBn": "গত সপ্তাহে আমার প্রচণ্ড মাথাব্যথা ছিল এবং আমি ডাক্তারের কাছে গিয়েছিলাম। ওয়েটিং রুমে আমি প্রায় বিশ মিনিট অপেক্ষা করেছি।<br><br>এরপর ডাক্তার আমাকে পরীক্ষা করলেন এবং কিছু প্রশ্ন করলেন: কবে থেকে ব্যথা হচ্ছে? জ্বর আছে কি না? ডাক্তার বললেন, সম্ভবত আমি পর্যাপ্ত ঘুমাচ্ছি না এবং অনেক বেশি মানসিক চাপে আছি।<br><br>তিনি আমাকে একটি ব্যথানাশক ওষুধ লিখে দিলেন এবং বললেন বেশি পানি খেতে ও তাড়াতাড়ি ঘুমাতে যেতে। তিন দিন পর আমার অনেক ভালো লাগলো।",
+    "questions": [
+      {
+        "q": "Warum ist die Person zum Arzt gegangen?",
+        "opts": [
+          "Wegen Bauchschmerzen",
+          "Wegen starker Kopfschmerzen",
+          "Wegen Fieber",
+          "Für eine Routineuntersuchung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie lange hat die Person im Wartezimmer gewartet?",
+        "opts": [
+          "5 Minuten",
+          "Fast 20 Minuten",
+          "Eine Stunde",
+          "Gar nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat die Ärztin als Ursache vermutet?",
+        "opts": [
+          "Eine Erkältung",
+          "Zu wenig Schlaf und Stress",
+          "Eine Allergie",
+          "Zu viel Sport"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat die Ärztin verschrieben?",
+        "opts": [
+          "Eine Spritze",
+          "Ein Schmerzmittel",
+          "Antibiotika",
+          "Nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ging es der Person nach drei Tagen?",
+        "opts": [
+          "Schlechter",
+          "Gleich",
+          "Viel besser",
+          "Sie musste ins Krankenhaus"
+        ],
+        "correct": 2
+      }
+    ],
+    "descBn": "ডাক্তারের কাছে এক রোগীর অভিজ্ঞতা — health-related vocabulary ও দৈনন্দিন কথোপকথন।"
+  },
+  {
+    "slug": "restaurant",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "gold",
+    "icon": "🍽️",
+    "xp": 25,
+    "words": 115,
+    "time": 3,
+    "titleDe": "Im Restaurant",
+    "titleBn": "রেস্তোরাঁয়",
+    "textDe": "<p>Am Samstagabend sind meine Frau und ich in ein neues Restaurant in der Innenstadt gegangen. Der <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিচারক\">Kellner</span> hat uns einen Tisch in der Ecke gezeigt.</p><p>Wir haben die Speisekarte gelesen und uns für eine Vorspeise und ein Hauptgericht entschieden. Ich habe Schnitzel mit Kartoffeln bestellt, meine Frau hat Fisch mit Gemüse genommen. Das Essen hat etwa zwanzig Minuten gedauert, aber es hat sich gelohnt – alles hat sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"সুস্বাদু\">lecker</span> geschmeckt.</p><p>Zum Nachtisch haben wir uns ein Stück Schokoladenkuchen geteilt. Am Ende haben wir um die <span class=\"voc\" tabindex=\"0\" data-bn=\"বিল\">Rechnung</span> gebeten und großzügig Trinkgeld gegeben.</p>",
+    "textBn": "শনিবার সন্ধ্যায় আমি ও আমার স্ত্রী শহরের কেন্দ্রে একটি নতুন রেস্তোরাঁয় গিয়েছিলাম। পরিচারক আমাদের কোণার একটা টেবিল দেখালেন।<br><br>আমরা মেনু পড়লাম এবং একটা স্টার্টার ও একটা মূল খাবার ঠিক করলাম। আমি আলু দিয়ে শ্নিৎসেল অর্ডার করলাম, আমার স্ত্রী সবজি দিয়ে মাছ নিলেন। খাবার আসতে প্রায় বিশ মিনিট লেগেছিল, কিন্তু এর মূল্য ছিল – সবকিছু খুব সুস্বাদু ছিল।<br><br>ডেজার্টে আমরা একটা চকলেট কেক ভাগ করে খেয়েছি। শেষে আমরা বিল চাইলাম এবং ভালো বকশিশ দিলাম।",
+    "questions": [
+      {
+        "q": "Wann sind sie ins Restaurant gegangen?",
+        "opts": [
+          "Sonntagmittag",
+          "Samstagabend",
+          "Freitagmorgen",
+          "Montagabend"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat die Person bestellt?",
+        "opts": [
+          "Fisch mit Gemüse",
+          "Schnitzel mit Kartoffeln",
+          "Pizza",
+          "Suppe"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie lange hat das Essen gedauert?",
+        "opts": [
+          "5 Minuten",
+          "Etwa 20 Minuten",
+          "Eine Stunde",
+          "Zwei Stunden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben sie zum Nachtisch gegessen?",
+        "opts": [
+          "Eis",
+          "Obst",
+          "Schokoladenkuchen",
+          "Nichts"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was haben sie am Ende gemacht?",
+        "opts": [
+          "Sie sind ohne zu bezahlen gegangen",
+          "Sie haben die Rechnung verlangt und Trinkgeld gegeben",
+          "Sie haben sich beschwert",
+          "Sie sind eingeschlafen"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "রেস্তোরাঁয় এক সন্ধ্যার গল্প — খাবার অর্ডার করা ও বিল মেটানোর vocabulary।"
+  },
+  {
+    "slug": "geburtstag",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "orange",
+    "icon": "🎂",
+    "xp": 25,
+    "words": 110,
+    "time": 3,
+    "titleDe": "Ein Geburtstagsfest",
+    "titleBn": "একটি জন্মদিনের অনুষ্ঠান",
+    "textDe": "<p>Letzten Samstag habe ich meinen dreißigsten Geburtstag gefeiert. Ich habe viele Freunde und Familienmitglieder zu mir nach Hause <span class=\"voc\" tabindex=\"0\" data-bn=\"আমন্ত্রণ জানানো\">eingeladen</span>.</p><p>Meine Mutter hat einen großen Kuchen gebacken, und meine Freunde haben Luftballons und <span class=\"voc\" tabindex=\"0\" data-bn=\"সাজসজ্জা\">Dekoration</span> mitgebracht. Wir haben zusammen gegessen, getanzt und viele Fotos gemacht.</p><p>Um Mitternacht haben alle \"Happy Birthday\" gesungen, und ich habe die Kerzen ausgeblasen. Ich habe auch schöne <span class=\"voc\" tabindex=\"0\" data-bn=\"উপহার\">Geschenke</span> bekommen, zum Beispiel ein Buch und eine neue Uhr. Es war eine wunderschöne Feier.</p>",
+    "textBn": "গত শনিবার আমি আমার ত্রিশতম জন্মদিন উদযাপন করলাম। আমি অনেক বন্ধু ও পরিবারের সদস্যকে বাসায় আমন্ত্রণ জানিয়েছিলাম।<br><br>আমার মা একটা বড় কেক বানিয়েছিলেন, এবং আমার বন্ধুরা বেলুন ও সাজসজ্জা নিয়ে এসেছিল। আমরা একসাথে খেয়েছি, নেচেছি এবং অনেক ছবি তুলেছি।<br><br>মধ্যরাতে সবাই \"শুভ জন্মদিন\" গান গাইলো, এবং আমি মোমবাতি নিভালাম। আমি সুন্দর কিছু উপহারও পেয়েছি, যেমন একটা বই ও একটা নতুন ঘড়ি। এটা ছিল একটা অসাধারণ অনুষ্ঠান।",
+    "questions": [
+      {
+        "q": "Wie alt ist die Person geworden?",
+        "opts": [
+          "25",
+          "30",
+          "35",
+          "40"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wer hat den Kuchen gebacken?",
+        "opts": [
+          "Die Person selbst",
+          "Die Mutter",
+          "Ein Bäcker",
+          "Ein Freund"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben die Freunde mitgebracht?",
+        "opts": [
+          "Essen",
+          "Luftballons und Dekoration",
+          "Musik",
+          "Nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wann haben alle \"Happy Birthday\" gesungen?",
+        "opts": [
+          "Am Morgen",
+          "Um Mitternacht",
+          "Am Nachmittag",
+          "Vor dem Essen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat die Person als Geschenk bekommen?",
+        "opts": [
+          "Ein Auto",
+          "Ein Buch und eine Uhr",
+          "Geld",
+          "Nichts"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "জন্মদিনের অনুষ্ঠান নিয়ে একটি প্রাণবন্ত passage — celebration vocabulary ও past tense।"
+  },
+  {
+    "slug": "stadt",
+    "level": "A2",
+    "category": "Reise",
+    "color": "sky",
+    "icon": "🏙️",
+    "xp": 25,
+    "words": 120,
+    "time": 3,
+    "titleDe": "Meine Stadt",
+    "titleBn": "আমার শহর",
+    "textDe": "<p>Ich wohne seit fünf Jahren in Leipzig, einer mittelgroßen Stadt in Ostdeutschland. Die Stadt hat ein schönes <span class=\"voc\" tabindex=\"0\" data-bn=\"পুরাতন শহর কেন্দ্র\">Stadtzentrum</span> mit vielen alten Gebäuden und kleinen Cafés.</p><p>Im Sommer sitzen viele Menschen in den Parks oder am See. Es gibt auch eine sehr gute <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিবহন ব্যবস্থা\">Verkehrsverbindung</span> – man kann fast überall mit der Straßenbahn hinfahren.</p><p>Mein Lieblingsort ist der wöchentliche <span class=\"voc\" tabindex=\"0\" data-bn=\"বাজার\">Markt</span>, wo man frisches Obst, Gemüse und Blumen kaufen kann. Leipzig ist auch bekannt für seine Musikgeschichte, weil Johann Sebastian Bach hier gelebt hat.</p>",
+    "textBn": "আমি পাঁচ বছর ধরে লাইপ্‌ৎসিগে থাকি, যা পূর্ব জার্মানির একটি মাঝারি আকারের শহর। শহরের একটি সুন্দর কেন্দ্র আছে অনেক পুরনো ভবন ও ছোট ক্যাফে নিয়ে।<br><br>গ্রীষ্মে অনেক মানুষ পার্কে বা লেকের পাশে বসে থাকে। এখানে খুব ভালো পরিবহন ব্যবস্থাও আছে – ট্রামে করে প্রায় সব জায়গায় যাওয়া যায়।<br><br>আমার প্রিয় জায়গা হলো সাপ্তাহিক বাজার, যেখানে তাজা ফল, সবজি ও ফুল কেনা যায়। লাইপ্‌ৎসিগ তার সংগীত ইতিহাসের জন্যও পরিচিত, কারণ ইয়োহান সেবাস্টিয়ান বাখ এখানে বসবাস করেছিলেন।",
+    "questions": [
+      {
+        "q": "In welcher Stadt wohnt die Person?",
+        "opts": [
+          "Berlin",
+          "Leipzig",
+          "München",
+          "Hamburg"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie kommt man laut Text in der Stadt am besten herum?",
+        "opts": [
+          "Mit dem Auto",
+          "Mit der Straßenbahn",
+          "Zu Fuß",
+          "Mit dem Boot"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kann man auf dem wöchentlichen Markt kaufen?",
+        "opts": [
+          "Nur Kleidung",
+          "Obst, Gemüse und Blumen",
+          "Möbel",
+          "Elektronik"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wofür ist Leipzig bekannt?",
+        "opts": [
+          "Für seinen Strand",
+          "Für seine Musikgeschichte",
+          "Für seine Berge",
+          "Für seine Industrie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie findet die Person ihre Stadt?",
+        "opts": [
+          "Langweilig",
+          "Sehr lebenswert",
+          "Zu klein",
+          "Zu laut"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "নিজের শহর বর্ণনা করার passage — city ও transport-related vocabulary।"
+  },
+  {
+    "slug": "meer",
+    "level": "A2",
+    "category": "Reise",
+    "color": "teal",
+    "icon": "🏖️",
+    "xp": 25,
+    "words": 125,
+    "time": 3,
+    "titleDe": "Urlaub am Meer",
+    "titleBn": "সমুদ্রে ছুটি",
+    "textDe": "<p>Im August sind wir für eine Woche an die <span class=\"voc\" tabindex=\"0\" data-bn=\"উত্তর সাগর\">Nordsee</span> gefahren. Wir haben ein kleines Ferienhaus direkt am Strand gemietet.</p><p>Jeden Morgen sind wir spazieren gegangen und haben <span class=\"voc\" tabindex=\"0\" data-bn=\"ঝিনুক\">Muscheln</span> gesammelt. Nachmittags haben die Kinder im Sand gespielt, und wir Erwachsenen haben gelesen oder geschlafen. Einmal sind wir mit einem Boot zu einer kleinen Insel gefahren und haben dort Seehunde gesehen.</p><p>Das Wetter war leider nicht immer schön – an zwei Tagen hat es stark geregnet und gewindet. Trotzdem war es ein <span class=\"voc\" tabindex=\"0\" data-bn=\"অবিস্মরণীয়\">unvergesslicher</span> Urlaub.</p>",
+    "textBn": "আগস্ট মাসে আমরা এক সপ্তাহের জন্য উত্তর সাগরে গিয়েছিলাম। আমরা সৈকতের ঠিক পাশে একটা ছোট ছুটির বাড়ি ভাড়া নিয়েছিলাম।<br><br>প্রতিদিন সকালে আমরা হাঁটতে যেতাম এবং ঝিনুক সংগ্রহ করতাম। বিকেলে বাচ্চারা বালিতে খেলতো, আর আমরা বড়রা বই পড়তাম বা ঘুমাতাম। একবার আমরা একটা নৌকায় করে একটা ছোট দ্বীপে গিয়েছিলাম এবং সেখানে সিল মাছ দেখেছিলাম।<br><br>আবহাওয়া দুর্ভাগ্যবশত সবসময় ভালো ছিল না – দুই দিন প্রচণ্ড বৃষ্টি ও বাতাস ছিল। তবুও এটা একটা অবিস্মরণীয় ছুটি ছিল।",
+    "questions": [
+      {
+        "q": "Wohin sind sie im August gefahren?",
+        "opts": [
+          "In die Berge",
+          "An die Nordsee",
+          "Ins Ausland",
+          "In eine große Stadt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo haben sie übernachtet?",
+        "opts": [
+          "Im Hotel",
+          "In einem Ferienhaus am Strand",
+          "Im Zelt",
+          "Bei Verwandten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben die Kinder nachmittags gemacht?",
+        "opts": [
+          "Im Sand gespielt",
+          "Ferngesehen",
+          "Gearbeitet",
+          "Geschlafen"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was haben sie auf der Bootsfahrt gesehen?",
+        "opts": [
+          "Wale",
+          "Seehunde",
+          "Delfine",
+          "Haie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war das Wetter?",
+        "opts": [
+          "Immer perfekt",
+          "Nicht immer schön",
+          "Sehr kalt die ganze Zeit",
+          "Es hat nur geschneit"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "সমুদ্রতীরে এক সপ্তাহের ছুটির গল্প — travel ও weather vocabulary একসাথে।"
+  },
+  {
+    "slug": "haustier",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "emerald",
+    "icon": "🐶",
+    "xp": 25,
+    "words": 120,
+    "time": 3,
+    "titleDe": "Mein Haustier",
+    "titleBn": "আমার পোষা প্রাণী",
+    "textDe": "<p>Vor zwei Jahren haben wir einen Hund aus dem <span class=\"voc\" tabindex=\"0\" data-bn=\"পশু আশ্রয়কেন্দ্র\">Tierheim</span> adoptiert. Er heißt Bruno und ist ein mittelgroßer brauner Hund.</p><p>Am Anfang war Bruno sehr ängstlich, weil er schlechte Erfahrungen gemacht hatte. Mit viel Geduld und Liebe ist er aber immer <span class=\"voc\" tabindex=\"0\" data-bn=\"সাহসী\">mutiger</span> geworden.</p><p>Heute gehe ich jeden Tag zweimal mit ihm spazieren, und er liebt es, im Park mit anderen Hunden zu spielen. Ein Haustier zu haben bringt viel <span class=\"voc\" tabindex=\"0\" data-bn=\"দায়িত্ব\">Verantwortung</span>, aber auch sehr viel Freude.</p>",
+    "textBn": "দুই বছর আগে আমরা একটা কুকুর পশু আশ্রয়কেন্দ্র থেকে দত্তক নিয়েছিলাম। তার নাম ব্রুনো এবং সে একটা মাঝারি আকারের বাদামী কুকুর।<br><br>শুরুতে ব্রুনো খুব ভীত ছিল, কারণ তার খারাপ অভিজ্ঞতা হয়েছিল। কিন্তু অনেক ধৈর্য ও ভালোবাসা দিয়ে সে ধীরে ধীরে সাহসী হয়ে উঠেছে।<br><br>এখন আমি প্রতিদিন দুইবার তাকে নিয়ে হাঁটতে যাই, এবং সে পার্কে অন্য কুকুরদের সাথে খেলতে খুব পছন্দ করে। একটা পোষা প্রাণী রাখা অনেক দায়িত্ব নিয়ে আসে, কিন্তু অনেক আনন্দও।",
+    "questions": [
+      {
+        "q": "Woher haben sie den Hund?",
+        "opts": [
+          "Von einem Züchter",
+          "Aus dem Tierheim",
+          "Von einem Freund",
+          "Sie haben ihn gekauft"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war Bruno am Anfang?",
+        "opts": [
+          "Sehr mutig",
+          "Sehr ängstlich",
+          "Sehr aggressiv",
+          "Sehr müde"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie oft geht die Person mit Bruno spazieren?",
+        "opts": [
+          "Einmal am Tag",
+          "Zweimal am Tag",
+          "Einmal pro Woche",
+          "Nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo schläft Bruno laut Text gewöhnlich?",
+        "opts": [
+          "Draußen",
+          "In der Küche",
+          "Neben dem Bett",
+          "Im Auto"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was bringt laut Text ein Haustier mit sich?",
+        "opts": [
+          "Nur Probleme",
+          "Verantwortung und Freude",
+          "Nur Kosten",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "পোষা কুকুরের গল্প — emotion ও daily-routine vocabulary।"
+  },
+  {
+    "slug": "hobbys",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "violet",
+    "icon": "🎨",
+    "xp": 25,
+    "words": 125,
+    "time": 3,
+    "titleDe": "Meine Hobbys",
+    "titleBn": "আমার শখ",
+    "textDe": "<p>In meiner Freizeit habe ich mehrere Hobbys. Am liebsten male ich Aquarellbilder von der Natur – Bäume, Blumen und Berge. Außerdem spiele ich seit drei Jahren Gitarre und übe fast jeden Tag eine halbe Stunde.</p><p>Am Wochenende gehe ich oft mit Freunden klettern; das ist ein gutes <span class=\"voc\" tabindex=\"0\" data-bn=\"ব্যায়াম\">Training</span> und macht viel Spaß. Im Winter fahre ich gerne Ski in den Bergen, und im Sommer schwimme ich im See in der Nähe meiner Stadt.</p><p>Manchmal lese ich auch ein gutes <span class=\"voc\" tabindex=\"0\" data-bn=\"রহস্য উপন্যাস\">Kriminalroman</span>, besonders wenn es draußen regnet. Hobbys helfen mir, mich nach der Arbeit zu <span class=\"voc\" tabindex=\"0\" data-bn=\"শিথিল করা\">entspannen</span>.</p>",
+    "textBn": "অবসর সময়ে আমার বেশ কয়েকটি শখ আছে। সবচেয়ে বেশি আমি প্রকৃতির জলরঙের ছবি আঁকি – গাছ, ফুল ও পাহাড়। এছাড়া আমি তিন বছর ধরে গিটার বাজাই এবং প্রায় প্রতিদিন আধা ঘণ্টা অনুশীলন করি।<br><br>সপ্তাহান্তে আমি প্রায়ই বন্ধুদের সাথে পাহাড়ে চড়তে যাই; এটা একটা ভালো ব্যায়াম এবং অনেক মজার। শীতকালে আমি পাহাড়ে স্কি করতে পছন্দ করি, আর গ্রীষ্মে আমি আমার শহরের কাছের লেকে সাঁতার কাটি।<br><br>মাঝে মাঝে আমি একটা ভালো রহস্য উপন্যাসও পড়ি, বিশেষ করে যখন বাইরে বৃষ্টি হয়। শখগুলো আমাকে কাজের পরে শিথিল হতে সাহায্য করে।",
+    "questions": [
+      {
+        "q": "Was malt die Person am liebsten?",
+        "opts": [
+          "Tiere",
+          "Aquarellbilder von der Natur",
+          "Porträts",
+          "Abstrakte Kunst"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie lange spielt die Person schon Gitarre?",
+        "opts": [
+          "Ein Jahr",
+          "Drei Jahre",
+          "Zehn Jahre",
+          "Seit der Kindheit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Person am Wochenende oft mit Freunden?",
+        "opts": [
+          "Schwimmen",
+          "Klettern",
+          "Kochen",
+          "Tanzen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Person im Winter?",
+        "opts": [
+          "Schwimmen",
+          "Ski fahren",
+          "Wandern",
+          "Gärtnern"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wann liest die Person gerne?",
+        "opts": [
+          "Beim Sport",
+          "Wenn es draußen regnet",
+          "Beim Essen",
+          "Nie"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "ব্যক্তিগত শখ নিয়ে একটি passage — hobby ও leisure-time vocabulary।"
+  },
+  {
+    "slug": "job",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "indigo",
+    "icon": "💼",
+    "xp": 25,
+    "words": 115,
+    "time": 3,
+    "titleDe": "Der neue Job",
+    "titleBn": "নতুন চাকরি",
+    "textDe": "<p>Letzten Monat habe ich eine neue Stelle als <span class=\"voc\" tabindex=\"0\" data-bn=\"বিক্রয় সহকারী\">Verkäuferin</span> in einem Kleidergeschäft begonnen. Am ersten Tag war ich sehr nervös, aber meine Kollegen waren sehr freundlich.</p><p>Meine Aufgaben sind: Kunden beraten, Kleidung sortieren und die Kasse bedienen. Die Arbeit macht mir Spaß, weil ich gerne mit Menschen spreche. Mein <span class=\"voc\" tabindex=\"0\" data-bn=\"তত্ত্বাবধায়ক\">Vorgesetzter</span> ist sehr geduldig und gibt mir gute Tipps.</p><p>Manchmal ist es stressig, besonders samstags, wenn viele Kunden im Geschäft sind. Trotzdem bin ich froh über meinen neuen Job, weil ich jeden Tag etwas Neues lerne.</p>",
+    "textBn": "গত মাসে আমি একটি কাপড়ের দোকানে বিক্রয় সহকারী হিসেবে নতুন চাকরি শুরু করেছি। প্রথম দিন আমি খুব নার্ভাস ছিলাম, কিন্তু আমার সহকর্মীরা খুব বন্ধুত্বপূর্ণ ছিল।<br><br>আমার কাজ হলো: গ্রাহকদের পরামর্শ দেওয়া, কাপড় গুছানো এবং ক্যাশ কাউন্টার সামলানো। কাজটা আমার ভালো লাগে, কারণ আমি মানুষের সাথে কথা বলতে পছন্দ করি। আমার তত্ত্বাবধায়ক খুব ধৈর্যশীল এবং আমাকে ভালো পরামর্শ দেন।<br><br>মাঝে মাঝে এটা চাপের হয়, বিশেষ করে শনিবার, যখন দোকানে অনেক গ্রাহক থাকে। তবুও আমি আমার নতুন চাকরি নিয়ে খুশি, কারণ আমি প্রতিদিন নতুন কিছু শিখি।",
+    "questions": [
+      {
+        "q": "Was ist die neue Stelle der Person?",
+        "opts": [
+          "Lehrerin",
+          "Verkäuferin in einem Kleidergeschäft",
+          "Köchin",
+          "Ärztin"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war die Person am ersten Tag?",
+        "opts": [
+          "Sehr ruhig",
+          "Sehr nervös",
+          "Wütend",
+          "Müde"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was gehört zu den Aufgaben der Person?",
+        "opts": [
+          "Nur putzen",
+          "Kunden beraten, Kleidung sortieren, Kasse bedienen",
+          "Nur Kasse bedienen",
+          "Lieferungen fahren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wann ist die Arbeit besonders stressig?",
+        "opts": [
+          "Montags",
+          "Samstags",
+          "Nie",
+          "Nachts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie findet die Person ihren neuen Job insgesamt?",
+        "opts": [
+          "Sie hasst ihn",
+          "Sie ist froh darüber",
+          "Sie ist gleichgültig",
+          "Sie möchte kündigen"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "নতুন চাকরির প্রথম অভিজ্ঞতা — workplace vocabulary ও feelings প্রকাশ।"
+  },
+  {
+    "slug": "post",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "gold",
+    "icon": "📮",
+    "xp": 25,
+    "words": 110,
+    "time": 3,
+    "titleDe": "Auf der Post",
+    "titleBn": "ডাকঘরে",
+    "textDe": "<p>Heute musste ich ein Paket an meine Schwester schicken, die in einer anderen Stadt wohnt. Also bin ich zur <span class=\"voc\" tabindex=\"0\" data-bn=\"ডাকঘর\">Post</span> gegangen. Dort gab es eine kleine Schlange, also habe ich ein paar Minuten gewartet.</p><p>Der Mitarbeiter hat mein Paket gewogen und gefragt, ob es zerbrechliche Sachen enthält. Ich habe gesagt, dass ein Buch und ein Pullover darin sind. Er hat mir eine <span class=\"voc\" tabindex=\"0\" data-bn=\"স্ট্যাম্প\">Briefmarke</span> gegeben.</p><p>Insgesamt hat es siebeneinhalb Euro gekostet. Der Mitarbeiter hat gesagt, dass das Paket in zwei bis drei Tagen ankommen sollte. Ich war froh, dass alles so schnell und einfach war.</p>",
+    "textBn": "আজ আমাকে আমার বোনের কাছে একটা পার্সেল পাঠাতে হলো, যে অন্য একটা শহরে থাকে। তাই আমি ডাকঘরে গেলাম। সেখানে একটা ছোট লাইন ছিল, তাই কয়েক মিনিট অপেক্ষা করলাম।<br><br>কর্মী আমার পার্সেলটা ওজন করলেন এবং জিজ্ঞেস করলেন এতে ভাঙনযোগ্য জিনিস আছে কি না। আমি বললাম এতে একটা বই ও একটা সোয়েটার আছে। তিনি আমাকে একটা স্ট্যাম্প দিলেন।<br><br>মোট সাড়ে সাত ইউরো লেগেছিল। কর্মী বললেন পার্সেলটা দুই থেকে তিন দিনের মধ্যে পৌঁছে যাবে। আমি খুশি হলাম যে সবকিছু এত দ্রুত ও সহজভাবে হয়ে গেল।",
+    "questions": [
+      {
+        "q": "Was wollte die Person schicken?",
+        "opts": [
+          "Einen Brief",
+          "Ein Paket",
+          "Geld",
+          "Blumen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "An wen wollte die Person das Paket schicken?",
+        "opts": [
+          "An ihre Mutter",
+          "An ihre Schwester",
+          "An einen Freund",
+          "An sich selbst"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat der Mitarbeiter zuerst gemacht?",
+        "opts": [
+          "Das Paket geöffnet",
+          "Das Paket gewogen",
+          "Geld verlangt",
+          "Das Paket weggeworfen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was war im Paket?",
+        "opts": [
+          "Schuhe und Socken",
+          "Ein Buch und ein Pullover",
+          "Essen",
+          "Elektronik"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viel hat das Paket gekostet?",
+        "opts": [
+          "5 Euro",
+          "7,50 Euro",
+          "15 Euro",
+          "20 Euro"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "ডাকঘরে পার্সেল পাঠানোর গল্প — everyday errand vocabulary।"
+  },
+  {
+    "slug": "zoo",
+    "level": "A2",
+    "category": "Alltag",
+    "color": "rose",
+    "icon": "🦁",
+    "xp": 25,
+    "words": 120,
+    "time": 3,
+    "titleDe": "Ein Tag im Zoo",
+    "titleBn": "চিড়িয়াখানায় একটি দিন",
+    "textDe": "<p>Am Sonntag haben wir mit unseren Kindern den Zoo besucht. Schon am Eingang waren die Kinder sehr aufgeregt. Zuerst haben wir die <span class=\"voc\" tabindex=\"0\" data-bn=\"হাতি\">Elefanten</span> gesehen, die im großen Wasserbecken gebadet haben.</p><p>Danach sind wir zu den Affen gegangen, die lustig von Baum zu Baum gesprungen sind. Um zwölf Uhr haben wir eine Pause gemacht und im Zoo-Restaurant gegessen. Am Nachmittag haben wir noch die Löwen und die <span class=\"voc\" tabindex=\"0\" data-bn=\"জিরাফ\">Giraffen</span> beobachtet.</p><p>Die Kinder haben besonders die Fütterung der Pinguine geliebt. Am Ende des Tages waren alle müde, aber sehr glücklich.</p>",
+    "textBn": "রবিবার আমরা আমাদের বাচ্চাদের নিয়ে চিড়িয়াখানায় গিয়েছিলাম। প্রবেশপথেই বাচ্চারা খুব উত্তেজিত ছিল। প্রথমে আমরা হাতি দেখলাম, যারা বড় পানির চৌবাচ্চায় স্নান করছিল।<br><br>এরপর আমরা বানরদের কাছে গেলাম, যারা মজা করে এক গাছ থেকে আরেক গাছে লাফাচ্ছিল। বারোটার সময় আমরা বিরতি নিয়ে চিড়িয়াখানার রেস্তোরাঁয় খেলাম। বিকেলে আমরা সিংহ ও জিরাফও দেখলাম।<br><br>বাচ্চারা বিশেষ করে পেঙ্গুইনদের খাওয়ানো দেখতে খুব পছন্দ করেছিল। দিনের শেষে সবাই ক্লান্ত ছিল, কিন্তু খুব খুশি।",
+    "questions": [
+      {
+        "q": "Wann haben sie den Zoo besucht?",
+        "opts": [
+          "Am Samstag",
+          "Am Sonntag",
+          "Am Montag",
+          "Am Freitag"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welches Tier haben sie zuerst gesehen?",
+        "opts": [
+          "Löwen",
+          "Elefanten",
+          "Affen",
+          "Pinguine"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben sie um zwölf Uhr gemacht?",
+        "opts": [
+          "Den Zoo verlassen",
+          "Eine Pause gemacht und gegessen",
+          "Fotos gemacht",
+          "Geschlafen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben die Kinder besonders geliebt?",
+        "opts": [
+          "Die Fütterung der Pinguine",
+          "Die Elefanten",
+          "Das Eis",
+          "Die Souvenirs"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Wie war die Stimmung am Ende des Tages?",
+        "opts": [
+          "Traurig",
+          "Müde, aber glücklich",
+          "Wütend",
+          "Gelangweilt"
+        ],
+        "correct": 1
+      }
+    ],
+    "descBn": "পরিবারসহ চিড়িয়াখানা ভ্রমণ — animal vocabulary ও পারিবারিক দিন।"
+  }
+]

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Import Reading Passages — Deutsch Lernen (Admin Tool)</title>
+<style>
+  body{background:#04080f;color:#f0f4f8;font-family:'Segoe UI',sans-serif;max-width:760px;margin:2.5rem auto;padding:0 1.2rem;line-height:1.6;}
+  h1{font-size:1.4rem;margin-bottom:.3rem;}
+  p{color:#94a3b8;font-size:14px;}
+  button{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;border:none;border-radius:10px;padding:.8rem 1.6rem;font-size:14px;cursor:pointer;margin:1rem 0;}
+  button:disabled{opacity:.5;cursor:not-allowed;}
+  #log{background:#0c1322;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1rem 1.2rem;font-family:monospace;font-size:12.5px;white-space:pre-wrap;max-height:420px;overflow-y:auto;}
+  .ok{color:#34d399;}
+  .err{color:#fb7185;}
+  .warn{color:#f5c842;}
+</style>
+</head>
+<body>
+  <h1>📥 Reading Passages — Bulk Import</h1>
+  <p>
+    এই page একবার ব্যবহারের জন্য — <code>seed-data/reading-passages.json</code> ফাইল থেকে সব passage পড়ে
+    Firestore-এর <code>reading_passages</code> collection-এ লিখে দেয় (প্রতিটার Firestore doc id = তার <code>slug</code>,
+    তাই দ্বিতীয়বার চালালেও duplicate হবে না, শুধু overwrite হবে)।
+  </p>
+  <p class="warn">⚠️ admin হিসেবে login করা অবস্থায় এই page চালান (Firestore rule-এ যদি write-access শুধু admin-দের জন্য রাখা থাকে)। কাজ শেষ হলে এই file আর deploy করার দরকার নেই।</p>
+  <button id="btn-import">Import সব Passage Firestore-এ লেখো</button>
+  <div id="log">প্রস্তুত। বাটনে ক্লিক করুন...</div>
+
+<script type="module">
+import { auth, db, requireAuth, doc, setDoc, serverTimestamp } from "./js/firebase-config.js";
+/*
+  NOTE: needs setDoc + serverTimestamp re-exported from js/firebase-config.js
+  (in addition to doc, getDoc, updateDoc, arrayUnion, increment already used elsewhere).
+*/
+
+const logEl = document.getElementById("log");
+const btn = document.getElementById("btn-import");
+function log(msg, cls) {
+  const line = document.createElement("div");
+  if (cls) line.className = cls;
+  line.textContent = msg;
+  logEl.appendChild(line);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+requireAuth(async (user) => {
+  log(`লগইন করা আছে: ${user.email || user.uid}`, "ok");
+});
+
+btn.addEventListener("click", async () => {
+  btn.disabled = true;
+  logEl.innerHTML = "";
+  log("seed-data/reading-passages.json পড়া হচ্ছে...");
+
+  let passages;
+  try {
+    const res = await fetch("./seed-data/reading-passages.json");
+    passages = await res.json();
+  } catch (e) {
+    log("❌ JSON file পড়তে সমস্যা হয়েছে: " + e.message, "err");
+    btn.disabled = false;
+    return;
+  }
+
+  log(`${passages.length}টা passage পাওয়া গেছে। Firestore-এ লেখা শুরু হচ্ছে...`);
+
+  let okCount = 0, errCount = 0;
+  for (const p of passages) {
+    const { slug, ...data } = p;
+    try {
+      await setDoc(doc(db, "reading_passages", slug), {
+        ...data,
+        updatedAt: serverTimestamp(),
+      });
+      okCount++;
+      log(`✅ ${slug} (${data.level} · ${data.titleDe})`, "ok");
+    } catch (e) {
+      errCount++;
+      log(`❌ ${slug} ব্যর্থ: ${e.message}`, "err");
+    }
+  }
+
+  log(`\n--- শেষ ---\nসফল: ${okCount}  ব্যর্থ: ${errCount}`, errCount ? "warn" : "ok");
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
