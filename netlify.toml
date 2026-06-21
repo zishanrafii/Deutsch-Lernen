@@ -1,0 +1,15 @@
+# netlify.toml — Deutsch Lernen
+# Tells Netlify where the serverless functions live.
+
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+
+# Optional: redirect so the frontend can call a shorter path
+[[redirects]]
+  from = "/api/writing-feedback"
+  to = "/.netlify/functions/writing-feedback"
+  status = 200
