@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sein & haben — Grammatik — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);--gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;--accent:#34d399;--accent2:#10b981;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(52,211,153,.06),transparent 60%),radial-gradient(ellipse 60% 50% at 100% 100%,rgba(245,200,66,.04),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;background:rgba(8,14,26,.88);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.logo-text h1{font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-text p{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:4px;}
+.nav-link{padding:.35rem .8rem;border-radius:9px;font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-link.active{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.28);color:var(--emerald);}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.85rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.35rem .8rem;border-radius:9px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.breadcrumb{background:rgba(52,211,153,.04);border-bottom:1px solid rgba(52,211,153,.1);padding:.6rem 1.5rem;position:relative;z-index:1;}
+.breadcrumb-inner{max-width:960px;margin:auto;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);}
+.breadcrumb a{color:var(--sub);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{color:var(--emerald);}
+.breadcrumb-cur{color:var(--emerald);font-weight:700;}
+.wrap{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem 6rem;position:relative;z-index:1;}
+.progress-bar-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:1rem 1.3rem;margin-bottom:2rem;display:flex;align-items:center;gap:14px;}
+.progress-label{font-size:11px;font-weight:700;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.progress-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:20px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease;width:0%;}
+.progress-pct{font-size:12px;font-weight:800;color:var(--accent);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.topic-hero{margin-bottom:2rem;}
+.topic-meta{display:flex;align-items:center;gap:8px;margin-bottom:1rem;flex-wrap:wrap;}
+.meta-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:20px;border:1px solid;}
+.meta-level{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3);color:var(--emerald);}
+.meta-cat{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);color:var(--sky);}
+.meta-xp{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.topic-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:.6rem;}
+.topic-title .accent{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topic-subtitle{font-size:13.5px;color:var(--sub);line-height:1.75;font-family:'Noto Sans Bengali',sans-serif;max-width:680px;}
+.section-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2rem;}
+.snav-btn{padding:.4rem 1rem;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--sub);font-family:'Outfit',sans-serif;transition:.2s;text-decoration:none;}
+.snav-btn:hover{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3);color:var(--emerald);}
+.section-block{margin-bottom:2.8rem;}
+.sec-heading{display:flex;align-items:center;gap:10px;margin-bottom:1.3rem;}
+.sec-heading-icon{width:36px;height:36px;border-radius:10px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.sec-heading-text h3{font-size:1rem;font-weight:800;color:var(--text);}
+.sec-heading-text p{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;margin-top:2px;}
+.theory-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
+.theory-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.theory-card h4{font-size:.9rem;font-weight:800;color:var(--emerald);margin-bottom:.75rem;}
+.theory-text{font-size:13.5px;line-height:1.9;color:var(--text);font-family:'Noto Sans Bengali',sans-serif;}
+.theory-text strong{color:var(--gold);font-family:'Outfit',sans-serif;}
+.theory-text em{color:var(--emerald);font-style:normal;font-weight:700;font-family:'Outfit',sans-serif;}
+.gram-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:13px;}
+.gram-table th{background:rgba(52,211,153,.1);color:var(--emerald);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;padding:.6rem .9rem;text-align:left;border:1px solid rgba(52,211,153,.15);}
+.gram-table td{padding:.6rem .9rem;border:1px solid rgba(255,255,255,.05);color:var(--text);font-size:13px;}
+.gram-table tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+.gram-table tr:hover td{background:rgba(52,211,153,.04);}
+.gram-table td.hl{color:var(--emerald);font-weight:700;font-family:'JetBrains Mono',monospace;}
+.gram-table td.gold{color:var(--gold);font-weight:700;font-family:'JetBrains Mono',monospace;}
+.tips-box{background:rgba(245,200,66,.05);border:1px solid rgba(245,200,66,.18);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;}
+.tips-box h4{font-size:12px;font-weight:800;color:var(--gold);margin-bottom:.7rem;}
+.tips-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.tips-list li{font-size:13px;line-height:1.7;color:var(--text);display:flex;gap:8px;font-family:'Noto Sans Bengali',sans-serif;}
+.tips-list li::before{content:'✦';color:var(--gold);flex-shrink:0;}
+.warn-box{background:rgba(251,113,133,.05);border:1px solid rgba(251,113,133,.18);border-radius:14px;padding:1rem 1.3rem;margin-bottom:1rem;}
+.warn-box h4{font-size:12px;font-weight:800;color:var(--rose);margin-bottom:.6rem;}
+.warn-text{font-size:13px;line-height:1.75;color:var(--text);font-family:'Noto Sans Bengali',sans-serif;}
+.examples-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.ex-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.85rem 1rem;transition:.2s;}
+.ex-card:hover{background:rgba(255,255,255,.04);border-color:rgba(52,211,153,.15);}
+.ex-de{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:.3rem;}
+.ex-de em{font-style:normal;color:var(--emerald);font-weight:800;}
+.ex-bn{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+.ex-note{font-size:10.5px;color:var(--emerald);font-family:'JetBrains Mono',monospace;margin-top:4px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1rem;}
+.practice-section{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:1.8rem;margin-bottom:1.5rem;}
+.practice-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;flex-wrap:wrap;gap:.7rem;}
+.practice-title{font-size:1rem;font-weight:800;}
+.practice-sub{font-size:11.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-top:2px;}
+.q-counter{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:4px 12px;border-radius:20px;}
+.question-wrap{margin-bottom:1rem;}
+.q-type-badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;padding:2px 9px;border-radius:20px;margin-bottom:.6rem;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);color:var(--emerald);}
+.q-num{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:.4rem;}
+.q-text{font-size:14.5px;font-weight:700;line-height:1.6;margin-bottom:1rem;font-family:'Noto Sans Bengali',sans-serif;}
+.q-text strong{font-family:'Outfit',sans-serif;color:var(--gold);}
+.options{display:flex;flex-direction:column;gap:7px;margin-bottom:.7rem;}
+.opt{width:100%;padding:.72rem 1rem;border-radius:11px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;text-align:left;transition:.2s;display:flex;align-items:center;gap:10px;}
+.opt:hover:not(:disabled){background:rgba(255,255,255,.07);border-color:rgba(52,211,153,.25);}
+.opt.correct{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald);}
+.opt.wrong{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.35);color:var(--rose);}
+.opt:disabled{cursor:default;}
+.opt-letter{width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+.opt.correct .opt-letter{background:rgba(52,211,153,.2);border-color:rgba(52,211,153,.4);}
+.opt.wrong .opt-letter{background:rgba(251,113,133,.2);border-color:rgba(251,113,133,.3);}
+.fill-wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
+.fill-sentence{font-size:14px;font-weight:600;line-height:2;}
+.fill-input{background:rgba(255,255,255,.05);border:2px solid rgba(52,211,153,.3);border-radius:9px;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:.35rem .7rem;width:100px;outline:none;text-align:center;transition:.2s;}
+.fill-input:focus{border-color:var(--emerald);box-shadow:0 0 0 3px rgba(52,211,153,.1);}
+.fill-input.correct{border-color:var(--emerald);background:rgba(52,211,153,.08);color:var(--emerald);}
+.fill-input.wrong{border-color:var(--rose);background:rgba(251,113,133,.08);color:var(--rose);}
+.btn-check{padding:.45rem 1.1rem;border-radius:9px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:var(--emerald);font-weight:700;font-family:'Outfit',sans-serif;font-size:12.5px;cursor:pointer;transition:.2s;}
+.btn-check:hover{background:rgba(52,211,153,.22);}
+.feedback-msg{font-size:12.5px;line-height:1.65;padding:.65rem 1rem;border-radius:10px;margin-top:.5rem;font-family:'Noto Sans Bengali',sans-serif;display:none;}
+.feedback-msg.show{display:block;}
+.feedback-msg.ok{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);color:#a7f3d0;}
+.feedback-msg.bad{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.2);color:#fecdd3;}
+.btn-next{margin-top:.9rem;width:100%;padding:.8rem;border:none;border-radius:13px;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;font-family:'Outfit',sans-serif;font-size:14px;cursor:pointer;transition:.2s;display:none;}
+.btn-next:hover{filter:brightness(1.08);}
+.btn-next.show{display:block;}
+.result-panel{text-align:center;padding:2rem;background:var(--surface2);border:1px solid var(--border);border-radius:18px;display:none;margin-top:1rem;}
+.result-panel.show{display:block;}
+.result-emoji{font-size:3.5rem;margin-bottom:.8rem;}
+.result-score{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
+.result-label{font-size:13.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.8rem;line-height:1.6;}
+.result-xp{display:inline-flex;align-items:center;gap:6px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);border-radius:20px;padding:5px 18px;font-size:12px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-bottom:1.4rem;}
+.result-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.btn-retry{padding:.7rem 1.6rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text);border-radius:12px;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:13px;}
+.btn-retry:hover{background:rgba(255,255,255,.09);}
+.btn-next-topic{padding:.7rem 1.6rem;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;border:none;border-radius:12px;cursor:pointer;font-weight:800;font-family:'Outfit',sans-serif;font-size:13px;text-decoration:none;display:inline-block;}
+.score-tracker{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem;}
+.score-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);transition:.3s;}
+.score-dot.correct{background:var(--emerald);border-color:var(--emerald);box-shadow:0 0 6px rgba(52,211,153,.4);}
+.score-dot.wrong{background:var(--rose);border-color:var(--rose);}
+.topic-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05);gap:1rem;flex-wrap:wrap;}
+.tnav-btn{display:flex;align-items:center;gap:9px;padding:.75rem 1.2rem;border-radius:13px;border:1px solid var(--border);background:rgba(255,255,255,.03);text-decoration:none;color:var(--sub);transition:.3s;font-size:13px;font-weight:600;}
+.tnav-btn:hover{background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.25);color:var(--text);}
+.tnav-info small{font-size:10px;color:var(--muted);display:block;font-family:'JetBrains Mono',monospace;}
+.tnav-btn.next-t{flex-direction:row-reverse;text-align:right;}
+.back-to-list{display:flex;align-items:center;gap:7px;padding:.6rem 1.1rem;border-radius:11px;border:1px solid rgba(52,211,153,.2);background:rgba(52,211,153,.07);color:var(--emerald);text-decoration:none;font-size:12.5px;font-weight:700;}
+footer{border-top:1px solid rgba(255,255,255,.05);}
+.footer-bottom{max-width:960px;margin:auto;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+@media(max-width:700px){.examples-grid,.two-col{grid-template-columns:1fr;}.nav-links{display:none;}.wrap{padding:1.8rem 1rem 4rem;}}
+@media(max-width:480px){.topbar{flex-direction:column;align-items:flex-start;}.topic-nav{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../dashboard.html" class="logo">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text"><h1>Deutsch Lernen</h1><p>GRAMMATIK · SEIN & HABEN</p></div>
+  </a>
+  <div class="topbar-right">
+    <nav class="nav-links">
+      <a href="../dashboard.html" class="nav-link">Home</a>
+      <a href="../grammatik.html" class="nav-link active">Grammatik</a>
+      <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
+      <a href="../woerterbuch.html" class="nav-link">Wörterbuch</a>
+    </nav>
+    <div class="user-section">
+      <div class="user-avatar" id="nav-avatar">👤</div>
+      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+</div>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../grammatik.html">📘 Grammatik</a>
+    <span>›</span>
+    <span class="breadcrumb-cur">🔑 sein & haben</span>
+  </div>
+</div>
+<div class="wrap">
+  <div class="progress-bar-wrap">
+    <span class="progress-label">অগ্রগতি</span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <span class="progress-pct" id="progress-pct">0%</span>
+  </div>
+  <div class="topic-hero">
+    <div class="topic-meta">
+      <span class="meta-badge meta-level">A1 · Anfänger</span>
+      <span class="meta-badge meta-cat">Verben</span>
+      <span class="meta-badge meta-xp">⚡ +20 XP</span>
+    </div>
+    <h1 class="topic-title">🔑 <span class="accent">sein</span> & <span class="accent">haben</span></h1>
+    <p class="topic-subtitle">German-এর সবচেয়ে গুরুত্বপূর্ণ দুটি verb — "sein" (হওয়া) ও "haben" (থাকা/রাখা)। এই দুটি verb ছাড়া German বলা সম্ভব না। সম্পূর্ণ conjugation, ব্যবহার, Perfekt tense-এ সাহায্য এবং সব প্রেক্ষাপট এখানে শিখবে।</p>
+  </div>
+  <div class="section-nav">
+    <a href="#theory" class="snav-btn">📖 তত্ত্ব</a>
+    <a href="#konjugation" class="snav-btn">📊 Konjugation</a>
+    <a href="#usage" class="snav-btn">🎯 ব্যবহার</a>
+    <a href="#perfekt" class="snav-btn">⏮️ Perfekt</a>
+    <a href="#examples" class="snav-btn">💡 উদাহরণ</a>
+    <a href="#practice" class="snav-btn">✏️ Practice</a>
+  </div>
+
+  <!-- THEORY -->
+  <div class="section-block" id="theory">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">📖</div>
+      <div class="sec-heading-text"><h3>sein ও haben কী?</h3><p>মূল ধারণা বাংলায়</p></div>
+    </div>
+    <div class="theory-card">
+      <h4>🇧🇩 বাংলায় বুঝি</h4>
+      <div class="theory-text">
+        <strong>sein</strong> মানে "হওয়া" বা "আছে" — বাংলার "আমি ছাত্র", "সে ক্লান্ত" এর মতো।<br>
+        <strong>haben</strong> মানে "থাকা" বা "রাখা" — বাংলার "আমার একটি বই আছে" এর মতো।<br><br>
+        এই দুটি verb irregular — মুখস্থ করতে হবে। কিন্তু এগুলো এত বেশি ব্যবহার হয় যে শীঘ্রই automatic হয়ে যাবে।<br><br>
+        এছাড়া, এই দুটি verb German-এর <em>Hilfsverb</em> (helping verb) — Perfekt tense তৈরিতে ব্যবহার হয়।
+      </div>
+    </div>
+  </div>
+
+  <!-- KONJUGATION -->
+  <div class="section-block" id="konjugation">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">📊</div>
+      <div class="sec-heading-text"><h3>সম্পূর্ণ Konjugation</h3><p>Präsens, Präteritum, Konjunktiv II</p></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="theory-card">
+          <h4>sein — Präsens (বর্তমান)</h4>
+          <div class="theory-text">
+            <strong>ich</strong> <em>bin</em><br>
+            <strong>du</strong> <em>bist</em><br>
+            <strong>er/sie/es</strong> <em>ist</em><br>
+            <strong>wir</strong> <em>sind</em><br>
+            <strong>ihr</strong> <em>seid</em><br>
+            <strong>sie/Sie</strong> <em>sind</em>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="theory-card">
+          <h4>haben — Präsens (বর্তমান)</h4>
+          <div class="theory-text">
+            <strong>ich</strong> <em>habe</em><br>
+            <strong>du</strong> <em>hast</em><br>
+            <strong>er/sie/es</strong> <em>hat</em><br>
+            <strong>wir</strong> <em>haben</em><br>
+            <strong>ihr</strong> <em>habt</em><br>
+            <strong>sie/Sie</strong> <em>haben</em>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="theory-card">
+          <h4>sein — Präteritum (Simple Past)</h4>
+          <div class="theory-text">
+            <strong>ich</strong> <em>war</em><br>
+            <strong>du</strong> <em>warst</em><br>
+            <strong>er/sie/es</strong> <em>war</em><br>
+            <strong>wir</strong> <em>waren</em><br>
+            <strong>ihr</strong> <em>wart</em><br>
+            <strong>sie/Sie</strong> <em>waren</em>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="theory-card">
+          <h4>haben — Präteritum (Simple Past)</h4>
+          <div class="theory-text">
+            <strong>ich</strong> <em>hatte</em><br>
+            <strong>du</strong> <em>hattest</em><br>
+            <strong>er/sie/es</strong> <em>hatte</em><br>
+            <strong>wir</strong> <em>hatten</em><br>
+            <strong>ihr</strong> <em>hattet</em><br>
+            <strong>sie/Sie</strong> <em>hatten</em>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="theory-card">
+          <h4>sein — Konjunktiv II (Hypothetical)</h4>
+          <div class="theory-text">
+            <strong>ich</strong> <em>wäre</em><br>
+            <strong>du</strong> <em>wärst</em><br>
+            <strong>er/sie/es</strong> <em>wäre</em><br>
+            <strong>wir</strong> <em>wären</em><br>
+            <strong>ihr</strong> <em>wärt</em><br>
+            <strong>sie/Sie</strong> <em>wären</em>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="theory-card">
+          <h4>haben — Konjunktiv II</h4>
+          <div class="theory-text">
+            <strong>ich</strong> <em>hätte</em><br>
+            <strong>du</strong> <em>hättest</em><br>
+            <strong>er/sie/es</strong> <em>hätte</em><br>
+            <strong>wir</strong> <em>hätten</em><br>
+            <strong>ihr</strong> <em>hättet</em><br>
+            <strong>sie/Sie</strong> <em>hätten</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USAGE -->
+  <div class="section-block" id="usage">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">🎯</div>
+      <div class="sec-heading-text"><h3>কখন sein, কখন haben?</h3><p>সঠিক ব্যবহার শেখো</p></div>
+    </div>
+    <div class="theory-card">
+      <h4>✅ sein ব্যবহার করো যখন —</h4>
+      <div class="theory-text">
+        1. <strong>পরিচয় ও পেশা:</strong> Ich bin Student. / Er ist Arzt.<br>
+        2. <strong>অবস্থা ও অনুভূতি:</strong> Ich bin müde. / Sie ist krank. / Wir sind glücklich.<br>
+        3. <strong>জাতীয়তা ও উৎস:</strong> Ich bin Bangladeschisch. / Er ist aus Berlin.<br>
+        4. <strong>বয়স:</strong> Ich bin 20 Jahre alt.<br>
+        5. <strong>সময় ও তারিখ:</strong> Es ist 10 Uhr. / Heute ist Montag.<br>
+        6. <strong>আবহাওয়া:</strong> Es ist kalt. / Es ist sonnig.<br>
+        7. <strong>অবস্থান (স্থির):</strong> Das Buch ist auf dem Tisch.
+      </div>
+    </div>
+    <div class="theory-card">
+      <h4>✅ haben ব্যবহার করো যখন —</h4>
+      <div class="theory-text">
+        1. <strong>অধিকার/মালিকানা:</strong> Ich habe ein Buch. / Er hat ein Auto.<br>
+        2. <strong>শারীরিক অনুভূতি:</strong> Ich habe Hunger. / Sie hat Durst. / Er hat Schmerzen.<br>
+        3. <strong>সম্পর্ক:</strong> Ich habe einen Bruder. / Wir haben Freunde.<br>
+        4. <strong>সময়:</strong> Ich habe keine Zeit. / Hast du Zeit?<br>
+        5. <strong>বয়স (informal):</strong> Er hat 25 Jahre. (less common than sein)<br>
+        6. <strong>Angst, Lust, Recht ইত্যাদি:</strong> Ich habe Angst. / Du hast recht.
+      </div>
+    </div>
+    <div class="tips-box">
+      <h4>💡 Idiomatic Expressions — মুখস্থ করো</h4>
+      <ul class="tips-list">
+        <li><strong>Hunger haben</strong> = ক্ষুধা পাওয়া (I am hungry = Ich habe Hunger)</li>
+        <li><strong>Durst haben</strong> = তৃষ্ণা পাওয়া (I am thirsty = Ich habe Durst)</li>
+        <li><strong>Angst haben</strong> = ভয় পাওয়া (I am afraid = Ich habe Angst)</li>
+        <li><strong>Recht haben</strong> = সঠিক হওয়া (You are right = Du hast recht)</li>
+        <li><strong>Lust haben</strong> = ইচ্ছা থাকা (I feel like it = Ich habe Lust)</li>
+        <li><strong>Es eilig haben</strong> = তাড়া থাকা (I am in a hurry = Ich habe es eilig)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PERFEKT -->
+  <div class="section-block" id="perfekt">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">⏮️</div>
+      <div class="sec-heading-text"><h3>Perfekt Tense-এ Hilfsverb</h3><p>sein ও haben Helping verb হিসেবে</p></div>
+    </div>
+    <div class="theory-card">
+      <h4>⚠️ Perfekt = haben/sein + Partizip II</h4>
+      <div class="theory-text">
+        German spoken past tense (Perfekt) তৈরি হয় haben বা sein + Partizip II দিয়ে।<br><br>
+        <strong>haben নেয়:</strong> বেশিরভাগ transitive verbs (object আছে এমন)<br>
+        Ich habe gegessen. | Er hat das Buch gelesen. | Wir haben gespielt.<br><br>
+        <strong>sein নেয়:</strong> Motion verbs ও state-change verbs<br>
+        Ich bin gegangen. | Er ist gefahren. | Sie ist aufgewacht. | Wir sind geblieben.<br><br>
+        <em>Trick:</em> যদি verb-এ motion (movement) বা state change থাকে এবং object না থাকে → <strong>sein</strong>।
+      </div>
+    </div>
+    <table class="gram-table">
+      <tr><th>Verb</th><th>Partizip II</th><th>Hilfsverb</th><th>Perfekt</th></tr>
+      <tr><td>essen (খাওয়া)</td><td class="hl">gegessen</td><td class="gold">haben</td><td>Ich habe gegessen</td></tr>
+      <tr><td>gehen (যাওয়া)</td><td class="hl">gegangen</td><td class="hl">sein</td><td>Ich bin gegangen</td></tr>
+      <tr><td>schreiben (লেখা)</td><td class="hl">geschrieben</td><td class="gold">haben</td><td>Er hat geschrieben</td></tr>
+      <tr><td>fahren (চলা)</td><td class="hl">gefahren</td><td class="hl">sein</td><td>Wir sind gefahren</td></tr>
+      <tr><td>schlafen (ঘুমানো)</td><td class="hl">geschlafen</td><td class="gold">haben</td><td>Du hast geschlafen</td></tr>
+      <tr><td>kommen (আসা)</td><td class="hl">gekommen</td><td class="hl">sein</td><td>Er ist gekommen</td></tr>
+      <tr><td>lesen (পড়া)</td><td class="hl">gelesen</td><td class="gold">haben</td><td>Sie hat gelesen</td></tr>
+      <tr><td>bleiben (থাকা)</td><td class="hl">geblieben</td><td class="hl">sein</td><td>Ich bin geblieben</td></tr>
+    </table>
+  </div>
+
+  <!-- EXAMPLES -->
+  <div class="section-block" id="examples">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">💡</div>
+      <div class="sec-heading-text"><h3>বাস্তব উদাহরণ</h3><p>দৈনন্দিন জীবনে sein ও haben</p></div>
+    </div>
+    <div class="theory-card" style="margin-bottom:.8rem;"><h4>🧑 পরিচয় ও অবস্থা</h4></div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Ich <em>bin</em> Student.</div><div class="ex-bn">আমি ছাত্র।</div><div class="ex-note">sein → পরিচয়</div></div>
+      <div class="ex-card"><div class="ex-de">Er <em>ist</em> sehr müde.</div><div class="ex-bn">সে অনেক ক্লান্ত।</div><div class="ex-note">sein → অবস্থা</div></div>
+      <div class="ex-card"><div class="ex-de">Wir <em>sind</em> aus Dhaka.</div><div class="ex-bn">আমরা ঢাকা থেকে।</div><div class="ex-note">sein → উৎস</div></div>
+      <div class="ex-card"><div class="ex-de">Es <em>ist</em> kalt heute.</div><div class="ex-bn">আজকে ঠান্ডা।</div><div class="ex-note">sein → আবহাওয়া</div></div>
+    </div>
+    <div class="theory-card" style="margin-bottom:.8rem;"><h4>🎒 অধিকার ও অনুভূতি</h4></div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Ich <em>habe</em> Hunger.</div><div class="ex-bn">আমার ক্ষুধা পেয়েছে।</div><div class="ex-note">haben → শারীরিক অনুভূতি</div></div>
+      <div class="ex-card"><div class="ex-de">Sie <em>hat</em> ein Fahrrad.</div><div class="ex-bn">তার একটি সাইকেল আছে।</div><div class="ex-note">haben → অধিকার</div></div>
+      <div class="ex-card"><div class="ex-de">Wir <em>haben</em> keine Zeit.</div><div class="ex-bn">আমাদের সময় নেই।</div><div class="ex-note">haben → সময়</div></div>
+      <div class="ex-card"><div class="ex-de">Du <em>hast</em> Recht!</div><div class="ex-bn">তুমি ঠিক বলেছ!</div><div class="ex-note">haben → idiomatic</div></div>
+    </div>
+    <div class="theory-card" style="margin-bottom:.8rem;"><h4>⏮️ Perfekt Tense</h4></div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Ich <em>habe</em> Deutsch gelernt.</div><div class="ex-bn">আমি German শিখেছি।</div><div class="ex-note">haben + Partizip II</div></div>
+      <div class="ex-card"><div class="ex-de">Er <em>ist</em> nach Berlin gefahren.</div><div class="ex-bn">সে বার্লিন গেছে।</div><div class="ex-note">sein + Partizip II (motion)</div></div>
+      <div class="ex-card"><div class="ex-de">Wir <em>haben</em> Pizza gegessen.</div><div class="ex-bn">আমরা পিৎজা খেয়েছি।</div><div class="ex-note">haben + gegessen</div></div>
+      <div class="ex-card"><div class="ex-de">Sie <em>ist</em> früh aufgewacht.</div><div class="ex-bn">সে ভোরে উঠেছে।</div><div class="ex-note">sein + state change</div></div>
+    </div>
+  </div>
+
+  <!-- PRACTICE -->
+  <div class="section-block" id="practice">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">✏️</div>
+      <div class="sec-heading-text"><h3>Practice করো</h3><p>sein ও haben — সব form ও ব্যবহার</p></div>
+    </div>
+    <div class="practice-section">
+      <div class="practice-header">
+        <div>
+          <div class="practice-title">🎯 sein & haben Practice</div>
+          <div class="practice-sub">Conjugation, usage, Perfekt — সব ধরনের প্রশ্ন</div>
+        </div>
+        <div class="q-counter" id="q-counter">প্রশ্ন ১ / ৩০</div>
+      </div>
+      <div class="score-tracker" id="score-tracker"></div>
+      <div id="practice-area"></div>
+      <div class="result-panel" id="result-panel">
+        <div class="result-emoji" id="result-emoji"></div>
+        <div class="result-score" id="result-score"></div>
+        <div class="result-label" id="result-label"></div>
+        <div class="result-xp" id="result-xp">⚡ +20 XP অর্জিত!</div>
+        <div class="result-actions">
+          <button class="btn-retry" id="btn-retry">🔄 আবার চেষ্টা করো</button>
+          <a href="praesens.html" class="btn-next-topic">পরের Topic: Präsens →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="plural.html" class="tnav-btn">
+      <div>📦</div>
+      <div class="tnav-info"><small>আগের Topic</small>Nomen Plural</div>
+    </a>
+    <a href="../grammatik.html" class="back-to-list">↑ সব Topics</a>
+    <a href="praesens.html" class="tnav-btn next-t">
+      <div>⏱️</div>
+      <div class="tnav-info"><small>পরের Topic</small>Präsens</div>
+    </a>
+  </div>
+</div>
+<footer>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year"></span> Deutsch Lernen · sein & haben</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners</div>
+  </div>
+</footer>
+<script type="module">
+import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+document.getElementById("btn-logout").addEventListener("click", async () => { await signOut(auth); location.href = "../index.html"; });
+
+const QUESTIONS = [
+  {type:"mcq",q:"Ich ___ Student। (আমি ছাত্র)",opts:["habe","bist","bin","ist"],ans:2,fb:"ich + sein → <strong>bin</strong>।"},
+  {type:"mcq",q:"Du ___ müde। (তুমি ক্লান্ত)",opts:["bist","bin","ist","seid"],ans:0,fb:"du + sein → <strong>bist</strong>।"},
+  {type:"mcq",q:"Er ___ Arzt। (সে ডাক্তার)",opts:["bin","bist","ist","sind"],ans:2,fb:"er + sein → <strong>ist</strong>।"},
+  {type:"mcq",q:"Wir ___ Freunde। (আমরা বন্ধু)",opts:["bin","bist","ist","sind"],ans:3,fb:"wir + sein → <strong>sind</strong>।"},
+  {type:"mcq",q:"Ihr ___ pünktlich। (তোমরা সময়মতো)",opts:["sind","seid","bin","ist"],ans:1,fb:"ihr + sein → <strong>seid</strong>।"},
+  {type:"mcq",q:"Sie (formal) ___ Lehrerin। (তিনি শিক্ষিকা)",opts:["bin","ist","sind","seid"],ans:2,fb:"Sie (formal) + sein → <strong>sind</strong>।"},
+  {type:"mcq",q:"Ich ___ Hunger। (আমার ক্ষুধা পেয়েছে)",opts:["bin","bist","habe","hat"],ans:2,fb:"Hunger haben → ich <strong>habe</strong> Hunger।"},
+  {type:"mcq",q:"Er ___ ein Auto। (তার একটি গাড়ি আছে)",opts:["ist","bin","haben","hat"],ans:3,fb:"er + haben → <strong>hat</strong>।"},
+  {type:"mcq",q:"Wir ___ keine Zeit। (আমাদের সময় নেই)",opts:["sind","haben","habt","habe"],ans:1,fb:"wir + haben → <strong>haben</strong>।"},
+  {type:"mcq",q:"Du ___ Recht। (তুমি ঠিক বলেছ)",opts:["bist","hast","hat","habt"],ans:1,fb:"du + haben → <strong>hast</strong> Recht।"},
+  {type:"fill",sentence:"Ich ___ krank.",blank:"bin",hint:"ich + sein",fb:"ich + sein = <strong>bin</strong>। Ich bin krank (আমি অসুস্থ)।"},
+  {type:"fill",sentence:"Sie ___ Angst.",blank:"hat",hint:"sie (she) + haben",fb:"sie + haben = <strong>hat</strong>। Sie hat Angst (তার ভয় লাগছে)।"},
+  {type:"fill",sentence:"Wir ___ in Berlin.",blank:"sind",hint:"wir + sein (অবস্থান)",fb:"wir + sein = <strong>sind</strong>। Wir sind in Berlin।"},
+  {type:"fill",sentence:"Ihr ___ viel Geld.",blank:"habt",hint:"ihr + haben",fb:"ihr + haben = <strong>habt</strong>। Ihr habt viel Geld (তোমাদের অনেক টাকা আছে)।"},
+  {type:"mcq",q:"Perfekt-এ 'gehen' কোন Hilfsverb নেয়?",opts:["haben","sein","werden","dürfen"],ans:1,fb:"gehen → motion verb → <strong>sein</strong>। Ich bin gegangen।"},
+  {type:"mcq",q:"Perfekt-এ 'essen' কোন Hilfsverb নেয়?",opts:["sein","werden","haben","dürfen"],ans:2,fb:"essen → transitive → <strong>haben</strong>। Ich habe gegessen।"},
+  {type:"mcq",q:"'Ich ___ nach Hause gegangen.' — সঠিক form?",opts:["habe","hat","bin","ist"],ans:2,fb:"gehen (motion) → sein → ich <strong>bin</strong> gegangen।"},
+  {type:"mcq",q:"'Er ___ das Buch gelesen.' — সঠিক form?",opts:["ist","bin","sind","hat"],ans:3,fb:"lesen → transitive → haben → er <strong>hat</strong> gelesen।"},
+  {type:"mcq",q:"Präteritum-এ 'ich sein' কী হয়?",opts:["war","wäre","wurde","hatte"],ans:0,fb:"sein Präteritum: ich → <strong>war</strong>।"},
+  {type:"mcq",q:"Präteritum-এ 'wir haben' কী হয়?",opts:["hatten","hatte","hattet","hätten"],ans:0,fb:"haben Präteritum: wir → <strong>hatten</strong>।"},
+  {type:"fill",sentence:"Gestern ___ ich sehr müde.",blank:"war",hint:"sein Präteritum, ich",fb:"sein Präteritum: ich → <strong>war</strong>। Gestern war ich müde (গতকাল আমি ক্লান্ত ছিলাম)।"},
+  {type:"fill",sentence:"Früher ___ wir viel Zeit.",blank:"hatten",hint:"haben Präteritum, wir",fb:"haben Präteritum: wir → <strong>hatten</strong>। (আগে আমাদের অনেক সময় ছিল)।"},
+  {type:"mcq",q:"Konjunktiv II-তে 'ich sein' কী?",opts:["wäre","war","sei","würde sein"],ans:0,fb:"sein Konjunktiv II: ich → <strong>wäre</strong>।"},
+  {type:"mcq",q:"Konjunktiv II-তে 'er haben' কী?",opts:["habe","hatte","hätte","hat"],ans:2,fb:"haben Konjunktiv II: er → <strong>hätte</strong>।"},
+  {type:"fill",sentence:"Wenn ich reich ___, würde ich reisen.",blank:"wäre",hint:"sein Konjunktiv II",fb:"sein Konj. II → ich <strong>wäre</strong>। (যদি আমি ধনী হতাম)।"},
+  {type:"mcq",q:"'Es ___ 10 Uhr.' — sein বা haben?",opts:["hat","habe","ist","bin"],ans:2,fb:"সময় বলতে sein ব্যবহার হয়: Es <strong>ist</strong> 10 Uhr।"},
+  {type:"mcq",q:"'Ich ___ Durst.' — কোনটা সঠিক?",opts:["bin","ist","habe","hat"],ans:2,fb:"Durst haben (তৃষ্ণা থাকা): ich <strong>habe</strong> Durst।"},
+  {type:"fill",sentence:"Sie ___ früh aufgewacht.",blank:"ist",hint:"aufwachen → state change → sein",fb:"aufwachen → sein: sie <strong>ist</strong> aufgewacht।"},
+  {type:"mcq",q:"'bleiben' Perfekt-এ কোন Hilfsverb?",opts:["haben","werden","sein","dürfen"],ans:2,fb:"bleiben → state verb → <strong>sein</strong>। Ich bin geblieben।"},
+  {type:"fill",sentence:"Du ___ Recht gehabt.",blank:"hast",hint:"haben Perfekt, du — Recht haben",fb:"haben (transitive) → du <strong>hast</strong> Recht gehabt।"},
+];
+
+let current=0,score=0,answered=false,results=[],xpSaved=false;
+function initDots(){const w=document.getElementById("score-tracker");w.innerHTML=QUESTIONS.map((_,i)=>`<div class="score-dot" id="dot-${i}"></div>`).join("");}
+function markDot(i,ok){const el=document.getElementById("dot-"+i);if(el)el.classList.add(ok?"correct":"wrong");}
+function updateProgress(){const p=Math.round((current/QUESTIONS.length)*100);document.getElementById("progress-fill").style.width=p+"%";document.getElementById("progress-pct").textContent=p+"%";document.getElementById("q-counter").textContent=`প্রশ্ন ${current+1} / ${QUESTIONS.length}`;}
+function renderQ(){
+  if(current>=QUESTIONS.length){showResult();return;}
+  answered=false;updateProgress();
+  const q=QUESTIONS[current],area=document.getElementById("practice-area");
+  if(q.type==="mcq"){
+    area.innerHTML=`<div class="question-wrap"><div class="q-type-badge">MCQ</div><div class="q-num">প্রশ্ন ${current+1} / ${QUESTIONS.length}</div><div class="q-text">${q.q}</div><div class="options">${q.opts.map((o,i)=>`<button class="opt" data-idx="${i}"><span class="opt-letter">${String.fromCharCode(65+i)}</span>${o}</button>`).join("")}</div><div class="feedback-msg" id="fb"></div></div><button class="btn-next" id="btn-next">পরের প্রশ্ন →</button>`;
+    area.querySelectorAll(".opt").forEach(btn=>{btn.addEventListener("click",()=>{if(answered)return;answered=true;const idx=parseInt(btn.dataset.idx),ok=idx===q.ans;if(ok)score++;results.push(ok);markDot(current,ok);area.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(parseInt(b.dataset.idx)===q.ans)b.classList.add("correct");else if(parseInt(b.dataset.idx)===idx&&!ok)b.classList.add("wrong");});const fb=document.getElementById("fb");fb.innerHTML=q.fb;fb.classList.add("show",ok?"ok":"bad");document.getElementById("btn-next").classList.add("show");});});
+  }else{
+    area.innerHTML=`<div class="question-wrap"><div class="q-type-badge">Fill in the blank</div><div class="q-num">প্রশ্ন ${current+1} / ${QUESTIONS.length}</div><div class="q-text">সঠিক form লিখো:</div><div class="fill-wrap"><span class="fill-sentence">${q.sentence.replace("___",`<input type="text" class="fill-input" id="fill-inp" placeholder="?" autocomplete="off">`)}</span></div><div style="font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.8rem;">💡 Hint: ${q.hint}</div><button class="btn-check" id="btn-check">উত্তর দেখো</button><div class="feedback-msg" id="fb"></div></div><button class="btn-next" id="btn-next">পরের প্রশ্ন →</button>`;
+    const inp=document.getElementById("fill-inp");inp.focus();
+    function checkFill(){if(answered)return;answered=true;const val=inp.value.trim().toLowerCase(),ok=val===q.blank.toLowerCase();if(ok)score++;results.push(ok);markDot(current,ok);inp.classList.add(ok?"correct":"wrong");inp.disabled=true;if(!ok)inp.value=q.blank;const fb=document.getElementById("fb");fb.innerHTML=q.fb;fb.classList.add("show",ok?"ok":"bad");document.getElementById("btn-check").style.display="none";document.getElementById("btn-next").classList.add("show");}
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter")checkFill();});
+    document.getElementById("btn-check").addEventListener("click",checkFill);
+  }
+  document.getElementById("btn-next").addEventListener("click",()=>{if(!answered)return;current++;renderQ();});
+}
+function showResult(){
+  document.getElementById("practice-area").innerHTML="";
+  document.getElementById("progress-fill").style.width="100%";document.getElementById("progress-pct").textContent="100%";
+  const total=QUESTIONS.length,pct=Math.round((score/total)*100);
+  const emoji=pct===100?"🏆":pct>=80?"🎉":pct>=60?"💪":"📚";
+  const label=pct>=80?"দারুণ! sein ও haben ভালোভাবে শিখেছ।":pct>=60?"ভালো! Conjugation table আরেকবার দেখো।":"আরো practice করো। দুটো table মুখস্থ করো।";
+  const xp=pct>=80?20:pct>=60?15:10;
+  document.getElementById("result-emoji").textContent=emoji;document.getElementById("result-score").textContent=`${score}/${total} (${pct}%)`;document.getElementById("result-label").textContent=label;document.getElementById("result-xp").textContent=`⚡ +${xp} XP অর্জিত!`;document.getElementById("result-panel").classList.add("show");
+  if(!xpSaved){xpSaved=true;if(window.__uid)updateDoc(doc(db,"users",window.__uid),{xp:increment(xp),completedTopics:arrayUnion("sein-haben")}).catch(()=>{});}
+}
+document.getElementById("btn-retry").addEventListener("click",()=>{current=0;score=0;answered=false;results=[];xpSaved=false;document.getElementById("result-panel").classList.remove("show");initDots();renderQ();});
+requireAuth(async user=>{window.__uid=user.uid;const snap=await getDoc(doc(db,"users",user.uid));const d=snap.exists()?snap.data():{};document.getElementById("nav-name").textContent=d.displayName||user.displayName||"Lerner";const av=document.getElementById("nav-avatar");const photo=d.photoURL||user.photoURL||"";if(photo)av.innerHTML=`<img src="${photo}" alt="">`;else av.textContent=(d.displayName||"L")[0].toUpperCase();initDots();renderQ();});
+</script>
+</body>
+</html>

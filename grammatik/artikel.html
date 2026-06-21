@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artikel (der/die/das) — Grammatik — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+  --accent:#818cf8;--accent2:#6366f1;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(129,140,248,.06),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.04),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;background:rgba(8,14,26,.88);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.logo-text h1{font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-text p{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:4px;}
+.nav-link{padding:.35rem .8rem;border-radius:9px;font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-link.active{background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.28);color:var(--indigo);}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.85rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.35rem .8rem;border-radius:9px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);}
+
+/* BREADCRUMB */
+.breadcrumb{background:rgba(129,140,248,.04);border-bottom:1px solid rgba(129,140,248,.1);padding:.6rem 1.5rem;position:relative;z-index:1;}
+.breadcrumb-inner{max-width:960px;margin:auto;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);}
+.breadcrumb a{color:var(--sub);text-decoration:none;font-weight:600;transition:.2s;}
+.breadcrumb a:hover{color:var(--indigo);}
+.breadcrumb-sep{color:var(--muted);}
+.breadcrumb-cur{color:var(--indigo);font-weight:700;}
+
+/* WRAP */
+.wrap{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem 6rem;position:relative;z-index:1;}
+
+/* HERO */
+.topic-hero{margin-bottom:2.5rem;}
+.topic-meta{display:flex;align-items:center;gap:8px;margin-bottom:1rem;flex-wrap:wrap;}
+.meta-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:20px;border:1px solid;}
+.meta-level{background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.3);color:var(--indigo);}
+.meta-cat{background:rgba(45,212,248,.08);border-color:rgba(56,189,248,.25);color:var(--sky);}
+.meta-xp{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.topic-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:.6rem;}
+.topic-title .accent{background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topic-subtitle{font-size:13.5px;color:var(--sub);line-height:1.75;font-family:'Noto Sans Bengali',sans-serif;max-width:680px;}
+
+/* PROGRESS BAR */
+.progress-bar-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:1rem 1.3rem;margin-bottom:2rem;display:flex;align-items:center;gap:14px;}
+.progress-label{font-size:11px;font-weight:700;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.progress-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:20px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease;width:0%;}
+.progress-pct{font-size:12px;font-weight:800;color:var(--accent);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+
+/* NAV DOTS */
+.section-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2rem;}
+.snav-btn{padding:.4rem 1rem;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--sub);font-family:'Outfit',sans-serif;transition:.2s;text-decoration:none;}
+.snav-btn:hover,.snav-btn.active{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.35);color:var(--indigo);}
+
+/* SECTION BLOCKS */
+.section-block{margin-bottom:2.8rem;}
+.sec-heading{display:flex;align-items:center;gap:10px;margin-bottom:1.3rem;}
+.sec-heading-icon{width:36px;height:36px;border-radius:10px;background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.sec-heading-text h3{font-size:1rem;font-weight:800;color:var(--text);}
+.sec-heading-text p{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;margin-top:2px;}
+
+/* THEORY CARD */
+.theory-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
+.theory-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.theory-card h4{font-size:.9rem;font-weight:800;color:var(--accent);margin-bottom:.75rem;display:flex;align-items:center;gap:7px;}
+.theory-text{font-size:13.5px;line-height:1.9;color:var(--text);font-family:'Noto Sans Bengali',sans-serif;}
+.theory-text strong{color:var(--gold);font-family:'Outfit',sans-serif;}
+.theory-text em{color:var(--teal);font-style:normal;font-weight:700;font-family:'Outfit',sans-serif;}
+
+/* TABLE */
+.gram-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:13px;}
+.gram-table th{background:rgba(129,140,248,.1);color:var(--indigo);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;padding:.6rem .9rem;text-align:left;border:1px solid rgba(129,140,248,.15);}
+.gram-table td{padding:.6rem .9rem;border:1px solid rgba(255,255,255,.05);color:var(--text);font-size:13px;vertical-align:top;}
+.gram-table tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+.gram-table tr:hover td{background:rgba(129,140,248,.04);}
+.gram-table td.hl{color:var(--gold);font-weight:700;font-family:'JetBrains Mono',monospace;}
+.gram-table td.der{color:#818cf8;font-weight:700;}
+.gram-table td.die{color:#fb7185;font-weight:700;}
+.gram-table td.das{color:#2dd4bf;font-weight:700;}
+.gram-table td.pl{color:#fb923c;font-weight:700;}
+
+/* FORMULA BOX */
+.formula-box{background:rgba(129,140,248,.06);border:1px solid rgba(129,140,248,.2);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;}
+.formula-label{font-size:9.5px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;}
+.formula-text{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:#c7d2fe;line-height:1.8;}
+
+/* TIPS BOX */
+.tips-box{background:rgba(245,200,66,.05);border:1px solid rgba(245,200,66,.18);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;}
+.tips-box h4{font-size:12px;font-weight:800;color:var(--gold);margin-bottom:.7rem;display:flex;align-items:center;gap:6px;}
+.tips-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.tips-list li{font-size:13px;line-height:1.7;color:var(--text);display:flex;gap:8px;font-family:'Noto Sans Bengali',sans-serif;}
+.tips-list li::before{content:'✦';color:var(--gold);flex-shrink:0;margin-top:1px;}
+
+/* WARN BOX */
+.warn-box{background:rgba(251,113,133,.05);border:1px solid rgba(251,113,133,.18);border-radius:14px;padding:1rem 1.3rem;margin-bottom:1rem;}
+.warn-box h4{font-size:12px;font-weight:800;color:var(--rose);margin-bottom:.6rem;display:flex;align-items:center;gap:6px;}
+.warn-text{font-size:13px;line-height:1.75;color:var(--text);font-family:'Noto Sans Bengali',sans-serif;}
+
+/* EXAMPLES */
+.examples-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.ex-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.85rem 1rem;transition:.2s;}
+.ex-card:hover{background:rgba(255,255,255,.04);border-color:rgba(129,140,248,.15);}
+.ex-de{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:.3rem;line-height:1.5;}
+.ex-de em{font-style:normal;color:var(--gold);font-weight:800;}
+.ex-bn{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;line-height:1.5;}
+.ex-note{font-size:10.5px;color:var(--indigo);font-family:'JetBrains Mono',monospace;margin-top:4px;}
+
+/* PRACTICE SECTION */
+.practice-section{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:1.8rem;margin-bottom:1.5rem;}
+.practice-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;flex-wrap:wrap;gap:.7rem;}
+.practice-title{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px;}
+.practice-sub{font-size:11.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-top:2px;}
+.q-counter{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:4px 12px;border-radius:20px;}
+
+/* QUESTION */
+.question-wrap{margin-bottom:1rem;}
+.q-type-badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;padding:2px 9px;border-radius:20px;margin-bottom:.6rem;background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.2);color:var(--indigo);}
+.q-num{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:.4rem;}
+.q-text{font-size:14.5px;font-weight:700;line-height:1.6;margin-bottom:1rem;font-family:'Noto Sans Bengali',sans-serif;}
+.q-text strong{font-family:'Outfit',sans-serif;color:var(--gold);font-size:1rem;}
+.q-text em{font-style:normal;color:var(--teal);}
+
+/* OPTIONS */
+.options{display:flex;flex-direction:column;gap:7px;margin-bottom:.7rem;}
+.opt{width:100%;padding:.72rem 1rem;border-radius:11px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;text-align:left;transition:.2s;display:flex;align-items:center;gap:10px;}
+.opt:hover:not(:disabled){background:rgba(255,255,255,.07);border-color:rgba(129,140,248,.25);}
+.opt.correct{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald);}
+.opt.wrong{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.35);color:var(--rose);}
+.opt:disabled{cursor:default;}
+.opt-letter{width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'JetBrains Mono',monospace;flex-shrink:0;transition:.2s;}
+.opt.correct .opt-letter{background:rgba(52,211,153,.2);border-color:rgba(52,211,153,.4);}
+.opt.wrong .opt-letter{background:rgba(251,113,133,.2);border-color:rgba(251,113,133,.3);}
+
+/* FILL-IN-BLANK */
+.fill-wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
+.fill-sentence{font-size:14px;font-weight:600;line-height:2;}
+.fill-input{background:rgba(255,255,255,.05);border:2px solid rgba(129,140,248,.3);border-radius:9px;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:.35rem .7rem;width:90px;outline:none;text-align:center;transition:.2s;}
+.fill-input:focus{border-color:var(--indigo);box-shadow:0 0 0 3px rgba(129,140,248,.1);}
+.fill-input.correct{border-color:var(--emerald);background:rgba(52,211,153,.08);color:var(--emerald);}
+.fill-input.wrong{border-color:var(--rose);background:rgba(251,113,133,.08);color:var(--rose);}
+.btn-check{padding:.45rem 1.1rem;border:none;border-radius:9px;background:rgba(129,140,248,.15);border:1px solid rgba(129,140,248,.3);color:var(--indigo);font-weight:700;font-family:'Outfit',sans-serif;font-size:12.5px;cursor:pointer;transition:.2s;}
+.btn-check:hover{background:rgba(129,140,248,.25);}
+
+/* FEEDBACK */
+.feedback-msg{font-size:12.5px;line-height:1.65;padding:.65rem 1rem;border-radius:10px;margin-top:.5rem;font-family:'Noto Sans Bengali',sans-serif;display:none;}
+.feedback-msg.show{display:block;}
+.feedback-msg.ok{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);color:#a7f3d0;}
+.feedback-msg.bad{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.2);color:#fecdd3;}
+
+/* NEXT BTN */
+.btn-next{margin-top:.9rem;width:100%;padding:.8rem;border:none;border-radius:13px;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;font-family:'Outfit',sans-serif;font-size:14px;cursor:pointer;transition:.2s;display:none;}
+.btn-next:hover{filter:brightness(1.08);}
+.btn-next.show{display:block;}
+
+/* RESULT PANEL */
+.result-panel{text-align:center;padding:2rem;background:var(--surface2);border:1px solid var(--border);border-radius:18px;display:none;margin-top:1rem;}
+.result-panel.show{display:block;}
+.result-emoji{font-size:3.5rem;margin-bottom:.8rem;}
+.result-score{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
+.result-label{font-size:13.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.8rem;line-height:1.6;}
+.result-xp{display:inline-flex;align-items:center;gap:6px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);border-radius:20px;padding:5px 18px;font-size:12px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-bottom:1.4rem;}
+.result-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.btn-retry{padding:.7rem 1.6rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text);border-radius:12px;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:13px;transition:.2s;}
+.btn-retry:hover{background:rgba(255,255,255,.09);}
+.btn-next-topic{padding:.7rem 1.6rem;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;border:none;border-radius:12px;cursor:pointer;font-weight:800;font-family:'Outfit',sans-serif;font-size:13px;transition:.2s;text-decoration:none;display:inline-block;}
+.btn-next-topic:hover{filter:brightness(1.08);}
+
+/* SCORE TRACKER */
+.score-tracker{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem;}
+.score-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);transition:.3s;}
+.score-dot.correct{background:var(--emerald);border-color:var(--emerald);box-shadow:0 0 6px rgba(52,211,153,.4);}
+.score-dot.wrong{background:var(--rose);border-color:var(--rose);}
+
+/* TOPIC NAV (bottom) */
+.topic-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05);gap:1rem;flex-wrap:wrap;}
+.tnav-btn{display:flex;align-items:center;gap:9px;padding:.75rem 1.2rem;border-radius:13px;border:1px solid var(--border);background:rgba(255,255,255,.03);text-decoration:none;color:var(--sub);transition:.3s;font-size:13px;font-weight:600;}
+.tnav-btn:hover{background:rgba(129,140,248,.07);border-color:rgba(129,140,248,.25);color:var(--text);}
+.tnav-icon{font-size:1.1rem;}
+.tnav-info small{font-size:10px;color:var(--muted);display:block;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.tnav-btn.back{flex-direction:row;}
+.tnav-btn.next-t{flex-direction:row-reverse;text-align:right;}
+.back-to-list{display:flex;align-items:center;gap:7px;padding:.6rem 1.1rem;border-radius:11px;border:1px solid rgba(129,140,248,.2);background:rgba(129,140,248,.07);color:var(--indigo);text-decoration:none;font-size:12.5px;font-weight:700;transition:.2s;}
+.back-to-list:hover{background:rgba(129,140,248,.14);}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
+.footer-bottom{max-width:960px;margin:auto;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+
+@media(max-width:700px){.examples-grid{grid-template-columns:1fr;}.nav-links{display:none;}.wrap{padding:1.8rem 1rem 4rem;}}
+@media(max-width:480px){.topbar{flex-direction:column;align-items:flex-start;}.topic-nav{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="../dashboard.html" class="logo" style="text-decoration:none">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text"><h1>Deutsch Lernen</h1><p>GRAMMATIK · ARTIKEL</p></div>
+  </a>
+  <div class="topbar-right">
+    <nav class="nav-links">
+      <a href="../dashboard.html"   class="nav-link">Home</a>
+      <a href="../grammatik.html"   class="nav-link active">Grammatik</a>
+      <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
+      <a href="../woerterbuch.html" class="nav-link">Wörterbuch</a>
+    </nav>
+    <div class="user-section">
+      <div class="user-avatar" id="nav-avatar">👤</div>
+      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../grammatik.html">📘 Grammatik</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-cur">🔖 Artikel (der / die / das)</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-wrap">
+    <span class="progress-label">অগ্রগতি</span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <span class="progress-pct" id="progress-pct">0%</span>
+  </div>
+
+  <!-- TOPIC HERO -->
+  <div class="topic-hero">
+    <div class="topic-meta">
+      <span class="meta-badge meta-level">A1 · Anfänger</span>
+      <span class="meta-badge meta-cat">Artikel</span>
+      <span class="meta-badge meta-xp">⚡ +20 XP</span>
+    </div>
+    <h1 class="topic-title">🔖 <span class="accent">Artikel</span> — der, die, das</h1>
+    <p class="topic-subtitle">German-এর প্রতিটি Nomen (noun)-এর একটি নির্দিষ্ট article থাকে। এই lesson-এ তুমি শিখবে কোন noun-এ কোন article বসে, কীভাবে cases অনুযায়ী article বদলায়, এবং কিছু মনে রাখার সহজ tricks।</p>
+  </div>
+
+  <!-- SECTION NAV -->
+  <div class="section-nav">
+    <a href="#theory" class="snav-btn active">📖 তত্ত্ব</a>
+    <a href="#cases"  class="snav-btn">🔄 Cases</a>
+    <a href="#rules"  class="snav-btn">📏 Rules & Tricks</a>
+    <a href="#examples" class="snav-btn">💡 উদাহরণ</a>
+    <a href="#practice" class="snav-btn">🎯 Practice</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — THEORY
+  ══════════════════════════════════════════ -->
+  <div class="section-block" id="theory">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">📖</div>
+      <div class="sec-heading-text"><h3>German Article কী?</h3><p>মূল ধারণা বাংলায়</p></div>
+    </div>
+
+    <div class="theory-card">
+      <h4>🇧🇩 বাংলায় বুঝি</h4>
+      <div class="theory-text">
+        বাংলায় আমরা "একটা বই", "ওই মেয়েটা" এভাবে বলি — কিন্তু noun-এর কোনো gender নেই।<br><br>
+        German-এ প্রতিটি noun-এর একটি <strong>Genus (gender)</strong> আছে — Masculine (পুংলিঙ্গ), Feminine (স্ত্রীলিঙ্গ), বা Neuter (ক্লীবলিঙ্গ)। এই gender অনুযায়ী article বদলায়।<br><br>
+        Article দুই ধরনের:<br>
+        • <em>Definite article</em> (নির্দিষ্ট): <strong>der / die / das</strong> → বাংলার "ওই / সেই" এর মতো<br>
+        • <em>Indefinite article</em> (অনির্দিষ্ট): <strong>ein / eine / ein</strong> → বাংলার "একটা / কোনো" এর মতো
+      </div>
+    </div>
+
+    <table class="gram-table">
+      <tr><th>Gender</th><th>Definite (নির্দিষ্ট)</th><th>Indefinite (অনির্দিষ্ট)</th><th>উদাহরণ</th></tr>
+      <tr><td>Maskulin (পুংলিঙ্গ)</td><td class="der">der</td><td class="der">ein</td><td>der Mann, ein Mann (লোক)</td></tr>
+      <tr><td>Feminin (স্ত্রীলিঙ্গ)</td><td class="die">die</td><td class="die">eine</td><td>die Frau, eine Frau (মহিলা)</td></tr>
+      <tr><td>Neutrum (ক্লীবলিঙ্গ)</td><td class="das">das</td><td class="das">ein</td><td>das Kind, ein Kind (শিশু)</td></tr>
+      <tr><td>Plural (বহুবচন)</td><td class="pl">die</td><td class="pl">— (keine)</td><td>die Männer, die Frauen</td></tr>
+    </table>
+
+    <div class="warn-box">
+      <h4>⚠️ মনে রেখো!</h4>
+      <div class="warn-text">German-এ noun-এর gender অনেক সময় English বা বাংলার মতো logical না। যেমন <strong>das Mädchen</strong> (মেয়ে) — neuter! কারণ -chen দিয়ে শেষ হলে সবসময় das। তাই article সবসময় noun-এর সাথে মনে রাখতে হবে।</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — CASES
+  ══════════════════════════════════════════ -->
+  <div class="section-block" id="cases">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">🔄</div>
+      <div class="sec-heading-text"><h3>Cases অনুযায়ী Article পরিবর্তন</h3><p>Nominativ, Akkusativ, Dativ, Genitiv</p></div>
+    </div>
+
+    <div class="theory-card">
+      <h4>📌 Case কী?</h4>
+      <div class="theory-text">
+        German-এ noun বাক্যে কোন ভূমিকা পালন করছে সেটা <strong>case</strong> দিয়ে বোঝা যায়। Case অনুযায়ী article বদলায়।<br><br>
+        • <em>Nominativ</em> → Subject (কে কাজ করছে): <strong>Der</strong> Mann schläft.<br>
+        • <em>Akkusativ</em> → Direct Object (কাকে / কীকে): Ich sehe <strong>den</strong> Mann.<br>
+        • <em>Dativ</em> → Indirect Object (কাকে দেওয়া হচ্ছে): Ich gebe <strong>dem</strong> Mann das Buch.<br>
+        • <em>Genitiv</em> → Possession (কার): Das ist das Buch <strong>des</strong> Mannes.
+      </div>
+    </div>
+
+    <div class="theory-card">
+      <h4>📊 Definite Article (der/die/das) — সব Cases</h4>
+    </div>
+    <table class="gram-table">
+      <tr><th>Case</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr>
+      <tr><td><strong>Nominativ</strong></td><td class="der">der</td><td class="die">die</td><td class="das">das</td><td class="pl">die</td></tr>
+      <tr><td><strong>Akkusativ</strong></td><td class="der">den ⚠️</td><td class="die">die</td><td class="das">das</td><td class="pl">die</td></tr>
+      <tr><td><strong>Dativ</strong></td><td class="der">dem</td><td class="die">der ⚠️</td><td class="das">dem</td><td class="pl">den</td></tr>
+      <tr><td><strong>Genitiv</strong></td><td class="der">des</td><td class="die">der</td><td class="das">des</td><td class="pl">der</td></tr>
+    </table>
+
+    <div class="theory-card">
+      <h4>📊 Indefinite Article (ein/eine/ein) — সব Cases</h4>
+    </div>
+    <table class="gram-table">
+      <tr><th>Case</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr>
+      <tr><td><strong>Nominativ</strong></td><td class="der">ein</td><td class="die">eine</td><td class="das">ein</td><td class="pl">— (keine)</td></tr>
+      <tr><td><strong>Akkusativ</strong></td><td class="der">einen ⚠️</td><td class="die">eine</td><td class="das">ein</td><td class="pl">— (keine)</td></tr>
+      <tr><td><strong>Dativ</strong></td><td class="der">einem</td><td class="die">einer ⚠️</td><td class="das">einem</td><td class="pl">— (keinen)</td></tr>
+      <tr><td><strong>Genitiv</strong></td><td class="der">eines</td><td class="die">einer</td><td class="das">eines</td><td class="pl">— (keiner)</td></tr>
+    </table>
+
+    <div class="tips-box">
+      <h4>💡 সহজ মনে রাখার উপায়</h4>
+      <ul class="tips-list">
+        <li>শুধু <strong>Masculine Akkusativ</strong>-এ der → <strong>den</strong> / ein → <strong>einen</strong> হয় — বাকি cases-এ Feminine ও Neuter Accusative পরিবর্তন হয় না।</li>
+        <li>Dativ-এ Feminine-এ <strong>die → der</strong> হয়ে যায় — confusing! কিন্তু মনে রাখো "Dativ feminine = der"।</li>
+        <li>Genitiv Masculine ও Neuter-এ noun-এ <strong>-(e)s</strong> যোগ হয়: des Mann<strong>es</strong>, des Kind<strong>es</strong>।</li>
+        <li>Plural Dativ-এ noun-এ <strong>-n</strong> যোগ হয়: den Männer<strong>n</strong>, den Fraue<strong>n</strong>।</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — RULES & TRICKS
+  ══════════════════════════════════════════ -->
+  <div class="section-block" id="rules">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">📏</div>
+      <div class="sec-heading-text"><h3>Gender মনে রাখার Rules ও Tricks</h3><p>Ending দেখে article বলো</p></div>
+    </div>
+
+    <div class="theory-card">
+      <h4>🔵 সবসময় <span style="color:#818cf8">der</span> (Masculine)</h4>
+      <div class="theory-text">
+        Ending দিয়ে চেনো:<br>
+        • <strong>-er</strong> (agent/doer): der Lehrer, der Bäcker, der Fahrer<br>
+        • <strong>-ling</strong>: der Frühling, der Lehrling<br>
+        • <strong>-ig</strong>: der Honig, der König<br>
+        • <strong>-or</strong>: der Motor, der Doktor<br>
+        • <strong>-ismus</strong>: der Tourismus, der Realismus<br><br>
+        Category দিয়ে চেনো:<br>
+        • পুরুষ মানুষ ও পেশা: der Mann, der Arzt, der Student<br>
+        • দিন, মাস, ঋতু: der Montag, der Januar, der Sommer<br>
+        • দিকনির্দেশ: der Norden, der Süden, der Osten, der Westen<br>
+        • অ্যালকোহল (beer ছাড়া): der Wein, der Sekt, der Wodka
+      </div>
+    </div>
+
+    <div class="theory-card">
+      <h4>🔴 সবসময় <span style="color:#fb7185">die</span> (Feminine)</h4>
+      <div class="theory-text">
+        Ending দিয়ে চেনো:<br>
+        • <strong>-ung</strong>: die Zeitung, die Wohnung, die Meinung<br>
+        • <strong>-heit / -keit</strong>: die Freiheit, die Möglichkeit, die Gesundheit<br>
+        • <strong>-schaft</strong>: die Freundschaft, die Wissenschaft<br>
+        • <strong>-tion / -sion</strong>: die Nation, die Explosion, die Station<br>
+        • <strong>-tät / -ität</strong>: die Universität, die Qualität, die Aktivität<br>
+        • <strong>-ie</strong>: die Familie, die Energie, die Industrie<br>
+        • <strong>-in</strong> (feminine person): die Lehrerin, die Ärztin, die Studentin<br><br>
+        Category দিয়ে চেনো:<br>
+        • মহিলা ও female nouns: die Frau, die Mutter, die Tochter<br>
+        • সংখ্যা: die Eins, die Zwei, die Million<br>
+        • বেশিরভাগ ফুলের নাম: die Rose, die Tulpe
+      </div>
+    </div>
+
+    <div class="theory-card">
+      <h4>🟢 সবসময় <span style="color:#2dd4bf">das</span> (Neuter)</h4>
+      <div class="theory-text">
+        Ending দিয়ে চেনো:<br>
+        • <strong>-chen / -lein</strong> (diminutive): das Mädchen, das Hündchen, das Büchlein<br>
+        • <strong>-ment</strong>: das Dokument, das Instrument, das Experiment<br>
+        • <strong>-tum</strong>: das Datum, das Eigentum, das Wachstum<br>
+        • <strong>-um</strong>: das Museum, das Aquarium, das Zentrum<br>
+        • <strong>-nis</strong>: das Ergebnis, das Ereignis, das Geheimnis<br><br>
+        Category দিয়ে চেনো:<br>
+        • শিশু ও animal young: das Kind, das Baby, das Lamm<br>
+        • ধাতু ও রাসায়নিক: das Gold, das Silber, das Eisen<br>
+        • ক্রিয়া থেকে তৈরি noun: das Essen, das Schreiben, das Lesen<br>
+        • অন্য ভাষা থেকে -ing এর শব্দ: das Meeting, das Training
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <h4>⚠️ Exceptions — এগুলো মনে রাখতে হবে</h4>
+      <div class="warn-text">
+        • <strong>das Mädchen</strong> (মেয়ে) — -chen → neuter, logical না হলেও এটাই নিয়ম<br>
+        • <strong>die Männer</strong> — Plural সবসময় die<br>
+        • <strong>das Bier</strong> (বিয়ার) — অ্যালকোহল হলেও neuter<br>
+        • <strong>das Messer</strong> (ছুরি) — -er দিয়ে শেষ হলেও neuter<br>
+        • <strong>der See</strong> (হ্রদ) কিন্তু <strong>die See</strong> (সমুদ্র) — same word, different gender, different meaning!
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — EXAMPLES
+  ══════════════════════════════════════════ -->
+  <div class="section-block" id="examples">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">💡</div>
+      <div class="sec-heading-text"><h3>বাস্তব উদাহরণ</h3><p>বাক্যে article-এর ব্যবহার</p></div>
+    </div>
+
+    <div class="theory-card" style="margin-bottom:1rem;">
+      <h4>📌 Nominativ — Subject হিসেবে</h4>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de"><em>Der</em> Mann ist groß.</div><div class="ex-bn">লোকটি লম্বা।</div><div class="ex-note">der Mann (Mask. Nom.)</div></div>
+      <div class="ex-card"><div class="ex-de"><em>Die</em> Frau liest ein Buch.</div><div class="ex-bn">মহিলাটি একটি বই পড়ছে।</div><div class="ex-note">die Frau (Fem. Nom.)</div></div>
+      <div class="ex-card"><div class="ex-de"><em>Das</em> Kind spielt draußen.</div><div class="ex-bn">শিশুটি বাইরে খেলছে।</div><div class="ex-note">das Kind (Neut. Nom.)</div></div>
+      <div class="ex-card"><div class="ex-de"><em>Ein</em> Hund bellt laut.</div><div class="ex-bn">একটি কুকুর জোরে ডাকছে।</div><div class="ex-note">ein Hund (Mask. indef. Nom.)</div></div>
+    </div>
+
+    <div class="theory-card" style="margin-bottom:1rem;">
+      <h4>📌 Akkusativ — Direct Object হিসেবে</h4>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Ich sehe <em>den</em> Mann.</div><div class="ex-bn">আমি লোকটিকে দেখছি।</div><div class="ex-note">den Mann (Mask. Akk.) ← বদলে গেছে!</div></div>
+      <div class="ex-card"><div class="ex-de">Er liebt <em>die</em> Musik.</div><div class="ex-bn">সে সঙ্গীত ভালোবাসে।</div><div class="ex-note">die Musik (Fem. Akk.) ← অপরিবর্তিত</div></div>
+      <div class="ex-card"><div class="ex-de">Sie kauft <em>das</em> Buch.</div><div class="ex-bn">সে বইটি কিনছে।</div><div class="ex-note">das Buch (Neut. Akk.) ← অপরিবর্তিত</div></div>
+      <div class="ex-card"><div class="ex-de">Ich brauche <em>einen</em> Stift.</div><div class="ex-bn">আমার একটি কলম দরকার।</div><div class="ex-note">einen Stift (Mask. indef. Akk.) ← বদলে গেছে!</div></div>
+    </div>
+
+    <div class="theory-card" style="margin-bottom:1rem;">
+      <h4>📌 Dativ — Indirect Object ও Prepositions</h4>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Ich gebe <em>dem</em> Mann das Buch.</div><div class="ex-bn">আমি লোকটিকে বইটি দিচ্ছি।</div><div class="ex-note">dem Mann (Mask. Dat.)</div></div>
+      <div class="ex-card"><div class="ex-de">Er hilft <em>der</em> Frau.</div><div class="ex-bn">সে মহিলাটিকে সাহায্য করছে।</div><div class="ex-note">der Frau (Fem. Dat.) ← die→der!</div></div>
+      <div class="ex-card"><div class="ex-de">Ich fahre mit <em>dem</em> Zug.</div><div class="ex-bn">আমি ট্রেনে যাচ্ছি।</div><div class="ex-note">mit + Dativ → dem Zug</div></div>
+      <div class="ex-card"><div class="ex-de">Sie wohnt bei <em>einer</em> Freundin.</div><div class="ex-bn">সে একজন বান্ধবীর কাছে থাকে।</div><div class="ex-note">bei + Dativ → einer Freundin</div></div>
+    </div>
+
+    <div class="theory-card" style="margin-bottom:1rem;">
+      <h4>📌 Genitiv — Possession বোঝানো</h4>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Das ist das Buch <em>des</em> Mannes.</div><div class="ex-bn">এটা লোকটির বই।</div><div class="ex-note">des Mannes (Mask. Gen. + -es)</div></div>
+      <div class="ex-card"><div class="ex-de">Das ist die Tasche <em>der</em> Frau.</div><div class="ex-bn">এটা মহিলার ব্যাগ।</div><div class="ex-note">der Frau (Fem. Gen.)</div></div>
+      <div class="ex-card"><div class="ex-de">Wegen <em>des</em> Wetters bleibe ich.</div><div class="ex-bn">আবহাওয়ার কারণে আমি থাকছি।</div><div class="ex-note">wegen + Genitiv</div></div>
+      <div class="ex-card"><div class="ex-de">Trotz <em>der</em> Kälte geht er raus.</div><div class="ex-bn">ঠান্ডা সত্ত্বেও সে বাইরে যাচ্ছে।</div><div class="ex-note">trotz + Genitiv (Fem.)</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 5 — PRACTICE
+  ══════════════════════════════════════════ -->
+  <div class="section-block" id="practice">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">🎯</div>
+      <div class="sec-heading-text"><h3>Practice করো</h3><p>MCQ + Fill-in-the-blank — সব ধরনের প্রশ্ন</p></div>
+    </div>
+
+    <div class="practice-section">
+      <div class="practice-header">
+        <div>
+          <div class="practice-title">🎯 Article Practice</div>
+          <div class="practice-sub">সব ধরনের প্রশ্ন — MCQ, Fill-in-the-blank</div>
+        </div>
+        <div class="q-counter" id="q-counter">প্রশ্ন ১ / ৩০</div>
+      </div>
+
+      <div class="score-tracker" id="score-tracker"></div>
+
+      <div id="practice-area"></div>
+      <div class="result-panel" id="result-panel">
+        <div class="result-emoji" id="result-emoji"></div>
+        <div class="result-score" id="result-score"></div>
+        <div class="result-label" id="result-label"></div>
+        <div class="result-xp" id="result-xp">⚡ +20 XP অর্জিত!</div>
+        <div class="result-actions">
+          <button class="btn-retry" id="btn-retry">🔄 আবার চেষ্টা করো</button>
+          <a href="plural.html" class="btn-next-topic">পরের Topic: Nomen Plural →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPIC NAV -->
+  <div class="topic-nav">
+    <a href="../grammatik.html" class="back-to-list">← সব Topics</a>
+    <a href="plural.html" class="tnav-btn next-t">
+      <div class="tnav-icon">📦</div>
+      <div class="tnav-info"><small>পরের Topic</small>Nomen Plural</div>
+    </a>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year"></span> Deutsch Lernen · Grammatik · Artikel</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners</div>
+  </div>
+</footer>
+
+<script type="module">
+import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+document.getElementById("btn-logout").addEventListener("click", async () => {
+  await signOut(auth); location.href = "../index.html";
+});
+
+/* ═══════════════════════════════════════════
+   ALL QUESTIONS (30 questions — mixed types)
+═══════════════════════════════════════════ */
+const QUESTIONS = [
+  // ── MCQ: Basic Gender ──
+  { type:"mcq", q:"___ Hund ist süß। (Dog — masculine)", opts:["die","das","der","den"], ans:2, fb:"'Hund' masculine noun → Nominativ: <strong>der</strong> Hund।" },
+  { type:"mcq", q:"___ Katze schläft। (Cat — feminine)", opts:["der","das","die","den"], ans:2, fb:"'Katze' feminine → Nominativ: <strong>die</strong> Katze।" },
+  { type:"mcq", q:"___ Kind lacht। (Child — -chen → neuter... but Kind is also neuter)", opts:["der","die","das","den"], ans:2, fb:"'Kind' neuter → Nominativ: <strong>das</strong> Kind।" },
+  { type:"mcq", q:"___ Mädchen tanzt। (Girl — -chen suffix)", opts:["der","die","das","den"], ans:2, fb:"-chen দিয়ে শেষ → সবসময় <strong>das</strong>! Mädchen neuter।" },
+  { type:"mcq", q:"___ Buch liegt auf dem Tisch। (Book — neuter)", opts:["der","die","das","den"], ans:2, fb:"'Buch' neuter → Nominativ: <strong>das</strong> Buch।" },
+  // ── MCQ: Akkusativ ──
+  { type:"mcq", q:"Ich kaufe ___ Apfel। (Apple — masculine, direct object)", opts:["der","die","das","den"], ans:3, fb:"Masculine Akkusativ: der → <strong>den</strong> Apfel।" },
+  { type:"mcq", q:"Er liest ___ Zeitung। (Newspaper — feminine, Akkusativ)", opts:["der","die","das","den"], ans:1, fb:"Feminine Akkusativ: <strong>die</strong> — পরিবর্তন হয় না!।" },
+  { type:"mcq", q:"Sie schreibt ___ Brief। (Letter — masculine, Akkusativ)", opts:["der","die","das","den"], ans:3, fb:"Masculine Akkusativ: der → <strong>den</strong> Brief।" },
+  { type:"mcq", q:"Ich esse ___ Brot। (Bread — neuter, Akkusativ)", opts:["der","die","das","den"], ans:2, fb:"Neuter Akkusativ: <strong>das</strong> — পরিবর্তন হয় না!।" },
+  { type:"mcq", q:"Er sieht ___ Frau। (Woman — feminine, Akkusativ)", opts:["der","die","das","den"], ans:1, fb:"Feminine Akkusativ: <strong>die</strong> — unchanged।" },
+  // ── MCQ: Indefinite Akkusativ ──
+  { type:"mcq", q:"Ich brauche ___ Stift। (Pen — masculine, indefinite Akkusativ)", opts:["ein","eine","einen","einem"], ans:2, fb:"Masculine indefinite Akkusativ: ein → <strong>einen</strong>।" },
+  { type:"mcq", q:"Er hat ___ Schwester। (Sister — feminine)", opts:["ein","eine","einen","einem"], ans:1, fb:"Feminine: <strong>eine</strong> Schwester।" },
+  { type:"mcq", q:"Wir brauchen ___ Auto। (Car — neuter)", opts:["ein","eine","einen","einem"], ans:0, fb:"Neuter indefinite Akkusativ: <strong>ein</strong> — পরিবর্তন হয় না!।" },
+  // ── MCQ: Dativ ──
+  { type:"mcq", q:"Ich gebe ___ Mann das Geld। (Man — masculine Dativ)", opts:["der","die","das","dem"], ans:3, fb:"Masculine Dativ: der → <strong>dem</strong> Mann।" },
+  { type:"mcq", q:"Er hilft ___ Frau। (Woman — feminine Dativ)", opts:["der","die","das","dem"], ans:0, fb:"Feminine Dativ: die → <strong>der</strong> Frau। (die→der হয়ে যায়!)" },
+  { type:"mcq", q:"Sie spricht mit ___ Kind। (Child — neuter Dativ)", opts:["der","die","das","dem"], ans:3, fb:"Neuter Dativ: das → <strong>dem</strong> Kind।" },
+  { type:"mcq", q:"Ich fahre mit ___ Bus। (Bus — masculine Dativ)", opts:["der","die","das","dem"], ans:3, fb:"mit + Dativ: masculine → <strong>dem</strong> Bus।" },
+  { type:"mcq", q:"Er kommt aus ___ Stadt। (City — feminine Dativ)", opts:["der","die","das","dem"], ans:0, fb:"aus + Dativ: feminine → <strong>der</strong> Stadt।" },
+  // ── MCQ: Endings/Rules ──
+  { type:"mcq", q:"'die Zeitung' — কোন ending → die?", opts:["-ung","-ling","-chen","-ment"], ans:0, fb:"-ung দিয়ে শেষ → সবসময় <strong>die</strong>।" },
+  { type:"mcq", q:"'das Zimmer' — কোন ধরনের noun?", opts:["Masculine","Feminine","Neuter","Plural"], ans:2, fb:"Zimmer (room) neuter → das Zimmer।" },
+  { type:"mcq", q:"'die Möglichkeit' — কোন ending?", opts:["-keit","-ling","-tum","-ment"], ans:0, fb:"-keit/-heit দিয়ে শেষ → সবসময় <strong>die</strong>।" },
+  { type:"mcq", q:"'das Dokument' — কোন ending?", opts:["-schaft","-ment","-ung","-heit"], ans:1, fb:"-ment দিয়ে শেষ → সবসময় <strong>das</strong>।" },
+  // ── Fill-in-the-blank ──
+  { type:"fill", sentence:"___ Sonne scheint heute.", blank:"Die", hint:"Sonne (Sun) → feminine", fb:"'Sonne' feminine → Nominativ: <strong>Die</strong> Sonne।" },
+  { type:"fill", sentence:"Ich sehe ___ Mann.", blank:"den", hint:"Mann → masculine Akkusativ", fb:"Masculine Akkusativ: der → <strong>den</strong> Mann।" },
+  { type:"fill", sentence:"Sie hilft ___ Kind.", blank:"dem", hint:"Kind → neuter Dativ", fb:"Neuter Dativ: das → <strong>dem</strong> Kind।" },
+  { type:"fill", sentence:"Er kauft ___ Zeitung.", blank:"die", hint:"Zeitung → feminine Akkusativ", fb:"Feminine Akkusativ: <strong>die</strong> — পরিবর্তন হয় না।" },
+  { type:"fill", sentence:"Ich spreche mit ___ Lehrer.", blank:"dem", hint:"Lehrer → masculine Dativ", fb:"mit + Dativ masculine: <strong>dem</strong> Lehrer।" },
+  { type:"fill", sentence:"Wir brauchen ___ Hilfe.", blank:"eine", hint:"Hilfe → feminine indefinite", fb:"Hilfe feminine indefinite Akkusativ: <strong>eine</strong> Hilfe।" },
+  { type:"fill", sentence:"Das ist ___ Buch meines Vaters.", blank:"das", hint:"Buch → neuter Nominativ", fb:"Buch neuter Nominativ: <strong>das</strong> Buch।" },
+  // ── MCQ: Mixed ──
+  { type:"mcq", q:"Genitiv-এ Masculine article কী হয়?", opts:["der","dem","des","den"], ans:2, fb:"Masculine Genitiv: <strong>des</strong> (+Noun-es)।" },
+  { type:"mcq", q:"Plural Dativ-এ article কী হয়?", opts:["die","der","den","dem"], ans:2, fb:"Plural Dativ: <strong>den</strong> + noun-এ -n যোগ।" },
+];
+
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let current  = 0;
+let score    = 0;
+let answered = false;
+let results  = []; // true/false per question
+let xpSaved  = false;
+
+/* ═══════════════════════════════════════════
+   SCORE TRACKER DOTS
+═══════════════════════════════════════════ */
+function initDots() {
+  const wrap = document.getElementById("score-tracker");
+  wrap.innerHTML = QUESTIONS.map((_,i) => `<div class="score-dot" id="dot-${i}"></div>`).join("");
+}
+
+function markDot(idx, correct) {
+  const el = document.getElementById("dot-" + idx);
+  if (el) el.classList.add(correct ? "correct" : "wrong");
+}
+
+function updateProgress() {
+  const pct = Math.round((current / QUESTIONS.length) * 100);
+  document.getElementById("progress-fill").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("q-counter").textContent = `প্রশ্ন ${current + 1} / ${QUESTIONS.length}`;
+}
+
+/* ═══════════════════════════════════════════
+   RENDER QUESTION
+═══════════════════════════════════════════ */
+function renderQ() {
+  if (current >= QUESTIONS.length) { showResult(); return; }
+  answered = false;
+  updateProgress();
+  const q   = QUESTIONS[current];
+  const area = document.getElementById("practice-area");
+
+  if (q.type === "mcq") {
+    area.innerHTML = `
+      <div class="question-wrap">
+        <div class="q-type-badge">MCQ</div>
+        <div class="q-num">প্রশ্ন ${current + 1} / ${QUESTIONS.length}</div>
+        <div class="q-text">${q.q}</div>
+        <div class="options">
+          ${q.opts.map((o,i)=>`
+            <button class="opt" data-idx="${i}">
+              <span class="opt-letter">${String.fromCharCode(65+i)}</span>${o}
+            </button>`).join("")}
+        </div>
+        <div class="feedback-msg" id="fb"></div>
+      </div>
+      <button class="btn-next" id="btn-next">পরের প্রশ্ন →</button>`;
+
+    area.querySelectorAll(".opt").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (answered) return;
+        answered = true;
+        const idx = parseInt(btn.dataset.idx);
+        const ok  = idx === q.ans;
+        if (ok) score++;
+        results.push(ok);
+        markDot(current, ok);
+        area.querySelectorAll(".opt").forEach(b => {
+          b.disabled = true;
+          if (parseInt(b.dataset.idx) === q.ans) b.classList.add("correct");
+          else if (parseInt(b.dataset.idx) === idx && !ok) b.classList.add("wrong");
+        });
+        const fb = document.getElementById("fb");
+        fb.innerHTML = q.fb;
+        fb.classList.add("show", ok ? "ok" : "bad");
+        document.getElementById("btn-next").classList.add("show");
+      });
+    });
+
+  } else if (q.type === "fill") {
+    area.innerHTML = `
+      <div class="question-wrap">
+        <div class="q-type-badge">Fill in the blank</div>
+        <div class="q-num">প্রশ্ন ${current + 1} / ${QUESTIONS.length}</div>
+        <div class="q-text">সঠিক article টাইপ করো:</div>
+        <div class="fill-wrap">
+          <span class="fill-sentence">${q.sentence.replace("_", '<input type="text" class="fill-input" id="fill-inp" placeholder="?" autocomplete="off" spellcheck="false">')}</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--muted);font-family:\'Noto Sans Bengali\',sans-serif;margin-bottom:.8rem;">💡 Hint: ${q.hint}</div>
+        <button class="btn-check" id="btn-check">উত্তর দেখো</button>
+        <div class="feedback-msg" id="fb"></div>
+      </div>
+      <button class="btn-next" id="btn-next">পরের প্রশ্ন →</button>`;
+
+    const inp = document.getElementById("fill-inp");
+    inp.focus();
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") checkFill(); });
+    document.getElementById("btn-check").addEventListener("click", checkFill);
+
+    function checkFill() {
+      if (answered) return;
+      answered = true;
+      const val = inp.value.trim().toLowerCase();
+      const ok  = val === q.blank.toLowerCase();
+      if (ok) score++;
+      results.push(ok);
+      markDot(current, ok);
+      inp.classList.add(ok ? "correct" : "wrong");
+      inp.disabled = true;
+      if (!ok) inp.value = q.blank;
+      const fb = document.getElementById("fb");
+      fb.innerHTML = q.fb;
+      fb.classList.add("show", ok ? "ok" : "bad");
+      document.getElementById("btn-check").style.display = "none";
+      document.getElementById("btn-next").classList.add("show");
+    }
+  }
+
+  document.getElementById("btn-next").addEventListener("click", () => {
+    if (!answered) return;
+    current++;
+    renderQ();
+  });
+}
+
+/* ═══════════════════════════════════════════
+   RESULT
+═══════════════════════════════════════════ */
+function showResult() {
+  document.getElementById("practice-area").innerHTML = "";
+  document.getElementById("progress-fill").style.width = "100%";
+  document.getElementById("progress-pct").textContent = "100%";
+  const total  = QUESTIONS.length;
+  const pct    = Math.round((score / total) * 100);
+  const emoji  = pct === 100 ? "🏆" : pct >= 80 ? "🎉" : pct >= 60 ? "💪" : pct >= 40 ? "📚" : "🔄";
+  const label  = pct === 100 ? "অসাধারণ! সব প্রশ্ন সঠিক!" : pct >= 80 ? "দারুণ! তুমি Article ভালো বোঝো।" : pct >= 60 ? "ভালো! আরেকটু practice করলেই perfect হবে।" : pct >= 40 ? "শুরু ভালো হয়েছে। Theory আবার পড়ো তারপর চেষ্টা করো।" : "আরো practice দরকার। Rules section আবার দেখো।";
+  const xp     = pct >= 80 ? 20 : pct >= 60 ? 15 : 10;
+
+  document.getElementById("result-emoji").textContent  = emoji;
+  document.getElementById("result-score").textContent  = `${score}/${total} (${pct}%)`;
+  document.getElementById("result-label").textContent  = label;
+  document.getElementById("result-xp").textContent     = `⚡ +${xp} XP অর্জিত!`;
+  document.getElementById("result-panel").classList.add("show");
+
+  if (!xpSaved) { xpSaved = true; saveXP(xp, pct); }
+}
+
+document.getElementById("btn-retry").addEventListener("click", () => {
+  current = 0; score = 0; answered = false; results = []; xpSaved = false;
+  document.getElementById("result-panel").classList.remove("show");
+  initDots();
+  renderQ();
+});
+
+/* ═══════════════════════════════════════════
+   FIREBASE
+═══════════════════════════════════════════ */
+async function saveXP(xp, pct) {
+  if (!window.__uid) return;
+  try {
+    await updateDoc(doc(db, "users", window.__uid), {
+      xp: increment(xp),
+      completedTopics: arrayUnion("artikel"),
+    });
+  } catch(e) { console.log("XP save:", e); }
+}
+
+/* ═══════════════════════════════════════════
+   AUTH
+═══════════════════════════════════════════ */
+requireAuth(async user => {
+  window.__uid = user.uid;
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const d    = snap.exists() ? snap.data() : {};
+  const name  = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL    || user.photoURL    || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if (photo) av.innerHTML = `<img src="${photo}" alt="">`;
+  else av.textContent = name[0]?.toUpperCase() || "?";
+
+  initDots();
+  renderQ();
+});
+</script>
+</body>
+</html>

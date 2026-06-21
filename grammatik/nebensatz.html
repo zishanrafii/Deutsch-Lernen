@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nebensatz (Subordinate Clause) — Grammatik — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);--gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;--accent:#a78bfa;--accent2:#8b5cf6;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(167,139,250,.06),transparent 60%),radial-gradient(ellipse 60% 50% at 100% 100%,rgba(167,139,250,.03),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;background:rgba(8,14,26,.88);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.logo-text h1{font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-text p{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:4px;}
+.nav-link{padding:.35rem .8rem;border-radius:9px;font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-link.active{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.28);color:var(--accent);}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.85rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.35rem .8rem;border-radius:9px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.breadcrumb{background:rgba(167,139,250,.04);border-bottom:1px solid rgba(167,139,250,.1);padding:.6rem 1.5rem;position:relative;z-index:1;}
+.breadcrumb-inner{max-width:960px;margin:auto;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);}
+.breadcrumb a{color:var(--sub);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{color:var(--accent);}
+.breadcrumb-cur{color:var(--accent);font-weight:700;}
+.wrap{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem 6rem;position:relative;z-index:1;}
+.progress-bar-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:1rem 1.3rem;margin-bottom:2rem;display:flex;align-items:center;gap:14px;}
+.progress-label{font-size:11px;font-weight:700;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.progress-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:20px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease;width:0%;}
+.progress-pct{font-size:12px;font-weight:800;color:var(--accent);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.topic-hero{margin-bottom:2rem;}
+.topic-meta{display:flex;align-items:center;gap:8px;margin-bottom:1rem;flex-wrap:wrap;}
+.meta-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:20px;border:1px solid;}
+.meta-level{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:var(--accent);}
+.meta-cat{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);color:var(--sky);}
+.meta-xp{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.topic-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:.6rem;}
+.topic-title .accent{background:linear-gradient(135deg,#a78bfa,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topic-subtitle{font-size:13.5px;color:var(--sub);line-height:1.75;font-family:'Noto Sans Bengali',sans-serif;max-width:680px;}
+.section-block{margin-bottom:2.8rem;}
+.sec-heading{display:flex;align-items:center;gap:10px;margin-bottom:1.3rem;}
+.sec-heading-icon{width:36px;height:36px;border-radius:10px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.sec-heading-text h3{font-size:1rem;font-weight:800;color:var(--text);}
+.sec-heading-text p{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;margin-top:2px;}
+.theory-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
+.theory-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.theory-card h4{font-size:.9rem;font-weight:800;color:var(--accent);margin-bottom:.75rem;}
+.theory-text{font-size:13.5px;line-height:1.9;color:var(--text);font-family:'Noto Sans Bengali',sans-serif;white-space:pre-line;}
+.theory-text strong{color:var(--gold);font-family:'Outfit',sans-serif;}
+.theory-text em{color:var(--accent);font-style:normal;font-weight:700;}
+.examples-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.ex-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.85rem 1rem;transition:.2s;}
+.ex-card:hover{background:rgba(255,255,255,.04);border-color:rgba(167,139,250,.15);}
+.ex-de{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:.3rem;}
+.ex-de em{font-style:normal;color:var(--accent);font-weight:800;}
+.ex-bn{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+.ex-note{font-size:10.5px;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-top:4px;}
+.practice-section{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:1.8rem;margin-bottom:1.5rem;}
+.practice-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;flex-wrap:wrap;gap:.7rem;}
+.practice-title{font-size:1rem;font-weight:800;}
+.practice-sub{font-size:11.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-top:2px;}
+.q-counter{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:4px 12px;border-radius:20px;}
+.question-wrap{margin-bottom:1rem;}
+.q-type-badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;padding:2px 9px;border-radius:20px;margin-bottom:.6rem;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);color:var(--accent);}
+.q-num{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:.4rem;}
+.q-text{font-size:14.5px;font-weight:700;line-height:1.6;margin-bottom:1rem;font-family:'Noto Sans Bengali',sans-serif;}
+.q-text strong{font-family:'Outfit',sans-serif;color:var(--gold);}
+.options{display:flex;flex-direction:column;gap:7px;margin-bottom:.7rem;}
+.opt{width:100%;padding:.72rem 1rem;border-radius:11px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;text-align:left;transition:.2s;display:flex;align-items:center;gap:10px;}
+.opt:hover:not(:disabled){background:rgba(255,255,255,.07);border-color:rgba(167,139,250,.25);}
+.opt.correct{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald);}
+.opt.wrong{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.35);color:var(--rose);}
+.opt:disabled{cursor:default;}
+.opt-letter{width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+.opt.correct .opt-letter{background:rgba(52,211,153,.2);border-color:rgba(52,211,153,.4);}
+.opt.wrong .opt-letter{background:rgba(251,113,133,.2);border-color:rgba(251,113,133,.3);}
+.fill-wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
+.fill-sentence{font-size:14px;font-weight:600;line-height:2;}
+.fill-input{background:rgba(255,255,255,.05);border:2px solid rgba(167,139,250,.3);border-radius:9px;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:.35rem .7rem;width:120px;outline:none;text-align:center;transition:.2s;}
+.fill-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(167,139,250,.1);}
+.fill-input.correct{border-color:var(--emerald);background:rgba(52,211,153,.08);color:var(--emerald);}
+.fill-input.wrong{border-color:var(--rose);background:rgba(251,113,133,.08);color:var(--rose);}
+.btn-check{padding:.45rem 1.1rem;border-radius:9px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--accent);font-weight:700;font-family:'Outfit',sans-serif;font-size:12.5px;cursor:pointer;}
+.btn-check:hover{background:rgba(167,139,250,.22);}
+.feedback-msg{font-size:12.5px;line-height:1.65;padding:.65rem 1rem;border-radius:10px;margin-top:.5rem;font-family:'Noto Sans Bengali',sans-serif;display:none;}
+.feedback-msg.show{display:block;}
+.feedback-msg.ok{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);color:#a7f3d0;}
+.feedback-msg.bad{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.2);color:#fecdd3;}
+.btn-next{margin-top:.9rem;width:100%;padding:.8rem;border:none;border-radius:13px;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;font-family:'Outfit',sans-serif;font-size:14px;cursor:pointer;display:none;}
+.btn-next.show{display:block;}
+.result-panel{text-align:center;padding:2rem;background:var(--surface2);border:1px solid var(--border);border-radius:18px;display:none;margin-top:1rem;}
+.result-panel.show{display:block;}
+.result-emoji{font-size:3.5rem;margin-bottom:.8rem;}
+.result-score{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
+.result-label{font-size:13.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.8rem;line-height:1.6;}
+.result-xp{display:inline-flex;align-items:center;gap:6px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);border-radius:20px;padding:5px 18px;font-size:12px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-bottom:1.4rem;}
+.result-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.btn-retry{padding:.7rem 1.6rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text);border-radius:12px;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:13px;}
+.btn-next-topic{padding:.7rem 1.6rem;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;border:none;border-radius:12px;cursor:pointer;font-weight:800;font-family:'Outfit',sans-serif;font-size:13px;text-decoration:none;display:inline-block;}
+.score-tracker{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem;}
+.score-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);transition:.3s;}
+.score-dot.correct{background:var(--emerald);border-color:var(--emerald);box-shadow:0 0 6px rgba(52,211,153,.4);}
+.score-dot.wrong{background:var(--rose);border-color:var(--rose);}
+.topic-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05);gap:1rem;flex-wrap:wrap;}
+.tnav-btn{display:flex;align-items:center;gap:9px;padding:.75rem 1.2rem;border-radius:13px;border:1px solid var(--border);background:rgba(255,255,255,.03);text-decoration:none;color:var(--sub);transition:.3s;font-size:13px;font-weight:600;}
+.tnav-btn:hover{background:rgba(167,139,250,.07);border-color:rgba(167,139,250,.25);color:var(--text);}
+.tnav-info small{font-size:10px;color:var(--muted);display:block;font-family:'JetBrains Mono',monospace;}
+.tnav-btn.next-t{flex-direction:row-reverse;text-align:right;}
+.back-to-list{display:flex;align-items:center;gap:7px;padding:.6rem 1.1rem;border-radius:11px;border:1px solid rgba(167,139,250,.2);background:rgba(167,139,250,.07);color:var(--accent);text-decoration:none;font-size:12.5px;font-weight:700;}
+footer{border-top:1px solid rgba(255,255,255,.05);}
+.footer-bottom{max-width:960px;margin:auto;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+@media(max-width:700px){.examples-grid{grid-template-columns:1fr;}.nav-links{display:none;}.wrap{padding:1.8rem 1rem 4rem;}}
+@media(max-width:480px){.topbar{flex-direction:column;align-items:flex-start;}.topic-nav{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../dashboard.html" class="logo">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text"><h1>Deutsch Lernen</h1><p>GRAMMATIK · NEBENSATZ (SUBORDINA</p></div>
+  </a>
+  <div class="topbar-right">
+    <nav class="nav-links">
+      <a href="../dashboard.html" class="nav-link">Home</a>
+      <a href="../grammatik.html" class="nav-link active">Grammatik</a>
+      <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
+      <a href="../woerterbuch.html" class="nav-link">Wörterbuch</a>
+    </nav>
+    <div class="user-section">
+      <div class="user-avatar" id="nav-avatar">👤</div>
+      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+</div>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../grammatik.html">📘 Grammatik</a>
+    <span>›</span>
+    <span class="breadcrumb-cur">🔗 Nebensatz (Subordinate Clause)</span>
+  </div>
+</div>
+<div class="wrap">
+  <div class="progress-bar-wrap">
+    <span class="progress-label">অগ্রগতি</span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <span class="progress-pct" id="progress-pct">0%</span>
+  </div>
+  <div class="topic-hero">
+    <div class="topic-meta">
+      <span class="meta-badge meta-level">B1</span>
+      <span class="meta-badge meta-cat">Sätze</span>
+      <span class="meta-badge meta-xp">⚡ +20 XP</span>
+    </div>
+    <h1 class="topic-title">🔗 <span class="accent">Nebensatz (Subordinate Clause)</span></h1>
+    <p class="topic-subtitle">Subordinate clauses — weil, dass, wenn, ob, obwohl দিয়ে complex sentences। Verb-end rule ও সব conjunctions সম্পূর্ণ শেখো।</p>
+  </div>
+  <div class="section-block" id="theory">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">📖</div>
+      <div class="sec-heading-text"><h3>Nebensatz — Verb শেষে যায়!</h3><p>বাংলায় সম্পূর্ণ ব্যাখ্যা</p></div>
+    </div>
+    <div class="theory-card">
+      <h4>📌 Nebensatz — Verb শেষে যায়!</h4>
+      <div class="theory-text">Nebensatz (dependent/subordinate clause) একটি conjunction দিয়ে শুরু হয় এবং verb সবসময় শেষে থাকে।
+
+Main clause: Subject + VERB (2nd) + ...
+Nebensatz: Conjunction + Subject + ... + VERB (END)
+
+Gütige Konjunktionen:
+weil → কারণ (because)
+dass → যে (that)
+wenn → যখন / যদি (when / if)
+ob → কিনা (whether/if)
+obwohl → যদিও (although/even though)
+bevor → আগে (before)
+nachdem → পরে (after)
+während → যখন (while)
+seit(dem) → যখন থেকে (since)
+bis → যতক্ষণ না (until)
+falls → যদি (in case)
+alsob → যেন (as if)
+
+Modal verb in Nebensatz:
+Modal শেষে, infinitive তার আগে:
+Ich lerne, weil ich sprechen [will]. (will = last)
+
+Perfekt in Nebensatz:
+Ich lerne, weil ich gegangen [bin]. (bin = last)
+
+Wenn Main clause-এর পরে আসলে, comma যোগ হয়:
+Ich lerne Deutsch, weil ich nach Deutschland gehen will.</div>
+    </div>
+  </div>
+  <div class="section-block" id="examples">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">💡</div>
+      <div class="sec-heading-text"><h3>উদাহরণ</h3><p>বাস্তব বাক্যে ব্যবহার</p></div>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card"><div class="ex-de">Ich lerne, <em>weil</em> ich Deutsch sprechen <em>will</em>.</div><div class="ex-bn">কারণ আমি German বলতে চাই।</div><div class="ex-note">weil: verb শেষে</div></div>
+      <div class="ex-card"><div class="ex-de">Er sagt, <em>dass</em> er müde <em>ist</em>.</div><div class="ex-bn">সে বলছে যে সে ক্লান্ত।</div><div class="ex-note">dass: verb শেষে</div></div>
+      <div class="ex-card"><div class="ex-de">Ruf mich an, <em>wenn</em> du ankommst.</div><div class="ex-bn">পৌঁছালে ফোন করো।</div><div class="ex-note">wenn: when/if</div></div>
+      <div class="ex-card"><div class="ex-de">Ich weiß nicht, <em>ob</em> er <em>kommt</em>.</div><div class="ex-bn">সে আসবে কিনা জানি না।</div><div class="ex-note">ob: whether</div></div>
+      <div class="ex-card"><div class="ex-de"><em>Obwohl</em> es regnet, geht er raus.</div><div class="ex-bn">বৃষ্টি সত্ত্বেও সে বাইরে যাচ্ছে।</div><div class="ex-note">obwohl: although</div></div>
+      <div class="ex-card"><div class="ex-de">Ich warte, <em>bis</em> du <em>kommst</em>.</div><div class="ex-bn">তুমি না আসা পর্যন্ত অপেক্ষা করব।</div><div class="ex-note">bis: until</div></div>
+    </div>
+  </div>
+  <div class="section-block" id="practice">
+    <div class="sec-heading">
+      <div class="sec-heading-icon">🎯</div>
+      <div class="sec-heading-text"><h3>Practice করো</h3><p>MCQ + Fill-in-the-blank (30 প্রশ্ন)</p></div>
+    </div>
+    <div class="practice-section">
+      <div class="practice-header">
+        <div>
+          <div class="practice-title">🎯 Nebensatz (Subordinate Clause) Practice</div>
+          <div class="practice-sub">সব ধরনের প্রশ্ন</div>
+        </div>
+        <div class="q-counter" id="q-counter">প্রশ্ন ১ / 30</div>
+      </div>
+      <div class="score-tracker" id="score-tracker"></div>
+      <div id="practice-area"></div>
+      <div class="result-panel" id="result-panel">
+        <div class="result-emoji" id="result-emoji"></div>
+        <div class="result-score" id="result-score"></div>
+        <div class="result-label" id="result-label"></div>
+        <div class="result-xp" id="result-xp">⚡ +20 XP অর্জিত!</div>
+        <div class="result-actions">
+          <button class="btn-retry" id="btn-retry">🔄 আবার চেষ্টা করো</button>
+          <a href="reflexive.html" class="btn-next-topic">পরের Topic: 🔄 Reflexive Verben →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topic-nav">
+    <a href="komparativ.html" class="tnav-btn">
+      <div>←</div>
+      <div class="tnav-info"><small>আগের Topic</small>📈 Komparativ</div>
+    </a>
+    <a href="../grammatik.html" class="back-to-list">↑ সব Topics</a>
+    <a href="reflexive.html" class="tnav-btn next-t">
+      <div>→</div>
+      <div class="tnav-info"><small>পরের Topic</small>🔄 Reflexive Verben</div>
+    </a>
+  </div>
+</div>
+<footer>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year"></span> Deutsch Lernen · Nebensatz (Subordinate Clause)</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners</div>
+  </div>
+</footer>
+<script type="module">
+import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+document.getElementById("btn-logout").addEventListener("click", async () => { await signOut(auth); location.href = "../index.html"; });
+const QUESTIONS = [{"type": "mcq", "q": "Nebensatz-এ verb কোথায়?", "opts": ["শুরুতে", "দ্বিতীয়", "শেষে", "conjunction-এর আগে"], "ans": 2, "fb": "Nebensatz-এ verb <strong>শেষে</strong>।"}, {"type": "mcq", "q": "'কারণ' = কোন conjunction?", "opts": ["dass", "wenn", "weil", "ob"], "ans": 2, "fb": "কারণ = <strong>weil</strong>।"}, {"type": "mcq", "q": "'যদিও' = কোন conjunction?", "opts": ["weil", "wenn", "ob", "obwohl"], "ans": 3, "fb": "যদিও = <strong>obwohl</strong>।"}, {"type": "mcq", "q": "'whether/if' = কোন conjunction?", "opts": ["weil", "ob", "dass", "wenn"], "ans": 1, "fb": "whether = <strong>ob</strong>।"}, {"type": "mcq", "q": "'that' = কোন conjunction?", "opts": ["ob", "weil", "wenn", "dass"], "ans": 3, "fb": "that = <strong>dass</strong>।"}, {"type": "fill", "sentence": "Ich lerne, weil ich Deutsch sprechen ___.", "blank": "will", "hint": "modal verb at end", "fb": "Nebensatz modal → শেষে: <strong>will</strong>।"}, {"type": "fill", "sentence": "Er sagt, dass er müde ___.", "blank": "ist", "hint": "sein: er form, at end", "fb": "verb শেষে: <strong>ist</strong>।"}, {"type": "fill", "sentence": "Ich warte, bis du ___.", "blank": "kommst", "hint": "kommen: du form, at end", "fb": "verb শেষে: <strong>kommst</strong>।"}, {"type": "mcq", "q": "Nebensatz-এ Perfekt — কোনটা শেষে?", "opts": ["Partizip II", "Hilfsverb", "Subject", "Object"], "ans": 1, "fb": "Perfekt Nebensatz: Hilfsverb (haben/sein) → <strong>শেষে</strong>।"}, {"type": "fill", "sentence": "Ich freue mich, obwohl es regnet, ___ er nicht.", "blank": "kommt", "hint": "main verb position after subclause", "fb": "<strong>kommt</strong> er nicht।"}, {"type": "mcq", "q": "'bevor' মানে কী?", "opts": ["because", "after", "before", "while"], "ans": 2, "fb": "bevor = <strong>before</strong>।"}, {"type": "mcq", "q": "'nachdem' মানে কী?", "opts": ["before", "after", "while", "since"], "ans": 1, "fb": "nachdem = <strong>after</strong>।"}, {"type": "fill", "sentence": "Ich lerne Deutsch, ___ ich in Deutschland arbeiten will.", "blank": "weil", "hint": "reason conjunction", "fb": "<strong>weil</strong>।"}, {"type": "fill", "sentence": "Ich weiß nicht, ___ er kommt.", "blank": "ob", "hint": "whether", "fb": "<strong>ob</strong>।"}, {"type": "mcq", "q": "'während' মানে কী?", "opts": ["before", "after", "until", "while"], "ans": 3, "fb": "während = <strong>while</strong>।"}, {"type": "mcq", "q": "'bis' মানে কী?", "opts": ["since", "while", "until", "before"], "ans": 2, "fb": "bis = <strong>until</strong>।"}, {"type": "fill", "sentence": "Ich ruf dich an, ___ ich ankomme.", "blank": "wenn", "hint": "when = wenn", "fb": "<strong>wenn</strong>।"}, {"type": "fill", "sentence": "Er sagt, ___ er krank ist.", "blank": "dass", "hint": "that = dass", "fb": "<strong>dass</strong>।"}, {"type": "mcq", "q": "'falls' মানে কী?", "opts": ["because", "although", "in case / if", "while"], "ans": 2, "fb": "falls = <strong>in case / if</strong>।"}, {"type": "mcq", "q": "'seit(dem)' মানে কী?", "opts": ["until", "since", "before", "after"], "ans": 1, "fb": "seitdem = <strong>since</strong>।"}, {"type": "fill", "sentence": "Obwohl es kalt ist, ___ er draußen.", "blank": "geht", "hint": "main verb after subclause", "fb": "<strong>geht</strong> er draußen।"}, {"type": "fill", "sentence": "Ich lerne Deutsch, ___ es schwer ist.", "blank": "obwohl", "hint": "although", "fb": "<strong>obwohl</strong> es schwer ist।"}, {"type": "mcq", "q": "Nebensatz-এ separable verb কীভাবে থাকে?", "opts": ["alাদা", "একসাথে শেষে", "prefix শেষে", "verb শুরুতে"], "ans": 1, "fb": "Separable verb Nebensatz-এ <strong>একসাথে শেষে</strong>।"}, {"type": "fill", "sentence": "Ich gehe, ___ ich müde bin.", "blank": "obwohl", "hint": "although tired", "fb": "<strong>obwohl</strong>।"}, {"type": "mcq", "q": "কোনটা subordinating conjunction নয়?", "opts": ["weil", "aber", "dass", "obwohl"], "ans": 1, "fb": "<strong>aber</strong> = coordinating conjunction (verb stays 2nd)।"}, {"type": "fill", "sentence": "Nachdem ich gegessen ___, gehe ich.", "blank": "habe", "hint": "Perfekt Nebensatz", "fb": "Nachdem + Perfekt → habe gegessen → <strong>habe</strong> শেষে।"}, {"type": "mcq", "q": "'weil' vs 'denn' পার্থক্য?", "opts": ["same", "weil=subord., denn=coord.", "denn=subord., weil=coord.", "no diff"], "ans": 1, "fb": "<strong>weil</strong>=subordinating (verb end), <strong>denn</strong>=coordinating (verb 2nd)।"}, {"type": "fill", "sentence": "Er lernt Deutsch, ___ er nach Deutschland fahren möchte.", "blank": "weil", "hint": "reason", "fb": "<strong>weil</strong>।"}, {"type": "mcq", "q": "Wenn Nebensatz sentence-শুরুতে → main clause?", "opts": ["normal order", "verb first", "subject first", "same"], "ans": 1, "fb": "Subclause শুরুতে → main clause: <strong>Verb (1st)</strong>।"}, {"type": "fill", "sentence": "___ ich Zeit habe, lerne ich Deutsch.", "blank": "Wenn", "hint": "if/when at beginning", "fb": "<strong>Wenn</strong> ich Zeit habe, lerne ich।"}];
+let current=0,score=0,answered=false,xpSaved=false;
+function initDots(){const w=document.getElementById("score-tracker");w.innerHTML=QUESTIONS.map((_,i)=>`<div class="score-dot" id="dot-${i}"></div>`).join("");}
+function markDot(i,ok){const el=document.getElementById("dot-"+i);if(el)el.classList.add(ok?"correct":"wrong");}
+function updateProgress(){const p=Math.round((current/QUESTIONS.length)*100);document.getElementById("progress-fill").style.width=p+"%";document.getElementById("progress-pct").textContent=p+"%";document.getElementById("q-counter").textContent=`প্রশ্ন ${current+1} / ${QUESTIONS.length}`;}
+function renderQ(){
+  if(current>=QUESTIONS.length){showResult();return;}
+  answered=false;updateProgress();
+  const q=QUESTIONS[current],area=document.getElementById("practice-area");
+  if(q.type==="mcq"){
+    area.innerHTML=`<div class="question-wrap"><div class="q-type-badge">MCQ</div><div class="q-num">প্রশ্ন ${current+1} / ${QUESTIONS.length}</div><div class="q-text">${q.q}</div><div class="options">${q.opts.map((o,i)=>`<button class="opt" data-idx="${i}"><span class="opt-letter">${String.fromCharCode(65+i)}</span>${o}</button>`).join("")}</div><div class="feedback-msg" id="fb"></div></div><button class="btn-next" id="btn-next">পরের প্রশ্ন →</button>`;
+    area.querySelectorAll(".opt").forEach(btn=>{btn.addEventListener("click",()=>{if(answered)return;answered=true;const idx=parseInt(btn.dataset.idx),ok=idx===q.ans;if(ok)score++;markDot(current,ok);area.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(parseInt(b.dataset.idx)===q.ans)b.classList.add("correct");else if(parseInt(b.dataset.idx)===idx&&!ok)b.classList.add("wrong");});const fb=document.getElementById("fb");fb.innerHTML=q.fb;fb.classList.add("show",ok?"ok":"bad");document.getElementById("btn-next").classList.add("show");});});
+  }else{
+    area.innerHTML=`<div class="question-wrap"><div class="q-type-badge">Fill in the blank</div><div class="q-num">প্রশ্ন ${current+1} / ${QUESTIONS.length}</div><div class="q-text">সঠিক form লিখো:</div><div class="fill-wrap"><span class="fill-sentence">${q.sentence.replace("___",`<input type="text" class="fill-input" id="fill-inp" placeholder="?" autocomplete="off">`)}</span></div><div style="font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.8rem;">💡 Hint: ${q.hint}</div><button class="btn-check" id="btn-check">উত্তর দেখো</button><div class="feedback-msg" id="fb"></div></div><button class="btn-next" id="btn-next">পরের প্রশ্ন →</button>`;
+    const inp=document.getElementById("fill-inp");inp.focus();
+    function checkFill(){if(answered)return;answered=true;const val=inp.value.trim().toLowerCase(),ok=val===q.blank.toLowerCase();if(ok)score++;markDot(current,ok);inp.classList.add(ok?"correct":"wrong");inp.disabled=true;if(!ok)inp.value=q.blank;const fb=document.getElementById("fb");fb.innerHTML=q.fb;fb.classList.add("show",ok?"ok":"bad");document.getElementById("btn-check").style.display="none";document.getElementById("btn-next").classList.add("show");}
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter")checkFill();});
+    document.getElementById("btn-check").addEventListener("click",checkFill);
+  }
+  document.getElementById("btn-next").addEventListener("click",()=>{if(!answered)return;current++;renderQ();});
+}
+function showResult(){
+  document.getElementById("practice-area").innerHTML="";
+  document.getElementById("progress-fill").style.width="100%";document.getElementById("progress-pct").textContent="100%";
+  const total=QUESTIONS.length,pct=Math.round((score/total)*100);
+  const emoji=pct===100?"🏆":pct>=80?"🎉":pct>=60?"💪":"📚";
+  const label=pct>=80?"দারুণ! এই topic ভালোভাবে শিখেছ।":pct>=60?"ভালো চেষ্টা! আরেকটু practice করো।":"আরো practice দরকার। Theory আবার পড়ো।";
+  const xp=pct>=80?20:pct>=60?15:10;
+  document.getElementById("result-emoji").textContent=emoji;document.getElementById("result-score").textContent=`${score}/${total} (${pct}%)`;document.getElementById("result-label").textContent=label;document.getElementById("result-xp").textContent=`⚡ +${xp} XP অর্জিত!`;document.getElementById("result-panel").classList.add("show");
+  if(!xpSaved){xpSaved=true;if(window.__uid)updateDoc(doc(db,"users",window.__uid),{xp:increment(xp),completedTopics:arrayUnion("nebensatz")}).catch(()=>{});}
+}
+document.getElementById("btn-retry").addEventListener("click",()=>{current=0;score=0;answered=false;xpSaved=false;document.getElementById("result-panel").classList.remove("show");initDots();renderQ();});
+requireAuth(async user=>{window.__uid=user.uid;const snap=await getDoc(doc(db,"users",user.uid));const d=snap.exists()?snap.data():{};document.getElementById("nav-name").textContent=d.displayName||user.displayName||"Lerner";const av=document.getElementById("nav-avatar");const photo=d.photoURL||user.photoURL||"";if(photo)av.innerHTML=`<img src="${photo}" alt="">`;else av.textContent=(d.displayName||"L")[0].toUpperCase();initDots();renderQ();});
+</script>
+</body>
+</html>
