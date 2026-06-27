@@ -206,6 +206,7 @@ import {
   doc, getDoc,
   collection, query, orderBy, limit, getDocs,
 } from "./js/firebase-config.js";
+import { requirePlan } from "./js/plan-gate.js";
 
 let meUID = null;
 let allUsers = [];
@@ -384,6 +385,7 @@ requireAuth(async user => {
 
   const snap = await getDoc(doc(db, "users", user.uid));
   const data = snap.exists() ? snap.data() : {};
+  if (!requirePlan(data)) return;
   const name = data.displayName || user.displayName || "Lerner";
   const photo = data.photoURL || user.photoURL || "";
 

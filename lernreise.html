@@ -403,6 +403,7 @@ import {
   auth, db, signOut, requireAuth,
   doc, getDoc,
 } from "./js/firebase-config.js";
+import { requirePlan } from "./js/plan-gate.js";
 
 /* ── simple toast (local, since firebase-config.js doesn't export one) ── */
 function toast(msg) {
@@ -417,50 +418,50 @@ function toast(msg) {
    Most topics route into the relevant feature page with a ?topic= query
    so that page can deep-link straight to that lesson/section. */
 const TOPIC_PAGES = {
-  "a1-t1": "vokabelquiz.html?topic=a1-t1",
-  "a1-t2": "vokabelquiz.html?topic=a1-t2",
-  "a1-t3": "vokabelquiz.html?topic=a1-t3",
-  "a1-t4": "woerterbuch.html?topic=a1-t4",
-  "a1-t5": "grammatik.html?topic=a1-t5",
-  "a1-t6": "grammatik.html?topic=a1-t6",
+  "a1-t1": "vokabelquiz.html",
+  "a1-t2": "vokabelquiz.html",
+  "a1-t3": "vokabelquiz.html",
+  "a1-t4": "woerterbuch.html",
+  "artikel": "grammatik.html",
+  "praesens": "grammatik.html",
   "a1-t7": "sprechen.html?topic=a1-t7",
-  "a1-t8": "vokabelquiz.html?topic=a1-t8&final=1",
+  "a1-t8": "vokabelquiz.html",
 
-  "a2-t1": "grammatik.html?topic=a2-t1",
-  "a2-t2": "grammatik.html?topic=a2-t2",
-  "a2-t3": "grammatik.html?topic=a2-t3",
-  "a2-t4": "grammatik.html?topic=a2-t4",
-  "a2-t5": "woerterbuch.html?topic=a2-t5",
+  "perfekt": "grammatik.html",
+  "akkusativ": "grammatik.html",
+  "dativ": "grammatik.html",
+  "modalverben": "grammatik.html",
+  "a2-t5": "woerterbuch.html",
   "a2-t6": "sprechen.html?topic=a2-t6",
   "a2-t7": "schreiben.html?topic=a2-t7",
-  "a2-t8": "vokabelquiz.html?topic=a2-t8&final=1",
+  "a2-t8": "vokabelquiz.html",
 
-  "b1-t1": "grammatik.html?topic=b1-t1",
-  "b1-t2": "grammatik.html?topic=b1-t2",
-  "b1-t3": "grammatik.html?topic=b1-t3",
+  "nebensatz": "grammatik.html",
+  "passiv": "grammatik.html",
+  "komparativ": "grammatik.html",
   "b1-t4": "schreiben.html?topic=b1-t4",
   "b1-t5": "sprechen.html?topic=b1-t5",
   "b1-t6": "schreiben.html?topic=b1-t6",
   "b1-t7": "hoeren.html?topic=b1-t7",
-  "b1-t8": "vokabelquiz.html?topic=b1-t8&final=1",
+  "b1-t8": "vokabelquiz.html",
 
-  "b2-t1": "woerterbuch.html?topic=b2-t1",
-  "b2-t2": "grammatik.html?topic=b2-t2",
-  "b2-t3": "grammatik.html?topic=b2-t3",
+  "b2-t1": "woerterbuch.html",
+  "konjunktiv2": "grammatik.html",
+  "praepositionen": "grammatik.html",
   "b2-t4": "schreiben.html?topic=b2-t4",
   "b2-t5": "sprechen.html?topic=b2-t5",
-  "b2-t6": "woerterbuch.html?topic=b2-t6",
+  "b2-t6": "woerterbuch.html",
   "b2-t7": "hoeren.html?topic=b2-t7",
-  "b2-t8": "vokabelquiz.html?topic=b2-t8&final=1",
+  "b2-t8": "vokabelquiz.html",
 
   "c1-t1": "schreiben.html?topic=c1-t1",
   "c1-t2": "schreiben.html?topic=c1-t2",
   "c1-t3": "hoeren.html?topic=c1-t3",
-  "c1-t4": "grammatik.html?topic=c1-t4",
+  "genitiv": "grammatik.html",
   "c1-t5": "schreiben.html?topic=c1-t5",
   "c1-t6": "sprechen.html?topic=c1-t6",
   "c1-t7": "sprechen.html?topic=c1-t7",
-  "c1-t8": "vokabelquiz.html?topic=c1-t8&final=1",
+  "c1-t8": "vokabelquiz.html",
 
   "c2-t1": "schreiben.html?topic=c2-t1",
   "c2-t2": "sprechen.html?topic=c2-t2",
@@ -469,7 +470,7 @@ const TOPIC_PAGES = {
   "c2-t5": "hoeren.html?topic=c2-t5",
   "c2-t6": "sprechen.html?topic=c2-t6",
   "c2-t7": "sprechen.html?topic=c2-t7",
-  "c2-t8": "vokabelquiz.html?topic=c2-t8&final=1",
+  "c2-t8": "vokabelquiz.html",
 };
 
 /* XP thresholds (must match mein-profil.html / dashboard.html) */
@@ -494,8 +495,8 @@ const ROADMAP = [
       {id:"a1-t2", icon:"👋", name:"Begrüßung & Vorstellung", desc:"Hallo, Danke, Ich heiße...",          xp:50},
       {id:"a1-t3", icon:"🔢", name:"Zahlen & Farben",         desc:"1–100 এবং রঙের নাম জার্মানে",       xp:50},
       {id:"a1-t4", icon:"📘", name:"Artikel: der/die/das",    desc:"Nomen-এর gender চেনা শিখুন",         xp:75},
-      {id:"a1-t5", icon:"🕐", name:"Präsens (Gegenwart)",     desc:"Ich bin, Du bist, Er ist...",         xp:75},
-      {id:"a1-t6", icon:"❓", name:"W-Fragen",                 desc:"Was, Wer, Wo দিয়ে প্রশ্ন",          xp:75},
+      {id:"artikel", icon:"🔖", name:"Artikel (der/die/das)",     desc:"Nomen-এর gender ও article শিখুন",         xp:20},
+      {id:"praesens", icon:"⏱️", name:"Präsens (Gegenwart)",                 desc:"Present tense — regelmäßig ও unregelmäßig",          xp:20},
       {id:"a1-t7", icon:"🗣️", name:"Alltagsphrasen",          desc:"Daily life-এ ব্যবহৃত ১০০+ phrase", xp:75},
       {id:"a1-t8", icon:"📖", name:"A1 Abschlusstest",        desc:"সব topic মিলিয়ে final quiz",         xp:100},
     ]
@@ -505,10 +506,10 @@ const ROADMAP = [
     desc:"Vocabulary বাড়ান, tense শিখুন এবং ছোট paragraph লিখতে পারবেন।",
     xpRequired:500,
     topics:[
-      {id:"a2-t1", icon:"⏰", name:"Perfekt (অতীত)",          desc:"Gestern, letzte Woche দিয়ে বলুন",    xp:100},
-      {id:"a2-t2", icon:"🔮", name:"Futur I",                 desc:"Werden + Infinitiv শিখুন",            xp:100},
-      {id:"a2-t3", icon:"📝", name:"Adjektivdeklination",     desc:"বাক্যকে আরও প্রাণবন্ত করুন",       xp:100},
-      {id:"a2-t4", icon:"🔗", name:"Konjunktionen",           desc:"Und, Aber, Weil, Deshalb...",         xp:100},
+      {id:"perfekt", icon:"⏮️", name:"Perfekt (Vergangenheit)",          desc:"অতীত কাল — haben/sein + Partizip II",    xp:20},
+      {id:"akkusativ", icon:"🎯", name:"Akkusativ",                 desc:"Direct object case — den, die, das, einen",            xp:20},
+      {id:"dativ", icon:"🤝", name:"Dativ",     desc:"Indirect object case — dem, der, dem",       xp:20},
+      {id:"modalverben", icon:"🎛️", name:"Modalverben",           desc:"können, müssen, wollen, sollen, dürfen",         xp:20},
       {id:"a2-t5", icon:"🛒", name:"Einkaufen & Reisen",      desc:"Real-life vocabulary practice",       xp:100},
       {id:"a2-t6", icon:"💬", name:"Kurze Dialoge",           desc:"2–3 turn dialogue practice",          xp:125},
       {id:"a2-t7", icon:"✍️", name:"Absatz schreiben",        desc:"৫–৬ বাক্যের paragraph লিখুন",       xp:125},
@@ -520,9 +521,9 @@ const ROADMAP = [
     desc:"Complex sentence, opinions দেওয়া এবং দৈনন্দিন বিষয়ে কথা বলতে পারবেন।",
     xpRequired:2000,
     topics:[
-      {id:"b1-t1", icon:"🔄", name:"Präteritum",              desc:"Schriftliches Erzähltempus",          xp:150},
-      {id:"b1-t2", icon:"📌", name:"Passiv",                  desc:"Aktiv থেকে Passiv বানানো",            xp:150},
-      {id:"b1-t3", icon:"🎭", name:"Modalverben",             desc:"Können, Müssen, Sollen...",           xp:150},
+      {id:"nebensatz", icon:"🔗", name:"Nebensatz",              desc:"Subordinate clause — weil, dass, wenn",          xp:20},
+      {id:"passiv", icon:"🔃", name:"Passiv",                  desc:"Aktiv থেকে Passiv বানানো",            xp:20},
+      {id:"komparativ", icon:"📈", name:"Komparativ & Superlativ",             desc:"Adjective comparison — tall, taller, tallest",           xp:20},
       {id:"b1-t4", icon:"📰", name:"Leseverstehen",           desc:"Article পড়া এবং বোঝা",              xp:175},
       {id:"b1-t5", icon:"🎙️", name:"Meinung & Diskussion",    desc:"Ich denke, Meiner Meinung nach...",   xp:175},
       {id:"b1-t6", icon:"📧", name:"E-Mail schreiben",        desc:"Formal ও informal email লেখা",       xp:175},
@@ -536,8 +537,8 @@ const ROADMAP = [
     xpRequired:5000,
     topics:[
       {id:"b2-t1", icon:"📚", name:"Erweiterter Wortschatz",  desc:"Academic ও professional শব্দ",       xp:250},
-      {id:"b2-t2", icon:"🔀", name:"Konjunktiv II",           desc:"Wenn-Sätze, hypothetische Situation", xp:250},
-      {id:"b2-t3", icon:"🗣️", name:"Indirekte Rede",          desc:"Direct to indirect speech",          xp:250},
+      {id:"konjunktiv2", icon:"💭", name:"Konjunktiv II",           desc:"Wenn-Sätze, hypothetische Situation", xp:20},
+      {id:"praepositionen", icon:"🗺️", name:"Präpositionen",          desc:"Two-way prepositions ও case-ভিত্তিক ব্যবহার",          xp:20},
       {id:"b2-t4", icon:"📄", name:"Aufsatz schreiben",       desc:"Argumentative essay structure",       xp:275},
       {id:"b2-t5", icon:"🎤", name:"Freies Sprechen",         desc:"Presentation এবং debate skills",     xp:275},
       {id:"b2-t6", icon:"🧩", name:"Redewendungen",           desc:"Common idioms ও তাদের অর্থ",        xp:275},
@@ -553,7 +554,7 @@ const ROADMAP = [
       {id:"c1-t1", icon:"🔬", name:"Wissenschaftssprache",    desc:"Research paper style writing",        xp:400},
       {id:"c1-t2", icon:"⚖️", name:"Formelles Register",      desc:"Legal ও business language",          xp:400},
       {id:"c1-t3", icon:"🌐", name:"Aktuelle Themen",         desc:"News ও world events নিয়ে discuss",  xp:400},
-      {id:"c1-t4", icon:"🎨", name:"Bildhafte Sprache",       desc:"Metapher, Ironie, Sarkasmus",         xp:425},
+      {id:"genitiv", icon:"🔐", name:"Genitiv",       desc:"Possessive case — formal ও written German",         xp:20},
       {id:"c1-t5", icon:"📜", name:"Literaturanalyse",        desc:"Gedicht ও prose বিশ্লেষণ",          xp:425},
       {id:"c1-t6", icon:"🤝", name:"Verhandlungssprache",     desc:"Business negotiation phrases",        xp:450},
       {id:"c1-t7", icon:"🧠", name:"Kritisches Denken",       desc:"Evaluate arguments in German",        xp:450},
@@ -940,6 +941,7 @@ function init(u){
 requireAuth(async user => {
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+  if (!requirePlan(d)) return;
 
   init({
     displayName: d.displayName || user.displayName || "Lerner",

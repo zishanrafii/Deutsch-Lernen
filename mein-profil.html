@@ -586,6 +586,7 @@ import {
   updateProfile,
   EmailAuthProvider, reauthenticateWithCredential, updatePassword,
 } from "./js/firebase-config.js";
+import { requirePlan } from "./js/plan-gate.js";
 
 const ACHIEVEMENTS = [
   {id:"first-quiz", emoji:"🎯", name:"Erstes Quiz",   desc:"প্রথম quiz সম্পন্ন"},
@@ -1159,6 +1160,7 @@ requireAuth(async user => {
 
   const snap = await getDoc(doc(db, "users", viewUID));
   const data = snap.exists() ? snap.data() : { displayName: user.displayName || "Lerner", email: user.email };
+  if (!requirePlan(data)) return;
   populateUI(data, user);
 
   try {

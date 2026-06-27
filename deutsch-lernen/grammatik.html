@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammatik — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;background:rgba(8,14,26,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 0 16px rgba(245,200,66,.1);flex-shrink:0;}
+.logo-text h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.4px;}
+.logo-text p{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:4px;}
+.nav-link{padding:.38rem .85rem;border-radius:10px;font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.nav-link.active{background:rgba(245,200,66,.09);border-color:rgba(245,200,66,.28);color:var(--gold);}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.9rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;transition:.2s;}
+.user-avatar:hover{border-color:var(--gold);box-shadow:0 0 18px rgba(245,200,66,.2);}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.38rem .85rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);border-color:var(--rose);}
+
+/* WRAP */
+.wrap{max-width:1160px;margin:0 auto;padding:2.4rem 1.5rem 5rem;position:relative;z-index:1;}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:2.5rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:1.1rem;background:rgba(129,140,248,.07);border:1px solid rgba(129,140,248,.22);color:var(--indigo);}
+.hero h2{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;letter-spacing:-.6px;line-height:1.15;margin-bottom:.65rem;}
+.hero h2 .g{background:linear-gradient(135deg,#818cf8,#a78bfa,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:13.5px;color:var(--sub);line-height:1.75;max-width:560px;margin:0 auto;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem;}
+.scard{background:var(--surface2);border:1px solid var(--border);border-radius:15px;padding:1rem 1.1rem;display:flex;align-items:center;gap:11px;transition:.2s;position:relative;overflow:hidden;}
+.scard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;opacity:.7;}
+.scard:nth-child(1)::after{background:linear-gradient(90deg,transparent,#818cf8,transparent);}
+.scard:nth-child(2)::after{background:linear-gradient(90deg,transparent,#34d399,transparent);}
+.scard:nth-child(3)::after{background:linear-gradient(90deg,transparent,#f5c842,transparent);}
+.scard:nth-child(4)::after{background:linear-gradient(90deg,transparent,#fb923c,transparent);}
+.scard:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.09);}
+.scard-icon{font-size:1.35rem;flex-shrink:0;}
+.scard-v{font-size:1.25rem;font-weight:800;}
+.scard-l{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;font-family:'JetBrains Mono',monospace;}
+
+/* FILTER BAR */
+.filter-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:1.8rem;background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:.8rem 1.1rem;}
+.filter-label{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.filter-btn{padding:.35rem .85rem;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--sub);font-family:'Outfit',sans-serif;transition:.2s;}
+.filter-btn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.filter-btn.active{background:rgba(129,140,248,.12);border-color:rgba(129,140,248,.35);color:var(--indigo);}
+.filter-sep{width:1px;height:16px;background:var(--border);margin:0 2px;flex-shrink:0;}
+.search-wrap{margin-left:auto;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:10px;padding:.35rem .8rem;}
+.search-wrap input{background:none;border:none;outline:none;color:var(--text);font-family:'Outfit',sans-serif;font-size:12.5px;width:150px;}
+.search-wrap input::placeholder{color:var(--muted);}
+
+/* SECTION TITLE */
+.sec-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+
+/* TOPIC GRID */
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:2.5rem;}
+
+/* TOPIC CARD */
+.topic-card{
+  display:block;text-decoration:none;color:var(--text);
+  background:var(--surface2);border:1px solid var(--border);border-radius:20px;
+  overflow:hidden;cursor:pointer;transition:.3s;position:relative;
+}
+.topic-card:hover{transform:translateY(-6px);box-shadow:0 20px 55px rgba(0,0,0,.45);}
+.tc-stripe{height:3px;width:100%;}
+.tc-body{padding:1.4rem;}
+.tc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.9rem;}
+.tc-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;flex-shrink:0;}
+.tc-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.tc-level{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:3px 10px;border-radius:20px;border:1px solid;}
+.tc-done-badge{font-size:9.5px;font-weight:700;padding:2px 9px;border-radius:20px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--emerald);display:none;}
+.tc-done-badge.show{display:block;}
+.tc-name{font-size:1.05rem;font-weight:800;margin-bottom:.3rem;letter-spacing:-.2px;}
+.tc-desc{font-size:11.5px;color:var(--sub);line-height:1.65;margin-bottom:.9rem;font-family:'Noto Sans Bengali',sans-serif;}
+.tc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;}
+.tc-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04);color:var(--sub);}
+.tc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.05);}
+.tc-xp{font-size:11px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;}
+.tc-arrow{font-size:12.5px;font-weight:700;color:var(--sub);transition:.25s;}
+.topic-card:hover .tc-arrow{color:var(--text);transform:translateX(4px);}
+
+/* color themes */
+.tc-indigo .tc-stripe{background:linear-gradient(90deg,#818cf8,#6366f1,transparent);}
+.tc-indigo .tc-icon{background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.15);}
+.tc-indigo .tc-name{color:var(--indigo);}
+.tc-indigo .tc-level{background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.28);color:var(--indigo);}
+.tc-indigo:hover{border-color:rgba(129,140,248,.2);box-shadow:0 20px 55px rgba(129,140,248,.1);}
+
+.tc-teal .tc-stripe{background:linear-gradient(90deg,#2dd4bf,#06b6d4,transparent);}
+.tc-teal .tc-icon{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.15);}
+.tc-teal .tc-name{color:var(--teal);}
+.tc-teal .tc-level{background:rgba(45,212,191,.1);border-color:rgba(45,212,191,.28);color:var(--teal);}
+.tc-teal:hover{border-color:rgba(45,212,191,.2);box-shadow:0 20px 55px rgba(45,212,191,.08);}
+
+.tc-emerald .tc-stripe{background:linear-gradient(90deg,#34d399,#10b981,transparent);}
+.tc-emerald .tc-icon{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.15);}
+.tc-emerald .tc-name{color:var(--emerald);}
+.tc-emerald .tc-level{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.28);color:var(--emerald);}
+.tc-emerald:hover{border-color:rgba(52,211,153,.2);box-shadow:0 20px 55px rgba(52,211,153,.08);}
+
+.tc-gold .tc-stripe{background:linear-gradient(90deg,#f5c842,#e0a820,transparent);}
+.tc-gold .tc-icon{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.15);}
+.tc-gold .tc-name{color:var(--gold);}
+.tc-gold .tc-level{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.28);color:var(--gold);}
+.tc-gold:hover{border-color:rgba(245,200,66,.2);box-shadow:0 20px 55px rgba(245,200,66,.08);}
+
+.tc-rose .tc-stripe{background:linear-gradient(90deg,#fb7185,#f43f5e,transparent);}
+.tc-rose .tc-icon{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.15);}
+.tc-rose .tc-name{color:var(--rose);}
+.tc-rose .tc-level{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.28);color:var(--rose);}
+.tc-rose:hover{border-color:rgba(251,113,133,.2);box-shadow:0 20px 55px rgba(251,113,133,.08);}
+
+.tc-orange .tc-stripe{background:linear-gradient(90deg,#fb923c,#f97316,transparent);}
+.tc-orange .tc-icon{background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.15);}
+.tc-orange .tc-name{color:var(--orange);}
+.tc-orange .tc-level{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.28);color:var(--orange);}
+.tc-orange:hover{border-color:rgba(251,146,60,.2);box-shadow:0 20px 55px rgba(251,146,60,.08);}
+
+.tc-violet .tc-stripe{background:linear-gradient(90deg,#a78bfa,#8b5cf6,transparent);}
+.tc-violet .tc-icon{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.15);}
+.tc-violet .tc-name{color:var(--violet);}
+.tc-violet .tc-level{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.28);color:var(--violet);}
+.tc-violet:hover{border-color:rgba(167,139,250,.2);box-shadow:0 20px 55px rgba(167,139,250,.08);}
+
+.tc-sky .tc-stripe{background:linear-gradient(90deg,#38bdf8,#0ea5e9,transparent);}
+.tc-sky .tc-icon{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.15);}
+.tc-sky .tc-name{color:var(--sky);}
+.tc-sky .tc-level{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.28);color:var(--sky);}
+.tc-sky:hover{border-color:rgba(56,189,248,.2);box-shadow:0 20px 55px rgba(56,189,248,.08);}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
+.footer-inner{max-width:1160px;margin:auto;padding:2.2rem 1.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;}
+.footer-brand .brand-name{font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
+.footer-brand .brand-sub{font-size:11.5px;color:var(--muted);line-height:1.65;margin-bottom:.9rem;font-family:'Noto Sans Bengali',sans-serif;}
+.copyright-text{font-size:10.5px;color:#2d3748;line-height:1.8;font-family:'JetBrains Mono',monospace;}
+.footer-col h4{font-size:.88rem;font-weight:700;color:var(--sub);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.social-links{display:flex;flex-direction:column;gap:.5rem;}
+.social-link{display:flex;align-items:center;gap:10px;padding:.5rem .75rem;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid var(--border);text-decoration:none;color:var(--sub);font-size:12px;transition:.2s;}
+.social-link:hover{background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.2);color:var(--text);transform:translateX(3px);}
+.sl-icon{font-size:.9rem;width:20px;text-align:center;}
+.sl-label{font-weight:600;flex:1;}
+.sl-handle{color:var(--muted);font-size:10px;font-family:'JetBrains Mono',monospace;}
+.footer-bottom{max-width:1160px;margin:auto;padding:.8rem 1.5rem 1.3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-top:1px solid rgba(255,255,255,.04);font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+
+@media(max-width:900px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:800px){.footer-inner{grid-template-columns:1fr;gap:1.5rem;}.nav-links{display:none;}}
+@media(max-width:640px){.topic-grid{grid-template-columns:1fr;}.wrap{padding:1.8rem 1rem 3rem;}.search-wrap{display:none;}}
+@media(max-width:480px){.topbar{flex-direction:column;align-items:flex-start;}.stats-row{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text">
+      <h1>Deutsch Lernen</h1>
+      <p>GRAMMATIK · ALLE THEMEN</p>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <nav class="nav-links">
+      <a href="dashboard.html"   class="nav-link">Home</a>
+      <a href="lernreise.html"   class="nav-link">Journey</a>
+      <a href="vokabelquiz.html" class="nav-link">Quiz</a>
+      <a href="grammatik.html"   class="nav-link active">Grammatik</a>
+      <a href="woerterbuch.html" class="nav-link">Wörterbuch</a>
+      <a href="schreiben.html"   class="nav-link">Schreiben</a>
+    </nav>
+    <div class="user-section">
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">📘 Grammatik · A1 → C2</div>
+    <h2>German <span class="g">Grammatik</span> শিখো</h2>
+    <p class="hero-sub">প্রতিটি topic-এ বাংলায় গভীর ব্যাখ্যা, অনেক উদাহরণ এবং unlimited practice — কোনো কিছু বাদ ছাড়াই German শিখো।</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="scard">
+      <div class="scard-icon">📖</div>
+      <div><div class="scard-v" style="color:var(--indigo)" id="st-total">20</div><div class="scard-l">মোট Topics</div></div>
+    </div>
+    <div class="scard">
+      <div class="scard-icon">✅</div>
+      <div><div class="scard-v" style="color:var(--emerald)" id="st-done">0</div><div class="scard-l">সম্পন্ন</div></div>
+    </div>
+    <div class="scard">
+      <div class="scard-icon">⚡</div>
+      <div><div class="scard-v" style="color:var(--gold)" id="st-xp">0</div><div class="scard-l">মোট XP</div></div>
+    </div>
+    <div class="scard">
+      <div class="scard-icon">🔥</div>
+      <div><div class="scard-v" style="color:var(--orange)" id="st-streak">0</div><div class="scard-l">Streak</div></div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <span class="filter-label">Level:</span>
+    <button class="filter-btn active" data-filter="all">Alle</button>
+    <button class="filter-btn" data-filter="A1">A1</button>
+    <button class="filter-btn" data-filter="A2">A2</button>
+    <button class="filter-btn" data-filter="B1">B1</button>
+    <button class="filter-btn" data-filter="B2">B2</button>
+    <button class="filter-btn" data-filter="C1">C1</button>
+    <button class="filter-btn" data-filter="C2">C2</button>
+    <div class="filter-sep"></div>
+    <span class="filter-label">Kategorie:</span>
+    <button class="filter-btn active" data-cat="all">Alle</button>
+    <button class="filter-btn" data-cat="Artikel">Artikel</button>
+    <button class="filter-btn" data-cat="Kasus">Kasus</button>
+    <button class="filter-btn" data-cat="Verben">Verben</button>
+    <button class="filter-btn" data-cat="Sätze">Sätze</button>
+    <div class="search-wrap">
+      <span>🔍</span>
+      <input type="text" id="search-input" placeholder="topic খোঁজো...">
+    </div>
+  </div>
+
+  <!-- A1 -->
+  <div class="sec-title" data-section="A1"><span>🟢</span> A1 — Anfänger</div>
+  <div class="topic-grid" id="grid-a1">
+    <a href="grammatik/artikel.html" class="topic-card tc-indigo" data-level="A1" data-cat="Artikel" data-id="artikel">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🔖</div>
+          <div class="tc-right"><span class="tc-level">A1</span><span class="tc-done-badge" id="done-artikel">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Artikel (der / die / das)</div>
+        <div class="tc-desc">German noun-এর gender ও article — masculine, feminine, neuter শেখো সহজ নিয়মে।</div>
+        <div class="tc-tags"><span class="tc-tag">der</span><span class="tc-tag">die</span><span class="tc-tag">das</span><span class="tc-tag">Genus</span><span class="tc-tag">Kasus</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/plural.html" class="topic-card tc-teal" data-level="A1" data-cat="Artikel" data-id="plural">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">📦</div>
+          <div class="tc-right"><span class="tc-level">A1</span><span class="tc-done-badge" id="done-plural">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Nomen Plural</div>
+        <div class="tc-desc">German noun-এর বহুবচন — ৫টি pattern দিয়ে সব plural মনে রাখো।</div>
+        <div class="tc-tags"><span class="tc-tag">Plural</span><span class="tc-tag">-e</span><span class="tc-tag">-en</span><span class="tc-tag">-er</span><span class="tc-tag">Umlaut</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/sein-haben.html" class="topic-card tc-emerald" data-level="A1" data-cat="Verben" data-id="sein-haben">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🔑</div>
+          <div class="tc-right"><span class="tc-level">A1</span><span class="tc-done-badge" id="done-sein-haben">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">sein & haben</div>
+        <div class="tc-desc">German-এর সবচেয়ে গুরুত্বপূর্ণ দুটি verb — সম্পূর্ণ conjugation ও ব্যবহার।</div>
+        <div class="tc-tags"><span class="tc-tag">sein</span><span class="tc-tag">haben</span><span class="tc-tag">Hilfsverb</span><span class="tc-tag">Konjugation</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/praesens.html" class="topic-card tc-sky" data-level="A1" data-cat="Verben" data-id="praesens">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">⏱️</div>
+          <div class="tc-right"><span class="tc-level">A1</span><span class="tc-done-badge" id="done-praesens">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Präsens (Present Tense)</div>
+        <div class="tc-desc">German বর্তমান কাল — regular ও irregular verbs-এর সম্পূর্ণ conjugation।</div>
+        <div class="tc-tags"><span class="tc-tag">Präsens</span><span class="tc-tag">regelmäßig</span><span class="tc-tag">unregelmäßig</span><span class="tc-tag">Stammvokal</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/negation.html" class="topic-card tc-rose" data-level="A1" data-cat="Sätze" data-id="negation">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🚫</div>
+          <div class="tc-right"><span class="tc-level">A1</span><span class="tc-done-badge" id="done-negation">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Negation (nicht / kein)</div>
+        <div class="tc-desc">"না" বলার দুটি উপায় — nicht ও kein কখন কোথায় ব্যবহার হয় সম্পূর্ণ শিখো।</div>
+        <div class="tc-tags"><span class="tc-tag">nicht</span><span class="tc-tag">kein</span><span class="tc-tag">Verneinung</span><span class="tc-tag">Negation</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/w-fragen.html" class="topic-card tc-gold" data-level="A1" data-cat="Sätze" data-id="w-fragen">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">❓</div>
+          <div class="tc-right"><span class="tc-level">A1</span><span class="tc-done-badge" id="done-w-fragen">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">W-Fragen (প্রশ্নবোধক)</div>
+        <div class="tc-desc">wer, was, wo, wann, wie, warum — সব W-question words ও question sentence structure।</div>
+        <div class="tc-tags"><span class="tc-tag">wer</span><span class="tc-tag">was</span><span class="tc-tag">wo</span><span class="tc-tag">wann</span><span class="tc-tag">wie</span><span class="tc-tag">warum</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- A2 -->
+  <div class="sec-title" data-section="A2"><span>🔵</span> A2 — Grundstufe</div>
+  <div class="topic-grid" id="grid-a2">
+    <a href="grammatik/akkusativ.html" class="topic-card tc-orange" data-level="A2" data-cat="Kasus" data-id="akkusativ">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🎯</div>
+          <div class="tc-right"><span class="tc-level">A2</span><span class="tc-done-badge" id="done-akkusativ">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Akkusativ</div>
+        <div class="tc-desc">Direct object case — কোন article কীভাবে বদলায়, কোন prepositions Akkusativ নেয়।</div>
+        <div class="tc-tags"><span class="tc-tag">Akkusativ</span><span class="tc-tag">den</span><span class="tc-tag">einen</span><span class="tc-tag">durch/für</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/dativ.html" class="topic-card tc-violet" data-level="A2" data-cat="Kasus" data-id="dativ">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🤝</div>
+          <div class="tc-right"><span class="tc-level">A2</span><span class="tc-done-badge" id="done-dativ">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Dativ</div>
+        <div class="tc-desc">Indirect object case — dem/der/dem পরিবর্তন ও Dativ prepositions সম্পূর্ণ।</div>
+        <div class="tc-tags"><span class="tc-tag">Dativ</span><span class="tc-tag">dem</span><span class="tc-tag">mit/bei/nach</span><span class="tc-tag">von/zu</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/perfekt.html" class="topic-card tc-indigo" data-level="A2" data-cat="Verben" data-id="perfekt">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">⏮️</div>
+          <div class="tc-right"><span class="tc-level">A2</span><span class="tc-done-badge" id="done-perfekt">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Perfekt (Past Tense)</div>
+        <div class="tc-desc">German spoken past tense — haben/sein + Partizip II, regular ও irregular সব।</div>
+        <div class="tc-tags"><span class="tc-tag">Perfekt</span><span class="tc-tag">haben/sein</span><span class="tc-tag">Partizip II</span><span class="tc-tag">ge-</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/modalverben.html" class="topic-card tc-emerald" data-level="A2" data-cat="Verben" data-id="modalverben">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🎛️</div>
+          <div class="tc-right"><span class="tc-level">A2</span><span class="tc-done-badge" id="done-modalverben">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Modalverben</div>
+        <div class="tc-desc">können, müssen, wollen, dürfen, sollen, mögen — সব modal verbs সম্পূর্ণ।</div>
+        <div class="tc-tags"><span class="tc-tag">können</span><span class="tc-tag">müssen</span><span class="tc-tag">wollen</span><span class="tc-tag">dürfen</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/praepositionen.html" class="topic-card tc-sky" data-level="A2" data-cat="Sätze" data-id="praepositionen">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🗺️</div>
+          <div class="tc-right"><span class="tc-level">A2</span><span class="tc-done-badge" id="done-praepositionen">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Präpositionen</div>
+        <div class="tc-desc">Akkusativ, Dativ ও two-way prepositions — সব নিয়ম ও tricks এক জায়গায়।</div>
+        <div class="tc-tags"><span class="tc-tag">durch/für</span><span class="tc-tag">mit/bei</span><span class="tc-tag">in/auf/an</span><span class="tc-tag">Wechsel</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- B1 -->
+  <div class="sec-title" data-section="B1"><span>🟣</span> B1 — Mittelstufe</div>
+  <div class="topic-grid" id="grid-b1">
+    <a href="grammatik/komparativ.html" class="topic-card tc-gold" data-level="B1" data-cat="Sätze" data-id="komparativ">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">📈</div>
+          <div class="tc-right"><span class="tc-level">B1</span><span class="tc-done-badge" id="done-komparativ">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Komparativ & Superlativ</div>
+        <div class="tc-desc">তুলনা করো German-এ — -er ও am -sten দিয়ে, irregular forms সহ।</div>
+        <div class="tc-tags"><span class="tc-tag">Komparativ</span><span class="tc-tag">Superlativ</span><span class="tc-tag">als</span><span class="tc-tag">am meisten</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/nebensatz.html" class="topic-card tc-violet" data-level="B1" data-cat="Sätze" data-id="nebensatz">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🔗</div>
+          <div class="tc-right"><span class="tc-level">B1</span><span class="tc-done-badge" id="done-nebensatz">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Nebensatz</div>
+        <div class="tc-desc">Subordinate clauses — weil, dass, wenn, ob দিয়ে complex sentences তৈরি।</div>
+        <div class="tc-tags"><span class="tc-tag">weil</span><span class="tc-tag">dass</span><span class="tc-tag">wenn</span><span class="tc-tag">ob</span><span class="tc-tag">Verb-end</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/reflexive.html" class="topic-card tc-rose" data-level="B1" data-cat="Verben" data-id="reflexive">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🔄</div>
+          <div class="tc-right"><span class="tc-level">B1</span><span class="tc-done-badge" id="done-reflexive">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Reflexive Verben</div>
+        <div class="tc-desc">sich ব্যবহার করে নিজের উপর ক্রিয়া — Akkusativ ও Dativ reflexive pronouns।</div>
+        <div class="tc-tags"><span class="tc-tag">sich</span><span class="tc-tag">mich/dich</span><span class="tc-tag">waschen</span><span class="tc-tag">freuen</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- B2 -->
+  <div class="sec-title" data-section="B2"><span>🟠</span> B2 — Oberstufe</div>
+  <div class="topic-grid" id="grid-b2">
+    <a href="grammatik/passiv.html" class="topic-card tc-orange" data-level="B2" data-cat="Verben" data-id="passiv">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🔃</div>
+          <div class="tc-right"><span class="tc-level">B2</span><span class="tc-done-badge" id="done-passiv">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Passiv (Passive Voice)</div>
+        <div class="tc-desc">werden + Partizip II — Präsens, Präteritum ও Perfekt Passiv সম্পূর্ণ।</div>
+        <div class="tc-tags"><span class="tc-tag">Passiv</span><span class="tc-tag">werden</span><span class="tc-tag">Partizip II</span><span class="tc-tag">von</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/konjunktiv2.html" class="topic-card tc-indigo" data-level="B2" data-cat="Verben" data-id="konjunktiv2">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">💭</div>
+          <div class="tc-right"><span class="tc-level">B2</span><span class="tc-done-badge" id="done-konjunktiv2">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Konjunktiv II</div>
+        <div class="tc-desc">Hypothetical situations ও polite requests — würde, wäre, hätte সম্পূর্ণ।</div>
+        <div class="tc-tags"><span class="tc-tag">würde</span><span class="tc-tag">wäre</span><span class="tc-tag">hätte</span><span class="tc-tag">Hypothese</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- C1 -->
+  <div class="sec-title" data-section="C1"><span>🔴</span> C1 — Fortgeschritten</div>
+  <div class="topic-grid" id="grid-c1">
+    <a href="grammatik/genitiv.html" class="topic-card tc-teal" data-level="C1" data-cat="Kasus" data-id="genitiv">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🔐</div>
+          <div class="tc-right"><span class="tc-level">C1</span><span class="tc-done-badge" id="done-genitiv">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Genitiv</div>
+        <div class="tc-desc">Possession ও formal prepositions — des/der, wegen/trotz/während সম্পূর্ণ।</div>
+        <div class="tc-tags"><span class="tc-tag">Genitiv</span><span class="tc-tag">des/der</span><span class="tc-tag">wegen</span><span class="tc-tag">trotz</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/infinitiv.html" class="topic-card tc-emerald" data-level="C1" data-cat="Sätze" data-id="infinitiv">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">⛓️</div>
+          <div class="tc-right"><span class="tc-level">C1</span><span class="tc-done-badge" id="done-infinitiv">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Infinitivkonstruktion (zu)</div>
+        <div class="tc-desc">um zu, ohne zu, anstatt zu — purpose, contrast ও condition express করো।</div>
+        <div class="tc-tags"><span class="tc-tag">um zu</span><span class="tc-tag">ohne zu</span><span class="tc-tag">anstatt zu</span><span class="tc-tag">Infinitiv</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+    <a href="grammatik/konjunktionen.html" class="topic-card tc-gold" data-level="C1" data-cat="Sätze" data-id="konjunktionen">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">⚖️</div>
+          <div class="tc-right"><span class="tc-level">C1</span><span class="tc-done-badge" id="done-konjunktionen">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Zweiteilige Konjunktionen</div>
+        <div class="tc-desc">sowohl…als auch, entweder…oder, weder…noch, nicht nur…sondern auch।</div>
+        <div class="tc-tags"><span class="tc-tag">sowohl…als auch</span><span class="tc-tag">entweder…oder</span><span class="tc-tag">weder…noch</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- C2 -->
+  <div class="sec-title" data-section="C2"><span>🏆</span> C2 — Meisterschaft</div>
+  <div class="topic-grid" id="grid-c2">
+    <a href="grammatik/erweiterte-partizip.html" class="topic-card tc-violet" data-level="C2" data-cat="Sätze" data-id="erweiterte-partizip">
+      <div class="tc-stripe"></div>
+      <div class="tc-body">
+        <div class="tc-top">
+          <div class="tc-icon">🏆</div>
+          <div class="tc-right"><span class="tc-level">C2</span><span class="tc-done-badge" id="done-erweiterte-partizip">✓ সম্পন্ন</span></div>
+        </div>
+        <div class="tc-name">Erweiterte Partizipien</div>
+        <div class="tc-desc">Extended participial phrases — complex academic German writing-এর জন্য।</div>
+        <div class="tc-tags"><span class="tc-tag">Partizip I</span><span class="tc-tag">Partizip II</span><span class="tc-tag">Attribut</span><span class="tc-tag">Akademisch</span></div>
+        <div class="tc-footer"><span class="tc-xp">⚡ +20 XP</span><span class="tc-arrow">শিখতে যাও →</span></div>
+      </div>
+    </a>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">🇩🇪 Deutsch Lernen</div>
+      <div class="brand-sub">একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।</div>
+      <div class="copyright-text">© <span id="footer-year"></span> Deutsch Lernen<br><span>All rights reserved.</span></div>
+    </div>
+    <div class="footer-col">
+      <h4>🔗 Quick Links</h4>
+      <div class="social-links">
+        <a href="lernreise.html"   class="social-link"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
+        <a href="vokabelquiz.html" class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Vokabelquiz</span><span class="sl-handle">A1–C2</span></a>
+        <a href="woerterbuch.html" class="social-link"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
+        <a href="rangliste.html"   class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle">Top Lerner</span></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>📚 Lernbereiche</h4>
+      <div class="social-links">
+        <a href="sprechen.html"       class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
+        <a href="hoeren.html"         class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
+        <a href="schreiben.html"      class="social-link"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
+        <a href="community-chat.html" class="social-link"><span class="sl-icon">💬</span><span class="sl-label">Community</span><span class="sl-handle">Chat</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2</div>
+  </div>
+</footer>
+
+<script type="module">
+import { auth, db, signOut, requireAuth, doc, getDoc } from "./js/firebase-config.js";
+import { requirePlan } from "./js/plan-gate.js";
+
+document.getElementById("footer-year").textContent  = new Date().getFullYear();
+document.getElementById("footer-year2").textContent = new Date().getFullYear();
+
+document.getElementById("btn-logout").addEventListener("click", async () => {
+  await signOut(auth); location.href = "index.html";
+});
+
+/* FILTER */
+let activeLevel = "all", activeCat = "all";
+
+document.querySelectorAll("[data-filter]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-filter]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeLevel = btn.dataset.filter;
+    applyFilter();
+  });
+});
+document.querySelectorAll("[data-cat]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-cat]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCat = btn.dataset.cat;
+    applyFilter();
+  });
+});
+document.getElementById("search-input").addEventListener("input", applyFilter);
+
+function applyFilter() {
+  const q = document.getElementById("search-input").value.toLowerCase();
+  document.querySelectorAll(".topic-card").forEach(card => {
+    const lvOk  = activeLevel === "all" || card.dataset.level === activeLevel;
+    const catOk = activeCat  === "all" || card.dataset.cat  === activeCat;
+    const txt   = card.textContent.toLowerCase();
+    const sqOk  = !q || txt.includes(q);
+    card.style.display = (lvOk && catOk && sqOk) ? "" : "none";
+  });
+  // hide section titles if all cards hidden
+  ["A1","A2","B1","B2","C1","C2"].forEach(lv => {
+    const grid = document.getElementById("grid-" + lv.toLowerCase());
+    const sec  = document.querySelector(`[data-section="${lv}"]`);
+    if (!grid || !sec) return;
+    const anyVisible = [...grid.querySelectorAll(".topic-card")].some(c => c.style.display !== "none");
+    sec.style.display = anyVisible ? "" : "none";
+    grid.style.display = anyVisible ? "" : "none";
+  });
+}
+
+requireAuth(async user => {
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const d    = snap.exists() ? snap.data() : {};
+  if (!requirePlan(d)) return;
+
+  const name  = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL    || user.photoURL    || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if (photo) av.innerHTML = `<img src="${photo}" alt="">`;
+  else av.textContent = name[0]?.toUpperCase() || "?";
+
+  document.getElementById("st-xp").textContent     = d.xp     || 0;
+  document.getElementById("st-streak").textContent = d.streak || 0;
+
+  const done = d.completedTopics || [];
+  document.getElementById("st-done").textContent = done.length;
+  done.forEach(id => {
+    const el = document.getElementById("done-" + id);
+    if (el) el.classList.add("show");
+  });
+});
+</script>
+</body>
+</html>

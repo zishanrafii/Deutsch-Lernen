@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment সফল — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--teal:#2dd4bf;--emerald:#34d399;--rose:#fb7185;--muted:#64748b;--text:#f0f4f8;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(52,211,153,.06),transparent 70%);}
+
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:28px;
+  padding:3rem 2.5rem;max-width:480px;width:90%;text-align:center;position:relative;
+  z-index:1;box-shadow:0 30px 80px rgba(0,0,0,.5);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:28px 28px 0 0;
+  background:linear-gradient(90deg,transparent,#34d399 30%,#f5c842 70%,transparent);}
+
+.success-icon{font-size:4rem;margin-bottom:1.2rem;animation:bounce .6s ease;}
+@keyframes bounce{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+
+h2{font-size:1.8rem;font-weight:900;margin-bottom:.5rem;
+  background:linear-gradient(135deg,#34d399,#f5c842);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sub{font-size:13.5px;color:var(--muted);margin-bottom:1.6rem;line-height:1.7;font-family:'Noto Sans Bengali',sans-serif;}
+
+.plan-info{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);border-radius:16px;
+  padding:1.1rem 1.4rem;margin-bottom:1.6rem;}
+.plan-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem;}
+.plan-name{font-size:1.2rem;font-weight:800;color:var(--emerald);}
+.plan-expiry{font-size:11.5px;color:var(--muted);margin-top:3px;}
+
+.status-msg{font-size:13px;color:var(--muted);margin-bottom:1.6rem;min-height:20px;
+  font-family:'Noto Sans Bengali',sans-serif;}
+.status-msg.loading{color:var(--gold);}
+.status-msg.error{color:var(--rose);}
+
+.btn-go{display:inline-block;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;
+  padding:.85rem 2rem;border-radius:14px;font-size:15px;font-weight:800;text-decoration:none;
+  transition:.2s;border:none;cursor:pointer;font-family:'Outfit',sans-serif;}
+.btn-go:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,200,66,.35);}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="success-icon">🎉</div>
+  <h2>Payment সফল!</h2>
+  <p class="sub">আপনার Deutsch Lernen Pro subscription সক্রিয় হয়েছে। এখন থেকে A1 থেকে C2 পর্যন্ত সব feature ব্যবহার করতে পারবেন।</p>
+
+  <div class="plan-info">
+    <div class="plan-label">Activated Plan</div>
+    <div class="plan-name" id="plan-name">Pro</div>
+    <div class="plan-expiry" id="plan-expiry"></div>
+  </div>
+
+  <div class="status-msg loading" id="status-msg">⏳ Plan activate করা হচ্ছে...</div>
+
+  <a href="dashboard.html" class="btn-go" id="btn-go" style="display:none;">
+    🚀 Dashboard-এ যান
+  </a>
+</div>
+
+<script type="module">
+import {
+  auth, db, requireAuth,
+  doc, updateDoc, getDoc,
+  serverTimestamp,
+} from "./js/firebase-config.js";
+
+const params     = new URLSearchParams(location.search);
+const plan       = params.get("plan")       || "monthly";
+const provider   = params.get("provider")   || "stripe";
+const sessionId  = params.get("session_id") || "";
+const uid        = params.get("uid")        || "";
+
+document.getElementById("plan-name").textContent =
+  plan === "yearly" ? "Pro Yearly 🌟" : "Pro Monthly ⚡";
+
+requireAuth(async user => {
+  // For SSLCommerz: IPN already wrote to Firestore — just verify and show
+  // For Stripe: webhook already wrote to Firestore — just verify and show
+  // Either way, we just read the user doc and show current state.
+
+  try {
+    // Small delay to allow webhook/IPN to complete
+    await new Promise(r => setTimeout(r, 2000));
+
+    const snap = await getDoc(doc(db, "users", user.uid));
+    const data = snap.exists() ? snap.data() : {};
+
+    if (data.plan === "monthly" || data.plan === "yearly") {
+      // Already activated by webhook/IPN
+      const expiry = data.planExpiry?.toDate
+        ? data.planExpiry.toDate().toLocaleDateString("bn-BD")
+        : "";
+      document.getElementById("plan-expiry").textContent = expiry ? `মেয়াদ: ${expiry}` : "";
+      document.getElementById("plan-name").textContent   =
+        data.plan === "yearly" ? "Pro Yearly 🌟" : "Pro Monthly ⚡";
+      document.getElementById("status-msg").textContent  = "✅ Plan সফলভাবে activate হয়েছে!";
+      document.getElementById("status-msg").className    = "status-msg";
+    } else {
+      // Webhook might be delayed — manually activate as fallback (Stripe only)
+      if (provider === "stripe" && sessionId) {
+        const now    = new Date();
+        const expiry = new Date(now);
+        if (plan === "yearly") expiry.setFullYear(expiry.getFullYear() + 1);
+        else if (plan === "sixmonths") expiry.setMonth(expiry.getMonth() + 6);
+        else expiry.setMonth(expiry.getMonth() + 1);
+
+        await updateDoc(doc(db, "users", user.uid), {
+          plan,
+          planProvider:  "stripe",
+          planStart:     serverTimestamp(),
+          stripeSession: sessionId,
+        });
+        document.getElementById("status-msg").textContent = "✅ Plan activate হয়েছে!";
+        document.getElementById("status-msg").className   = "status-msg";
+      } else {
+        document.getElementById("status-msg").textContent =
+          "⏳ Payment verify হচ্ছে... Dashboard-এ গিয়ে দেখুন।";
+        document.getElementById("status-msg").className   = "status-msg";
+      }
+    }
+  } catch (err) {
+    console.error(err);
+    document.getElementById("status-msg").textContent =
+      "Plan activate হতে সমস্যা হয়েছে। Dashboard-এ গেলে ঠিক হয়ে যাবে।";
+    document.getElementById("status-msg").className = "status-msg error";
+  }
+
+  document.getElementById("btn-go").style.display = "inline-block";
+});
+</script>
+</body>
+</html>

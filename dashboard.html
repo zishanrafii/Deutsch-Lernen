@@ -272,6 +272,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="user-section">
         <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
         <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+        <a href="pricing.html" id="plan-badge" style="display:none;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;text-decoration:none;font-family:'JetBrains Mono',monospace;background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.25);color:#f5c842;">FREE</a>
         <button class="btn-logout" id="btn-logout">Logout</button>
       </div>
     </div>
@@ -407,13 +408,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <p>Native speaker German audio শুনুন এবং comprehension বাড়ান।</p>
     </a>
 
-    <a href="lesen.html" class="card">
-      <div class="card-accent ca-rose"></div>
-      <div class="card-icon">📰</div>
-      <h3>Lesen</h3>
-      <p>German reading passages পড়ুন এবং comprehension questions দিয়ে দক্ষতা বাড়ান।</p>
-    </a>
-
     <a href="schreiben.html" class="card">
       <div class="card-accent ca-violet"></div>
       <div class="card-icon">✍️</div>
@@ -535,19 +529,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="footer-col">
       <h4>🔗 Quick Links</h4>
       <div class="social-links">
-        <a href="roadmap.html" class="social-link"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
-        <a href="grammar.html" class="social-link"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle">alle Themen</span></a>
-        <a href="vocab-dashboard.html" class="social-link"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
-        <a href="leaderboard.html" class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle">Top Lerner</span></a>
+        <a href="lernreise.html" class="social-link"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
+        <a href="grammatik.html" class="social-link"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle">alle Themen</span></a>
+        <a href="woerterbuch.html" class="social-link"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
+        <a href="rangliste.html" class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle">Top Lerner</span></a>
       </div>
     </div>
     <div class="footer-col">
       <h4>📚 Lernbereiche</h4>
       <div class="social-links">
-        <a href="quiz-a1-a2.html" class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Quiz</span><span class="sl-handle">A1–C2</span></a>
-        <a href="speaking.html" class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
-        <a href="listening.html" class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
-        <a href="writing-lab.html" class="social-link"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
+        <a href="vokabelquiz.html" class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Quiz</span><span class="sl-handle">A1–C2</span></a>
+        <a href="sprechen.html" class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
+        <a href="hoeren.html" class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
+        <a href="schreiben.html" class="social-link"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
       </div>
     </div>
   </div>
@@ -640,6 +634,22 @@ requireAuth(async user => {
   const av = document.getElementById("nav-avatar");
   if(photo) av.innerHTML = `<img src="${photo}" style="width:100%;height:100%;object-fit:cover;">`;
   else av.textContent = name[0]?.toUpperCase() || "?";
+
+  /* Plan badge */
+  const plan = d.plan || "free";
+  const badge = document.getElementById("plan-badge");
+  badge.style.display = "inline-block";
+  if (plan === "monthly" || plan === "sixmonths" || plan === "yearly") {
+    badge.textContent = plan === "yearly" ? "PRO 👑" : plan === "sixmonths" ? "PRO 🚀" : "PRO ⚡";
+    badge.style.background = "linear-gradient(135deg,rgba(245,200,66,.2),rgba(45,212,191,.12))";
+    badge.style.borderColor = "rgba(245,200,66,.4)";
+    badge.style.color = "#f5c842";
+  } else {
+    badge.textContent = "FREE → Upgrade";
+    badge.style.background = "rgba(100,116,139,.1)";
+    badge.style.borderColor = "rgba(100,116,139,.2)";
+    badge.style.color = "#64748b";
+  }
 
   /* Hero */
   document.getElementById("hero-name").textContent = name.split(" ")[0];

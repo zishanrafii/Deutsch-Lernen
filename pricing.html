@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);--gold:#f5c842;--gold2:#e0a820;
+  --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;
+  --orange:#fb923c;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+.wrap{max-width:1000px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;overflow:hidden;
+  border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);}
+
+/* HERO */
+.hero{text-align:center;padding:2.2rem 1rem 2rem;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold);
+  letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.7rem;}
+.hero h2{font-size:2rem;font-weight:900;letter-spacing:-.5px;margin-bottom:.6rem;}
+.hero h2 span{background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:13.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;line-height:1.7;max-width:480px;margin:0 auto;}
+
+/* ALERT */
+.alert{border-radius:12px;padding:.8rem 1.1rem;margin-bottom:1.4rem;font-size:13px;
+  display:none;font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+.alert.error{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.25);color:var(--rose);}
+.alert.success{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);color:var(--emerald);}
+.alert.warn{background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.25);color:var(--orange);}
+.alert.show{display:block;}
+
+/* CURRENT PLAN BANNER */
+.cpb{background:linear-gradient(135deg,rgba(52,211,153,.08),rgba(45,212,191,.05));
+  border:1px solid rgba(52,211,153,.2);border-radius:14px;padding:.9rem 1.3rem;margin-bottom:1.8rem;
+  display:none;align-items:center;gap:10px;font-size:13px;font-family:'Noto Sans Bengali',sans-serif;}
+.cpb.show{display:flex;}
+
+/* PLANS GRID */
+.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem;}
+
+.plan-card{background:var(--surface2);border:1px solid var(--border);border-radius:20px;
+  padding:1.6rem 1.3rem;position:relative;overflow:hidden;transition:.3s;display:flex;flex-direction:column;gap:.5rem;}
+.plan-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.1);}
+.plan-card.popular{border-color:rgba(245,200,66,.35);
+  background:linear-gradient(160deg,rgba(245,200,66,.06),var(--surface2));
+  box-shadow:0 0 40px rgba(245,200,66,.1);}
+.plan-card.best{border-color:rgba(45,212,191,.35);
+  background:linear-gradient(160deg,rgba(45,212,191,.06),var(--surface2));
+  box-shadow:0 0 40px rgba(45,212,191,.08);}
+
+.plan-top-stripe{position:absolute;top:0;left:0;right:0;height:2px;}
+.s-free{background:linear-gradient(90deg,transparent,#64748b,transparent);}
+.s-monthly{background:linear-gradient(90deg,transparent,#818cf8,transparent);}
+.s-6months{background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.s-yearly{background:linear-gradient(90deg,transparent,#2dd4bf 30%,#34d399 70%,transparent);}
+
+.plan-badge{position:absolute;top:12px;right:12px;font-size:9px;font-weight:800;
+  padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;}
+.badge-popular{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;}
+.badge-best{background:linear-gradient(135deg,#2dd4bf,#10b981);color:#000;}
+
+.plan-icon{font-size:1.6rem;}
+.plan-name{font-size:.95rem;font-weight:800;}
+.plan-tagline{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;min-height:32px;}
+
+.plan-price-wrap{margin:.3rem 0;}
+.price-main{font-size:2.2rem;font-weight:900;font-family:'JetBrains Mono',monospace;line-height:1;}
+.price-cur{font-size:.95rem;font-weight:700;vertical-align:top;margin-top:.35rem;display:inline-block;}
+.price-period{font-size:11px;color:var(--muted);margin-left:3px;}
+.price-per-month{font-size:10.5px;color:var(--emerald);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+.price-save{font-size:10px;color:var(--orange);font-family:'JetBrains Mono',monospace;}
+
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:6px;flex:1;margin:.3rem 0;}
+.feat-list li{display:flex;align-items:flex-start;gap:7px;font-size:12px;line-height:1.45;color:var(--sub);}
+.feat-list li .fi{font-size:.75rem;flex-shrink:0;margin-top:2px;}
+.feat-list li.locked-feat{opacity:.35;}
+
+.plan-btn{width:100%;padding:.8rem;border-radius:12px;border:none;font-family:'Outfit',sans-serif;
+  font-size:13.5px;font-weight:800;cursor:pointer;transition:.2s;margin-top:.5rem;}
+.btn-free{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);cursor:default;}
+.btn-monthly{background:linear-gradient(135deg,#818cf8,#6366f1);color:#fff;}
+.btn-monthly:hover{opacity:.88;transform:translateY(-1px);}
+.btn-6months{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;}
+.btn-6months:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(245,200,66,.35);}
+.btn-yearly{background:linear-gradient(135deg,#2dd4bf,#10b981);color:#000;}
+.btn-yearly:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(45,212,191,.3);}
+.plan-btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.btn-current{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.3);color:var(--emerald);cursor:default;}
+
+/* PAYMENT MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.88);
+  backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:1.5rem;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#080e1a;border:1px solid rgba(245,200,66,.15);border-radius:24px;
+  width:100%;max-width:440px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.7);
+  animation:modalIn .3s cubic-bezier(.34,1.56,.64,1);}
+@keyframes modalIn{from{opacity:0;transform:scale(.93) translateY(20px);}to{opacity:1;transform:none;}}
+.modal-stripe-top{height:3px;background:linear-gradient(90deg,#f5c842,#2dd4bf,#818cf8);}
+.modal-head{padding:1.3rem 1.5rem .5rem;display:flex;justify-content:space-between;align-items:center;}
+.modal-title{font-size:1.05rem;font-weight:800;}
+.modal-close{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.05);
+  border:1px solid var(--border);color:var(--muted);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;transition:.2s;}
+.modal-close:hover{background:rgba(251,113,133,.1);color:var(--rose);}
+.modal-plan-pill{margin:.5rem 1.5rem .8rem;padding:.6rem 1rem;background:rgba(245,200,66,.06);
+  border:1px solid rgba(245,200,66,.15);border-radius:11px;font-size:13px;}
+.modal-plan-pill b{color:var(--gold);}
+.modal-methods{padding:.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;gap:9px;}
+.method-btn{display:flex;align-items:center;gap:13px;padding:.9rem 1.1rem;border-radius:13px;
+  background:var(--surface2);border:1px solid var(--border);cursor:pointer;transition:.2s;}
+.method-btn:hover{border-color:rgba(245,200,66,.3);transform:translateX(3px);}
+.method-btn.loading{opacity:.6;pointer-events:none;}
+.method-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.mi-stripe{background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.2);}
+.mi-ssl{background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.2);}
+.method-info{flex:1;}
+.method-name{font-size:13.5px;font-weight:700;margin-bottom:1px;}
+.method-sub{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+
+/* COMPARE TABLE */
+.compare-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:2rem;}
+.compare-head{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+  background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);padding:.8rem 1.2rem;}
+.ch{font-size:11.5px;font-weight:700;text-align:center;}
+.ch:first-child{text-align:left;color:var(--sub);}
+.ch.c-indigo{color:var(--indigo);}
+.ch.c-gold{color:var(--gold);}
+.ch.c-teal{color:var(--teal);}
+.compare-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:.7rem 1.2rem;
+  border-bottom:1px solid rgba(255,255,255,.03);}
+.compare-row:last-child{border-bottom:none;}
+.compare-row:hover{background:rgba(255,255,255,.015);}
+.cf{font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;}
+.cv{text-align:center;font-size:12.5px;}
+.ck{color:var(--emerald);}
+.cx{color:#1e293b;}
+.cl{color:var(--orange);font-size:11px;font-weight:700;}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:7px;margin-bottom:2rem;}
+.faq-item{background:var(--surface2);border:1px solid var(--border);border-radius:13px;overflow:hidden;}
+.faq-q{padding:.85rem 1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;font-weight:600;transition:.2s;}
+.faq-q:hover{background:rgba(255,255,255,.02);}
+.faq-ch{color:var(--muted);transition:.3s;}
+.faq-item.open .faq-ch{transform:rotate(90deg);}
+.faq-a{display:none;padding:0 1.1rem .85rem;font-size:12.5px;color:var(--sub);line-height:1.7;
+  font-family:'Noto Sans Bengali',sans-serif;}
+.faq-item.open .faq-a{display:block;}
+
+/* SECTION TITLE */
+.sec-title{font-size:11px;font-weight:700;color:var(--muted);margin:2rem 0 1rem;
+  display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+
+/* SPINNER */
+.spinner{width:14px;height:14px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;
+  border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:5px;}
+.spinner.dark{border:2.5px solid rgba(0,0,0,.3);border-top-color:#000;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:800px){
+  .plans-grid{grid-template-columns:1fr 1fr;}
+  .compare-wrap{display:none;}
+}
+@media(max-width:500px){
+  .plans-grid{grid-template-columns:1fr;}
+  .topbar{flex-direction:column;align-items:flex-start;}
+  .wrap{padding:1rem .9rem 2rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text">
+        <h1>Deutsch Lernen</h1>
+        <p>GERMAN LEARNING PLATFORM · A1 TO C2</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a href="dashboard.html" class="nav-link">← Dashboard</a>
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+      <span class="user-name" id="nav-name"></span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">💎 Subscription Plans</div>
+    <h2>সঠিক plan বেছে নিন<br><span>German শেখার জন্য</span></h2>
+    <p class="hero-sub">যেকোনো সময় cancel করা যাবে। বেশি দিনের plan-এ বেশি সাশ্রয়।</p>
+  </div>
+
+  <!-- ALERTS -->
+  <div class="alert" id="alert-banner"></div>
+
+  <!-- CURRENT PLAN -->
+  <div class="cpb" id="cpb">
+    <span style="font-size:1.1rem;">✅</span>
+    <span id="cpb-text"></span>
+  </div>
+
+  <!-- PLANS -->
+  <div class="plans-grid">
+
+    <!-- FREE -->
+    <div class="plan-card">
+      <div class="plan-top-stripe s-free"></div>
+      <div class="plan-icon">🌱</div>
+      <div class="plan-name">Free</div>
+      <div class="plan-tagline">শুধু দেখার জন্য</div>
+      <div class="plan-price-wrap">
+        <span class="price-cur">৳</span><span class="price-main">0</span>
+      </div>
+      <ul class="feat-list">
+        <li><span class="fi">✅</span> Login ও Dashboard</li>
+        <li><span class="fi">✅</span> Rangliste দেখা</li>
+        <li class="locked-feat"><span class="fi">🔒</span> Quiz ও Grammatik</li>
+        <li class="locked-feat"><span class="fi">🔒</span> Lernreise</li>
+        <li class="locked-feat"><span class="fi">🔒</span> Schreiben (AI)</li>
+        <li class="locked-feat"><span class="fi">🔒</span> Community Chat</li>
+      </ul>
+      <button class="plan-btn btn-free" id="btn-free">বর্তমান Plan</button>
+    </div>
+
+    <!-- MONTHLY -->
+    <div class="plan-card">
+      <div class="plan-top-stripe s-monthly"></div>
+      <div class="plan-icon">⚡</div>
+      <div class="plan-name">Monthly</div>
+      <div class="plan-tagline">মাসে মাসে চাইলেই বন্ধ করুন</div>
+      <div class="plan-price-wrap">
+        <span class="price-cur">৳</span><span class="price-main">149</span>
+        <span class="price-period">/ মাস</span>
+      </div>
+      <ul class="feat-list">
+        <li><span class="fi">✅</span> সব Quiz — A1 থেকে C2</li>
+        <li><span class="fi">✅</span> সব Grammatik lesson</li>
+        <li><span class="fi">✅</span> Lernreise সম্পূর্ণ</li>
+        <li><span class="fi">✅</span> Schreiben — সীমাহীন</li>
+        <li><span class="fi">✅</span> Community Chat</li>
+        <li><span class="fi">✅</span> Certificate</li>
+      </ul>
+      <button class="plan-btn btn-monthly" id="btn-monthly" data-plan="monthly">Subscribe করুন</button>
+    </div>
+
+    <!-- 6 MONTHS -->
+    <div class="plan-card popular">
+      <div class="plan-top-stripe s-6months"></div>
+      <span class="plan-badge badge-popular">⭐ জনপ্রিয়</span>
+      <div class="plan-icon">🚀</div>
+      <div class="plan-name">6 Months</div>
+      <div class="plan-tagline">সবচেয়ে জনপ্রিয় choice</div>
+      <div class="plan-price-wrap">
+        <span class="price-cur">৳</span><span class="price-main">599</span>
+        <span class="price-period">/ ৬ মাস</span>
+        <div class="price-per-month">≈ ৳99.83/মাস</div>
+        <div class="price-save">৳295 সাশ্রয় (33% ছাড়)</div>
+      </div>
+      <ul class="feat-list">
+        <li><span class="fi">✅</span> Monthly-র সব কিছু</li>
+        <li><span class="fi">✅</span> ৬ মাস নিশ্চিন্তে শিখুন</li>
+        <li><span class="fi">✅</span> Priority support</li>
+        <li><span class="fi">✅</span> Profile-এ Special badge</li>
+      </ul>
+      <button class="plan-btn btn-6months" id="btn-6months" data-plan="sixmonths">Subscribe করুন</button>
+    </div>
+
+    <!-- 1 YEAR -->
+    <div class="plan-card best">
+      <div class="plan-top-stripe s-yearly"></div>
+      <span class="plan-badge badge-best">💎 সেরা মূল্য</span>
+      <div class="plan-icon">👑</div>
+      <div class="plan-name">1 Year</div>
+      <div class="plan-tagline">A1 থেকে C2 পুরো journey</div>
+      <div class="plan-price-wrap">
+        <span class="price-cur">৳</span><span class="price-main">999</span>
+        <span class="price-period">/ বছর</span>
+        <div class="price-per-month">≈ ৳83.25/মাস</div>
+        <div class="price-save">৳789 সাশ্রয় (44% ছাড়)</div>
+      </div>
+      <ul class="feat-list">
+        <li><span class="fi">✅</span> Monthly-র সব কিছু</li>
+        <li><span class="fi">✅</span> পুরো ১ বছর access</li>
+        <li><span class="fi">✅</span> Priority support</li>
+        <li><span class="fi">✅</span> Exclusive Gold badge</li>
+        <li><span class="fi">✅</span> সব Certificate free</li>
+      </ul>
+      <button class="plan-btn btn-yearly" id="btn-yearly" data-plan="yearly">Subscribe করুন</button>
+    </div>
+
+  </div>
+
+  <!-- COMPARE TABLE -->
+  <div class="sec-title">📊 পূর্ণ তুলনা</div>
+  <div class="compare-wrap">
+    <div class="compare-head">
+      <div class="ch">Feature</div>
+      <div class="ch">Free</div>
+      <div class="ch c-indigo">Monthly</div>
+      <div class="ch c-gold">6 Months</div>
+      <div class="ch c-teal">1 Year</div>
+    </div>
+    <div class="compare-row"><div class="cf">Dashboard</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Rangliste দেখা</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Vokabelquiz (A1–C2)</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Grammatik সব lesson</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Wörterbuch</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Lernreise (A1–C2)</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Schreiben + AI feedback</div><div class="cv cx">✗</div><div class="cv ck">✓ সীমাহীন</div><div class="cv ck">✓ সীমাহীন</div><div class="cv ck">✓ সীমাহীন</div></div>
+    <div class="compare-row"><div class="cf">Community Chat</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Certificate download</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Priority support</div><div class="cv cx">✗</div><div class="cv cx">✗</div><div class="cv ck">✓</div><div class="cv ck">✓</div></div>
+    <div class="compare-row"><div class="cf">Special profile badge</div><div class="cv cx">✗</div><div class="cv cx">✗</div><div class="cv ck">⭐</div><div class="cv ck">👑 Gold</div></div>
+    <div class="compare-row"><div class="cf">মূল্য</div><div class="cv">বিনামূল্যে</div><div class="cv" style="color:var(--indigo);">৳149/মাস</div><div class="cv" style="color:var(--gold);">৳599/৬মাস</div><div class="cv" style="color:var(--teal);">৳999/বছর</div></div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec-title">❓ সাধারণ প্রশ্ন</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">যেকোনো সময় cancel করা যাবে? <span class="faq-ch">▶</span></div>
+      <div class="faq-a">হ্যাঁ। Cancel করলে বাকি period পর্যন্ত access থাকবে, তারপর Free-তে চলে যাবে।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">bKash / Nagad দিয়ে কীভাবে pay করব? <span class="faq-ch">▶</span></div>
+      <div class="faq-a">যেকোনো plan-এর button-এ click করুন → "bKash / Nagad দিয়ে" বেছে নিন → SSLCommerz-এ গিয়ে payment করুন। Automatic activate হবে।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">6 Months plan-এ কত সাশ্রয়? <span class="faq-ch">▶</span></div>
+      <div class="faq-a">Monthly-তে ৬ মাসে ৳894 দিতে হতো। 6 Months plan-এ ৳599 — ৳295 সাশ্রয়, প্রায় ৩৩% ছাড়।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">1 Year plan-এ কত সাশ্রয়? <span class="faq-ch">▶</span></div>
+      <div class="faq-a">Monthly-তে ১২ মাসে ৳1,788 দিতে হতো। 1 Year plan-এ ৳999 — ৳789 সাশ্রয়, প্রায় ৪৪% ছাড়।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Payment fail হলে কী করব? <span class="faq-ch">▶</span></div>
+      <div class="faq-a">কোনো charge হবে না। আবার চেষ্টা করুন বা অন্য payment method বেছে নিন।</div>
+    </div>
+  </div>
+
+</div><!-- end .wrap -->
+
+<!-- PAYMENT METHOD MODAL -->
+<div class="modal-overlay" id="pay-modal">
+  <div class="modal-box">
+    <div class="modal-stripe-top"></div>
+    <div class="modal-head">
+      <div class="modal-title">💳 Payment Method</div>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+    <div class="modal-plan-pill" id="modal-plan-info">
+      <b id="modal-plan-name">Pro</b> — <span id="modal-plan-price"></span>
+    </div>
+    <div class="modal-methods">
+      <div class="method-btn" id="pay-stripe">
+        <div class="method-icon mi-stripe">💳</div>
+        <div class="method-info">
+          <div class="method-name">International Card</div>
+          <div class="method-sub">Visa, Mastercard, Amex — Stripe দিয়ে</div>
+        </div>
+        <span style="color:var(--muted);">▶</span>
+      </div>
+      <div class="method-btn" id="pay-ssl">
+        <div class="method-icon mi-ssl">📱</div>
+        <div class="method-info">
+          <div class="method-name">bKash / Nagad / Rocket / Card</div>
+          <div class="method-sub">Bangladesh-এর সব payment — SSLCommerz দিয়ে</div>
+        </div>
+        <span style="color:var(--muted);">▶</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import {
+  auth, db, requireAuth, signOut,
+  doc, getDoc,
+} from "./js/firebase-config.js";
+
+let meUID   = null;
+let meEmail = null;
+let meName  = "Lerner";
+let mePlan  = "free";
+let selectedPlan = null;
+
+const PLAN_INFO = {
+  monthly:   { label: "Monthly",  price: "৳149 / মাস",    months: 1  },
+  sixmonths: { label: "6 Months", price: "৳599 / ৬ মাস",  months: 6  },
+  yearly:    { label: "1 Year",   price: "৳999 / বছর",    months: 12 },
+};
+
+/* ── ALERT ── */
+function showAlert(msg, type = "error") {
+  const el = document.getElementById("alert-banner");
+  el.textContent = msg;
+  el.className = `alert ${type} show`;
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+  setTimeout(() => el.classList.remove("show"), 6000);
+}
+
+/* ── URL PARAMS ── */
+const p = new URLSearchParams(location.search);
+if (p.get("cancelled"))  showAlert("Payment cancel করা হয়েছে।", "error");
+if (p.get("failed"))     showAlert("Payment fail হয়েছে। আবার চেষ্টা করুন।", "error");
+if (p.get("expired"))    showAlert("আপনার plan মেয়াদ শেষ হয়ে গেছে। Renew করুন।", "warn");
+if (p.get("locked"))     showAlert("এই feature ব্যবহার করতে একটি paid plan প্রয়োজন।", "warn");
+
+/* ── MODAL ── */
+function openModal(plan) {
+  selectedPlan = plan;
+  const info = PLAN_INFO[plan];
+  document.getElementById("modal-plan-name").textContent  = info.label;
+  document.getElementById("modal-plan-price").textContent = info.price;
+  document.getElementById("pay-modal").classList.add("open");
+}
+function closeModal() {
+  document.getElementById("pay-modal").classList.remove("open");
+  selectedPlan = null;
+}
+document.getElementById("modal-close").onclick = closeModal;
+document.getElementById("pay-modal").onclick = e => {
+  if (e.target === document.getElementById("pay-modal")) closeModal();
+};
+
+/* ── PLAN BUTTONS ── */
+["btn-monthly","btn-6months","btn-yearly"].forEach(id => {
+  document.getElementById(id).onclick = () => {
+    const plan = id === "btn-monthly" ? "monthly" : id === "btn-6months" ? "sixmonths" : "yearly";
+    openModal(plan);
+  };
+});
+
+/* ── STRIPE PAYMENT ── */
+document.getElementById("pay-stripe").onclick = async () => {
+  const btn = document.getElementById("pay-stripe");
+  btn.classList.add("loading");
+  btn.querySelector(".method-name").innerHTML = '<span class="spinner"></span> অপেক্ষা করুন...';
+  try {
+    const res  = await fetch("/.netlify/functions/create-checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ plan: selectedPlan, uid: meUID, email: meEmail }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.url) throw new Error(data.error || "Checkout failed");
+    window.location.href = data.url;
+  } catch (err) {
+    closeModal();
+    showAlert("❌ " + (err.message || "Payment শুরু করা যায়নি।"));
+    btn.classList.remove("loading");
+    btn.querySelector(".method-name").textContent = "International Card";
+  }
+};
+
+/* ── SSLCOMMERZ PAYMENT ── */
+document.getElementById("pay-ssl").onclick = async () => {
+  const btn = document.getElementById("pay-ssl");
+  btn.classList.add("loading");
+  btn.querySelector(".method-name").innerHTML = '<span class="spinner"></span> অপেক্ষা করুন...';
+  try {
+    const res  = await fetch("/.netlify/functions/sslcommerz-init", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ plan: selectedPlan, uid: meUID, email: meEmail, name: meName }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.url) throw new Error(data.error || "SSLCommerz init failed");
+    window.location.href = data.url;
+  } catch (err) {
+    closeModal();
+    showAlert("❌ " + (err.message || "Payment শুরু করা যায়নি।"));
+    btn.classList.remove("loading");
+    btn.querySelector(".method-name").textContent = "bKash / Nagad / Rocket / Card";
+  }
+};
+
+/* ── CURRENT PLAN UI ── */
+function applyCurrentPlan(plan, expiry) {
+  mePlan = plan || "free";
+  const cpb  = document.getElementById("cpb");
+  const text = document.getElementById("cpb-text");
+
+  const planLabel = { monthly:"Monthly ⚡", sixmonths:"6 Months 🚀", yearly:"1 Year 👑" };
+
+  if (mePlan !== "free") {
+    cpb.classList.add("show");
+    const expDate = expiry?.toDate ? expiry.toDate().toLocaleDateString("bn-BD") : "";
+    text.innerHTML = `আপনি এখন <strong style="color:var(--emerald)">${planLabel[mePlan] || mePlan}</strong> plan-এ আছেন।${expDate ? ` মেয়াদ শেষ: ${expDate}` : ""}`;
+
+    // Disable the current plan button
+    const btnId = { monthly:"btn-monthly", sixmonths:"btn-6months", yearly:"btn-yearly" }[mePlan];
+    if (btnId) {
+      const btn = document.getElementById(btnId);
+      btn.textContent = "✓ বর্তমান Plan";
+      btn.className   = "plan-btn btn-current";
+      btn.disabled    = true;
+    }
+  }
+  document.getElementById("btn-free").textContent = mePlan === "free" ? "বর্তমান Plan" : "Free Plan";
+}
+
+/* ── FAQ ── */
+document.querySelectorAll(".faq-q").forEach(q => {
+  q.onclick = () => q.closest(".faq-item").classList.toggle("open");
+});
+
+/* ── LOGOUT ── */
+document.getElementById("btn-logout").onclick = () =>
+  signOut(auth).then(() => location.href = "index.html");
+
+/* ── INIT ── */
+requireAuth(async user => {
+  meUID   = user.uid;
+  meEmail = user.email;
+
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const data = snap.exists() ? snap.data() : {};
+  meName = data.displayName || user.displayName || "Lerner";
+  const photo = data.photoURL || user.photoURL || "";
+
+  document.getElementById("nav-name").textContent = meName;
+  const nav = document.getElementById("nav-avatar");
+  if (photo) nav.innerHTML = `<img src="${photo}">`;
+  else nav.textContent = meName[0].toUpperCase();
+
+  applyCurrentPlan(data.plan || "free", data.planExpiry || null);
+});
+</script>
+</body>
+</html>
