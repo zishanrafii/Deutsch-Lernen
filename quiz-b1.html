@@ -352,7 +352,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 <script type="module">
 import { auth, db, signOut, requireAuth,
-  doc, getDoc, setDoc, updateDoc, increment
+  doc, getDoc, setDoc, updateDoc, increment,
+  collection, getDocs
 } from "./js/firebase-config.js";
 import QUIZ_B1 from "./quiz-b1-data.js";
 
@@ -409,19 +410,25 @@ $("btn-logout").addEventListener("click", async () => { await signOut(auth); loc
 // ── Load all sublevel progress ──
 async function loadSublevelData() {
   sublevelData = {};
-  const promises = [];
+
+  // Default — all locked except sublevel 1
   for (let i = 1; i <= TOTAL_SL; i++) {
-    promises.push(
-      getDoc(slRef(currentUser.uid, i)).then(snap => {
-        sublevelData[i] = snap.exists()
-          ? snap.data()
-          : { unlocked: i === 1, bestScore: 0, attempts: 0, completed: false };
-      })
-    );
+    sublevelData[i] = { unlocked: i === 1, bestScore: 0, attempts: 0, completed: false };
   }
-  await Promise.all(promises);
-  // Always unlock sublevel 1
-  if (!sublevelData[1]) sublevelData[1] = { unlocked:true, bestScore:0, attempts:0, completed:false };
+
+  // Single query instead of 50 individual calls
+  try {
+    const slColRef = collection(db, "users", currentUser.uid, "quizStats", LEVEL, "sublevels");
+    const snap = await getDocs(slColRef);
+    snap.forEach(d => {
+      const num = parseInt(d.id);
+      if (num >= 1 && num <= TOTAL_SL) sublevelData[num] = d.data();
+    });
+  } catch(e) {
+    console.warn("sublevel load error:", e);
+  }
+
+  // Always ensure sublevel 1 is unlocked
   sublevelData[1].unlocked = true;
 }
 
