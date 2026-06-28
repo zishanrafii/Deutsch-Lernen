@@ -363,7 +363,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     </div>
     <div class="faq-item">
       <div class="faq-q">bKash / Nagad দিয়ে কীভাবে pay করব? <span class="faq-ch">▶</span></div>
-      <div class="faq-a">যেকোনো plan-এর button-এ click করুন → "bKash / Nagad দিয়ে" বেছে নিন → SSLCommerz-এ গিয়ে payment করুন। Automatic activate হবে।</div>
+      <div class="faq-a">যেকোনো plan-এর button-এ click করুন → আমাদের bKash/Nagad number-এ টাকা পাঠান → Transaction ID দিয়ে Submit করুন → Admin verify করে ১–৬ ঘণ্টার মধ্যে activate করবে।</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">6 Months plan-এ কত সাশ্রয়? <span class="faq-ch">▶</span></div>
@@ -464,11 +464,11 @@ document.getElementById("pay-modal").onclick = e => {
   if (e.target === document.getElementById("pay-modal")) closeModal();
 };
 
-/* ── PLAN BUTTONS ── */
+/* ── PLAN BUTTONS → redirect to payment page ── */
 ["btn-monthly","btn-6months","btn-yearly"].forEach(id => {
+  const planMap = { "btn-monthly":"monthly", "btn-6months":"sixmonths", "btn-yearly":"yearly" };
   document.getElementById(id).onclick = () => {
-    const plan = id === "btn-monthly" ? "monthly" : id === "btn-6months" ? "sixmonths" : "yearly";
-    openModal(plan);
+    window.location.href = "payment.html?plan=" + planMap[id];
   };
 });
 

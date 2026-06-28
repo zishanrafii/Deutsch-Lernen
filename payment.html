@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);--gold:#f5c842;--gold2:#e0a820;
+  --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;
+  --orange:#fb923c;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+.wrap{max-width:700px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  box-shadow:0 0 18px rgba(245,200,66,.12);}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;overflow:hidden;
+  border:2px solid rgba(245,200,66,.3);flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);border-color:var(--rose);}
+
+/* PAGE HEADER */
+.page-header{text-align:center;margin-bottom:2rem;}
+.page-header h2{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;}
+.page-header p{color:var(--sub);font-size:14px;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* PLAN SELECTOR */
+.section-card{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:1.6rem;margin-bottom:1.2rem;
+  position:relative;overflow:hidden;}
+.section-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(245,200,66,.4) 30%,rgba(45,212,191,.4) 70%,transparent);}
+.section-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:1rem;
+  font-family:'JetBrains Mono',monospace;}
+
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.plan-option{border:2px solid var(--border);border-radius:14px;padding:1rem .8rem;cursor:pointer;transition:.25s;
+  text-align:center;position:relative;overflow:hidden;}
+.plan-option:hover{border-color:rgba(245,200,66,.3);background:rgba(245,200,66,.04);}
+.plan-option.selected{border-color:var(--gold);background:rgba(245,200,66,.08);box-shadow:0 0 18px rgba(245,200,66,.12);}
+.plan-option.selected::before{content:'✓';position:absolute;top:7px;right:10px;font-size:11px;font-weight:800;color:var(--gold);}
+.plan-emoji{font-size:1.6rem;margin-bottom:.4rem;}
+.plan-name{font-size:13px;font-weight:700;margin-bottom:.2rem;}
+.plan-price{font-size:1.2rem;font-weight:800;color:var(--gold);}
+.plan-period{font-size:10px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+.plan-save{font-size:10px;color:var(--emerald);margin-top:.2rem;}
+
+/* PAYMENT METHOD */
+.method-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.method-btn{border:2px solid var(--border);border-radius:14px;padding:1rem;cursor:pointer;transition:.25s;
+  display:flex;align-items:center;gap:12px;background:transparent;}
+.method-btn:hover{border-color:rgba(255,255,255,.12);}
+.method-btn.selected{border-color:var(--teal);background:rgba(45,212,191,.06);}
+.method-logo-wrap{width:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.method-logo{width:80px;height:auto;object-fit:contain;display:block;}
+.method-info{text-align:left;}
+.method-name{font-size:13.5px;font-weight:700;}
+.method-num{font-size:12px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+.method-sub{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+
+/* INSTRUCTION BOX */
+.instruction-box{background:rgba(45,212,191,.05);border:1px solid rgba(45,212,191,.2);border-radius:14px;
+  padding:1.2rem;margin-bottom:1.2rem;}
+.instruction-box h4{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:.8rem;}
+.instruction-steps{list-style:none;}
+.instruction-steps li{font-size:13px;color:var(--sub);padding:.3rem 0;font-family:'Noto Sans Bengali',sans-serif;
+  display:flex;align-items:flex-start;gap:8px;}
+.instruction-steps li .step-num{min-width:20px;height:20px;border-radius:50%;background:rgba(45,212,191,.15);
+  color:var(--teal);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;
+  font-family:'JetBrains Mono',monospace;margin-top:1px;}
+.payment-number-display{background:rgba(8,14,26,.6);border:1px solid rgba(245,200,66,.3);border-radius:12px;
+  padding:.8rem 1.2rem;margin:.8rem 0;display:flex;align-items:center;justify-content:space-between;}
+.pnum-method{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+.pnum-number{font-size:1rem;font-weight:800;color:var(--gold);font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
+.btn-copy{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);color:var(--gold);
+  padding:.3rem .7rem;border-radius:8px;cursor:pointer;font-size:11px;font-weight:600;font-family:'Outfit',sans-serif;transition:.2s;}
+.btn-copy:hover{background:rgba(245,200,66,.2);}
+
+/* FORM */
+.form-group{margin-bottom:1rem;}
+.form-label{display:block;font-size:12.5px;font-weight:600;color:var(--sub);margin-bottom:.5rem;font-family:'Noto Sans Bengali',sans-serif;}
+.form-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;
+  padding:.75rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:.2s;}
+.form-input:focus{border-color:rgba(245,200,66,.4);background:rgba(245,200,66,.03);}
+.form-input::placeholder{color:var(--muted);}
+
+/* SUMMARY */
+.summary-box{background:rgba(245,200,66,.04);border:1px solid rgba(245,200,66,.15);border-radius:14px;padding:1rem 1.2rem;
+  margin-bottom:1.2rem;}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;font-size:13px;}
+.summary-row:not(:last-child){border-bottom:1px solid rgba(255,255,255,.05);}
+.summary-label{color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;}
+.summary-val{font-weight:700;color:var(--text);}
+.summary-val.price{color:var(--gold);font-size:1.1rem;}
+
+/* SUBMIT */
+.btn-submit{width:100%;padding:1rem;border-radius:14px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;
+  font-size:15px;font-weight:800;transition:.25s;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;
+  box-shadow:0 4px 24px rgba(245,200,66,.3);}
+.btn-submit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,200,66,.4);}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+
+/* ALERT */
+.alert{padding:.85rem 1.2rem;border-radius:12px;font-size:13.5px;margin-bottom:1rem;display:none;
+  font-family:'Noto Sans Bengali',sans-serif;}
+.alert.show{display:block;}
+.alert.error{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.3);color:var(--rose);}
+.alert.success{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--emerald);}
+.alert.warn{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);color:var(--gold);}
+
+/* PENDING NOTICE */
+.pending-notice{background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.25);border-radius:16px;
+  padding:1.5rem;text-align:center;display:none;}
+.pending-icon{font-size:3rem;margin-bottom:.8rem;}
+.pending-title{font-size:1.1rem;font-weight:800;color:var(--indigo);margin-bottom:.5rem;}
+.pending-text{font-size:13px;color:var(--sub);line-height:1.7;font-family:'Noto Sans Bengali',sans-serif;}
+.pending-txid{font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:12px;margin-top:.5rem;}
+
+/* SPINNER */
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(0,0,0,.3);
+  border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:480px){
+  .plans-grid{grid-template-columns:1fr;}
+  .method-btns{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text">
+        <h1>Deutsch Lernen</h1>
+        <p>MANUAL PAYMENT · SECURE</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a href="pricing.html" class="nav-link">← Plans</a>
+      <div class="user-avatar" id="nav-avatar">?</div>
+      <div class="user-name" id="nav-name">Loading...</div>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <div id="alert-banner" class="alert"></div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h2>💳 Manual Payment</h2>
+    <p>bKash বা Nagad-এ টাকা পাঠিয়ে আপনার subscription activate করুন</p>
+  </div>
+
+  <!-- FORM AREA -->
+  <div id="form-area">
+
+    <!-- STEP 1: PLAN -->
+    <div class="section-card">
+      <div class="section-title">ধাপ ১ · Plan বেছে নিন</div>
+      <div class="plans-grid">
+        <div class="plan-option" data-plan="monthly" data-amount="149">
+          <div class="plan-emoji">⚡</div>
+          <div class="plan-name">Monthly</div>
+          <div class="plan-price">৳149</div>
+          <div class="plan-period">১ মাস</div>
+        </div>
+        <div class="plan-option" data-plan="sixmonths" data-amount="599">
+          <div class="plan-emoji">🚀</div>
+          <div class="plan-name">6 Months</div>
+          <div class="plan-price">৳599</div>
+          <div class="plan-period">৬ মাস</div>
+          <div class="plan-save">৳295 সাশ্রয়</div>
+        </div>
+        <div class="plan-option" data-plan="yearly" data-amount="999">
+          <div class="plan-emoji">👑</div>
+          <div class="plan-name">1 Year</div>
+          <div class="plan-price">৳999</div>
+          <div class="plan-period">১ বছর</div>
+          <div class="plan-save">৳789 সাশ্রয়</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: PAYMENT METHOD -->
+    <div class="section-card">
+      <div class="section-title">ধাপ ২ · Payment Method বেছে নিন</div>
+      <div class="method-btns">
+        <button class="method-btn" data-method="bKash">
+          <div class="method-logo-wrap">
+            <img src="https://static.freepnglogo.com/images/all_img/1701541755bkash-logo-png.png"
+              alt="bKash" class="method-logo">
+          </div>
+          <div class="method-info">
+            <div class="method-name">bKash</div>
+            <div class="method-sub">Send Money করুন</div>
+          </div>
+        </button>
+        <button class="method-btn" data-method="Nagad">
+          <div class="method-logo-wrap">
+            <img src="https://static.freepnglogo.com/images/all_img/1725618513nagad-logo.png"
+              alt="Nagad" class="method-logo">
+          </div>
+          <div class="method-info">
+            <div class="method-name">Nagad</div>
+            <div class="method-sub">Send Money করুন</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3: INSTRUCTIONS -->
+    <div id="instruction-area" style="display:none;">
+      <div class="instruction-box">
+        <h4>📋 কীভাবে Payment করবেন</h4>
+        <ul class="instruction-steps">
+          <li><span class="step-num">1</span><span>আপনার <span id="inst-method">bKash</span> app খুলুন এবং <strong>"Send Money"</strong> select করুন।</span></li>
+          <li style="padding-left:0;margin:.2rem 0;">
+            <img id="inst-method-logo" src="" alt="" style="height:28px;object-fit:contain;display:none;margin-left:28px;">
+          </li>
+          <li><span class="step-num">2</span><span>নিচের number-এ নির্দিষ্ট amount পাঠান:</span></li>
+          <li style="padding-left:0;">
+            <div class="payment-number-display">
+              <div>
+                <div class="pnum-method" id="pnum-method-label">bKash Number</div>
+                <div class="pnum-number" id="pnum-number">01XXXXXXXXX</div>
+              </div>
+              <button class="btn-copy" id="btn-copy-num">📋 Copy</button>
+            </div>
+          </li>
+          <li><span class="step-num">3</span><span>Amount: <strong id="inst-amount" style="color:var(--gold);">৳149</strong> — exact amount পাঠান।</span></li>
+          <li><span class="step-num">4</span><span>Transaction ID ও আপনার Sender Number নিচে enter করুন এবং Submit করুন।</span></li>
+        </ul>
+      </div>
+
+      <!-- STEP 4: TRANSACTION DETAILS -->
+      <div class="section-card">
+        <div class="section-title">ধাপ ৩ · Transaction Details দিন</div>
+        <div class="form-group">
+          <label class="form-label" for="txid">Transaction ID (TrxID) *</label>
+          <input type="text" class="form-input" id="txid" placeholder="যেমন: 8N3B2A1C9D" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="sender-num">Sender Mobile Number *</label>
+          <input type="tel" class="form-input" id="sender-num" placeholder="01XXXXXXXXX" maxlength="11">
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary-box">
+        <div class="summary-row">
+          <span class="summary-label">Plan</span>
+          <span class="summary-val" id="sum-plan">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Amount</span>
+          <span class="summary-val price" id="sum-amount">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Payment Method</span>
+          <span class="summary-val" id="sum-method">—</span>
+        </div>
+      </div>
+
+      <button class="btn-submit" id="btn-submit" disabled>📨 Payment Request Submit করুন</button>
+    </div>
+
+  </div><!-- end form-area -->
+
+  <!-- PENDING SUCCESS VIEW -->
+  <div class="pending-notice" id="pending-notice">
+    <div class="pending-icon">⏳</div>
+    <div class="pending-title">Payment Request জমা হয়েছে!</div>
+    <div class="pending-text">
+      আপনার request review করা হচ্ছে। সাধারণত <strong>১–৬ ঘণ্টার</strong> মধ্যে approve হয়।<br>
+      Approve হলে আপনার subscription automatically activate হবে।
+    </div>
+    <div class="pending-txid" id="pending-txid-display"></div>
+    <br>
+    <a href="dashboard.html" style="display:inline-block;margin-top:.8rem;background:rgba(129,140,248,.1);
+      border:1px solid rgba(129,140,248,.25);color:var(--indigo);padding:.7rem 1.5rem;border-radius:12px;
+      text-decoration:none;font-weight:700;font-size:13px;">← Dashboard-এ ফিরুন</a>
+  </div>
+
+</div><!-- end .wrap -->
+
+<script type="module">
+import {
+  auth, db, requireAuth, signOut,
+  doc, getDoc, addDoc, collection, query, where, getDocs,
+  serverTimestamp,
+} from "./js/firebase-config.js";
+
+/* ── CONFIG: আপনার payment numbers এখানে দিন ── */
+const PAYMENT_NUMBERS = {
+  bKash: "01877083978",
+  Nagad: "01877083978",
+};
+
+const PLAN_LABELS = {
+  monthly:   { label: "Monthly (১ মাস)",   amount: 149 },
+  sixmonths: { label: "6 Months (৬ মাস)", amount: 599 },
+  yearly:    { label: "1 Year (১ বছর)",   amount: 999 },
+};
+
+let meUID    = null;
+let meEmail  = null;
+let meName   = "";
+let selPlan  = null;
+let selMethod = null;
+
+/* ─── HELPERS ─── */
+function showAlert(msg, type = "error") {
+  const el = document.getElementById("alert-banner");
+  el.textContent = msg;
+  el.className = `alert ${type} show`;
+  el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  setTimeout(() => el.classList.remove("show"), 5000);
+}
+
+function updateSummary() {
+  if (!selPlan || !selMethod) return;
+  const p = PLAN_LABELS[selPlan];
+  document.getElementById("sum-plan").textContent   = p.label;
+  document.getElementById("sum-amount").textContent = `৳${p.amount}`;
+  document.getElementById("sum-method").textContent = selMethod;
+  document.getElementById("inst-amount").textContent = `৳${p.amount}`;
+}
+
+function updateSubmitState() {
+  const txid    = document.getElementById("txid").value.trim();
+  const sender  = document.getElementById("sender-num").value.trim();
+  const ok = selPlan && selMethod && txid.length >= 5 && sender.length === 11;
+  document.getElementById("btn-submit").disabled = !ok;
+}
+
+/* ─── PLAN SELECTION ─── */
+document.querySelectorAll(".plan-option").forEach(el => {
+  el.addEventListener("click", () => {
+    document.querySelectorAll(".plan-option").forEach(p => p.classList.remove("selected"));
+    el.classList.add("selected");
+    selPlan = el.dataset.plan;
+    updateSummary();
+    updateSubmitState();
+    if (selMethod) document.getElementById("instruction-area").style.display = "";
+  });
+});
+
+/* ─── METHOD SELECTION ─── */
+document.querySelectorAll(".method-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".method-btn").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    selMethod = btn.dataset.method;
+
+    const num = PAYMENT_NUMBERS[selMethod];
+    const LOGOS = {
+      bKash: "https://static.freepnglogo.com/images/all_img/1701541755bkash-logo-png.png",
+      Nagad: "https://static.freepnglogo.com/images/all_img/1725618513nagad-logo.png",
+    };
+    document.getElementById("inst-method").textContent       = selMethod;
+    document.getElementById("pnum-method-label").textContent = selMethod + " Number";
+    document.getElementById("pnum-number").textContent       = num;
+    const logoEl = document.getElementById("inst-method-logo");
+    if (logoEl) { logoEl.src = LOGOS[selMethod] || ""; logoEl.alt = selMethod; logoEl.style.display = LOGOS[selMethod] ? "" : "none"; }
+
+    document.getElementById("instruction-area").style.display = selPlan ? "" : "";
+    if (selPlan) document.getElementById("instruction-area").style.display = "";
+    else         document.getElementById("instruction-area").style.display = "none";
+
+    updateSummary();
+    updateSubmitState();
+  });
+});
+
+/* Show instruction area only when both plan & method selected */
+function maybeShowInstructions() {
+  const show = selPlan && selMethod;
+  document.getElementById("instruction-area").style.display = show ? "" : "none";
+}
+
+document.querySelectorAll(".plan-option").forEach(el => {
+  el.addEventListener("click", maybeShowInstructions);
+});
+document.querySelectorAll(".method-btn").forEach(btn => {
+  btn.addEventListener("click", maybeShowInstructions);
+});
+
+/* ─── COPY NUMBER ─── */
+document.getElementById("btn-copy-num").addEventListener("click", () => {
+  const num = document.getElementById("pnum-number").textContent;
+  navigator.clipboard.writeText(num).then(() => {
+    const btn = document.getElementById("btn-copy-num");
+    btn.textContent = "✅ Copied!";
+    setTimeout(() => btn.textContent = "📋 Copy", 2000);
+  });
+});
+
+/* ─── LIVE INPUT VALIDATION ─── */
+document.getElementById("txid").addEventListener("input", updateSubmitState);
+document.getElementById("sender-num").addEventListener("input", updateSubmitState);
+
+/* ─── SUBMIT ─── */
+document.getElementById("btn-submit").addEventListener("click", async () => {
+  const txid   = document.getElementById("txid").value.trim().toUpperCase();
+  const sender = document.getElementById("sender-num").value.trim();
+
+  if (!selPlan || !selMethod) { showAlert("Plan ও payment method বেছে নিন।"); return; }
+  if (txid.length < 5)        { showAlert("সঠিক Transaction ID দিন।"); return; }
+  if (sender.length !== 11 || !/^01/.test(sender)) {
+    showAlert("সঠিক ১১ সংখ্যার mobile number দিন (01XXXXXXXXX)।");
+    return;
+  }
+
+  const btn = document.getElementById("btn-submit");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Submit হচ্ছে...';
+
+  try {
+    /* Check for duplicate TrxID */
+    const dupQ = await getDocs(
+      query(collection(db, "payment_requests"), where("transactionId", "==", txid))
+    );
+    if (!dupQ.empty) {
+      showAlert("এই Transaction ID আগেই submit হয়েছে। নতুন TrxID ব্যবহার করুন।", "error");
+      btn.disabled = false;
+      btn.textContent = "📨 Payment Request Submit করুন";
+      return;
+    }
+
+    const plan   = PLAN_LABELS[selPlan];
+    await addDoc(collection(db, "payment_requests"), {
+      uid:           meUID,
+      email:         meEmail,
+      name:          meName,
+      plan:          selPlan,
+      amount:        plan.amount,
+      transactionId: txid,
+      senderNumber:  sender,
+      paymentMethod: selMethod,
+      status:        "pending",
+      createdAt:     serverTimestamp(),
+    });
+
+    /* Show success */
+    document.getElementById("form-area").style.display = "none";
+    const notice = document.getElementById("pending-notice");
+    notice.style.display = "block";
+    document.getElementById("pending-txid-display").textContent = `TrxID: ${txid}`;
+    notice.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  } catch (err) {
+    showAlert("❌ Submit হয়নি: " + err.message, "error");
+    btn.disabled = false;
+    btn.textContent = "📨 Payment Request Submit করুন";
+  }
+});
+
+/* ─── LOGOUT ─── */
+document.getElementById("btn-logout").addEventListener("click", () =>
+  signOut(auth).then(() => location.href = "index.html")
+);
+
+/* ─── AUTH INIT ─── */
+requireAuth(async user => {
+  meUID  = user.uid;
+  meEmail = user.email;
+
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const data = snap.exists() ? snap.data() : {};
+  meName = data.displayName || user.displayName || "Lerner";
+
+  document.getElementById("nav-name").textContent = meName;
+  const nav = document.getElementById("nav-avatar");
+  const photo = data.photoURL || user.photoURL || "";
+  if (photo) nav.innerHTML = `<img src="${photo}">`;
+  else nav.textContent = (meName[0] || "?").toUpperCase();
+
+  /* Pre-select plan from URL param */
+  const params = new URLSearchParams(location.search);
+  const preplan = params.get("plan");
+  if (preplan && PLAN_LABELS[preplan]) {
+    const el = document.querySelector(`.plan-option[data-plan="${preplan}"]`);
+    if (el) { el.click(); }
+  }
+});
+</script>
+</body>
+</html>

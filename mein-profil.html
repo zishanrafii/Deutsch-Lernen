@@ -315,6 +315,24 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   .edit-tabs{overflow-x:auto;}
   .wrap{padding:1rem .9rem 2rem;}
 }
+
+/* ─── SUBSCRIPTION CARD ─── */
+.sub-card{margin:1.4rem 0 0;padding:1rem 1.4rem;border-radius:16px;display:none;
+  background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);}
+.sub-card.expired{background:rgba(251,113,133,.06);border-color:rgba(251,113,133,.2);}
+.sub-card.free{background:rgba(255,255,255,.03);border-color:var(--border);}
+.sub-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.sub-badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:800;
+  font-family:'JetBrains Mono',monospace;background:rgba(52,211,153,.15);color:var(--emerald);}
+.sub-badge.expired{background:rgba(251,113,133,.15);color:var(--rose);}
+.sub-badge.free{background:rgba(255,255,255,.07);color:var(--muted);}
+.sub-label{font-size:12px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;}
+.sub-expiry{font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--teal);margin-top:.3rem;}
+.sub-expiry.expired{color:var(--rose);}
+.btn-upgrade-sub{padding:.4rem .9rem;border-radius:9px;font-size:12px;font-weight:700;
+  cursor:pointer;border:1px solid rgba(245,200,66,.3);background:rgba(245,200,66,.07);
+  color:var(--gold);font-family:'Outfit',sans-serif;transition:.2s;text-decoration:none;display:inline-block;}
+.btn-upgrade-sub:hover{background:rgba(245,200,66,.15);}
 </style>
 </head>
 <body>
@@ -377,6 +395,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
       </div>
     </div>
 
+
+    <!-- SUBSCRIPTION STATUS CARD -->
+    <div class="sub-card" id="sub-card">
+      <div class="sub-top">
+        <div>
+          <span class="sub-badge" id="sub-badge">💎 Premium</span>
+          <div class="sub-label" id="sub-label" style="margin-top:4px;"></div>
+          <div class="sub-expiry" id="sub-expiry"></div>
+        </div>
+        <a href="payment.html" class="btn-upgrade-sub" id="sub-cta">🚀 Upgrade করুন</a>
+      </div>
+    </div>
+
     <!-- ACTION BUTTONS -->
     <div class="profile-actions" id="profile-actions"></div>
 
@@ -394,6 +425,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
         <span class="xp-ms" id="ms-b2">B2·5000</span>
         <span class="xp-ms" id="ms-c1">C1·10k</span>
         <span class="xp-ms" id="ms-c2">C2·18k</span>
+      </div>
+    </div>
+
+
+    <!-- SUBSCRIPTION STATUS CARD -->
+    <div class="sub-card" id="sub-card">
+      <div class="sub-top">
+        <div>
+          <span class="sub-badge" id="sub-badge">💎 Premium</span>
+          <div class="sub-label" id="sub-label" style="margin-top:4px;"></div>
+          <div class="sub-expiry" id="sub-expiry"></div>
+        </div>
+        <a href="payment.html" class="btn-upgrade-sub" id="sub-cta">🚀 Upgrade করুন</a>
       </div>
     </div>
 
@@ -461,11 +505,37 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
       <button class="edit-close" onclick="closeEditModal()">✕</button>
     </div>
 
+
+    <!-- SUBSCRIPTION STATUS CARD -->
+    <div class="sub-card" id="sub-card">
+      <div class="sub-top">
+        <div>
+          <span class="sub-badge" id="sub-badge">💎 Premium</span>
+          <div class="sub-label" id="sub-label" style="margin-top:4px;"></div>
+          <div class="sub-expiry" id="sub-expiry"></div>
+        </div>
+        <a href="payment.html" class="btn-upgrade-sub" id="sub-cta">🚀 Upgrade করুন</a>
+      </div>
+    </div>
+
     <div class="edit-tabs">
       <button class="edit-tab active" onclick="switchEditTab('basic',this)">👤 মূল তথ্য</button>
       <button class="edit-tab" onclick="switchEditTab('about',this)">📝 পরিচিতি</button>
       <button class="edit-tab" onclick="switchEditTab('social',this)">🔗 Social</button>
       <button class="edit-tab" onclick="switchEditTab('password',this)">🔒 Password</button>
+    </div>
+
+
+    <!-- SUBSCRIPTION STATUS CARD -->
+    <div class="sub-card" id="sub-card">
+      <div class="sub-top">
+        <div>
+          <span class="sub-badge" id="sub-badge">💎 Premium</span>
+          <div class="sub-label" id="sub-label" style="margin-top:4px;"></div>
+          <div class="sub-expiry" id="sub-expiry"></div>
+        </div>
+        <a href="payment.html" class="btn-upgrade-sub" id="sub-cta">🚀 Upgrade করুন</a>
+      </div>
     </div>
 
     <div class="edit-panels">
@@ -586,7 +656,7 @@ import {
   updateProfile,
   EmailAuthProvider, reauthenticateWithCredential, updatePassword,
 } from "./js/firebase-config.js";
-import { requirePlan } from "./js/plan-gate.js";
+import { requirePlan, checkSubscription } from "./js/plan-gate.js";
 
 const ACHIEVEMENTS = [
   {id:"first-quiz", emoji:"🎯", name:"Erstes Quiz",   desc:"প্রথম quiz সম্পন্ন"},
@@ -1162,6 +1232,45 @@ requireAuth(async user => {
   const data = snap.exists() ? snap.data() : { displayName: user.displayName || "Lerner", email: user.email };
   if (!requirePlan(data)) return;
   populateUI(data, user);
+
+  /* Show subscription status on own profile */
+  if (isOwnProfile) {
+    const sub = await checkSubscription(viewUID);
+    const card  = document.getElementById("sub-card");
+    const badge = document.getElementById("sub-badge");
+    const label = document.getElementById("sub-label");
+    const expEl = document.getElementById("sub-expiry");
+    const cta   = document.getElementById("sub-cta");
+    card.style.display = "";
+
+    const PLAN_LABEL = { monthly:"Monthly ⚡", sixmonths:"6 Months 🚀", yearly:"1 Year 👑" };
+
+    if (sub.active) {
+      card.classList.add("show");
+      badge.textContent = "💎 " + (PLAN_LABEL[sub.plan] || sub.plan || "Premium");
+      label.textContent = "আপনার subscription সক্রিয় আছে।";
+      const exp = sub.expiryDate ? sub.expiryDate.toLocaleDateString("bn-BD") : "";
+      expEl.textContent = exp ? "মেয়াদ শেষ: " + exp : "";
+      cta.textContent = "🔄 Renew করুন";
+      cta.href = "payment.html";
+    } else if (sub.expired) {
+      card.classList.add("expired");
+      badge.className = "sub-badge expired";
+      badge.textContent = "⏰ Expired";
+      label.textContent = "আপনার subscription মেয়াদ শেষ হয়ে গেছে।";
+      const exp = sub.expiryDate ? sub.expiryDate.toLocaleDateString("bn-BD") : "";
+      expEl.className = "sub-expiry expired";
+      expEl.textContent = exp ? "মেয়াদ শেষ হয়েছিল: " + exp : "";
+      cta.textContent = "🚀 Renew করুন";
+    } else {
+      card.classList.add("free");
+      badge.className = "sub-badge free";
+      badge.textContent = "🌱 Free Plan";
+      label.textContent = "Paid plan নিয়ে সব feature unlock করুন।";
+      expEl.textContent = "";
+      cta.textContent = "💎 Upgrade করুন";
+    }
+  }
 
   try {
     const scoresSnap = await getDocs(

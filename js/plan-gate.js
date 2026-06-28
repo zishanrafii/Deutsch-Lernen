@@ -1,12 +1,32 @@
 // js/plan-gate.js
 // Import this at the top of any page that requires a paid plan.
 // Usage:
-//   import { requirePlan } from "./js/plan-gate.js";
-//   requirePlan(); // call once in your requireAuth callback, after loading user data
+//   import { requirePlan, checkSubscription } from "./js/plan-gate.js";
+//   requirePlan(userData);
 //
-// It checks user.plan in Firestore. If "free" or expired, redirects to pricing.html.
+// It checks user.plan / user.planExpiry in the users doc, AND the
+// subscriptions collection (written by the admin approval flow).
 
 import { db, doc, getDoc } from "./firebase-config.js";
+
+/**
+ * Fetch live subscription status from Firestore for a given uid.
+ * Returns { active, plan, expiryDate } or { active: false }.
+ */
+export async function checkSubscription(uid) {
+  try {
+    const snap = await getDoc(doc(db, "subscriptions", uid));
+    if (!snap.exists()) return { active: false };
+    const data = snap.data();
+    if (!data.active) return { active: false };
+    const expiry = data.expiryDate?.toDate ? data.expiryDate.toDate() : (data.expiryDate ? new Date(data.expiryDate) : null);
+    if (!expiry || expiry < new Date()) return { active: false, expired: true, plan: data.plan, expiryDate: expiry };
+    return { active: true, plan: data.plan, expiryDate: expiry };
+  } catch (e) {
+    console.warn("plan-gate: subscription check failed", e);
+    return { active: false };
+  }
+}
 
 /**
  * Call inside requireAuth callback, passing the Firestore user data object.
@@ -25,7 +45,6 @@ export function requirePlan(userData, redirectTo) {
   if (validPlans.includes(plan) && expiry) {
     const expiryDate = expiry?.toDate ? expiry.toDate() : new Date(expiry);
     if (expiryDate < new Date()) {
-      // Plan expired — redirect
       const back = encodeURIComponent(redirectTo || window.location.pathname);
       window.location.href = `pricing.html?expired=1&back=${back}`;
       return false;
@@ -43,9 +62,6 @@ export function requirePlan(userData, redirectTo) {
 
 /**
  * Show an inline "locked" overlay instead of redirecting.
- * Call this if you want to show a paywall inside the page rather than redirect.
- *
- * @param {string} featureName - Bengali name of the locked feature
  */
 export function showLockedOverlay(featureName = "এই feature") {
   const existing = document.getElementById("plan-gate-overlay");

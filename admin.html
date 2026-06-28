@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel — English Shekho</title>
+<title>Admin Panel — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
+<!-- ACCESS GATE (shown if not admin) -->
+<div id="gate-wrap" style="display:none;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;">
+  <div style="text-align:center;max-width:380px;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🔒</div>
+    <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:.5rem;">Access Denied</h2>
+    <p style="color:var(--sub);font-size:13.5px;line-height:1.7;font-family:'Noto Sans Bengali',sans-serif;">
+      এই page শুধুমাত্র Admin-দের জন্য। আপনাকে Dashboard-এ redirect করা হচ্ছে...
+    </p>
+  </div>
+</div>
+
+<div id="admin-wrap" style="display:none;">
 <div class="wrap">
 
   <!-- TOPBAR -->
@@ -17,7 +29,7 @@
       <div class="logo-icon">🛠️</div>
       <div class="logo-text">
         <h1>Admin Panel</h1>
-        <p>ENGLISH SHEKHO · MANAGEMENT CONSOLE</p>
+        <p>DEUTSCH LERNEN · MANAGEMENT CONSOLE</p>
       </div>
     </div>
     <div class="topbar-right">
@@ -35,10 +47,15 @@
     <div class="admin-tab active" data-tab="overview">📊 Overview</div>
     <div class="admin-tab" data-tab="users">👥 Users</div>
     <div class="admin-tab" data-tab="content">📚 Content</div>
+    <div class="admin-tab" data-tab="payments">
+      💳 Payments
+      <span class="badge-muted" id="pending-count-badge"
+        style="display:none;background:rgba(251,113,133,.2);color:var(--rose);margin-left:4px;padding:1px 7px;border-radius:20px;font-size:11px;"></span>
+    </div>
   </div>
 
   <!-- ════════════════════════════════
-       TAB: OVERVIEW (Analytics)
+       TAB: OVERVIEW
   ════════════════════════════════ -->
   <div class="tab-panel active" id="tab-overview">
 
@@ -49,24 +66,24 @@
         <div class="stat-label">Total Users</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🔥</div>
-        <div class="stat-value" id="stat-active-today">—</div>
-        <div class="stat-label">Active Today</div>
+        <div class="stat-icon">🚫</div>
+        <div class="stat-value" id="stat-banned-users">—</div>
+        <div class="stat-label">Banned Users</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">📖</div>
-        <div class="stat-value" id="stat-reading-sessions">—</div>
-        <div class="stat-label">Reading Sessions</div>
+        <div class="stat-value" id="stat-total-passages">—</div>
+        <div class="stat-label">Reading Passages</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🎧</div>
-        <div class="stat-value" id="stat-listening-sessions">—</div>
-        <div class="stat-label">Listening Sessions</div>
+        <div class="stat-icon">📘</div>
+        <div class="stat-value" id="stat-total-lessons">—</div>
+        <div class="stat-label">Grammar Lessons</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">✍️</div>
-        <div class="stat-value" id="stat-writings">—</div>
-        <div class="stat-label">Writing Submissions</div>
+        <div class="stat-icon">📝</div>
+        <div class="stat-value" id="stat-total-words">—</div>
+        <div class="stat-label">Vocab Words</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">⭐</div>
@@ -98,7 +115,7 @@
   </div><!-- /tab-overview -->
 
   <!-- ════════════════════════════════
-       TAB: USERS (Management)
+       TAB: USERS
   ════════════════════════════════ -->
   <div class="tab-panel" id="tab-users">
 
@@ -127,7 +144,7 @@
   </div><!-- /tab-users -->
 
   <!-- ════════════════════════════════
-       TAB: CONTENT (Management)
+       TAB: CONTENT
   ════════════════════════════════ -->
   <div class="tab-panel" id="tab-content">
 
@@ -140,10 +157,10 @@
     <div class="csub-panel active" id="csub-passages">
       <div class="content-toolbar">
         <div class="section-title" style="margin:0;">📖 Reading Passages (Firestore) <span class="badge-muted" id="passage-count-badge">0</span></div>
-        <button class="btn-primary" data-action="new-passage">+ Notun Passage</button>
+        <button class="btn-primary" data-action="new-passage">+ নতুন Passage</button>
       </div>
       <div class="info-banner">
-        ℹ️ এখানে যা add করবেন তা <code>passages</code> Firestore collection-এ যাবে। বর্তমান Reading Center static <code>js/reading-data.js</code> file থেকে চলে — এখানের content আলাদা, future migration-এর জন্য প্রস্তুত করা।
+        ℹ️ এখানে যা add করবেন তা <code>passages</code> Firestore collection-এ যাবে।
       </div>
       <div class="panel-card">
         <div class="table-wrap">
@@ -159,10 +176,10 @@
     <div class="csub-panel" id="csub-lessons">
       <div class="content-toolbar">
         <div class="section-title" style="margin:0;">📘 Grammar Lessons (Firestore) <span class="badge-muted" id="lesson-count-badge">0</span></div>
-        <button class="btn-primary" data-action="new-lesson">+ Notun Lesson</button>
+        <button class="btn-primary" data-action="new-lesson">+ নতুন Lesson</button>
       </div>
       <div class="info-banner">
-        ℹ️ এখানে যা add করবেন তা <code>grammar_lessons</code> Firestore collection-এ যাবে। বর্তমান Grammar Hub static HTML page থেকে চলে — এখানের content আলাদা, future migration-এর জন্য প্রস্তুত করা।
+        ℹ️ এখানে যা add করবেন তা <code>grammar_lessons</code> Firestore collection-এ যাবে।
       </div>
       <div class="panel-card">
         <div class="table-wrap">
@@ -176,7 +193,57 @@
 
   </div><!-- /tab-content -->
 
+  <!-- ════════════════════════════════
+       TAB: PAYMENTS
+  ════════════════════════════════ -->
+  <div class="tab-panel" id="tab-payments">
+
+    <div class="search-bar" style="margin-bottom:1rem;">
+      <div class="search-input-wrap" style="flex:1;">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="pay-search-input"
+          placeholder="TrxID, email বা user name দিয়ে খুঁজুন...">
+      </div>
+      <div class="filter-tabs" id="pay-filter-tabs">
+        <div class="ftab active" data-payfilter="all">সব</div>
+        <div class="ftab" data-payfilter="pending">⏳ Pending</div>
+        <div class="ftab" data-payfilter="approved">✅ Approved</div>
+        <div class="ftab" data-payfilter="rejected">❌ Rejected</div>
+      </div>
+    </div>
+
+    <div class="section-title">
+      💳 Payment Requests
+      <span class="badge-muted" id="pay-count-badge">0</span>
+    </div>
+    <div class="panel-card">
+      <div class="table-wrap">
+        <table class="admin-table" id="payments-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Plan</th>
+              <th>Amount</th>
+              <th>TrxID</th>
+              <th>Sender No.</th>
+              <th>Method</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="payments-body">
+            <tr><td colspan="9" class="empty-row">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /tab-payments -->
+
 </div><!-- end .wrap -->
+</div><!-- end #admin-wrap -->
+
 
 <!-- ════════════════════════════════
      MODAL: Passage Editor
@@ -184,13 +251,13 @@
 <div class="modal-overlay" id="passage-modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <h3 id="passage-modal-title">Notun Passage</h3>
+      <h3 id="passage-modal-title">নতুন Passage</h3>
       <div class="modal-close" data-action="close-passage-modal">✕</div>
     </div>
     <div class="modal-body">
       <input type="hidden" id="pm-id">
       <label class="form-label">Title</label>
-      <input type="text" class="form-input" id="pm-title" placeholder="e.g. A Rainy Morning">
+      <input type="text" class="form-input" id="pm-title" placeholder="e.g. Ein Regentag in Berlin">
 
       <div class="form-row">
         <div>
@@ -223,7 +290,7 @@
       <textarea class="form-textarea" id="pm-text" rows="6" placeholder="First paragraph here.&#10;Second paragraph here."></textarea>
 
       <label class="form-label">Quiz Question</label>
-      <input type="text" class="form-input" id="pm-quiz-q" placeholder="What was the weather like?">
+      <input type="text" class="form-input" id="pm-quiz-q" placeholder="Was war das Wetter?">
 
       <label class="form-label">Options (কমা দিয়ে আলাদা করুন)</label>
       <input type="text" class="form-input" id="pm-quiz-opts" placeholder="Sunny, Rainy, Snowy, Windy">
@@ -251,7 +318,7 @@
 <div class="modal-overlay" id="lesson-modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <h3 id="lesson-modal-title">Notun Grammar Lesson</h3>
+      <h3 id="lesson-modal-title">নতুন Grammar Lesson</h3>
       <div class="modal-close" data-action="close-lesson-modal">✕</div>
     </div>
     <div class="modal-body">
@@ -262,7 +329,7 @@
       <div class="form-row">
         <div>
           <label class="form-label">Category</label>
-          <input type="text" class="form-input" id="lm-category" placeholder="e.g. Tenses">
+          <input type="text" class="form-input" id="lm-category" placeholder="e.g. Verben">
         </div>
         <div>
           <label class="form-label">Level</label>
@@ -281,10 +348,10 @@
       <textarea class="form-textarea" id="lm-explanation" rows="4" placeholder="এই গ্রামার টপিকের ব্যাখ্যা বাংলায় লিখুন..."></textarea>
 
       <label class="form-label">Formula / Structure</label>
-      <input type="text" class="form-input" id="lm-formula" placeholder="e.g. Subject + Verb + er/ier + than">
+      <input type="text" class="form-input" id="lm-formula" placeholder="e.g. Subjekt + Verb + Objekt">
 
       <label class="form-label">Examples (এক লাইনে এক উদাহরণ)</label>
-      <textarea class="form-textarea" id="lm-examples" rows="3" placeholder="He is taller than his brother.&#10;She is the smartest student."></textarea>
+      <textarea class="form-textarea" id="lm-examples" rows="3" placeholder="Ich lerne Deutsch.&#10;Er spricht sehr gut."></textarea>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-lesson-modal">বাতিল</button>
@@ -303,7 +370,7 @@
       <div class="modal-close" data-action="close-confirm-modal">✕</div>
     </div>
     <div class="modal-body">
-      <p id="confirm-modal-text" style="color:var(--sub);font-size:13.5px;line-height:1.6;"></p>
+      <p id="confirm-modal-text" style="color:var(--sub);font-size:13.5px;line-height:1.6;font-family:'Noto Sans Bengali',sans-serif;"></p>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-confirm-modal">বাতিল</button>
