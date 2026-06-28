@@ -642,6 +642,7 @@ import {
   doc, getDoc,
   collection, query, where, getDocs
 } from "./js/firebase-config.js";
+import { requirePlan } from "./js/plan-gate.js";
 
 const yr = new Date().getFullYear();
 document.getElementById("footer-year").textContent  = yr;
@@ -667,6 +668,7 @@ requireAuth(async user => {
   /* ── Nav user info ── */
   const uSnap = await getDoc(doc(db, "users", user.uid));
   const d     = uSnap.exists() ? uSnap.data() : {};
+  if (!requirePlan(d)) return;
 
   const name  = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL    || user.photoURL    || "";

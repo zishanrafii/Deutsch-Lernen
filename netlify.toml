@@ -8,8 +8,29 @@
 [functions]
   node_bundler = "esbuild"
 
-# Optional: redirect so the frontend can call a shorter path
+# ── API route shortcuts ──────────────────────────────
 [[redirects]]
   from = "/api/writing-feedback"
   to = "/.netlify/functions/writing-feedback"
   status = 200
+
+[[redirects]]
+  from = "/api/create-checkout"
+  to = "/.netlify/functions/create-checkout"
+  status = 200
+
+[[redirects]]
+  from = "/api/sslcommerz-init"
+  to = "/.netlify/functions/sslcommerz-init"
+  status = 200
+
+[[redirects]]
+  from = "/api/sslcommerz-ipn"
+  to = "/.netlify/functions/sslcommerz-ipn"
+  status = 200
+
+[[redirects]]
+  from = "/api/stripe-webhook"
+  to = "/.netlify/functions/stripe-webhook"
+  status = 200
+
