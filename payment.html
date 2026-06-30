@@ -77,10 +77,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   display:flex;align-items:center;gap:12px;background:transparent;}
 .method-btn:hover{border-color:rgba(255,255,255,.12);}
 .method-btn.selected{border-color:var(--teal);background:rgba(45,212,191,.06);}
+.method-btn[data-method="bKash"].selected{border-color:#E2136E;background:rgba(226,19,110,.07);box-shadow:0 0 16px rgba(226,19,110,.12);}
+.method-btn[data-method="Nagad"].selected{border-color:#F15A22;background:rgba(241,90,34,.07);box-shadow:0 0 16px rgba(241,90,34,.12);}
 .method-logo-wrap{width:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .method-logo{width:80px;height:auto;object-fit:contain;display:block;}
 .method-info{text-align:left;}
 .method-name{font-size:13.5px;font-weight:700;}
+.bkash-name{color:#E2136E;}
+.nagad-name{color:#F15A22;}
 .method-num{font-size:12px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-top:2px;}
 .method-sub{font-size:11px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
 
@@ -222,7 +226,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
               alt="bKash" class="method-logo">
           </div>
           <div class="method-info">
-            <div class="method-name">bKash</div>
+            <div class="method-name bkash-name">bKash</div>
             <div class="method-sub">Send Money করুন</div>
           </div>
         </button>
@@ -232,7 +236,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
               alt="Nagad" class="method-logo">
           </div>
           <div class="method-info">
-            <div class="method-name">Nagad</div>
+            <div class="method-name nagad-name">Nagad</div>
             <div class="method-sub">Send Money করুন</div>
           </div>
         </button>
