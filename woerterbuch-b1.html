@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wörterbuch B1 — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+  --b1-c1:#818cf8;--b1-c2:#6366f1;--b1-glow:rgba(129,140,248,.22);
+  --indigo:#818cf8;--rose:#fb7185;
+}
+
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(52,211,153,.06),transparent 60%),radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.logo-text h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.4px;}
+.logo-text p{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.9rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.38rem .85rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.btn-back{border:1px solid var(--border);background:var(--surface2);color:var(--sub);padding:.5rem 1rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.btn-back:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
+
+.wrap{max-width:980px;margin:0 auto;padding:2rem 1.5rem 4rem;position:relative;z-index:1;}
+.page-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.8rem;gap:1rem;flex-wrap:wrap;}
+.page-head h2{font-size:1.7rem;font-weight:800;color:var(--indigo);letter-spacing:-.4px;}
+.page-head p{font-size:12.5px;color:var(--sub);margin-top:.3rem;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* Sub-level grid */
+.sub-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;}
+.sub-card{position:relative;background:linear-gradient(145deg,#01100a,#011a10);border:1px solid var(--border);border-radius:14px;padding:.8rem .5rem;text-align:center;cursor:pointer;transition:.2s;}
+.sub-card:hover:not(.locked){transform:translateY(-3px);box-shadow:0 14px 30px var(--b1-glow);border-color:rgba(52,211,153,.3);}
+.sub-card.locked{opacity:.45;cursor:not-allowed;}
+.sub-num{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:var(--indigo);margin-bottom:.25rem;}
+.sub-range{font-size:8.5px;color:var(--muted);margin-bottom:.4rem;font-family:'JetBrains Mono',monospace;}
+.sub-track{height:3px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:.35rem;}
+.sub-fill{height:100%;background:linear-gradient(90deg,var(--b1-c1),var(--b1-c2));border-radius:6px;transition:width .6s;}
+.sub-pct{font-size:8.5px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
+.sub-lock-icon{font-size:1.1rem;}
+
+/* Flashcard view */
+.flash-wrap{max-width:480px;margin:0 auto;}
+.flash-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;font-size:12px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
+.flash-track{height:6px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
+.flash-bar{height:100%;background:linear-gradient(90deg,var(--b1-c1),var(--b1-c2));border-radius:6px;transition:width .4s;}
+
+.card{
+  background:linear-gradient(145deg,#01100a,#011a10);border:1px solid var(--border);border-radius:22px;
+  min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem 1.5rem;cursor:pointer;text-align:center;transition:border-color .2s;position:relative;
+}
+.card:hover{border-color:rgba(129,140,248,.25);}
+.card-front .german{font-size:2.1rem;font-weight:800;color:var(--text);letter-spacing:-.5px;}
+.card-hint{font-size:11px;color:var(--muted);margin-top:1rem;font-family:'JetBrains Mono',monospace;}
+.card-back .bengali{font-size:1.7rem;font-weight:700;color:var(--indigo);margin-bottom:.8rem;font-family:'Noto Sans Bengali',sans-serif;}
+.card-back .example{font-size:13.5px;color:var(--sub);font-style:italic;line-height:1.6;}
+.hidden{display:none !important;}
+
+.flash-actions{display:flex;gap:10px;margin-top:1.3rem;}
+.btn-know,.btn-dontknow{flex:1;padding:.85rem;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:.2s;}
+.btn-know{background:linear-gradient(135deg,#312e81,#3730a3);color:#fff;}
+.btn-know:hover{background:linear-gradient(135deg,var(--b1-c1),var(--b1-c2));}
+.btn-dontknow{background:rgba(255,255,255,.05);color:var(--sub);border:1px solid var(--border);}
+.btn-dontknow:hover{background:rgba(255,255,255,.08);color:var(--text);}
+
+.complete-screen{text-align:center;padding:3rem 1.5rem;}
+.complete-screen .emoji{font-size:3rem;margin-bottom:1rem;}
+.complete-screen h3{font-size:1.4rem;font-weight:800;color:var(--indigo);margin-bottom:.5rem;}
+.complete-screen p{font-size:13px;color:var(--sub);margin-bottom:1.5rem;font-family:'Noto Sans Bengali',sans-serif;}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-weight:800;border:none;padding:.8rem 1.6rem;border-radius:14px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid rgba(52,211,153,.3);color:var(--indigo);padding:.7rem 1.3rem;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:200;font-family:'Noto Sans Bengali',sans-serif;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:680px){.sub-grid{grid-template-columns:repeat(5,1fr);}}
+@media(max-width:420px){.sub-grid{grid-template-columns:repeat(4,1fr);}.card-front .german{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text"><h1>Deutsch Lernen</h1><p>WÖRTERBUCH · B1</p></div>
+  </div>
+  <div class="user-section">
+    <a href="woerterbuch.html" class="btn-back">← Levels</a>
+    <div class="user-avatar" id="nav-avatar">👤</div>
+    <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+    <button class="btn-logout" id="btn-logout">Logout</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- GRID VIEW -->
+  <div id="grid-view">
+    <div class="page-head">
+      <div>
+        <h2>B1 · Mittelstufe</h2>
+        <p>প্রতি sub-level-এ ২০টা শব্দ। আগের sub-level-এর ৭০% শব্দ master করলে পরেরটা unlock হবে।</p>
+      </div>
+    </div>
+    <div class="sub-grid" id="sub-grid"></div>
+  </div>
+
+  <!-- FLASHCARD VIEW -->
+  <div id="flash-view" class="hidden">
+    <div class="flash-wrap">
+      <div class="flash-progress">
+        <span id="flash-sublevel-label">Sub-level 1</span>
+        <span id="flash-count">1 / 20</span>
+      </div>
+      <div class="flash-track"><div class="flash-bar" id="flash-bar"></div></div>
+
+      <div class="card" id="flash-card">
+        <div class="card-front" id="card-front">
+          <div class="german" id="card-german"></div>
+          <div class="card-hint">কার্ডে ক্লিক করে অর্থ দেখো</div>
+        </div>
+        <div class="card-back hidden" id="card-back">
+          <div class="bengali" id="card-bengali"></div>
+          <div class="example" id="card-example"></div>
+        </div>
+      </div>
+
+      <div class="flash-actions hidden" id="flash-actions">
+        <button class="btn-dontknow" id="btn-dontknow">জানি না</button>
+        <button class="btn-know" id="btn-know">✅ জানি</button>
+      </div>
+    </div>
+
+    <div class="complete-screen hidden" id="complete-screen">
+      <div class="emoji">🎉</div>
+      <h3 id="complete-title">Sub-level সম্পন্ন!</h3>
+      <p id="complete-stats">তুমি ১৫/২০ শব্দ master করেছো এই sub-level-এ।</p>
+      <button class="btn-primary" id="btn-back-to-grid">Sub-level লিস্টে ফিরে যাও</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import {
+  auth, db, signOut, requireAuth,
+  doc, getDoc, updateDoc, arrayUnion, increment
+} from "./js/firebase-config.js";
+import { vocabB1 } from "./js/data/vocab-b1-data.js";
+
+const SUBLEVEL_SIZE = 20;
+const UNLOCK_RATIO = 0.7;
+
+function chunk(arr, size) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+const subLevels = chunk(vocabB1, SUBLEVEL_SIZE);
+
+let masteredSet = new Set();
+let uid = null;
+let currentSubIdx = 0;
+let currentCardIdx = 0;
+let flipped = false;
+
+document.getElementById("btn-logout").addEventListener("click", async () => {
+  await signOut(auth);
+  location.href = "index.html";
+});
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+function subLevelStats(idx) {
+  const words = subLevels[idx];
+  const total = words.length;
+  const masteredCount = words.filter(w => masteredSet.has(w.id)).length;
+  const pct = total > 0 ? Math.round((masteredCount / total) * 100) : 0;
+  return { total, masteredCount, pct };
+}
+
+function isUnlocked(idx) {
+  if (idx === 0) return true;
+  const prev = subLevelStats(idx - 1);
+  return prev.masteredCount >= Math.ceil(UNLOCK_RATIO * prev.total);
+}
+
+function renderGrid() {
+  const grid = document.getElementById("sub-grid");
+  grid.innerHTML = "";
+  subLevels.forEach((words, idx) => {
+    const stats = subLevelStats(idx);
+    const unlocked = isUnlocked(idx);
+    const card = document.createElement("div");
+    card.className = "sub-card" + (unlocked ? "" : " locked");
+    const startNum = idx * SUBLEVEL_SIZE + 1;
+    const endNum = idx * SUBLEVEL_SIZE + words.length;
+    card.innerHTML = unlocked
+      ? `<div class="sub-num">${idx + 1}</div>
+         <div class="sub-range">#${startNum}-${endNum}</div>
+         <div class="sub-track"><div class="sub-fill" style="width:${stats.pct}%"></div></div>
+         <div class="sub-pct">${stats.masteredCount}/${stats.total} · ${stats.pct}%</div>`
+      : `<div class="sub-lock-icon">🔒</div>
+         <div class="sub-range">#${startNum}-${endNum}</div>`;
+    if (unlocked) card.addEventListener("click", () => openSubLevel(idx));
+    grid.appendChild(card);
+  });
+}
+
+function openSubLevel(idx) {
+  currentSubIdx = idx;
+  currentCardIdx = 0;
+  document.getElementById("grid-view").classList.add("hidden");
+  document.getElementById("flash-view").classList.remove("hidden");
+  document.getElementById("complete-screen").classList.add("hidden");
+  document.getElementById("flash-card").classList.remove("hidden");
+  document.getElementById("flash-actions").classList.remove("hidden");
+  renderCard();
+}
+
+function renderCard() {
+  const words = subLevels[currentSubIdx];
+  const word = words[currentCardIdx];
+  flipped = false;
+  document.getElementById("card-front").classList.remove("hidden");
+  document.getElementById("card-back").classList.add("hidden");
+  document.getElementById("card-german").textContent = word.german;
+  document.getElementById("card-bengali").textContent = word.bengali;
+  document.getElementById("card-example").textContent = word.example;
+  document.getElementById("flash-sublevel-label").textContent = `Sub-level ${currentSubIdx + 1}`;
+  document.getElementById("flash-count").textContent = `${currentCardIdx + 1} / ${words.length}`;
+  document.getElementById("flash-bar").style.width = `${((currentCardIdx) / words.length) * 100}%`;
+}
+
+document.getElementById("flash-card").addEventListener("click", () => {
+  flipped = !flipped;
+  document.getElementById("card-front").classList.toggle("hidden", flipped);
+  document.getElementById("card-back").classList.toggle("hidden", !flipped);
+});
+
+async function markKnown() {
+  const word = subLevels[currentSubIdx][currentCardIdx];
+  if (!masteredSet.has(word.id)) {
+    masteredSet.add(word.id);
+    try {
+      await updateDoc(doc(db, "users", uid), {
+        masteredVocabIds: arrayUnion(word.id),
+        xp: increment(5)
+      });
+      showToast(`+5 XP — "${word.german}" মনে রেখেছো!`);
+    } catch (e) {
+      showToast("সংরক্ষণ করতে সমস্যা হয়েছে, ইন্টারনেট চেক করো।");
+      masteredSet.delete(word.id);
+      return;
+    }
+  }
+  nextCard();
+}
+
+function nextCard() {
+  const words = subLevels[currentSubIdx];
+  if (currentCardIdx < words.length - 1) {
+    currentCardIdx++;
+    renderCard();
+  } else {
+    finishSubLevel();
+  }
+}
+
+document.getElementById("btn-know").addEventListener("click", (e) => { e.stopPropagation(); markKnown(); });
+document.getElementById("btn-dontknow").addEventListener("click", (e) => { e.stopPropagation(); nextCard(); });
+
+function finishSubLevel() {
+  const stats = subLevelStats(currentSubIdx);
+  document.getElementById("flash-card").classList.add("hidden");
+  document.getElementById("flash-actions").classList.add("hidden");
+  document.getElementById("complete-screen").classList.remove("hidden");
+  document.getElementById("complete-stats").textContent =
+    `তুমি ${stats.masteredCount}/${stats.total} শব্দ master করেছো এই sub-level-এ (${stats.pct}%)।`;
+  const nextUnlocked = isUnlocked(currentSubIdx + 1);
+  if (subLevels[currentSubIdx + 1] && !nextUnlocked) {
+    document.getElementById("complete-title").textContent = "আরও practice করো";
+  } else {
+    document.getElementById("complete-title").textContent = "🎉 Sub-level সম্পন্ন!";
+  }
+}
+
+document.getElementById("btn-back-to-grid").addEventListener("click", () => {
+  document.getElementById("flash-view").classList.add("hidden");
+  document.getElementById("grid-view").classList.remove("hidden");
+  renderGrid();
+});
+
+requireAuth(async (user) => {
+  uid = user.uid;
+  const uSnap = await getDoc(doc(db, "users", uid));
+  const d = uSnap.exists() ? uSnap.data() : {};
+  const name = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL || user.photoURL || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if (photo) av.innerHTML = `<img src="${photo}" alt="avatar">`;
+  else av.textContent = name[0]?.toUpperCase() || "?";
+
+  const ids = d.masteredVocabIds || [];
+  masteredSet = new Set(ids.filter(id => id.startsWith("b1-")));
+  renderGrid();
+});
+</script>
+
+</body>
+</html>

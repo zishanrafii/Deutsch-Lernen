@@ -1,79 +1,54 @@
 // js/plan-gate.js
-// Import this at the top of any page that requires a paid plan.
-// Usage:
-//   import { requirePlan, checkSubscription } from "./js/plan-gate.js";
-//   requirePlan(userData);
-//
-// It checks user.plan / user.planExpiry in the users doc, AND the
-// subscriptions collection (written by the admin approval flow).
+// Checks "subscriptions" Firestore collection.
+// Admin (role:"admin") always gets full access — no subscription needed.
 
 import { db, doc, getDoc } from "./firebase-config.js";
 
-/**
- * Fetch live subscription status from Firestore for a given uid.
- * Returns { active, plan, expiryDate } or { active: false }.
- */
-export async function checkSubscription(uid) {
+export async function checkPlan(uid, redirectBack) {
+  try {
+    // Admin bypass — check role first
+    const userSnap = await getDoc(doc(db, "users", uid));
+    if (userSnap.exists() && userSnap.data().role === "admin") {
+      return true; // ✅ Admin always has access
+    }
+
+    // Check active subscription
+    const subSnap = await getDoc(doc(db, "subscriptions", uid));
+    if (subSnap.exists()) {
+      const sub = subSnap.data();
+      if (sub.active === true) {
+        const expiry = sub.expiryDate?.toDate
+          ? sub.expiryDate.toDate()
+          : new Date(sub.expiryDate);
+        if (expiry > new Date()) {
+          return true; // ✅ Active & not expired
+        }
+      }
+    }
+  } catch (err) {
+    console.warn("plan-gate: check failed", err);
+  }
+
+  // Not subscribed or expired → redirect
+  const back = encodeURIComponent(redirectBack || window.location.pathname);
+  window.location.href = `bkash-payment.html?locked=1&back=${back}`;
+  return false;
+}
+
+export async function getSubscription(uid) {
   try {
     const snap = await getDoc(doc(db, "subscriptions", uid));
-    if (!snap.exists()) return { active: false };
-    const data = snap.data();
-    if (!data.active) return { active: false };
-    const expiry = data.expiryDate?.toDate ? data.expiryDate.toDate() : (data.expiryDate ? new Date(data.expiryDate) : null);
-    if (!expiry || expiry < new Date()) return { active: false, expired: true, plan: data.plan, expiryDate: expiry };
-    return { active: true, plan: data.plan, expiryDate: expiry };
-  } catch (e) {
-    console.warn("plan-gate: subscription check failed", e);
-    return { active: false };
-  }
+    if (snap.exists()) return snap.data();
+  } catch (e) { /* ignore */ }
+  return null;
 }
 
-/**
- * Call inside requireAuth callback, passing the Firestore user data object.
- * If plan is free or expired → redirect to pricing.html with a message.
- *
- * @param {object} userData - Firestore user document data
- * @param {string} [redirectTo] - where to go after upgrade (default: current page)
- */
-export function requirePlan(userData, redirectTo) {
-  const plan    = userData?.plan || "free";
-  const expiry  = userData?.planExpiry;
-
-  const validPlans = ["monthly", "sixmonths", "yearly"];
-
-  // Check expiry
-  if (validPlans.includes(plan) && expiry) {
-    const expiryDate = expiry?.toDate ? expiry.toDate() : new Date(expiry);
-    if (expiryDate < new Date()) {
-      const back = encodeURIComponent(redirectTo || window.location.pathname);
-      window.location.href = `pricing.html?expired=1&back=${back}`;
-      return false;
-    }
-  }
-
-  if (!validPlans.includes(plan)) {
-    const back = encodeURIComponent(redirectTo || window.location.pathname);
-    window.location.href = `pricing.html?locked=1&back=${back}`;
-    return false;
-  }
-
-  return true;
-}
-
-/**
- * Show an inline "locked" overlay instead of redirecting.
- */
 export function showLockedOverlay(featureName = "এই feature") {
-  const existing = document.getElementById("plan-gate-overlay");
-  if (existing) return;
-
+  if (document.getElementById("plan-gate-overlay")) return;
   const overlay = document.createElement("div");
   overlay.id = "plan-gate-overlay";
-  overlay.style.cssText = `
-    position:fixed;inset:0;z-index:9000;
-    background:rgba(4,8,15,.92);backdrop-filter:blur(20px);
-    display:flex;align-items:center;justify-content:center;padding:1.5rem;
-  `;
+  overlay.style.cssText = `position:fixed;inset:0;z-index:9000;background:rgba(4,8,15,.93);
+    backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;padding:1.5rem;`;
   overlay.innerHTML = `
     <div style="background:#080e1a;border:1px solid rgba(245,200,66,.2);border-radius:24px;
       padding:2.5rem 2rem;max-width:420px;width:100%;text-align:center;
@@ -89,14 +64,13 @@ export function showLockedOverlay(featureName = "এই feature") {
         ${featureName} ব্যবহার করতে একটি paid plan প্রয়োজন।<br>
         মাত্র <strong style="color:#f5c842;">৳149/মাস</strong> থেকে শুরু।
       </p>
-      <a href="pricing.html" style="display:block;background:linear-gradient(135deg,#f5c842,#e0a820);
+      <a href="bkash-payment.html" style="display:block;background:linear-gradient(135deg,#f5c842,#e0a820);
         color:#000;padding:.85rem 1.5rem;border-radius:13px;font-weight:800;font-size:14px;
-        text-decoration:none;margin-bottom:.8rem;transition:.2s;font-family:'Outfit',sans-serif;">
-        💎 Plan দেখুন ও Upgrade করুন
+        text-decoration:none;margin-bottom:.8rem;font-family:'Outfit',sans-serif;">
+        💳 Plan দেখুন ও Payment করুন
       </a>
       <a href="dashboard.html" style="font-size:12.5px;color:#64748b;text-decoration:none;
         font-family:'Noto Sans Bengali',sans-serif;">← Dashboard-এ ফিরুন</a>
-    </div>
-  `;
+    </div>`;
   document.body.appendChild(overlay);
 }

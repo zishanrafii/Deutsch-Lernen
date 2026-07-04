@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── users/{uid} ──
+    // প্রতিটা user শুধু নিজের document পড়তে/লিখতে পারবে।
+    // অন্য কারো uid-এর document touch করতে পারবে না।
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // প্রথমবার profile তৈরি (registration-এর সময়)
+      allow create: if request.auth != null && request.auth.uid == userId;
+
+      // Update — কিন্তু XP কমানো বা masteredVocabIds থেকে শব্দ মুছে ফেলা (cheat) আটকানো
+      allow update: if request.auth != null
+        && request.auth.uid == userId
+        && (
+          !('xp' in request.resource.data) ||
+          !('xp' in resource.data) ||
+          request.resource.data.xp >= resource.data.xp
+        )
+        && (
+          !('masteredVocabIds' in request.resource.data) ||
+          !('masteredVocabIds' in resource.data) ||
+          request.resource.data.masteredVocabIds.size() >= resource.data.masteredVocabIds.size()
+        );
+
+      allow delete: if false;
+
+      // ── users/{uid}/dictionaryStats/{level} (যদি ব্যবহার করেন) ──
+      match /dictionaryStats/{level} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // ── scores ──
+    // user নিজের score লিখতে পারবে, কিন্তু uid স্পুফ করতে পারবে না।
+    match /scores/{scoreId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // ── grammar_lessons, vocab_words ──
+    // সবার জন্য read-only reference data। লেখা শুধু admin panel থেকে (নিচে দেখুন)।
+    match /grammar_lessons/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false; // admin SDK / console থেকেই হবে
+    }
+    match /vocab_words/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // ── community_posts ──
+    match /community_posts/{postId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow update: if request.auth != null
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes']);
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
+    // ── Admin override (role: "admin" থাকলে সবকিছু করতে পারবে) ──
+    function isAdmin() {
+      return request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
