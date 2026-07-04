@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zungenbrecher — Deutsch Lernen</title>
+<script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
+<script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:1160px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;gap:6px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-link.active{color:var(--gold);background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.15);}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:1.4rem;font-family:'JetBrains Mono',monospace;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{border-radius:24px;padding:2rem 2.4rem;margin-bottom:1.8rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid rgba(255,255,255,.07);}
+.hero-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.hero-orb{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.1),transparent 70%);top:-100px;right:-60px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem;}
+.hero h2{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5rem;}
+.hero h2 span{background:linear-gradient(135deg,#2dd4bf,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{color:var(--sub);font-size:13px;line-height:1.7;max-width:480px;font-family:'Noto Sans Bengali',sans-serif;}
+.hero-counts{display:flex;gap:10px;flex-wrap:wrap;}
+.hc{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:.7rem 1.1rem;text-align:center;min-width:72px;}
+.hc-v{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#2dd4bf,#f5c842);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hc-l{font-size:9px;color:var(--muted);margin-top:2px;letter-spacing:.8px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+
+/* SECTION TITLE */
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+
+/* LEVEL FILTER */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.ftab{padding:.35rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+  border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'JetBrains Mono',monospace;transition:.2s;}
+.ftab.active{font-weight:800;}
+.ftab[data-l="all"].active{background:linear-gradient(135deg,#f5c842,#e0a820);border-color:#f5c842;color:#000;}
+.ftab[data-l="A1"].active{background:#34d399;border-color:#34d399;color:#000;}
+.ftab[data-l="A2"].active{background:#38bdf8;border-color:#38bdf8;color:#000;}
+.ftab[data-l="B1"].active{background:#818cf8;border-color:#818cf8;color:#fff;}
+.ftab[data-l="B2"].active{background:#a78bfa;border-color:#a78bfa;color:#fff;}
+.ftab[data-l="C1"].active{background:#fb923c;border-color:#fb923c;color:#000;}
+.ftab[data-l="C2"].active{background:#f5c842;border-color:#f5c842;color:#000;}
+
+/* TONGUE TWISTER CARDS */
+.tt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-bottom:2rem;}
+.tt-card{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:1.4rem 1.6rem;
+  position:relative;overflow:hidden;transition:.25s;}
+.tt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--card-accent,#2dd4bf),transparent);}
+.tt-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3);}
+.tt-card.done{background:linear-gradient(135deg,rgba(52,211,153,.04),rgba(45,212,191,.03));border-color:rgba(52,211,153,.2);}
+.tt-card.hidden{display:none;}
+.tt-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;}
+.tt-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);}
+.level-pill{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+.pill-a1{background:rgba(52,211,153,.1);color:#34d399;border:1px solid rgba(52,211,153,.25);}
+.pill-a2{background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);}
+.pill-b1{background:rgba(129,140,248,.1);color:#818cf8;border:1px solid rgba(129,140,248,.25);}
+.pill-b2{background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.25);}
+.pill-c1{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25);}
+.pill-c2{background:rgba(245,200,66,.1);color:#f5c842;border:1px solid rgba(245,200,66,.25);}
+.tt-text{font-size:1.05rem;font-weight:800;line-height:1.55;margin-bottom:.6rem;color:var(--text);}
+.tt-focus{font-size:10.5px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:.5rem;}
+.tt-bn{font-size:12px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;margin-bottom:.9rem;}
+.tt-actions{display:flex;align-items:center;gap:8px;}
+.btn-practice{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal);
+  padding:.45rem 1rem;border-radius:10px;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:12px;transition:.2s;}
+.btn-practice:hover{background:rgba(45,212,191,.18);}
+.btn-done{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:var(--emerald);
+  padding:.45rem 1rem;border-radius:10px;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:12px;transition:.2s;}
+.btn-done:hover{background:rgba(52,211,153,.18);}
+.btn-done.completed{opacity:.6;cursor:default;}
+.xp-chip{font-size:10.5px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-left:auto;}
+
+/* CHALLENGE MODE */
+.challenge-box{background:linear-gradient(135deg,rgba(245,200,66,.07),rgba(45,212,191,.05));
+  border:1px solid rgba(245,200,66,.2);border-radius:20px;padding:1.6rem 2rem;margin-bottom:1.8rem;
+  position:relative;overflow:hidden;}
+.challenge-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c842 40%,#2dd4bf 60%,transparent);}
+.cb-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+.cb-left{}
+.cb-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;}
+.cb-title{font-size:1.3rem;font-weight:800;margin-bottom:.4rem;}
+.cb-desc{font-size:13px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+.btn-challenge{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;border:none;
+  border-radius:13px;padding:.75rem 1.6rem;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;
+  transition:.2s;white-space:nowrap;}
+.btn-challenge:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,200,66,.3);}
+
+/* SPEED GUIDE */
+.speed-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:2rem;}
+.sg-card{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;}
+.sg-title{font-size:13.5px;font-weight:700;margin-bottom:.3rem;display:flex;align-items:center;gap:7px;}
+.sg-desc{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;line-height:1.55;}
+
+/* PRACTICE MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.modal{background:var(--surface2);border:1px solid rgba(45,212,191,.2);border-radius:24px;padding:2rem;
+  max-width:580px;width:100%;position:relative;}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.06);border:1px solid var(--border);
+  color:var(--sub);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:rgba(251,113,133,.1);color:var(--rose);}
+.modal-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:.7rem;}
+.modal-text{font-size:1.3rem;font-weight:800;line-height:1.5;margin-bottom:.6rem;}
+.modal-bn{font-size:13px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:1.2rem;}
+.speed-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.sp-btn{border-radius:10px;padding:.5rem 1rem;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:12.5px;transition:.2s;border:1px solid;}
+.sp-btn.slow{background:rgba(45,212,191,.1);border-color:rgba(45,212,191,.25);color:var(--teal);}
+.sp-btn.slow:hover{background:rgba(45,212,191,.18);}
+.sp-btn.normal{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.25);color:var(--gold);}
+.sp-btn.normal:hover{background:rgba(245,200,66,.18);}
+.sp-btn.fast{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);}
+.sp-btn.fast:hover{background:rgba(251,113,133,.18);}
+.repeat-count{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:1rem;}
+.modal-progress{height:5px;background:rgba(255,255,255,.05);border-radius:99px;overflow:hidden;margin-bottom:.4rem;}
+.modal-prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#2dd4bf,#f5c842);transition:width .3s;}
+.modal-actions{display:flex;gap:8px;margin-top:1.2rem;}
+
+@media(max-width:800px){.nav-links{display:none;}}
+@media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start;}.wrap{padding:1rem .9rem 3rem;}.hero h2{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <nav class="nav-links">
+        <a href="../lernreise.html" class="nav-link">Journey</a>
+        <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
+        <a href="../grammatik.html" class="nav-link">Grammatik</a>
+        <a href="../sprechen.html" class="nav-link active">Sprechen</a>
+        <a href="../rangliste.html" class="nav-link">Rangliste</a>
+        <a href="../community-chat.html" class="nav-link">Chat</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="user-avatar" id="nav-avatar">👤</div>
+        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="../dashboard.html">🏠 Dashboard</a><span>›</span>
+    <a href="../sprechen.html">Sprechen</a><span>›</span>
+    <span>Zungenbrecher</span>
+  </div>
+
+  
+  <!-- VOICE SELECTOR -->
+  <div id="voice-selector-bar" style="display:flex;align-items:center;gap:8px;padding:.6rem 0;margin-bottom:.8rem;flex-wrap:wrap;">
+    <span style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;">🎙️ Voice:</span>
+    <button class="vbtn active" data-v="Deutsch Female" onclick="setVoice(this,'Deutsch Female')"
+      style="padding:.3rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+      border:1px solid rgba(244,114,182,.3);background:rgba(244,114,182,.1);color:#f472b6;
+      font-family:'JetBrains Mono',monospace;transition:.2s;" id="vbtn-female">👩 Female</button>
+    <button class="vbtn" data-v="Deutsch Male" onclick="setVoice(this,'Deutsch Male')"
+      style="padding:.3rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+      border:1px solid var(--border);background:transparent;color:var(--muted);
+      font-family:'JetBrains Mono',monospace;transition:.2s;" id="vbtn-male">👨 Male</button>
+  </div>
+<div class="hero">
+    <div class="hero-stripe"></div><div class="hero-orb"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">👅 Tongue Twisters</div>
+        <h2>German <span>Zungenbrecher</span></h2>
+        <p class="hero-sub">German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন। Slow থেকে Fast — আস্তে আস্তে speed বাড়ান।</p>
+      </div>
+      <div class="hero-counts">
+        <div class="hc"><div class="hc-v" id="total-count">0</div><div class="hc-l">Twisters</div></div>
+        <div class="hc"><div class="hc-v" id="done-count">0</div><div class="hc-l">Completed</div></div>
+        <div class="hc"><div class="hc-v" id="h-xp">0</div><div class="hc-l">XP</div></div>
+        <div class="hc"><div class="hc-v">6</div><div class="hc-l">Levels</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHALLENGE BOX -->
+  <div class="challenge-box">
+    <div class="cb-inner">
+      <div class="cb-left">
+        <div class="cb-eyebrow">⚡ Daily Challenge</div>
+        <div class="cb-title">আজকের Zungenbrecher</div>
+        <div class="cb-desc" id="daily-tt">লোড হচ্ছে...</div>
+      </div>
+      <button class="btn-challenge" id="btn-daily">এখন Practice করুন →</button>
+    </div>
+  </div>
+
+  <!-- SPEED GUIDE -->
+  <div class="section-title">⚡ Speed Guide</div>
+  <div class="speed-guide">
+    <div class="sg-card">
+      <div class="sg-title">🐌 Slow Mode</div>
+      <div class="sg-desc">প্রথমে ধীরে ধীরে পড়ুন। প্রতিটি শব্দ স্পষ্টভাবে বলুন। উচ্চারণ নিখুঁত করুন।</div>
+    </div>
+    <div class="sg-card">
+      <div class="sg-title">▶ Normal Speed</div>
+      <div class="sg-desc">স্বাভাবিক গতিতে বলুন। Real conversation-এর speed।</div>
+    </div>
+    <div class="sg-card">
+      <div class="sg-title">⚡ Fast Mode</div>
+      <div class="sg-desc">দ্রুত বলুন। একটানা ৩ বার করুন। Fluency boost করুন।</div>
+    </div>
+    <div class="sg-card">
+      <div class="sg-title">🔄 Repeat x5</div>
+      <div class="sg-desc">একই twister ৫ বার করুন। Muscle memory তৈরি হবে।</div>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="section-title">👅 সব Zungenbrecher</div>
+  <div class="filter-row" id="level-filters">
+    <button class="ftab active" data-l="all">সব Level</button>
+    <button class="ftab" data-l="A1">A1</button>
+    <button class="ftab" data-l="A2">A2</button>
+    <button class="ftab" data-l="B1">B1</button>
+    <button class="ftab" data-l="B2">B2</button>
+    <button class="ftab" data-l="C1">C1</button>
+    <button class="ftab" data-l="C2">C2</button>
+  </div>
+
+  <div style="font-size:11px;color:var(--muted);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;">
+    দেখাচ্ছে: <span id="shown-count">0</span> tongue twisters
+  </div>
+  <div class="tt-grid" id="tt-grid"></div>
+
+</div>
+
+<!-- PRACTICE MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-eyebrow">👅 Practice Mode</div>
+    <div class="modal-text" id="modal-text"></div>
+    <div class="modal-bn" id="modal-bn"></div>
+    <div class="speed-btns">
+      <button class="sp-btn slow" onclick="setSpeed('slow')">🐌 Slow</button>
+      <button class="sp-btn normal" onclick="setSpeed('normal')">▶ Normal</button>
+      <button class="sp-btn fast" onclick="setSpeed('fast')">⚡ Fast</button>
+      <button class="sp-btn" onclick="responsiveVoice.cancel()" style="border-color:rgba(251,113,133,.3);color:#fb7185;">⏹ Stop</button>
+    </div>
+    <div class="repeat-count">Repeat: <span id="repeat-num">0</span> / 5</div>
+    <div class="modal-progress"><div class="modal-prog-fill" id="modal-fill" style="width:0%"></div></div>
+    <div class="modal-actions">
+      <button class="btn-practice" style="flex:1" onclick="countRepeat()">✓ এবার বললাম!</button>
+      <button class="btn-done" id="modal-done-btn" style="flex:1">✅ সম্পন্ন করুন</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+
+/* ── Voice selector ── */
+let _voice = "Deutsch Female";
+window.setVoice = function(btn, voice) {
+  _voice = voice;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.style.background    = "transparent";
+    b.style.borderColor   = "rgba(255,255,255,.055)";
+    b.style.color         = "var(--muted)";
+  });
+  const isFemale = voice === "Deutsch Female";
+  btn.style.background  = isFemale ? "rgba(244,114,182,.1)"  : "rgba(56,189,248,.1)";
+  btn.style.borderColor = isFemale ? "rgba(244,114,182,.3)"  : "rgba(56,189,248,.3)";
+  btn.style.color       = isFemale ? "#f472b6"               : "#38bdf8";
+};
+
+import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+import { TONGUE_TWISTERS } from "../js/aussprache-data.js";
+
+const pillClass = lv=>({A1:"pill-a1",A2:"pill-a2",B1:"pill-b1",B2:"pill-b2",C1:"pill-c1",C2:"pill-c2"}[lv]||"pill-a1");
+const accentMap  = {A1:"#34d399",A2:"#38bdf8",B1:"#818cf8",B2:"#a78bfa",C1:"#fb923c",C2:"#f5c842"};
+const xpMap      = {A1:20,A2:25,B1:30,B2:35,C1:40,C2:50};
+
+let _uid, _done=[], _filter="all", _activeIdx=null, _repeatCount=0;
+
+/* Daily tongue twister */
+const dailyTT = TONGUE_TWISTERS[new Date().getDay() % TONGUE_TWISTERS.length];
+document.getElementById("daily-tt").textContent = `"${dailyTT.text}" (${dailyTT.level})`;
+document.getElementById("btn-daily").onclick = ()=>openModal(TONGUE_TWISTERS.indexOf(dailyTT));
+
+/* Hero counts */
+document.getElementById("total-count").textContent = TONGUE_TWISTERS.length;
+
+/* Render */
+function render(){
+  const grid=document.getElementById("tt-grid");
+  grid.innerHTML="";
+  const shown=TONGUE_TWISTERS.filter(t=>_filter==="all"||t.level===_filter);
+  document.getElementById("shown-count").textContent=shown.length;
+  shown.forEach((tt,i)=>{
+    const globalIdx=TONGUE_TWISTERS.indexOf(tt);
+    const isDone=_done.includes(globalIdx);
+    const card=document.createElement("div");
+    card.className="tt-card"+(isDone?" done":"");
+    card.style.setProperty("--card-accent",accentMap[tt.level]||"#2dd4bf");
+    card.innerHTML=`
+      <div class="tt-top">
+        <span class="tt-num">#${globalIdx+1}</span>
+        <span class="level-pill ${pillClass(tt.level)}">${tt.level}</span>
+      </div>
+      <div class="tt-text">${tt.text}</div>
+      <div class="tt-focus">🎯 ${tt.bn}</div>
+      <div class="tt-actions">
+        <button class="btn-practice" onclick="playTT('${tt.text.replace(/'/g,"\'")}')">🔊 Play</button>
+        <button class="btn-practice" onclick="openModal(${globalIdx})">🎤 Practice</button>
+        <button class="btn-done ${isDone?"completed":""}" onclick="markDone(${globalIdx})" id="done-btn-${globalIdx}">${isDone?"✅ Done":"✓ সম্পন্ন"}</button>
+        <span class="xp-chip">+${xpMap[tt.level]||20} XP</span>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* Filter */
+document.getElementById("level-filters").addEventListener("click",e=>{
+  const btn=e.target.closest(".ftab"); if(!btn) return;
+  document.querySelectorAll(".ftab").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active"); _filter=btn.dataset.l; render();
+});
+
+/* Open modal */
+window.openModal=function(idx){
+  _activeIdx=idx; _repeatCount=0;
+  const tt=TONGUE_TWISTERS[idx];
+  document.getElementById("modal-text").textContent=tt.text;
+  document.getElementById("modal-bn").textContent=tt.bn;
+  document.getElementById("repeat-num").textContent=0;
+  document.getElementById("modal-fill").style.width="0%";
+  document.getElementById("overlay").classList.add("open");
+};
+
+window.playTT = function(text, speed) {
+  responsiveVoice.cancel();
+  const rates = { slow: 0.6, normal: 0.9, fast: 1.3 };
+  const rate = rates[speed] || rates[speed] || 0.9;
+  responsiveVoice.speak(text, _voice, { rate });
+};
+window.setSpeed=function(s){
+  const msgs={slow:"🐌 Slow — ধীরে ধীরে পড়ুন",normal:"▶ Normal — স্বাভাবিক গতি",fast:"⚡ Fast — দ্রুত বলুন!"};
+  document.getElementById("modal-bn").textContent=msgs[s];
+  const text = document.getElementById("modal-text").textContent;
+  if(text) playTT(text, s);
+};
+
+window.countRepeat=function(){
+  if(_repeatCount>=5) return;
+  _repeatCount++;
+  document.getElementById("repeat-num").textContent=_repeatCount;
+  document.getElementById("modal-fill").style.width=(_repeatCount/5*100)+"%";
+};
+
+window.markDone=async function(idx){
+  if(_done.includes(idx)) return;
+  _done=[..._done,idx];
+  const tt=TONGUE_TWISTERS[idx];
+  const xp=xpMap[tt.level]||20;
+  document.getElementById("done-count").textContent=_done.length;
+  document.getElementById("h-xp").textContent=_done.reduce((a,i)=>a+(xpMap[TONGUE_TWISTERS[i]?.level]||20),0);
+  await updateDoc(doc(db,"users",_uid),{
+    zungenbrecherDone: arrayUnion(idx),
+    xp: increment(xp),
+  }).catch(()=>{});
+  render();
+  closeModal();
+};
+
+document.getElementById("modal-done-btn").onclick=()=>{ if(_activeIdx!==null) markDone(_activeIdx); };
+
+function closeModal(){
+  document.getElementById("overlay").classList.remove("open");
+  _activeIdx=null; _repeatCount=0;
+}
+document.getElementById("modal-close").onclick=closeModal;
+document.getElementById("overlay").onclick=e=>{ if(e.target===document.getElementById("overlay")) closeModal(); };
+
+/* Auth */
+requireAuth(async user=>{
+  _uid=user.uid;
+  const snap=await getDoc(doc(db,"users",user.uid));
+  const d=snap.exists()?snap.data():{};
+  const name=d.displayName||user.displayName||"Lerner";
+  const photo=d.photoURL||user.photoURL||"";
+  document.getElementById("nav-name").textContent=name;
+  const av=document.getElementById("nav-avatar");
+  if(photo) av.innerHTML=`<img src="${photo}">`;
+  else av.textContent=name[0]?.toUpperCase()||"?";
+  _done=d.zungenbrecherDone||[];
+  document.getElementById("done-count").textContent=_done.length;
+  document.getElementById("h-xp").textContent=_done.reduce((a,i)=>a+(xpMap[TONGUE_TWISTERS[i]?.level]||20),0);
+  document.getElementById("h-xp").textContent=d.xp||0;
+  render();
+  document.getElementById("btn-logout").onclick=async()=>{await signOut(auth);location.href="../index.html";};
+});
+</script>
+</body>
+</html>

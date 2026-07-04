@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aussprache — Deutsch Lernen</title>
+<script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
+<script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;--rose:#fb7185;
+  --indigo:#818cf8;--emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:1160px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;gap:6px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.nav-link.active{color:var(--gold);background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.15);}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;}
+.btn-logout:hover{background:rgba(251,113,133,.15);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:1.4rem;font-family:'JetBrains Mono',monospace;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+.hero{border-radius:24px;padding:2rem 2.4rem;margin-bottom:1.8rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid rgba(255,255,255,.07);}
+.hero-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.hero-orb{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,200,66,.08),transparent 70%);top:-100px;right:-80px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem;}
+.hero h2{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5rem;}
+.hero h2 span{background:linear-gradient(135deg,#f5c842,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{color:var(--sub);font-size:13px;line-height:1.7;font-family:'Noto Sans Bengali',sans-serif;max-width:480px;}
+.hero-counts{display:flex;gap:10px;flex-wrap:wrap;}
+.hc{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:.7rem 1.1rem;text-align:center;min-width:72px;}
+.hc-v{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hc-l{font-size:9px;color:var(--muted);margin-top:2px;letter-spacing:.8px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:1rem;}
+.search-box{flex:1;min-width:200px;position:relative;}
+.search-box input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:12px;
+  padding:.65rem 1rem .65rem 2.6rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:13.5px;outline:none;transition:.2s;}
+.search-box input:focus{border-color:rgba(245,200,66,.3);}
+.search-box input::placeholder{color:var(--muted);}
+.search-icon{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none;}
+.filter-group{display:flex;gap:6px;flex-wrap:wrap;}
+.ftab{padding:.35rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+  border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'JetBrains Mono',monospace;transition:.2s;}
+.ftab:hover{color:var(--text);}
+.ftab.active{font-weight:800;}
+.ftab[data-l="all"].active{background:linear-gradient(135deg,#f5c842,#e0a820);border-color:#f5c842;color:#000;}
+.ftab[data-l="A1"].active{background:#34d399;border-color:#34d399;color:#000;}
+.ftab[data-l="A2"].active{background:#38bdf8;border-color:#38bdf8;color:#000;}
+.ftab[data-l="B1"].active{background:#818cf8;border-color:#818cf8;color:#fff;}
+.ftab[data-l="B2"].active{background:#a78bfa;border-color:#a78bfa;color:#fff;}
+.ftab[data-l="C1"].active{background:#fb923c;border-color:#fb923c;color:#000;}
+.ftab[data-l="C2"].active{background:#f5c842;border-color:#f5c842;color:#000;}
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.ctab{padding:.3rem .8rem;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;
+  border:1px solid var(--border);background:rgba(255,255,255,.025);color:var(--muted);font-family:'Outfit',sans-serif;transition:.2s;}
+.ctab:hover{color:var(--text);}
+.ctab.active{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.results-info{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:1rem;}
+.word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:2rem;}
+.word-card{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.1rem 1.2rem;
+  transition:.25s;position:relative;overflow:hidden;}
+.word-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;border-radius:3px 0 0 3px;}
+.word-card.lv-a1::before{background:#34d399;}.word-card.lv-a2::before{background:#38bdf8;}
+.word-card.lv-b1::before{background:#818cf8;}.word-card.lv-b2::before{background:#a78bfa;}
+.word-card.lv-c1::before{background:#fb923c;}.word-card.lv-c2::before{background:#f5c842;}
+.word-card:hover{border-color:rgba(245,200,66,.15);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.3);}
+.wc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.5rem;gap:.5rem;}
+.wc-german{font-size:1.1rem;font-weight:800;}
+.wc-level{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+.wc-ipa{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--indigo);margin-bottom:.4rem;}
+.wc-bn{font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.4rem;}
+.wc-example{font-size:11px;color:var(--muted);line-height:1.55;border-top:1px solid rgba(255,255,255,.04);padding-top:.5rem;margin-top:.4rem;}
+.wc-cat{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:.5rem;}
+.pill-a1{background:rgba(52,211,153,.1);color:#34d399;border:1px solid rgba(52,211,153,.25);}
+.pill-a2{background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);}
+.pill-b1{background:rgba(129,140,248,.1);color:#818cf8;border:1px solid rgba(129,140,248,.25);}
+.pill-b2{background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.25);}
+.pill-c1{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25);}
+.pill-c2{background:rgba(245,200,66,.1);color:#f5c842;border:1px solid rgba(245,200,66,.25);}
+.tt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:2rem;}
+.tt-card{background:var(--surface2);border:1px solid rgba(45,212,191,.15);border-radius:16px;padding:1.2rem 1.4rem;position:relative;overflow:hidden;}
+.tt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#2dd4bf,transparent);}
+.tt-level{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;font-family:'JetBrains Mono',monospace;display:inline-block;margin-bottom:.6rem;}
+.tt-text{font-size:14px;font-weight:700;line-height:1.5;margin-bottom:.4rem;}
+.tt-bn{font-size:12px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+.mp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:2rem;}
+.mp-card{background:var(--surface2);border:1px solid rgba(129,140,248,.15);border-radius:16px;padding:1.1rem 1.3rem;}
+.mp-pair{display:flex;align-items:center;gap:12px;margin-bottom:.6rem;}
+.mp-word{background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.15);border-radius:10px;padding:.4rem .8rem;font-weight:800;font-size:14px;text-align:center;flex:1;}
+.mp-vs{color:var(--muted);font-size:11px;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+.mp-ipa{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--indigo);margin-bottom:.3rem;}
+.mp-bn{font-size:11.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;}
+.mp-tip{font-size:10.5px;color:var(--muted);margin-top:.5rem;border-top:1px solid rgba(255,255,255,.04);padding-top:.5rem;line-height:1.5;font-family:'Noto Sans Bengali',sans-serif;}
+@media(max-width:800px){.nav-links{display:none;}}
+@media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start;}.wrap{padding:1rem .9rem 3rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <nav class="nav-links">
+        <a href="../lernreise.html" class="nav-link">Journey</a>
+        <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
+        <a href="../grammatik.html" class="nav-link">Grammatik</a>
+        <a href="../sprechen.html" class="nav-link active">Sprechen</a>
+        <a href="../rangliste.html" class="nav-link">Rangliste</a>
+        <a href="../community-chat.html" class="nav-link">Chat</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
+        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="../dashboard.html">🏠 Dashboard</a><span>›</span>
+    <a href="../sprechen.html">Sprechen</a><span>›</span>
+    <span>Aussprache Hub</span>
+  </div>
+
+  
+  <!-- VOICE SELECTOR -->
+  <div id="voice-selector-bar" style="display:flex;align-items:center;gap:8px;padding:.6rem 0;margin-bottom:.8rem;flex-wrap:wrap;">
+    <span style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;">🎙️ Voice:</span>
+    <button class="vbtn active" data-v="Deutsch Female" onclick="setVoice(this,'Deutsch Female')"
+      style="padding:.3rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+      border:1px solid rgba(244,114,182,.3);background:rgba(244,114,182,.1);color:#f472b6;
+      font-family:'JetBrains Mono',monospace;transition:.2s;" id="vbtn-female">👩 Female</button>
+    <button class="vbtn" data-v="Deutsch Male" onclick="setVoice(this,'Deutsch Male')"
+      style="padding:.3rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+      border:1px solid var(--border);background:transparent;color:var(--muted);
+      font-family:'JetBrains Mono',monospace;transition:.2s;" id="vbtn-male">👨 Male</button>
+  </div>
+<div class="hero">
+    <div class="hero-stripe"></div><div class="hero-orb"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">🔤 Complete Pronunciation Guide</div>
+        <h2>German <span>Aussprache</span></h2>
+        <p class="hero-sub">A1 থেকে C2 পর্যন্ত 600+ German words-এর IPA উচ্চারণ guide। Minimal pairs, tongue twisters ও category filter সহ।</p>
+      </div>
+      <div class="hero-counts">
+        <div class="hc"><div class="hc-v" id="total-count">600+</div><div class="hc-l">Words</div></div>
+        <div class="hc"><div class="hc-v">6</div><div class="hc-l">Levels</div></div>
+        <div class="hc"><div class="hc-v" id="cat-count">15+</div><div class="hc-l">Categories</div></div>
+        <div class="hc"><div class="hc-v" id="pair-count">60+</div><div class="hc-l">Min. Pairs</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="German word খুঁজুন... যেমন: können, Straße">
+    </div>
+    <div class="filter-group" id="level-filters">
+      <button class="ftab active" data-l="all">সব</button>
+      <button class="ftab" data-l="A1">A1</button>
+      <button class="ftab" data-l="A2">A2</button>
+      <button class="ftab" data-l="B1">B1</button>
+      <button class="ftab" data-l="B2">B2</button>
+      <button class="ftab" data-l="C1">C1</button>
+      <button class="ftab" data-l="C2">C2</button>
+    </div>
+  </div>
+  <div class="cat-tabs" id="cat-tabs"></div>
+  <div class="results-info" id="results-info"></div>
+
+  <div class="section-title">📖 Wörter & Aussprache</div>
+  <div class="word-grid" id="word-grid"></div>
+
+  <div class="section-title">👅 Zungenbrecher — Tongue Twisters</div>
+  <div class="tt-grid" id="tt-grid"></div>
+
+  <div class="section-title">🔀 Minimale Paare — Minimal Pairs</div>
+  <div class="mp-grid" id="mp-grid"></div>
+</div>
+
+<script type="module">
+
+/* ── Voice selector ── */
+let _voice = "Deutsch Female";
+window.setVoice = function(btn, voice) {
+  _voice = voice;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.style.background    = "transparent";
+    b.style.borderColor   = "rgba(255,255,255,.055)";
+    b.style.color         = "var(--muted)";
+  });
+  const isFemale = voice === "Deutsch Female";
+  btn.style.background  = isFemale ? "rgba(244,114,182,.1)"  : "rgba(56,189,248,.1)";
+  btn.style.borderColor = isFemale ? "rgba(244,114,182,.3)"  : "rgba(56,189,248,.3)";
+  btn.style.color       = isFemale ? "#f472b6"               : "#38bdf8";
+};
+
+import { auth, db, signOut, requireAuth, doc, getDoc } from "../js/firebase-config.js";
+import { AUSSPRACHE_WORDS, TONGUE_TWISTERS, MINIMAL_PAIRS } from "../js/aussprache-data.js";
+
+requireAuth(async user => {
+  const snap = await getDoc(doc(db,"users",user.uid));
+  const d = snap.exists() ? snap.data() : {};
+  const name = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL || user.photoURL || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if(photo) av.innerHTML = `<img src="${photo}">`;
+  else av.textContent = name[0]?.toUpperCase()||"?";
+  document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
+});
+
+const pillClass = lv=>({A1:"pill-a1",A2:"pill-a2",B1:"pill-b1",B2:"pill-b2",C1:"pill-c1",C2:"pill-c2"}[lv]||"pill-a1");
+const lvClass   = lv=>({A1:"lv-a1",A2:"lv-a2",B1:"lv-b1",B2:"lv-b2",C1:"lv-c1",C2:"lv-c2"}[lv]||"lv-a1");
+
+let _level="all", _cat="all", _query="";
+
+/* Update hero counts */
+document.getElementById("total-count").textContent = AUSSPRACHE_WORDS.length;
+document.getElementById("pair-count").textContent  = MINIMAL_PAIRS.length;
+
+/* Category tabs */
+const cats = ["all", ...new Set(AUSSPRACHE_WORDS.map(w=>w.category))];
+document.getElementById("cat-count").textContent = cats.length - 1;
+const catTab = document.getElementById("cat-tabs");
+cats.forEach(c => {
+  const btn = document.createElement("button");
+  btn.className = "ctab" + (c==="all"?" active":"");
+  btn.textContent = c==="all" ? "সব Category" : c;
+  btn.onclick = () => {
+    document.querySelectorAll(".ctab").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active"); _cat=c; window.playWord = function(word) {
+  responsiveVoice.speak(word, _voice, { rate: 0.9 });
+};
+render();
+  };
+  catTab.appendChild(btn);
+});
+
+/* Level filter */
+document.getElementById("level-filters").addEventListener("click", e => {
+  const btn = e.target.closest(".ftab"); if(!btn) return;
+  document.querySelectorAll("#level-filters .ftab").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active"); _level=btn.dataset.l; render();
+});
+
+/* Search */
+document.getElementById("search-input").addEventListener("input", e=>{
+  _query=e.target.value.trim().toLowerCase(); render();
+});
+
+/* Render words */
+function render() {
+  const filtered = AUSSPRACHE_WORDS.filter(w => {
+    const ml = _level==="all" || w.level===_level;
+    const mc = _cat==="all"   || w.category===_cat;
+    const mq = !_query || w.german.toLowerCase().includes(_query)||w.ipa.includes(_query)||w.bn.includes(_query);
+    return ml && mc && mq;
+  });
+  document.getElementById("results-info").textContent =
+    `দেখাচ্ছে ${filtered.length} / ${AUSSPRACHE_WORDS.length} words` +
+    (_level!=="all" ? ` · ${_level}` : "") + (_cat!=="all" ? ` · ${_cat}` : "") +
+    (_query ? ` · "${_query}"` : "");
+
+  const grid = document.getElementById("word-grid");
+  grid.innerHTML="";
+  filtered.forEach(w=>{
+    const card = document.createElement("div");
+    card.className = `word-card ${lvClass(w.level)}`;
+    card.innerHTML = `
+      <div class="wc-top">
+        <div class="wc-german">${w.german}</div>
+        <span class="wc-level ${pillClass(w.level)}">${w.level}</span>
+      </div>
+      <div class="wc-ipa">/${w.ipa}/</div>
+      <div class="wc-bn">${w.bn}</div>
+      ${w.example?`<div class="wc-example">${w.example}</div>`:""}
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;">
+        <div class="wc-cat">· ${w.category}</div>
+        <button onclick="event.stopPropagation();playWord('${w.german.replace(/'/g,"\'")}')"
+          style="background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:#2dd4bf;
+          border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;cursor:pointer;
+          font-family:'Outfit',sans-serif;transition:.2s;" 
+          onmouseover="this.style.background='rgba(45,212,191,.2)'"
+          onmouseout="this.style.background='rgba(45,212,191,.1)'">🔊 Play</button>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* Tongue Twisters */
+const ttGrid = document.getElementById("tt-grid");
+TONGUE_TWISTERS.forEach(tt=>{
+  const card=document.createElement("div"); card.className="tt-card";
+  card.innerHTML=`<span class="tt-level ${pillClass(tt.level)}">${tt.level}</span>
+    <div class="tt-text">${tt.text}</div><div class="tt-bn">${tt.bn}</div>`;
+  ttGrid.appendChild(card);
+});
+
+/* Minimal Pairs */
+const mpGrid=document.getElementById("mp-grid");
+MINIMAL_PAIRS.forEach(mp=>{
+  const card=document.createElement("div"); card.className="mp-card";
+  card.innerHTML=`
+    <div class="mp-pair">
+      <div class="mp-word">${mp.w1}</div>
+      <div class="mp-vs">vs</div>
+      <div class="mp-word">${mp.w2}</div>
+    </div>
+    <div class="mp-ipa">/${mp.ipa1}/ vs /${mp.ipa2}/</div>
+    <div class="mp-bn">${mp.bn1} · ${mp.bn2}</div>
+    ${mp.tip?`<div class="mp-tip">💡 ${mp.tip}</div>`:""}`;
+  mpGrid.appendChild(card);
+});
+
+render();
+</script>
+</body>
+</html>

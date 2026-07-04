@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geschichte & Kultur Deutschlands — Sprechen — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
+<script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+  --accent:#fb923c;--lv-color:#fb923c;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:900px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.logo-text h1{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-text p{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:rgba(245,200,66,.15);
+  display:flex;align-items:center;justify-content:center;border:2px solid rgba(245,200,66,.3);cursor:pointer;overflow:hidden;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.35rem .8rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);margin-bottom:1.2rem;font-family:'JetBrains Mono',monospace;flex-wrap:wrap;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+/* HERO */
+.hero{border-radius:22px;padding:1.8rem 2.2rem;margin-bottom:1.6rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid rgba(255,255,255,.07);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent) 40%,var(--teal) 70%,transparent);}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.hero-icon{font-size:3.5rem;flex-shrink:0;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;color:var(--accent);}
+.hero h2{font-size:1.8rem;font-weight:800;letter-spacing:-.4px;margin-bottom:.3rem;}
+.hero-sub{color:var(--sub);font-size:13px;line-height:1.65;font-family:'Noto Sans Bengali',sans-serif;}
+.hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem;}
+.meta-pill{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--sub);}
+.meta-pill.lv{background:rgba(52,211,153,.08);border-color:var(--lv-color);color:var(--lv-color);}
+.meta-pill.xp{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.25);color:var(--gold);}
+/* SECTION */
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;
+  letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+/* VOICE BAR */
+.voice-bar{display:flex;align-items:center;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap;}
+.voice-label{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.vbtn{padding:.3rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+  border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'JetBrains Mono',monospace;transition:.2s;}
+.vbtn.f-active{background:rgba(244,114,182,.1);border-color:rgba(244,114,182,.3);color:#f472b6;}
+.vbtn.m-active{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.3);color:#38bdf8;}
+/* VOCAB */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:1.6rem;}
+.vocab-card{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;
+  transition:.2s;position:relative;overflow:hidden;}
+.vocab-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);border-radius:3px 0 0 3px;}
+.vocab-card:hover{border-color:rgba(255,255,255,.09);transform:translateY(-2px);}
+.vc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.25rem;}
+.vc-de{font-size:1rem;font-weight:800;}
+.vc-bn{font-size:12px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.3rem;}
+.vc-ex{font-size:11px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.04);padding-top:.4rem;margin-top:.3rem;}
+.play-btn{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal);
+  padding:2px 9px;border-radius:20px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Outfit',sans-serif;transition:.2s;}
+.play-btn:hover{background:rgba(45,212,191,.2);}
+/* DIALOGUE */
+.dialogue-box{background:var(--surface2);border:1px solid var(--border);border-radius:18px;
+  padding:1.4rem;margin-bottom:1.6rem;}
+.dialog-line{display:flex;gap:10px;margin-bottom:.9rem;align-items:flex-start;}
+.dialog-line:last-child{margin-bottom:0;}
+.line-b{flex-direction:row-reverse;}
+.dl-speaker{font-size:1.3rem;flex-shrink:0;margin-top:4px;}
+.dl-bubble{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;
+  padding:.75rem 1rem;max-width:80%;position:relative;}
+.line-b .dl-bubble{background:rgba(45,212,191,.04);border-color:rgba(45,212,191,.15);}
+.dl-de{font-size:13.5px;font-weight:700;margin-bottom:.2rem;}
+.dl-bn{font-size:11.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.4rem;}
+.play-btn-sm{background:transparent;border:none;cursor:pointer;font-size:.9rem;color:var(--muted);transition:.15s;padding:0;}
+.play-btn-sm:hover{color:var(--teal);}
+/* PROMPT BOX */
+.prompt-box{background:linear-gradient(135deg,rgba(129,140,248,.07),rgba(45,212,191,.05));
+  border:1px solid rgba(129,140,248,.2);border-radius:16px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;
+  position:relative;overflow:hidden;}
+.prompt-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,#818cf8,transparent);}
+.prompt-de{font-size:1.1rem;font-weight:800;margin-bottom:.3rem;}
+.prompt-bn{font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.6rem;}
+.prompt-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.btn-play-prompt{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal);
+  padding:.4rem 1rem;border-radius:10px;cursor:pointer;font-weight:700;font-family:'Outfit',sans-serif;font-size:12.5px;transition:.2s;}
+.btn-play-prompt:hover{background:rgba(45,212,191,.18);}
+/* TASKS */
+.tasks-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:16px;
+  padding:1.2rem 1.4rem;margin-bottom:1.6rem;}
+.task-item{display:flex;align-items:center;gap:10px;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.04);
+  cursor:pointer;transition:.15s;font-size:13px;font-family:'Noto Sans Bengali',sans-serif;}
+.task-item:last-child{border-bottom:none;}
+.task-item:hover{padding-left:4px;color:var(--text);}
+.task-cb{font-size:1rem;color:var(--muted);transition:.15s;flex-shrink:0;}
+.task-item.done .task-cb{color:var(--emerald);}
+.task-item.done span:last-child{color:var(--muted);text-decoration:line-through;}
+/* XP BANNER */
+.xp-banner{background:linear-gradient(135deg,rgba(245,200,66,.08),rgba(45,212,191,.06));
+  border:1px solid rgba(245,200,66,.2);border-radius:16px;padding:1.1rem 1.4rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem;}
+.xp-left{font-size:13px;font-family:'Noto Sans Bengali',sans-serif;color:var(--sub);}
+.btn-complete{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;border:none;
+  border-radius:12px;padding:.65rem 1.4rem;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;transition:.2s;}
+.btn-complete:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,200,66,.3);}
+.btn-complete:disabled{opacity:.5;cursor:default;transform:none;}
+/* NAV */
+.page-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;gap:1rem;flex-wrap:wrap;}
+.nav-btn{padding:.6rem 1.2rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);
+  color:var(--sub);text-decoration:none;font-size:13px;font-weight:600;transition:.2s;font-family:'Outfit',sans-serif;}
+.nav-btn:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
+.nav-btn.gold{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.nav-btn.gold:hover{background:rgba(245,200,66,.18);}
+@media(max-width:600px){.wrap{padding:1rem .9rem 3rem;}.hero h2{font-size:1.5rem;}.topbar{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
+      <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="../dashboard.html">🏠 Dashboard</a><span>›</span>
+    <a href="../sprechen.html">Sprechen</a><span>›</span>
+    <span>Geschichte & Kultur Deutschlands</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-icon">🏛️</div>
+      <div>
+        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <h2>Geschichte & Kultur Deutschlands</h2>
+        <p class="hero-sub">German history, culture, literature নিয়ে কথা বলুন।</p>
+        <div class="hero-meta">
+          <span class="meta-pill lv">C1</span>
+          <span class="meta-pill xp">+150 XP</span>
+          <span class="meta-pill">12 Vocab</span>
+          <span class="meta-pill">6 Dialog lines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICE -->
+  <div class="voice-bar">
+    <span class="voice-label">🎙️ Voice:</span>
+    <button class="vbtn f-active" id="vbtn-f" onclick="setVoice('Deutsch Female',this,'f')">👩 Female</button>
+    <button class="vbtn" id="vbtn-m" onclick="setVoice('Deutsch Male',this,'m')">👨 Male</button>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section-title">📖 Vokabeln — Vocabulary</div>
+  <div class="vocab-grid">
+    
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">die Wiedervereinigung</div>
+            <button onclick="playText('die Wiedervereinigung',0)" class="play-btn" id="vplay-0">🔊</button>
+          </div>
+          <div class="vc-bn">পুনর্মিলন</div>
+          <div class="vc-ex">1990 war die Wiedervereinigung.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">die DDR</div>
+            <button onclick="playText('die DDR',1)" class="play-btn" id="vplay-1">🔊</button>
+          </div>
+          <div class="vc-bn">পূর্ব জার্মানি</div>
+          <div class="vc-ex">Die DDR existierte bis 1990.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">die Weimarer Republik</div>
+            <button onclick="playText('die Weimarer Republik',2)" class="play-btn" id="vplay-2">🔊</button>
+          </div>
+          <div class="vc-bn">ওয়েমার প্রজাতন্ত্র</div>
+          <div class="vc-ex">Die Weimarer Republik war fragil.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">der Nationalsozialismus</div>
+            <button onclick="playText('der Nationalsozialismus',3)" class="play-btn" id="vplay-3">🔊</button>
+          </div>
+          <div class="vc-bn">নাৎসিবাদ</div>
+          <div class="vc-ex">Der Nationalsozialismus war ein Verbrechen.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">das Grundgesetz</div>
+            <button onclick="playText('das Grundgesetz',4)" class="play-btn" id="vplay-4">🔊</button>
+          </div>
+          <div class="vc-bn">মৌলিক আইন</div>
+          <div class="vc-ex">Das Grundgesetz wurde 1949 verabschiedet.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">die Aufarbeitung</div>
+            <button onclick="playText('die Aufarbeitung',5)" class="play-btn" id="vplay-5">🔊</button>
+          </div>
+          <div class="vc-bn">প্রক্রিয়াকরণ/মীমাংসা</div>
+          <div class="vc-ex">Deutschland hat seine Geschichte aufgearbeitet.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">das Kulturerbe</div>
+            <button onclick="playText('das Kulturerbe',6)" class="play-btn" id="vplay-6">🔊</button>
+          </div>
+          <div class="vc-bn">সাংস্কৃতিক ঐতিহ্য</div>
+          <div class="vc-ex">Das Kulturerbe muss bewahrt werden.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">der Mauerfall</div>
+            <button onclick="playText('der Mauerfall',7)" class="play-btn" id="vplay-7">🔊</button>
+          </div>
+          <div class="vc-bn">বার্লিন প্রাচীরের পতন</div>
+          <div class="vc-ex">Der Mauerfall war 1989.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">die Erinnerungskultur</div>
+            <button onclick="playText('die Erinnerungskultur',8)" class="play-btn" id="vplay-8">🔊</button>
+          </div>
+          <div class="vc-bn">স্মৃতির সংস্কৃতি</div>
+          <div class="vc-ex">Deutschland pflegt eine Erinnerungskultur.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">prägend</div>
+            <button onclick="playText('prägend',9)" class="play-btn" id="vplay-9">🔊</button>
+          </div>
+          <div class="vc-bn">গঠনমূলক/প্রভাবশালী</div>
+          <div class="vc-ex">Das war ein prägendes Ereignis.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">die Verantwortung</div>
+            <button onclick="playText('die Verantwortung',10)" class="play-btn" id="vplay-10">🔊</button>
+          </div>
+          <div class="vc-bn">দায়িত্ব</div>
+          <div class="vc-ex">Deutschland trägt historische Verantwortung.</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vc-top">
+            <div class="vc-de">das Gedenken</div>
+            <button onclick="playText('das Gedenken',11)" class="play-btn" id="vplay-11">🔊</button>
+          </div>
+          <div class="vc-bn">স্মরণ</div>
+          <div class="vc-ex">Das Gedenken ist wichtig.</div>
+        </div>
+  </div>
+
+  <!-- DIALOGUE -->
+  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="dialogue-box">
+    
+        <div class="dialog-line line-a">
+          <div class="dl-speaker">🧑 A</div>
+          <div class="dl-bubble">
+            <div class="dl-de">Wie prägt die Geschichte Deutschlands die heutige Gesellschaft?</div>
+            <div class="dl-bn">জার্মানির ইতিহাস আজকের সমাজকে কীভাবে প্রভাবিত করে?</div>
+            <button onclick="playText('Wie prägt die Geschichte Deutschlands die heutige Gesellschaft?',999+0)" class="play-btn-sm">🔊</button>
+          </div>
+        </div>
+        <div class="dialog-line line-b">
+          <div class="dl-speaker">👤 B</div>
+          <div class="dl-bubble">
+            <div class="dl-de">Die Aufarbeitung der NS-Zeit und die Wiedervereinigung sind zentrale Themen im deutschen Bewusstsein.</div>
+            <div class="dl-bn">নাৎসি আমলের মীমাংসা এবং পুনর্মিলন জার্মান চেতনার কেন্দ্রীয় বিষয়।</div>
+            <button onclick="playText('Die Aufarbeitung der NS-Zeit und die Wiedervereinigung sind zentrale Themen im deutschen Bewusstsein.',999+1)" class="play-btn-sm">🔊</button>
+          </div>
+        </div>
+        <div class="dialog-line line-a">
+          <div class="dl-speaker">🧑 A</div>
+          <div class="dl-bubble">
+            <div class="dl-de">Was ist das Besondere an der deutschen Erinnerungskultur?</div>
+            <div class="dl-bn">জার্মান স্মৃতির সংস্কৃতিতে কী বিশেষ?</div>
+            <button onclick="playText('Was ist das Besondere an der deutschen Erinnerungskultur?',999+2)" class="play-btn-sm">🔊</button>
+          </div>
+        </div>
+        <div class="dialog-line line-b">
+          <div class="dl-speaker">👤 B</div>
+          <div class="dl-bubble">
+            <div class="dl-de">Deutschland hat eine offene Auseinandersetzung mit seiner schuldhaften Vergangenheit gewählt.</div>
+            <div class="dl-bn">জার্মানি তার দোষী অতীতের সাথে খোলামেলা মোকাবিলার পথ বেছে নিয়েছে।</div>
+            <button onclick="playText('Deutschland hat eine offene Auseinandersetzung mit seiner schuldhaften Vergangenheit gewählt.',999+3)" class="play-btn-sm">🔊</button>
+          </div>
+        </div>
+        <div class="dialog-line line-a">
+          <div class="dl-speaker">🧑 A</div>
+          <div class="dl-bubble">
+            <div class="dl-de">Welche Bedeutung hat der Mauerfall für die deutsche Identität?</div>
+            <div class="dl-bn">জার্মান পরিচয়ের জন্য বার্লিন প্রাচীরের পতনের কী গুরুত্ব?</div>
+            <button onclick="playText('Welche Bedeutung hat der Mauerfall für die deutsche Identität?',999+4)" class="play-btn-sm">🔊</button>
+          </div>
+        </div>
+        <div class="dialog-line line-b">
+          <div class="dl-speaker">👤 B</div>
+          <div class="dl-bubble">
+            <div class="dl-de">Er symbolisiert die Überwindung von Teilung und steht für Freiheit und Einheit.</div>
+            <div class="dl-bn">এটা বিভাজন অতিক্রমের প্রতীক এবং স্বাধীনতা ও ঐক্যের প্রতিনিধিত্ব করে।</div>
+            <button onclick="playText('Er symbolisiert die Überwindung von Teilung und steht für Freiheit und Einheit.',999+5)" class="play-btn-sm">🔊</button>
+          </div>
+        </div>
+    <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
+    </div>
+  </div>
+
+  <!-- SPEAKING TASKS -->
+  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
+  <div class="tasks-wrap" id="tasks-wrap">
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>German history-র একটি গুরুত্বপূর্ণ ঘটনা বর্ণনা করো।</span></div>
+<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Erinnerungskultur সম্পর্কে তোমার মতামত দাও।</span></div>
+<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>ইতিহাস থেকে কী শিক্ষা নেওয়া যায় বলো।</span></div>
+<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>German Kultur-এর একটি দিক explain করো।</span></div>
+
+  </div>
+
+  <!-- XP BANNER -->
+  <div class="xp-banner">
+    <div class="xp-left">
+      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+150 XP</strong> পাবে।
+    </div>
+    <button class="btn-complete" id="btn-complete">⭐ Complete (+150 XP)</button>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="../sprechen.html" class="nav-btn gold">Sprechen Übersicht →</a>
+  </div>
+</div>
+
+<script type="module">
+import { auth, db, signOut, requireAuth,
+  doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+
+const DIALOGS = ['Wie prägt die Geschichte Deutschlands die heutige Gesellschaft?', 'Die Aufarbeitung der NS-Zeit und die Wiedervereinigung sind zentrale Themen im deutschen Bewusstsein.', 'Was ist das Besondere an der deutschen Erinnerungskultur?', 'Deutschland hat eine offene Auseinandersetzung mit seiner schuldhaften Vergangenheit gewählt.', 'Welche Bedeutung hat der Mauerfall für die deutsche Identität?', 'Er symbolisiert die Überwindung von Teilung und steht für Freiheit und Einheit.'];
+let _voice = "Deutsch Female";
+let _uid;
+
+window.setVoice = function(v, btn, type) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => b.className="vbtn");
+  btn.classList.add(type==="f" ? "f-active" : "m-active");
+};
+
+window.playText = function(text, i) {
+  responsiveVoice.cancel();
+  responsiveVoice.speak(text, _voice, { rate:0.88 });
+};
+
+window.playAllDialog = function() {
+  responsiveVoice.cancel();
+  let idx = 0;
+  function next() {
+    if(idx >= DIALOGS.length) return;
+    responsiveVoice.speak(DIALOGS[idx], _voice, {
+      rate: 0.88,
+      onend: () => { idx++; setTimeout(next, 600); }
+    });
+  }
+  next();
+};
+
+window.toggleTask = function(el) {
+  el.classList.toggle("done");
+  el.querySelector(".task-cb").textContent = el.classList.contains("done") ? "✓" : "○";
+};
+
+document.getElementById("btn-complete").onclick = async () => {
+  const btn = document.getElementById("btn-complete");
+  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  await updateDoc(doc(db,"users",_uid), {
+    completedTopics: arrayUnion("topic-geschichte"),
+    xp: increment(150),
+    sessions: increment(1),
+  }).catch(()=>{});
+};
+
+requireAuth(async user => {
+  _uid = user.uid;
+  const snap = await getDoc(doc(db,"users",user.uid));
+  const d = snap.exists() ? snap.data() : {};
+  const name = d.displayName||user.displayName||"Lerner";
+  const photo = d.photoURL||user.photoURL||"";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if(photo) av.innerHTML=`<img src="${photo}">`;
+  else av.textContent = name[0]?.toUpperCase()||"?";
+  if((d.completedTopics||[]).includes("topic-geschichte")) {
+    const btn = document.getElementById("btn-complete");
+    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+  }
+  document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umlaute — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
+<script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+  --accent:#f5c842;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:900px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.logo-text h1{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-text p{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:rgba(245,200,66,.15);
+  display:flex;align-items:center;justify-content:center;border:2px solid rgba(245,200,66,.3);cursor:pointer;overflow:hidden;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.35rem .8rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);margin-bottom:1.2rem;font-family:'JetBrains Mono',monospace;flex-wrap:wrap;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+/* HERO */
+.hero{border-radius:22px;padding:1.8rem 2.2rem;margin-bottom:1.6rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid rgba(255,255,255,.07);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent) 40%,#2dd4bf 70%,transparent);}
+.hero-orb{position:absolute;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 15%,transparent),transparent 70%);
+  top:-80px;right:-40px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.hero-icon{font-size:3.5rem;flex-shrink:0;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;opacity:.8;color:var(--accent);}
+.hero h2{font-size:1.8rem;font-weight:800;letter-spacing:-.4px;margin-bottom:.3rem;}
+.hero-sub{color:var(--sub);font-size:13px;line-height:1.65;font-family:'Noto Sans Bengali',sans-serif;}
+.hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem;}
+.meta-pill{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--sub);}
+.meta-pill.accent{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.25);color:var(--gold);}
+/* SECTION TITLE */
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;
+  letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+/* THEORY BOX */
+.theory-box{background:var(--surface2);border:1px solid var(--border);border-radius:18px;
+  padding:1.4rem 1.6rem;margin-bottom:1.6rem;position:relative;overflow:hidden;}
+.theory-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+.theory-box p{font-size:13.5px;line-height:1.8;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.8rem;}
+.theory-box p:last-child{margin-bottom:0;}
+.theory-box strong{color:var(--text);}
+.tip-box{background:rgba(245,200,66,.05);border:1px solid rgba(245,200,66,.18);border-radius:12px;
+  padding:.8rem 1.1rem;margin-top:.8rem;font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;line-height:1.65;}
+.tip-box strong{color:var(--gold);}
+/* EXAMPLES */
+.examples-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:1.6rem;}
+.ex-card{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.1rem 1.2rem;
+  transition:.2s;position:relative;overflow:hidden;}
+.ex-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);border-radius:3px 0 0 3px;}
+.ex-card:hover{border-color:rgba(255,255,255,.09);transform:translateY(-2px);}
+.ex-word{font-size:1.2rem;font-weight:800;margin-bottom:.2rem;}
+.ex-ipa{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--indigo);margin-bottom:.3rem;}
+.ex-bn{font-size:12px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.6rem;}
+.ex-sentence{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:.7rem;}
+.play-btn{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal);
+  padding:3px 12px;border-radius:20px;cursor:pointer;font-size:11.5px;font-weight:700;
+  font-family:'Outfit',sans-serif;transition:.2s;display:inline-flex;align-items:center;gap:5px;}
+.play-btn:hover{background:rgba(45,212,191,.2);}
+.play-btn.playing{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);}
+/* VOICE SELECTOR */
+.voice-bar{display:flex;align-items:center;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap;}
+.voice-label{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.vbtn{padding:.3rem .9rem;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;
+  border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'JetBrains Mono',monospace;transition:.2s;}
+.vbtn.active{background:rgba(244,114,182,.1);border-color:rgba(244,114,182,.3);color:#f472b6;}
+.vbtn.male-active{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.3);color:#38bdf8;}
+/* EXERCISES */
+.exercises-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:18px;
+  padding:1.4rem 1.6rem;margin-bottom:1.6rem;}
+.ex-item{margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.04);}
+.ex-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.ex-q{font-size:13.5px;font-weight:700;margin-bottom:.7rem;font-family:'Noto Sans Bengali',sans-serif;}
+.ex-opts{display:flex;gap:8px;flex-wrap:wrap;}
+.opt-btn{padding:.4rem 1rem;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.03);
+  color:var(--sub);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;transition:.2s;}
+.opt-btn:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
+.opt-btn.correct{background:rgba(52,211,153,.12);border-color:#34d399;color:#34d399;}
+.opt-btn.wrong{background:rgba(251,113,133,.1);border-color:var(--rose);color:var(--rose);}
+.ex-feedback{font-size:12px;margin-top:.5rem;font-family:'Noto Sans Bengali',sans-serif;min-height:18px;}
+/* PROGRESS */
+.xp-banner{background:linear-gradient(135deg,rgba(245,200,66,.08),rgba(45,212,191,.06));
+  border:1px solid rgba(245,200,66,.2);border-radius:16px;padding:1.1rem 1.4rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem;}
+.xp-left{font-size:13px;font-family:'Noto Sans Bengali',sans-serif;color:var(--sub);}
+.xp-left strong{color:var(--text);font-size:15px;}
+.btn-complete{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;border:none;
+  border-radius:12px;padding:.65rem 1.4rem;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;
+  transition:.2s;display:inline-flex;align-items:center;gap:6px;}
+.btn-complete:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,200,66,.3);}
+.btn-complete:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none;}
+/* NAV BUTTONS */
+.page-nav{display:flex;align-items:center;justify-content:space-between;margin-top:2rem;gap:1rem;flex-wrap:wrap;}
+.nav-btn{padding:.6rem 1.2rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);
+  color:var(--sub);text-decoration:none;font-size:13px;font-weight:600;transition:.2s;font-family:'Outfit',sans-serif;}
+.nav-btn:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
+.nav-btn.gold{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.nav-btn.gold:hover{background:rgba(245,200,66,.18);}
+@media(max-width:600px){.wrap{padding:1rem .9rem 3rem;}.hero h2{font-size:1.5rem;}.topbar{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
+      <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="../dashboard.html">🏠 Dashboard</a><span>›</span>
+    <a href="../sprechen.html">Sprechen</a><span>›</span>
+    <a href="aussprache.html">Aussprache Hub</a><span>›</span>
+    <span>Umlaute</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-inner">
+      <div class="hero-icon">🔤</div>
+      <div>
+        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <h2>Umlaute</h2>
+        <p class="hero-sub">ä, ö, ü — German-এর বিশেষ স্বরবর্ণ। বাংলায় এই ধ্বনিগুলো নেই, তাই আলাদা মনোযোগ দিতে হবে।</p>
+        <div class="hero-meta">
+          <span class="meta-pill accent">Level: A1</span>
+          <span class="meta-pill accent">+30 XP</span>
+          <span class="meta-pill">12 Examples</span>
+          <span class="meta-pill">5 Exercises</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICE SELECTOR -->
+  <div class="voice-bar">
+    <span class="voice-label">🎙️ Voice:</span>
+    <button class="vbtn active" id="vbtn-f" onclick="setVoice('Deutsch Female',this)">👩 Female</button>
+    <button class="vbtn" id="vbtn-m" onclick="setVoice('Deutsch Male',this)">👨 Male</button>
+  </div>
+
+  <!-- THEORY -->
+  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
+  <div class="theory-box">
+    
+    <p><strong>ä (a-Umlaut)</strong> — বাংলা 'এ'-এর মতো কিন্তু একটু খোলা। মুখ বেশি খোলো।<br>উদাহরণ: <strong>Ärger</strong> [ˈɛʁɡɐ] = রাগ</p>
+    <p><strong>ö (o-Umlaut)</strong> — 'এ' বলার মতো ঠোঁট গোল করো। ইংরেজি 'her'-এর মতো।<br>উদাহরণ: <strong>schön</strong> [ʃøːn] = সুন্দর</p>
+    <p><strong>ü (u-Umlaut)</strong> — 'ই' বলার মতো ঠোঁট গোল ও এগিয়ে দাও।<br>উদাহরণ: <strong>über</strong> [ˈyːbɐ] = উপরে</p>
+    <div class="tip-box"><strong>💡 Trick:</strong> ä → মুখ খোলো; ö → ঠোঁট গোল করে 'এ' বলো; ü → ঠোঁট গোল করে 'ই' বলো।</div>
+    
+  </div>
+
+  <!-- EXAMPLES -->
+  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="examples-grid" id="examples-grid"></div>
+
+  <!-- EXERCISES -->
+  <div class="section-title">✏️ Practice Exercises</div>
+  <div class="exercises-wrap">
+    
+        <div class="ex-item" id="ex-0">
+          <div class="ex-q">1. schön-এর উচ্চারণ কোনটি?</div>
+          <div class="ex-opts">
+            <button class="opt-btn" onclick="checkAns(0,0,this)">ʃoːn</button><button class="opt-btn" onclick="checkAns(0,1,this)">ʃøːn</button><button class="opt-btn" onclick="checkAns(0,2,this)">ʃuːn</button><button class="opt-btn" onclick="checkAns(0,3,this)">ʃɛːn</button>
+          </div>
+          <div class="ex-feedback" id="fb-0"></div>
+        </div>
+        <div class="ex-item" id="ex-1">
+          <div class="ex-q">2. ü উচ্চারণ করতে ঠোঁট কেমন হবে?</div>
+          <div class="ex-opts">
+            <button class="opt-btn" onclick="checkAns(1,0,this)">খোলা</button><button class="opt-btn" onclick="checkAns(1,1,this)">চ্যাপ্টা</button><button class="opt-btn" onclick="checkAns(1,2,this)">গোল ও সামনে</button><button class="opt-btn" onclick="checkAns(1,3,this)">পেছনে</button>
+          </div>
+          <div class="ex-feedback" id="fb-1"></div>
+        </div>
+        <div class="ex-item" id="ex-2">
+          <div class="ex-q">3. Ärger শব্দে ä-এর IPA কোনটি?</div>
+          <div class="ex-opts">
+            <button class="opt-btn" onclick="checkAns(2,0,this)">aː</button><button class="opt-btn" onclick="checkAns(2,1,this)">ɛ</button><button class="opt-btn" onclick="checkAns(2,2,this)">øː</button><button class="opt-btn" onclick="checkAns(2,3,this)">yː</button>
+          </div>
+          <div class="ex-feedback" id="fb-2"></div>
+        </div>
+        <div class="ex-item" id="ex-3">
+          <div class="ex-q">4. über-এর প্রথম vowel কোনটি?</div>
+          <div class="ex-opts">
+            <button class="opt-btn" onclick="checkAns(3,0,this)">u</button><button class="opt-btn" onclick="checkAns(3,1,this)">ü [yː]</button><button class="opt-btn" onclick="checkAns(3,2,this)">ö [øː]</button><button class="opt-btn" onclick="checkAns(3,3,this)">ä [ɛ]</button>
+          </div>
+          <div class="ex-feedback" id="fb-3"></div>
+        </div>
+        <div class="ex-item" id="ex-4">
+          <div class="ex-q">5. müde-এর উচ্চারণ কোনটি?</div>
+          <div class="ex-opts">
+            <button class="opt-btn" onclick="checkAns(4,0,this)">ˈmʊdə</button><button class="opt-btn" onclick="checkAns(4,1,this)">ˈmuːdə</button><button class="opt-btn" onclick="checkAns(4,2,this)">ˈmyːdə</button><button class="opt-btn" onclick="checkAns(4,3,this)">ˈmœdə</button>
+          </div>
+          <div class="ex-feedback" id="fb-4"></div>
+        </div>
+  </div>
+
+  <!-- XP BANNER -->
+  <div class="xp-banner">
+    <div class="xp-left">
+      <strong>Umlaute</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+30 XP</strong> পাবে।
+      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
+    </div>
+    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+30 XP)</button>
+  </div>
+
+  <!-- PAGE NAV -->
+  <div class="page-nav">
+    <span></span>
+    <a href="ch-laut.html" class="nav-btn gold">পরের Topic: Ch Laut →</a>
+  </div>
+</div>
+
+<script type="module">
+import { auth, db, signOut, requireAuth,
+  doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+
+const EXAMPLES = [{'word': 'ä — Ärger', 'ipa': 'ˈɛʁɡɐ', 'bn': 'রাগ', 'sentence': 'Ich habe Ärger.'}, {'word': 'ä — Käse', 'ipa': 'ˈkɛːzə', 'bn': 'পনির', 'sentence': 'Der Käse schmeckt gut.'}, {'word': 'ä — spät', 'ipa': 'ʃpɛːt', 'bn': 'দেরি', 'sentence': 'Es ist zu spät.'}, {'word': 'ö — schön', 'ipa': 'ʃøːn', 'bn': 'সুন্দর', 'sentence': 'Das ist schön!'}, {'word': 'ö — können', 'ipa': 'ˈkœnən', 'bn': 'পারা', 'sentence': 'Ich kann es.'}, {'word': 'ö — Lösung', 'ipa': 'ˈløːzʊŋ', 'bn': 'সমাধান', 'sentence': 'Das ist die Lösung.'}, {'word': 'ü — über', 'ipa': 'ˈyːbɐ', 'bn': 'উপরে', 'sentence': 'Das liegt über dem Tisch.'}, {'word': 'ü — müde', 'ipa': 'ˈmyːdə', 'bn': 'ক্লান্ত', 'sentence': 'Ich bin müde.'}, {'word': 'ü — fünf', 'ipa': 'fʏnf', 'bn': 'পাঁচ', 'sentence': 'Ich habe fünf Euro.'}, {'word': 'ü — Tür', 'ipa': 'tyːɐ̯', 'bn': 'দরজা', 'sentence': 'Die Tür ist offen.'}, {'word': 'ä — Mädchen', 'ipa': 'ˈmɛːtçən', 'bn': 'মেয়ে', 'sentence': 'Das Mädchen lacht.'}, {'word': 'ö — Öl', 'ipa': 'øːl', 'bn': 'তেল', 'sentence': 'Öl und Wasser.'}];
+const ANSWERS  = [1, 2, 1, 1, 2];
+let _voice = "Deutsch Female";
+let _score = 0;
+let _uid;
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") {
+    btn.classList.add("active");
+  } else {
+    btn.classList.add("male-active");
+  }
+};
+
+/* Build example cards */
+const grid = document.getElementById("examples-grid");
+EXAMPLES.forEach((ex, i) => {
+  const card = document.createElement("div");
+  card.className = "ex-card";
+  card.innerHTML = `
+    <div class="ex-word">${ex.word}</div>
+    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+    <div class="ex-bn">${ex.bn}</div>
+    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+  grid.appendChild(card);
+});
+
+window.playEx = function(i) {
+  const ex  = EXAMPLES[i];
+  const btn = document.getElementById("pb-"+i);
+  btn.textContent = "⏹ Stop"; btn.classList.add("playing");
+  responsiveVoice.speak(ex.word, _voice, {
+    rate: 0.85,
+    onend: () => { btn.textContent = "🔊 Play"; btn.classList.remove("playing"); }
+  });
+};
+
+/* Exercises */
+window.checkAns = function(qi, ai, btn) {
+  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
+  const correct = ANSWERS[qi];
+  const fb = document.getElementById("fb-"+qi);
+  document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
+  if(ai === correct) {
+    btn.classList.add("correct");
+    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    _score++;
+  } else {
+    btn.classList.add("wrong");
+    document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
+    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+  }
+};
+
+/* Complete */
+document.getElementById("btn-complete").onclick = async () => {
+  const btn = document.getElementById("btn-complete");
+  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  await updateDoc(doc(db,"users",_uid), {
+    completedTopics: arrayUnion("aussprache-umlaute"),
+    xp: increment(30),
+    sessions: increment(1),
+  }).catch(()=>{});
+};
+
+requireAuth(async user => {
+  _uid = user.uid;
+  const snap = await getDoc(doc(db,"users",user.uid));
+  const d = snap.exists() ? snap.data() : {};
+  const name = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL || user.photoURL || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if(photo) av.innerHTML = `<img src="${photo}">`;
+  else av.textContent = name[0]?.toUpperCase()||"?";
+  if((d.completedTopics||[]).includes("aussprache-umlaute")) {
+    const btn = document.getElementById("btn-complete");
+    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+  }
+  document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
+});
+</script>
+</body>
+</html>
