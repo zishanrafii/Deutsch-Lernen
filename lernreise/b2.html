@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2 Oberstufe — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+  --accent:#a78bfa;--accent-bg:rgba(167,139,250,.12);
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.05),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.04),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:900px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.logo-text h1{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-text p{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:rgba(245,200,66,.15);
+  display:flex;align-items:center;justify-content:center;border:2px solid rgba(245,200,66,.3);cursor:pointer;overflow:hidden;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.35rem .8rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);margin-bottom:1.2rem;font-family:'JetBrains Mono',monospace;flex-wrap:wrap;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+/* HERO */
+.hero{border-radius:22px;padding:2rem 2.4rem;margin-bottom:1.8rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid var(--accent);border-color:rgba(255,255,255,.07);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--accent) 30%,var(--teal) 70%,transparent);}
+.hero-orb{position:absolute;width:250px;height:250px;border-radius:50%;
+  background:radial-gradient(circle,rgba(167,139,250,.12),transparent 70%);top:-80px;right:-60px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap;}
+.hero-badge{width:80px;height:80px;border-radius:20px;background:var(--accent-bg);
+  border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;flex-shrink:0;box-shadow:0 0 24px #a78bfa33;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;}
+.hero h2{font-size:1.9rem;font-weight:800;letter-spacing:-.4px;margin-bottom:.4rem;}
+.hero-sub{color:var(--sub);font-size:13px;line-height:1.7;font-family:'Noto Sans Bengali',sans-serif;max-width:480px;}
+.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem;}
+.hero-pill{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;
+  background:var(--accent-bg);border:1px solid var(--accent);color:var(--accent);}
+/* XP PROGRESS */
+.xp-box{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.4rem;margin-bottom:1.6rem;}
+.xp-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;}
+.xp-title{font-weight:700;font-size:14px;}
+.xp-nums{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);}
+.xp-bar{height:8px;background:rgba(255,255,255,.05);border-radius:20px;overflow:hidden;}
+.xp-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent),var(--teal));transition:width .8s;}
+/* SECTION */
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;
+  letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+/* TOPICS LIST */
+.topics-list{display:flex;flex-direction:column;gap:8px;margin-bottom:1.8rem;}
+.topic-row{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transition:.2s;}
+.topic-row:hover{border-color:rgba(255,255,255,.09);transform:translateX(3px);}
+.topic-row.done-row{background:rgba(45,212,191,.04);border-color:rgba(45,212,191,.2);}
+.tr-left{display:flex;align-items:center;gap:14px;}
+.tr-icon{font-size:1.6rem;flex-shrink:0;}
+.tr-name{font-size:13.5px;font-weight:700;margin-bottom:2px;}
+.tr-desc{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;line-height:1.5;}
+.tr-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.tr-xp{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--gold);white-space:nowrap;}
+.tr-btn{padding:.45rem 1.1rem;border-radius:10px;font-size:12.5px;font-weight:700;text-decoration:none;
+  font-family:'Outfit',sans-serif;transition:.2s;white-space:nowrap;}
+.tr-btn-go{background:var(--accent-bg);border:1px solid var(--accent);color:var(--accent);}
+.tr-btn-go:hover{background:var(--accent);color:#000;}
+.tr-btn-done{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal);}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.8rem;}
+.skill-card{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:1rem;text-align:center;}
+.skill-icon{font-size:1.5rem;margin-bottom:.4rem;}
+.skill-name{font-size:12px;font-weight:700;margin-bottom:.3rem;}
+.skill-bar{height:5px;background:rgba(255,255,255,.05);border-radius:20px;overflow:hidden;}
+.skill-fill{height:100%;border-radius:20px;background:var(--accent);}
+/* NAV */
+.page-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;gap:1rem;flex-wrap:wrap;}
+.nav-btn{padding:.6rem 1.2rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);
+  color:var(--sub);text-decoration:none;font-size:13px;font-weight:600;transition:.2s;font-family:'Outfit',sans-serif;}
+.nav-btn:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
+.nav-btn.gold{background:var(--accent-bg);border-color:var(--accent);color:var(--accent);}
+.nav-btn.gold:hover{background:var(--accent);color:#000;}
+@media(max-width:600px){.wrap{padding:1rem .9rem 3rem;}.skills-grid{grid-template-columns:repeat(2,1fr);}.hero h2{font-size:1.5rem;}.topbar{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <div class="user-avatar" id="nav-avatar">👤</div>
+      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="../dashboard.html">🏠 Dashboard</a><span>›</span>
+    <a href="../lernreise.html">Lernreise</a><span>›</span>
+    <span>B2 Oberstufe</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">🌳</div>
+      <div>
+        <div class="hero-eyebrow">🗺️ Level B2</div>
+        <h2>B2 — Oberstufe</h2>
+        <p class="hero-sub">Fluent conversation, academic writing এবং complex topics নিয়ে argue করো। Upper-intermediate।</p>
+        <div class="hero-pills">
+          <span class="hero-pill">XP Required: 5000</span>
+          <span class="hero-pill">8 Topics</span>
+          <span class="hero-pill">+2225 XP Total</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- XP PROGRESS -->
+  <div class="xp-box">
+    <div class="xp-top">
+      <div class="xp-title">📊 Level B2 Progress</div>
+      <div class="xp-nums" id="xp-nums">0 / 10000 XP</div>
+    </div>
+    <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section-title">🎯 Skills in diesem Level</div>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🗣️</div><div class="skill-name">Sprechen</div><div class="skill-bar"><div class="skill-fill" id="sk-sp" style="width:0%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">👂</div><div class="skill-name">Hören</div><div class="skill-bar"><div class="skill-fill" id="sk-ho" style="width:0%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">📖</div><div class="skill-name">Lesen</div><div class="skill-bar"><div class="skill-fill" id="sk-le" style="width:0%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">✍️</div><div class="skill-name">Schreiben</div><div class="skill-bar"><div class="skill-fill" id="sk-sc" style="width:0%"></div></div></div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="section-title">📚 B2 Topics — সব বিষয়</div>
+  <div class="topics-list" id="topics-list">
+
+      <div class="topic-row" id="tr-0">
+        <div class="tr-left">
+          <div class="tr-icon">📱</div>
+          <div class="tr-info">
+            <div class="tr-name">Medien & Technik</div>
+            <div class="tr-desc">Social media, AI নিয়ে German debate।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+250 XP</span>
+          <a href="../sprechen/medien-uebung.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-1">
+        <div class="tr-left">
+          <div class="tr-icon">⚖️</div>
+          <div class="tr-info">
+            <div class="tr-name">Politik & Gesellschaft</div>
+            <div class="tr-desc">Politics ও rights নিয়ে discussion।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+250 XP</span>
+          <a href="../sprechen/politik-uebung.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-2">
+        <div class="tr-left">
+          <div class="tr-icon">💰</div>
+          <div class="tr-info">
+            <div class="tr-name">Wirtschaft & Finanzen</div>
+            <div class="tr-desc">Economy, inflation নিয়ে কথা বলো।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+250 XP</span>
+          <a href="../sprechen/wirtschaft-uebung.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-3">
+        <div class="tr-left">
+          <div class="tr-icon">🌿</div>
+          <div class="tr-info">
+            <div class="tr-name">Ethik & Nachhaltigkeit</div>
+            <div class="tr-desc">নৈতিক প্রশ্ন ও টেকসই জীবন।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+275 XP</span>
+          <a href="../sprechen/ethik-uebung.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-4">
+        <div class="tr-left">
+          <div class="tr-icon">🎶</div>
+          <div class="tr-info">
+            <div class="tr-name">Satzmelodie</div>
+            <div class="tr-desc">German intonation — প্রশ্ন ও উত্তরের সুর।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+275 XP</span>
+          <a href="../sprechen/satzmelodie.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-5">
+        <div class="tr-left">
+          <div class="tr-icon">✍️</div>
+          <div class="tr-info">
+            <div class="tr-name">Schreiben mit AI</div>
+            <div class="tr-desc">AI দিয়ে German writing check করো।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+275 XP</span>
+          <a href="../schreiben.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-6">
+        <div class="tr-left">
+          <div class="tr-icon">🔄</div>
+          <div class="tr-info">
+            <div class="tr-name">Shadowing B2</div>
+            <div class="tr-desc">B2 level complex dialogues।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+300 XP</span>
+          <a href="../sprechen/shadowing.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+      <div class="topic-row" id="tr-7">
+        <div class="tr-left">
+          <div class="tr-icon">📝</div>
+          <div class="tr-info">
+            <div class="tr-name">B2 Abschlusstest</div>
+            <div class="tr-desc">সব topic মিলিয়ে B2 final quiz।</div>
+          </div>
+        </div>
+        <div class="tr-right">
+          <span class="tr-xp">+350 XP</span>
+          <a href="../vokabelquiz.html" class="tr-btn tr-btn-go">শুরু করুন →</a>
+        </div>
+      </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="b1.html" class="nav-btn">← b1</a>
+    <a href="../lernreise.html" class="nav-btn">🗺️ Full Journey</a>
+    <a href="c1.html" class="nav-btn gold">c1 →</a>
+  </div>
+</div>
+
+<script type="module">
+import { auth, db, signOut, requireAuth, doc, getDoc } from "../js/firebase-config.js";
+
+const XP_MIN = 5000;
+const XP_MAX = 10000;
+const TOTAL_TOPICS = 8;
+
+requireAuth(async user => {
+  const snap = await getDoc(doc(db,"users",user.uid));
+  const d = snap.exists() ? snap.data() : {};
+  const xp = d.xp || 0;
+  const name  = d.displayName||user.displayName||"Lerner";
+  const photo = d.photoURL||user.photoURL||"";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if(photo) av.innerHTML=`<img src="${photo}">`;
+  else av.textContent = name[0]?.toUpperCase()||"?";
+
+  // XP progress
+  const pct = Math.min(100,Math.max(0,Math.round((xp-XP_MIN)/(XP_MAX-XP_MIN)*100)));
+  document.getElementById("xp-fill").style.width = pct+"%";
+  document.getElementById("xp-nums").textContent = `${Math.min(xp,XP_MAX).toLocaleString()} / ${XP_MAX.toLocaleString()} XP`;
+
+  // Skills (estimated from xp)
+  const skPct = Math.min(100,pct);
+  document.getElementById("sk-sp").style.width = skPct+"%";
+  document.getElementById("sk-ho").style.width = Math.min(100,skPct*0.85)+"%";
+  document.getElementById("sk-le").style.width = Math.min(100,skPct*0.75)+"%";
+  document.getElementById("sk-sc").style.width = Math.min(100,skPct*0.65)+"%";
+
+  // Mark done topics
+  const doneTopic = d.completedTopics||[];
+  document.querySelectorAll(".topic-row").forEach((row,i) => {
+    const tid = row.id.replace("tr-","");
+    // mark visually based on xp progress
+  });
+
+  document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
+});
+</script>
+</body>
+</html>

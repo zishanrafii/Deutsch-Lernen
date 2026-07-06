@@ -9,11 +9,23 @@ service cloud.firestore {
       allow read: if request.auth != null && request.auth.uid == userId;
 
       // প্রথমবার profile তৈরি (registration-এর সময়)
-      allow create: if request.auth != null && request.auth.uid == userId;
+      // role, plan, banned — কোনোটাই নিজে সেট করতে পারবে না (সবসময় "user" / free / false থেকে শুরু)
+      allow create: if request.auth != null && request.auth.uid == userId
+        && (!('role' in request.resource.data) || request.resource.data.role == "user")
+        && !('plan' in request.resource.data)
+        && !('planProvider' in request.resource.data)
+        && !('planExpiry' in request.resource.data)
+        && (!('banned' in request.resource.data) || request.resource.data.banned == false);
 
-      // Update — কিন্তু XP কমানো বা masteredVocabIds থেকে শব্দ মুছে ফেলা (cheat) আটকানো
+      // Update — XP কমানো/masteredVocabIds মোছা (cheat) আটকানো
+      // + role, plan, banned, planExpiry ইত্যাদি sensitive field client থেকে change করা আটকানো
+      //   (শুধু admin SDK — payment webhook / admin panel — এগুলো লিখতে পারবে, কারণ Admin SDK rules bypass করে)
       allow update: if request.auth != null
         && request.auth.uid == userId
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(
+             ['role','plan','planProvider','planStart','planExpiry','banned',
+              'stripeCustomerId','stripeSessionId']
+           )
         && (
           !('xp' in request.resource.data) ||
           !('xp' in resource.data) ||

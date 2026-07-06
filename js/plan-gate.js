@@ -1,28 +1,31 @@
 // js/plan-gate.js
-// Checks "subscriptions" Firestore collection.
+// Checks the "plan" / "planExpiry" fields on the user's own users/{uid} document —
+// this is what stripe-webhook.js and sslcommerz-ipn.js actually write after a
+// successful payment (via Firebase Admin SDK, which bypasses Firestore rules).
 // Admin (role:"admin") always gets full access — no subscription needed.
 
 import { db, doc, getDoc } from "./firebase-config.js";
 
 export async function checkPlan(uid, redirectBack) {
   try {
-    // Admin bypass — check role first
     const userSnap = await getDoc(doc(db, "users", uid));
-    if (userSnap.exists() && userSnap.data().role === "admin") {
-      return true; // ✅ Admin always has access
+    if (!userSnap.exists()) {
+      const back = encodeURIComponent(redirectBack || window.location.pathname);
+      window.location.href = `bkash-payment.html?locked=1&back=${back}`;
+      return false;
     }
+    const data = userSnap.data();
 
-    // Check active subscription
-    const subSnap = await getDoc(doc(db, "subscriptions", uid));
-    if (subSnap.exists()) {
-      const sub = subSnap.data();
-      if (sub.active === true) {
-        const expiry = sub.expiryDate?.toDate
-          ? sub.expiryDate.toDate()
-          : new Date(sub.expiryDate);
-        if (expiry > new Date()) {
-          return true; // ✅ Active & not expired
-        }
+    // Admin bypass
+    if (data.role === "admin") return true;
+
+    // Check active plan
+    if (data.plan) {
+      const expiry = data.planExpiry?.toDate
+        ? data.planExpiry.toDate()
+        : (data.planExpiry ? new Date(data.planExpiry) : null);
+      if (expiry && expiry > new Date()) {
+        return true; // ✅ Active & not expired
       }
     }
   } catch (err) {
@@ -37,10 +40,54 @@ export async function checkPlan(uid, redirectBack) {
 
 export async function getSubscription(uid) {
   try {
-    const snap = await getDoc(doc(db, "subscriptions", uid));
-    if (snap.exists()) return snap.data();
+    const snap = await getDoc(doc(db, "users", uid));
+    if (snap.exists()) {
+      const data = snap.data();
+      return { plan: data.plan || null, expiryDate: data.planExpiry || null, active: !!data.plan };
+    }
   } catch (e) { /* ignore */ }
   return null;
+}
+
+// Synchronous gate used by pages that already fetched the user's own
+// users/{uid} data (e.g. inside requireAuth callbacks). Returns true if the
+// page should continue rendering; otherwise shows the locked overlay and
+// returns false so the caller can stop its init early.
+export function requirePlan(data) {
+  if (!data) { showLockedOverlay(); return false; }
+  if (data.role === "admin") return true;
+
+  if (data.plan) {
+    const expiry = data.planExpiry?.toDate
+      ? data.planExpiry.toDate()
+      : (data.planExpiry ? new Date(data.planExpiry) : null);
+    if (expiry && expiry > new Date()) return true;
+  }
+
+  showLockedOverlay();
+  return false;
+}
+
+// Async helper for displaying subscription status (e.g. mein-profil.html's
+// account card). Returns null if no plan found.
+export async function checkSubscription(uid) {
+  try {
+    const snap = await getDoc(doc(db, "users", uid));
+    if (!snap.exists()) return null;
+    const data = snap.data();
+    if (!data.plan) return null;
+    const expiry = data.planExpiry?.toDate
+      ? data.planExpiry.toDate()
+      : (data.planExpiry ? new Date(data.planExpiry) : null);
+    return {
+      plan: data.plan,
+      provider: data.planProvider || null,
+      expiryDate: expiry,
+      active: !!(expiry && expiry > new Date()),
+    };
+  } catch (e) {
+    return null;
+  }
 }
 
 export function showLockedOverlay(featureName = "এই feature") {

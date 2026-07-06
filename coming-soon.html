@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>শীঘ্রই আসছে — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);--gold:#f5c842;--gold2:#e0a820;
+  --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;
+  --orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+.wrap{max-width:900px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+
+/* ─── TOPBAR ─── */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  box-shadow:0 0 18px rgba(245,200,66,.12);flex-shrink:0;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;gap:6px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover,.nav-link.active{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.user-section{display:flex;align-items:center;gap:10px;}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;overflow:hidden;
+  border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;transition:.2s;box-shadow:0 0 14px rgba(245,200,66,.1);}
+.user-avatar:hover{border-color:var(--gold);}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;transition:.2s;}
+.btn-logout:hover{background:rgba(251,113,133,.15);border-color:var(--rose);}
+
+/* ─── COMING SOON PANEL ─── */
+.cs-panel{
+  margin-top:3rem;text-align:center;background:var(--surface2);border:1px solid var(--border);
+  border-radius:22px;padding:3.2rem 1.6rem;position:relative;overflow:hidden;
+}
+.cs-icon{
+  width:84px;height:84px;border-radius:22px;margin:0 auto 1.4rem;
+  display:flex;align-items:center;justify-content:center;font-size:2.4rem;
+  background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.25);box-shadow:0 0 30px rgba(245,200,66,.1);
+}
+.cs-badge{
+  display:inline-block;background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;
+  font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;letter-spacing:.6px;
+  text-transform:uppercase;margin-bottom:1rem;
+}
+.cs-panel h2{font-size:1.6rem;font-weight:800;margin-bottom:.6rem;
+  background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cs-panel p{font-size:14px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;max-width:480px;margin:0 auto;line-height:1.7;}
+.cs-actions{margin-top:1.8rem;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{padding:.7rem 1.4rem;border-radius:12px;font-weight:700;font-size:13.5px;cursor:pointer;text-decoration:none;transition:.2s;border:1px solid transparent;display:inline-block;}
+.btn-primary{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;}
+.btn-primary:hover{filter:brightness(1.08);}
+.btn-outline{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text);}
+.btn-outline:hover{background:rgba(255,255,255,.09);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text">
+        <h1>Deutsch Lernen</h1>
+        <p>GERMAN LEARNING PLATFORM · A1 TO C2</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <nav class="nav-links">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="lernreise.html" class="nav-link">Journey</a>
+        <a href="vokabelquiz.html" class="nav-link">Quiz</a>
+        <a href="grammatik.html" class="nav-link">Grammatik</a>
+        <a href="sprechen.html" class="nav-link">Sprechen</a>
+        <a href="rangliste.html" class="nav-link">Rangliste</a>
+      </nav>
+      <div class="user-section">
+        <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMING SOON PANEL -->
+  <div class="cs-panel">
+    <div class="cs-icon" id="cs-icon">✨</div>
+    <div class="cs-badge">শীঘ্রই আসছে</div>
+    <h2 id="cs-title">এই feature টি এখনো তৈরি হচ্ছে</h2>
+    <p id="cs-desc">আমরা এই feature নিয়ে কাজ করছি। শীঘ্রই এটি চালু হয়ে যাবে — ততক্ষণ অন্য section গুলো দিয়ে German শেখা চালিয়ে যান!</p>
+    <div class="cs-actions">
+      <a href="dashboard.html" class="btn btn-primary">← Dashboard-এ ফিরে যান</a>
+      <a href="vokabelquiz.html" class="btn btn-outline">Quiz দিন এখন</a>
+    </div>
+  </div>
+
+</div>
+
+<script type="module">
+import { auth, db, requireAuth, signOut, doc, getDoc } from "./js/firebase-config.js";
+import { requirePlan } from "./js/plan-gate.js";
+
+/* ── Feature content map (query param ?feature=key) ── */
+const FEATURES = {
+  hoeren:      { icon:"👂", title:"Hören শীঘ্রই আসছে", desc:"Native speaker-দের German audio শুনে listening comprehension বাড়ানোর feature এখন তৈরি হচ্ছে। শীঘ্রই চালু হবে।" },
+  fortschritt: { icon:"📊", title:"Fortschritt শীঘ্রই আসছে", desc:"আপনার score history, streak calendar এবং level timeline — সব এক জায়গায় দেখার feature শীঘ্রই আসছে।" },
+  chat:        { icon:"💬", title:"Community Chat শীঘ্রই আসছে", desc:"অন্য learners-দের সাথে live আড্ডা দিয়ে German practice করার feature শীঘ্রই চালু হবে।" },
+  freunde:     { icon:"👥", title:"Freunde শীঘ্রই আসছে", desc:"অন্য learners-দের follow করে একসাথে শেখার social feature শীঘ্রই আসছে।" },
+  livekurs:    { icon:"📡", title:"Live Kurs শীঘ্রই আসছে", desc:"Video ও screenshare দিয়ে real-time German class করার feature শীঘ্রই চালু হবে।" },
+  nachrichten: { icon:"✉️", title:"Nachrichten শীঘ্রই আসছে", desc:"Private message এবং direct chat feature শীঘ্রই আসছে।" },
+  aufgaben:    { icon:"⚡", title:"Tägliche Aufgaben শীঘ্রই আসছে", desc:"প্রতিদিনের নতুন challenge দিয়ে streak ধরে রাখার feature শীঘ্রই চালু হবে।" },
+};
+
+const key = new URLSearchParams(location.search).get("feature");
+const f = FEATURES[key];
+if (f) {
+  document.getElementById("cs-icon").textContent = f.icon;
+  document.getElementById("cs-title").textContent = f.title;
+  document.getElementById("cs-desc").textContent = f.desc;
+  document.title = f.title + " — Deutsch Lernen";
+}
+
+document.getElementById("btn-logout").onclick = () =>
+  signOut(auth).then(() => location.href = "index.html");
+
+requireAuth(async user => {
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const data = snap.exists() ? snap.data() : {};
+  if (!requirePlan(data)) return;
+  const name = data.displayName || user.displayName || "Lerner";
+  const photo = data.photoURL || user.photoURL || "";
+  document.getElementById("nav-name").textContent = name;
+  const nav = document.getElementById("nav-avatar");
+  if (photo) nav.innerHTML = `<img src="${photo}">`;
+  else nav.textContent = name[0].toUpperCase();
+});
+</script>
+
+</body>
+</html>

@@ -468,7 +468,7 @@ document.getElementById("pay-modal").onclick = e => {
 ["btn-monthly","btn-6months","btn-yearly"].forEach(id => {
   const planMap = { "btn-monthly":"monthly", "btn-6months":"sixmonths", "btn-yearly":"yearly" };
   document.getElementById(id).onclick = () => {
-    window.location.href = "payment.html?plan=" + planMap[id];
+    window.location.href = "bkash-payment.html?plan=" + planMap[id];
   };
 });
 
