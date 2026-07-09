@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prüfung — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface2:#0c1322;--surface3:#101828;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--teal:#2dd4bf;--rose:#fb7185;--emerald:#34d399;--orange:#fb923c;
+  --indigo:#818cf8;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+.wrap{max-width:820px;margin:auto;padding:1.6rem 1.4rem 4rem;position:relative;z-index:1;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.8rem;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;gap:1rem;flex-wrap:wrap;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.logo-text h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-link{padding:.4rem .85rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.user-av{width:36px;height:36px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;border:2px solid rgba(245,200,66,.3);flex-shrink:0;}
+.user-av img{width:100%;height:100%;object-fit:cover;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .85rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;}
+
+/* PAGE HEAD */
+.page-head{text-align:center;margin:1rem 0 1.8rem;}
+.page-head h2{font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-head p{font-size:13px;color:var(--sub);margin-top:.4rem;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* LEVEL SELECT GRID */
+.level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.6rem;}
+.level-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.3rem 1rem;
+  text-align:center;cursor:pointer;transition:.25s;position:relative;overflow:hidden;}
+.level-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.level-card:hover{transform:translateY(-3px);}
+.level-card.locked{opacity:.55;cursor:default;}
+.level-card .lvl-name{font-size:1.4rem;font-weight:900;font-family:'JetBrains Mono',monospace;margin-bottom:2px;}
+.level-card .lvl-desc{font-size:10.5px;color:var(--muted);margin-bottom:.6rem;font-family:'Noto Sans Bengali',sans-serif;}
+.level-card .lvl-badge{font-size:9px;font-weight:800;padding:2px 8px;border-radius:20px;letter-spacing:.6px;text-transform:uppercase;}
+.badge-free{background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:var(--emerald);}
+.badge-pro{background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.25);color:var(--rose);}
+.badge-done{background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.3);color:var(--gold);}
+.lc-a1::before{background:linear-gradient(90deg,transparent,#2dd4bf,transparent);}
+.lc-a2::before{background:linear-gradient(90deg,transparent,#f5c842,transparent);}
+.lc-b1::before{background:linear-gradient(90deg,transparent,#818cf8,transparent);}
+.lc-b2::before{background:linear-gradient(90deg,transparent,#fb7185,transparent);}
+.lc-c1::before{background:linear-gradient(90deg,transparent,#fb923c,transparent);}
+.lc-c2::before{background:linear-gradient(90deg,transparent,#a78bfa,transparent);}
+
+/* EXAM INTRO CARD */
+.intro-card{display:none;background:var(--surface2);border:1px solid var(--border);border-radius:22px;
+  padding:1.8rem;position:relative;overflow:hidden;}
+.intro-card.show{display:block;}
+.intro-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.intro-title{font-size:1.3rem;font-weight:800;margin-bottom:.4rem;}
+.intro-sub{font-size:13px;color:var(--sub);margin-bottom:1.2rem;font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+.section-list{display:flex;flex-direction:column;gap:8px;margin-bottom:1.4rem;}
+.sec-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:12px;padding:.8rem 1rem;}
+.sec-icon{font-size:1.3rem;flex-shrink:0;}
+.sec-name{font-weight:700;font-size:13.5px;}
+.sec-desc{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+.btn-start{width:100%;padding:.85rem;border-radius:13px;border:none;background:linear-gradient(135deg,#f5c842,#e0a820);
+  color:#000;font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:.2s;}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,200,66,.3);}
+
+/* EXAM CARD (question view) */
+.exam-card{display:none;background:var(--surface2);border:1px solid var(--border);border-radius:22px;
+  padding:1.6rem;position:relative;overflow:hidden;}
+.exam-card.show{display:block;}
+.exam-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.exam-progress{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem;}
+.progress-track{flex:1;height:6px;background:rgba(255,255,255,.05);border-radius:20px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#f5c842,#2dd4bf);border-radius:20px;transition:width .4s;}
+.progress-label{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(245,200,66,.08);
+  border:1px solid rgba(245,200,66,.2);color:var(--gold);font-size:11px;font-weight:700;
+  padding:4px 11px;border-radius:20px;margin-bottom:1rem;}
+.passage-box{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:14px;
+  padding:1.1rem 1.2rem;margin-bottom:1.2rem;font-size:13.5px;line-height:1.8;color:var(--sub);
+  max-height:220px;overflow-y:auto;}
+.question-text{font-size:15px;font-weight:700;margin-bottom:1rem;line-height:1.6;}
+.options{display:flex;flex-direction:column;gap:8px;margin-bottom:1.4rem;}
+.opt{background:var(--surface3);border:1px solid var(--border);border-radius:12px;padding:.8rem 1.1rem;
+  cursor:pointer;transition:.2s;font-size:14px;display:flex;align-items:center;gap:10px;}
+.opt:hover{border-color:rgba(245,200,66,.25);}
+.opt.selected{background:rgba(245,200,66,.08);border-color:rgba(245,200,66,.4);}
+.opt-letter{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+.opt.selected .opt-letter{background:var(--gold);color:#000;border-color:var(--gold);}
+
+/* WRITING TASK */
+.write-prompt{background:rgba(129,140,248,.05);border:1px solid rgba(129,140,248,.15);border-radius:14px;
+  padding:1rem 1.2rem;margin-bottom:1rem;font-size:13.5px;line-height:1.7;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;}
+textarea.write-area{width:100%;min-height:160px;background:var(--surface3);border:1px solid var(--border);
+  border-radius:14px;padding:1rem 1.1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;
+  line-height:1.7;resize:vertical;outline:none;margin-bottom:.6rem;}
+textarea.write-area:focus{border-color:rgba(245,200,66,.35);}
+.word-count{font-size:11.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:1.2rem;}
+
+.btn-next{width:100%;padding:.85rem;border-radius:13px;border:none;background:linear-gradient(135deg,#f5c842,#e0a820);
+  color:#000;font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:.2s;}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,200,66,.3);}
+.btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* RESULT CARD */
+.result-card{display:none;background:var(--surface2);border:1px solid var(--border);border-radius:22px;
+  padding:2.2rem 1.8rem;text-align:center;position:relative;overflow:hidden;}
+.result-card.show{display:block;}
+.result-card.pass::before{background:linear-gradient(90deg,transparent,#34d399 30%,#f5c842 70%,transparent);}
+.result-card.fail::before{background:linear-gradient(90deg,transparent,#fb7185 30%,#fb923c 70%,transparent);}
+.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.result-icon{font-size:3.5rem;margin-bottom:1rem;}
+.result-title{font-size:1.6rem;font-weight:900;margin-bottom:.4rem;}
+.result-title.pass{background:linear-gradient(135deg,#34d399,#f5c842);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.result-title.fail{color:var(--rose);}
+.result-sub{font-size:13.5px;color:var(--sub);margin-bottom:1.4rem;font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+.score-ring-wrap{width:120px;height:120px;margin:0 auto 1.4rem;position:relative;}
+.score-ring-wrap svg{transform:rotate(-90deg);}
+.score-big{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;font-weight:900;font-family:'JetBrains Mono',monospace;}
+.section-scores{display:flex;flex-direction:column;gap:8px;margin-bottom:1.4rem;text-align:left;}
+.ss-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.025);
+  border:1px solid var(--border);border-radius:12px;padding:.7rem 1rem;font-size:13px;}
+.ss-label{font-weight:600;}
+.ss-val{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--gold);}
+.result-actions{display:flex;gap:10px;}
+.btn-cert{flex:1;padding:.8rem;border-radius:12px;border:none;background:linear-gradient(135deg,#34d399,#10b981);
+  color:#000;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:800;cursor:pointer;transition:.2s;}
+.btn-cert:hover{opacity:.87;}
+.btn-retry{flex:1;padding:.8rem;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--border);
+  color:var(--sub);font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;transition:.2s;}
+.btn-retry:hover{color:var(--text);}
+.btn-back{display:block;margin-top:1rem;font-size:12px;color:var(--muted);text-decoration:none;font-family:'Noto Sans Bengali',sans-serif;}
+
+.alert{border-radius:12px;padding:.8rem 1.1rem;margin-bottom:1.2rem;font-size:13px;display:none;
+  font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+.alert.warn{background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.25);color:var(--orange);}
+.alert.show{display:block;}
+.toast{position:fixed;bottom:20px;right:20px;background:#0c1322;color:var(--text);padding:.85rem 1.1rem;
+  border-radius:13px;border-left:3px solid var(--gold);z-index:9999;opacity:0;transform:translateY(14px);
+  transition:.3s;font-size:13px;box-shadow:0 8px 28px rgba(0,0,0,.5);pointer-events:none;}
+.toast.show{opacity:1;transform:translateY(0);}
+
+/* LOADING OVERLAY */
+.loading-overlay{position:fixed;inset:0;z-index:8000;background:rgba(4,8,15,.92);
+  backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.loading-overlay.show{display:flex;}
+.loading-spinner{width:44px;height:44px;border:4px solid rgba(245,200,66,.15);border-top-color:var(--gold);
+  border-radius:50%;animation:lspin .8s linear infinite;}
+@keyframes lspin{to{transform:rotate(360deg)}}
+.loading-text{font-size:14px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;}
+
+/* WRITING FEEDBACK IN RESULT */
+.writing-feedback-box{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:14px;
+  padding:1rem 1.1rem;margin-bottom:1.2rem;text-align:left;}
+.wf-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:.6rem;font-family:'JetBrains Mono',monospace;}
+.wf-corrected{font-size:13px;line-height:1.7;color:var(--text);padding:.7rem .9rem;
+  background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.15);border-radius:10px;margin-bottom:.6rem;}
+.wf-error-item{font-size:12px;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.wf-error-item:last-child{border-bottom:none;}
+.wf-wrong{color:var(--rose);text-decoration:line-through;font-family:'JetBrains Mono',monospace;}
+.wf-right{color:var(--emerald);font-weight:700;font-family:'JetBrains Mono',monospace;}
+
+@media(max-width:500px){
+  .level-grid{grid-template-columns:repeat(2,1fr);}
+  .result-actions{flex-direction:column;}
+  .wrap{padding:1rem .9rem 2rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1></div>
+    </div>
+    <div class="topbar-right">
+      <a href="dashboard.html" class="nav-link">← Dashboard</a>
+      <div class="user-av" id="nav-avatar">👤</div>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <!-- PAGE HEAD -->
+  <div class="page-head">
+    <h2>🎓 Prüfung</h2>
+    <p>CEFR style সম্পূর্ণ পরীক্ষা — Lesen, Hören, Schreiben তিনটা অংশ মিলিয়ে<br>৭০% বা বেশি পেলে Pass ও Certificate!</p>
+  </div>
+
+  <div class="alert warn" id="alert-locked"></div>
+
+  <!-- LEVEL SELECT -->
+  <div id="level-select-view">
+    <div class="level-grid" id="level-grid"></div>
+  </div>
+
+  <!-- EXAM INTRO -->
+  <div class="intro-card" id="intro-card">
+    <div class="intro-title" id="intro-title">A1 Prüfung</div>
+    <div class="intro-sub">এই exam-এ ৩টা অংশ থাকবে। প্রতিটা section শেষ হলে পরেরটায় যাবেন। মাঝপথে বন্ধ করলে progress save হবে না।</div>
+    <div class="section-list">
+      <div class="sec-item">
+        <span class="sec-icon">📖</span>
+        <div><div class="sec-name">Lesen (Reading)</div><div class="sec-desc">Passage পড়ে প্রশ্নের উত্তর দিন</div></div>
+      </div>
+      <div class="sec-item">
+        <span class="sec-icon">👂</span>
+        <div><div class="sec-name">Hören (Listening)</div><div class="sec-desc">Dialogue/script পড়ে বুঝে উত্তর দিন</div></div>
+      </div>
+      <div class="sec-item">
+        <span class="sec-icon">✍️</span>
+        <div><div class="sec-name">Schreiben (Writing)</div><div class="sec-desc">নির্দেশ অনুযায়ী German-এ লিখুন</div></div>
+      </div>
+    </div>
+    <button class="btn-start" id="btn-start-exam">🚀 Prüfung শুরু করুন</button>
+  </div>
+
+  <!-- EXAM QUESTION VIEW -->
+  <div class="exam-card" id="exam-card">
+    <div class="exam-progress">
+      <div class="progress-track"><div class="progress-fill" id="exam-progress-fill" style="width:0%"></div></div>
+      <span class="progress-label" id="exam-progress-label">1/10</span>
+    </div>
+    <span class="section-tag" id="section-tag">📖 Lesen</span>
+    <div class="passage-box" id="passage-box" style="display:none;"></div>
+    <div class="question-text" id="question-text"></div>
+    <div class="options" id="options-wrap"></div>
+
+    <!-- Writing task (shown only in Schreiben section) -->
+    <div id="writing-wrap" style="display:none;">
+      <div class="write-prompt" id="write-prompt"></div>
+      <textarea class="write-area" id="write-area" placeholder="এখানে German-এ লিখুন..."></textarea>
+      <div class="word-count" id="word-count">0 শব্দ (ন্যূনতম <span id="min-words">30</span>)</div>
+    </div>
+
+    <button class="btn-next" id="btn-next">পরবর্তী →</button>
+  </div>
+
+  <!-- RESULT VIEW -->
+  <div class="result-card" id="result-card">
+    <div class="result-icon" id="result-icon">🎉</div>
+    <div class="result-title" id="result-title">Herzlichen Glückwunsch!</div>
+    <div class="result-sub" id="result-sub"></div>
+    <div class="score-ring-wrap">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="10"/>
+        <circle id="result-ring" cx="60" cy="60" r="52" fill="none" stroke="#34d399" stroke-width="10"
+                stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+      </svg>
+      <div class="score-big" id="score-big">0%</div>
+    </div>
+    <div class="section-scores" id="section-scores"></div>
+    <div class="writing-feedback-box" id="writing-feedback-box" style="display:none;"></div>
+    <div class="result-actions">
+      <button class="btn-retry" id="btn-retry">🔄 আবার Try করুন</button>
+      <button class="btn-cert" id="btn-cert" style="display:none;">🎓 Certificate Download</button>
+    </div>
+    <a href="dashboard.html" class="btn-back">← Dashboard-এ ফিরুন</a>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="loading-overlay" id="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text" id="loading-text">লোড হচ্ছে...</div>
+</div>
+
+<script type="module">
+import {
+  auth, db, requireAuth, signOut,
+  doc, getDoc, updateDoc, addDoc,
+  collection, serverTimestamp, increment,
+} from "./js/firebase-config.js";
+
+let meUID = null, meName = "Lerner", hasPlan = false;
+let currentLevel = null;
+let currentQIndex = 0;
+let answers = [];
+let writingAnswer = "";
+
+function toast(msg, color="#f5c842"){
+  const t=document.getElementById("toast");
+  t.textContent=msg;t.style.borderLeftColor=color;
+  t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3000);
+}
+
+function escHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function showLoadingOverlay(text = "লোড হচ্ছে...") {
+  document.getElementById("loading-text").textContent = text;
+  document.getElementById("loading-overlay").classList.add("show");
+}
+function hideLoadingOverlay() {
+  document.getElementById("loading-overlay").classList.remove("show");
+}
+
+/* ══════════════════════════════════
+   EXAM DATA — Lesen + Hören + Schreiben per level
+══════════════════════════════════ */
+const EXAMS = {
+  A1: {
+    passingXP: 200,
+    lesen: {
+      passage: "Hallo! Ich heiße Anna. Ich komme aus Berlin und wohne jetzt in München. Ich bin 24 Jahre alt und arbeite als Lehrerin. Meine Familie ist klein: Ich habe einen Bruder und eine Schwester. Am Wochenende gehe ich gern spazieren und lese Bücher.",
+      questions: [
+        { q: "Woher kommt Anna?", opts: ["Berlin","München","Hamburg","Köln"], correct: 0 },
+        { q: "Was ist Anna von Beruf?", opts: ["Ärztin","Lehrerin","Studentin","Ingenieurin"], correct: 1 },
+        { q: "Wie alt ist Anna?", opts: ["22","23","24","25"], correct: 2 },
+      ],
+    },
+    hoeren: {
+      passage: "(Dialog) A: Guten Tag! Ich möchte einen Kaffee bestellen. B: Gerne, mit Milch oder ohne? A: Mit Milch, bitte. Und ein Stück Kuchen. B: Das macht zusammen 6 Euro 50.",
+      questions: [
+        { q: "Was bestellt die Person?", opts: ["Tee und Kuchen","Kaffee und Kuchen","Kaffee ohne Kuchen","Wasser"], correct: 1 },
+        { q: "Wie viel kostet die Bestellung?", opts: ["5,50 €","6,00 €","6,50 €","7,00 €"], correct: 2 },
+      ],
+    },
+    schreiben: {
+      prompt: "নিজের সম্পর্কে ৩-৪টি বাক্যে German-এ লিখুন (নাম, বয়স, কোথা থেকে, পেশা)।",
+      minWords: 20,
+    },
+  },
+  A2: {
+    passingXP: 500,
+    lesen: {
+      passage: "Letzte Woche bin ich mit meiner Familie nach Hamburg gefahren. Wir haben den Hafen besucht und ein Schiff gesehen. Das Wetter war leider schlecht — es hat den ganzen Tag geregnet. Trotzdem haben wir viel Spaß gehabt. Abends haben wir in einem Restaurant gegessen.",
+      questions: [
+        { q: "Wohin ist die Familie gefahren?", opts: ["Berlin","München","Hamburg","Frankfurt"], correct: 2 },
+        { q: "Wie war das Wetter?", opts: ["Sonnig","Schlecht/Regen","Windig","Schneereich"], correct: 1 },
+        { q: "Was haben sie abends gemacht?", opts: ["Geschlafen","Im Restaurant gegessen","Ferngesehen","Gearbeitet"], correct: 1 },
+      ],
+    },
+    hoeren: {
+      passage: "(Telefonat) A: Hallo, ich rufe wegen der Wohnungsanzeige an. Ist die Wohnung noch frei? B: Ja, sie ist noch frei. Sie hat zwei Zimmer und kostet 650 Euro im Monat. A: Kann ich sie morgen besichtigen? B: Ja, um 15 Uhr passt es gut.",
+      questions: [
+        { q: "Wie viele Zimmer hat die Wohnung?", opts: ["1","2","3","4"], correct: 1 },
+        { q: "Wann ist die Besichtigung?", opts: ["Heute","Morgen um 15 Uhr","Übermorgen","Nächste Woche"], correct: 1 },
+      ],
+    },
+    schreiben: {
+      prompt: "গতকাল আপনি কী করেছিলেন তা Perfekt tense ব্যবহার করে ৪-৫টি বাক্যে লিখুন।",
+      minWords: 30,
+    },
+  },
+  B1: {
+    passingXP: 2000,
+    lesen: {
+      passage: "Immer mehr Menschen arbeiten heutzutage im Homeoffice. Diese Entwicklung hat sowohl Vorteile als auch Nachteile. Einerseits sparen Arbeitnehmer Zeit, weil sie nicht pendeln müssen. Andererseits fehlt oft der direkte Kontakt zu Kollegen, was zu Einsamkeit führen kann. Experten empfehlen daher eine Mischung aus Homeoffice und Büroarbeit.",
+      questions: [
+        { q: "Was ist ein Vorteil vom Homeoffice laut Text?", opts: ["Mehr Kollegen-Kontakt","Zeitersparnis","Höheres Gehalt","Bessere Ausrüstung"], correct: 1 },
+        { q: "Was ist ein Nachteil?", opts: ["Zu viel Verkehr","Einsamkeit","Zu wenig Arbeit","Zu viel Reisen"], correct: 1 },
+        { q: "Was empfehlen Experten?", opts: ["Nur Homeoffice","Nur Büro","Eine Mischung","Keine Arbeit"], correct: 2 },
+      ],
+    },
+    hoeren: {
+      passage: "(Diskussion) A: Ich finde, dass öffentliche Verkehrsmittel viel umweltfreundlicher sind als Autos. B: Das stimmt, aber sie sind nicht überall verfügbar, besonders auf dem Land. A: Da hast du recht. Die Städte sollten mehr in den Nahverkehr investieren.",
+      questions: [
+        { q: "Worüber diskutieren die Personen?", opts: ["Essen","Verkehrsmittel","Wetter","Sport"], correct: 1 },
+        { q: "Was ist das Problem auf dem Land?", opts: ["Zu teuer","Nicht überall verfügbar","Zu langsam","Zu laut"], correct: 1 },
+      ],
+    },
+    schreiben: {
+      prompt: "প্রযুক্তি নিয়ে আপনার মতামত দিয়ে একটি সংক্ষিপ্ত paragraph লিখুন (einerseits/andererseits ব্যবহার করে)।",
+      minWords: 50,
+    },
+  },
+  B2: {
+    passingXP: 5000,
+    lesen: {
+      passage: "Die Digitalisierung verändert die Arbeitswelt grundlegend. Künstliche Intelligenz übernimmt zunehmend Aufgaben, die früher von Menschen erledigt wurden. Kritiker warnen vor Arbeitsplatzverlusten, während Befürworter neue Chancen und Berufsfelder betonen. Klar ist: Lebenslanges Lernen wird immer wichtiger, um mit den Veränderungen Schritt zu halten.",
+      questions: [
+        { q: "Was verändert die Arbeitswelt?", opts: ["Klimawandel","Digitalisierung","Migration","Inflation"], correct: 1 },
+        { q: "Wovor warnen Kritiker?", opts: ["Umweltschäden","Arbeitsplatzverlusten","Preissteigerung","Verkehr"], correct: 1 },
+        { q: "Was betonen die Befürworter?", opts: ["Alte Berufe","Neue Chancen","Weniger Arbeit","Höhere Steuern"], correct: 1 },
+      ],
+    },
+    hoeren: {
+      passage: "(Interview) A: Was denken Sie über die Zukunft der erneuerbaren Energien? B: Ich bin optimistisch. Die Kosten für Solar- und Windenergie sinken stetig, und immer mehr Länder investieren in diesen Bereich. A: Gibt es auch Herausforderungen? B: Ja, vor allem die Speicherung von Energie bleibt ein wichtiges Thema.",
+      questions: [
+        { q: "Wie ist die Meinung der Person zur Zukunft?", opts: ["Pessimistisch","Optimistisch","Neutral","Unsicher"], correct: 1 },
+        { q: "Was bleibt eine Herausforderung?", opts: ["Produktion","Energie-Speicherung","Transport","Export"], correct: 1 },
+      ],
+    },
+    schreiben: {
+      prompt: "Social media-এর ভালো ও মন্দ দিক নিয়ে argumentative paragraph লিখুন, নিজের মতামত সহ।",
+      minWords: 80,
+    },
+  },
+  C1: {
+    passingXP: 10000,
+    lesen: {
+      passage: "Die Globalisierung hat tiefgreifende Auswirkungen auf kulturelle Identitäten weltweit. Während einige Wissenschaftler eine zunehmende kulturelle Homogenisierung beklagen, argumentieren andere, dass lokale Traditionen sich anpassen und dabei neue, hybride Formen entwickeln. Diese Debatte spiegelt grundlegende Fragen über Identität, Zugehörigkeit und kulturellen Wandel in einer vernetzten Welt wider.",
+      questions: [
+        { q: "Was beklagen manche Wissenschaftler?", opts: ["Wirtschaftskrise","Kulturelle Homogenisierung","Bevölkerungswachstum","Klimawandel"], correct: 1 },
+        { q: "Was entwickeln sich laut anderen Wissenschaftlern?", opts: ["Neue Kriege","Hybride Kulturformen","Alte Traditionen","Neue Sprachen"], correct: 1 },
+      ],
+    },
+    hoeren: {
+      passage: "(Vortrag) A: Die Frage der Nachhaltigkeit betrifft nicht nur Umweltschutz, sondern auch soziale Gerechtigkeit. Wir müssen ökonomische Entwicklung mit ökologischer Verantwortung in Einklang bringen. Dies erfordert einen Paradigmenwechsel in Politik und Wirtschaft.",
+      questions: [
+        { q: "Was betrifft Nachhaltigkeit laut Vortrag?", opts: ["Nur Umwelt","Umwelt und soziale Gerechtigkeit","Nur Wirtschaft","Nur Politik"], correct: 1 },
+        { q: "Was wird gefordert?", opts: ["Mehr Steuern","Ein Paradigmenwechsel","Weniger Regeln","Mehr Kriege"], correct: 1 },
+      ],
+    },
+    schreiben: {
+      prompt: "একটি বর্তমান বৈশ্বিক সমস্যা নিয়ে বিশ্লেষণাত্মক essay লিখুন — কারণ, প্রভাব ও সমাধান আলোচনা করে।",
+      minWords: 120,
+    },
+  },
+  C2: {
+    passingXP: 18000,
+    lesen: {
+      passage: "Die philosophische Auseinandersetzung mit der Frage nach dem freien Willen bleibt trotz jahrhundertelanger Debatten ungelöst. Determinismus, der besagt, dass alle Ereignisse durch vorausgehende Ursachen bedingt sind, scheint im Widerspruch zur intuitiven Erfahrung menschlicher Entscheidungsfreiheit zu stehen. Kompatibilisten versuchen, diese scheinbare Spannung aufzulösen, indem sie freien Willen als vereinbar mit Determinismus definieren.",
+      questions: [
+        { q: "Was besagt der Determinismus?", opts: ["Alles ist zufällig","Alle Ereignisse haben Ursachen","Der Mensch hat keinen Verstand","Die Zukunft ist unbekannt"], correct: 1 },
+        { q: "Was versuchen Kompatibilisten?", opts: ["Determinismus abzulehnen","Freien Willen und Determinismus zu vereinbaren","Neue Theorien zu erfinden","Die Debatte zu beenden"], correct: 1 },
+      ],
+    },
+    hoeren: {
+      passage: "(Akademischer Vortrag) A: Die Erkenntnistheorie befasst sich mit der Frage, wie Wissen entsteht und welche Kriterien Wahrheit auszeichnen. Verschiedene Denkschulen — von Rationalismus bis Empirismus — bieten unterschiedliche Antworten auf diese fundamentalen Fragen.",
+      questions: [
+        { q: "Womit befasst sich die Erkenntnistheorie?", opts: ["Politik","Wie Wissen entsteht","Wirtschaft","Kunst"], correct: 1 },
+        { q: "Welche Denkschulen werden erwähnt?", opts: ["Nur Rationalismus","Rationalismus und Empirismus","Nur Empirismus","Keine"], correct: 1 },
+      ],
+    },
+    schreiben: {
+      prompt: "একটি দার্শনিক প্রশ্ন নিয়ে গভীর বিশ্লেষণাত্মক লেখা লিখুন (কমপক্ষে ১৫০ শব্দ, academic tone-এ)।",
+      minWords: 150,
+    },
+  },
+};
+
+const LEVEL_META = [
+  { key:"A1", name:"Anfänger",        css:"lc-a1" },
+  { key:"A2", name:"Grundstufe",      css:"lc-a2" },
+  { key:"B1", name:"Mittelstufe",     css:"lc-b1" },
+  { key:"B2", name:"Oberstufe",       css:"lc-b2" },
+  { key:"C1", name:"Fortgeschritten", css:"lc-c1" },
+  { key:"C2", name:"Meisterschaft",   css:"lc-c2" },
+];
+
+/* ══════════════════════════════════
+   BUILD LEVEL SELECT GRID
+══════════════════════════════════ */
+function buildLevelGrid(userXP, completedExams) {
+  const grid = document.getElementById("level-grid");
+  grid.innerHTML = LEVEL_META.map(lv => {
+    const isFree   = lv.key === "A1";
+    const isLocked = !isFree && !hasPlan;
+    const isDone   = completedExams.includes(lv.key);
+
+    let badge = "";
+    if (isDone)         badge = `<span class="lvl-badge badge-done">✓ Passed</span>`;
+    else if (isFree)    badge = `<span class="lvl-badge badge-free">Free</span>`;
+    else if (isLocked)  badge = `<span class="lvl-badge badge-pro">🔒 Pro</span>`;
+
+    return `
+      <div class="level-card ${lv.css} ${isLocked ? "locked" : ""}" data-level="${lv.key}" data-locked="${isLocked}">
+        <div class="lvl-name">${lv.key}</div>
+        <div class="lvl-desc">${lv.name}</div>
+        ${badge}
+      </div>`;
+  }).join("");
+
+  document.querySelectorAll(".level-card").forEach(card => {
+    card.onclick = () => {
+      if (card.dataset.locked === "true") {
+        document.getElementById("alert-locked").textContent =
+          "🔒 এই level-এর Prüfung দিতে একটি paid plan প্রয়োজন। Dashboard থেকে upgrade করুন।";
+        document.getElementById("alert-locked").classList.add("show");
+        setTimeout(() => document.getElementById("alert-locked").classList.remove("show"), 5000);
+        return;
+      }
+      startIntro(card.dataset.level);
+    };
+  });
+}
+
+/* ══════════════════════════════════
+   INTRO → START EXAM
+══════════════════════════════════ */
+function startIntro(level) {
+  currentLevel = level;
+  document.getElementById("level-select-view").style.display = "none";
+  document.getElementById("intro-title").textContent = `${level} Prüfung`;
+  document.getElementById("intro-card").classList.add("show");
+}
+
+document.getElementById("btn-start-exam").onclick = () => {
+  document.getElementById("intro-card").classList.remove("show");
+  buildExamQueue();
+  showQuestion();
+};
+
+/* ══════════════════════════════════
+   BUILD FLAT QUESTION QUEUE (lesen + hoeren + schreiben)
+══════════════════════════════════ */
+let examQueue = [];
+
+function buildExamQueue() {
+  const exam = EXAMS[currentLevel];
+  examQueue = [];
+
+  exam.lesen.questions.forEach(q => examQueue.push({ section:"lesen", passage:exam.lesen.passage, ...q }));
+  exam.hoeren.questions.forEach(q => examQueue.push({ section:"hoeren", passage:exam.hoeren.passage, ...q }));
+  examQueue.push({ section:"schreiben", prompt:exam.schreiben.prompt, minWords:exam.schreiben.minWords });
+
+  currentQIndex = 0;
+  answers = [];
+  writingAnswer = "";
+
+  document.getElementById("exam-card").classList.add("show");
+}
+
+const SECTION_LABELS = { lesen:"📖 Lesen", hoeren:"👂 Hören", schreiben:"✍️ Schreiben" };
+
+function showQuestion() {
+  const item = examQueue[currentQIndex];
+  const total = examQueue.length;
+
+  document.getElementById("exam-progress-fill").style.width = `${Math.round((currentQIndex/total)*100)}%`;
+  document.getElementById("exam-progress-label").textContent = `${currentQIndex+1}/${total}`;
+  document.getElementById("section-tag").textContent = SECTION_LABELS[item.section];
+
+  const passageBox = document.getElementById("passage-box");
+  const writingWrap = document.getElementById("writing-wrap");
+  const optionsWrap = document.getElementById("options-wrap");
+  const questionText = document.getElementById("question-text");
+  const btnNext = document.getElementById("btn-next");
+
+  if (item.section === "schreiben") {
+    passageBox.style.display = "none";
+    optionsWrap.style.display = "none";
+    questionText.style.display = "none";
+    writingWrap.style.display = "block";
+    document.getElementById("write-prompt").textContent = item.prompt;
+    document.getElementById("min-words").textContent = item.minWords;
+    document.getElementById("write-area").value = writingAnswer;
+    updateWordCount();
+    btnNext.textContent = "Prüfung জমা দিন ✓";
+    btnNext.disabled = countWords(writingAnswer) < item.minWords;
+  } else {
+    writingWrap.style.display = "none";
+    questionText.style.display = "block";
+    optionsWrap.style.display = "flex";
+    passageBox.style.display = "block";
+    passageBox.textContent = item.passage;
+    questionText.textContent = item.q;
+
+    const selectedIdx = answers[currentQIndex];
+    optionsWrap.innerHTML = item.opts.map((opt, i) => `
+      <div class="opt ${selectedIdx === i ? "selected" : ""}" data-idx="${i}">
+        <span class="opt-letter">${String.fromCharCode(65+i)}</span>
+        <span>${opt}</span>
+      </div>`).join("");
+
+    optionsWrap.querySelectorAll(".opt").forEach(opt => {
+      opt.onclick = () => {
+        answers[currentQIndex] = parseInt(opt.dataset.idx);
+        optionsWrap.querySelectorAll(".opt").forEach(o => o.classList.remove("selected"));
+        opt.classList.add("selected");
+        btnNext.disabled = false;
+      };
+    });
+
+    btnNext.textContent = (currentQIndex === total-1) ? "Prüfung জমা দিন ✓" : "পরবর্তী →";
+    btnNext.disabled = answers[currentQIndex] === undefined;
+  }
+}
+
+function countWords(text) {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function updateWordCount() {
+  const text = document.getElementById("write-area").value;
+  const n = countWords(text);
+  document.getElementById("word-count").innerHTML = `${n} শব্দ (ন্যূনতম <span id="min-words">${examQueue[currentQIndex].minWords}</span>)`;
+}
+
+document.getElementById("write-area").addEventListener("input", function() {
+  writingAnswer = this.value;
+  updateWordCount();
+  const item = examQueue[currentQIndex];
+  document.getElementById("btn-next").disabled = countWords(writingAnswer) < item.minWords;
+});
+
+document.getElementById("btn-next").onclick = () => {
+  if (currentQIndex < examQueue.length - 1) {
+    currentQIndex++;
+    showQuestion();
+  } else {
+    finishExam();
+  }
+};
+
+/* ══════════════════════════════════
+   FINISH EXAM → CALCULATE SCORE
+══════════════════════════════════ */
+let lastResult = null;
+let lastWritingFeedback = null;
+
+async function finishExam() {
+  showLoadingOverlay("AI আপনার লেখা যাচাই করছে...");
+
+  const exam = EXAMS[currentLevel];
+  let lesenCorrect = 0, lesenTotal = exam.lesen.questions.length;
+  let hoerenCorrect = 0, hoerenTotal = exam.hoeren.questions.length;
+
+  examQueue.forEach((item, i) => {
+    if (item.section === "lesen" && answers[i] === item.correct) lesenCorrect++;
+    if (item.section === "hoeren" && answers[i] === item.correct) hoerenCorrect++;
+  });
+
+  const lesenPct  = lesenTotal ? Math.round((lesenCorrect/lesenTotal)*100) : 0;
+  const hoerenPct = hoerenTotal ? Math.round((hoerenCorrect/hoerenTotal)*100) : 0;
+
+  // ── Writing score via Claude AI (same backend as schreiben.html) ──
+  let schreibenScore = 0;
+  let writingFeedback = null;
+  const minW = exam.schreiben.minWords;
+  const actualW = countWords(writingAnswer);
+
+  if (actualW < minW) {
+    // Not enough words — fail this section without calling AI
+    schreibenScore = Math.round((actualW / minW) * 40); // capped low score
+  } else {
+    try {
+      const res = await fetch("/.netlify/functions/writing-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: writingAnswer, level: currentLevel }),
+      });
+      const data = await res.json();
+      if (res.ok && typeof data.score === "number") {
+        schreibenScore = Math.max(0, Math.min(100, data.score));
+        writingFeedback = data;
+      } else {
+        throw new Error(data.error || "AI feedback failed");
+      }
+    } catch(err) {
+      console.warn("AI writing feedback failed, using fallback scoring:", err);
+      // Fallback: word-count based scoring if AI call fails
+      schreibenScore = actualW >= minW ? 75 : Math.round((actualW/minW)*75);
+      toast("⚠️ AI feedback পাওয়া যায়নি, শব্দসংখ্যা অনুযায়ী স্কোর দেওয়া হয়েছে।", "#fb923c");
+    }
+  }
+
+  const overallPct = Math.round((lesenPct + hoerenPct + schreibenScore) / 3);
+  const passed = overallPct >= 70;
+
+  lastResult = { level: currentLevel, lesenPct, hoerenPct, schreibenScore, overallPct, passed };
+  lastWritingFeedback = writingFeedback;
+
+  // Save attempt to Firestore
+  try {
+    await addDoc(collection(db, "exam_attempts"), {
+      uid: meUID, level: currentLevel,
+      lesenScore: lesenPct, hoerenScore: hoerenPct, schreibenScore,
+      overallScore: overallPct, passed,
+      writingText: writingAnswer,
+      writingCorrected: writingFeedback?.corrected_text || null,
+      writingErrors: writingFeedback?.errors || [],
+      createdAt: serverTimestamp(),
+    });
+    if (passed) {
+      await updateDoc(doc(db, "users", meUID), { xp: increment(150) });
+    }
+  } catch(e) { console.warn("Save exam attempt failed:", e); }
+
+  hideLoadingOverlay();
+
+  showResult();
+}
+
+function showResult() {
+  document.getElementById("exam-card").classList.remove("show");
+
+  const r = lastResult;
+  const card = document.getElementById("result-card");
+  card.className = `result-card show ${r.passed ? "pass" : "fail"}`;
+
+  document.getElementById("result-icon").textContent = r.passed ? "🎉" : "😕";
+  const titleEl = document.getElementById("result-title");
+  titleEl.textContent = r.passed ? "Herzlichen Glückwunsch!" : "আরেকটু চেষ্টা করুন";
+  titleEl.className = `result-title ${r.passed ? "pass" : "fail"}`;
+
+  document.getElementById("result-sub").textContent = r.passed
+    ? `আপনি ${r.level} Prüfung সফলভাবে পাস করেছেন! +150 XP অর্জিত হয়েছে।`
+    : `৭০% প্রয়োজন, আপনি পেয়েছেন ${r.overallPct}%। আবার চেষ্টা করুন।`;
+
+  const circumference = 2 * Math.PI * 52;
+  const offset = circumference - (r.overallPct/100) * circumference;
+  const ring = document.getElementById("result-ring");
+  ring.style.strokeDashoffset = offset;
+  ring.style.stroke = r.passed ? "#34d399" : "#fb7185";
+  document.getElementById("score-big").textContent = r.overallPct + "%";
+  document.getElementById("score-big").style.color = r.passed ? "#34d399" : "#fb7185";
+
+  document.getElementById("section-scores").innerHTML = `
+    <div class="ss-row"><span class="ss-label">📖 Lesen</span><span class="ss-val">${r.lesenPct}%</span></div>
+    <div class="ss-row"><span class="ss-label">👂 Hören</span><span class="ss-val">${r.hoerenPct}%</span></div>
+    <div class="ss-row"><span class="ss-label">✍️ Schreiben</span><span class="ss-val">${r.schreibenScore}%</span></div>`;
+
+  // Writing AI feedback (if available)
+  const wfBox = document.getElementById("writing-feedback-box");
+  if (lastWritingFeedback) {
+    let html = `<div class="wf-title">✍️ Schreiben — AI Feedback</div>`;
+    if (lastWritingFeedback.corrected_text) {
+      html += `<div class="wf-corrected">${escHtml(lastWritingFeedback.corrected_text)}</div>`;
+    }
+    if (lastWritingFeedback.overall_feedback_bn) {
+      html += `<div style="font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.6rem;">${escHtml(lastWritingFeedback.overall_feedback_bn)}</div>`;
+    }
+    if (lastWritingFeedback.errors && lastWritingFeedback.errors.length) {
+      html += lastWritingFeedback.errors.slice(0,5).map(e => `
+        <div class="wf-error-item">
+          <span class="wf-wrong">${escHtml(e.original||"")}</span> → <span class="wf-right">${escHtml(e.correction||"")}</span>
+        </div>`).join("");
+    }
+    wfBox.innerHTML = html;
+    wfBox.style.display = "block";
+  } else {
+    wfBox.style.display = "none";
+  }
+
+  document.getElementById("btn-cert").style.display = r.passed ? "block" : "none";
+}
+
+document.getElementById("btn-retry").onclick = () => {
+  document.getElementById("result-card").classList.remove("show");
+  document.getElementById("level-select-view").style.display = "block";
+  loadInit();
+};
+
+/* ══════════════════════════════════
+   CERTIFICATE (jsPDF)
+══════════════════════════════════ */
+document.getElementById("btn-cert").onclick = () => {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ orientation:"landscape", unit:"mm", format:"a4" });
+  const W = 297, H = 210;
+  const r = lastResult;
+
+  pdf.setFillColor(4,8,15);
+  pdf.rect(0,0,W,H,"F");
+  pdf.setDrawColor(245,200,66);
+  pdf.setLineWidth(1.2);
+  pdf.rect(8,8,W-16,H-16);
+  pdf.setLineWidth(0.3);
+  pdf.rect(13,13,W-26,H-26);
+
+  pdf.setTextColor(245,200,66);
+  pdf.setFont("helvetica","bold");
+  pdf.setFontSize(13);
+  pdf.text("DEUTSCH LERNEN", W/2, 30, { align:"center" });
+
+  pdf.setTextColor(150,160,175);
+  pdf.setFont("helvetica","normal");
+  pdf.setFontSize(9);
+  pdf.text("GERMAN LEARNING PLATFORM · PRÜFUNG ZERTIFIKAT", W/2, 37, { align:"center" });
+
+  pdf.setTextColor(240,244,248);
+  pdf.setFont("helvetica","bold");
+  pdf.setFontSize(28);
+  pdf.text("Prüfungszertifikat", W/2, 60, { align:"center" });
+
+  pdf.setFont("helvetica","normal");
+  pdf.setFontSize(12);
+  pdf.setTextColor(150,160,175);
+  pdf.text("Hiermit wird bestätigt, dass", W/2, 78, { align:"center" });
+
+  pdf.setFont("helvetica","bold");
+  pdf.setFontSize(26);
+  pdf.setTextColor(52,211,153);
+  pdf.text(meName, W/2, 95, { align:"center" });
+
+  pdf.setDrawColor(52,211,153);
+  pdf.setLineWidth(0.5);
+  pdf.line(W/2-50, 99, W/2+50, 99);
+
+  pdf.setFont("helvetica","normal");
+  pdf.setFontSize(12);
+  pdf.setTextColor(200,210,220);
+  pdf.text(`die ${r.level} Prüfung mit ${r.overallPct}% erfolgreich bestanden hat.`, W/2, 112, { align:"center" });
+
+  pdf.setFont("helvetica","normal");
+  pdf.setFontSize(10);
+  pdf.setTextColor(150,160,175);
+  pdf.text(`Lesen: ${r.lesenPct}%  ·  Hören: ${r.hoerenPct}%  ·  Schreiben: ${r.schreibenScore}%`, W/2, 122, { align:"center" });
+
+  pdf.setFillColor(245,200,66);
+  pdf.circle(W/2, 145, 12, "F");
+  pdf.setTextColor(10,12,18);
+  pdf.setFont("helvetica","bold");
+  pdf.setFontSize(16);
+  pdf.text(r.level, W/2, 148, { align:"center" });
+
+  const dateStr = new Date().toLocaleDateString("en-GB", { day:"2-digit", month:"long", year:"numeric" });
+  pdf.setFont("helvetica","normal");
+  pdf.setFontSize(10);
+  pdf.setTextColor(150,160,175);
+  pdf.text(`Ausgestellt am: ${dateStr}`, 25, H-22);
+
+  pdf.setFont("helvetica","italic");
+  pdf.setTextColor(245,200,66);
+  pdf.text("Deutsch Lernen", W-25, H-22, { align:"right" });
+  pdf.setFont("helvetica","normal");
+  pdf.setTextColor(120,130,145);
+  pdf.setFontSize(8);
+  pdf.text("deutsch-lernen-bd.firebaseapp.com", W-25, H-17, { align:"right" });
+
+  pdf.save(`Deutsch_Lernen_${r.level}_Pruefung_Zertifikat.pdf`);
+  toast("🎓 Certificate ডাউনলোড হয়েছে!");
+};
+
+/* ══════════════════════════════════
+   INIT
+══════════════════════════════════ */
+async function loadInit() {
+  const snap = await getDoc(doc(db, "users", meUID));
+  const d = snap.exists() ? snap.data() : {};
+  buildLevelGrid(d.xp || 0, d.completedExams || []);
+}
+
+document.getElementById("btn-logout").onclick = () =>
+  signOut(auth).then(() => location.href = "index.html");
+
+requireAuth(async user => {
+  meUID = user.uid;
+
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const d = snap.exists() ? snap.data() : {};
+  meName = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL || user.photoURL || "";
+
+  const av = document.getElementById("nav-avatar");
+  if (photo) av.innerHTML = `<img src="${photo}">`;
+  else av.textContent = meName[0].toUpperCase();
+
+  // Check subscription / admin
+  try {
+    if (d.role === "admin") {
+      hasPlan = true;
+    } else {
+      const subSnap = await getDoc(doc(db, "subscriptions", user.uid));
+      if (subSnap.exists() && subSnap.data().active) {
+        const exp = subSnap.data().expiryDate?.toDate
+          ? subSnap.data().expiryDate.toDate()
+          : new Date(subSnap.data().expiryDate);
+        hasPlan = exp > new Date();
+      }
+    }
+  } catch(e) { /* ignore */ }
+
+  buildLevelGrid(d.xp || 0, d.completedExams || []);
+});
+</script>
+</body>
+</html>
