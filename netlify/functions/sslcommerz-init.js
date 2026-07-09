@@ -10,9 +10,9 @@
 const axios = require("axios");
 
 const PLANS = {
-  monthly:   { name: "Deutsch Lernen — মাসিক",    amount: 149,  currency: "BDT" },
-  sixmonths: { name: "Deutsch Lernen — ৬ মাস",    amount: 599,  currency: "BDT" },
-  yearly:    { name: "Deutsch Lernen — বার্ষিক",  amount: 999,  currency: "BDT" },
+  monthly:   { name: "Deutsch Lernen — মাসিক",    amount: 299,   currency: "BDT" },
+  sixmonths: { name: "Deutsch Lernen — ৬ মাস",    amount: 999,  currency: "BDT" },
+  yearly:    { name: "Deutsch Lernen — বার্ষিক",  amount: 1999, currency: "BDT" },
 };
 
 exports.handler = async function (event) {

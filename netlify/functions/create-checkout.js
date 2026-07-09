@@ -10,21 +10,21 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const PLANS = {
   monthly: {
     name: "Deutsch Lernen — Monthly",
-    amount: 149,    // BDT 149 (change currency/amount as needed for Stripe)
+    amount: 299,    // BDT 299 (change currency/amount as needed for Stripe)
     currency: "bdt",
     interval: "month",
     intervalCount: 1,
   },
   sixmonths: {
     name: "Deutsch Lernen — 6 Months",
-    amount: 599,
+    amount: 999,
     currency: "bdt",
     interval: "month",
     intervalCount: 6,
   },
   yearly: {
     name: "Deutsch Lernen — 1 Year",
-    amount: 999,
+    amount: 1999,
     currency: "bdt",
     interval: "year",
     intervalCount: 1,

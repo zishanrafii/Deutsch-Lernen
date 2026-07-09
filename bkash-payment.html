@@ -259,22 +259,20 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <!-- STEP 1: PLAN SELECT -->
     <div class="card-title">📦 Plan বেছে নিন</div>
     <div class="plan-grid" id="plan-grid">
-      <div class="plan-pill selected" data-plan="monthly" data-amount="149">
+      <div class="plan-pill selected" data-plan="monthly" data-amount="299">
         <div class="plan-pill-name">Monthly</div>
-        <div class="plan-pill-price">৳149</div>
+        <div class="plan-pill-price">৳299</div>
         <div class="plan-pill-period">১ মাস (৩০ দিন)</div>
       </div>
-      <div class="plan-pill" data-plan="sixmonths" data-amount="599">
+      <div class="plan-pill" data-plan="sixmonths" data-amount="999">
         <div class="plan-pill-name">6 Months</div>
-        <div class="plan-pill-price">৳599</div>
-        <div class="plan-pill-period">৬ মাস (১৮০ দিন)</div>
-        <div class="plan-pill-save">৩৩% সাশ্রয়</div>
-      </div>
-      <div class="plan-pill" data-plan="yearly" data-amount="999">
-        <div class="plan-pill-name">1 Year</div>
         <div class="plan-pill-price">৳999</div>
+        <div class="plan-pill-period">৬ মাস (১৮০ দিন)</div>
+      </div>
+      <div class="plan-pill" data-plan="yearly" data-amount="1999">
+        <div class="plan-pill-name">1 Year</div>
+        <div class="plan-pill-price">৳1999</div>
         <div class="plan-pill-period">১ বছর (৩৬৫ দিন)</div>
-        <div class="plan-pill-save">৪৪% সাশ্রয়</div>
       </div>
     </div>
 
@@ -297,7 +295,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
         </div>
         <button class="btn-copy" id="btn-copy">📋 Copy</button>
       </div>
-      <div class="pay-amount">পাঠাবেন: <b id="amount-display">৳149</b> (send money করুন)</div>
+      <div class="pay-amount">পাঠাবেন: <b id="amount-display">৳299</b> (send money করুন)</div>
       <ul class="pay-instructions">
         <li>উপরের number-এ <b>Send Money</b> করুন</li>
         <li>Transaction সম্পন্ন হলে TrxID নোট করুন</li>
@@ -374,7 +372,7 @@ const PLAN_LABELS = {
 
 /* ── STATE ── */
 let selectedPlan   = "monthly";
-let selectedAmount = 149;
+let selectedAmount = 299;
 let selectedMethod = "bKash";
 let meUID = null, meEmail = null, meName = null;
 
