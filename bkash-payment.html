@@ -550,6 +550,19 @@ const params = new URLSearchParams(location.search);
 if (params.get("locked"))  showAlert("এই feature ব্যবহার করতে একটি paid plan প্রয়োজন।", "warn");
 if (params.get("expired")) showAlert("আপনার subscription মেয়াদ শেষ। Renew করুন।", "warn");
 
+const preselectPlan = params.get("plan");
+if (preselectPlan) {
+  const targetPill = document.querySelector(`.plan-pill[data-plan="${preselectPlan}"]`);
+  if (targetPill) {
+    document.querySelectorAll(".plan-pill").forEach(p => p.classList.remove("selected"));
+    targetPill.classList.add("selected");
+    selectedPlan   = targetPill.dataset.plan;
+    selectedAmount = Number(targetPill.dataset.amount);
+    const amtDisplay = document.getElementById("amount-display");
+    if (amtDisplay) amtDisplay.textContent = "৳" + selectedAmount;
+  }
+}
+
 /* ── INIT ── */
 requireAuth(async user => {
   meUID   = user.uid;
