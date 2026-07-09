@@ -351,7 +351,7 @@ function render(){
       <div class="tt-text">${tt.text}</div>
       <div class="tt-focus">🎯 ${tt.bn}</div>
       <div class="tt-actions">
-        <button class="btn-practice" onclick="playTT('${tt.text.replace(/'/g,"\'")}')">🔊 Play</button>
+        <button class="btn-practice" id="ttplay-${globalIdx}" onclick="toggleTTPlay(${globalIdx})">🔊 Play</button>
         <button class="btn-practice" onclick="openModal(${globalIdx})">🎤 Practice</button>
         <button class="btn-done ${isDone?"completed":""}" onclick="markDone(${globalIdx})" id="done-btn-${globalIdx}">${isDone?"✅ Done":"✓ সম্পন্ন"}</button>
         <span class="xp-chip">+${xpMap[tt.level]||20} XP</span>
@@ -381,8 +381,31 @@ window.openModal=function(idx){
 window.playTT = function(text, speed) {
   responsiveVoice.cancel();
   const rates = { slow: 0.6, normal: 0.9, fast: 1.3 };
-  const rate = rates[speed] || rates[speed] || 0.9;
+  const rate = rates[speed] || 0.9;
   responsiveVoice.speak(text, _voice, { rate });
+};
+
+let _ttPlayingIdx = null;
+window.toggleTTPlay = function(idx) {
+  const btn = document.getElementById("ttplay-"+idx);
+  if(_ttPlayingIdx === idx) {
+    responsiveVoice.cancel();
+    btn.textContent = "🔊 Play";
+    _ttPlayingIdx = null;
+    return;
+  }
+  responsiveVoice.cancel();
+  if(_ttPlayingIdx !== null) {
+    const prevBtn = document.getElementById("ttplay-"+_ttPlayingIdx);
+    if(prevBtn) prevBtn.textContent = "🔊 Play";
+  }
+  const tt = TONGUE_TWISTERS[idx];
+  btn.textContent = "⏹ Stop";
+  _ttPlayingIdx = idx;
+  responsiveVoice.speak(tt.text, _voice, {
+    rate: 0.9,
+    onend: () => { btn.textContent = "🔊 Play"; _ttPlayingIdx = null; }
+  });
 };
 window.setSpeed=function(s){
   const msgs={slow:"🐌 Slow — ধীরে ধীরে পড়ুন",normal:"▶ Normal — স্বাভাবিক গতি",fast:"⚡ Fast — দ্রুত বলুন!"};

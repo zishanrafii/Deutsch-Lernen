@@ -468,19 +468,36 @@ function buildSentenceBlocks(s) {
   });
 }
 
-/* ── Play a single sentence ── */
+/* ── Play a single sentence (toggle: play ↔ stop) ── */
+let _currentlyPlayingIdx = null;
+
 window.playSentence = function(i) {
   if(!_activeSet) return;
-  const sen     = _activeSet.sentences[i];
-  const btnEl   = document.getElementById(`play-btn-${i}`);
-  const block   = document.getElementById(`sb-${i}`);
-  const spd     = sen.speed==="slow" ? Math.min(_speed, 0.65) : _speed;
+  const btnEl = document.getElementById(`play-btn-${i}`);
+  const block = document.getElementById(`sb-${i}`);
 
-  // highlight
+  // Already playing THIS sentence → clicking again STOPS it
+  if(_currentlyPlayingIdx === i) {
+    responsiveVoice.cancel();
+    block.classList.remove("playing");
+    btnEl.textContent = "▶ Play";
+    btnEl.classList.remove("playing-btn");
+    _currentlyPlayingIdx = null;
+    return;
+  }
+
+  // Stop any other sentence currently playing first
+  responsiveVoice.cancel();
   document.querySelectorAll(".sentence-block").forEach(b => b.classList.remove("playing"));
+  document.querySelectorAll(".sb-play").forEach(b => { b.textContent="▶ Play"; b.classList.remove("playing-btn"); });
+
+  const sen = _activeSet.sentences[i];
+  const spd = sen.speed==="slow" ? Math.min(_speed, 0.65) : _speed;
+
   block.classList.add("playing");
   btnEl.textContent = "⏹ Stop";
   btnEl.classList.add("playing-btn");
+  _currentlyPlayingIdx = i;
 
   responsiveVoice.speak(sen.de, VOICE, {
     rate: spd,
@@ -488,6 +505,7 @@ window.playSentence = function(i) {
       block.classList.remove("playing");
       btnEl.textContent = "▶ Play";
       btnEl.classList.remove("playing-btn");
+      _currentlyPlayingIdx = null;
       if(_autoAdvance && !_sentDone[i]) {
         setTimeout(() => markSent(i), 400);
       }
@@ -496,9 +514,10 @@ window.playSentence = function(i) {
   });
 };
 
-/* ── Repeat ── */
+/* ── Repeat (always restarts, regardless of toggle state) ── */
 window.repeatSentence = function(i) {
   responsiveVoice.cancel();
+  _currentlyPlayingIdx = null;
   playSentence(i);
 };
 
@@ -544,6 +563,7 @@ function playNext() {
 function stopAll() {
   responsiveVoice.cancel();
   _isPlaying = false;
+  _currentlyPlayingIdx = null;
   _playQueue = []; _playIdx = 0;
   document.querySelectorAll(".sentence-block").forEach(b => b.classList.remove("playing"));
   document.querySelectorAll(".sb-play").forEach(b => { b.textContent="▶ Play"; b.classList.remove("playing-btn"); });

@@ -385,7 +385,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="mic-sentence">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem;">
             <div class="mic-de" id="mic-sentence-de">Guten Morgen! Ich lerne Deutsch.</div>
-            <button onclick="playMicSentence()" style="background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:#2dd4bf;border-radius:20px;padding:3px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;margin-left:8px;">🔊 শুনুন</button>
+            <button onclick="playMicSentence()" id="btn-mic-play" style="background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:#2dd4bf;border-radius:20px;padding:3px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;margin-left:8px;transition:.2s;">🔊 শুনুন</button>
           </div>
           <div class="mic-bn" id="mic-sentence-bn">শুভ সকাল! আমি German শিখছি।</div>
         </div>
@@ -632,16 +632,48 @@ const MIC_SENTENCES = [
 ];
 let _micIdx = 0, _mediaRecorder = null, _audioChunks = [];
 
+let _micPlaying = false;
 window.playMicSentence = function() {
+  const btn  = document.getElementById("btn-mic-play");
   const text = document.getElementById("mic-sentence-de").textContent;
-  responsiveVoice.speak(text, _voice, { rate: 0.85 });
+
+  if(_micPlaying) {
+    responsiveVoice.cancel();
+    _micPlaying = false;
+    btn.textContent = "🔊 শুনুন";
+    btn.style.background = "rgba(45,212,191,.1)";
+    btn.style.color = "#2dd4bf";
+    return;
+  }
+
+  responsiveVoice.cancel();
+  _micPlaying = true;
+  btn.textContent = "⏹ থামুন";
+  btn.style.background = "rgba(251,113,133,.12)";
+  btn.style.color = "#fb7185";
+
+  responsiveVoice.speak(text, _voice, {
+    rate: 0.85,
+    onend: () => {
+      _micPlaying = false;
+      btn.textContent = "🔊 শুনুন";
+      btn.style.background = "rgba(45,212,191,.1)";
+      btn.style.color = "#2dd4bf";
+    }
+  });
 };
 function updateMicSentence() {
   const s = MIC_SENTENCES[_micIdx % MIC_SENTENCES.length];
   document.getElementById("mic-sentence-de").textContent = s.de;
   document.getElementById("mic-sentence-bn").textContent = s.bn;
 }
-document.getElementById("mic-next-btn").onclick = () => { _micIdx++; updateMicSentence(); };
+document.getElementById("mic-next-btn").onclick = () => {
+  responsiveVoice.cancel();
+  _micPlaying = false;
+  const btn = document.getElementById("btn-mic-play");
+  if(btn){ btn.textContent="🔊 শুনুন"; btn.style.background="rgba(45,212,191,.1)"; btn.style.color="#2dd4bf"; }
+  _micIdx++; updateMicSentence();
+};
 
 const micBtn    = document.getElementById("mic-btn");
 const micStatus = document.getElementById("mic-status");

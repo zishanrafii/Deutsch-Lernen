@@ -260,16 +260,18 @@ document.getElementById("pair-count").textContent  = MINIMAL_PAIRS.length;
 const cats = ["all", ...new Set(AUSSPRACHE_WORDS.map(w=>w.category))];
 document.getElementById("cat-count").textContent = cats.length - 1;
 const catTab = document.getElementById("cat-tabs");
+window.playWord = function(word) {
+  responsiveVoice.cancel();
+  responsiveVoice.speak(word, _voice, { rate: 0.9 });
+};
+
 cats.forEach(c => {
   const btn = document.createElement("button");
   btn.className = "ctab" + (c==="all"?" active":"");
   btn.textContent = c==="all" ? "সব Category" : c;
   btn.onclick = () => {
     document.querySelectorAll(".ctab").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active"); _cat=c; window.playWord = function(word) {
-  responsiveVoice.speak(word, _voice, { rate: 0.9 });
-};
-render();
+    btn.classList.add("active"); _cat=c; render();
   };
   catTab.appendChild(btn);
 });
