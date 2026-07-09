@@ -5,7 +5,7 @@
 import {
   auth, db, signOut, requireAuth,
   doc, getDoc, setDoc, updateDoc, addDoc, deleteDoc,
-  collection, getDocs, serverTimestamp,
+  collection, getDocs, query, where, orderBy, limit, serverTimestamp,
 } from "./firebase-config.js";
 
 /* ===================== STATE ===================== */
@@ -14,14 +14,16 @@ let allUsers = [];
 let allPassages = [];
 let allLessons = [];
 let allVocab = [];
+let allPayments = [];
+let allWritings = [];
 
 const LEVELS = [
-  { label:"A1", name:"Anfänger",        min:0,     max:500   },
-  { label:"A2", name:"Grundstufe",      min:500,   max:2000  },
-  { label:"B1", name:"Mittelstufe",     min:2000,  max:5000  },
-  { label:"B2", name:"Oberstufe",       min:5000,  max:10000 },
-  { label:"C1", name:"Fortgeschritten", min:10000, max:18000 },
-  { label:"C2", name:"Meisterschaft",   min:18000, max:Infinity },
+  { label:"A1", name:"Anfänger",        min:0,     max:13900 },
+  { label:"A2", name:"Grundstufe",      min:13900, max:27800 },
+  { label:"B1", name:"Mittelstufe",     min:27800, max:44000 },
+  { label:"B2", name:"Oberstufe",       min:44000, max:52700 },
+  { label:"C1", name:"Fortgeschritten", min:52700, max:61300 },
+  { label:"C2", name:"Meisterschaft",   min:61300, max:Infinity },
 ];
 function levelForXp(xp) {
   xp = xp || 0;
@@ -89,22 +91,28 @@ document.querySelectorAll(".csub-tab").forEach(tab => {
 
 /* ===================== LOAD DATA ===================== */
 async function loadAllData() {
-  const [usersSnap, passagesSnap, lessonsSnap, vocabSnap] = await Promise.all([
+  const [usersSnap, passagesSnap, lessonsSnap, vocabSnap, paymentsSnap, writingsSnap] = await Promise.all([
     getDocs(collection(db, "users")),
     getDocs(collection(db, "reading_passages")),
     getDocs(collection(db, "grammar_lessons")),
     getDocs(collection(db, "vocab_words")),
+    getDocs(query(collection(db, "payment_requests"), orderBy("createdAt", "desc"), limit(300))),
+    getDocs(query(collection(db, "writings"), orderBy("createdAt", "desc"), limit(300))),
   ]);
   allUsers    = usersSnap.docs.map(d => ({ id: d.id, ...d.data() }));
   allPassages = passagesSnap.docs.map(d => ({ slug: d.id, ...d.data() }));
   allLessons  = lessonsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
   allVocab    = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+  allPayments = paymentsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+  allWritings = writingsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
 
   renderOverview();
   renderUsersTable();
   renderPassagesTable();
   renderLessonsTable();
   renderVocabTable();
+  renderPaymentsTable();
+  renderWritingsTable();
 }
 
 /* ===================== OVERVIEW TAB ===================== */
@@ -167,6 +175,7 @@ function renderUsersTable() {
   let list = [...allUsers];
   if (userFilter === "admin")  list = list.filter(u => u.role === "admin");
   if (userFilter === "banned") list = list.filter(u => u.banned);
+  if (userFilter === "paid")   list = list.filter(u => u.plan && planIsActive(u));
   if (userSearch) list = list.filter(u =>
     (u.displayName||"").toLowerCase().includes(userSearch) ||
     (u.email||"").toLowerCase().includes(userSearch));
@@ -179,6 +188,7 @@ function renderUsersTable() {
       <td>${esc(u.email||"—")}</td>
       <td>${u.xp||0}</td>
       <td>🔥 ${u.streak||0}</td>
+      <td>${planCellHtml(u)}</td>
       <td>
         <span class="pill ${u.banned?'pill-banned':'pill-active'}">${u.banned?'Banned':'Active'}</span>
         <span class="pill ${u.role==='admin'?'pill-admin':'pill-user'}">${u.role==='admin'?'Admin':'User'}</span>
@@ -188,9 +198,21 @@ function renderUsersTable() {
         <div class="row-actions">
           <button class="action-btn warn" data-action="toggle-admin" data-uid="${u.id}" data-role="${u.role||'user'}">${u.role==='admin'?'Remove Admin':'Make Admin'}</button>
           <button class="action-btn danger" data-action="toggle-ban" data-uid="${u.id}" data-banned="${!!u.banned}">${u.banned?'Unban':'Ban'}</button>
+          <button class="action-btn" data-action="open-grant" data-uid="${u.id}">Grant Plan</button>
         </div>
       </td>
-    </tr>`).join("") : `<tr><td colspan="7" class="empty-row">কোনো user পাওয়া যায়নি</td></tr>`;
+    </tr>`).join("") : `<tr><td colspan="8" class="empty-row">কোনো user পাওয়া যায়নি</td></tr>`;
+}
+function planIsActive(u) {
+  if (!u.plan) return false;
+  const exp = u.planExpiry?.toDate ? u.planExpiry.toDate() : (u.planExpiry ? new Date(u.planExpiry) : null);
+  return exp && exp > new Date();
+}
+function planCellHtml(u) {
+  if (!u.plan) return `<span class="badge-muted">Free</span>`;
+  const active = planIsActive(u);
+  const label = { monthly:"Monthly", sixmonths:"6 Months", yearly:"Yearly" }[u.plan] || esc(u.plan);
+  return `<span class="pill ${active?'pill-active':'pill-banned'}">${label}${active?'':' (Expired)'}</span>`;
 }
 
 async function toggleAdmin(uid, currentRole) {
@@ -550,6 +572,237 @@ function deleteVocab(id) {
   );
 }
 
+/* ===================== PAYMENTS (payment_requests) ===================== */
+const PLAN_LABELS = {
+  monthly:   { label: "Monthly (১ মাস)",  days: 30  },
+  sixmonths: { label: "6 Months (৬ মাস)", days: 180 },
+  yearly:    { label: "1 Year (১ বছর)",    days: 365 },
+};
+let payFilter = "pending";
+let paySearch = "";
+
+document.querySelectorAll("#pay-filter-tabs .ftab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll("#pay-filter-tabs .ftab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    payFilter = tab.dataset.filter;
+    renderPaymentsTable();
+  });
+});
+document.getElementById("pay-search-input").addEventListener("input", e => {
+  paySearch = e.target.value.toLowerCase();
+  renderPaymentsTable();
+});
+
+function renderPaymentsTable() {
+  let list = [...allPayments];
+  if (payFilter !== "all") list = list.filter(p => (p.status || "pending") === payFilter);
+  if (paySearch) list = list.filter(p =>
+    (p.transactionId||"").toLowerCase().includes(paySearch) ||
+    (p.email||"").toLowerCase().includes(paySearch) ||
+    (p.name||"").toLowerCase().includes(paySearch));
+
+  document.getElementById("pay-count-badge").textContent = list.length;
+  const pendingCount = allPayments.filter(p => (p.status||"pending") === "pending").length;
+  const badge = document.getElementById("pending-badge");
+  if (pendingCount > 0) { badge.style.display = "inline-block"; badge.textContent = pendingCount; }
+  else badge.style.display = "none";
+
+  const body = document.getElementById("pay-tbody");
+  body.innerHTML = list.length ? list.map(p => {
+    const status = p.status || "pending";
+    const isPending = status === "pending";
+    return `
+    <tr>
+      <td><div class="user-cell-name">${esc(p.name||"—")}</div><div style="font-size:11px;color:var(--muted);">${esc(p.email||"—")}</div></td>
+      <td>${esc(PLAN_LABELS[p.plan]?.label || p.plan || "—")}</td>
+      <td>৳${p.amount ?? "—"}</td>
+      <td>${esc(p.paymentMethod||"bKash")}</td>
+      <td><span class="txn-code">${esc(p.transactionId||"—")}</span></td>
+      <td>${esc(p.senderNumber||"—")}</td>
+      <td><span class="status-pill sp-${status}">${status}</span></td>
+      <td>${fmtDate(p.createdAt)}</td>
+      <td>
+        <div class="row-actions">
+          <button class="action-btn btn-approve" data-action="approve-payment" data-id="${p.id}" ${isPending?'':'disabled'}>Approve</button>
+          <button class="action-btn btn-reject" data-action="reject-payment" data-id="${p.id}" ${isPending?'':'disabled'}>Reject</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join("") : `<tr><td colspan="9" class="empty-row">কোনো request পাওয়া যায়নি</td></tr>`;
+}
+
+async function approvePayment(id) {
+  const p = allPayments.find(x => x.id === id);
+  if (!p) return;
+  const planInfo = PLAN_LABELS[p.plan];
+  const days = planInfo?.days || 30;
+  openConfirm(
+    "Payment Approve করবেন?",
+    `${p.name || p.email}-কে "${planInfo?.label || p.plan}" plan দেওয়া হবে (${days} দিনের জন্য active থাকবে)।`,
+    async () => {
+      try {
+        const expiry = new Date();
+        expiry.setDate(expiry.getDate() + days);
+        await updateDoc(doc(db, "users", p.uid), {
+          plan: p.plan,
+          planProvider: "bkash-manual",
+          planStart: serverTimestamp(),
+          planExpiry: expiry,
+        });
+        await updateDoc(doc(db, "payment_requests", id), {
+          status: "approved",
+          approvedAt: serverTimestamp(),
+          approvedBy: currentUser.uid,
+        });
+        p.status = "approved";
+        const u = allUsers.find(x => x.id === p.uid);
+        if (u) { u.plan = p.plan; u.planExpiry = expiry; u.planProvider = "bkash-manual"; }
+        renderPaymentsTable();
+        renderUsersTable();
+        showToast("Payment approve হয়েছে, user-কে plan দেওয়া হয়েছে ✅", "ok");
+      } catch (e) { showToast("ব্যর্থ: " + e.message, "err"); }
+    }
+  );
+}
+async function rejectPayment(id) {
+  const p = allPayments.find(x => x.id === id);
+  openConfirm(
+    "Payment Reject করবেন?",
+    `"${p?.transactionId || ""}" — এই request reject করা হবে। User-কে কোনো plan দেওয়া হবে না।`,
+    async () => {
+      try {
+        await updateDoc(doc(db, "payment_requests", id), {
+          status: "rejected",
+          rejectedAt: serverTimestamp(),
+          rejectedBy: currentUser.uid,
+        });
+        if (p) p.status = "rejected";
+        renderPaymentsTable();
+        showToast("Reject করা হয়েছে", "ok");
+      } catch (e) { showToast("ব্যর্থ: " + e.message, "err"); }
+    }
+  );
+}
+
+/* ===================== GRANT PLAN MANUALLY ===================== */
+let grantSelectedDays = null;
+document.querySelectorAll("#gm-plan-pills .plan-pill-opt").forEach(el => {
+  el.addEventListener("click", () => {
+    document.querySelectorAll("#gm-plan-pills .plan-pill-opt").forEach(x => x.classList.remove("selected"));
+    el.classList.add("selected");
+    grantSelectedDays = Number(el.dataset.days);
+    document.getElementById("gm-days").value = grantSelectedDays;
+  });
+});
+function openGrantModal(uid) {
+  const u = allUsers.find(x => x.id === uid);
+  document.getElementById("gm-uid").value = uid;
+  document.getElementById("gm-user-label").textContent = `${u?.displayName || "—"} (${u?.email || "—"})`;
+  document.getElementById("gm-days").value = "";
+  grantSelectedDays = null;
+  document.querySelectorAll("#gm-plan-pills .plan-pill-opt").forEach(x => x.classList.remove("selected"));
+  document.getElementById("grant-modal-overlay").classList.add("show");
+}
+function closeGrantModal() {
+  document.getElementById("grant-modal-overlay").classList.remove("show");
+}
+async function saveGrant() {
+  const uid = document.getElementById("gm-uid").value;
+  const days = Number(document.getElementById("gm-days").value);
+  if (!uid || !days || days < 1) { showToast("সঠিক দিন সংখ্যা দিন", "err"); return; }
+  const selectedPill = document.querySelector("#gm-plan-pills .plan-pill-opt.selected");
+  const planKey = selectedPill ? selectedPill.dataset.plan : "custom";
+
+  try {
+    const expiry = new Date();
+    expiry.setDate(expiry.getDate() + days);
+    await updateDoc(doc(db, "users", uid), {
+      plan: planKey,
+      planProvider: "admin-manual",
+      planStart: serverTimestamp(),
+      planExpiry: expiry,
+    });
+    const u = allUsers.find(x => x.id === uid);
+    if (u) { u.plan = planKey; u.planExpiry = expiry; u.planProvider = "admin-manual"; }
+    renderUsersTable();
+    closeGrantModal();
+    showToast(`Plan grant হয়েছে (${days} দিন) ✅`, "ok");
+  } catch (e) { showToast("ব্যর্থ: " + e.message, "err"); }
+}
+
+/* ===================== WRITINGS (writings — AI feedback log) ===================== */
+let writingFilter = "all";
+let writingSearch = "";
+
+document.querySelectorAll("#writing-filter-tabs .ftab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll("#writing-filter-tabs .ftab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    writingFilter = tab.dataset.filter;
+    renderWritingsTable();
+  });
+});
+document.getElementById("writing-search-input").addEventListener("input", e => {
+  writingSearch = e.target.value.toLowerCase();
+  renderWritingsTable();
+});
+
+function scoreClass(score) {
+  if (score >= 80) return "ws-high";
+  if (score >= 50) return "ws-mid";
+  return "ws-low";
+}
+function userLabel(uid) {
+  const u = allUsers.find(x => x.id === uid);
+  return u ? (u.displayName || u.email || uid) : uid;
+}
+function renderWritingsTable() {
+  // Stats
+  const total = allWritings.length;
+  const todayKey = new Date().toISOString().slice(0, 10);
+  const todayCount = allWritings.filter(w => toMillis(w.createdAt) && new Date(toMillis(w.createdAt)).toISOString().slice(0,10) === todayKey).length;
+  const avgScore = total ? Math.round(allWritings.reduce((s,w) => s + (w.score||0), 0) / total) : 0;
+  const totalXp = allWritings.reduce((s,w) => s + (w.xpAwarded||0), 0);
+  document.getElementById("stat-writings-total").textContent = total;
+  document.getElementById("stat-writings-today").textContent = todayCount;
+  document.getElementById("stat-writings-avg-score").textContent = total ? avgScore : "—";
+  document.getElementById("stat-writings-xp").textContent = totalXp;
+
+  let list = [...allWritings];
+  if (writingFilter !== "all") list = list.filter(w => w.level === writingFilter);
+  if (writingSearch) list = list.filter(w => userLabel(w.uid).toLowerCase().includes(writingSearch));
+
+  document.getElementById("writing-count-badge").textContent = list.length;
+  const body = document.getElementById("writings-body");
+  body.innerHTML = list.length ? list.map(w => `
+    <tr>
+      <td>${esc(userLabel(w.uid))}</td>
+      <td>${esc(w.level||"—")}</td>
+      <td><span class="writing-score ${scoreClass(w.score||0)}">${w.score ?? "—"}</span></td>
+      <td>+${w.xpAwarded ?? 0}</td>
+      <td><span class="writing-preview" data-action="view-writing" data-id="${esc(w.id)}">${esc((w.text||"").slice(0,60))}${(w.text||"").length>60?"...":""}</span></td>
+      <td>${fmtDate(w.createdAt)}</td>
+    </tr>`).join("") : `<tr><td colspan="6" class="empty-row">কোনো submission পাওয়া যায়নি</td></tr>`;
+}
+function openWritingModal(id) {
+  const w = allWritings.find(x => x.id === id);
+  if (!w) return;
+  document.getElementById("writing-modal-body").innerHTML = `
+    <div style="margin-bottom:.8rem;"><strong style="color:var(--text);">User:</strong> ${esc(userLabel(w.uid))} · <strong style="color:var(--text);">Level:</strong> ${esc(w.level||"—")} · <strong style="color:var(--text);">Score:</strong> ${w.score ?? "—"}</div>
+    <div style="margin-bottom:.4rem;color:var(--gold);font-weight:700;">✍️ Original:</div>
+    <div style="margin-bottom:1rem;">${esc(w.text||"—")}</div>
+    <div style="margin-bottom:.4rem;color:var(--teal);font-weight:700;">✅ Corrected:</div>
+    <div style="margin-bottom:1rem;">${esc(w.correctedText||"—")}</div>
+    <div style="margin-bottom:.4rem;color:var(--sky);font-weight:700;">💬 Feedback:</div>
+    <div>${esc(w.overallFeedback||"—")}</div>
+  `;
+  document.getElementById("writing-modal-overlay").classList.add("show");
+}
+function closeWritingModal() {
+  document.getElementById("writing-modal-overlay").classList.remove("show");
+}
+
 /* ===================== GLOBAL CLICK DELEGATION ===================== */
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-action]");
@@ -579,6 +832,16 @@ document.addEventListener("click", e => {
   if (action === "toggle-admin")         toggleAdmin(t.dataset.uid, t.dataset.role);
   if (action === "toggle-ban")           toggleBan(t.dataset.uid, t.dataset.banned === "true");
 
+  if (action === "approve-payment")      approvePayment(t.dataset.id);
+  if (action === "reject-payment")       rejectPayment(t.dataset.id);
+
+  if (action === "open-grant")           openGrantModal(t.dataset.uid);
+  if (action === "close-grant-modal")    closeGrantModal();
+  if (action === "save-grant")           saveGrant();
+
+  if (action === "view-writing")         openWritingModal(t.dataset.id);
+  if (action === "close-writing-modal")  closeWritingModal();
+
   if (action === "close-confirm-modal")  closeConfirm();
 });
 // Close a modal when clicking its dark overlay background (outside modal-box)
@@ -593,7 +856,12 @@ requireAuth(async user => {
   const d = snap.exists() ? snap.data() : {};
 
   if (d.role !== "admin") {
-    document.getElementById("gate-wrap").style.display = "";
+    document.getElementById("gate-wrap").innerHTML = `
+      <div class="gate-screen">
+        <div class="gi">⛔</div>
+        <h2>Access Denied</h2>
+        <p>এই page শুধু admin-দের জন্য। কয়েক সেকেন্ডের মধ্যে dashboard-এ ফিরিয়ে দেওয়া হচ্ছে...</p>
+      </div>`;
     document.getElementById("admin-wrap").style.display = "none";
     setTimeout(() => { location.href = "dashboard.html"; }, 2800);
     return;

@@ -156,5 +156,38 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .toast.err{border-color:rgba(251,113,133,.35);color:var(--rose);}
 .toast.ok{border-color:rgba(52,211,153,.35);color:var(--emerald);}
 
+/* PAYMENT STATUS PILLS */
+.status-pill{display:inline-block;font-size:10px;font-weight:800;padding:3px 9px;
+  border-radius:20px;text-transform:uppercase;letter-spacing:.6px;font-family:'JetBrains Mono',monospace;}
+.sp-pending{background:rgba(251,146,60,.15);border:1px solid rgba(251,146,60,.3);color:var(--orange);}
+.sp-approved{background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:var(--emerald);}
+.sp-rejected{background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.3);color:var(--rose);}
+.txn-code{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.5px;
+  background:rgba(255,255,255,.04);padding:2px 7px;border-radius:6px;border:1px solid rgba(255,255,255,.07);}
+.btn-approve{background:rgba(52,211,153,.14);border:1px solid rgba(52,211,153,.3);color:var(--emerald);}
+.btn-approve:hover{background:rgba(52,211,153,.25);}
+.btn-reject{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.25);color:var(--rose);}
+.btn-reject:hover{background:rgba(251,113,133,.2);}
+.action-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* WRITINGS TAB */
+.writing-score{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:2px 7px;
+  border-radius:8px;font-weight:800;font-size:11.5px;font-family:'JetBrains Mono',monospace;}
+.ws-high{background:rgba(52,211,153,.12);color:var(--emerald);}
+.ws-mid{background:rgba(245,200,66,.12);color:var(--gold);}
+.ws-low{background:rgba(251,113,133,.12);color:var(--rose);}
+.writing-preview{max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--sub);font-size:12px;cursor:pointer;}
+.writing-preview:hover{color:var(--text);text-decoration:underline;}
+.cost-note{font-size:11px;color:var(--muted);margin-top:.4rem;font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+
+/* GRANT PLAN */
+.plan-pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.4rem;}
+.plan-pill-opt{flex:1;min-width:110px;text-align:center;background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:11px;padding:.6rem .5rem;cursor:pointer;transition:.2s;}
+.plan-pill-opt:hover{background:rgba(255,255,255,.06);}
+.plan-pill-opt.selected{border-color:rgba(245,200,66,.4);background:rgba(245,200,66,.08);}
+.plan-pill-opt .ppo-label{font-size:11.5px;font-weight:700;}
+.plan-pill-opt .ppo-days{font-size:10px;color:var(--muted);margin-top:2px;}
+
 @media(max-width:900px){.stat-grid{grid-template-columns:repeat(3,1fr);}.form-row{grid-template-columns:1fr 1fr;}}
 @media(max-width:640px){.stat-grid{grid-template-columns:repeat(2,1fr);}.form-row,.form-row.cols-2,.form-row.cols-4,.qb-opts{grid-template-columns:1fr;}.wrap{padding:1.4rem 1rem 3rem;}.topbar-right{gap:8px;}.nav-link{display:none;}}

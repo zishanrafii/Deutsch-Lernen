@@ -1,28 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel — English Shekho</title>
+<title>Admin Panel — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/admin.css">
-<style>
-/* ── Payment tab extra styles ── */
-.status-pill{display:inline-block;font-size:10px;font-weight:800;padding:3px 9px;
-  border-radius:20px;text-transform:uppercase;letter-spacing:.6px;font-family:'JetBrains Mono',monospace;}
-.sp-pending{background:rgba(251,146,60,.15);border:1px solid rgba(251,146,60,.3);color:#fb923c;}
-.sp-approved{background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:#34d399;}
-.sp-rejected{background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.3);color:#fb7185;}
-.action-btn{padding:4px 11px;border-radius:8px;font-size:11.5px;font-weight:700;cursor:pointer;
-  border:none;font-family:'Outfit',sans-serif;transition:.2s;margin:0 2px;}
-.btn-approve{background:rgba(52,211,153,.14);border:1px solid rgba(52,211,153,.3);color:#34d399;}
-.btn-approve:hover{background:rgba(52,211,153,.25);}
-.btn-reject{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.25);color:#fb7185;}
-.btn-reject:hover{background:rgba(251,113,133,.2);}
-.btn-approve:disabled,.btn-reject:disabled{opacity:.35;cursor:not-allowed;}
-.txn-code{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.5px;
-  background:rgba(255,255,255,.04);padding:2px 7px;border-radius:6px;border:1px solid rgba(255,255,255,.07);}
-</style>
 </head>
 <body>
 
@@ -34,11 +17,11 @@
       <div class="logo-icon">🛠️</div>
       <div class="logo-text">
         <h1>Admin Panel</h1>
-        <p>ENGLISH SHEKHO · MANAGEMENT CONSOLE</p>
+        <p>DEUTSCH LERNEN · MANAGEMENT CONSOLE</p>
       </div>
     </div>
     <div class="topbar-right">
-      <a href="dashboard.html" class="nav-link">← Back to Site</a>
+      <a href="dashboard.html" class="nav-link">← Site-এ ফিরে যাও</a>
       <div class="user-section">
         <div class="user-avatar" id="nav-avatar">🛠️</div>
         <div class="user-name" id="nav-name">Admin</div>
@@ -47,201 +30,284 @@
     </div>
   </div>
 
-  <!-- TAB NAV -->
-  <div class="admin-tabs">
-    <div class="admin-tab active" data-tab="overview">📊 Overview</div>
-    <div class="admin-tab" data-tab="users">👥 Users</div>
-    <div class="admin-tab" data-tab="content">📚 Content</div>
-    <div class="admin-tab" data-tab="payments">💳 Payments <span class="pending-badge" id="pending-badge" style="display:none;background:#fb923c;color:#000;font-size:9px;font-weight:800;padding:2px 6px;border-radius:20px;margin-left:4px;"></span></div>
+  <!-- ACCESS GATE (shown while checking / if not admin) -->
+  <div id="gate-wrap">
+    <div class="gate-screen">
+      <div class="gi">🔒</div>
+      <h2>Access যাচাই করা হচ্ছে...</h2>
+      <p>তোমার admin permission check করা হচ্ছে। Admin না হলে কিছুক্ষণের মধ্যে dashboard-এ ফিরিয়ে দেওয়া হবে।</p>
+    </div>
   </div>
 
-  <!-- ════════════════════════════════
-       TAB: OVERVIEW (Analytics)
-  ════════════════════════════════ -->
-  <div class="tab-panel active" id="tab-overview">
+  <!-- MAIN ADMIN UI (hidden until confirmed admin) -->
+  <div id="admin-wrap" style="display:none;">
 
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-icon">👥</div>
-        <div class="stat-value" id="stat-total-users">—</div>
-        <div class="stat-label">Total Users</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🔥</div>
-        <div class="stat-value" id="stat-active-today">—</div>
-        <div class="stat-label">Active Today</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📖</div>
-        <div class="stat-value" id="stat-reading-sessions">—</div>
-        <div class="stat-label">Reading Sessions</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🎧</div>
-        <div class="stat-value" id="stat-listening-sessions">—</div>
-        <div class="stat-label">Listening Sessions</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">✍️</div>
-        <div class="stat-value" id="stat-writings">—</div>
-        <div class="stat-label">Writing Submissions</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">⭐</div>
-        <div class="stat-value" id="stat-total-xp">—</div>
-        <div class="stat-label">Total XP Earned</div>
-      </div>
+    <!-- TAB NAV -->
+    <div class="admin-tabs">
+      <div class="admin-tab active" data-tab="overview">📊 Overview</div>
+      <div class="admin-tab" data-tab="users">👥 Users</div>
+      <div class="admin-tab" data-tab="content">📚 Content</div>
+      <div class="admin-tab" data-tab="payments">💳 Payments <span class="pending-badge" id="pending-badge" style="display:none;background:var(--orange);color:#000;font-size:9px;font-weight:800;padding:2px 6px;border-radius:20px;margin-left:4px;"></span></div>
+      <div class="admin-tab" data-tab="writings">✍️ Writings</div>
     </div>
 
-    <div class="section-title">🏆 Top Learners <span class="badge-muted">By XP</span></div>
-    <div class="panel-card">
-      <div class="table-wrap">
-        <table class="admin-table" id="top-learners-table">
-          <thead><tr><th>#</th><th>Name</th><th>Email</th><th>XP</th><th>Level</th><th>Streak</th></tr></thead>
-          <tbody id="top-learners-body"><tr><td colspan="6" class="empty-row">Loading...</td></tr></tbody>
-        </table>
+    <!-- ════════════════════════════════
+         TAB: OVERVIEW
+    ════════════════════════════════ -->
+    <div class="tab-panel active" id="tab-overview">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value" id="stat-total-users">—</div>
+          <div class="stat-label">Total Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🚫</div>
+          <div class="stat-value" id="stat-banned-users">—</div>
+          <div class="stat-label">Banned Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📖</div>
+          <div class="stat-value" id="stat-total-passages">—</div>
+          <div class="stat-label">Reading Passages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📘</div>
+          <div class="stat-value" id="stat-total-lessons">—</div>
+          <div class="stat-label">Grammar Lessons</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔤</div>
+          <div class="stat-value" id="stat-total-words">—</div>
+          <div class="stat-label">Vocab Words</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value" id="stat-total-xp">—</div>
+          <div class="stat-label">Total XP Earned</div>
+        </div>
       </div>
-    </div>
 
-    <div class="section-title">📈 Recent Signups</div>
-    <div class="panel-card">
-      <div class="table-wrap">
-        <table class="admin-table" id="recent-signups-table">
-          <thead><tr><th>Name</th><th>Email</th><th>Joined</th></tr></thead>
-          <tbody id="recent-signups-body"><tr><td colspan="3" class="empty-row">Loading...</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-
-  </div><!-- /tab-overview -->
-
-  <!-- ════════════════════════════════
-       TAB: USERS (Management)
-  ════════════════════════════════ -->
-  <div class="tab-panel" id="tab-users">
-
-    <div class="search-bar">
-      <div class="search-input-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" id="user-search-input" placeholder="Name বা email দিয়ে খুঁজুন...">
-      </div>
-      <div class="filter-tabs" id="user-filter-tabs">
-        <div class="ftab active" data-filter="all">All</div>
-        <div class="ftab" data-filter="admin">Admin</div>
-        <div class="ftab" data-filter="banned">Banned</div>
-      </div>
-    </div>
-
-    <div class="section-title">👥 All Users <span class="badge-muted" id="user-count-badge">0</span></div>
-    <div class="panel-card">
-      <div class="table-wrap">
-        <table class="admin-table" id="users-table">
-          <thead><tr><th>User</th><th>Email</th><th>XP</th><th>Streak</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
-          <tbody id="users-body"><tr><td colspan="7" class="empty-row">Loading...</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-
-  </div><!-- /tab-users -->
-
-  <!-- ════════════════════════════════
-       TAB: CONTENT (Management)
-  ════════════════════════════════ -->
-  <div class="tab-panel" id="tab-content">
-
-    <div class="content-subtabs">
-      <div class="csub-tab active" data-csub="passages">📖 Reading Passages</div>
-      <div class="csub-tab" data-csub="lessons">📘 Grammar Lessons</div>
-    </div>
-
-    <!-- PASSAGES SUB-TAB -->
-    <div class="csub-panel active" id="csub-passages">
-      <div class="content-toolbar">
-        <div class="section-title" style="margin:0;">📖 Reading Passages (Firestore) <span class="badge-muted" id="passage-count-badge">0</span></div>
-        <button class="btn-primary" data-action="new-passage">+ Notun Passage</button>
-      </div>
-      <div class="info-banner">
-        ℹ️ এখানে যা add করবেন তা <code>passages</code> Firestore collection-এ যাবে। বর্তমান Reading Center static <code>js/reading-data.js</code> file থেকে চলে — এখানের content আলাদা, future migration-এর জন্য প্রস্তুত করা।
-      </div>
+      <div class="section-title">🏆 Top Learners <span class="badge-muted">By XP</span></div>
       <div class="panel-card">
         <div class="table-wrap">
-          <table class="admin-table" id="passages-table">
-            <thead><tr><th>Title</th><th>Category</th><th>Level</th><th>XP</th><th>Actions</th></tr></thead>
-            <tbody id="passages-body"><tr><td colspan="5" class="empty-row">Loading...</td></tr></tbody>
+          <table class="admin-table" id="top-learners-table">
+            <thead><tr><th>#</th><th>Name</th><th>Email</th><th>XP</th><th>Level</th><th>Streak</th></tr></thead>
+            <tbody id="top-learners-body"><tr><td colspan="6" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
           </table>
         </div>
       </div>
-    </div>
 
-    <!-- LESSONS SUB-TAB -->
-    <div class="csub-panel" id="csub-lessons">
-      <div class="content-toolbar">
-        <div class="section-title" style="margin:0;">📘 Grammar Lessons (Firestore) <span class="badge-muted" id="lesson-count-badge">0</span></div>
-        <button class="btn-primary" data-action="new-lesson">+ Notun Lesson</button>
-      </div>
-      <div class="info-banner">
-        ℹ️ এখানে যা add করবেন তা <code>grammar_lessons</code> Firestore collection-এ যাবে। বর্তমান Grammar Hub static HTML page থেকে চলে — এখানের content আলাদা, future migration-এর জন্য প্রস্তুত করা।
-      </div>
+      <div class="section-title">📈 Recent Signups</div>
       <div class="panel-card">
         <div class="table-wrap">
-          <table class="admin-table" id="lessons-table">
-            <thead><tr><th>Title</th><th>Category</th><th>Level</th><th>Actions</th></tr></thead>
-            <tbody id="lessons-body"><tr><td colspan="4" class="empty-row">Loading...</td></tr></tbody>
+          <table class="admin-table" id="recent-signups-table">
+            <thead><tr><th>Name</th><th>Email</th><th>Joined</th></tr></thead>
+            <tbody id="recent-signups-body"><tr><td colspan="3" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
           </table>
         </div>
       </div>
-    </div>
 
-  </div><!-- /tab-content -->
+    </div><!-- /tab-overview -->
 
-  <!-- ════════════════════════════════
-       TAB: PAYMENTS (Manual Verification)
-  ════════════════════════════════ -->
-  <div class="tab-panel" id="tab-payments">
+    <!-- ════════════════════════════════
+         TAB: USERS
+    ════════════════════════════════ -->
+    <div class="tab-panel" id="tab-users">
 
-    <!-- Search bar -->
-    <div class="search-bar">
-      <div class="search-input-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" id="pay-search-input"
-          placeholder="TrxID, email বা নাম দিয়ে খুঁজুন...">
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="user-search-input" placeholder="Name বা email দিয়ে খুঁজুন...">
+        </div>
+        <div class="filter-tabs" id="user-filter-tabs">
+          <div class="ftab active" data-filter="all">All</div>
+          <div class="ftab" data-filter="admin">Admin</div>
+          <div class="ftab" data-filter="paid">Paid Plan</div>
+          <div class="ftab" data-filter="banned">Banned</div>
+        </div>
       </div>
-      <div class="filter-tabs" id="pay-filter-tabs">
-        <div class="ftab active" data-filter="pending">⏳ Pending</div>
-        <div class="ftab" data-filter="approved">✅ Approved</div>
-        <div class="ftab" data-filter="rejected">❌ Rejected</div>
-        <div class="ftab" data-filter="all">All</div>
+
+      <div class="section-title">👥 All Users <span class="badge-muted" id="user-count-badge">0</span></div>
+      <div class="panel-card">
+        <div class="table-wrap">
+          <table class="admin-table" id="users-table">
+            <thead><tr><th>User</th><th>Email</th><th>XP</th><th>Streak</th><th>Plan</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody id="users-body"><tr><td colspan="8" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <div class="section-title">💳 Payment Requests
-      <span class="badge-muted" id="pay-count-badge">0</span>
-    </div>
+    </div><!-- /tab-users -->
 
-    <div class="panel-card">
-      <div class="table-wrap">
-        <table class="admin-table" id="pay-table">
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Plan</th>
-              <th>Amount</th>
-              <th>Method</th>
-              <th>TrxID</th>
-              <th>Sender No.</th>
-              <th>Status</th>
-              <th>Date</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="pay-tbody">
-            <tr><td colspan="9" class="empty-row">লোড হচ্ছে...</td></tr>
-          </tbody>
-        </table>
+    <!-- ════════════════════════════════
+         TAB: CONTENT
+    ════════════════════════════════ -->
+    <div class="tab-panel" id="tab-content">
+
+      <div class="content-subtabs">
+        <div class="csub-tab active" data-csub="passages">📖 Reading Passages</div>
+        <div class="csub-tab" data-csub="lessons">📘 Grammar Lessons</div>
+        <div class="csub-tab" data-csub="vocab">🔤 Vocab Words</div>
       </div>
-    </div>
 
-  </div><!-- /tab-payments -->
+      <!-- PASSAGES SUB-TAB -->
+      <div class="csub-panel active" id="csub-passages">
+        <div class="content-toolbar">
+          <div class="section-title" style="margin:0;">📖 Reading Passages <span class="badge-muted" id="passage-count-badge">0</span></div>
+          <button class="btn-primary" data-action="new-passage">+ Neue Passage</button>
+        </div>
+        <div class="info-banner">
+          ℹ️ এখানে যা add/edit করবেন তা সরাসরি <code>reading_passages</code> Firestore collection-এ যায় — এটাই <code>lesen.html</code> লাইভ ব্যবহার করে, তাই এখানের পরিবর্তন সাথে সাথে site-এ দেখা যাবে।
+        </div>
+        <div class="panel-card">
+          <div class="table-wrap">
+            <table class="admin-table" id="passages-table">
+              <thead><tr><th>Title</th><th>Category</th><th>Level</th><th>প্রশ্ন</th><th>XP</th><th>Actions</th></tr></thead>
+              <tbody id="passages-body"><tr><td colspan="6" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- LESSONS SUB-TAB -->
+      <div class="csub-panel" id="csub-lessons">
+        <div class="content-toolbar">
+          <div class="section-title" style="margin:0;">📘 Grammar Lessons (Firestore) <span class="badge-muted" id="lesson-count-badge">0</span></div>
+          <button class="btn-primary" data-action="new-lesson">+ Neue Lesson</button>
+        </div>
+        <div class="info-banner">
+          ℹ️ এটা একটা আলাদা <code>grammar_lessons</code> collection — বর্তমান Grammar Hub (<code>grammatik.html</code> + ৪৪টা static page) থেকে এখনো connected না। ভবিষ্যতে dynamic lesson system-এ migrate করার জন্য প্রস্তুত করা।
+        </div>
+        <div class="panel-card">
+          <div class="table-wrap">
+            <table class="admin-table" id="lessons-table">
+              <thead><tr><th>Title</th><th>Category</th><th>Level</th><th>Actions</th></tr></thead>
+              <tbody id="lessons-body"><tr><td colspan="4" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- VOCAB SUB-TAB -->
+      <div class="csub-panel" id="csub-vocab">
+        <div class="content-toolbar">
+          <div class="section-title" style="margin:0;">🔤 Vocab Words (Firestore) <span class="badge-muted" id="vocab-count-badge">0</span></div>
+          <button class="btn-primary" data-action="new-vocab">+ Neues Wort</button>
+        </div>
+        <div class="info-banner">
+          ℹ️ এটাও একটা আলাদা <code>vocab_words</code> collection — বর্তমান Wörterbuch (A1/A2/B1) static <code>js/vocab-*-data.js</code> file থেকে চলে, এখনো connected না। ভবিষ্যতে dynamic vocab system-এর জন্য প্রস্তুত।
+        </div>
+        <div class="panel-card">
+          <div class="table-wrap">
+            <table class="admin-table" id="vocab-table">
+              <thead><tr><th>German</th><th>Bengali</th><th>Category</th><th>Level</th><th>Actions</th></tr></thead>
+              <tbody id="vocab-body"><tr><td colspan="5" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tab-content -->
+
+    <!-- ════════════════════════════════
+         TAB: PAYMENTS (bKash manual verification)
+    ════════════════════════════════ -->
+    <div class="tab-panel" id="tab-payments">
+
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="pay-search-input" placeholder="TrxID, email বা নাম দিয়ে খুঁজুন...">
+        </div>
+        <div class="filter-tabs" id="pay-filter-tabs">
+          <div class="ftab active" data-filter="pending">⏳ Pending</div>
+          <div class="ftab" data-filter="approved">✅ Approved</div>
+          <div class="ftab" data-filter="rejected">❌ Rejected</div>
+          <div class="ftab" data-filter="all">All</div>
+        </div>
+      </div>
+
+      <div class="section-title">💳 bKash Payment Requests <span class="badge-muted" id="pay-count-badge">0</span></div>
+      <div class="info-banner">
+        ℹ️ Approve করলে automatically ওই user-এর account-এ plan যোগ হয়ে যাবে (Stripe/SSLCommerz এখানে দরকার নেই — ওগুলো নিজে থেকেই webhook দিয়ে কাজ করে)।
+      </div>
+
+      <div class="panel-card">
+        <div class="table-wrap">
+          <table class="admin-table" id="pay-table">
+            <thead>
+              <tr>
+                <th>User</th><th>Plan</th><th>Amount</th><th>Method</th>
+                <th>TrxID</th><th>Sender No.</th><th>Status</th><th>Date</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="pay-tbody"><tr><td colspan="9" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /tab-payments -->
+
+    <!-- ════════════════════════════════
+         TAB: WRITINGS (AI feedback log / API cost monitor)
+    ════════════════════════════════ -->
+    <div class="tab-panel" id="tab-writings">
+
+      <div class="stat-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="stat-card">
+          <div class="stat-icon">✍️</div>
+          <div class="stat-value" id="stat-writings-total">—</div>
+          <div class="stat-label">মোট Submissions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-value" id="stat-writings-today">—</div>
+          <div class="stat-label">আজকে</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value" id="stat-writings-avg-score">—</div>
+          <div class="stat-label">Average Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value" id="stat-writings-xp">—</div>
+          <div class="stat-label">মোট XP দেওয়া হয়েছে</div>
+        </div>
+      </div>
+      <p class="cost-note">📌 প্রতিটা submission মানে একটা Anthropic API call — তাই এই সংখ্যা দিয়ে মোটামুটি API cost আন্দাজ করা যাবে। সঠিক cost জানতে console.anthropic.com-এর usage dashboard দেখো।</p>
+
+      <div class="search-bar" style="margin-top:1.4rem;">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="writing-search-input" placeholder="Email বা নাম দিয়ে খুঁজুন...">
+        </div>
+        <div class="filter-tabs" id="writing-filter-tabs">
+          <div class="ftab active" data-filter="all">All Levels</div>
+          <div class="ftab" data-filter="A1">A1</div>
+          <div class="ftab" data-filter="A2">A2</div>
+          <div class="ftab" data-filter="B1">B1</div>
+          <div class="ftab" data-filter="B2">B2</div>
+          <div class="ftab" data-filter="C1">C1</div>
+          <div class="ftab" data-filter="C2">C2</div>
+        </div>
+      </div>
+
+      <div class="section-title">✍️ Writing Submissions <span class="badge-muted" id="writing-count-badge">0</span></div>
+      <div class="panel-card">
+        <div class="table-wrap">
+          <table class="admin-table" id="writings-table">
+            <thead><tr><th>User</th><th>Level</th><th>Score</th><th>XP</th><th>Text preview</th><th>Date</th></tr></thead>
+            <tbody id="writings-body"><tr><td colspan="6" class="empty-row">লোড হচ্ছে...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /tab-writings -->
+
+  </div><!-- /admin-wrap -->
 
 </div><!-- end .wrap -->
 
@@ -251,59 +317,61 @@
 <div class="modal-overlay" id="passage-modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <h3 id="passage-modal-title">Notun Passage</h3>
+      <h3 id="passage-modal-title">Neue Passage</h3>
       <div class="modal-close" data-action="close-passage-modal">✕</div>
     </div>
     <div class="modal-body">
-      <input type="hidden" id="pm-id">
-      <label class="form-label">Title</label>
-      <input type="text" class="form-input" id="pm-title" placeholder="e.g. A Rainy Morning">
+      <input type="hidden" id="pm-slug-original">
+      <label class="form-label">Slug (unique ID — শুধু প্রথমবার সেট হবে)</label>
+      <input type="text" class="form-input" id="pm-slug" placeholder="e.g. im-park">
 
-      <div class="form-row">
-        <div>
-          <label class="form-label">Category</label>
-          <select class="form-input" id="pm-category">
-            <option value="Story">Story</option>
-            <option value="Article">Article</option>
-          </select>
-        </div>
+      <label class="form-label">Titel (Deutsch)</label>
+      <input type="text" class="form-input" id="pm-titlede" placeholder="e.g. Ein Tag im Park">
+      <label class="form-label">শিরোনাম (বাংলা)</label>
+      <input type="text" class="form-input" id="pm-titlebn" placeholder="e.g. পার্কে একটি দিন">
+      <label class="form-label">সংক্ষিপ্ত বিবরণ (বাংলা)</label>
+      <input type="text" class="form-input" id="pm-descbn" placeholder="সংক্ষিপ্ত ১ লাইনের বিবরণ">
+
+      <div class="form-row cols-4">
         <div>
           <label class="form-label">Level</label>
           <select class="form-input" id="pm-level">
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
+            <option value="A1">A1</option><option value="A2">A2</option>
+            <option value="B1">B1</option><option value="B2">B2</option>
+            <option value="C1">C1</option><option value="C2">C2</option>
           </select>
         </div>
         <div>
-          <label class="form-label">XP Reward</label>
-          <input type="number" class="form-input" id="pm-xp" value="40" min="10" step="10">
+          <label class="form-label">Category</label>
+          <input type="text" class="form-input" id="pm-category" placeholder="e.g. Alltag">
         </div>
-      </div>
-
-      <label class="form-label">Icon (emoji)</label>
-      <input type="text" class="form-input" id="pm-icon" placeholder="📖" maxlength="4">
-
-      <label class="form-label">Passage Text (এক প্যারাগ্রাফ এক লাইনে)</label>
-      <textarea class="form-textarea" id="pm-text" rows="6" placeholder="First paragraph here.&#10;Second paragraph here."></textarea>
-
-      <label class="form-label">Quiz Question</label>
-      <input type="text" class="form-input" id="pm-quiz-q" placeholder="What was the weather like?">
-
-      <label class="form-label">Options (কমা দিয়ে আলাদা করুন)</label>
-      <input type="text" class="form-input" id="pm-quiz-opts" placeholder="Sunny, Rainy, Snowy, Windy">
-
-      <div class="form-row">
         <div>
-          <label class="form-label">Correct Option Index (0,1,2,3)</label>
-          <input type="number" class="form-input" id="pm-quiz-ans" min="0" max="3" value="0">
+          <label class="form-label">Icon</label>
+          <input type="text" class="form-input" id="pm-icon" placeholder="📖" maxlength="4">
+        </div>
+        <div>
+          <label class="form-label">Card রং</label>
+          <select class="form-input" id="pm-color">
+            <option value="gold">Gold</option><option value="teal">Teal</option>
+            <option value="sky">Sky</option><option value="rose">Rose</option>
+            <option value="indigo">Indigo</option>
+          </select>
         </div>
       </div>
+      <div class="form-row cols-3">
+        <div><label class="form-label">শব্দ সংখ্যা</label><input type="number" class="form-input" id="pm-words" value="110" min="10"></div>
+        <div><label class="form-label">সময় (মিনিট)</label><input type="number" class="form-input" id="pm-time" value="3" min="1"></div>
+        <div><label class="form-label">XP Reward</label><input type="number" class="form-input" id="pm-xp" value="25" min="5" step="5"></div>
+      </div>
 
-      <label class="form-label">Explanation (বাংলায়)</label>
-      <input type="text" class="form-input" id="pm-quiz-exp" placeholder="প্যাসেজে বলা হয়েছে...">
+      <label class="form-label">Text (Deutsch) — খালি লাইন দিয়ে প্যারাগ্রাফ আলাদা করো</label>
+      <textarea class="form-textarea" id="pm-textde" rows="6" placeholder="Erster Absatz.&#10;&#10;Zweiter Absatz."></textarea>
+      <label class="form-label">অনুবাদ (বাংলা) — খালি লাইন দিয়ে প্যারাগ্রাফ আলাদা করো</label>
+      <textarea class="form-textarea" id="pm-textbn" rows="6" placeholder="প্রথম প্যারাগ্রাফ।&#10;&#10;দ্বিতীয় প্যারাগ্রাফ।"></textarea>
+
+      <label class="form-label">Comprehension প্রশ্ন</label>
+      <div id="pm-questions"></div>
+      <button type="button" class="qb-add-btn" data-action="add-question">+ প্রশ্ন যোগ করো</button>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-passage-modal">বাতিল</button>
@@ -312,24 +380,40 @@
   </div>
 </div>
 
+<!-- Template for one question block (cloned by JS) -->
+<template id="qb-template">
+  <div class="qb-block">
+    <div class="qb-head"><strong>প্রশ্ন</strong><span class="qb-remove" data-action="remove-question">✕ মুছে ফেলো</span></div>
+    <input type="text" class="form-input" data-field="q" placeholder="প্রশ্নের লেখা...">
+    <div class="qb-opts">
+      <input type="text" class="form-input" data-field="opt0" placeholder="Option A">
+      <input type="text" class="form-input" data-field="opt1" placeholder="Option B">
+      <input type="text" class="form-input" data-field="opt2" placeholder="Option C">
+      <input type="text" class="form-input" data-field="opt3" placeholder="Option D">
+    </div>
+    <label class="form-label">সঠিক Option (0=A, 1=B, 2=C, 3=D)</label>
+    <input type="number" class="form-input" data-field="correct" min="0" max="3" value="0">
+  </div>
+</template>
+
 <!-- ════════════════════════════════
      MODAL: Lesson Editor
 ════════════════════════════════ -->
 <div class="modal-overlay" id="lesson-modal-overlay">
   <div class="modal-box">
     <div class="modal-head">
-      <h3 id="lesson-modal-title">Notun Grammar Lesson</h3>
+      <h3 id="lesson-modal-title">Neue Grammar Lesson</h3>
       <div class="modal-close" data-action="close-lesson-modal">✕</div>
     </div>
     <div class="modal-body">
       <input type="hidden" id="lm-id">
       <label class="form-label">Title</label>
-      <input type="text" class="form-input" id="lm-title" placeholder="e.g. Degrees of Comparison">
+      <input type="text" class="form-input" id="lm-title" placeholder="e.g. Komparativ & Superlativ">
 
-      <div class="form-row">
+      <div class="form-row cols-2">
         <div>
           <label class="form-label">Category</label>
-          <input type="text" class="form-input" id="lm-category" placeholder="e.g. Tenses">
+          <input type="text" class="form-input" id="lm-category" placeholder="e.g. Adjektive">
         </div>
         <div>
           <label class="form-label">Level</label>
@@ -344,18 +428,113 @@
       <label class="form-label">Icon (emoji)</label>
       <input type="text" class="form-input" id="lm-icon" placeholder="📊" maxlength="4">
 
-      <label class="form-label">Explanation (বাংলায়)</label>
+      <label class="form-label">ব্যাখ্যা (বাংলা)</label>
       <textarea class="form-textarea" id="lm-explanation" rows="4" placeholder="এই গ্রামার টপিকের ব্যাখ্যা বাংলায় লিখুন..."></textarea>
 
       <label class="form-label">Formula / Structure</label>
-      <input type="text" class="form-input" id="lm-formula" placeholder="e.g. Subject + Verb + er/ier + than">
+      <input type="text" class="form-input" id="lm-formula" placeholder="e.g. Adjektiv + er/-ier + als">
 
-      <label class="form-label">Examples (এক লাইনে এক উদাহরণ)</label>
-      <textarea class="form-textarea" id="lm-examples" rows="3" placeholder="He is taller than his brother.&#10;She is the smartest student."></textarea>
+      <label class="form-label">উদাহরণ (এক লাইনে এক উদাহরণ)</label>
+      <textarea class="form-textarea" id="lm-examples" rows="3" placeholder="Er ist größer als sein Bruder.&#10;Sie ist die klügste Schülerin."></textarea>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-lesson-modal">বাতিল</button>
       <button class="btn-primary" data-action="save-lesson">💾 Save Lesson</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     MODAL: Vocab Word Editor
+════════════════════════════════ -->
+<div class="modal-overlay" id="vocab-modal-overlay">
+  <div class="modal-box modal-small">
+    <div class="modal-head">
+      <h3 id="vocab-modal-title">Neues Wort</h3>
+      <div class="modal-close" data-action="close-vocab-modal">✕</div>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="vm-id">
+      <label class="form-label">German</label>
+      <input type="text" class="form-input" id="vm-german" placeholder="e.g. der Tisch">
+      <label class="form-label">Bengali</label>
+      <input type="text" class="form-input" id="vm-bengali" placeholder="e.g. টেবিল">
+      <div class="form-row cols-2">
+        <div>
+          <label class="form-label">Category</label>
+          <input type="text" class="form-input" id="vm-category" placeholder="e.g. Möbel">
+        </div>
+        <div>
+          <label class="form-label">Level</label>
+          <select class="form-input" id="vm-level">
+            <option value="A1">A1</option><option value="A2">A2</option>
+            <option value="B1">B1</option><option value="B2">B2</option>
+            <option value="C1">C1</option><option value="C2">C2</option>
+          </select>
+        </div>
+      </div>
+      <label class="form-label">উদাহরণ বাক্য</label>
+      <input type="text" class="form-input" id="vm-example" placeholder="Der Tisch ist braun.">
+      <label class="form-label">Audio URL (ঐচ্ছিক)</label>
+      <input type="text" class="form-input" id="vm-audiourl" placeholder="https://...">
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" data-action="close-vocab-modal">বাতিল</button>
+      <button class="btn-primary" data-action="save-vocab">💾 Save Word</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     MODAL: Grant Plan Manually
+════════════════════════════════ -->
+<div class="modal-overlay" id="grant-modal-overlay">
+  <div class="modal-box modal-small">
+    <div class="modal-head">
+      <h3>Manual Plan Grant করো</h3>
+      <div class="modal-close" data-action="close-grant-modal">✕</div>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="gm-uid">
+      <p style="font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;margin-bottom:.6rem;">
+        User: <strong id="gm-user-label" style="color:var(--text);">—</strong>
+      </p>
+      <label class="form-label">Plan বেছে নাও</label>
+      <div class="plan-pill-row" id="gm-plan-pills">
+        <div class="plan-pill-opt" data-plan="monthly" data-days="30">
+          <div class="ppo-label">Monthly</div><div class="ppo-days">৩০ দিন</div>
+        </div>
+        <div class="plan-pill-opt" data-plan="sixmonths" data-days="180">
+          <div class="ppo-label">6 Months</div><div class="ppo-days">১৮০ দিন</div>
+        </div>
+        <div class="plan-pill-opt" data-plan="yearly" data-days="365">
+          <div class="ppo-label">1 Year</div><div class="ppo-days">৩৬৫ দিন</div>
+        </div>
+      </div>
+      <label class="form-label">Custom দিন সংখ্যা (ঐচ্ছিক — উপরের বেছে নিলে auto-fill হবে)</label>
+      <input type="number" class="form-input" id="gm-days" min="1" placeholder="e.g. 30">
+      <p class="form-hint">⚠️ এটা user-এর <code>users/{uid}</code> doc-এ সরাসরি <code>plan</code>/<code>planExpiry</code>/<code>planProvider:"admin-manual"</code> লিখে দেবে — Stripe/SSLCommerz/bKash কোনোটাই involve হবে না। শুধু genuine manual grant (যেমন free trial, refund এর বদলে, ইত্যাদি)-এর জন্য ব্যবহার করো।</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" data-action="close-grant-modal">বাতিল</button>
+      <button class="btn-primary" data-action="save-grant">✅ Plan Grant করো</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     MODAL: Writing Preview
+════════════════════════════════ -->
+<div class="modal-overlay" id="writing-modal-overlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Writing Submission</h3>
+      <div class="modal-close" data-action="close-writing-modal">✕</div>
+    </div>
+    <div class="modal-body" id="writing-modal-body" style="font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;white-space:pre-wrap;color:var(--sub);">
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" data-action="close-writing-modal">বন্ধ করো</button>
     </div>
   </div>
 </div>
@@ -370,7 +549,7 @@
       <div class="modal-close" data-action="close-confirm-modal">✕</div>
     </div>
     <div class="modal-body">
-      <p id="confirm-modal-text" style="color:var(--sub);font-size:13.5px;line-height:1.6;"></p>
+      <p id="confirm-modal-text" style="color:var(--sub);font-size:13.5px;line-height:1.6;font-family:'Noto Sans Bengali',sans-serif;"></p>
     </div>
     <div class="modal-foot">
       <button class="btn-secondary" data-action="close-confirm-modal">বাতিল</button>
