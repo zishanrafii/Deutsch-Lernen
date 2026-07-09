@@ -459,14 +459,19 @@ document.getElementById("btn-submit").onclick = async () => {
   setSteps(3);
 
   try {
-    // Check for duplicate TrxID
-    const dupQ = query(
-      collection(db, "payment_requests"),
-      where("transactionId", "==", txnRaw),
-      limit(1)
-    );
-    const dupSnap = await getDocs(dupQ);
-    if (!dupSnap.empty) {
+    // Check for duplicate TrxID (server-side via Admin SDK, keeps Firestore rules strict)
+    const idToken = await auth.currentUser.getIdToken();
+    const dupRes  = await fetch("/.netlify/functions/check-duplicate-txn", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + idToken,
+      },
+      body: JSON.stringify({ transactionId: txnRaw }),
+    });
+    const dupData = await dupRes.json();
+    if (!dupRes.ok) throw new Error(dupData.error || "Duplicate check failed");
+    if (dupData.duplicate) {
       showAlert("এই Transaction ID আগেই জমা হয়েছে। একটি TrxID একবারই ব্যবহার করা যাবে।", "error");
       setLoading(false); setSteps(2); return;
     }

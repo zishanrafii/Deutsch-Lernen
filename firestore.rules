@@ -76,6 +76,8 @@ service cloud.firestore {
     // ── payment_requests ──
     // user নিজের payment request তৈরি করতে পারবে, uid স্পুফ করতে পারবে না।
     // শুধু নিজের request গুলো পড়তে পারবে (history দেখানোর জন্য)।
+    // duplicate transactionId check এখন server-side (Admin SDK) function দিয়ে হয়,
+    // তাই read rule uid-based রাখা যাচ্ছে — অন্যের payment info কেউ পড়তে পারবে না।
     // approve/reject শুধু admin panel (Admin SDK) থেকে হবে।
     match /payment_requests/{requestId} {
       allow create: if request.auth != null
