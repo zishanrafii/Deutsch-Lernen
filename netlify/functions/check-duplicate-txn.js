@@ -4,21 +4,31 @@
 // to every logged-in user just for the client-side duplicate check.
 //
 // Environment variables needed in Netlify dashboard:
-//   FIREBASE_PROJECT_ID   = your-project-id
-//   FIREBASE_CLIENT_EMAIL = firebase-adminsdk-xxxx@your-project-id.iam.gserviceaccount.com
-//   FIREBASE_PRIVATE_KEY  = "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-//     (Get these 3 values from Firebase Console → Project Settings → Service accounts
-//      → Generate new private key. Paste FIREBASE_PRIVATE_KEY exactly as-is from the
-//      downloaded JSON's "private_key" field, including the \n characters.)
+//   FIREBASE_PROJECT_ID          = your-project-id
+//   FIREBASE_CLIENT_EMAIL        = firebase-adminsdk-xxxx@your-project-id.iam.gserviceaccount.com
+//   FIREBASE_PRIVATE_KEY_BASE64  = base64-encoded private_key (single line — avoids
+//     newline-corruption issues that Netlify's env var UI causes with multi-line PEM keys).
+//     To generate: base64-encode the exact "private_key" string from your service
+//     account JSON (including the literal \n characters), then paste the result
+//     as ONE line here.
 
 const admin = require("firebase-admin");
+
+function getPrivateKey() {
+  const b64 = process.env.FIREBASE_PRIVATE_KEY_BASE64;
+  if (b64) {
+    return Buffer.from(b64, "base64").toString("utf8");
+  }
+  // Fallback: old-style raw PEM env var (kept for backwards compatibility)
+  return (process.env.FIREBASE_PRIVATE_KEY || "").replace(/\\n/g, "\n");
+}
 
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
       projectId: process.env.FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: (process.env.FIREBASE_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
+      privateKey: getPrivateKey(),
     }),
   });
 }
