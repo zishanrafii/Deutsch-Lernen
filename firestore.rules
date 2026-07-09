@@ -12,9 +12,9 @@ service cloud.firestore {
       // role, plan, banned — কোনোটাই নিজে সেট করতে পারবে না (সবসময় "user" / free / false থেকে শুরু)
       allow create: if request.auth != null && request.auth.uid == userId
         && (!('role' in request.resource.data) || request.resource.data.role == "user")
-        && !('plan' in request.resource.data)
-        && !('planProvider' in request.resource.data)
-        && !('planExpiry' in request.resource.data)
+        && (!('plan' in request.resource.data) || request.resource.data.plan == "free")
+        && (!('planProvider' in request.resource.data) || request.resource.data.planProvider == null)
+        && (!('planExpiry' in request.resource.data) || request.resource.data.planExpiry == null)
         && (!('banned' in request.resource.data) || request.resource.data.banned == false);
 
       // Update — XP কমানো/masteredVocabIds মোছা (cheat) আটকানো
