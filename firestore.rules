@@ -73,6 +73,18 @@ service cloud.firestore {
       allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
     }
 
+    // ── payment_requests ──
+    // user নিজের payment request তৈরি করতে পারবে, uid স্পুফ করতে পারবে না।
+    // শুধু নিজের request গুলো পড়তে পারবে (history দেখানোর জন্য)।
+    // approve/reject শুধু admin panel (Admin SDK) থেকে হবে।
+    match /payment_requests/{requestId} {
+      allow create: if request.auth != null
+                    && request.resource.data.uid == request.auth.uid;
+      allow read: if request.auth != null
+                  && resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
     // ── Admin override (role: "admin" থাকলে সবকিছু করতে পারবে) ──
     function isAdmin() {
       return request.auth != null &&
