@@ -23,6 +23,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getFirestore,
+  initializeFirestore,
   doc,
   getDoc,
   setDoc,
@@ -55,7 +56,9 @@ const firebaseConfig = {
 const app       = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth      = getAuth(app);
-const db        = getFirestore(app);
+const db = initializeFirestore(app, {
+  experimentalAutoDetectLongPolling: true,
+});
 const googleProvider = new GoogleAuthProvider();
 
 // ── Helper: redirect to login if not authenticated ───
