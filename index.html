@@ -498,39 +498,30 @@ async function uploadToCloudinary(file) {
     throw new Error(data.error?.message || "Cloudinary upload failed");
   }
   return data.secure_url;
-}
-
-// ── CREATE USER DOC IN FIRESTORE ─────────────────────
 async function createUserDoc(uid, name, email, photoURL) {
-  try {
-    console.log("Current User:", auth.currentUser);
+  console.log("Creating user document...");
 
+  try {
     await setDoc(doc(db, "users", uid), {
       displayName: name,
       email: email,
       photoURL: photoURL || "",
       xp: 0,
-      streak: 0,
-      sessions: 0,
-      totalCorrect: 0,
-      masteredWords: [],
-      completedTopics: [],
-      plan: "free",
-      planProvider: null,
-      planStart: null,
-      planExpiry: null,
       role: "user",
+      plan: "free",
       banned: false,
       createdAt: serverTimestamp(),
-      lastLogin: serverTimestamp(),
     });
 
-    console.log("✅ Firestore document created");
+    console.log("✅ SUCCESS");
+    alert("SUCCESS");
 
   } catch (e) {
-    console.error("Firestore Error:", e);
-    alert(e.code + "\n\n" + e.message);
-    throw e;
+    console.error(e);
+    alert(
+      "CODE: " + e.code +
+      "\n\nMESSAGE: " + e.message
+    );
   }
 }
 // ── GOOGLE SIGN-IN ───────────────────────────────────
