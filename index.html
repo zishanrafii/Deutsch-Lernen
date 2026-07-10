@@ -502,27 +502,37 @@ async function uploadToCloudinary(file) {
 
 // ── CREATE USER DOC IN FIRESTORE ─────────────────────
 async function createUserDoc(uid, name, email, photoURL) {
-  await setDoc(doc(db, "users", uid), {
-    displayName:      name,
-    email:            email,
-    photoURL:         photoURL || "",
-    xp:               0,
-    streak:           0,
-    sessions:         0,
-    totalCorrect:     0,
-    masteredWords:    [],
-    completedTopics:  [],
-    plan:             "free",
-    planProvider:     null,
-    planStart:        null,
-    planExpiry:       null,
-    role:             "user",
-    banned:           false,
-    createdAt:        serverTimestamp(),
-    lastLogin:        serverTimestamp(),
-  });
-}
+  try {
+    console.log("Current User:", auth.currentUser);
 
+    await setDoc(doc(db, "users", uid), {
+      displayName: name,
+      email: email,
+      photoURL: photoURL || "",
+      xp: 0,
+      streak: 0,
+      sessions: 0,
+      totalCorrect: 0,
+      masteredWords: [],
+      completedTopics: [],
+      plan: "free",
+      planProvider: null,
+      planStart: null,
+      planExpiry: null,
+      role: "user",
+      banned: false,
+      createdAt: serverTimestamp(),
+      lastLogin: serverTimestamp(),
+    });
+
+    console.log("✅ Firestore document created");
+
+  } catch (e) {
+    console.error("Firestore Error:", e);
+    alert(e.code + "\n\n" + e.message);
+    throw e;
+  }
+}
 // ── GOOGLE SIGN-IN ───────────────────────────────────
 let googleSignInInProgress = false;
 
