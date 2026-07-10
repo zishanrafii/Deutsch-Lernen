@@ -39,7 +39,7 @@ import {
   serverTimestamp,
   increment,
   arrayUnion,
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+}from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // ── Firebase project config ──────────────────────────
 const firebaseConfig = {

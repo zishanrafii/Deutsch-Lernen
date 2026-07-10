@@ -498,6 +498,8 @@ async function uploadToCloudinary(file) {
     throw new Error(data.error?.message || "Cloudinary upload failed");
   }
   return data.secure_url;
+}
+
 async function createUserDoc(uid, name, email, photoURL) {
   console.log("Creating user document...");
 
