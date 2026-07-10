@@ -616,6 +616,7 @@ document.getElementById("btn-register").onclick = async () => {
     showMsg("অ্যাকাউন্ট তৈরি হয়েছে! Dashboard-এ যাচ্ছেন...", "success");
     setTimeout(() => { window.location.href = "dashboard.html"; }, 1200);
   } catch(err) {
+    console.error("Registration error:", err.code, err.message, err);
     showMsg(friendlyError(err.code));
   } finally {
     setLoading("btn-register", false);
@@ -661,8 +662,9 @@ function friendlyError(code) {
     "auth/popup-blocked":           "Popup ব্লক হয়েছে। Browser-এ popup অনুমতি দিন।",
     "auth/account-exists-with-different-credential":
                                     "এই ইমেইলে অন্য পদ্ধতিতে অ্যাকাউন্ট আছে।",
+    "permission-denied":           "Profile তৈরি করতে সমস্যা হয়েছে (Firestore rules)। Admin-কে জানান — [permission-denied]",
   };
-  return map[code] || "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।";
+  return map[code] || `একটি সমস্যা হয়েছে (${code || "unknown"})। আবার চেষ্টা করুন।`;
 }
 </script>
 
