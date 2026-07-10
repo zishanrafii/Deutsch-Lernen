@@ -524,7 +524,15 @@ async function createUserDoc(uid, name, email, photoURL) {
 }
 
 // ── GOOGLE SIGN-IN ───────────────────────────────────
+let googleSignInInProgress = false;
+
 async function handleGoogle() {
+  if (googleSignInInProgress) return; // ignore double-click / repeat trigger
+  googleSignInInProgress = true;
+
+  const btns = [document.getElementById("btn-google-login"), document.getElementById("btn-google-register")];
+  btns.forEach(b => { if (b) b.disabled = true; });
+
   clearMsg();
   try {
     const result = await signInWithPopup(auth, googleProvider);
@@ -544,9 +552,14 @@ async function handleGoogle() {
 
     window.location.href = "dashboard.html";
   } catch(err) {
-    if (err.code !== "auth/popup-closed-by-user") {
+    // Both of these fire when the popup gets superseded/closed by the user's
+    // own action (double-click, closing the popup, etc.) — not real failures.
+    if (err.code !== "auth/popup-closed-by-user" && err.code !== "auth/cancelled-popup-request") {
       showMsg("Google লগইন ব্যর্থ হয়েছে: " + friendlyError(err.code));
     }
+  } finally {
+    googleSignInInProgress = false;
+    btns.forEach(b => { if (b) b.disabled = false; });
   }
 }
 
