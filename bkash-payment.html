@@ -461,7 +461,7 @@ document.getElementById("btn-submit").onclick = async () => {
   try {
     // Check for duplicate TrxID (server-side via Admin SDK, keeps Firestore rules strict)
     const idToken = await auth.currentUser.getIdToken();
-    const dupRes  = await fetch("/.netlify/functions/check-duplicate-txn", {
+    const dupRes  = await fetch("https://us-central1-deutsch-lernen-bd.cloudfunctions.net/checkDuplicateTxn", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -655,7 +655,7 @@ async function finishExam() {
     schreibenScore = Math.round((actualW / minW) * 40); // capped low score
   } else {
     try {
-      const res = await fetch("/.netlify/functions/writing-feedback", {
+      const res = await fetch("https://us-central1-deutsch-lernen-bd.cloudfunctions.net/writingFeedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: writingAnswer, level: currentLevel }),

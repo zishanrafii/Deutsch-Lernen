@@ -1,0 +1,8 @@
+functions/
+netlify/
+seed-data/
+.git/
+DEUTSCH_LERNEN_PROJECT.md
+firebase.json
+firestore.rules
+.firebaserc

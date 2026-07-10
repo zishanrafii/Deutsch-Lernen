@@ -478,7 +478,7 @@ document.getElementById("pay-stripe").onclick = async () => {
   btn.classList.add("loading");
   btn.querySelector(".method-name").innerHTML = '<span class="spinner"></span> অপেক্ষা করুন...';
   try {
-    const res  = await fetch("/.netlify/functions/create-checkout", {
+    const res  = await fetch("https://us-central1-deutsch-lernen-bd.cloudfunctions.net/createCheckout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ plan: selectedPlan, uid: meUID, email: meEmail }),
@@ -500,7 +500,7 @@ document.getElementById("pay-ssl").onclick = async () => {
   btn.classList.add("loading");
   btn.querySelector(".method-name").innerHTML = '<span class="spinner"></span> অপেক্ষা করুন...';
   try {
-    const res  = await fetch("/.netlify/functions/sslcommerz-init", {
+    const res  = await fetch("https://us-central1-deutsch-lernen-bd.cloudfunctions.net/sslcommerzInit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ plan: selectedPlan, uid: meUID, email: meEmail, name: meName }),
