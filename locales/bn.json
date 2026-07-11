@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Deutsch Lernen — German শিখুন বাংলায়"
+  },
+  "common": {
+    "or_email": "অথবা email দিয়ে",
+    "email_label": "ইমেইল"
+  },
+  "auth": {
+    "tab_login": "লগইন",
+    "tab_register": "নতুন অ্যাকাউন্ট",
+    "google_login": "Google দিয়ে লগইন করুন",
+    "google_register": "Google দিয়ে রেজিস্ট্রেশন করুন",
+    "password_label": "পাসওয়ার্ড",
+    "password_placeholder": "পাসওয়ার্ড দিন",
+    "forgot_password": "পাসওয়ার্ড ভুলে গেছেন?",
+    "login_button": "লগইন করুন",
+    "photo_upload_title": "প্রোফাইল ছবি আপলোড করুন",
+    "photo_upload_sub": "ঐচ্ছিক · Cloudinary-তে সংরক্ষিত হবে",
+    "name_label": "নাম",
+    "name_placeholder": "আপনার পুরো নাম",
+    "password_min_placeholder": "কমপক্ষে ৮ অক্ষর",
+    "confirm_password_label": "পাসওয়ার্ড নিশ্চিত করুন",
+    "confirm_password_placeholder": "পাসওয়ার্ড আবার দিন",
+    "register_button": "অ্যাকাউন্ট তৈরি করুন"
+  },
+  "features": {
+    "level": "A1 থেকে C2",
+    "explanation": "আপনার ভাষায় ব্যাখ্যা",
+    "xp_streak": "XP ও Streak",
+    "ai_writing": "AI Writing Check"
+  },
+  "messages": {
+    "enter_email_password": "ইমেইল ও পাসওয়ার্ড দিন।",
+    "enter_name": "নাম দিন।",
+    "enter_email": "ইমেইল দিন।",
+    "password_min_length": "পাসওয়ার্ড কমপক্ষে ৮ অক্ষর হতে হবে।",
+    "password_mismatch": "পাসওয়ার্ড দুটো মিলছে না।",
+    "account_created": "অ্যাকাউন্ট তৈরি হয়েছে! Dashboard-এ যাচ্ছেন...",
+    "google_login_failed": "Google লগইন ব্যর্থ হয়েছে: ",
+    "enter_email_first": "আগে ইমেইল ঘরে আপনার ইমেইল দিন।",
+    "reset_link_sent": "পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে। ইমেইল চেক করুন।"
+  },
+  "errors": {
+    "user_not_found": "এই ইমেইলে কোনো অ্যাকাউন্ট নেই।",
+    "wrong_password": "পাসওয়ার্ড ভুল হয়েছে।",
+    "invalid_credential": "ইমেইল বা পাসওয়ার্ড ভুল।",
+    "email_in_use": "এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট আছে।",
+    "invalid_email": "ইমেইল ঠিকানা সঠিক নয়।",
+    "weak_password": "পাসওয়ার্ড আরো শক্তিশালী হতে হবে।",
+    "too_many_requests": "অনেকবার চেষ্টা হয়েছে। কিছুক্ষণ পর চেষ্টা করুন।",
+    "network_error": "নেটওয়ার্ক সমস্যা। ইন্টারনেট সংযোগ চেক করুন।",
+    "popup_blocked": "Popup ব্লক হয়েছে। Browser-এ popup অনুমতি দিন।",
+    "account_diff_credential": "এই ইমেইলে অন্য পদ্ধতিতে অ্যাকাউন্ট আছে।",
+    "permission_denied": "Profile তৈরি করতে সমস্যা হয়েছে (Firestore rules)। Admin-কে জানান — [permission-denied]",
+    "unknown": "একটি সমস্যা হয়েছে ({code})। আবার চেষ্টা করুন।"
+  },
+  "strength": {
+    "weak": "দুর্বল",
+    "fair": "মোটামুটি",
+    "good": "ভালো",
+    "strong": "শক্তিশালী"
+  },
+  "dashboard": {
+    "page_title": "Dashboard — Deutsch Lernen",
+    "nav": {
+      "journey": "Journey",
+      "quiz": "Quiz",
+      "grammatik": "Grammatik",
+      "sprechen": "Sprechen",
+      "rangliste": "Rangliste",
+      "chat": "Chat",
+      "loading": "লোড হচ্ছে...",
+      "logout": "Logout"
+    },
+    "hero": {
+      "greeting": "Hallo,",
+      "subtitle": "Vocabulary quiz, Grammar lessons, Speaking practice এবং community chat — সব এক জায়গায়। আজ একটু German শিখি?",
+      "level": "Level",
+      "xp": "XP",
+      "streak": "Streak",
+      "words": "Wörter"
+    },
+    "challenge": {
+      "loading": "আজকের challenge লোড হচ্ছে..."
+    },
+    "challenges": {
+      "c1": "১০টি নতুন German word শিখুন এবং বাক্যে ব্যবহার করুন",
+      "c2": "Quiz-এ ৮০% বা বেশি score করুন",
+      "c3": "Grammatik-এর একটি topic পড়ুন এবং exercise করুন",
+      "c4": "Community chat-এ ৩টি German sentence লিখুন",
+      "c5": "Speaking practice-এ ৫টি German sentence বলুন",
+      "c6": "Artikel (der/die/das) সহ ১০টি Nomen মুখস্থ করুন",
+      "c7": "Roadmap-এর একটি topic সম্পন্ন করুন"
+    },
+    "stats": {
+      "total_correct": "মোট সঠিক উত্তর",
+      "total_sessions": "মোট সেশন",
+      "topics_done": "Topics সম্পন্ন",
+      "current_level": "বর্তমান স্তর"
+    },
+    "progress": {
+      "next_level": "পরের level: 500 XP",
+      "next_level_dynamic": "পরের level: {xp} XP",
+      "mastery": "🎉 Meisterschaft erreicht!"
+    },
+    "features": {
+      "title": "🧭 সব Features"
+    },
+    "badge": {
+      "new": "New",
+      "soon": "শীঘ্রই"
+    },
+    "cards": {
+      "vokabelquiz": "A1 থেকে C2 পর্যন্ত German vocabulary quiz দিন।",
+      "grammatik": "Artikel, Kasus, Verben — সব German grammar rules বাংলায় শিখুন।",
+      "sprechen": "German উচ্চারণ guide এবং speaking drill দিয়ে fluency বাড়ান।",
+      "hoeren": "Native speaker German audio শুনুন এবং comprehension বাড়ান।",
+      "lesen": "German passage পড়ুন এবং reading comprehension quiz দিন।",
+      "schreiben": "German writing practice করুন AI grammar feedback সহ।",
+      "lernreise": "A1 থেকে C2 পর্যন্ত structured learning journey follow করুন।",
+      "woerterbuch": "Category অনুযায়ী German vocabulary browse ও flashcard practice করুন।",
+      "aufgaben": "প্রতিদিন নতুন German challenge — streak ধরে রাখুন ও XP জিতুন।",
+      "chat": "সবাই মিলে German practice ও discussion করুন।",
+      "rangliste": "Top learners দেখুন এবং ranking-এ নিজেকে এগিয়ে নিন।",
+      "freunde": "অন্য learners-দের follow করুন এবং একসাথে German শিখুন।",
+      "livekurs": "Video ও screenshare দিয়ে real-time German class করুন।",
+      "nachrichten": "Private message এবং direct chat ব্যবহার করুন।",
+      "fortschritt": "Score chart, streak calendar এবং level history এক জায়গায়।",
+      "profil": "আপনার profile, achievements এবং learning history দেখুন।",
+      "prufung": "Level অনুযায়ী (A1–C2) সম্পূর্ণ exam দিন এবং নিজের দক্ষতা যাচাই করুন।"
+    },
+    "no_quiz_yet": "এখনো কোনো quiz দেওয়া হয়নি।",
+    "tips": {
+      "t1": "প্রতিদিন মাত্র ১৫ মিনিট German practice করলেও দ্রুত উন্নতি হয়।",
+      "t2": "নতুন German word শেখার পর বাক্যে ব্যবহার করুন — মনে থাকবে।",
+      "t3": "Daily challenge miss করবেন না — streak আপনার সেরা teacher।",
+      "t4": "German উচ্চারণ কঠিন — speaking practice প্রতিদিন করুন।",
+      "t5": "Artikel (der/die/das) প্রতিটি নতুন Nomen-এর সাথেই মুখস্থ করুন।"
+    },
+    "footer": {
+      "brand_sub": "একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।",
+      "rights": "All rights reserved.",
+      "quick_links": "🔗 Quick Links",
+      "all_topics": "alle Themen",
+      "top_learners": "Top Lerner",
+      "learning_areas": "📚 Lernbereiche",
+      "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2"
+    }
+  },
+  "lang_picker": {
+    "title": "আপনি কোন ভাষা থেকে German শিখতে চান?",
+    "subtitle": "সব ব্যাখ্যা, মেনু ও নির্দেশনা এই ভাষায় দেখানো হবে। পরে যেকোনো সময় বদলাতে পারবেন।"
+  }
+}

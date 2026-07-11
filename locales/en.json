@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Deutsch Lernen — Learn German in English"
+  },
+  "common": {
+    "or_email": "or with email",
+    "email_label": "Email"
+  },
+  "auth": {
+    "tab_login": "Log In",
+    "tab_register": "New Account",
+    "google_login": "Sign in with Google",
+    "google_register": "Sign up with Google",
+    "password_label": "Password",
+    "password_placeholder": "Enter your password",
+    "forgot_password": "Forgot password?",
+    "login_button": "Log In",
+    "photo_upload_title": "Upload a profile photo",
+    "photo_upload_sub": "Optional · stored on Cloudinary",
+    "name_label": "Name",
+    "name_placeholder": "Your full name",
+    "password_min_placeholder": "At least 8 characters",
+    "confirm_password_label": "Confirm password",
+    "confirm_password_placeholder": "Re-enter your password",
+    "register_button": "Create account"
+  },
+  "features": {
+    "level": "A1 to C2",
+    "explanation": "Explanations in your language",
+    "xp_streak": "XP & Streaks",
+    "ai_writing": "AI Writing Check"
+  },
+  "messages": {
+    "enter_email_password": "Please enter your email and password.",
+    "enter_name": "Please enter your name.",
+    "enter_email": "Please enter your email.",
+    "password_min_length": "Password must be at least 8 characters.",
+    "password_mismatch": "Passwords don't match.",
+    "account_created": "Account created! Taking you to your dashboard...",
+    "google_login_failed": "Google sign-in failed: ",
+    "enter_email_first": "Enter your email above first.",
+    "reset_link_sent": "Password reset link sent. Check your email."
+  },
+  "errors": {
+    "user_not_found": "No account exists with this email.",
+    "wrong_password": "Incorrect password.",
+    "invalid_credential": "Incorrect email or password.",
+    "email_in_use": "An account already exists with this email.",
+    "invalid_email": "That email address isn't valid.",
+    "weak_password": "Password needs to be stronger.",
+    "too_many_requests": "Too many attempts. Please try again shortly.",
+    "network_error": "Network issue. Check your internet connection.",
+    "popup_blocked": "Popup was blocked. Please allow popups for this site.",
+    "account_diff_credential": "An account with this email already exists via a different sign-in method.",
+    "permission_denied": "Couldn't create your profile (Firestore rules). Contact an admin — [permission-denied]",
+    "unknown": "Something went wrong ({code}). Please try again."
+  },
+  "strength": {
+    "weak": "Weak",
+    "fair": "Fair",
+    "good": "Good",
+    "strong": "Strong"
+  },
+  "dashboard": {
+    "page_title": "Dashboard — Deutsch Lernen",
+    "nav": {
+      "journey": "Journey",
+      "quiz": "Quiz",
+      "grammatik": "Grammatik",
+      "sprechen": "Sprechen",
+      "rangliste": "Rangliste",
+      "chat": "Chat",
+      "loading": "Loading...",
+      "logout": "Logout"
+    },
+    "hero": {
+      "greeting": "Hello,",
+      "subtitle": "Vocabulary quiz, grammar lessons, speaking practice, and community chat — all in one place. Ready to learn some German today?",
+      "level": "Level",
+      "xp": "XP",
+      "streak": "Streak",
+      "words": "Words"
+    },
+    "challenge": {
+      "loading": "Loading today's challenge..."
+    },
+    "challenges": {
+      "c1": "Learn 10 new German words and use them in sentences",
+      "c2": "Score 80% or higher on a quiz",
+      "c3": "Read a Grammatik topic and do the exercise",
+      "c4": "Write 3 German sentences in the community chat",
+      "c5": "Say 5 German sentences in speaking practice",
+      "c6": "Memorize 10 nouns with their article (der/die/das)",
+      "c7": "Complete one topic on the roadmap"
+    },
+    "stats": {
+      "total_correct": "Total correct answers",
+      "total_sessions": "Total sessions",
+      "topics_done": "Topics completed",
+      "current_level": "Current level"
+    },
+    "progress": {
+      "next_level": "Next level: 500 XP",
+      "next_level_dynamic": "Next level: {xp} XP",
+      "mastery": "🎉 Mastery reached!"
+    },
+    "features": {
+      "title": "🧭 All Features"
+    },
+    "badge": {
+      "new": "New",
+      "soon": "Coming soon"
+    },
+    "cards": {
+      "vokabelquiz": "Take German vocabulary quizzes from A1 to C2.",
+      "grammatik": "Learn all German grammar rules — Artikel, Kasus, Verben — explained clearly.",
+      "sprechen": "Build fluency with German pronunciation guides and speaking drills.",
+      "hoeren": "Listen to native speaker German audio and boost your comprehension.",
+      "lesen": "Read German passages and take reading comprehension quizzes.",
+      "schreiben": "Practice German writing with AI grammar feedback.",
+      "lernreise": "Follow a structured learning journey from A1 to C2.",
+      "woerterbuch": "Browse German vocabulary by category and practice with flashcards.",
+      "aufgaben": "A new German challenge every day — keep your streak and earn XP.",
+      "chat": "Practice German and discuss with the community.",
+      "rangliste": "See top learners and climb the ranking.",
+      "freunde": "Follow other learners and learn German together.",
+      "livekurs": "Join real-time German classes with video and screenshare.",
+      "nachrichten": "Use private messages and direct chat.",
+      "fortschritt": "Score charts, streak calendar, and level history in one place.",
+      "profil": "View your profile, achievements, and learning history.",
+      "prufung": "Take a full exam by level (A1–C2) and test your skills."
+    },
+    "no_quiz_yet": "No quizzes taken yet.",
+    "tips": {
+      "t1": "Just 15 minutes of German practice a day leads to fast progress.",
+      "t2": "Use a new German word in a sentence right after learning it — it'll stick.",
+      "t3": "Don't miss the daily challenge — your streak is your best teacher.",
+      "t4": "German pronunciation is tricky — practice speaking every day.",
+      "t5": "Memorize the article (der/die/das) together with every new noun."
+    },
+    "footer": {
+      "brand_sub": "A German learning platform built for Bengali speakers. Vocabulary, grammar, speaking, and live classes from A1 to C2.",
+      "rights": "All rights reserved.",
+      "quick_links": "🔗 Quick Links",
+      "all_topics": "all topics",
+      "top_learners": "Top learners",
+      "learning_areas": "📚 Learning Areas",
+      "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2"
+    }
+  },
+  "lang_picker": {
+    "title": "Which language do you want to learn German from?",
+    "subtitle": "All explanations, menus, and instructions will show in this language. You can change it anytime later."
+  }
+}

@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard — Deutsch Lernen</title>
+<title data-i18n="dashboard.page_title">Dashboard — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -262,18 +263,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </div>
     <div class="topbar-right">
       <nav class="nav-links">
-        <a href="lernreise.html" class="nav-link">Journey</a>
-        <a href="vokabelquiz.html" class="nav-link">Quiz</a>
-        <a href="grammatik.html" class="nav-link">Grammatik</a>
-        <a href="sprechen.html" class="nav-link">Sprechen</a>
-        <a href="rangliste.html" class="nav-link">Rangliste</a>
-        <a href="coming-soon.html?feature=chat" class="nav-link">Chat</a>
+        <a href="lernreise.html" class="nav-link" data-i18n="dashboard.nav.journey">Journey</a>
+        <a href="vokabelquiz.html" class="nav-link" data-i18n="dashboard.nav.quiz">Quiz</a>
+        <a href="grammatik.html" class="nav-link" data-i18n="dashboard.nav.grammatik">Grammatik</a>
+        <a href="sprechen.html" class="nav-link" data-i18n="dashboard.nav.sprechen">Sprechen</a>
+        <a href="rangliste.html" class="nav-link" data-i18n="dashboard.nav.rangliste">Rangliste</a>
+        <a href="coming-soon.html?feature=chat" class="nav-link" data-i18n="dashboard.nav.chat">Chat</a>
       </nav>
+      <div id="lang-switch-container" style="margin-right:.4rem;"></div>
       <div class="user-section">
         <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
-        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+        <div class="user-name" id="nav-name" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
         <a href="pricing.html" id="plan-badge" style="display:none;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;text-decoration:none;font-family:'JetBrains Mono',monospace;background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.25);color:#f5c842;">FREE</a>
-        <button class="btn-logout" id="btn-logout">Logout</button>
+        <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
       </div>
     </div>
   </div>
@@ -286,25 +288,25 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="hero-inner">
       <div>
         <div class="hero-eyebrow">🇩🇪 Willkommen zurück!</div>
-        <h2>Hallo, <span id="hero-name">Lerner</span>! 👋</h2>
-        <p class="hero-sub">Vocabulary quiz, Grammar lessons, Speaking practice এবং community chat — সব এক জায়গায়। আজ একটু German শিখি?</p>
+        <h2><span data-i18n="dashboard.hero.greeting">Hallo,</span> <span id="hero-name">Lerner</span>! 👋</h2>
+        <p class="hero-sub" data-i18n="dashboard.hero.subtitle">Vocabulary quiz, Grammar lessons, Speaking practice এবং community chat — সব এক জায়গায়। আজ একটু German শিখি?</p>
       </div>
       <div class="hero-stats">
         <div class="hstat">
           <div class="hstat-v" id="h-level">A1</div>
-          <div class="hstat-l">Level</div>
+          <div class="hstat-l" data-i18n="dashboard.hero.level">Level</div>
         </div>
         <div class="hstat">
           <div class="hstat-v" id="h-xp">0</div>
-          <div class="hstat-l">XP</div>
+          <div class="hstat-l" data-i18n="dashboard.hero.xp">XP</div>
         </div>
         <div class="hstat">
           <div class="hstat-v" id="h-streak">0🔥</div>
-          <div class="hstat-l">Streak</div>
+          <div class="hstat-l" data-i18n="dashboard.hero.streak">Streak</div>
         </div>
         <div class="hstat">
           <div class="hstat-v" id="h-words">0</div>
-          <div class="hstat-l">Wörter</div>
+          <div class="hstat-l" data-i18n="dashboard.hero.words">Wörter</div>
         </div>
       </div>
     </div>
@@ -316,7 +318,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="challenge-icon">⚡</div>
       <div>
         <div class="challenge-title">Tägliche Aufgabe <span class="challenge-badge">Heute</span></div>
-        <div class="challenge-desc" id="challenge-desc">আজকের challenge লোড হচ্ছে...</div>
+        <div class="challenge-desc" id="challenge-desc" data-i18n="dashboard.challenge.loading">আজকের challenge লোড হচ্ছে...</div>
       </div>
     </div>
     <a href="coming-soon.html?feature=aufgaben" class="btn-challenge">Jetzt starten →</a>
@@ -328,28 +330,28 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="stat-icon">✅</div>
       <div>
         <div class="stat-v sv-1" id="s-correct">0</div>
-        <div class="stat-l">মোট সঠিক উত্তর</div>
+        <div class="stat-l" data-i18n="dashboard.stats.total_correct">মোট সঠিক উত্তর</div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">📋</div>
       <div>
         <div class="stat-v sv-2" id="s-sessions">0</div>
-        <div class="stat-l">মোট সেশন</div>
+        <div class="stat-l" data-i18n="dashboard.stats.total_sessions">মোট সেশন</div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">📖</div>
       <div>
         <div class="stat-v sv-3" id="s-topics">0</div>
-        <div class="stat-l">Topics সম্পন্ন</div>
+        <div class="stat-l" data-i18n="dashboard.stats.topics_done">Topics সম্পন্ন</div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">⚡</div>
       <div>
         <div class="stat-v sv-4" id="s-level">Anfänger</div>
-        <div class="stat-l">বর্তমান স্তর</div>
+        <div class="stat-l" data-i18n="dashboard.stats.current_level">বর্তমান স্তর</div>
       </div>
     </div>
   </div>
@@ -372,141 +374,141 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </div>
     <div class="progress-meta">
       <span id="xp-current">0 XP</span>
-      <span id="xp-next">পরের level: 500 XP</span>
+      <span id="xp-next" data-i18n="dashboard.progress.next_level">পরের level: 500 XP</span>
     </div>
   </div>
 
   <!-- FEATURE CARDS -->
-  <div class="section-title">🧭 সব Features</div>
+  <div class="section-title" data-i18n="dashboard.features.title">🧭 সব Features</div>
   <div class="dashboard-grid">
 
     <a href="vokabelquiz.html" class="card">
       <div class="card-accent ca-gold"></div>
       <div class="card-icon">📝</div>
       <h3>Vokabelquiz</h3>
-      <p>A1 থেকে C2 পর্যন্ত German vocabulary quiz দিন।</p>
+      <p data-i18n="dashboard.cards.vokabelquiz">A1 থেকে C2 পর্যন্ত German vocabulary quiz দিন।</p>
     </a>
 
     <a href="grammatik.html" class="card">
       <div class="card-accent ca-teal"></div>
       <div class="card-icon">📘</div>
       <h3>Grammatik</h3>
-      <p>Artikel, Kasus, Verben — সব German grammar rules বাংলায় শিখুন।</p>
+      <p data-i18n="dashboard.cards.grammatik">Artikel, Kasus, Verben — সব German grammar rules বাংলায় শিখুন।</p>
     </a>
 
     <a href="sprechen.html" class="card">
       <div class="card-accent ca-indigo"></div>
       <div class="card-icon">🎤</div>
       <h3>Sprechen</h3>
-      <p>German উচ্চারণ guide এবং speaking drill দিয়ে fluency বাড়ান।</p>
+      <p data-i18n="dashboard.cards.sprechen">German উচ্চারণ guide এবং speaking drill দিয়ে fluency বাড়ান।</p>
     </a>
 
     <a href="hoeren.html" class="card">
       <div class="card-accent ca-sky"></div>
       <div class="card-icon">👂</div>
       <h3>Hören</h3>
-      <p>Native speaker German audio শুনুন এবং comprehension বাড়ান।</p>
-      <span class="card-badge">New</span>
+      <p data-i18n="dashboard.cards.hoeren">Native speaker German audio শুনুন এবং comprehension বাড়ান।</p>
+      <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
     </a>
 
     <a href="lesen.html" class="card">
       <div class="card-accent ca-gold"></div>
       <div class="card-icon">📖</div>
       <h3>Lesen</h3>
-      <p>German passage পড়ুন এবং reading comprehension quiz দিন।</p>
-      <span class="card-badge">New</span>
+      <p data-i18n="dashboard.cards.lesen">German passage পড়ুন এবং reading comprehension quiz দিন।</p>
+      <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
     </a>
 
     <a href="schreiben.html" class="card">
       <div class="card-accent ca-violet"></div>
       <div class="card-icon">✍️</div>
       <h3>Schreiben</h3>
-      <p>German writing practice করুন AI grammar feedback সহ।</p>
+      <p data-i18n="dashboard.cards.schreiben">German writing practice করুন AI grammar feedback সহ।</p>
     </a>
 
     <a href="lernreise.html" class="card">
       <div class="card-accent ca-emerald"></div>
       <div class="card-icon">🗺️</div>
       <h3>Lernreise</h3>
-      <p>A1 থেকে C2 পর্যন্ত structured learning journey follow করুন।</p>
+      <p data-i18n="dashboard.cards.lernreise">A1 থেকে C2 পর্যন্ত structured learning journey follow করুন।</p>
     </a>
 
     <a href="woerterbuch.html" class="card">
       <div class="card-accent ca-teal"></div>
       <div class="card-icon">📚</div>
       <h3>Wörterbuch</h3>
-      <p>Category অনুযায়ী German vocabulary browse ও flashcard practice করুন।</p>
-      <span class="card-badge">New</span>
+      <p data-i18n="dashboard.cards.woerterbuch">Category অনুযায়ী German vocabulary browse ও flashcard practice করুন।</p>
+      <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
     </a>
 
     <a href="coming-soon.html?feature=aufgaben" class="card">
       <div class="card-accent ca-gold"></div>
       <div class="card-icon">⚡</div>
       <h3>Tägliche Aufgaben</h3>
-      <p>প্রতিদিন নতুন German challenge — streak ধরে রাখুন ও XP জিতুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)">শীঘ্রই</span>
+      <p data-i18n="dashboard.cards.aufgaben">প্রতিদিন নতুন German challenge — streak ধরে রাখুন ও XP জিতুন।</p>
+      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
     </a>
 
     <a href="coming-soon.html?feature=chat" class="card">
       <div class="card-accent ca-teal"></div>
       <div class="card-icon">💬</div>
       <h3>Community Chat</h3>
-      <p>সবাই মিলে German practice ও discussion করুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)">শীঘ্রই</span>
+      <p data-i18n="dashboard.cards.chat">সবাই মিলে German practice ও discussion করুন।</p>
+      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
     </a>
 
     <a href="rangliste.html" class="card">
       <div class="card-accent ca-rose"></div>
       <div class="card-icon">🏆</div>
       <h3>Rangliste</h3>
-      <p>Top learners দেখুন এবং ranking-এ নিজেকে এগিয়ে নিন।</p>
+      <p data-i18n="dashboard.cards.rangliste">Top learners দেখুন এবং ranking-এ নিজেকে এগিয়ে নিন।</p>
     </a>
 
     <a href="coming-soon.html?feature=freunde" class="card">
       <div class="card-accent ca-emerald"></div>
       <div class="card-icon">👥</div>
       <h3>Freunde</h3>
-      <p>অন্য learners-দের follow করুন এবং একসাথে German শিখুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)">শীঘ্রই</span>
+      <p data-i18n="dashboard.cards.freunde">অন্য learners-দের follow করুন এবং একসাথে German শিখুন।</p>
+      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
     </a>
 
     <a href="coming-soon.html?feature=livekurs" class="card">
       <div class="card-accent ca-orange"></div>
       <div class="card-icon">📡</div>
       <h3>Live Kurs</h3>
-      <p>Video ও screenshare দিয়ে real-time German class করুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)">শীঘ্রই</span>
+      <p data-i18n="dashboard.cards.livekurs">Video ও screenshare দিয়ে real-time German class করুন।</p>
+      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
     </a>
 
     <a href="coming-soon.html?feature=nachrichten" class="card">
       <div class="card-accent ca-indigo"></div>
       <div class="card-icon">✉️</div>
       <h3>Nachrichten</h3>
-      <p>Private message এবং direct chat ব্যবহার করুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)">শীঘ্রই</span>
+      <p data-i18n="dashboard.cards.nachrichten">Private message এবং direct chat ব্যবহার করুন।</p>
+      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
     </a>
 
     <a href="coming-soon.html?feature=fortschritt" class="card">
       <div class="card-accent ca-orange"></div>
       <div class="card-icon">📊</div>
       <h3>Fortschritt</h3>
-      <p>Score chart, streak calendar এবং level history এক জায়গায়।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)">শীঘ্রই</span>
+      <p data-i18n="dashboard.cards.fortschritt">Score chart, streak calendar এবং level history এক জায়গায়।</p>
+      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
     </a>
 
     <a href="mein-profil.html" class="card">
       <div class="card-accent ca-rose"></div>
       <div class="card-icon">👤</div>
       <h3>Mein Profil</h3>
-      <p>আপনার profile, achievements এবং learning history দেখুন।</p>
+      <p data-i18n="dashboard.cards.profil">আপনার profile, achievements এবং learning history দেখুন।</p>
     </a>
 
     <a href="prufung.html" class="card">
       <div class="card-accent ca-violet"></div>
       <div class="card-icon">🎓</div>
       <h3>Prüfung</h3>
-      <p>Level অনুযায়ী (A1–C2) সম্পূর্ণ exam দিন এবং নিজের দক্ষতা যাচাই করুন।</p>
-      <span class="card-badge">New</span>
+      <p data-i18n="dashboard.cards.prufung">Level অনুযায়ী (A1–C2) সম্পূর্ণ exam দিন এবং নিজের দক্ষতা যাচাই করুন।</p>
+      <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
     </a>
 
   </div>
@@ -517,7 +519,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="section-title">📊 Letzte Quiz-Ergebnisse</div>
       <div class="panel">
         <div id="recent-scores-list">
-          <div class="no-data">এখনো কোনো quiz দেওয়া হয়নি।</div>
+          <div class="no-data" data-i18n="dashboard.no_quiz_yet">এখনো কোনো quiz দেওয়া হয়নি।</div>
         </div>
       </div>
     </div>
@@ -525,11 +527,11 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="section-title">💡 Lerntipps</div>
       <div class="panel">
         <div class="tip-list">
-          <div class="tip-item"><span class="tip-emoji">🕐</span><span>প্রতিদিন মাত্র ১৫ মিনিট German practice করলেও দ্রুত উন্নতি হয়।</span></div>
-          <div class="tip-item"><span class="tip-emoji">📖</span><span>নতুন German word শেখার পর বাক্যে ব্যবহার করুন — মনে থাকবে।</span></div>
-          <div class="tip-item"><span class="tip-emoji">🎯</span><span>Daily challenge miss করবেন না — streak আপনার সেরা teacher।</span></div>
-          <div class="tip-item"><span class="tip-emoji">🎤</span><span>German উচ্চারণ কঠিন — speaking practice প্রতিদিন করুন।</span></div>
-          <div class="tip-item"><span class="tip-emoji">📝</span><span>Artikel (der/die/das) প্রতিটি নতুন Nomen-এর সাথেই মুখস্থ করুন।</span></div>
+          <div class="tip-item"><span class="tip-emoji">🕐</span><span data-i18n="dashboard.tips.t1">প্রতিদিন মাত্র ১৫ মিনিট German practice করলেও দ্রুত উন্নতি হয়।</span></div>
+          <div class="tip-item"><span class="tip-emoji">📖</span><span data-i18n="dashboard.tips.t2">নতুন German word শেখার পর বাক্যে ব্যবহার করুন — মনে থাকবে।</span></div>
+          <div class="tip-item"><span class="tip-emoji">🎯</span><span data-i18n="dashboard.tips.t3">Daily challenge miss করবেন না — streak আপনার সেরা teacher।</span></div>
+          <div class="tip-item"><span class="tip-emoji">🎤</span><span data-i18n="dashboard.tips.t4">German উচ্চারণ কঠিন — speaking practice প্রতিদিন করুন।</span></div>
+          <div class="tip-item"><span class="tip-emoji">📝</span><span data-i18n="dashboard.tips.t5">Artikel (der/die/das) প্রতিটি নতুন Nomen-এর সাথেই মুখস্থ করুন।</span></div>
         </div>
       </div>
     </div>
@@ -542,23 +544,23 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="brand-name">🇩🇪 Deutsch Lernen</div>
-      <div class="brand-sub">একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।</div>
+      <div class="brand-sub" data-i18n="dashboard.footer.brand_sub">একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।</div>
       <div class="copyright-text">
         © <span id="footer-year"></span> Deutsch Lernen<br>
-        <span>All rights reserved.</span>
+        <span data-i18n="dashboard.footer.rights">All rights reserved.</span>
       </div>
     </div>
     <div class="footer-col">
-      <h4>🔗 Quick Links</h4>
+      <h4 data-i18n="dashboard.footer.quick_links">🔗 Quick Links</h4>
       <div class="social-links">
         <a href="lernreise.html" class="social-link"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
-        <a href="grammatik.html" class="social-link"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle">alle Themen</span></a>
+        <a href="grammatik.html" class="social-link"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle" data-i18n="dashboard.footer.all_topics">alle Themen</span></a>
         <a href="woerterbuch.html" class="social-link"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
-        <a href="rangliste.html" class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle">Top Lerner</span></a>
+        <a href="rangliste.html" class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle" data-i18n="dashboard.footer.top_learners">Top Lerner</span></a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>📚 Lernbereiche</h4>
+      <h4 data-i18n="dashboard.footer.learning_areas">📚 Lernbereiche</h4>
       <div class="social-links">
         <a href="vokabelquiz.html" class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Quiz</span><span class="sl-handle">A1–C2</span></a>
         <a href="sprechen.html" class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
@@ -571,17 +573,21 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   </div>
   <div class="footer-bottom">
     <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform</div>
-    <div>Built with <span class="footer-heart">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2</div>
+    <div data-i18n-html="dashboard.footer.built_for">Built with <span class="footer-heart">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2</div>
   </div>
 </footer>
 
 <script type="module">
 import {
   auth, db, signOut, requireAuth,
-  doc, getDoc,
+  doc, getDoc, updateDoc,
   collection, query, orderBy, limit, getDocs, where,
   onAuthStateChanged
 } from "./js/firebase-config.js";
+import { initI18n, t, getLang, setLang } from "./js/i18n.js";
+import { renderSwitcher } from "./js/lang-switcher.js";
+
+await initI18n();
 
 /* YEAR */
 const y = new Date().getFullYear();
@@ -589,16 +595,18 @@ document.getElementById("footer-year").textContent  = y;
 document.getElementById("footer-year2").textContent = y;
 
 /* DAILY CHALLENGE — German-specific */
-const challenges = [
-  "১০টি নতুন German word শিখুন এবং বাক্যে ব্যবহার করুন",
-  "Quiz-এ ৮০% বা বেশি score করুন",
-  "Grammatik-এর একটি topic পড়ুন এবং exercise করুন",
-  "Community chat-এ ৩টি German sentence লিখুন",
-  "Speaking practice-এ ৫টি German sentence বলুন",
-  "Artikel (der/die/das) সহ ১০টি Nomen মুখস্থ করুন",
-  "Roadmap-এর একটি topic সম্পন্ন করুন",
-];
-document.getElementById("challenge-desc").textContent = challenges[new Date().getDay()];
+function getChallenges() {
+  return [
+    t("dashboard.challenges.c1"),
+    t("dashboard.challenges.c2"),
+    t("dashboard.challenges.c3"),
+    t("dashboard.challenges.c4"),
+    t("dashboard.challenges.c5"),
+    t("dashboard.challenges.c6"),
+    t("dashboard.challenges.c7"),
+  ];
+}
+document.getElementById("challenge-desc").textContent = getChallenges()[new Date().getDay()];
 
 /* LEVEL SYSTEM — A1 to C2 */
 const LEVELS = [
@@ -635,13 +643,25 @@ function updateXPBar(xp) {
   document.getElementById("xp-bar").style.width = pct + "%";
   document.getElementById("xp-current").textContent = xp + " XP";
   document.getElementById("xp-next").textContent =
-    xp >= 30000 ? "🎉 Meisterschaft erreicht!" : `পরের level: ${lv.max} XP`;
+    xp >= 30000 ? t("dashboard.progress.mastery") : t("dashboard.progress.next_level_dynamic").replace("{xp}", lv.max);
 }
 
 /* MAIN */
 requireAuth(async user => {
   const snap = await getDoc(doc(db, "users", user.uid));
   const d    = snap.exists() ? snap.data() : {};
+
+  // If this user set a language preference on another device/session,
+  // apply it here too (only when it differs from what we already loaded).
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+    document.getElementById("challenge-desc").textContent = getChallenges()[new Date().getDay()];
+  }
+
+  // Language switcher: any change here is written back to their profile.
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {}),
+  });
 
   const name    = d.displayName || user.displayName || "Lerner";
   const photo   = d.photoURL    || user.photoURL    || "";
@@ -703,13 +723,13 @@ requireAuth(async user => {
     const ssnap = await getDocs(sq);
     const list  = document.getElementById("recent-scores-list");
     if(ssnap.empty) {
-      list.innerHTML = '<div class="no-data">এখনো কোনো quiz দেওয়া হয়নি।</div>';
+      list.innerHTML = `<div class="no-data">${t("dashboard.no_quiz_yet")}</div>`;
     } else {
       list.innerHTML = "";
       ssnap.forEach(sd => {
         const s  = sd.data();
         const dt = s.createdAt?.toDate
-          ? s.createdAt.toDate().toLocaleDateString("bn-BD") : "—";
+          ? s.createdAt.toDate().toLocaleDateString(getLang() === "en" ? "en-US" : "bn-BD") : "—";
         const row = document.createElement("div");
         row.className = "score-item";
         row.innerHTML = `

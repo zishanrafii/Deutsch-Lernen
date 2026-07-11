@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deutsch Lernen — German শিখুন বাংলায়</title>
+<title data-i18n="meta.title">Deutsch Lernen — German শিখুন বাংলায়</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -256,6 +257,9 @@ body::after{
 
       <!-- stripe handled by ::before -->
 
+      <!-- LANGUAGE SWITCHER -->
+      <div id="lang-switch-container" style="display:flex;justify-content:flex-end;margin-bottom:.6rem;"></div>
+
       <!-- LOGO -->
       <div class="logo">
         <div class="logo-icon">🇩🇪</div>
@@ -268,8 +272,8 @@ body::after{
 
       <!-- TAB SWITCHER -->
       <div class="tabs">
-        <div class="tab active" id="tab-login"  onclick="switchTab('login')">লগইন</div>
-        <div class="tab"        id="tab-register" onclick="switchTab('register')">নতুন অ্যাকাউন্ট</div>
+        <div class="tab active" id="tab-login"  onclick="switchTab('login')" data-i18n="auth.tab_login">লগইন</div>
+        <div class="tab"        id="tab-register" onclick="switchTab('register')" data-i18n="auth.tab_register">নতুন অ্যাকাউন্ট</div>
       </div>
 
       <!-- ══════════ LOGIN PANEL ══════════ -->
@@ -283,29 +287,29 @@ body::after{
             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
             <path fill="none" d="M0 0h48v48H0z"/>
           </svg>
-          Google দিয়ে লগইন করুন
+          <span data-i18n="auth.google_login">Google দিয়ে লগইন করুন</span>
         </button>
 
-        <div class="divider">অথবা email দিয়ে</div>
+        <div class="divider" data-i18n="common.or_email">অথবা email দিয়ে</div>
 
         <div class="field">
-          <label>ইমেইল</label>
+          <label data-i18n="common.email_label">ইমেইল</label>
           <input type="email" id="login-email" placeholder="example@email.com" autocomplete="email">
         </div>
 
         <div class="field">
-          <label>পাসওয়ার্ড</label>
+          <label data-i18n="auth.password_label">পাসওয়ার্ড</label>
           <div class="field-wrap">
-            <input type="password" id="login-password" placeholder="পাসওয়ার্ড দিন" class="has-icon" autocomplete="current-password">
+            <input type="password" id="login-password" placeholder="পাসওয়ার্ড দিন" data-i18n-placeholder="auth.password_placeholder" class="has-icon" autocomplete="current-password">
             <span class="field-icon" id="toggle-login-pw">👁️</span>
           </div>
         </div>
 
         <div class="forgot">
-          <a href="#" id="forgot-link">পাসওয়ার্ড ভুলে গেছেন?</a>
+          <a href="#" id="forgot-link" data-i18n="auth.forgot_password">পাসওয়ার্ড ভুলে গেছেন?</a>
         </div>
 
-        <button class="btn-primary" id="btn-login">লগইন করুন</button>
+        <button class="btn-primary" id="btn-login" data-i18n="auth.login_button">লগইন করুন</button>
       </div>
 
       <!-- ══════════ REGISTER PANEL ══════════ -->
@@ -319,37 +323,37 @@ body::after{
             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
             <path fill="none" d="M0 0h48v48H0z"/>
           </svg>
-          Google দিয়ে রেজিস্ট্রেশন করুন
+          <span data-i18n="auth.google_register">Google দিয়ে রেজিস্ট্রেশন করুন</span>
         </button>
 
-        <div class="divider">অথবা email দিয়ে</div>
+        <div class="divider" data-i18n="common.or_email">অথবা email দিয়ে</div>
 
         <!-- Profile photo upload -->
         <label for="photo-input">
           <div class="photo-upload" id="photo-upload-area">
             <div class="photo-preview" id="photo-preview">📷</div>
             <div class="photo-text">
-              <p>প্রোফাইল ছবি আপলোড করুন</p>
-              <span>ঐচ্ছিক · Cloudinary-তে সংরক্ষিত হবে</span>
+              <p data-i18n="auth.photo_upload_title">প্রোফাইল ছবি আপলোড করুন</p>
+              <span data-i18n="auth.photo_upload_sub">ঐচ্ছিক · Cloudinary-তে সংরক্ষিত হবে</span>
             </div>
           </div>
         </label>
         <input type="file" id="photo-input" accept="image/*">
 
         <div class="field">
-          <label>নাম</label>
-          <input type="text" id="reg-name" placeholder="আপনার পুরো নাম" autocomplete="name">
+          <label data-i18n="auth.name_label">নাম</label>
+          <input type="text" id="reg-name" placeholder="আপনার পুরো নাম" data-i18n-placeholder="auth.name_placeholder" autocomplete="name">
         </div>
 
         <div class="field">
-          <label>ইমেইল</label>
+          <label data-i18n="common.email_label">ইমেইল</label>
           <input type="email" id="reg-email" placeholder="example@email.com" autocomplete="email">
         </div>
 
         <div class="field">
-          <label>পাসওয়ার্ড</label>
+          <label data-i18n="auth.password_label">পাসওয়ার্ড</label>
           <div class="field-wrap">
-            <input type="password" id="reg-password" placeholder="কমপক্ষে ৮ অক্ষর" class="has-icon" autocomplete="new-password" oninput="checkStrength(this.value)">
+            <input type="password" id="reg-password" placeholder="কমপক্ষে ৮ অক্ষর" data-i18n-placeholder="auth.password_min_placeholder" class="has-icon" autocomplete="new-password" oninput="checkStrength(this.value)">
             <span class="field-icon" id="toggle-reg-pw">👁️</span>
           </div>
           <div class="strength-wrap">
@@ -359,24 +363,24 @@ body::after{
         </div>
 
         <div class="field">
-          <label>পাসওয়ার্ড নিশ্চিত করুন</label>
+          <label data-i18n="auth.confirm_password_label">পাসওয়ার্ড নিশ্চিত করুন</label>
           <div class="field-wrap">
-            <input type="password" id="reg-confirm" placeholder="পাসওয়ার্ড আবার দিন" class="has-icon" autocomplete="new-password">
+            <input type="password" id="reg-confirm" placeholder="পাসওয়ার্ড আবার দিন" data-i18n-placeholder="auth.confirm_password_placeholder" class="has-icon" autocomplete="new-password">
             <span class="field-icon" id="toggle-reg-confirm">👁️</span>
           </div>
         </div>
 
-        <button class="btn-primary" id="btn-register">অ্যাকাউন্ট তৈরি করুন</button>
+        <button class="btn-primary" id="btn-register" data-i18n="auth.register_button">অ্যাকাউন্ট তৈরি করুন</button>
       </div>
 
     </div><!-- /card -->
 
     <!-- features strip -->
     <div class="features">
-      <div class="feat"><div class="feat-dot" style="background:#f5c842"></div>A1 থেকে C2</div>
-      <div class="feat"><div class="feat-dot" style="background:#2dd4bf"></div>বাংলায় ব্যাখ্যা</div>
-      <div class="feat"><div class="feat-dot" style="background:#818cf8"></div>XP ও Streak</div>
-      <div class="feat"><div class="feat-dot" style="background:#34d399"></div>AI Writing Check</div>
+      <div class="feat"><div class="feat-dot" style="background:#f5c842"></div><span data-i18n="features.level">A1 থেকে C2</span></div>
+      <div class="feat"><div class="feat-dot" style="background:#2dd4bf"></div><span data-i18n="features.explanation">বাংলায় ব্যাখ্যা</span></div>
+      <div class="feat"><div class="feat-dot" style="background:#818cf8"></div><span data-i18n="features.xp_streak">XP ও Streak</span></div>
+      <div class="feat"><div class="feat-dot" style="background:#34d399"></div><span data-i18n="features.ai_writing">AI Writing Check</span></div>
     </div>
   </div>
 </div><!-- /page -->
@@ -392,6 +396,16 @@ import {
   redirectIfLoggedIn,
   doc, setDoc, serverTimestamp,
 } from "./js/firebase-config.js";
+import { initI18n, t, getLang } from "./js/i18n.js";
+import { renderSwitcher, showOnboardingPicker } from "./js/lang-switcher.js";
+
+// ── i18n: load translations before anything else, then
+//    show the "which language?" picker on a brand-new visit ──
+await initI18n();
+renderSwitcher(document.getElementById("lang-switch-container"));
+showOnboardingPicker({
+  onDone: () => renderSwitcher(document.getElementById("lang-switch-container")),
+});
 
 // ── redirect if already logged in ──────────────────
 redirectIfLoggedIn();
@@ -460,10 +474,10 @@ window.checkStrength = function(pw) {
 
   const map = [
     { pct:"0%",   color:"transparent", text:"" },
-    { pct:"25%",  color:"#fb7185", text:"দুর্বল" },
-    { pct:"50%",  color:"#fb923c", text:"মোটামুটি" },
-    { pct:"75%",  color:"#f5c842", text:"ভালো" },
-    { pct:"100%", color:"#34d399", text:"শক্তিশালী ✓" },
+    { pct:"25%",  color:"#fb7185", text:t("strength.weak") },
+    { pct:"50%",  color:"#fb923c", text:t("strength.fair") },
+    { pct:"75%",  color:"#f5c842", text:t("strength.good") },
+    { pct:"100%", color:"#34d399", text:t("strength.strong") + " ✓" },
   ];
   fill.style.width      = map[score].pct;
   fill.style.background = map[score].color;
@@ -512,6 +526,7 @@ async function createUserDoc(uid, name, email, photoURL) {
       displayName: name,
       email: email,
       photoURL: photoURL || "",
+      language: getLang(),
       xp: 0,
       role: "user",
       plan: "free",
@@ -554,7 +569,7 @@ async function handleGoogle() {
     // Both of these fire when the popup gets superseded/closed by the user's
     // own action (double-click, closing the popup, etc.) — not real failures.
     if (err.code !== "auth/popup-closed-by-user" && err.code !== "auth/cancelled-popup-request") {
-      showMsg("Google লগইন ব্যর্থ হয়েছে: " + friendlyError(err.code));
+      showMsg(t("messages.google_login_failed") + friendlyError(err.code));
     }
   } finally {
     googleSignInInProgress = false;
@@ -571,7 +586,7 @@ document.getElementById("btn-login").onclick = async () => {
   const email = document.getElementById("login-email").value.trim();
   const pw    = document.getElementById("login-password").value;
 
-  if (!email || !pw) { showMsg("ইমেইল ও পাসওয়ার্ড দিন।"); return; }
+  if (!email || !pw) { showMsg(t("messages.enter_email_password")); return; }
 
   setLoading("btn-login", true);
   try {
@@ -598,10 +613,10 @@ document.getElementById("btn-register").onclick = async () => {
   const pw      = document.getElementById("reg-password").value;
   const confirm = document.getElementById("reg-confirm").value;
 
-  if (!name)  { showMsg("নাম দিন।"); return; }
-  if (!email) { showMsg("ইমেইল দিন।"); return; }
-  if (pw.length < 8) { showMsg("পাসওয়ার্ড কমপক্ষে ৮ অক্ষর হতে হবে।"); return; }
-  if (pw !== confirm) { showMsg("পাসওয়ার্ড দুটো মিলছে না।"); return; }
+  if (!name)  { showMsg(t("messages.enter_name")); return; }
+  if (!email) { showMsg(t("messages.enter_email")); return; }
+  if (pw.length < 8) { showMsg(t("messages.password_min_length")); return; }
+  if (pw !== confirm) { showMsg(t("messages.password_mismatch")); return; }
 
   setLoading("btn-register", true);
   try {
@@ -625,7 +640,7 @@ document.getElementById("btn-register").onclick = async () => {
     // 4. Create Firestore user document
     await createUserDoc(user.uid, name, email, photoURL);
 
-    showMsg("অ্যাকাউন্ট তৈরি হয়েছে! Dashboard-এ যাচ্ছেন...", "success");
+    showMsg(t("messages.account_created"), "success");
     setTimeout(() => { window.location.href = "dashboard.html"; }, 1200);
   } catch(err) {
     console.error("Registration error:", err.code, err.message, err);
@@ -640,13 +655,13 @@ document.getElementById("forgot-link").onclick = async e => {
   e.preventDefault();
   const email = document.getElementById("login-email").value.trim();
   if (!email) {
-    showMsg("আগে ইমেইল ঘরে আপনার ইমেইল দিন।");
+    showMsg(t("messages.enter_email_first"));
     document.getElementById("login-email").focus();
     return;
   }
   try {
     await sendPasswordResetEmail(auth, email);
-    showMsg("পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে। ইমেইল চেক করুন।", "success");
+    showMsg(t("messages.reset_link_sent"), "success");
   } catch(err) {
     showMsg(friendlyError(err.code));
   }
@@ -663,20 +678,19 @@ document.getElementById("reg-confirm").addEventListener("keydown", e => {
 // ── FRIENDLY ERROR MESSAGES ──────────────────────────
 function friendlyError(code) {
   const map = {
-    "auth/user-not-found":          "এই ইমেইলে কোনো অ্যাকাউন্ট নেই।",
-    "auth/wrong-password":          "পাসওয়ার্ড ভুল হয়েছে।",
-    "auth/invalid-credential":      "ইমেইল বা পাসওয়ার্ড ভুল।",
-    "auth/email-already-in-use":    "এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট আছে।",
-    "auth/invalid-email":           "ইমেইল ঠিকানা সঠিক নয়।",
-    "auth/weak-password":           "পাসওয়ার্ড আরো শক্তিশালী হতে হবে।",
-    "auth/too-many-requests":       "অনেকবার চেষ্টা হয়েছে। কিছুক্ষণ পর চেষ্টা করুন।",
-    "auth/network-request-failed":  "নেটওয়ার্ক সমস্যা। ইন্টারনেট সংযোগ চেক করুন।",
-    "auth/popup-blocked":           "Popup ব্লক হয়েছে। Browser-এ popup অনুমতি দিন।",
-    "auth/account-exists-with-different-credential":
-                                    "এই ইমেইলে অন্য পদ্ধতিতে অ্যাকাউন্ট আছে।",
-    "permission-denied":           "Profile তৈরি করতে সমস্যা হয়েছে (Firestore rules)। Admin-কে জানান — [permission-denied]",
+    "auth/user-not-found":          t("errors.user_not_found"),
+    "auth/wrong-password":          t("errors.wrong_password"),
+    "auth/invalid-credential":      t("errors.invalid_credential"),
+    "auth/email-already-in-use":    t("errors.email_in_use"),
+    "auth/invalid-email":           t("errors.invalid_email"),
+    "auth/weak-password":           t("errors.weak_password"),
+    "auth/too-many-requests":       t("errors.too_many_requests"),
+    "auth/network-request-failed":  t("errors.network_error"),
+    "auth/popup-blocked":           t("errors.popup_blocked"),
+    "auth/account-exists-with-different-credential": t("errors.account_diff_credential"),
+    "permission-denied":            t("errors.permission_denied"),
   };
-  return map[code] || `একটি সমস্যা হয়েছে (${code || "unknown"})। আবার চেষ্টা করুন।`;
+  return map[code] || t("errors.unknown").replace("{code}", code || "unknown");
 }
 </script>
 
