@@ -62,13 +62,46 @@ const db = initializeFirestore(app, {
 const googleProvider = new GoogleAuthProvider();
 
 // ── Helper: redirect to login if not authenticated ───
+// Also self-heals: if the Firebase Auth account exists but the
+// Firestore users/{uid} document is somehow missing (e.g. registration
+// page closed early, a network blip, Cloudinary upload failing before
+// the doc-create step, etc.), this creates it automatically the next
+// time the user lands on any page that calls requireAuth(). This
+// mirrors the auto-create fallback used on the English Shekho project.
 function requireAuth(callback) {
-  onAuthStateChanged(auth, user => {
+  onAuthStateChanged(auth, async user => {
     if (!user) {
       window.location.href = "index.html";
-    } else {
-      callback(user);
+      return;
     }
+
+    try {
+      const userRef = doc(db, "users", user.uid);
+      const snap = await getDoc(userRef);
+
+      if (!snap.exists()) {
+        // Doc missing -- create it now with safe defaults
+        // (must match firestore.rules create-rule defaults exactly).
+        await setDoc(userRef, {
+          displayName: user.displayName || "Lerner",
+          email:       user.email || "",
+          photoURL:    user.photoURL || "",
+          xp:          0,
+          role:        "user",
+          plan:        "free",
+          banned:      false,
+          createdAt:   serverTimestamp(),
+        });
+      } else {
+        // Doc exists -- just bump lastLogin, ignore if it fails.
+        updateDoc(userRef, { lastLogin: serverTimestamp() }).catch(() => {});
+      }
+    } catch (e) {
+      // Don't block the page load if this sync fails -- just log it.
+      console.warn("User doc sync failed:", e);
+    }
+
+    callback(user);
   });
 }
 

@@ -501,8 +501,12 @@ async function uploadToCloudinary(file) {
 }
 
 async function createUserDoc(uid, name, email, photoURL) {
-  console.log("Creating user document...");
-
+  // Note: if this write fails for any reason (network blip, popup closed,
+  // Cloudinary hiccup, etc.), it is NOT fatal anymore -- firebase-config.js's
+  // requireAuth() will auto-create this same document with safe defaults
+  // the next time the user lands on dashboard.html. We still log/report the
+  // error here so it's visible during testing, but we no longer block the
+  // redirect on it (that was the bug: it should still work regardless).
   try {
     await setDoc(doc(db, "users", uid), {
       displayName: name,
@@ -514,16 +518,8 @@ async function createUserDoc(uid, name, email, photoURL) {
       banned: false,
       createdAt: serverTimestamp(),
     });
-
-    console.log("✅ SUCCESS");
-    alert("SUCCESS");
-
   } catch (e) {
-    console.error(e);
-    alert(
-      "CODE: " + e.code +
-      "\n\nMESSAGE: " + e.message
-    );
+    console.error("createUserDoc failed (will self-heal on dashboard load):", e.code, e.message);
   }
 }
 // ── GOOGLE SIGN-IN ───────────────────────────────────
