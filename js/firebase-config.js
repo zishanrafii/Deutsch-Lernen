@@ -79,10 +79,11 @@ function requireAuth(callback) {
       const userRef = doc(db, "users", user.uid);
       const snap = await getDoc(userRef);
 
+      let userData = {};
       if (!snap.exists()) {
         // Doc missing -- create it now with safe defaults
         // (must match firestore.rules create-rule defaults exactly).
-        await setDoc(userRef, {
+        userData = {
           displayName: user.displayName || "Lerner",
           email:       user.email || "",
           photoURL:    user.photoURL || "",
@@ -91,11 +92,25 @@ function requireAuth(callback) {
           plan:        "free",
           banned:      false,
           createdAt:   serverTimestamp(),
-        });
+        };
+        await setDoc(userRef, userData);
       } else {
         // Doc exists -- just bump lastLogin, ignore if it fails.
+        userData = snap.data();
         updateDoc(userRef, { lastLogin: serverTimestamp() }).catch(() => {});
       }
+
+      // Keep a minimal PUBLIC mirror of this profile in sync.
+      // Used by freunde.html (browse/add friends) and rangliste.html
+      // (leaderboard) so they never need to read another user's full
+      // /users/{uid} document (which firestore.rules correctly forbids).
+      // Only non-sensitive fields live here: no email, plan, role, banned.
+      setDoc(doc(db, "publicProfiles", user.uid), {
+        displayName: userData.displayName || user.displayName || "Lerner",
+        photoURL:    userData.photoURL    || user.photoURL    || "",
+        xp:          userData.xp || 0,
+        createdAt:   userData.createdAt   || serverTimestamp(),
+      }).catch(() => {});
     } catch (e) {
       // Don't block the page load if this sync fails -- just log it.
       console.warn("User doc sync failed:", e);

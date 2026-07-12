@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freunde — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;--rose:#fb7185;
+  --indigo:#818cf8;--emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:1100px;margin:auto;padding:1.6rem 1.4rem 0;position:relative;z-index:1;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;gap:6px;}
+.nav-link{padding:.4rem .9rem;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;transition:.2s;border:1px solid transparent;}
+.nav-link:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border);}
+.nav-link.active{color:var(--gold);background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.15);}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:1.4rem;font-family:'JetBrains Mono',monospace;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{border-radius:24px;padding:2rem 2.2rem;margin-bottom:1.6rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid rgba(255,255,255,.07);box-shadow:0 8px 48px rgba(0,0,0,.45);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.hero-orb{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,153,.09),transparent 70%);top:-100px;right:-60px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--emerald);letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem;}
+.hero h2{font-size:1.9rem;font-weight:800;letter-spacing:-.4px;margin-bottom:.5rem;}
+.hero h2 span{background:linear-gradient(135deg,#34d399,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{color:var(--sub);font-size:13px;line-height:1.7;max-width:480px;font-family:'Noto Sans Bengali',sans-serif;}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap;}
+.hstat{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:.7rem 1.1rem;text-align:center;min-width:74px;}
+.hstat-v{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#34d399,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hstat-l{font-size:9px;color:var(--muted);margin-top:2px;letter-spacing:.8px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+
+/* SEARCH */
+.search-wrap{margin-bottom:1.2rem;}
+.search-input{width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);
+  padding:.8rem 1.1rem;border-radius:14px;font-size:14px;font-family:'Noto Sans Bengali',sans-serif;outline:none;transition:.2s;}
+.search-input:focus{border-color:rgba(245,200,66,.3);}
+.search-input::placeholder{color:var(--muted);}
+
+/* TABS */
+.tabs{display:flex;gap:8px;margin-bottom:1.4rem;flex-wrap:wrap;}
+.tab{flex:1;min-width:140px;padding:.7rem;border-radius:12px;border:1px solid var(--border);background:var(--surface2);
+  color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:.2s;text-align:center;}
+.tab:hover{border-color:rgba(255,255,255,.12);}
+.tab.active{background:rgba(245,200,66,.08);border-color:rgba(245,200,66,.3);color:var(--gold);}
+.tab-badge{display:inline-block;background:var(--gold);color:#000;font-size:10px;font-weight:800;padding:1px 7px;border-radius:20px;margin-left:5px;font-family:'JetBrains Mono',monospace;}
+.tab.active .tab-badge{background:var(--gold);}
+
+/* SECTION TITLE */
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+
+/* USERS GRID */
+.users-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:1.8rem;}
+.user-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.2rem 1rem;
+  display:flex;flex-direction:column;align-items:center;gap:8px;transition:.25s;position:relative;overflow:hidden;}
+.user-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--card-accent,#f5c842),transparent);opacity:0;transition:.25s;}
+.user-card:hover{border-color:rgba(255,255,255,.1);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3);}
+.user-card:hover::after{opacity:1;}
+.uc-avatar{width:56px;height:56px;border-radius:50%;background:rgba(129,140,248,.12);border:2px solid rgba(129,140,248,.25);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--indigo);cursor:pointer;flex-shrink:0;}
+.uc-avatar img{width:100%;height:100%;object-fit:cover;}
+.uc-name{font-size:13px;font-weight:700;text-align:center;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;}
+.uc-name:hover{color:var(--gold);}
+.uc-level{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+.lv-a1{background:rgba(52,211,153,.1);color:#34d399;border:1px solid rgba(52,211,153,.25);}
+.lv-a2{background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);}
+.lv-b1{background:rgba(129,140,248,.1);color:#818cf8;border:1px solid rgba(129,140,248,.25);}
+.lv-b2{background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.25);}
+.lv-c1{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25);}
+.lv-c2{background:rgba(245,200,66,.1);color:#f5c842;border:1px solid rgba(245,200,66,.25);}
+.uc-xp{font-size:11px;color:var(--gold);font-family:'JetBrains Mono',monospace;font-weight:600;}
+
+/* FRIEND BUTTON */
+.uc-btn{width:100%;padding:.5rem;border-radius:10px;border:1px solid;font-size:12px;font-weight:700;
+  font-family:'Outfit',sans-serif;cursor:pointer;transition:.2s;margin-top:2px;}
+.uc-btn.add{background:rgba(245,200,66,.08);border-color:rgba(245,200,66,.25);color:var(--gold);}
+.uc-btn.add:hover{background:rgba(245,200,66,.18);}
+.uc-btn.pending{background:rgba(255,255,255,.04);border-color:var(--border);color:var(--sub);cursor:not-allowed;}
+.uc-btn.accept{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.3);color:var(--emerald);}
+.uc-btn.accept:hover{background:rgba(52,211,153,.22);}
+.uc-btn.friends{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);color:var(--emerald);}
+.uc-btn.friends:hover{background:rgba(251,113,133,.08);border-color:rgba(251,113,133,.2);color:var(--rose);}
+.uc-btn.cancel{background:rgba(251,113,133,.08);border-color:rgba(251,113,133,.2);color:var(--rose);}
+.uc-btn.cancel:hover{background:rgba(251,113,133,.18);}
+.uc-btn:disabled{opacity:.5;cursor:not-allowed;}
+
+/* EMPTY / LOADING */
+.empty-state{grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--muted);}
+.empty-state .empty-icon{font-size:2.4rem;margin-bottom:.8rem;}
+.empty-state p{font-size:13px;line-height:1.65;font-family:'Noto Sans Bengali',sans-serif;}
+.loading{grid-column:1/-1;text-align:center;padding:2rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* FOOTER */
+footer{margin-top:3rem;border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
+.footer-bottom{max-width:1100px;margin:auto;padding:1.6rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+
+@media(max-width:800px){.nav-links{display:none;}}
+@media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start;}.hero h2{font-size:1.5rem;}.wrap{padding:1rem .9rem 0;}.hero-inner{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <nav class="nav-links">
+        <a href="dashboard.html"   class="nav-link">Dashboard</a>
+        <a href="lernreise.html"  class="nav-link">Journey</a>
+        <a href="sprechen.html"   class="nav-link">Sprechen</a>
+        <a href="rangliste.html"  class="nav-link">Rangliste</a>
+        <a href="freunde.html"    class="nav-link active">Freunde</a>
+        <a href="invite.html"     class="nav-link">🎁 Invite</a>
+      </nav>
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+      <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="dashboard.html">🏠 Dashboard</a><span>›</span>
+    <span>Freunde</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">👥 Freunde finden</div>
+        <h2>একসাথে <span>German</span> শেখো!</h2>
+        <p class="hero-sub">অন্য learners-দের খুঁজে বের করো, friend request পাঠাও এবং একসাথে motivate থাকো।</p>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-v" id="h-total-users">0</div><div class="hstat-l">Users</div></div>
+        <div class="hstat"><div class="hstat-v" id="h-friends">0</div><div class="hstat-l">Friends</div></div>
+        <div class="hstat"><div class="hstat-v" id="h-pending">0</div><div class="hstat-l">Pending</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <input class="search-input" id="search-input" type="text" placeholder="🔍 নাম দিয়ে খুঁজুন...">
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" id="tab-browse" onclick="switchTab('browse')">🌐 সব User <span class="tab-badge" id="badge-all">0</span></button>
+    <button class="tab" id="tab-friends" onclick="switchTab('friends')">🤝 আমার Friends <span class="tab-badge" id="badge-friends">0</span></button>
+    <button class="tab" id="tab-pending" onclick="switchTab('pending')">⏳ Pending <span class="tab-badge" id="badge-pending">0</span></button>
+  </div>
+
+  <!-- PANELS -->
+  <div id="panel-browse">
+    <div class="section-title">🌐 সব Learners</div>
+    <div class="users-grid" id="browse-grid"><div class="loading">লোড হচ্ছে...</div></div>
+  </div>
+
+  <div id="panel-friends" style="display:none">
+    <div id="pending-incoming-wrap"></div>
+    <div class="section-title">🤝 আমার Friends</div>
+    <div class="users-grid" id="friends-grid"></div>
+  </div>
+
+  <div id="panel-pending" style="display:none">
+    <div class="section-title">⏳ পাঠানো Requests</div>
+    <div class="users-grid" id="pending-grid"></div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year"></span> Deutsch Lernen · German Learning Platform</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners · A1 to C2</div>
+  </div>
+</footer>
+
+<script type="module">
+import {
+  auth, db, signOut, requireAuth,
+  doc, getDoc, getDocs, addDoc, updateDoc, deleteDoc,
+  collection, query, where, orderBy, limit, serverTimestamp,
+} from "./js/firebase-config.js";
+
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+const XP_LEVELS = [
+  { label:"A1", min:0,     cls:"lv-a1" },
+  { label:"A2", min:500,   cls:"lv-a2" },
+  { label:"B1", min:2000,  cls:"lv-b1" },
+  { label:"B2", min:5000,  cls:"lv-b2" },
+  { label:"C1", min:10000, cls:"lv-c1" },
+  { label:"C2", min:18000, cls:"lv-c2" },
+];
+function getLevel(xp){ return [...XP_LEVELS].reverse().find(l => xp >= l.min) || XP_LEVELS[0]; }
+
+let meUID = null;
+let allUsers = [];      // from publicProfiles
+let friendMap = {};      // uid → { status, reqId, isSender }
+
+requireAuth(async user => {
+  meUID = user.uid;
+
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const d = snap.exists() ? snap.data() : {};
+  document.getElementById("nav-name").textContent = d.displayName || user.displayName || "Lerner";
+  const av = document.getElementById("nav-avatar");
+  const photo = d.photoURL || user.photoURL || "";
+  if(photo) av.innerHTML = `<img src="${photo}">`;
+  else av.textContent = (d.displayName || "?")[0]?.toUpperCase() || "?";
+
+  await loadEverything();
+
+  document.getElementById("btn-logout").onclick = async () => {
+    await signOut(auth); window.location.href = "index.html";
+  };
+});
+
+async function loadEverything(){
+  await Promise.all([loadUsers(), loadFriendMap()]);
+  renderBrowse();
+  renderFriends();
+  renderPending();
+}
+
+// ── Load from publicProfiles (safe, browsable collection) ──
+async function loadUsers(){
+  try {
+    const snap = await getDocs(query(
+      collection(db, "publicProfiles"),
+      orderBy("createdAt", "desc"),
+      limit(300)
+    ));
+    allUsers = [];
+    snap.forEach(docSnap => allUsers.push({ uid: docSnap.id, ...docSnap.data() }));
+  } catch(e){
+    console.warn("orderBy failed, falling back:", e.message);
+    const snap = await getDocs(query(collection(db, "publicProfiles"), limit(300)));
+    allUsers = [];
+    snap.forEach(docSnap => allUsers.push({ uid: docSnap.id, ...docSnap.data() }));
+  }
+  const others = allUsers.filter(u => u.uid !== meUID).length;
+  document.getElementById("badge-all").textContent = others;
+  document.getElementById("h-total-users").textContent = others;
+}
+
+async function loadFriendMap(){
+  friendMap = {};
+  const [sentSnap, recvSnap] = await Promise.all([
+    getDocs(query(collection(db, "friendRequests"), where("from", "==", meUID))),
+    getDocs(query(collection(db, "friendRequests"), where("to",   "==", meUID))),
+  ]);
+  sentSnap.forEach(d => { const data = d.data(); friendMap[data.to]   = { status:data.status, reqId:d.id, isSender:true  }; });
+  recvSnap.forEach(d => { const data = d.data(); friendMap[data.from] = { status:data.status, reqId:d.id, isSender:false }; });
+
+  const friendCount = Object.values(friendMap).filter(f => f.status === "accepted").length;
+  const pendingIn   = Object.values(friendMap).filter(f => f.status === "pending" && !f.isSender).length;
+  document.getElementById("badge-friends").textContent = friendCount;
+  document.getElementById("badge-pending").textContent = pendingIn;
+  document.getElementById("h-friends").textContent = friendCount;
+  document.getElementById("h-pending").textContent = pendingIn;
+}
+
+function renderBrowse(filter=""){
+  const grid = document.getElementById("browse-grid");
+  const list = allUsers.filter(u => u.uid !== meUID &&
+    (!filter || (u.displayName||"").toLowerCase().includes(filter.toLowerCase())));
+  if(!list.length){
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>কোনো user পাওয়া যায়নি।</p></div>`;
+    return;
+  }
+  grid.innerHTML = list.map(userCardHTML).join("");
+  bindCardButtons(grid);
+}
+
+function renderFriends(filter=""){
+  const grid = document.getElementById("friends-grid");
+  const incomingWrap = document.getElementById("pending-incoming-wrap");
+
+  const friends = allUsers.filter(u => u.uid !== meUID &&
+    friendMap[u.uid]?.status === "accepted" &&
+    (!filter || (u.displayName||"").toLowerCase().includes(filter.toLowerCase())));
+
+  const incoming = allUsers.filter(u => u.uid !== meUID &&
+    friendMap[u.uid]?.status === "pending" && friendMap[u.uid]?.isSender === false);
+
+  if(incoming.length){
+    incomingWrap.innerHTML = `
+      <div class="section-title">👋 তোমাকে Request পাঠিয়েছে (${incoming.length})</div>
+      <div class="users-grid" id="incoming-grid" style="margin-bottom:1.8rem;">${incoming.map(userCardHTML).join("")}</div>`;
+    bindCardButtons(document.getElementById("incoming-grid"));
+  } else {
+    incomingWrap.innerHTML = "";
+  }
+
+  if(!friends.length){
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🤝</div><p>এখনো কোনো friend নেই।<br>"সব User" tab থেকে request পাঠাও!</p></div>`;
+    return;
+  }
+  grid.innerHTML = friends.map(userCardHTML).join("");
+  bindCardButtons(grid);
+}
+
+function renderPending(filter=""){
+  const grid = document.getElementById("pending-grid");
+  const pending = allUsers.filter(u => u.uid !== meUID &&
+    friendMap[u.uid]?.status === "pending" && friendMap[u.uid]?.isSender === true &&
+    (!filter || (u.displayName||"").toLowerCase().includes(filter.toLowerCase())));
+  if(!pending.length){
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">⏳</div><p>কোনো pending request নেই।</p></div>`;
+    return;
+  }
+  grid.innerHTML = pending.map(userCardHTML).join("");
+  bindCardButtons(grid);
+}
+
+function userCardHTML(u){
+  const rel  = friendMap[u.uid];
+  const name = u.displayName || "ব্যবহারকারী";
+  const xp   = u.xp || 0;
+  const lv   = getLevel(xp);
+  const avatarContent = u.photoURL ? `<img src="${u.photoURL}" alt="${name}">` : (name[0]||"?").toUpperCase();
+
+  let btnHTML = "";
+  if(!rel){
+    btnHTML = `<button class="uc-btn add" data-uid="${u.uid}" data-action="send">➕ Add Friend</button>`;
+  } else if(rel.status === "accepted"){
+    btnHTML = `<button class="uc-btn friends" data-uid="${u.uid}" data-action="unfriend" data-rid="${rel.reqId}" title="Click to unfriend">✅ Freund</button>`;
+  } else if(rel.isSender){
+    btnHTML = `<button class="uc-btn cancel" data-uid="${u.uid}" data-action="cancel" data-rid="${rel.reqId}">✕ Cancel</button>`;
+  } else {
+    btnHTML = `<button class="uc-btn accept" data-uid="${u.uid}" data-action="accept" data-rid="${rel.reqId}">👋 Accept</button>`;
+  }
+
+  return `
+    <div class="user-card" style="--card-accent:#f5c842;">
+      <div class="uc-avatar">${avatarContent}</div>
+      <div class="uc-name">${name}</div>
+      <span class="uc-level ${lv.cls}">${lv.label}</span>
+      <div class="uc-xp">⚡ ${xp} XP</div>
+      ${btnHTML}
+    </div>`;
+}
+
+function bindCardButtons(container){
+  container.querySelectorAll(".uc-btn").forEach(btn => {
+    btn.onclick = async () => {
+      const action = btn.dataset.action;
+      const uid    = btn.dataset.uid;
+      const rid    = btn.dataset.rid;
+      btn.disabled = true;
+
+      try {
+        if(action === "send"){
+          await addDoc(collection(db, "friendRequests"), {
+            from: meUID, to: uid, status: "pending", createdAt: serverTimestamp(),
+          });
+        } else if(action === "cancel" || action === "unfriend"){
+          if(action === "unfriend" && !confirm("বন্ধুত্ব সরিয়ে দেবে?")){ btn.disabled = false; return; }
+          await deleteDoc(doc(db, "friendRequests", rid));
+        } else if(action === "accept"){
+          await updateDoc(doc(db, "friendRequests", rid), { status: "accepted" });
+        }
+        await loadEverything();
+        const activeTab = document.querySelector(".tab.active").id.replace("tab-", "");
+        switchTab(activeTab);
+      } catch(e){
+        btn.disabled = false;
+        alert("Error: " + e.message);
+      }
+    };
+  });
+}
+
+window.switchTab = (tab) => {
+  ["browse","friends","pending"].forEach(t => {
+    document.getElementById(`tab-${t}`).classList.toggle("active", t === tab);
+    document.getElementById(`panel-${t}`).style.display = t === tab ? "block" : "none";
+  });
+};
+
+document.getElementById("search-input").addEventListener("input", function(){
+  const val = this.value.trim();
+  const activeTab = document.querySelector(".tab.active").id.replace("tab-", "");
+  if(activeTab === "browse")  renderBrowse(val);
+  if(activeTab === "friends") renderFriends(val);
+  if(activeTab === "pending") renderPending(val);
+});
+</script>
+</body>
+</html>
