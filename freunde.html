@@ -151,6 +151,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <a href="sprechen.html"   class="nav-link">Sprechen</a>
         <a href="rangliste.html"  class="nav-link">Rangliste</a>
         <a href="freunde.html"    class="nav-link active">Freunde</a>
+        <a href="chat.html"       class="nav-link">💬 Chat</a>
         <a href="invite.html"     class="nav-link">🎁 Invite</a>
       </nav>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
@@ -369,7 +370,8 @@ function userCardHTML(u){
   if(!rel){
     btnHTML = `<button class="uc-btn add" data-uid="${u.uid}" data-action="send">➕ Add Friend</button>`;
   } else if(rel.status === "accepted"){
-    btnHTML = `<button class="uc-btn friends" data-uid="${u.uid}" data-action="unfriend" data-rid="${rel.reqId}" title="Click to unfriend">✅ Freund</button>`;
+    btnHTML = `<button class="uc-btn friends" data-uid="${u.uid}" data-action="unfriend" data-rid="${rel.reqId}" title="Click to unfriend">✅ Freund</button>
+      <a class="uc-btn add" href="chat.html?dm=${u.uid}" style="text-decoration:none;display:block;text-align:center;">💬 Message</a>`;
   } else if(rel.isSender){
     btnHTML = `<button class="uc-btn cancel" data-uid="${u.uid}" data-action="cancel" data-rid="${rel.reqId}">✕ Cancel</button>`;
   } else {

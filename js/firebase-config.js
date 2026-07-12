@@ -36,6 +36,7 @@ import {
   orderBy,
   limit,
   getDocs,
+  onSnapshot,
   serverTimestamp,
   increment,
   arrayUnion,
@@ -133,7 +134,44 @@ const CLOUDINARY = {
   apiKey:       "915413714192626",
   uploadPreset: "deutsch_lernen_unsigned", // create an unsigned preset in Cloudinary dashboard
   uploadUrl:    "https://api.cloudinary.com/v1_1/dumg7ln6v/image/upload",
+  // Cloudinary treats video AND audio (voice messages) under "video" resource_type.
+  videoUploadUrl: "https://api.cloudinary.com/v1_1/dumg7ln6v/video/upload",
+  // Any other file (pdf, docs, zip, etc.) goes under "raw".
+  rawUploadUrl:   "https://api.cloudinary.com/v1_1/dumg7ln6v/raw/upload",
 };
+
+// ── Helper: upload any file (image/video/audio/raw) to Cloudinary ───
+// Used by chat.html for sending photos, videos, voice messages, and
+// generic file attachments. Picks the right Cloudinary endpoint based
+// on the file's MIME type. Returns { url, resourceType, bytes, format }.
+async function uploadChatAttachment(file) {
+  let endpoint = CLOUDINARY.rawUploadUrl;
+  let resourceType = "raw";
+
+  if (file.type.startsWith("image/")) {
+    endpoint = CLOUDINARY.uploadUrl;
+    resourceType = "image";
+  } else if (file.type.startsWith("video/") || file.type.startsWith("audio/")) {
+    endpoint = CLOUDINARY.videoUploadUrl;
+    resourceType = file.type.startsWith("audio/") ? "audio" : "video";
+  }
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", CLOUDINARY.uploadPreset);
+
+  const res = await fetch(endpoint, { method: "POST", body: formData });
+  if (!res.ok) throw new Error("Cloudinary upload failed: " + res.status);
+  const data = await res.json();
+
+  return {
+    url:          data.secure_url,
+    resourceType, // "image" | "video" | "audio" | "raw"
+    bytes:        data.bytes,
+    format:       data.format,
+    duration:     data.duration || null, // video/audio length in seconds
+  };
+}
 
 // ── Export everything pages need ─────────────────────
 export {
@@ -148,9 +186,9 @@ export {
 
   // Firestore functions
   doc, getDoc, setDoc, updateDoc, addDoc, deleteDoc,
-  collection, query, where, orderBy, limit, getDocs,
+  collection, query, where, orderBy, limit, getDocs, onSnapshot,
   serverTimestamp, increment, arrayUnion,
 
   // Helpers
-  requireAuth, redirectIfLoggedIn,
+  requireAuth, redirectIfLoggedIn, uploadChatAttachment,
 };
