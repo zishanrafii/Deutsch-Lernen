@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freunde einladen — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;--rose:#fb7185;
+  --indigo:#818cf8;--emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(129,140,248,.025),transparent 60%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);background-size:52px 52px;}
+.wrap{max-width:1000px;margin:auto;padding:1.6rem 1.4rem 0;position:relative;z-index:1;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.4);position:sticky;top:16px;z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.logo-text h1{font-size:1.55rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;}
+.logo-text p{font-size:10px;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13.5px;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);
+  padding:.4rem .9rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:1.4rem;font-family:'JetBrains Mono',monospace;}
+.breadcrumb a{color:var(--sub);text-decoration:none;}.breadcrumb a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{border-radius:24px;padding:2.4rem 2.4rem;margin-bottom:1.8rem;position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(135deg,#080e18,#0a1220);border:1px solid rgba(255,255,255,.07);box-shadow:0 8px 48px rgba(0,0,0,.45);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c842 30%,#2dd4bf 70%,transparent);}
+.hero-orb1{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,200,66,.1),transparent 70%);top:-120px;left:-80px;pointer-events:none;}
+.hero-orb2{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.09),transparent 70%);bottom:-100px;right:-60px;pointer-events:none;}
+.hero-emoji{font-size:3rem;margin-bottom:.6rem;position:relative;z-index:2;}
+.hero h2{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.6rem;position:relative;z-index:2;}
+.hero h2 span{background:linear-gradient(135deg,#f5c842,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{color:var(--sub);font-size:14px;line-height:1.75;max-width:520px;margin:0 auto;font-family:'Noto Sans Bengali',sans-serif;position:relative;z-index:2;}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.8rem;}
+.stat-box{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.1rem;text-align:center;position:relative;overflow:hidden;}
+.stat-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;}
+.stat-v{font-size:1.7rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-l{font-size:10px;color:var(--muted);margin-top:3px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;text-transform:uppercase;}
+
+/* SECTION TITLE */
+.section-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+
+/* LINK BOX */
+.link-box{background:linear-gradient(135deg,rgba(245,200,66,.07),rgba(45,212,191,.05));border:1px solid rgba(245,200,66,.2);
+  border-radius:20px;padding:1.6rem 1.8rem;margin-bottom:1.8rem;position:relative;overflow:hidden;}
+.link-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c842 40%,#2dd4bf 60%,transparent);}
+.link-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:1.2rem;}
+.link-input{flex:1;min-width:220px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);border-radius:12px;
+  padding:.8rem 1rem;color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;overflow-x:auto;white-space:nowrap;}
+.btn-copy{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;font-weight:800;border:none;
+  border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13.5px;transition:.2s;white-space:nowrap;}
+.btn-copy:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,200,66,.3);}
+.btn-copy.copied{background:linear-gradient(135deg,#34d399,#22c55e);}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;}
+.share-btn{display:inline-flex;align-items:center;gap:7px;padding:.55rem 1.1rem;border-radius:12px;
+  text-decoration:none;font-size:12.5px;font-weight:700;font-family:'Outfit',sans-serif;transition:.2s;border:1px solid;cursor:pointer;}
+.share-btn:hover{transform:translateY(-2px);}
+.share-wa{background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.3);color:#25d366;}
+.share-fb{background:rgba(66,103,178,.1);border-color:rgba(66,103,178,.3);color:#7a9dda;}
+.share-tg{background:rgba(0,136,204,.1);border-color:rgba(0,136,204,.3);color:#42adeb;}
+.share-mail{background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3);color:var(--gold);}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:1.8rem;}
+.step-card{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.3rem;position:relative;overflow:hidden;}
+.step-num{width:32px;height:32px;border-radius:10px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);
+  display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-bottom:.8rem;}
+.step-title{font-size:14px;font-weight:700;margin-bottom:.4rem;}
+.step-desc{font-size:12px;color:var(--muted);line-height:1.6;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* REWARDS LADDER */
+.rewards-ladder{display:flex;flex-direction:column;gap:8px;margin-bottom:1.8rem;}
+.reward-row{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.1rem 1.3rem;
+  display:flex;align-items:center;gap:16px;transition:.2s;position:relative;overflow:hidden;}
+.reward-row.unlocked{border-color:rgba(52,211,153,.25);background:rgba(52,211,153,.04);}
+.reward-row.unlocked::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#34d399,transparent);}
+.reward-badge{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.reward-row.unlocked .reward-badge{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3);}
+.reward-info{flex:1;}
+.reward-title{font-size:14px;font-weight:700;margin-bottom:2px;}
+.reward-desc{font-size:12px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;}
+.reward-status{font-size:11px;font-weight:700;font-family:'JetBrains Mono',monospace;padding:4px 12px;border-radius:20px;white-space:nowrap;}
+.reward-status.done{background:rgba(52,211,153,.12);color:#34d399;border:1px solid rgba(52,211,153,.3);}
+.reward-status.pending{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
+
+/* PROGRESS TO NEXT */
+.next-reward-box{background:linear-gradient(135deg,rgba(129,140,248,.07),rgba(45,212,191,.05));
+  border:1px solid rgba(129,140,248,.2);border-radius:18px;padding:1.3rem 1.6rem;margin-bottom:1.8rem;}
+.nr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.4rem;}
+.nr-title{font-weight:700;font-size:14px;}
+.nr-count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--indigo);}
+.nr-track{height:10px;background:rgba(255,255,255,.05);border-radius:20px;overflow:hidden;}
+.nr-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#818cf8,#2dd4bf);transition:width .8s cubic-bezier(.4,0,.2,1);}
+
+/* RECENT ACTIVITY */
+.activity-list{display:flex;flex-direction:column;gap:8px;margin-bottom:2rem;}
+.act-item{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:.9rem 1.1rem;display:flex;align-items:center;gap:12px;}
+.act-avatar{width:36px;height:36px;border-radius:50%;background:rgba(129,140,248,.12);border:1px solid rgba(129,140,248,.25);
+  display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:var(--indigo);font-weight:700;}
+.act-name{font-size:13px;font-weight:700;}
+.act-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:1px;}
+.act-xp{font-size:11px;font-weight:700;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-left:auto;white-space:nowrap;}
+.empty-state{text-align:center;padding:2.2rem 1rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* FOOTER */
+footer{margin-top:3rem;border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
+.footer-bottom{max-width:1000px;margin:auto;padding:1.6rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:11px;color:#2d3748;font-family:'JetBrains Mono',monospace;}
+.footer-heart{color:var(--rose);}
+
+/* TOAST */
+.toast{position:fixed;top:20px;right:20px;background:#0c1322;color:#f0f4f8;padding:.9rem 1.2rem;border-radius:14px;
+  border-left:3px solid #f5c842;z-index:9999;opacity:0;transform:translateY(-16px);transition:.3s;font-size:13.5px;box-shadow:0 8px 32px rgba(0,0,0,.5);}
+.toast.show{opacity:1;transform:translateY(0);}
+
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start;}.hero h2{font-size:1.5rem;}.wrap{padding:1rem .9rem 0;}.link-row{flex-direction:column;align-items:stretch;}.link-input{white-space:normal;word-break:break-all;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
+    </div>
+    <div class="topbar-right">
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+      <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
+      <button class="btn-logout" id="btn-logout">Logout</button>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="dashboard.html">🏠 Dashboard</a><span>›</span>
+    <span>Freunde einladen</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-orb1"></div><div class="hero-orb2"></div>
+    <div class="hero-emoji">🎁</div>
+    <h2>বন্ধুদের <span>Invite</span> করো, দুজনেই জিতো!</h2>
+    <p class="hero-sub">তোমার unique link দিয়ে বন্ধু sign up করলেই দুজনেই <strong style="color:#f5c842;">+200 XP</strong> পাবে। বেশি friend আনলে ফ্রি premium দিনও পাবে!</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-v" id="st-invited">0</div><div class="stat-l">Total Invited</div></div>
+    <div class="stat-box"><div class="stat-v" id="st-joined">0</div><div class="stat-l">Joined</div></div>
+    <div class="stat-box"><div class="stat-v" id="st-xp">0</div><div class="stat-l">XP অর্জিত</div></div>
+    <div class="stat-box"><div class="stat-v" id="st-freedays">0</div><div class="stat-l">Free Days</div></div>
+  </div>
+
+  <!-- LINK BOX -->
+  <div class="section-title">🔗 তোমার Invite Link</div>
+  <div class="link-box">
+    <div class="link-row">
+      <div class="link-input" id="ref-link">লোড হচ্ছে...</div>
+      <button class="btn-copy" id="btn-copy">📋 Copy করো</button>
+    </div>
+    <div class="share-row">
+      <a href="#" target="_blank" class="share-btn share-wa" id="share-whatsapp">💬 WhatsApp</a>
+      <a href="#" target="_blank" class="share-btn share-fb" id="share-facebook">📘 Facebook</a>
+      <a href="#" target="_blank" class="share-btn share-tg" id="share-telegram">✈️ Telegram</a>
+      <a href="#" class="share-btn share-mail" id="share-email">✉️ Email</a>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-title">⚙️ কীভাবে কাজ করে</div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Link শেয়ার করো</div>
+      <div class="step-desc">তোমার unique invite link বন্ধু, পরিবার বা গ্রুপে শেয়ার করো।</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">বন্ধু Sign Up করে</div>
+      <div class="step-desc">তোমার link দিয়ে নতুন account তৈরি করলেই referral track হয়ে যাবে।</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">দুজনেই Reward পাও</div>
+      <div class="step-desc">সাথে সাথে দুজনেই +200 XP। বেশি invite করলে ফ্রি premium দিন!</div>
+    </div>
+  </div>
+
+  <!-- NEXT REWARD PROGRESS -->
+  <div class="section-title">🎯 পরের Reward-এর দিকে</div>
+  <div class="next-reward-box">
+    <div class="nr-top">
+      <div class="nr-title" id="nr-title">পরবর্তী milestone: ৩ জন Invite</div>
+      <div class="nr-count" id="nr-count">0 / 3</div>
+    </div>
+    <div class="nr-track"><div class="nr-fill" id="nr-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- REWARDS LADDER -->
+  <div class="section-title">🏆 Reward Ladder</div>
+  <div class="rewards-ladder" id="rewards-ladder"></div>
+
+  <!-- RECENT ACTIVITY -->
+  <div class="section-title">🕐 সাম্প্রতিক Invites</div>
+  <div class="activity-list" id="activity-list">
+    <div class="empty-state">এখনো কেউ তোমার link দিয়ে join করেনি। এখনই শেয়ার করো!</div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div>© <span id="footer-year"></span> Deutsch Lernen · German Learning Platform</div>
+    <div>Built with <span class="footer-heart">♥</span> for Bengali learners · A1 to C2</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { auth, db, signOut, requireAuth,
+  doc, getDoc, updateDoc } from "./js/firebase-config.js";
+
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 3000);
+}
+
+/* Reward ladder definition */
+const REWARD_TIERS = [
+  { count:1,  icon:"⭐", title:"প্রথম Referral",   desc:"তোমার প্রথম বন্ধু join করেছে",           reward:"+200 XP (auto)" },
+  { count:3,  icon:"🎉", title:"৩ জন Invite",       desc:"৩ জন বন্ধু তোমার link দিয়ে join করেছে",  reward:"৭ দিন ফ্রি Premium" },
+  { count:5,  icon:"🔥", title:"৫ জন Invite",       desc:"৫ জন বন্ধু join করেছে",                    reward:"১৫ দিন ফ্রি Premium" },
+  { count:10, icon:"💎", title:"১০ জন Invite",      desc:"১০ জন বন্ধু join করেছে",                   reward:"১ মাস ফ্রি Premium + Badge" },
+  { count:25, icon:"👑", title:"Referral King",     desc:"২৫ জন বন্ধু join করেছে",                   reward:"সারাজীবন ২০% Discount" },
+];
+
+function renderRewardsLadder(referralCount){
+  const wrap = document.getElementById("rewards-ladder");
+  wrap.innerHTML = "";
+  REWARD_TIERS.forEach(tier=>{
+    const unlocked = referralCount >= tier.count;
+    const row = document.createElement("div");
+    row.className = "reward-row" + (unlocked ? " unlocked" : "");
+    row.innerHTML = `
+      <div class="reward-badge">${tier.icon}</div>
+      <div class="reward-info">
+        <div class="reward-title">${tier.title}</div>
+        <div class="reward-desc">${tier.desc} · reward: <strong style="color:${unlocked?'#34d399':'#94a3b8'}">${tier.reward}</strong></div>
+      </div>
+      <div class="reward-status ${unlocked?'done':'pending'}">${unlocked ? '✅ Unlocked' : `🔒 ${tier.count} লাগবে`}</div>`;
+    wrap.appendChild(row);
+  });
+
+  // Next milestone progress
+  const next = REWARD_TIERS.find(t => referralCount < t.count);
+  if(next){
+    document.getElementById("nr-title").textContent = `পরবর্তী milestone: ${next.count} জন Invite (${next.reward})`;
+    document.getElementById("nr-count").textContent = `${referralCount} / ${next.count}`;
+    document.getElementById("nr-fill").style.width = Math.min(100, (referralCount/next.count)*100) + "%";
+  } else {
+    document.getElementById("nr-title").textContent = "🏆 তুমি সব milestone শেষ করেছ! অসাধারণ!";
+    document.getElementById("nr-count").textContent = `${referralCount} referrals`;
+    document.getElementById("nr-fill").style.width = "100%";
+  }
+}
+
+/* Copy link */
+function setupShareButtons(link, message){
+  document.getElementById("btn-copy").onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(link);
+      const btn = document.getElementById("btn-copy");
+      btn.textContent = "✅ Copied!";
+      btn.classList.add("copied");
+      setTimeout(()=>{ btn.textContent = "📋 Copy করো"; btn.classList.remove("copied"); }, 2000);
+      toast("Link copy হয়েছে!");
+    } catch {
+      toast("Copy করতে সমস্যা হয়েছে — manually copy করো।");
+    }
+  };
+
+  const encodedMsg = encodeURIComponent(message + " " + link);
+  document.getElementById("share-whatsapp").href = `https://wa.me/?text=${encodedMsg}`;
+  document.getElementById("share-facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`;
+  document.getElementById("share-telegram").href = `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(message)}`;
+  document.getElementById("share-email").href = `mailto:?subject=${encodeURIComponent("German শেখো আমার সাথে! 🇩🇪")}&body=${encodedMsg}`;
+}
+
+/* Main */
+requireAuth(async user => {
+  const snap = await getDoc(doc(db,"users",user.uid));
+  const d    = snap.exists() ? snap.data() : {};
+
+  const name  = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL || user.photoURL || "";
+  document.getElementById("nav-name").textContent = name;
+  const av = document.getElementById("nav-avatar");
+  if(photo) av.innerHTML = `<img src="${photo}">`;
+  else av.textContent = name[0]?.toUpperCase() || "?";
+
+  // Ensure referralCode exists (older accounts created before this feature)
+  let referralCode = d.referralCode;
+  if(!referralCode){
+    referralCode = (name.replace(/[^A-Za-z]/g,"").toUpperCase().slice(0,4) || "USER")
+                   + Math.random().toString(36).slice(2,6).toUpperCase();
+    await updateDoc(doc(db,"users",user.uid), { referralCode }).catch(()=>{});
+  }
+
+  const link = `${window.location.origin}${window.location.pathname.replace("invite.html","index.html")}?ref=${referralCode}`;
+  document.getElementById("ref-link").textContent = link;
+
+  const shareMsg = "আমি Deutsch Lernen দিয়ে German শিখছি — বাংলায় সহজে A1 থেকে C2! তুমিও শুরু করো, দুজনেই bonus XP পাবে:";
+  setupShareButtons(link, shareMsg);
+
+  // Stats
+  const referrals     = d.referrals || [];
+  const referralCount = d.referralCount || referrals.length || 0;
+  const referralXP    = referralCount * 200;
+  const freeDays       = d.freeDaysEarned || 0;
+
+  document.getElementById("st-invited").textContent  = referralCount;
+  document.getElementById("st-joined").textContent    = referralCount;
+  document.getElementById("st-xp").textContent        = referralXP;
+  document.getElementById("st-freedays").textContent  = freeDays;
+
+  renderRewardsLadder(referralCount);
+
+  // Recent activity — read from OUR OWN doc's denormalized referralActivity[]
+  // log (written by the applyReferral Cloud Function). We deliberately never
+  // read another user's document here — Firestore rules correctly forbid that.
+  const referralActivity = d.referralActivity || [];
+  if(referralActivity.length > 0){
+    const list = document.getElementById("activity-list");
+    list.innerHTML = "";
+    const recent = [...referralActivity].reverse().slice(0, 10);
+
+    recent.forEach(entry => {
+      const rname = entry.name || "একজন বন্ধু";
+      const dateStr = entry.joinedAt
+        ? new Date(entry.joinedAt).toLocaleDateString("bn-BD", { day:"numeric", month:"short", year:"numeric" })
+        : "সম্প্রতি";
+      const item = document.createElement("div");
+      item.className = "act-item";
+      item.innerHTML = `
+        <div class="act-avatar">${rname[0]?.toUpperCase()||"?"}</div>
+        <div>
+          <div class="act-name">${rname}</div>
+          <div class="act-date">${dateStr} · তোমার link দিয়ে join করেছে</div>
+        </div>
+        <div class="act-xp">+200 XP</div>`;
+      list.appendChild(item);
+    });
+  }
+
+  document.getElementById("btn-logout").onclick = async () => {
+    await signOut(auth);
+    window.location.href = "index.html";
+  };
+});
+</script>
+</body>
+</html>

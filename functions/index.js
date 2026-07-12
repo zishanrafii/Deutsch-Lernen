@@ -292,45 +292,7 @@ exports.sslcommerzIpn = onRequest({ secrets: [SSLCOMMERZ_STORE_ID, SSLCOMMERZ_ST
 });
 
 /* ════════════════════════════════════════════════════════════
-   5. checkDuplicateTxn  (was: check-duplicate-txn.js)
-════════════════════════════════════════════════════════════ */
-exports.checkDuplicateTxn = onRequest({}, async (req, res) => {
-  setCors(res);
-  res.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  if (req.method === "OPTIONS") { res.status(200).send(""); return; }
-  if (req.method !== "POST") { res.status(405).json({ error: "Method not allowed" }); return; }
-
-  try {
-    const authHeader = req.headers.authorization || "";
-    const idToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
-    if (!idToken) {
-      res.status(401).json({ error: "Login প্রয়োজন।" });
-      return;
-    }
-    await admin.auth().verifyIdToken(idToken); // throws if invalid/expired
-
-    const { transactionId } = req.body || {};
-    const txnRaw = (transactionId || "").trim().toUpperCase();
-    if (!txnRaw || txnRaw.length < 6) {
-      res.status(400).json({ error: "সঠিক Transaction ID দিন।" });
-      return;
-    }
-
-    const snap = await db
-      .collection("payment_requests")
-      .where("transactionId", "==", txnRaw)
-      .limit(1)
-      .get();
-
-    res.status(200).json({ duplicate: !snap.empty });
-  } catch (err) {
-    console.error("checkDuplicateTxn error:", err);
-    res.status(500).json({ error: err.message || "Server error" });
-  }
-});
-
-/* ════════════════════════════════════════════════════════════
-   6. writingFeedback  (was: writing-feedback.js)
+   5. writingFeedback  (was: writing-feedback.js)
 ════════════════════════════════════════════════════════════ */
 exports.writingFeedback = onRequest({ secrets: [ANTHROPIC_API_KEY] }, async (req, res) => {
   setCors(res);
@@ -410,5 +372,118 @@ errors array খালি থাকতে পারে যদি কোনো �
   } catch (err) {
     console.error("Function error:", err);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
+// ═══════════════════════════════════════════════════════════════
+//  applyReferral — Referral system (Admin SDK, bypasses Firestore
+//  rules safely). Called once by index.html right after a brand-new
+//  user document is created, IF the visitor landed via ?ref=CODE.
+//
+//  Body: { newUid: string, referralCode: string }
+//
+//  Rules of the road:
+//   - Never throws on invalid/unknown code — just no-ops.
+//   - Never double-applies (checks referredBy first).
+//   - Can't refer yourself.
+//   - +200 XP to both new user and referrer immediately.
+//   - Milestone free-Premium-day rewards at 3 / 5 / 10 referrals.
+// ═══════════════════════════════════════════════════════════════
+const REFERRAL_SIGNUP_XP = 200;
+const REFERRAL_MILESTONES = { 3: 7, 5: 15, 10: 30 }; // referralCount → bonus free days
+
+exports.applyReferral = onRequest(async (req, res) => {
+  setCors(res);
+  if (req.method === "OPTIONS") return res.status(204).send("");
+  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+
+  try {
+    const { newUid, referralCode } = req.body || {};
+    if (!newUid || !referralCode) {
+      return res.status(400).json({ error: "newUid and referralCode required" });
+    }
+
+    const newUserRef  = db.collection("users").doc(newUid);
+    const newUserSnap = await newUserRef.get();
+    if (!newUserSnap.exists) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Already credited once? never double-apply.
+    if (newUserSnap.data().referredBy) {
+      return res.status(200).json({ ok: true, alreadyApplied: true });
+    }
+
+    const codeUpper = String(referralCode).trim().toUpperCase();
+    const refQuery = await db.collection("users")
+      .where("referralCode", "==", codeUpper)
+      .limit(1)
+      .get();
+
+    if (refQuery.empty) {
+      return res.status(200).json({ ok: true, invalidCode: true });
+    }
+
+    const referrerDoc = refQuery.docs[0];
+    const referrerUid = referrerDoc.id;
+
+    if (referrerUid === newUid) {
+      return res.status(200).json({ ok: true, selfReferral: true });
+    }
+
+    const referrerData    = referrerDoc.data();
+    const newReferralCount = (referrerData.referralCount || 0) + 1;
+
+    const batch = db.batch();
+
+    batch.update(newUserRef, {
+      referredBy: referrerUid,
+      xp: admin.firestore.FieldValue.increment(REFERRAL_SIGNUP_XP),
+    });
+
+    const newUserName = newUserSnap.data().displayName || "একজন বন্ধু";
+
+    const referrerUpdate = {
+      referrals:     admin.firestore.FieldValue.arrayUnion(newUid),
+      referralCount: admin.firestore.FieldValue.increment(1),
+      xp:            admin.firestore.FieldValue.increment(REFERRAL_SIGNUP_XP),
+      // Small denormalized activity log kept on the REFERRER'S OWN doc so
+      // invite.html can display "who joined" without ever needing to read
+      // another user's document (which Firestore rules correctly forbid).
+      referralActivity: admin.firestore.FieldValue.arrayUnion({
+        uid: newUid,
+        name: newUserName,
+        joinedAt: new Date().toISOString(),
+      }),
+    };
+
+    // Milestone → bonus free Premium days
+    const bonusDays = REFERRAL_MILESTONES[newReferralCount];
+    if (bonusDays) {
+      const currentExpiry = referrerData.planExpiry?.toDate?.() || new Date(0);
+      const base          = currentExpiry > new Date() ? currentExpiry : new Date();
+      const newExpiry      = new Date(base.getTime() + bonusDays * 24 * 60 * 60 * 1000);
+
+      referrerUpdate.planExpiry     = admin.firestore.Timestamp.fromDate(newExpiry);
+      referrerUpdate.planProvider   = referrerData.planProvider || "referral";
+      referrerUpdate.plan           = referrerData.plan && referrerData.plan !== "free"
+                                        ? referrerData.plan
+                                        : "monthly";
+      referrerUpdate.freeDaysEarned = admin.firestore.FieldValue.increment(bonusDays);
+    }
+
+    batch.update(referrerDoc.ref, referrerUpdate);
+    await batch.commit();
+
+    return res.status(200).json({
+      ok: true,
+      referrerUid,
+      xpAwarded: REFERRAL_SIGNUP_XP,
+      milestoneBonusDays: bonusDays || 0,
+    });
+  } catch (err) {
+    console.error("applyReferral error:", err);
+    return res.status(500).json({ error: "Internal error" });
   }
 });

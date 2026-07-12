@@ -11,12 +11,30 @@
       "seed-data/**"
     ],
     "rewrites": [
-      { "source": "/createCheckout",  "function": "createCheckout" },
-      { "source": "/stripeWebhook",   "function": "stripeWebhook" },
-      { "source": "/sslcommerzInit",  "function": "sslcommerzInit" },
-      { "source": "/sslcommerzIpn",   "function": "sslcommerzIpn" },
-      { "source": "/writingFeedback", "function": "writingFeedback" },
-      { "source": "/checkDuplicateTxn", "function": "checkDuplicateTxn" }
+      {
+        "source": "/createCheckout",
+        "function": "createCheckout"
+      },
+      {
+        "source": "/stripeWebhook",
+        "function": "stripeWebhook"
+      },
+      {
+        "source": "/sslcommerzInit",
+        "function": "sslcommerzInit"
+      },
+      {
+        "source": "/sslcommerzIpn",
+        "function": "sslcommerzIpn"
+      },
+      {
+        "source": "/writingFeedback",
+        "function": "writingFeedback"
+      },
+      {
+        "source": "/applyReferral",
+        "function": "applyReferral"
+      }
     ]
   },
   "functions": {

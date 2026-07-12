@@ -24,7 +24,10 @@ service cloud.firestore {
         && request.auth.uid == userId
         && !request.resource.data.diff(resource.data).affectedKeys().hasAny(
              ['role','plan','planProvider','planStart','planExpiry','banned',
-              'stripeCustomerId','stripeSessionId']
+              'stripeCustomerId','stripeSessionId',
+              // ── referral fields — only the applyReferral Cloud Function
+              // (Admin SDK, bypasses these rules) may change these ──
+              'referredBy','referrals','referralCount','freeDaysEarned','referralActivity']
            )
         && (
           !('xp' in request.resource.data) ||

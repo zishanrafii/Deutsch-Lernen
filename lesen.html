@@ -407,7 +407,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="social-links">
         <a href="vokabelquiz.html"    class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Vokabelquiz</span><span class="sl-handle">A1–C2</span></a>
         <a href="sprechen.html"       class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
-        <a href="coming-soon.html?feature=hoeren"         class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
+        <a href="hoeren.html"         class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
         <a href="schreiben.html"      class="social-link"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
       </div>
     </div>
@@ -420,7 +420,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 
 <script type="module">
 import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, arrayUnion, increment, collection, getDocs } from "./js/firebase-config.js";
-import { requirePlan } from "./js/plan-gate.js";
 /*
   NOTE: This page needs updateDoc / arrayUnion / increment / collection / getDocs re-exported from
   js/firebase-config.js, same way it currently re-exports doc / getDoc. If they aren't exported yet, add e.g.:
@@ -740,7 +739,6 @@ requireAuth(async user => {
     loadPassages(),
   ]);
   const d = userSnap.exists() ? userSnap.data() : {};
-  if (!requirePlan(d)) return;
   userData = d;
 
   const name  = d.displayName || user.displayName || "Lerner";
