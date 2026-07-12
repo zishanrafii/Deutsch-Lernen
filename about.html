@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About & Official Documentation — Deutsch Lernen</title>
+<meta name="description" content="Deutsch Lernen — official company profile, policies, and legal documentation.">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);--gold:#f5c842;--gold2:#e0a820;
+  --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;
+  --orange:#fb923c;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.05),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.04),transparent 55%);}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.85);border-bottom:1px solid var(--border);padding:.9rem 1.6rem;
+  backdrop-filter:blur(24px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}
+.logo-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));
+  border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.logo-text h1{font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.4px;}
+.logo-text p{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.btn-home{padding:.5rem 1.1rem;border-radius:10px;font-size:13px;font-weight:700;color:#000;
+  background:linear-gradient(135deg,#f5c842,#e0a820);text-decoration:none;}
+
+.layout{display:grid;grid-template-columns:280px 1fr;gap:2.4rem;max-width:1180px;margin:0 auto;padding:2rem 1.6rem 6rem;position:relative;z-index:1;}
+.toc{position:sticky;top:80px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;
+  background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1.2rem;}
+.toc h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;}
+.toc a{display:block;font-size:12.5px;color:var(--sub);text-decoration:none;padding:.35rem .5rem;border-radius:7px;
+  transition:.15s;line-height:1.4;}
+.toc a:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.toc a.tgroup{font-weight:700;color:var(--gold);margin-top:.7rem;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;pointer-events:none;padding-top:.6rem;}
+.toc a.tgroup:first-child{margin-top:0;}
+
+.content h2{font-size:1rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-.3px;margin-bottom:.3rem;font-family:'JetBrains Mono',monospace;}
+
+.hero{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:2.6rem 2rem;margin-bottom:2rem;text-align:center;}
+.hero-icon{font-size:2.6rem;margin-bottom:.6rem;}
+.hero h1{font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#f5c842,#2dd4bf);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;}
+.hero p{color:var(--sub);font-size:14px;max-width:520px;margin:0 auto;line-height:1.7;}
+.hero .meta{margin-top:1rem;font-size:11.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+
+section.doc-section{background:var(--surface2);border:1px solid var(--border);border-radius:18px;
+  padding:1.8rem 1.8rem;margin-bottom:1.1rem;scroll-margin-top:80px;}
+section.doc-section .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:.3rem;}
+section.doc-section h2{font-size:1.15rem;margin-bottom:1rem;}
+section.doc-section p{color:var(--sub);font-size:13.8px;line-height:1.85;margin-bottom:.9rem;}
+section.doc-section p:last-child{margin-bottom:0;}
+section.doc-section h4{color:var(--teal);font-size:13.5px;font-weight:700;margin:1.1rem 0 .5rem;}
+section.doc-section ul{margin:0 0 .9rem 1.3rem;color:var(--sub);font-size:13.8px;line-height:1.9;}
+section.doc-section li{margin-bottom:.15rem;}
+section.doc-section strong{color:var(--text);}
+.chapter-divider{text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;margin:2.2rem 0 1rem;}
+
+footer.doc-footer{text-align:center;color:var(--muted);font-size:12px;padding:2rem 0;font-family:'JetBrains Mono',monospace;}
+
+@media(max-width:880px){
+  .layout{grid-template-columns:1fr;padding:1.4rem 1rem 4rem;}
+  .toc{position:relative;top:0;max-height:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="logo">
+    <div class="logo-icon">🇩🇪</div>
+    <div class="logo-text"><h1>Deutsch Lernen</h1><p>OFFICIAL DOCUMENTATION</p></div>
+  </a>
+  <a href="dashboard.html" class="btn-home">← Back to Dashboard</a>
+</div>
+
+<div class="layout">
+
+  <nav class="toc" id="toc">
+    <h3>Contents</h3>
+    <a class="tgroup">Company Profile</a>
+    <a href="#s01">01 · Welcome</a>
+    <a href="#s02">02 · About Deutsch Lernen</a>
+    <a href="#s03">03 · Our Story</a>
+    <a href="#s04">04 · Who We Are</a>
+    <a href="#s05">05 · Our Mission</a>
+    <a href="#s06">06 · Our Vision</a>
+    <a href="#s07">07 · Core Values</a>
+    <a href="#s08">08 · Learning Philosophy</a>
+    <a href="#s09">09 · Why Choose Us</a>
+    <a href="#s10">10 · What We Offer</a>
+    <a href="#s11">11 · Technology</a>
+    <a href="#s12">12 · Security & Data</a>
+
+    <a class="tgroup">Community & Legal</a>
+    <a href="#s13">13 · Community Guidelines</a>
+    <a href="#s14">14 · User Responsibilities</a>
+    <a href="#s15">15 · Intellectual Property</a>
+    <a href="#s16">16 · Privacy Policy</a>
+    <a href="#s17">17 · Terms & Conditions</a>
+    <a href="#s18">18 · Cookie Policy</a>
+    <a href="#s19">19 · Disclaimer</a>
+    <a href="#s20">20 · Copyright Policy</a>
+    <a href="#s21">21 · DMCA Policy</a>
+
+    <a class="tgroup">Support</a>
+    <a href="#s22">22 · Contact & Support</a>
+    <a href="#s23">23 · FAQ</a>
+    <a href="#s24">24 · Official Declaration</a>
+    <a href="#s25">25 · Final Legal Notice</a>
+
+    <a class="tgroup">Appendices</a>
+    <a href="#s26">26 · Acceptable Use Policy</a>
+    <a href="#s27">27 · Academic Integrity</a>
+    <a href="#s28">28 · Brand Guidelines</a>
+    <a href="#s29">29 · Accessibility</a>
+    <a href="#s30">30 · Security Disclosure</a>
+    <a href="#s31">31 · Third-Party Notice</a>
+    <a href="#s32">32 · Data Retention</a>
+    <a href="#s33">33 · Payment & Refund</a>
+    <a href="#s34">34 · Development Commitment</a>
+    <a href="#s35">35 · Governing Law</a>
+    <a href="#s36">36 · Version History</a>
+    <a href="#s37">37 · Closing Statement</a>
+    <a href="#s38">38 · Official Declaration</a>
+  </nav>
+
+  <div class="content">
+
+    <div class="hero">
+      <div class="hero-icon">🇩🇪</div>
+      <h1>Deutsch Lernen</h1>
+      <p>Official Company Profile, Policy Handbook & Legal Documentation</p>
+      <div class="meta">Founder &amp; Owner: Zishan Rafi &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Released July 11, 2026<br>© 2026 Zishan Rafi. All Rights Reserved.</div>
+    </div>
+
+    <section class="doc-section" id="s01">
+      <div class="num">01</div><h2>Welcome to Deutsch Lernen</h2>
+      <p>Welcome to Deutsch Lernen—a modern digital platform dedicated to helping learners master the German language through structured education, interactive practice, and innovative technology.</p>
+      <p>Learning a new language is more than memorizing vocabulary or understanding grammar. It is about connecting with people, discovering new cultures, pursuing academic opportunities, and building a better future. Deutsch Lernen was created with this belief in mind.</p>
+      <p>Our platform combines carefully organized learning materials with modern web technologies to provide an engaging and effective learning experience for students of all levels.</p>
+      <p>Whether you are learning German for higher education, career development, immigration, travel, or personal interest, Deutsch Lernen aims to become your trusted learning companion.</p>
+      <p>Every lesson, every feature, and every update is developed with one goal: Helping learners achieve real confidence in the German language.</p>
+      <p>We are committed to continuous improvement, educational excellence, user privacy, and technological innovation. Thank you for choosing Deutsch Lernen. Welcome to your German learning journey.</p>
+      <p>— Zishan Rafi, Founder &amp; Developer, Deutsch Lernen</p>
+    </section>
+
+    <section class="doc-section" id="s02">
+      <div class="num">02</div><h2>About Deutsch Lernen</h2>
+      <p>Deutsch Lernen is an independent online German language learning platform founded and developed by Zishan Rafi. The platform was created to provide learners with a modern, accessible, and engaging environment where they can study German efficiently through structured lessons and practical learning experiences.</p>
+      <p>Unlike many traditional learning resources that focus primarily on memorization, Deutsch Lernen emphasizes understanding, communication, and continuous progress.</p>
+      <p>The platform offers a wide range of educational resources, including grammar lessons, vocabulary practice, speaking exercises, interactive quizzes, and personalized learning journeys.</p>
+      <p>Built using modern web technologies, Deutsch Lernen delivers a fast, responsive, and secure experience across desktop, tablet, and mobile devices.</p>
+      <p>Our goal is to remove barriers to language education by providing high-quality learning materials in an intuitive and user-friendly environment.</p>
+      <p>Deutsch Lernen is continuously evolving through new content, improved learning tools, enhanced user experiences, and technological innovation. We believe that education should be accessible to everyone, regardless of location, background, or previous learning experience.</p>
+      <p>Deutsch Lernen is not simply a website. It is a long-term educational initiative dedicated to helping learners achieve genuine proficiency in the German language.</p>
+    </section>
+
+    <section class="doc-section" id="s03">
+      <div class="num">03</div><h2>Our Story</h2>
+      <p>Every meaningful project begins with an idea. For Deutsch Lernen, that idea was simple: German language education should be accessible, practical, and enjoyable for everyone.</p>
+      <p>The journey of Deutsch Lernen started with a vision to build something more than just another educational website. Many online learning platforms provide scattered resources, overwhelming interfaces, or expensive subscription models that make learning difficult for students. Instead of following that approach, Deutsch Lernen was designed around the learner.</p>
+      <p>The goal was to create an environment where students could begin their German learning journey without confusion. Every lesson, every page, and every feature was planned with simplicity, clarity, and usability in mind.</p>
+      <p>The development process focused on creating a platform that combines structured learning with modern technology. From user authentication and personalized dashboards to grammar modules, speaking practice, multilingual support, and progress tracking, every feature was carefully developed to improve the learning experience.</p>
+      <p>Deutsch Lernen was not created overnight. It represents countless hours of research, planning, design, coding, testing, and continuous refinement. Each improvement reflects a commitment to quality rather than speed. The platform continues to evolve based on new ideas, technological advancements, and the changing needs of learners.</p>
+      <p>Rather than becoming a static website, Deutsch Lernen is designed to grow into a comprehensive educational ecosystem where students can continuously improve their German language skills.</p>
+      <p>At its heart, Deutsch Lernen stands for one simple belief: Education should empower people. Learning a new language opens opportunities for higher education, international careers, cultural understanding, and personal growth. Deutsch Lernen exists to make those opportunities more accessible through modern digital education.</p>
+      <p>This story is still being written. Every learner who joins the platform becomes part of that journey, helping shape the future of Deutsch Lernen through learning, feedback, and continuous growth.</p>
+      <p>Our commitment remains unchanged: To build an educational platform that inspires confidence, encourages lifelong learning, and makes German language education available to everyone.</p>
+    </section>
+
+    <section class="doc-section" id="s04">
+      <div class="num">04</div><h2>Who We Are</h2>
+      <p>Deutsch Lernen is an independent educational technology platform founded and developed by Zishan Rafi. We are dedicated to transforming the way people learn the German language by combining quality educational content with modern web technologies.</p>
+      <p>Our platform serves learners from different educational backgrounds, age groups, and experience levels. Whether someone is learning German for academic purposes, professional development, immigration, travel, or personal interest, Deutsch Lernen is designed to provide an effective and enjoyable learning experience.</p>
+      <p>We believe that language learning should never feel overwhelming. Instead, it should be structured, interactive, motivating, and accessible. Every aspect of the platform reflects this philosophy.</p>
+      <p>Our team is driven by values such as innovation, integrity, accessibility, continuous improvement, and respect for learners. Although Deutsch Lernen is currently developed independently, its long-term vision extends far beyond a single project. We aim to grow into a trusted educational platform recognized for quality learning resources, reliable technology, and learner-focused innovation.</p>
+      <p>Our responsibility goes beyond providing lessons. We strive to create an environment where learners feel motivated, supported, and confident throughout their language-learning journey.</p>
+      <p>Every update, every feature, and every decision is guided by one central purpose: Helping learners achieve real progress through meaningful education.</p>
+      <p>Deutsch Lernen represents dedication, continuous learning, and the belief that knowledge has the power to change lives. This is who we are. And this is the foundation upon which Deutsch Lernen continues to grow.</p>
+    </section>
+
+    <section class="doc-section" id="s05">
+      <div class="num">05</div><h2>Our Mission</h2>
+      <p>At Deutsch Lernen, our mission is to make German language education accessible, practical, affordable, and inspiring for learners across the world.</p>
+      <p>We believe that education has the power to transform lives. Learning a new language is not only about communication—it opens doors to higher education, international careers, cultural understanding, and personal growth.</p>
+      <p>Our mission is to remove unnecessary barriers from language learning by providing a platform that is easy to use, rich in educational content, and built with modern technology. We are committed to developing structured learning paths that help students progress from beginner to advanced levels with confidence.</p>
+      <p>Deutsch Lernen aims to support learners through interactive lessons, grammar explanations, vocabulary building, speaking practice, quizzes, and personalized progress tracking.</p>
+      <p>Beyond education, our mission is to create a learning environment where students feel motivated, respected, and encouraged to continue improving every day.</p>
+      <p>Every feature introduced on the platform is evaluated based on one important question: Does it genuinely help learners achieve their goals? If the answer is yes, we continue improving it. If the answer is no, we redesign it until it meets our standards.</p>
+      <p>Our commitment extends beyond technology. We are dedicated to maintaining transparency, protecting user privacy, ensuring platform security, and continuously improving the learning experience.</p>
+      <p>Deutsch Lernen exists to empower learners—not only to pass exams, but to communicate confidently, explore new opportunities, and become lifelong learners.</p>
+    </section>
+
+    <section class="doc-section" id="s06">
+      <div class="num">06</div><h2>Our Vision</h2>
+      <p>Our vision is to become one of the world's most trusted and innovative digital platforms for learning the German language.</p>
+      <p>We envision a future where anyone, regardless of their country, financial background, or previous educational experience, can access high-quality German language education through a single platform.</p>
+      <p>Deutsch Lernen seeks to combine educational excellence with technological innovation to create a learning experience that is engaging, intelligent, and continuously evolving.</p>
+      <p>As the platform grows, we aspire to introduce new educational technologies, personalized learning experiences, artificial intelligence, pronunciation assistance, advanced analytics, and collaborative learning environments that further improve student success.</p>
+      <p>We also envision building a global learning community where learners can practice together, support one another, and celebrate their achievements. Trust, quality, accessibility, and innovation will continue to guide every stage of our development.</p>
+      <p>Our vision is not limited to creating educational content. Our vision is to build an ecosystem where learning becomes enjoyable, progress becomes measurable, and opportunities become limitless.</p>
+      <p>Deutsch Lernen will continue to evolve with one long-term objective: To inspire millions of learners worldwide to achieve confidence through language education and lifelong learning.</p>
+    </section>
+
+    <section class="doc-section" id="s07">
+      <div class="num">07</div><h2>Our Core Values</h2>
+      <p>The foundation of Deutsch Lernen is built upon a set of values that guide every decision, every feature, and every interaction with our learners.</p>
+      <h4>Excellence</h4><p>We strive for excellence in educational content, software development, and user experience. Every lesson and feature is carefully designed to meet high standards of quality.</p>
+      <h4>Integrity</h4><p>We believe in honesty, transparency, and ethical responsibility. Our relationship with learners is based on trust and respect.</p>
+      <h4>Accessibility</h4><p>Education should be available to everyone. We are committed to building a platform that remains simple to use, affordable, inclusive, and accessible across different devices and learning environments.</p>
+      <h4>Innovation</h4><p>Technology continuously evolves, and so do we. Deutsch Lernen embraces modern technologies to improve language education and deliver better learning experiences.</p>
+      <h4>Privacy & Security</h4><p>Protecting user information is one of our highest priorities. We are committed to implementing secure technologies and responsible data practices that safeguard personal information.</p>
+      <h4>Continuous Improvement</h4><p>Learning never stops—and neither do we. Deutsch Lernen is continuously improved through research, learner feedback, technological advancements, and educational best practices.</p>
+      <h4>Respect</h4><p>We value every learner regardless of nationality, culture, language, religion, or educational background. We are committed to maintaining a welcoming and respectful learning environment for everyone.</p>
+      <p>These core values define who we are today and will continue to shape the future of Deutsch Lernen as we grow into a global educational platform.</p>
+    </section>
+
+    <section class="doc-section" id="s08">
+      <div class="num">08</div><h2>Learning Philosophy</h2>
+      <p>At Deutsch Lernen, we believe that language learning is not about memorizing rules—it is about developing the confidence to communicate, understand, and connect with the world. Our educational philosophy is built upon practical learning, continuous progress, and meaningful engagement.</p>
+      <p>Every learner has a unique pace, background, and learning style. Therefore, our platform is designed to support learners through structured lessons, interactive exercises, and progressive learning paths that encourage consistent improvement rather than short-term memorization.</p>
+      <p>We believe that grammar should be understood rather than feared. Vocabulary should be learned through meaningful context rather than isolated word lists. Speaking skills should be developed through regular practice instead of waiting for perfection.</p>
+      <p>Mistakes are not failures. They are valuable opportunities to learn, improve, and gain confidence. Deutsch Lernen encourages learners to view every challenge as part of their educational journey.</p>
+      <p>Technology plays an important role in modern education. By combining educational best practices with digital innovation, we aim to provide a learning environment that is flexible, engaging, and accessible from anywhere in the world.</p>
+      <p>Our philosophy also emphasizes lifelong learning. Language learning does not end after completing a course or passing an examination. It continues through curiosity, practice, cultural exploration, and real-world communication.</p>
+      <p>Every lesson published on Deutsch Lernen reflects our commitment to quality, simplicity, and educational effectiveness. Our goal is not only to teach German. Our goal is to help learners think, communicate, and grow with confidence.</p>
+    </section>
+
+    <section class="doc-section" id="s09">
+      <div class="num">09</div><h2>Why Choose Deutsch Lernen</h2>
+      <p>Choosing the right learning platform is an important step in achieving success. Deutsch Lernen has been designed with a learner-first approach, ensuring that every feature contributes to a meaningful and effective educational experience.</p>
+      <h4>Structured Learning</h4><p>Lessons are carefully organized to help learners progress from beginner to advanced levels without confusion or unnecessary complexity.</p>
+      <h4>Practical Education</h4><p>Our content focuses on real-life communication rather than memorizing isolated grammar rules. Learners develop skills that can be applied in everyday conversations, academic environments, and professional settings.</p>
+      <h4>Interactive Experience</h4><p>Learning becomes more engaging through quizzes, speaking practice, vocabulary exercises, and personalized learning journeys.</p>
+      <h4>Modern Technology</h4><p>Deutsch Lernen utilizes modern web technologies to provide a fast, responsive, and reliable learning experience across desktop and mobile devices.</p>
+      <h4>User-Friendly Design</h4><p>A clean interface, intuitive navigation, and organized learning materials help learners focus on education instead of struggling with technology.</p>
+      <h4>Continuous Improvement</h4><p>The platform is continuously updated with new lessons, improved features, enhanced security, and better learning experiences based on research and user feedback.</p>
+      <h4>Privacy and Security</h4><p>We are committed to protecting user information through secure authentication systems, responsible data management, and industry-standard security practices.</p>
+      <h4>Accessibility</h4><p>Deutsch Lernen aims to provide quality education regardless of geographical location or previous learning experience. Learning should be available to everyone.</p>
+      <p>When you choose Deutsch Lernen, you are choosing a platform that values education, innovation, trust, and continuous improvement. Our success is measured by the progress and confidence of our learners.</p>
+    </section>
+
+    <section class="doc-section" id="s10">
+      <div class="num">10</div><h2>What We Offer</h2>
+      <p>Deutsch Lernen provides a comprehensive collection of educational resources designed to support learners throughout every stage of their German language journey.</p>
+      <h4>Grammar Lessons</h4><p>Structured explanations covering essential German grammar concepts, supported by practical examples and exercises.</p>
+      <h4>Vocabulary Development</h4><p>Carefully organized vocabulary collections that help learners expand their language skills for everyday communication.</p>
+      <h4>Speaking Practice</h4><p>Interactive activities designed to improve pronunciation, fluency, and conversational confidence.</p>
+      <h4>Learning Journey</h4><p>A guided educational pathway that allows learners to progress step by step while monitoring their achievements.</p>
+      <h4>User Dashboard</h4><p>Personalized dashboards enable learners to manage their accounts, track progress, and access learning resources efficiently.</p>
+      <h4>Interactive Quizzes</h4><p>Practice assessments help learners evaluate their understanding and reinforce newly acquired knowledge.</p>
+      <h4>Secure User Accounts</h4><p>Modern authentication systems protect user accounts while providing a seamless login experience.</p>
+      <h4>Responsive Learning</h4><p>Deutsch Lernen is optimized for desktop computers, tablets, and smartphones, allowing learners to study anytime and anywhere.</p>
+      <h4>Continuous Platform Development</h4><p>We regularly improve educational content, introduce new learning tools, enhance performance, and strengthen security to ensure the best possible learning experience.</p>
+      <p>Our objective is to provide learners with everything they need in one integrated platform, making German language learning more efficient, enjoyable, and rewarding.</p>
+    </section>
+
+    <section class="doc-section" id="s11">
+      <div class="num">11</div><h2>Technology Behind Deutsch Lernen</h2>
+      <p>Deutsch Lernen has been developed using modern web technologies to provide a secure, reliable, and high-performance learning experience. The platform has been carefully engineered with scalability, maintainability, and user experience in mind. Every technology used within Deutsch Lernen has been selected based on its reliability, performance, and long-term sustainability.</p>
+      <h4>Frontend Technologies</h4><p>The user interface is built using modern HTML5, CSS3, and JavaScript (ES6). This lightweight architecture allows the platform to load quickly while maintaining excellent compatibility across modern browsers and devices. Responsive design principles ensure that learners enjoy a consistent experience on desktops, tablets, and smartphones.</p>
+      <h4>Backend Infrastructure</h4><p>Deutsch Lernen uses Firebase as its primary backend platform. Firebase Authentication provides secure account management, including email/password authentication, Google Sign-In, email verification, password reset, and account security features. Cloud Firestore serves as the platform's primary database, storing learning progress, user information, and educational data securely.</p>
+      <h4>Serverless Functions</h4><p>To improve security and performance, backend operations are handled through serverless cloud functions. Server-side logic ensures that sensitive operations remain protected from direct client-side access. This architecture improves reliability while reducing infrastructure complexity.</p>
+      <h4>Performance Optimization</h4><p>The platform has been designed with performance as a priority. Clean code architecture, modular JavaScript, optimized assets, responsive layouts, and efficient database queries contribute to fast loading times and smooth user interactions.</p>
+      <h4>Scalability</h4><p>Deutsch Lernen has been developed with future expansion in mind. Its modular structure allows new learning modules, additional languages, AI-powered features, and advanced educational tools to be integrated without requiring major architectural changes.</p>
+      <p>Technology is not only the foundation of Deutsch Lernen—it is one of the key elements that enables us to deliver modern education efficiently and securely.</p>
+    </section>
+
+    <section class="doc-section" id="s12">
+      <div class="num">12</div><h2>Security & Data Protection</h2>
+      <p>Protecting our users and their information is one of the highest priorities of Deutsch Lernen. We understand that trust is earned through responsible security practices, transparent policies, and continuous improvement. For this reason, security considerations are integrated into every stage of the platform's development.</p>
+      <h4>Secure Authentication</h4><p>User accounts are protected using Firebase Authentication, which provides industry-standard authentication mechanisms. Supported authentication methods include secure email/password login, Google Sign-In, email verification, and password recovery. Passwords are never stored in plain text by the platform.</p>
+      <h4>Data Protection</h4><p>User information is stored securely within Cloud Firestore using appropriate security rules and access controls. Only authorized processes are permitted to access protected resources.</p>
+      <h4>Encrypted Communication</h4><p>All communication between users and the platform is expected to occur over secure HTTPS connections, helping protect information during transmission.</p>
+      <h4>Privacy by Design</h4><p>Deutsch Lernen follows the principle of collecting only the information necessary to provide educational services. We avoid collecting unnecessary personal information and continuously evaluate our data practices to ensure responsible handling of user data.</p>
+      <h4>Continuous Monitoring</h4><p>Security is an ongoing responsibility. Platform components are regularly reviewed, updated, and improved to reduce risks and strengthen protection against emerging threats.</p>
+      <h4>User Responsibility</h4><p>Security is a shared responsibility. Users are encouraged to use strong passwords, protect their account credentials, and report suspicious activities immediately.</p>
+      <p>By combining secure technologies with responsible development practices, Deutsch Lernen aims to provide a trustworthy environment where learners can focus on education with confidence.</p>
+    </section>
+
+    <div class="chapter-divider">Community & Legal</div>
+
+    <section class="doc-section" id="s13">
+      <div class="num">13</div><h2>Community Guidelines</h2>
+      <p>Deutsch Lernen is committed to maintaining a respectful, inclusive, and positive learning environment for everyone. These Community Guidelines establish the standards of behavior expected from every user of the platform.</p>
+      <h4>Respect Others</h4><p>Treat every learner with kindness, professionalism, and respect. Harassment, discrimination, bullying, hate speech, or abusive behavior will not be tolerated.</p>
+      <h4>Honest Learning</h4><p>Learning should be based on personal effort and integrity. Users should not engage in cheating, impersonation, academic dishonesty, or any activity that unfairly affects the learning experience of others.</p>
+      <h4>Appropriate Conduct</h4><p>Do not upload, share, or distribute content that is illegal, offensive, harmful, misleading, or inappropriate. Users are responsible for ensuring that any content they contribute complies with applicable laws and these guidelines.</p>
+      <h4>Protect Platform Security</h4><p>Attempting to exploit vulnerabilities, bypass security measures, gain unauthorized access, interfere with platform functionality, or disrupt services is strictly prohibited.</p>
+      <h4>Respect Intellectual Property</h4><p>Users must respect copyrights, trademarks, and other intellectual property rights. Educational materials, source code, branding, graphics, and original content provided by Deutsch Lernen may not be copied, reproduced, or redistributed without prior written permission.</p>
+      <h4>Fair Use</h4><p>Deutsch Lernen exists to support education. Users are encouraged to use platform resources responsibly and in accordance with these guidelines.</p>
+      <h4>Enforcement</h4><p>Violation of these Community Guidelines may result in warnings, temporary suspension, permanent account termination, or legal action where appropriate.</p>
+      <p>By following these principles, every learner contributes to building a safe, supportive, and inspiring educational community for everyone.</p>
+    </section>
+
+    <section class="doc-section" id="s14">
+      <div class="num">14</div><h2>User Responsibilities</h2>
+      <p>Every user plays an important role in maintaining the quality, security, and integrity of Deutsch Lernen. By creating an account or accessing our platform, users agree to use the services responsibly and in accordance with applicable laws and our policies.</p>
+      <h4>Account Security</h4><p>Users are responsible for maintaining the confidentiality of their login credentials. You must not share your password or allow others to access your account. Any activity performed through your account is considered your responsibility. If you suspect unauthorized access to your account, you should immediately update your password and notify the platform administrator.</p>
+      <h4>Accurate Information</h4><p>Users should provide accurate and truthful information during registration and when updating their profiles. Providing false identities, misleading information, or impersonating another individual is strictly prohibited.</p>
+      <h4>Responsible Use</h4><p>Deutsch Lernen is intended exclusively for educational purposes. Users agree to use the platform respectfully and avoid activities that may negatively affect other learners or the platform itself. Examples of prohibited activities include:</p>
+      <ul>
+        <li>Attempting unauthorized access to systems or databases.</li>
+        <li>Uploading malicious software, viruses, or harmful code.</li>
+        <li>Disrupting platform functionality.</li>
+        <li>Using automated tools to scrape protected content.</li>
+        <li>Circumventing security mechanisms.</li>
+      </ul>
+      <h4>Respect for Educational Content</h4><p>Educational materials are provided solely for personal learning. Users may not copy, reproduce, distribute, publish, modify, translate, or commercially exploit any original content without prior written permission.</p>
+      <h4>Respect for Other Users</h4><p>All users should interact respectfully. Harassment, threats, discrimination, offensive language, or abusive behavior toward other members is not acceptable under any circumstances.</p>
+      <h4>Compliance with Policies</h4><p>Users agree to comply with all published policies, including the Privacy Policy, Terms & Conditions, Community Guidelines, Cookie Policy, and Copyright Policy. Failure to comply may result in suspension or permanent termination of account access.</p>
+      <p>Responsible users help us create a secure, welcoming, and effective learning environment for everyone.</p>
+    </section>
+
+    <section class="doc-section" id="s15">
+      <div class="num">15</div><h2>Intellectual Property Rights</h2>
+      <p>Deutsch Lernen represents a significant investment of time, creativity, research, and technical development. All original content available through the platform is protected by applicable copyright and intellectual property laws. Unless explicitly stated otherwise, all rights are reserved by Zishan Rafi.</p>
+      <h4>Ownership</h4><p>The following materials are the exclusive intellectual property of Deutsch Lernen:</p>
+      <ul>
+        <li>Website design, User Interface (UI), User Experience (UX)</li>
+        <li>Source code, JavaScript programs, CSS stylesheets</li>
+        <li>Educational content, grammar lessons, learning modules, quizzes</li>
+        <li>Graphics, logos, icons, branding</li>
+        <li>Documentation, database structure, platform architecture</li>
+        <li>Original written content</li>
+      </ul>
+      <h4>Restricted Activities</h4><p>Without prior written permission from the copyright owner, no individual or organization may copy any part of the platform, modify original content, redistribute educational materials, sell or commercially exploit platform resources, reverse engineer protected systems, create derivative works based on original materials, or remove copyright notices or ownership information.</p>
+      <h4>Educational Use</h4><p>Access to educational content does not transfer ownership. Users receive a limited, non-transferable license to access materials exclusively for personal educational purposes.</p>
+      <h4>Legal Protection</h4><p>Deutsch Lernen reserves the right to investigate violations of intellectual property rights and pursue appropriate legal remedies where necessary. Unauthorized use of copyrighted materials may result in account termination, copyright claims, financial damages, or other legal actions permitted under applicable laws.</p>
+      <p>Innovation deserves protection. Respecting intellectual property enables creators to continue developing high-quality educational resources for learners worldwide.</p>
+    </section>
+
+    <section class="doc-section" id="s16">
+      <div class="num">16</div><h2>Privacy Policy</h2>
+      <p>Your privacy is important to us. Deutsch Lernen is committed to protecting your personal information and handling your data responsibly, transparently, and securely. This Privacy Policy explains what information we collect, how it is used, and how we protect it.</p>
+      <h4>Information We Collect</h4><p>Depending on how you use the platform, we may collect:</p>
+      <ul>
+        <li>Full name, email address</li>
+        <li>Profile photo (when using Google Sign-In)</li>
+        <li>Learning progress, quiz results, language preferences</li>
+        <li>Device, browser, and IP address information</li>
+        <li>Login activity</li>
+        <li>Payment information processed through authorized payment providers</li>
+      </ul>
+      <h4>How We Use Your Information</h4><p>Your information helps us create and manage your account, save learning progress, personalize your learning experience, improve educational content, enhance platform security, respond to support requests, process payments where applicable, and prevent fraud and unauthorized access.</p>
+      <h4>Data Protection</h4><p>We implement reasonable administrative, technical, and organizational measures to protect personal information from unauthorized access, alteration, disclosure, or destruction. Although we work hard to safeguard your information, no online service can guarantee absolute security.</p>
+      <h4>Data Sharing</h4><p>Deutsch Lernen does not sell personal information. Information may be shared only with trusted service providers when necessary to operate the platform or when required by applicable law.</p>
+      <h4>User Rights</h4><p>Where applicable, users may request access to their personal information, correction of inaccurate data, or deletion of their accounts in accordance with our policies.</p>
+      <h4>Updates</h4><p>This Privacy Policy may be revised periodically to reflect improvements, legal requirements, or operational changes. Continued use of Deutsch Lernen after updates constitutes acceptance of the revised Privacy Policy.</p>
+    </section>
+
+    <section class="doc-section" id="s17">
+      <div class="num">17</div><h2>Terms & Conditions</h2>
+      <h4>Acceptance of Terms</h4><p>By accessing or using Deutsch Lernen, you acknowledge that you have read, understood, and agreed to comply with these Terms & Conditions. If you do not agree with these terms, you should discontinue using the platform immediately.</p>
+      <h4>Eligibility</h4><p>Users must comply with all applicable laws when accessing the platform. If you are below the legal age required in your country to enter into an online agreement, you should use Deutsch Lernen only with the consent of a parent or legal guardian.</p>
+      <h4>User Accounts</h4><p>To access certain features, users may be required to create an account. You agree to provide accurate information, maintain the confidentiality of your login credentials, notify us immediately if you suspect unauthorized access, and accept responsibility for all activities performed under your account.</p>
+      <h4>Acceptable Use</h4><p>Deutsch Lernen is intended exclusively for lawful educational purposes. Users agree not to violate any applicable law, upload malicious software, attempt unauthorized access, disrupt platform operations, misuse educational materials, harass or abuse other users, or interfere with security systems.</p>
+      <h4>Platform Availability</h4><p>While we strive to maintain uninterrupted service, Deutsch Lernen does not guarantee continuous availability. Temporary interruptions may occur due to maintenance, technical issues, updates, or circumstances beyond our control.</p>
+      <h4>Modification of Services</h4><p>We reserve the right to modify, improve, suspend, or discontinue any feature, service, or content without prior notice whenever necessary.</p>
+      <h4>Intellectual Property</h4><p>All original materials available on Deutsch Lernen remain the exclusive property of Zishan Rafi and are protected under applicable intellectual property laws.</p>
+      <h4>Limitation of Liability</h4><p>Deutsch Lernen shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use the platform.</p>
+      <h4>Termination</h4><p>We reserve the right to suspend or permanently terminate user accounts that violate these Terms & Conditions or engage in activities that threaten the safety, security, or integrity of the platform.</p>
+      <h4>Changes to These Terms</h4><p>These Terms & Conditions may be updated periodically. Continued use of the platform following updates constitutes acceptance of the revised Terms.</p>
+    </section>
+
+    <section class="doc-section" id="s18">
+      <div class="num">18</div><h2>Cookie Policy</h2>
+      <p>Cookies are small text files stored on your device to improve your browsing experience and help the platform function efficiently. Deutsch Lernen uses cookies responsibly and only for purposes that improve platform functionality and user experience.</p>
+      <h4>Why We Use Cookies</h4><p>Cookies help us maintain secure login sessions, remember language preferences, save certain user settings, improve website performance, analyze anonymous usage statistics, and enhance security.</p>
+      <h4>Types of Cookies</h4>
+      <p><strong>Essential Cookies</strong> — required for the proper operation of the platform. Without them, certain features such as user authentication may not function correctly.</p>
+      <p><strong>Preference Cookies</strong> — remember your selected settings, including language preferences and interface options.</p>
+      <p><strong>Analytics Cookies</strong> — anonymous analytical information helps us understand how learners interact with the platform, enabling continuous improvement. No personally identifiable information is collected through these cookies unless explicitly stated.</p>
+      <h4>Managing Cookies</h4><p>Most browsers allow users to manage or disable cookies through browser settings. Disabling cookies may affect the functionality of certain features within Deutsch Lernen.</p>
+      <h4>Policy Updates</h4><p>This Cookie Policy may be revised periodically to reflect improvements or legal requirements. Continued use of the platform constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <section class="doc-section" id="s19">
+      <div class="num">19</div><h2>Disclaimer</h2>
+      <p>The educational content provided on Deutsch Lernen is intended solely for learning and informational purposes. Although we strive to ensure that all lessons, explanations, quizzes, and educational materials are accurate and regularly updated, we do not guarantee that all content is free from errors, omissions, or inaccuracies.</p>
+      <p>Language evolves continuously, and educational recommendations may change over time. Users are encouraged to verify important academic or professional information using additional authoritative resources where appropriate.</p>
+      <p>Deutsch Lernen provides educational guidance but does not guarantee examination results, language certification, employment opportunities, visa approvals, academic admissions, or any other outcome based solely on use of the platform.</p>
+      <p>External websites or third-party services linked from Deutsch Lernen are provided for convenience only. We are not responsible for the content, privacy practices, or availability of external websites.</p>
+      <p>All educational materials are provided on an "as available" basis without warranties of any kind, whether express or implied.</p>
+      <p>By using Deutsch Lernen, users acknowledge that they assume responsibility for how they apply the educational content provided by the platform. We remain committed to continuously improving the quality, accuracy, and reliability of our educational resources.</p>
+    </section>
+
+    <section class="doc-section" id="s20">
+      <div class="num">20</div><h2>Copyright Policy</h2>
+      <p style="color:var(--muted);font-size:12px;">Effective Date: July 11, 2026</p>
+      <p>Deutsch Lernen respects intellectual property rights and is committed to protecting all original works created for the platform. Unless otherwise stated, all original materials published on Deutsch Lernen are protected under applicable national and international copyright laws.</p>
+      <h4>Copyright Ownership</h4><p>The following materials are the exclusive property of Zishan Rafi: website source code, website design, UI/UX, educational lessons, grammar explanations, learning modules, practice exercises, quizzes, images created specifically for the platform, graphics, logos, icons, branding elements, documentation, database structure, software architecture, and original written content. Copyright protection applies regardless of whether the content is available publicly or through registered user accounts.</p>
+      <h4>Permitted Use</h4><p>Users are granted a limited, non-exclusive, non-transferable license to access educational materials strictly for personal learning purposes. This license does not transfer ownership of any intellectual property.</p>
+      <h4>Prohibited Activities</h4><p>Without prior written permission from Zishan Rafi, users may not copy or duplicate website content, publish educational materials elsewhere, sell or redistribute platform resources, translate and republish original lessons, modify platform materials, create derivative works, remove copyright notices, rebrand any part of Deutsch Lernen, or use platform resources for commercial purposes.</p>
+      <h4>Copyright Enforcement</h4><p>Deutsch Lernen actively monitors unauthorized use of its intellectual property. Where infringement is identified, appropriate action may include copyright infringement notices, account suspension, content removal requests, legal proceedings, and claims for financial damages where permitted by law.</p>
+      <p>Respecting intellectual property encourages innovation and supports the continued development of quality educational resources.</p>
+      <p style="color:var(--muted);font-size:12px;">© 2026 Zishan Rafi. All Rights Reserved.</p>
+    </section>
+
+    <section class="doc-section" id="s21">
+      <div class="num">21</div><h2>DMCA Policy</h2>
+      <p>Deutsch Lernen respects the intellectual property rights of others and expects all users to do the same. If you believe that your copyrighted work has been copied or used on Deutsch Lernen without authorization, you may submit a copyright complaint.</p>
+      <h4>Filing a Copyright Complaint</h4><p>Your complaint should include:</p>
+      <ul>
+        <li>Your full legal name and contact information.</li>
+        <li>Identification of the copyrighted work.</li>
+        <li>Identification of the allegedly infringing material.</li>
+        <li>A statement that you believe the use is unauthorized.</li>
+        <li>A statement confirming that the information provided is accurate.</li>
+        <li>Your physical or electronic signature.</li>
+      </ul>
+      <p>Incomplete complaints may require additional verification before review.</p>
+      <h4>Review Process</h4><p>Upon receiving a valid complaint, Deutsch Lernen will review the submitted information, investigate the reported material, contact involved parties if necessary, remove or restrict access to infringing content where appropriate, and take additional action when required by applicable law.</p>
+      <h4>False Claims</h4><p>Submitting knowingly false copyright claims may result in rejection of the complaint and may carry legal consequences under applicable law. Deutsch Lernen reserves the right to request additional information before taking action.</p>
+      <h4>Repeat Infringers</h4><p>Accounts repeatedly violating intellectual property rights may be permanently suspended or terminated.</p>
+      <p>Our goal is to maintain a fair, lawful, and respectful educational environment while protecting the rights of all creators.</p>
+      <p style="color:var(--muted);font-size:12px;">© 2026 Zishan Rafi. All Rights Reserved.</p>
+    </section>
+
+    <div class="chapter-divider">Support</div>
+
+    <section class="doc-section" id="s22">
+      <div class="num">22</div><h2>Contact & Support</h2>
+      <p>We are committed to providing reliable assistance and maintaining open communication with our learners and partners. If you need help, have questions, or wish to report an issue, we encourage you to contact us through the appropriate communication channel.</p>
+      <h4>General Support</h4><p>For questions related to learning materials, user accounts, technical issues, or platform features, please contact our support team through the official contact page available on the website.</p>
+      <h4>Business & Partnership</h4><p>Organizations, educational institutions, and business partners interested in collaborating with Deutsch Lernen are welcome to contact us for partnership opportunities.</p>
+      <h4>Copyright & Legal Matters</h4><p>For copyright permissions, licensing requests, trademark concerns, intellectual property inquiries, or legal notices, please contact the owner directly using the official contact information published on the website.</p>
+      <h4>Security Reports</h4><p>If you discover a security vulnerability, please report it responsibly. We appreciate responsible disclosure and will investigate all legitimate security reports as quickly as possible.</p>
+      <h4>Response Time</h4><p>While response times may vary depending on the nature of the request, we strive to respond to all legitimate inquiries as promptly as possible.</p>
+      <p>Thank you for supporting Deutsch Lernen. Your feedback, suggestions, and contributions help us continue improving the platform and providing a better learning experience for learners around the world.</p>
+    </section>
+
+    <section class="doc-section" id="s23">
+      <div class="num">23</div><h2>Frequently Asked Questions (FAQ)</h2>
+      <h4>What is Deutsch Lernen?</h4><p>Deutsch Lernen is an independent online German language learning platform developed by Zishan Rafi. It provides structured lessons, grammar explanations, speaking practice, vocabulary building, quizzes, and interactive learning tools.</p>
+      <h4>Who can use Deutsch Lernen?</h4><p>Anyone interested in learning German may use the platform. Whether you are a beginner, an intermediate learner, preparing for higher education, planning to work abroad, or simply learning for personal interest, Deutsch Lernen is designed to support your learning journey.</p>
+      <h4>Do I need to create an account?</h4><p>Some educational resources may be available without an account. However, creating an account allows you to save your learning progress, access personalized features, participate in quizzes, and receive future platform updates.</p>
+      <h4>Is my personal information safe?</h4><p>Yes. Deutsch Lernen follows responsible security practices and stores user information using secure technologies. Your information is handled according to our Privacy Policy.</p>
+      <h4>Can I copy lessons or source code?</h4><p>No. All original educational materials, source code, graphics, UI/UX, branding, and documentation are protected by copyright. Unauthorized copying, redistribution, modification, or commercial use is strictly prohibited without prior written permission from Zishan Rafi.</p>
+      <h4>Can I contribute to the platform?</h4><p>Future collaboration opportunities may become available. If you are interested in educational partnerships or technical collaboration, please contact us through our official communication channels.</p>
+      <h4>Will new features be added?</h4><p>Yes. Deutsch Lernen is continuously evolving. New learning resources, improved educational tools, enhanced security, and additional platform features may be introduced regularly.</p>
+      <h4>How can I report a problem?</h4><p>If you experience a technical issue, discover incorrect educational content, or identify a security concern, please contact us through the official support page. We appreciate constructive feedback and responsible reporting.</p>
+      <h4>Is Deutsch Lernen free?</h4><p>Certain educational resources may be available free of charge. Premium services or advanced learning features, if introduced in the future, will be clearly explained before purchase.</p>
+      <h4>Who owns Deutsch Lernen?</h4><p>Deutsch Lernen is independently created, owned, and maintained by Zishan Rafi. All intellectual property rights remain reserved by the owner unless explicitly stated otherwise.</p>
+    </section>
+
+    <section class="doc-section" id="s24">
+      <div class="num">24</div><h2>Official Declaration</h2>
+      <p>This document represents the official principles, policies, and operational standards of Deutsch Lernen. It has been prepared to provide transparency regarding the platform's educational objectives, legal policies, intellectual property rights, security practices, and user responsibilities.</p>
+      <p>Deutsch Lernen is committed to operating with integrity, professionalism, and respect for learners around the world. Every policy contained within this documentation reflects our dedication to educational excellence, responsible technology, user privacy, information security, intellectual property protection, fair and ethical practices, and continuous improvement.</p>
+      <p>These policies may be updated from time to time in response to technological developments, legal requirements, educational improvements, or operational needs. The most recent version published on the official Deutsch Lernen website shall always be considered the authoritative version.</p>
+      <p>By accessing or using Deutsch Lernen, users acknowledge that they have read and accepted the applicable policies governing the platform.</p>
+      <p>Our commitment is not only to build educational software but also to establish a trustworthy learning environment where knowledge, innovation, and integrity work together.</p>
+      <p>We sincerely thank every learner, educator, supporter, and partner who contributes to the continued growth of Deutsch Lernen. Together, we are building a future where language education is accessible, engaging, and empowering for everyone.</p>
+    </section>
+
+    <section class="doc-section" id="s25">
+      <div class="num">25</div><h2>Final Legal Notice</h2>
+      <p style="color:var(--muted);font-size:12px;">© 2026 Zishan Rafi. All Rights Reserved.</p>
+      <p>Deutsch Lernen, including but not limited to its software, source code, website architecture, database structure, educational content, learning modules, graphics, visual design, user interface (UI), user experience (UX), logos, trademarks, icons, branding elements, documentation, and all original materials, is the exclusive intellectual property of Zishan Rafi.</p>
+      <p>No individual, organization, institution, or company may reproduce, copy, modify, publish, distribute, reverse engineer, license, sublicense, translate, commercially exploit, or create derivative works from any part of Deutsch Lernen without obtaining prior written permission from the copyright owner.</p>
+      <p>Unauthorized use may result in civil claims, copyright enforcement actions, removal requests, account suspension, financial damages, and any other legal remedies available under applicable copyright and intellectual property laws.</p>
+      <p>Nothing contained within this documentation shall be interpreted as granting ownership rights, licenses, or permissions beyond those expressly stated by Deutsch Lernen.</p>
+      <p>This documentation is intended to serve as the official legal and informational handbook for the Deutsch Lernen platform.</p>
+      <p>Thank you for respecting intellectual property, supporting ethical education, and helping protect the work that makes Deutsch Lernen possible.</p>
+    </section>
+
+    <div class="chapter-divider">Appendices</div>
+
+    <section class="doc-section" id="s26">
+      <div class="num">Appendix A · 26</div><h2>Acceptable Use Policy (AUP)</h2>
+      <p>This Acceptable Use Policy defines the standards for responsible use of the Deutsch Lernen platform. By accessing or using Deutsch Lernen, every user agrees to comply with the following requirements.</p>
+      <h4>Educational Purpose</h4><p>Deutsch Lernen is designed exclusively for educational and learning-related activities. The platform must not be used for illegal, harmful, fraudulent, or unethical purposes.</p>
+      <h4>Prohibited Activities</h4><p>Users must not:</p>
+      <ul>
+        <li>Attempt to gain unauthorized access to any account, database, server, or administrative system.</li>
+        <li>Use bots, scripts, automated software, or scraping tools to copy or collect protected content.</li>
+        <li>Upload viruses, malware, ransomware, spyware, or any malicious software.</li>
+        <li>Attempt to interfere with platform performance or availability.</li>
+        <li>Exploit software vulnerabilities for personal gain.</li>
+        <li>Bypass authentication or security mechanisms.</li>
+        <li>Share copyrighted educational materials without permission.</li>
+        <li>Create fake accounts for abuse or fraudulent activities.</li>
+        <li>Impersonate another individual or organization.</li>
+        <li>Use the platform to distribute spam or misleading information.</li>
+      </ul>
+      <h4>Fair Usage</h4><p>Resources should be used responsibly. Excessive automated requests, intentional server overload, or activities that negatively affect other learners may result in restrictions or account suspension.</p>
+      <h4>Enforcement</h4><p>Violation of this policy may lead to warning notices, temporary suspension, permanent account termination, removal of uploaded content, or legal action where applicable.</p>
+      <p>Deutsch Lernen reserves the right to investigate suspected violations and take appropriate action to protect the platform and its users.</p>
+    </section>
+
+    <section class="doc-section" id="s27">
+      <div class="num">Appendix B · 27</div><h2>Academic Integrity Policy</h2>
+      <p>Deutsch Lernen believes that genuine learning requires honesty, responsibility, and personal effort. Every learner is expected to maintain academic integrity while using the platform.</p>
+      <h4>Honest Learning</h4><p>Learners should complete lessons, exercises, quizzes, and assessments independently unless collaboration is explicitly permitted.</p>
+      <h4>Prohibited Conduct</h4><p>The following actions are considered violations of academic integrity: cheating during assessments, copying answers from others, sharing protected assessment materials, using automated systems to complete learning activities dishonestly, manipulating progress records, and falsifying learning achievements.</p>
+      <h4>Respect for Education</h4><p>Education is most valuable when knowledge is earned through genuine understanding. Deutsch Lernen encourages learners to ask questions, practice consistently, and learn from mistakes rather than seeking shortcuts.</p>
+      <h4>Consequences</h4><p>Violations may result in removal of assessment results, reset of learning progress, temporary account suspension, or permanent account termination for repeated violations.</p>
+      <p>Academic integrity protects the value of every learner's achievements and helps maintain a trustworthy educational community.</p>
+    </section>
+
+    <section class="doc-section" id="s28">
+      <div class="num">Appendix C · 28</div><h2>Brand Identity & Trademark Guidelines</h2>
+      <p>The name Deutsch Lernen, its logo, branding, visual identity, website appearance, educational structure, and associated branding elements represent the identity of the platform and are valuable intellectual property.</p>
+      <h4>Brand Ownership</h4><p>Unless otherwise stated, all branding elements are owned exclusively by Zishan Rafi.</p>
+      <h4>Trademark Usage</h4><p>No person or organization may use the Deutsch Lernen name, logo, or branding in a way that suggests sponsorship, endorsement, partnership, or affiliation without prior written permission.</p>
+      <h4>Logo Usage</h4><p>The official logo may not be modified, recolored, cropped, distorted, combined with other logos, or used for commercial purposes without authorization.</p>
+      <h4>Domain Protection</h4><p>Any domain name, social media account, application, or online service that intentionally imitates or misrepresents Deutsch Lernen may constitute trademark infringement and unfair competition.</p>
+      <h4>Brand Reputation</h4><p>Users and partners should avoid actions that could damage the reputation or public trust associated with Deutsch Lernen.</p>
+      <p>Protecting our brand helps preserve the quality, credibility, and recognition of the platform for learners worldwide.</p>
+      <p style="color:var(--muted);font-size:12px;">© 2026 Zishan Rafi. All Rights Reserved.</p>
+    </section>
+
+    <section class="doc-section" id="s29">
+      <div class="num">Appendix D · 29</div><h2>Accessibility Statement</h2>
+      <p>Deutsch Lernen believes that education should be available to everyone. We are committed to providing a learning environment that is inclusive, accessible, and user-friendly regardless of age, background, ability, or technology.</p>
+      <h4>Our Commitment</h4><p>We continuously improve the platform to make learning accessible for as many users as possible. Our objectives include clear and readable content, responsive layouts for different screen sizes, consistent navigation, accessible color contrast, keyboard-friendly navigation where applicable, simple and understandable language, and fast loading performance.</p>
+      <h4>Continuous Improvement</h4><p>Accessibility is an ongoing process rather than a one-time achievement. We regularly review and improve the platform based on user feedback, evolving standards, and technological advancements.</p>
+      <h4>Feedback</h4><p>If you experience accessibility difficulties while using Deutsch Lernen, we encourage you to contact us. Your feedback helps us improve the learning experience for everyone.</p>
+    </section>
+
+    <section class="doc-section" id="s30">
+      <div class="num">Appendix E · 30</div><h2>Security Disclosure Policy</h2>
+      <p>The security of our learners and platform is a top priority. Deutsch Lernen welcomes responsible security research and encourages ethical reporting of security vulnerabilities.</p>
+      <h4>Responsible Disclosure</h4><p>If you discover a potential security issue, please report it privately before publicly disclosing any information. Your report should include a description of the vulnerability, steps to reproduce the issue, screenshots or proof of concept if available, and suggested mitigation (optional).</p>
+      <h4>Good Faith Research</h4><p>We will not pursue legal action against individuals who act in good faith, respect user privacy, avoid disrupting platform operations, do not exploit vulnerabilities for personal benefit, and provide sufficient information to reproduce the issue.</p>
+      <h4>Prohibited Activities</h4><p>Responsible disclosure does not authorize accessing another user's account, modifying user data, downloading confidential information, interrupting platform services, conducting denial-of-service attacks, or installing malicious software.</p>
+      <h4>Security Commitment</h4><p>We appreciate responsible researchers who help improve platform security. Every verified report contributes to making Deutsch Lernen safer for all learners.</p>
+    </section>
+
+    <section class="doc-section" id="s31">
+      <div class="num">Appendix F · 31</div><h2>Open Source & Third-Party Software Notice</h2>
+      <p>Deutsch Lernen may utilize trusted third-party technologies and open-source software to improve functionality, security, and user experience. Examples may include Firebase, Google Authentication, Cloud Firestore, Cloudinary, font libraries, icon libraries, and JavaScript libraries.</p>
+      <p>All trademarks, logos, and product names belonging to third parties remain the property of their respective owners. Their inclusion within Deutsch Lernen does not imply ownership or endorsement unless explicitly stated.</p>
+      <p>We sincerely appreciate the developers and communities who contribute to open-source software and modern web technologies. Their work makes innovation possible and helps platforms like Deutsch Lernen deliver better educational experiences.</p>
+      <p>Deutsch Lernen remains committed to complying with applicable third-party licenses and attribution requirements whenever necessary.</p>
+    </section>
+
+    <section class="doc-section" id="s32">
+      <div class="num">Appendix G · 32</div><h2>Data Retention & Account Deletion Policy</h2>
+      <p>Deutsch Lernen respects every user's right to control their personal information. This policy explains how long user information is retained and how account deletion requests are handled.</p>
+      <h4>Data Retention</h4><p>We retain personal information only for as long as it is reasonably necessary to provide educational services, maintain user accounts, store learning progress, improve platform functionality, comply with applicable legal obligations, and prevent fraud and security abuse. Information that is no longer required will be securely removed or anonymized where appropriate.</p>
+      <h4>Account Deletion</h4><p>Users may request deletion of their accounts at any time. After verification, the account and associated personal information may be permanently removed, except where retention is required by law or for legitimate security purposes. Account deletion may result in permanent loss of learning progress, removal of saved preferences, deletion of quiz history, and removal of profile information. Deleted accounts generally cannot be restored.</p>
+      <h4>Backup Systems</h4><p>For operational reliability, limited copies of information may temporarily remain within secure backup systems until routine backup cycles are completed.</p>
+      <h4>Policy Updates</h4><p>Deutsch Lernen may revise this policy to reflect legal requirements or improvements in data management practices. Our commitment is to handle user information responsibly, securely, and transparently.</p>
+    </section>
+
+    <section class="doc-section" id="s33">
+      <div class="num">Appendix H · 33</div><h2>Payment & Refund Policy</h2>
+      <p>This policy applies to any premium products, subscriptions, memberships, or paid educational services that may be offered by Deutsch Lernen.</p>
+      <h4>Pricing</h4><p>All prices displayed on the platform are subject to change without prior notice. Applicable taxes, where required by law, may be added during checkout.</p>
+      <h4>Payment Processing</h4><p>Payments are processed through trusted third-party payment providers. Deutsch Lernen does not directly store sensitive payment card information.</p>
+      <h4>Successful Payments</h4><p>After successful payment confirmation, eligible premium services will normally become available to the user's account within a reasonable period.</p>
+      <h4>Refund Requests</h4><p>Refund eligibility depends on the nature of the purchased service, applicable consumer protection laws, technical issues preventing service delivery, and platform policies at the time of purchase. Refunds may not be granted for change of mind after successful delivery, failure to use purchased services, or violations of platform policies resulting in account suspension.</p>
+      <h4>Fraud Prevention</h4><p>Deutsch Lernen reserves the right to investigate suspicious transactions and cancel fraudulent purchases where necessary.</p>
+      <h4>Future Services</h4><p>As premium services continue to evolve, additional payment policies may be published to provide greater clarity for users.</p>
+      <p>Our objective is to maintain a transparent, fair, and secure payment experience.</p>
+    </section>
+
+    <section class="doc-section" id="s34">
+      <div class="num">Appendix I · 34</div><h2>Platform Development Commitment</h2>
+      <p>Deutsch Lernen is not a finished product. It is a continuously evolving educational platform dedicated to long-term improvement and innovation.</p>
+      <p>We are committed to expanding educational content, improving platform performance, enhancing accessibility, strengthening security, modernizing user experience, introducing new learning technologies, and listening to learner feedback.</p>
+      <p>Every update is carefully evaluated to ensure it contributes positively to the learning experience. While development priorities may change over time, our commitment to quality education remains constant.</p>
+      <p>Deutsch Lernen will continue to grow through research, technological innovation, educational best practices, and community feedback. We believe that excellent educational platforms are never truly finished. They continuously learn, improve, and evolve—just like the learners they serve.</p>
+      <p>Thank you for being part of the Deutsch Lernen journey.</p>
+      <p style="color:var(--muted);font-size:12px;">This document serves as the official company profile, legal handbook, and policy documentation for Deutsch Lernen. Unless otherwise stated, every chapter within this documentation is the intellectual property of Zishan Rafi. © 2026 Zishan Rafi. All Rights Reserved.</p>
+    </section>
+
+    <section class="doc-section" id="s35">
+      <div class="num">Appendix J · 35</div><h2>Governing Law & Jurisdiction</h2>
+      <p>Deutsch Lernen operates in accordance with applicable laws and is committed to conducting its activities ethically, transparently, and responsibly.</p>
+      <p>Users agree that any dispute, claim, or legal matter arising from the use of the platform shall be interpreted in accordance with the applicable laws governing the owner of Deutsch Lernen, unless otherwise required by mandatory local regulations.</p>
+      <p>Where possible, disputes should first be resolved through mutual communication and good-faith discussion before formal legal proceedings are initiated.</p>
+      <p>If any provision of this documentation is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect. Nothing contained within this documentation limits any legal rights that cannot be waived under applicable law.</p>
+      <p>Deutsch Lernen reserves the right to update this documentation whenever necessary to comply with legal requirements, technological changes, or operational improvements.</p>
+    </section>
+
+    <section class="doc-section" id="s36">
+      <div class="num">Appendix K · 36</div><h2>Version History</h2>
+      <h4>Version 1.0 — Released July 11, 2026</h4>
+      <p>Initial release of the official Deutsch Lernen documentation. Included:</p>
+      <ul>
+        <li>Company Profile, About Deutsch Lernen, Our Story, Mission &amp; Vision, Core Values</li>
+        <li>Learning Philosophy, Technology Overview, Security Policy</li>
+        <li>Privacy Policy, Terms &amp; Conditions, Cookie Policy, Community Guidelines</li>
+        <li>Copyright Policy, DMCA Policy, Intellectual Property Rights</li>
+        <li>Accessibility Statement, Academic Integrity Policy, Payment Policy</li>
+        <li>Acceptable Use Policy, Brand Guidelines, Data Retention Policy</li>
+        <li>Platform Development Commitment, FAQ, Contact Information</li>
+      </ul>
+      <p>Future revisions will be documented in this section to maintain transparency and provide a clear record of policy updates.</p>
+    </section>
+
+    <section class="doc-section" id="s37">
+      <div class="num">37</div><h2>Closing Statement</h2>
+      <p>Thank you for taking the time to read the official documentation of Deutsch Lernen. This document reflects our commitment to educational excellence, responsible technology, transparency, user privacy, security, and respect for intellectual property.</p>
+      <p>Deutsch Lernen is more than a website. It is a long-term educational initiative dedicated to helping learners achieve confidence in the German language through modern digital learning.</p>
+      <p>Every lesson we publish, every feature we develop, and every improvement we make is driven by one purpose: Helping people learn better.</p>
+      <p>We sincerely appreciate every learner, educator, supporter, and future partner who becomes part of this journey. Together, we can build a learning platform that empowers people through knowledge, opportunity, and lifelong education.</p>
+    </section>
+
+    <section class="doc-section" id="s38">
+      <div class="num">38</div><h2>Official Declaration</h2>
+      <p>This document is the official Company Profile, Policy Handbook, and Legal Documentation of Deutsch Lernen. All original content contained within this document is protected under applicable copyright and intellectual property laws.</p>
+      <p>No part of this documentation may be copied, reproduced, modified, translated, distributed, published, or commercially exploited without prior written permission from the copyright owner.</p>
+      <p><strong>Deutsch Lernen</strong><br>Founder &amp; Owner: Zishan Rafi<br>Official Documentation · Version 1.0<br>© 2026 Zishan Rafi. All Rights Reserved.</p>
+    </section>
+
+  </div>
+</div>
+
+<footer class="doc-footer">🇩🇪 Deutsch Lernen — Official Documentation · Version 1.0 · © 2026 Zishan Rafi. All Rights Reserved.</footer>
+
+</body>
+</html>
