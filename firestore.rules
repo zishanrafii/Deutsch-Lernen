@@ -140,6 +140,14 @@ service cloud.firestore {
         (resource.data.from == request.auth.uid || resource.data.to == request.auth.uid);
     }
 
+    // ── Helper: conversations/{convId}-এর participant কিনা check করে ──
+    // (top-level function — Firestore rules nested match-এর ভেতরে function
+    // declare করতে দেয় না, তাই এটা এখানে declare করে convId parameter হিসেবে পাস করা হয়)
+    function isConvParticipant(convId) {
+      return request.auth.uid in
+        get(/databases/$(database)/documents/conversations/$(convId)).data.participants;
+    }
+
     // ── conversations/{convId} — Community Chat (Messenger-style) ──
     // শুধু participants রা নিজেদের conversation পড়তে/লিখতে পারবে।
     match /conversations/{convId} {
@@ -155,18 +163,13 @@ service cloud.firestore {
 
       // ── messages subcollection ──
       match /messages/{msgId} {
-        function isParticipant() {
-          return request.auth != null &&
-            request.auth.uid in get(/databases/$(database)/documents/conversations/$(convId)).data.participants;
-        }
+        allow read: if request.auth != null && isConvParticipant(convId);
 
-        allow read: if isParticipant();
-
-        allow create: if isParticipant()
+        allow create: if request.auth != null && isConvParticipant(convId)
           && request.resource.data.senderId == request.auth.uid;
 
         // Update শুধু নির্দিষ্ট purpose-এ: seen mark করা, react করা, বা নিজের message soft-delete করা
-        allow update: if isParticipant() && (
+        allow update: if request.auth != null && isConvParticipant(convId) && (
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['seenBy']) ||
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['reactions']) ||
           (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['deleted','text'])
@@ -178,7 +181,7 @@ service cloud.firestore {
 
       // ── typing/{uid} — টাইপ করছে কিনা flag, শুধু নিজেরটা লিখতে পারবে ──
       match /typing/{uid} {
-        allow read: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/conversations/$(convId)).data.participants;
+        allow read: if request.auth != null && isConvParticipant(convId);
         allow write: if request.auth != null && request.auth.uid == uid;
       }
     }
