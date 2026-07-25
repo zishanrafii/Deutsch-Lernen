@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /mein-profil.html
+Disallow: /import-passages.html
+
+Sitemap: https://deutsch-lernen-bd.netlify.app/sitemap.xml

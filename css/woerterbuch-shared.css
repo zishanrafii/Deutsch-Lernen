@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════════════
+   Deutsch Lernen — Wörterbuch shared styles
+   Used by: woerterbuch.html + woerterbuch-{a1,a2,b1,b2,c1,c2}.html
+   Each page only needs to set --accent1 / --accent2 / --accent-glow
+   in its own small inline <style> block before linking this file.
+   ═══════════════════════════════════════════════════════ */
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);
+  --gold:#f5c842;--gold2:#e0a820;
+  --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
+  --emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
+  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.055),transparent 60%),radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.045),transparent 55%);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
+  background-size:52px 52px;}
+
+/* ── TOPBAR ── */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;
+  background:rgba(8,14,26,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.logo-text h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.4px;}
+.logo-text p{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.user-section{display:flex;align-items:center;gap:8px;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.9rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
+.user-avatar img{width:100%;height:100%;object-fit:cover;}
+.user-name{font-size:13px;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.38rem .85rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
+.btn-back{border:1px solid var(--border);background:var(--surface2);color:var(--sub);padding:.5rem 1rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.btn-back:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
+
+.wrap{max-width:980px;margin:0 auto;padding:2rem 1.5rem 4rem;position:relative;z-index:1;}
+.page-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.8rem;gap:1rem;flex-wrap:wrap;}
+.page-head h2{font-size:1.7rem;font-weight:800;color:var(--accent1);letter-spacing:-.4px;}
+.page-head p{font-size:12.5px;color:var(--sub);margin-top:.3rem;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* ── SEARCH BAR ── */
+.dict-search{position:relative;margin-bottom:1.5rem;}
+.dict-search input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:.85rem 1rem .85rem 2.7rem;color:var(--text);font-family:'Noto Sans Bengali','Outfit',sans-serif;font-size:14px;outline:none;transition:.2s;}
+.dict-search input:focus{border-color:var(--accent1);box-shadow:0 0 0 3px var(--accent-glow);}
+.dict-search input::placeholder{color:var(--muted);}
+.dict-search .dict-search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:15px;pointer-events:none;}
+.dict-search .dict-search-clear{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:.3rem;display:none;}
+.dict-search .dict-search-clear.show{display:block;}
+.dict-results{margin-bottom:1.8rem;display:flex;flex-direction:column;gap:8px;}
+.dict-results.hidden{display:none;}
+.dict-result{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;}
+.dict-result .dr-german{font-weight:700;font-size:14.5px;color:var(--text);}
+.dict-result .dr-german .art{color:var(--accent1);font-weight:600;margin-right:4px;}
+.dict-result .dr-bengali{font-size:13px;color:var(--accent1);font-family:'Noto Sans Bengali',sans-serif;}
+.dict-result .dr-example{font-size:11.5px;color:var(--sub);font-style:italic;margin-top:2px;}
+.dict-no-results{text-align:center;padding:1.2rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* Sub-level grid */
+.sub-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;}
+.sub-card{position:relative;background:linear-gradient(145deg,#01100a,#011a10);border:1px solid var(--border);border-radius:14px;padding:.8rem .5rem;text-align:center;cursor:pointer;transition:.2s;}
+.sub-card:hover:not(.locked){transform:translateY(-3px);box-shadow:0 14px 30px var(--accent-glow);border-color:var(--accent1);}
+.sub-card.locked{opacity:.45;cursor:not-allowed;}
+.sub-num{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:var(--accent1);margin-bottom:.25rem;}
+.sub-range{font-size:8.5px;color:var(--muted);margin-bottom:.4rem;font-family:'JetBrains Mono',monospace;}
+.sub-track{height:3px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:.35rem;}
+.sub-fill{height:100%;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:6px;transition:width .6s;}
+.sub-pct{font-size:8.5px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
+.sub-lock-icon{font-size:1.1rem;}
+
+/* Flashcard view */
+.flash-wrap{max-width:480px;margin:0 auto;}
+.flash-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;font-size:12px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
+.flash-track{height:6px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
+.flash-bar{height:100%;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:6px;transition:width .4s;}
+
+.card{background:linear-gradient(145deg,#01100a,#011a10);border:1px solid var(--border);border-radius:22px;
+  min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem 1.5rem;cursor:pointer;text-align:center;transition:border-color .2s;position:relative;}
+.card:hover{border-color:var(--accent1);}
+.card-front .german{font-size:2.1rem;font-weight:800;color:var(--text);letter-spacing:-.5px;}
+.card-hint{font-size:11px;color:var(--muted);margin-top:1rem;font-family:'JetBrains Mono',monospace;}
+.card-back .bengali{font-size:1.7rem;font-weight:700;color:var(--accent1);margin-bottom:.8rem;font-family:'Noto Sans Bengali',sans-serif;}
+.card-back .example{font-size:13.5px;color:var(--sub);font-style:italic;line-height:1.6;}
+.hidden{display:none !important;}
+
+.flash-actions{display:flex;gap:10px;margin-top:1.3rem;}
+.btn-know,.btn-dontknow{flex:1;padding:.85rem;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:.2s;}
+.btn-know{background:linear-gradient(135deg,#065f46,#047857);color:#fff;}
+.btn-know:hover{background:linear-gradient(135deg,var(--accent1),var(--accent2));}
+.btn-dontknow{background:rgba(255,255,255,.05);color:var(--sub);border:1px solid var(--border);}
+.btn-dontknow:hover{background:rgba(255,255,255,.08);color:var(--text);}
+
+.complete-screen{text-align:center;padding:3rem 1.5rem;}
+.complete-screen .emoji{font-size:3rem;margin-bottom:1rem;}
+.complete-screen h3{font-size:1.4rem;font-weight:800;color:var(--accent1);margin-bottom:.5rem;}
+.complete-screen p{font-size:13px;color:var(--sub);margin-bottom:1.5rem;font-family:'Noto Sans Bengali',sans-serif;}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-weight:800;border:none;padding:.8rem 1.6rem;border-radius:14px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid var(--accent1);color:var(--accent1);padding:.7rem 1.3rem;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:200;font-family:'Noto Sans Bengali',sans-serif;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:680px){.sub-grid{grid-template-columns:repeat(5,1fr);}}
+@media(max-width:420px){.sub-grid{grid-template-columns:repeat(4,1fr);}.card-front .german{font-size:1.6rem;}}

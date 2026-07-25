@@ -75,14 +75,15 @@
     },
     "hero": {
       "greeting": "Hello,",
-      "subtitle": "Vocabulary quiz, grammar lessons, speaking practice, and community chat — all in one place. Ready to learn some German today?",
+      "subtitle": "Start today's practice — your progress is right below.",
       "level": "Level",
       "xp": "XP",
       "streak": "Streak",
       "words": "Words"
     },
     "challenge": {
-      "loading": "Loading today's challenge..."
+      "today_label": "Today's task",
+      "loading": "Loading..."
     },
     "challenges": {
       "c1": "Learn 10 new German words and use them in sentences",
@@ -105,7 +106,10 @@
       "mastery": "🎉 Mastery reached!"
     },
     "features": {
-      "title": "🧭 All Features"
+      "title": "🧭 Your Learning Tools"
+    },
+    "soon": {
+      "title": "🔮 Coming Soon"
     },
     "badge": {
       "new": "New",
@@ -145,7 +149,8 @@
       "all_topics": "all topics",
       "top_learners": "Top learners",
       "learning_areas": "📚 Learning Areas",
-      "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2"
+      "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2",
+      "about": "About Us"
     }
   },
   "sprechen": {
@@ -205,5 +210,48 @@
   "lang_picker": {
     "title": "Which language do you want to learn German from?",
     "subtitle": "All explanations, menus, and instructions will show in this language. You can change it anytime later."
+  },
+  "settings": {
+    "page_title": "Settings — Deutsch Lernen",
+    "back": "← Dashboard",
+    "title": "⚙️ Settings",
+    "subtitle": "Your account, language, subscription, and security — all in one place.",
+    "account": {
+      "title": "Account",
+      "edit": "Edit profile →"
+    },
+    "language": {
+      "title": "App Language",
+      "desc": "All explanations, menus, and instructions will show in this language."
+    },
+    "plan": {
+      "title": "Subscription",
+      "upgrade": "Upgrade",
+      "manage": "Manage plan",
+      "expires": "Expires"
+    },
+    "notif": {
+      "title": "Notifications",
+      "daily_label": "Daily reminder",
+      "daily_hint": "Get a reminder to practice every day.",
+      "streak_label": "Streak alert",
+      "streak_hint": "Get warned before your streak breaks."
+    },
+    "security": {
+      "title": "Password",
+      "current": "Current Password",
+      "new": "New Password",
+      "save": "Change Password",
+      "google_note": "You signed in with Google — password can't be changed here.",
+      "fill_both": "Please fill in both fields.",
+      "too_short": "New password must be at least 8 characters.",
+      "success": "Password changed successfully.",
+      "wrong_current": "Current password is incorrect, please try again."
+    },
+    "session": {
+      "title": "Session",
+      "desc": "Log out from this device.",
+      "logout": "Logout"
+    }
   }
 }

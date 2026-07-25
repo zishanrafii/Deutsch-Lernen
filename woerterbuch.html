@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wörterbuch — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/woerterbuch-shared.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -15,6 +16,7 @@
   --teal:#2dd4bf;--rose:#fb7185;--indigo:#818cf8;
   --emerald:#34d399;--orange:#fb923c;--violet:#a78bfa;--sky:#38bdf8;
   --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+  --accent1:#f5c842;--accent2:#e0a820;--accent-glow:rgba(245,200,66,.22);
   /* A1 */
   --a1-c1:#34d399;--a1-c2:#10b981;--a1-glow:rgba(52,211,153,.22);
   /* A2 */
@@ -291,6 +293,14 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       flashcard দিয়ে নতুন German vocabulary শিখো ও master করো।
     </p>
   </div>
+
+  <!-- SEARCH -->
+  <div class="dict-search">
+    <span class="dict-search-icon">🔍</span>
+    <input type="text" id="dict-search-input" placeholder="যেকোনো level থেকে German বা বাংলা শব্দ খুঁজুন..." autocomplete="off">
+    <button class="dict-search-clear" id="dict-search-clear" aria-label="Clear">✕</button>
+  </div>
+  <div class="dict-results hidden" id="dict-results"></div>
 
   <!-- LEVEL CARDS -->
   <div class="cards-grid">
@@ -638,17 +648,58 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 
 <script type="module">
 import {
-  auth, db, signOut, requireAuth,
+  auth, db, signOut, initAuthOptional,
   doc, getDoc,
   collection, query, where, getDocs
 } from "./js/firebase-config.js";
+import { initDictSearch } from "./js/dict-search.js";
+
+/* ── Cross-level search: only fetch word lists once the user actually types ── */
+let allWordsCache = null;
+async function loadAllWords() {
+  if (allWordsCache) return allWordsCache;
+  const [a1, a2, b1, b2, c1, c2] = await Promise.all([
+    import("./js/vocab-a1-data.js"),
+    import("./js/vocab-a2-data.js"),
+    import("./js/vocab-b1-data.js"),
+    import("./js/vocab-b2-data.js"),
+    import("./js/vocab-c1-data.js"),
+    import("./js/vocab-c2-data.js"),
+  ]);
+  allWordsCache = [
+    ...a1.vocabA1.map(w => ({ ...w, level: "a1" })),
+    ...a2.vocabA2.map(w => ({ ...w, level: "a2" })),
+    ...b1.vocabB1.map(w => ({ ...w, level: "b1" })),
+    ...b2.vocabB2.map(w => ({ ...w, level: "b2" })),
+    ...c1.vocabC1.map(w => ({ ...w, level: "c1" })),
+    ...c2.vocabC2.map(w => ({ ...w, level: "c2" })),
+  ];
+  return allWordsCache;
+}
+
+const dictSearchInput = document.getElementById("dict-search-input");
+if (dictSearchInput) {
+  dictSearchInput.addEventListener("focus", async () => {
+    if (allWordsCache) return; // already loaded/initialized
+    const words = await loadAllWords();
+    initDictSearch({
+      words,
+      crossLevel: true,
+      onResultClick: (word) => {
+        location.href = `woerterbuch-${word.level}.html?q=${encodeURIComponent(word.german)}`;
+      },
+    });
+    // re-fire current input value now that search is wired up
+    dictSearchInput.dispatchEvent(new Event("input"));
+  }, { once: true });
+}
 
 const yr = new Date().getFullYear();
 document.getElementById("footer-year").textContent  = yr;
 document.getElementById("footer-year2").textContent = yr;
 
 document.getElementById("btn-logout").addEventListener("click", async () => {
-  await signOut(auth);
+  if (auth.currentUser) await signOut(auth);
   location.href = "index.html";
 });
 
@@ -663,7 +714,20 @@ function lockCard(cardId, overlayId) {
   }
 }
 
-requireAuth(async user => {
+initAuthOptional(async user => {
+  if (!user) {
+    /* ── Guest: browsable, nothing to save, no lock gates ── */
+    document.getElementById("nav-name").textContent = "Guest — লগইন করো";
+    document.getElementById("nav-avatar").textContent = "👤";
+    document.getElementById("btn-logout").textContent = "Login";
+    document.getElementById("total-streak").textContent = 0;
+    document.getElementById("total-xp").textContent = 0;
+    document.getElementById("total-mastered").textContent = 0;
+    document.getElementById("total-sessions").textContent = 0;
+    // All level cards stay unlocked so guests can preview any level.
+    return;
+  }
+
   /* ── Nav user info ── */
   const uSnap = await getDoc(doc(db, "users", user.uid));
   const d     = uSnap.exists() ? uSnap.data() : {};

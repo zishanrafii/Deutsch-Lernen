@@ -128,6 +128,60 @@ function redirectIfLoggedIn() {
   });
 }
 
+// ── Helper: like requireAuth, but NEVER redirects ─────
+// Use this on public/guest-browsable content pages (Wörterbuch,
+// Grammatik, Vokabelquiz, Sprechen, pricing, etc.) so logged-out
+// visitors — and search engines — can view the content.
+//
+// callback(user) receives either:
+//   - the real Firebase user object (logged in), same as requireAuth
+//   - null (guest — not logged in)
+// Pages should check `if (user)` before doing anything that writes
+// to Firestore (XP, mastered words, streaks, scores). Guests can
+// read/browse everything, they just can't save progress.
+function initAuthOptional(callback) {
+  onAuthStateChanged(auth, async user => {
+    if (!user) {
+      callback(null);
+      return;
+    }
+
+    try {
+      const userRef = doc(db, "users", user.uid);
+      const snap = await getDoc(userRef);
+
+      let userData = {};
+      if (!snap.exists()) {
+        userData = {
+          displayName: user.displayName || "Lerner",
+          email:       user.email || "",
+          photoURL:    user.photoURL || "",
+          xp:          0,
+          role:        "user",
+          plan:        "free",
+          banned:      false,
+          createdAt:   serverTimestamp(),
+        };
+        await setDoc(userRef, userData);
+      } else {
+        userData = snap.data();
+        updateDoc(userRef, { lastLogin: serverTimestamp() }).catch(() => {});
+      }
+
+      setDoc(doc(db, "publicProfiles", user.uid), {
+        displayName: userData.displayName || user.displayName || "Lerner",
+        photoURL:    userData.photoURL    || user.photoURL    || "",
+        xp:          userData.xp || 0,
+        createdAt:   userData.createdAt   || serverTimestamp(),
+      }).catch(() => {});
+    } catch (e) {
+      console.warn("User doc sync failed:", e);
+    }
+
+    callback(user);
+  });
+}
+
 // ── Cloudinary config (read-only upload preset) ──────
 const CLOUDINARY = {
   cloudName:    "dumg7ln6v",
@@ -190,5 +244,5 @@ export {
   serverTimestamp, increment, arrayUnion,
 
   // Helpers
-  requireAuth, redirectIfLoggedIn, uploadChatAttachment,
+  requireAuth, initAuthOptional, redirectIfLoggedIn, uploadChatAttachment,
 };

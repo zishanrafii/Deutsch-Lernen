@@ -5,92 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wörterbuch C1 — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/woerterbuch-shared.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
-  --border:rgba(255,255,255,.055);
-  --gold:#f5c842;--gold2:#e0a820;
-  --muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
-  --c1-c1:#fb923c;--c1-c2:#ea580c;--c1-glow:rgba(251,146,60,.24);
-  --emerald:#fb923c;--rose:#fb7185;
+  --accent1:#fb923c;--accent2:#ea580c;--accent-glow:rgba(251,146,60,.24);
 }
-
-body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(251,146,60,.07),transparent 60%),radial-gradient(ellipse 60% 50% at 100% 100%,rgba(234,88,12,.05),transparent 55%);}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:linear-gradient(rgba(255,255,255,.008) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.008) 1px,transparent 1px);
-  background-size:52px 52px;}
-
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.5rem;gap:1rem;flex-wrap:wrap;
-  background:rgba(8,14,26,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:12px;}
-.logo-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
-.logo-text h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.4px;}
-.logo-text p{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
-.user-section{display:flex;align-items:center;gap:8px;}
-.user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(245,200,66,.15),rgba(45,212,191,.15));display:flex;align-items:center;justify-content:center;font-size:.9rem;overflow:hidden;border:2px solid rgba(245,200,66,.3);cursor:pointer;flex-shrink:0;}
-.user-avatar img{width:100%;height:100%;object-fit:cover;}
-.user-name{font-size:13px;font-weight:600;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.btn-logout{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.07);color:var(--rose);padding:.38rem .85rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12px;}
-.btn-back{border:1px solid var(--border);background:var(--surface2);color:var(--sub);padding:.5rem 1rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Outfit',sans-serif;font-size:12.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
-.btn-back:hover{border-color:rgba(255,255,255,.15);color:var(--text);}
-
-.wrap{max-width:980px;margin:0 auto;padding:2rem 1.5rem 4rem;position:relative;z-index:1;}
-.page-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.8rem;gap:1rem;flex-wrap:wrap;}
-.page-head h2{font-size:1.7rem;font-weight:800;color:var(--emerald);letter-spacing:-.4px;}
-.page-head p{font-size:12.5px;color:var(--sub);margin-top:.3rem;font-family:'Noto Sans Bengali',sans-serif;}
-
-/* Sub-level grid */
-.sub-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;}
-.sub-card{position:relative;background:linear-gradient(145deg,#190d02,#231205);border:1px solid var(--border);border-radius:14px;padding:.8rem .5rem;text-align:center;cursor:pointer;transition:.2s;}
-.sub-card:hover:not(.locked){transform:translateY(-3px);box-shadow:0 14px 30px var(--c1-glow);border-color:rgba(251,146,60,.35);}
-.sub-card.locked{opacity:.45;cursor:not-allowed;}
-.sub-num{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:var(--emerald);margin-bottom:.25rem;}
-.sub-range{font-size:8.5px;color:var(--muted);margin-bottom:.4rem;font-family:'JetBrains Mono',monospace;}
-.sub-track{height:3px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:.35rem;}
-.sub-fill{height:100%;background:linear-gradient(90deg,var(--c1-c1),var(--c1-c2));border-radius:6px;transition:width .6s;}
-.sub-pct{font-size:8.5px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
-.sub-lock-icon{font-size:1.1rem;}
-
-/* Flashcard view */
-.flash-wrap{max-width:480px;margin:0 auto;}
-.flash-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;font-size:12px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
-.flash-track{height:6px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
-.flash-bar{height:100%;background:linear-gradient(90deg,var(--c1-c1),var(--c1-c2));border-radius:6px;transition:width .4s;}
-
-.card{
-  background:linear-gradient(145deg,#190d02,#231205);border:1px solid var(--border);border-radius:22px;
-  min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:2rem 1.5rem;cursor:pointer;text-align:center;transition:border-color .2s;position:relative;
-}
-.card:hover{border-color:rgba(251,146,60,.3);}
-.card-front .german{font-size:2.1rem;font-weight:800;color:var(--text);letter-spacing:-.5px;}
-.card-hint{font-size:11px;color:var(--muted);margin-top:1rem;font-family:'JetBrains Mono',monospace;}
-.card-back .bengali{font-size:1.7rem;font-weight:700;color:var(--emerald);margin-bottom:.8rem;font-family:'Noto Sans Bengali',sans-serif;}
-.card-back .example{font-size:13.5px;color:var(--sub);font-style:italic;line-height:1.6;}
-.hidden{display:none !important;}
-
-.flash-actions{display:flex;gap:10px;margin-top:1.3rem;}
-.btn-know,.btn-dontknow{flex:1;padding:.85rem;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:.2s;}
-.btn-know{background:linear-gradient(135deg,#9a3412,#c2410c);color:#fff;}
-.btn-know:hover{background:linear-gradient(135deg,var(--c1-c1),var(--c1-c2));}
-.btn-dontknow{background:rgba(255,255,255,.05);color:var(--sub);border:1px solid var(--border);}
-.btn-dontknow:hover{background:rgba(255,255,255,.08);color:var(--text);}
-
-.complete-screen{text-align:center;padding:3rem 1.5rem;}
-.complete-screen .emoji{font-size:3rem;margin-bottom:1rem;}
-.complete-screen h3{font-size:1.4rem;font-weight:800;color:var(--emerald);margin-bottom:.5rem;}
-.complete-screen p{font-size:13px;color:var(--sub);margin-bottom:1.5rem;font-family:'Noto Sans Bengali',sans-serif;}
-.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-weight:800;border:none;padding:.8rem 1.6rem;border-radius:14px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;}
-
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid rgba(251,146,60,.35);color:var(--emerald);padding:.7rem 1.3rem;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:200;font-family:'Noto Sans Bengali',sans-serif;}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-
-@media(max-width:680px){.sub-grid{grid-template-columns:repeat(5,1fr);}}
-@media(max-width:420px){.sub-grid{grid-template-columns:repeat(4,1fr);}.card-front .german{font-size:1.6rem;}}
 </style>
 </head>
 <body>
@@ -118,6 +37,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
         <p>প্রতি sub-level-এ ২০টা শব্দ। আগের sub-level-এর ৭০% শব্দ master করলে পরেরটা unlock হবে।</p>
       </div>
     </div>
+        <div class="dict-search">
+      <span class="dict-search-icon">🔍</span>
+      <input type="text" id="dict-search-input" placeholder="German বা বাংলা শব্দ লিখে খুঁজুন..." autocomplete="off">
+      <button class="dict-search-clear" id="dict-search-clear" aria-label="Clear">✕</button>
+    </div>
+    <div class="dict-results hidden" id="dict-results"></div>
+
     <div class="sub-grid" id="sub-grid"></div>
   </div>
 
@@ -161,10 +87,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 <script type="module">
 import {
-  auth, db, signOut, requireAuth,
+  auth, db, signOut, initAuthOptional,
   doc, getDoc, updateDoc, arrayUnion, increment
 } from "./js/firebase-config.js";
-import { vocabC1 } from "./js/data/vocab-c1-data.js";
+import { vocabC1 } from "./js/vocab-c1-data.js";
+import { initDictSearch } from "./js/dict-search.js";
 
 const SUBLEVEL_SIZE = 20;
 const UNLOCK_RATIO = 0.7;
@@ -176,6 +103,8 @@ function chunk(arr, size) {
 }
 const subLevels = chunk(vocabC1, SUBLEVEL_SIZE);
 
+initDictSearch({ words: vocabC1 });
+
 let masteredSet = new Set();
 let uid = null;
 let currentSubIdx = 0;
@@ -183,7 +112,7 @@ let currentCardIdx = 0;
 let flipped = false;
 
 document.getElementById("btn-logout").addEventListener("click", async () => {
-  await signOut(auth);
+  if (uid) await signOut(auth);
   location.href = "index.html";
 });
 
@@ -265,16 +194,20 @@ async function markKnown() {
   const word = subLevels[currentSubIdx][currentCardIdx];
   if (!masteredSet.has(word.id)) {
     masteredSet.add(word.id);
-    try {
-      await updateDoc(doc(db, "users", uid), {
-        masteredVocabIds: arrayUnion(word.id),
-        xp: increment(5)
-      });
-      showToast(`+5 XP — "${word.german}" মনে রেখেছো!`);
-    } catch (e) {
-      showToast("সংরক্ষণ করতে সমস্যা হয়েছে, ইন্টারনেট চেক করো।");
-      masteredSet.delete(word.id);
-      return;
+    if (uid) {
+      try {
+        await updateDoc(doc(db, "users", uid), {
+          masteredVocabIds: arrayUnion(word.id),
+          xp: increment(5)
+        });
+        showToast(`+5 XP — "${word.german}" মনে রেখেছো!`);
+      } catch (e) {
+        showToast("সংরক্ষণ করতে সমস্যা হয়েছে, ইন্টারনেট চেক করো।");
+        masteredSet.delete(word.id);
+        return;
+      }
+    } else {
+      showToast(`"${word.german}" মনে রেখেছো! Progress save করতে login করো।`);
     }
   }
   nextCard();
@@ -314,19 +247,26 @@ document.getElementById("btn-back-to-grid").addEventListener("click", () => {
   renderGrid();
 });
 
-requireAuth(async (user) => {
-  uid = user.uid;
-  const uSnap = await getDoc(doc(db, "users", uid));
-  const d = uSnap.exists() ? uSnap.data() : {};
-  const name = d.displayName || user.displayName || "Lerner";
-  const photo = d.photoURL || user.photoURL || "";
-  document.getElementById("nav-name").textContent = name;
-  const av = document.getElementById("nav-avatar");
-  if (photo) av.innerHTML = `<img src="${photo}" alt="avatar">`;
-  else av.textContent = name[0]?.toUpperCase() || "?";
+initAuthOptional(async (user) => {
+  if (user) {
+    uid = user.uid;
+    const uSnap = await getDoc(doc(db, "users", uid));
+    const d = uSnap.exists() ? uSnap.data() : {};
+    const name = d.displayName || user.displayName || "Lerner";
+    const photo = d.photoURL || user.photoURL || "";
+    document.getElementById("nav-name").textContent = name;
+    const av = document.getElementById("nav-avatar");
+    if (photo) av.innerHTML = `<img src="${photo}" alt="avatar">`;
+    else av.textContent = name[0]?.toUpperCase() || "?";
 
-  const ids = d.masteredVocabIds || [];
-  masteredSet = new Set(ids.filter(id => id.startsWith("c1-")));
+    const ids = d.masteredVocabIds || [];
+    masteredSet = new Set(ids.filter(id => id.startsWith("c1-")));
+  } else {
+    uid = null;
+    document.getElementById("nav-name").textContent = "Guest — লগইন করো";
+    document.getElementById("nav-avatar").textContent = "👤";
+    document.getElementById("btn-logout").textContent = "Login";
+  }
   renderGrid();
 });
 </script>

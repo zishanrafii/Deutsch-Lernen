@@ -415,7 +415,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 <script type="module">
 import {
-  auth, db, requireAuth, signOut,
+  auth, db, initAuthOptional, signOut,
   doc, getDoc,
 } from "./js/firebase-config.js";
 
@@ -468,6 +468,13 @@ document.getElementById("pay-modal").onclick = e => {
 ["btn-monthly","btn-6months","btn-yearly"].forEach(id => {
   const planMap = { "btn-monthly":"monthly", "btn-6months":"sixmonths", "btn-yearly":"yearly" };
   document.getElementById(id).onclick = () => {
+    if (!meUID) {
+      // Guest clicked buy — send to login, remember which plan they wanted.
+      sessionStorage.setItem("dl_pending_plan", planMap[id]);
+      showAlert("প্লান কিনতে আগে login বা account তৈরি করো।", "warn");
+      setTimeout(() => location.href = "index.html", 1200);
+      return;
+    }
     window.location.href = "bkash-payment.html?plan=" + planMap[id];
   };
 });
@@ -547,11 +554,22 @@ document.querySelectorAll(".faq-q").forEach(q => {
 });
 
 /* ── LOGOUT ── */
-document.getElementById("btn-logout").onclick = () =>
-  signOut(auth).then(() => location.href = "index.html");
+document.getElementById("btn-logout").onclick = () => {
+  if (auth.currentUser) return signOut(auth).then(() => location.href = "index.html");
+  location.href = "index.html";
+};
 
 /* ── INIT ── */
-requireAuth(async user => {
+initAuthOptional(async user => {
+  if (!user) {
+    /* ── Guest: browse pricing freely, "buy" sends them to login ── */
+    document.getElementById("nav-name").textContent = "Guest — লগইন করো";
+    document.getElementById("nav-avatar").textContent = "👤";
+    document.getElementById("btn-logout").textContent = "Login";
+    applyCurrentPlan("free", null);
+    return;
+  }
+
   meUID   = user.uid;
   meEmail = user.email;
 

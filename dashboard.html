@@ -6,6 +6,7 @@
 <title data-i18n="dashboard.page_title">Dashboard — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link href="/css/lang-switcher.css" rel="stylesheet">
+<link href="/css/user-menu.css" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -125,7 +126,21 @@ body::after{
 .hstat-v{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hstat-l{font-size:9.5px;color:var(--muted);margin-top:2px;letter-spacing:.8px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
 
-/* ─── DAILY CHALLENGE BANNER ─── */
+/* ─── TODAY STRIP (folded into hero) ─── */
+.today-strip{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.035);border:1px solid rgba(245,200,66,.16);border-radius:14px;padding:.85rem 1.1rem;text-decoration:none;color:var(--text);transition:.2s;}
+.today-strip:hover{background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.3);}
+.today-icon{width:34px;height:34px;border-radius:10px;background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.22);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.today-text{flex:1;display:flex;flex-direction:column;gap:1px;font-size:12.5px;color:var(--sub);font-family:'Noto Sans Bengali',sans-serif;min-width:0;}
+.today-text b{font-size:11px;color:var(--gold);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;text-transform:uppercase;font-weight:700;}
+.today-go{font-size:12px;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
+
+/* ─── MINI STATS (quiet secondary numbers) ─── */
+.mini-stats{display:flex;gap:1.8rem;flex-wrap:wrap;padding-top:.2rem;}
+.mini-stats span{font-size:12.5px;color:var(--muted);display:flex;align-items:baseline;gap:5px;}
+.mini-stats b{font-size:15px;color:var(--text);font-weight:800;}
+.mini-stats em{font-style:normal;font-family:'Noto Sans Bengali',sans-serif;}
+
+/* ─── DAILY CHALLENGE BANNER (legacy, unused after redesign) ─── */
 .challenge-banner{
   background:linear-gradient(135deg,rgba(245,200,66,.08),rgba(45,212,191,.06));
   border:1px solid rgba(245,200,66,.18);border-radius:18px;padding:1.2rem 1.6rem;margin-bottom:1.8rem;
@@ -204,6 +219,12 @@ body::after{
 .ca-sky{background:linear-gradient(90deg,#38bdf8,#0ea5e9);}
 .card-live{border-color:rgba(45,212,191,.15);background:linear-gradient(135deg,rgba(45,212,191,.04),rgba(6,182,212,.03));}
 
+/* ─── SOON STRIP (muted, compact — not competing with real features) ─── */
+.soon-strip{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.8rem;}
+.soon-pill{display:flex;align-items:center;gap:7px;padding:.5rem .95rem;border-radius:30px;background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.09);color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;transition:.2s;}
+.soon-pill span{font-size:.95rem;opacity:.7;}
+.soon-pill:hover{border-color:rgba(255,255,255,.18);color:var(--sub);background:rgba(255,255,255,.04);}
+
 /* ─── TWO COLUMN ─── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.8rem;}
 @media(max-width:680px){.two-col{grid-template-columns:1fr;}}
@@ -227,7 +248,7 @@ body::after{
 /* ─── FOOTER ─── */
 footer{margin-top:3rem;border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
-.footer-inner{max-width:1160px;margin:auto;padding:2.2rem 1.4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;}
+.footer-inner{max-width:1160px;margin:auto;padding:2.2rem 1.4rem;display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;}
 .footer-brand .brand-name{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
 .footer-brand .brand-sub{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.9rem;font-family:'Noto Sans Bengali',sans-serif;}
 .copyright-text{font-size:11px;color:#2a3545;line-height:1.8;font-family:'JetBrains Mono',monospace;}
@@ -271,115 +292,87 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <a href="coming-soon.html?feature=chat" class="nav-link" data-i18n="dashboard.nav.chat">Chat</a>
       </nav>
       <div id="lang-switch-container" style="margin-right:.4rem;"></div>
-      <div class="user-section">
-        <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
-        <div class="user-name" id="nav-name" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
-        <a href="pricing.html" id="plan-badge" style="display:none;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;text-decoration:none;font-family:'JetBrains Mono',monospace;background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.25);color:#f5c842;">FREE</a>
-        <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
-      </div>
+      <div id="user-menu-container"></div>
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- OVERVIEW: hero + today's task + stats + level progress, all in one place -->
   <div class="hero">
     <div class="hero-stripe"></div>
     <div class="hero-orb1"></div>
     <div class="hero-orb2"></div>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow">🇩🇪 Willkommen zurück!</div>
-        <h2><span data-i18n="dashboard.hero.greeting">Hallo,</span> <span id="hero-name">Lerner</span>! 👋</h2>
-        <p class="hero-sub" data-i18n="dashboard.hero.subtitle">Vocabulary quiz, Grammar lessons, Speaking practice এবং community chat — সব এক জায়গায়। আজ একটু German শিখি?</p>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-v" id="h-level">A1</div>
-          <div class="hstat-l" data-i18n="dashboard.hero.level">Level</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-v" id="h-xp">0</div>
-          <div class="hstat-l" data-i18n="dashboard.hero.xp">XP</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-v" id="h-streak">0🔥</div>
-          <div class="hstat-l" data-i18n="dashboard.hero.streak">Streak</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-v" id="h-words">0</div>
-          <div class="hstat-l" data-i18n="dashboard.hero.words">Wörter</div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="hero-inner" style="flex-direction:column;align-items:stretch;gap:1.5rem;">
 
-  <!-- DAILY CHALLENGE BANNER -->
-  <div class="challenge-banner">
-    <div class="challenge-left">
-      <div class="challenge-icon">⚡</div>
-      <div>
-        <div class="challenge-title">Tägliche Aufgabe <span class="challenge-badge">Heute</span></div>
-        <div class="challenge-desc" id="challenge-desc" data-i18n="dashboard.challenge.loading">আজকের challenge লোড হচ্ছে...</div>
+      <div style="display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start;">
+        <div style="flex:1;min-width:220px;">
+          <div class="hero-eyebrow">🇩🇪 Willkommen zurück!</div>
+          <h2><span data-i18n="dashboard.hero.greeting">Hallo,</span> <span id="hero-name">Lerner</span>! 👋</h2>
+          <p class="hero-sub" data-i18n="dashboard.hero.subtitle">আজকের practice শুরু করুন — নিচে আপনার progress দেখুন।</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat">
+            <div class="hstat-v" id="h-level">A1</div>
+            <div class="hstat-l" data-i18n="dashboard.hero.level">Level</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-v" id="h-xp">0</div>
+            <div class="hstat-l" data-i18n="dashboard.hero.xp">XP</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-v" id="h-streak">0🔥</div>
+            <div class="hstat-l" data-i18n="dashboard.hero.streak">Streak</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-v" id="h-words">0</div>
+            <div class="hstat-l" data-i18n="dashboard.hero.words">Wörter</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <a href="coming-soon.html?feature=aufgaben" class="btn-challenge">Jetzt starten →</a>
-  </div>
 
-  <!-- STATS ROW -->
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-icon">✅</div>
-      <div>
-        <div class="stat-v sv-1" id="s-correct">0</div>
-        <div class="stat-l" data-i18n="dashboard.stats.total_correct">মোট সঠিক উত্তর</div>
-      </div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">📋</div>
-      <div>
-        <div class="stat-v sv-2" id="s-sessions">0</div>
-        <div class="stat-l" data-i18n="dashboard.stats.total_sessions">মোট সেশন</div>
-      </div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">📖</div>
-      <div>
-        <div class="stat-v sv-3" id="s-topics">0</div>
-        <div class="stat-l" data-i18n="dashboard.stats.topics_done">Topics সম্পন্ন</div>
-      </div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">⚡</div>
-      <div>
-        <div class="stat-v sv-4" id="s-level">Anfänger</div>
-        <div class="stat-l" data-i18n="dashboard.stats.current_level">বর্তমান স্তর</div>
-      </div>
-    </div>
-  </div>
+      <!-- today's task, folded into the hero instead of its own banner -->
+      <a href="coming-soon.html?feature=aufgaben" class="today-strip">
+        <span class="today-icon">⚡</span>
+        <span class="today-text">
+          <b data-i18n="dashboard.challenge.today_label">আজকের টাস্ক</b>
+          <span id="challenge-desc" data-i18n="dashboard.challenge.loading">লোড হচ্ছে...</span>
+        </span>
+        <span class="today-go">শুরু করুন →</span>
+      </a>
 
-  <!-- LEVEL PROGRESS A1→C2 -->
-  <div class="level-progress-wrap">
-    <div class="level-row-top">
-      <div class="level-label">📈 Level Progress — A1 bis C2</div>
-      <div class="level-badges">
-        <span class="level-badge lb-a1" id="badge-a1">A1</span>
-        <span class="level-badge lb-a2" id="badge-a2">A2</span>
-        <span class="level-badge lb-b1" id="badge-b1">B1</span>
-        <span class="level-badge lb-b2" id="badge-b2">B2</span>
-        <span class="level-badge lb-c1" id="badge-c1">C1</span>
-        <span class="level-badge lb-c2" id="badge-c2">C2</span>
+      <!-- level progress, folded into the hero instead of its own box -->
+      <div>
+        <div class="level-row-top">
+          <div class="level-label">📈 A1 → C2</div>
+          <div class="level-badges">
+            <span class="level-badge lb-a1" id="badge-a1">A1</span>
+            <span class="level-badge lb-a2" id="badge-a2">A2</span>
+            <span class="level-badge lb-b1" id="badge-b1">B1</span>
+            <span class="level-badge lb-b2" id="badge-b2">B2</span>
+            <span class="level-badge lb-c1" id="badge-c1">C1</span>
+            <span class="level-badge lb-c2" id="badge-c2">C2</span>
+          </div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="xp-bar" style="width:0%"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="xp-current">0 XP</span>
+          <span id="xp-next" data-i18n="dashboard.progress.next_level">পরের level: 500 XP</span>
+        </div>
       </div>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="xp-bar" style="width:0%"></div>
-    </div>
-    <div class="progress-meta">
-      <span id="xp-current">0 XP</span>
-      <span id="xp-next" data-i18n="dashboard.progress.next_level">পরের level: 500 XP</span>
+
+      <!-- quiet secondary numbers, no longer competing with the hero stats above -->
+      <div class="mini-stats">
+        <span><b id="s-correct">0</b> <em data-i18n="dashboard.stats.total_correct">সঠিক উত্তর</em></span>
+        <span><b id="s-sessions">0</b> <em data-i18n="dashboard.stats.total_sessions">সেশন</em></span>
+        <span><b id="s-topics">0</b> <em data-i18n="dashboard.stats.topics_done">Topics</em></span>
+      </div>
+
     </div>
   </div>
 
   <!-- FEATURE CARDS -->
-  <div class="section-title" data-i18n="dashboard.features.title">🧭 সব Features</div>
+  <div class="section-title" data-i18n="dashboard.features.title">🧭 আপনার Learning Tools</div>
   <div class="dashboard-grid">
 
     <a href="vokabelquiz.html" class="card">
@@ -441,20 +434,12 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
     </a>
 
-    <a href="coming-soon.html?feature=aufgaben" class="card">
-      <div class="card-accent ca-gold"></div>
-      <div class="card-icon">⚡</div>
-      <h3>Tägliche Aufgaben</h3>
-      <p data-i18n="dashboard.cards.aufgaben">প্রতিদিন নতুন German challenge — streak ধরে রাখুন ও XP জিতুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
-    </a>
-
-    <a href="coming-soon.html?feature=chat" class="card">
-      <div class="card-accent ca-teal"></div>
-      <div class="card-icon">💬</div>
-      <h3>Community Chat</h3>
-      <p data-i18n="dashboard.cards.chat">সবাই মিলে German practice ও discussion করুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
+    <a href="prufung.html" class="card">
+      <div class="card-accent ca-violet"></div>
+      <div class="card-icon">🎓</div>
+      <h3>Prüfung</h3>
+      <p data-i18n="dashboard.cards.prufung">Level অনুযায়ী (A1–C2) সম্পূর্ণ exam দিন এবং নিজের দক্ষতা যাচাই করুন।</p>
+      <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
     </a>
 
     <a href="rangliste.html" class="card">
@@ -464,38 +449,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <p data-i18n="dashboard.cards.rangliste">Top learners দেখুন এবং ranking-এ নিজেকে এগিয়ে নিন।</p>
     </a>
 
-    <a href="coming-soon.html?feature=freunde" class="card">
-      <div class="card-accent ca-emerald"></div>
-      <div class="card-icon">👥</div>
-      <h3>Freunde</h3>
-      <p data-i18n="dashboard.cards.freunde">অন্য learners-দের follow করুন এবং একসাথে German শিখুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
-    </a>
-
-    <a href="coming-soon.html?feature=livekurs" class="card">
-      <div class="card-accent ca-orange"></div>
-      <div class="card-icon">📡</div>
-      <h3>Live Kurs</h3>
-      <p data-i18n="dashboard.cards.livekurs">Video ও screenshare দিয়ে real-time German class করুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
-    </a>
-
-    <a href="coming-soon.html?feature=nachrichten" class="card">
-      <div class="card-accent ca-indigo"></div>
-      <div class="card-icon">✉️</div>
-      <h3>Nachrichten</h3>
-      <p data-i18n="dashboard.cards.nachrichten">Private message এবং direct chat ব্যবহার করুন।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
-    </a>
-
-    <a href="coming-soon.html?feature=fortschritt" class="card">
-      <div class="card-accent ca-orange"></div>
-      <div class="card-icon">📊</div>
-      <h3>Fortschritt</h3>
-      <p data-i18n="dashboard.cards.fortschritt">Score chart, streak calendar এবং level history এক জায়গায়।</p>
-      <span class="card-badge" style="background:linear-gradient(135deg,#64748b,#475569)" data-i18n="dashboard.badge.soon">শীঘ্রই</span>
-    </a>
-
     <a href="mein-profil.html" class="card">
       <div class="card-accent ca-rose"></div>
       <div class="card-icon">👤</div>
@@ -503,14 +456,17 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <p data-i18n="dashboard.cards.profil">আপনার profile, achievements এবং learning history দেখুন।</p>
     </a>
 
-    <a href="prufung.html" class="card">
-      <div class="card-accent ca-violet"></div>
-      <div class="card-icon">🎓</div>
-      <h3>Prüfung</h3>
-      <p data-i18n="dashboard.cards.prufung">Level অনুযায়ী (A1–C2) সম্পূর্ণ exam দিন এবং নিজের দক্ষতা যাচাই করুন।</p>
-      <span class="card-badge" data-i18n="dashboard.badge.new">New</span>
-    </a>
+  </div>
 
+  <!-- COMING SOON — deliberately toned down so it reads as a roadmap teaser, not a competing feature -->
+  <div class="section-title" data-i18n="dashboard.soon.title">🔮 শীঘ্রই আসছে</div>
+  <div class="soon-strip">
+    <a href="coming-soon.html?feature=aufgaben" class="soon-pill"><span>⚡</span>Tägliche Aufgaben</a>
+    <a href="coming-soon.html?feature=chat" class="soon-pill"><span>💬</span>Community Chat</a>
+    <a href="coming-soon.html?feature=freunde" class="soon-pill"><span>👥</span>Freunde</a>
+    <a href="coming-soon.html?feature=livekurs" class="soon-pill"><span>📡</span>Live Kurs</a>
+    <a href="coming-soon.html?feature=nachrichten" class="soon-pill"><span>✉️</span>Nachrichten</a>
+    <a href="coming-soon.html?feature=fortschritt" class="soon-pill"><span>📊</span>Fortschritt</a>
   </div>
 
   <!-- TWO COLUMN -->
@@ -554,25 +510,14 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <h4 data-i18n="dashboard.footer.quick_links">🔗 Quick Links</h4>
       <div class="social-links">
         <a href="lernreise.html" class="social-link"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
-        <a href="grammatik.html" class="social-link"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle" data-i18n="dashboard.footer.all_topics">alle Themen</span></a>
         <a href="woerterbuch.html" class="social-link"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
-        <a href="rangliste.html" class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle" data-i18n="dashboard.footer.top_learners">Top Lerner</span></a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4 data-i18n="dashboard.footer.learning_areas">📚 Lernbereiche</h4>
-      <div class="social-links">
-        <a href="vokabelquiz.html" class="social-link"><span class="sl-icon">📝</span><span class="sl-label">Quiz</span><span class="sl-handle">A1–C2</span></a>
-        <a href="sprechen.html" class="social-link"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
-        <a href="hoeren.html" class="social-link"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
-        <a href="schreiben.html" class="social-link"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
-        <a href="lesen.html" class="social-link"><span class="sl-icon">📖</span><span class="sl-label">Lesen</span><span class="sl-handle">Reading</span></a>
         <a href="prufung.html" class="social-link"><span class="sl-icon">🎓</span><span class="sl-label">Prüfung</span><span class="sl-handle">A1–C2 Exam</span></a>
+        <a href="rangliste.html" class="social-link"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle" data-i18n="dashboard.footer.top_learners">Top Lerner</span></a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform</div>
+    <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform · <a href="about.html" data-i18n="dashboard.footer.about">About Us</a></div>
     <div data-i18n-html="dashboard.footer.built_for">Built with <span class="footer-heart">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2</div>
   </div>
 </footer>
@@ -586,6 +531,7 @@ import {
 } from "./js/firebase-config.js";
 import { initI18n, t, getLang, setLang } from "./js/i18n.js";
 import { renderSwitcher } from "./js/lang-switcher.js";
+import { renderUserMenu } from "./js/user-menu.js";
 
 await initI18n();
 
@@ -665,6 +611,7 @@ requireAuth(async user => {
 
   const name    = d.displayName || user.displayName || "Lerner";
   const photo   = d.photoURL    || user.photoURL    || "";
+  const plan    = d.plan            || "free";
   const xp      = d.xp              || 0;
   const correct = d.totalCorrect    || 0;
   const sessions= d.sessions        || 0;
@@ -673,27 +620,11 @@ requireAuth(async user => {
   const topics  = d.completedTopics?.length || 0;
   const lv      = getLevel(xp);
 
-  /* Navbar */
-  document.getElementById("nav-name").textContent = name;
-  const av = document.getElementById("nav-avatar");
-  if(photo) av.innerHTML = `<img src="${photo}" style="width:100%;height:100%;object-fit:cover;">`;
-  else av.textContent = name[0]?.toUpperCase() || "?";
-
-  /* Plan badge */
-  const plan = d.plan || "free";
-  const badge = document.getElementById("plan-badge");
-  badge.style.display = "inline-block";
-  if (plan === "monthly" || plan === "sixmonths" || plan === "yearly") {
-    badge.textContent = plan === "yearly" ? "PRO 👑" : plan === "sixmonths" ? "PRO 🚀" : "PRO ⚡";
-    badge.style.background = "linear-gradient(135deg,rgba(245,200,66,.2),rgba(45,212,191,.12))";
-    badge.style.borderColor = "rgba(245,200,66,.4)";
-    badge.style.color = "#f5c842";
-  } else {
-    badge.textContent = "FREE → Upgrade";
-    badge.style.background = "rgba(100,116,139,.1)";
-    badge.style.borderColor = "rgba(100,116,139,.2)";
-    badge.style.color = "#64748b";
-  }
+  /* Navbar: one avatar, everything else lives in its dropdown */
+  renderUserMenu(document.getElementById("user-menu-container"), {
+    name, photo, plan,
+    onLogout: async () => { await signOut(auth); window.location.href = "index.html"; },
+  });
 
   /* Hero */
   document.getElementById("hero-name").textContent = name.split(" ")[0];
@@ -706,7 +637,6 @@ requireAuth(async user => {
   document.getElementById("s-correct").textContent  = correct;
   document.getElementById("s-sessions").textContent = sessions;
   document.getElementById("s-topics").textContent   = topics;
-  document.getElementById("s-level").textContent    = lv.label + " " + lv.name;
 
   /* Level progress */
   updateLevelBadges(xp);
@@ -751,13 +681,8 @@ requireAuth(async user => {
       });
     }
   } catch(e) { console.log(e); }
-
-  /* Logout */
-  document.getElementById("btn-logout").onclick = async () => {
-    await signOut(auth);
-    window.location.href = "index.html";
-  };
 });
+
 </script>
 
 </body>

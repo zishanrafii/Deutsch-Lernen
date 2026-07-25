@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="settings.page_title">Einstellungen — Deutsch Lernen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;--surface:#080e1a;--surface2:#0c1322;--surface3:#101828;
+  --border:rgba(255,255,255,.055);--gold:#f5c842;--gold2:#e0a820;--teal:#2dd4bf;
+  --rose:#fb7185;--indigo:#818cf8;--emerald:#34d399;--muted:#64748b;--sub:#94a3b8;--text:#f0f4f8;
+}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 0% 0%,rgba(245,200,66,.05),transparent 60%),radial-gradient(ellipse 60% 50% at 100% 100%,rgba(45,212,191,.04),transparent 55%);}
+.wrap{max-width:720px;margin:auto;padding:1.6rem 1.4rem 3rem;position:relative;z-index:1;}
+
+/* topbar — deliberately minimal: logo + back link + one avatar */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.8rem;gap:1rem;
+  background:rgba(8,14,26,.8);border:1px solid var(--border);border-radius:18px;padding:.9rem 1.4rem;
+  backdrop-filter:blur(24px);}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);}
+.logo-icon{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(45,212,191,.1));border:1px solid rgba(245,200,66,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.logo-text h1{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.back-link{font-size:12.5px;color:var(--sub);text-decoration:none;font-weight:600;}
+.back-link:hover{color:var(--text);}
+
+.page-title{font-size:1.6rem;font-weight:800;margin-bottom:.3rem;}
+.page-sub{font-size:12.5px;color:var(--muted);margin-bottom:1.8rem;font-family:'Noto Sans Bengali',sans-serif;}
+
+.s-card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:1.4rem 1.5rem;margin-bottom:1.1rem;}
+.s-card h3{font-size:13px;font-weight:700;margin-bottom:.2rem;display:flex;align-items:center;gap:8px;}
+.s-card .s-desc{font-size:11.5px;color:var(--muted);margin-bottom:1rem;font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+
+/* profile summary row */
+.profile-row{display:flex;align-items:center;gap:14px;}
+.profile-row .dl-user-avatar{width:52px;height:52px;font-size:1.3rem;}
+.profile-name{font-weight:700;font-size:15px;}
+.profile-email{font-size:11.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.profile-edit{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;white-space:nowrap;}
+.profile-edit:hover{text-decoration:underline;}
+
+/* plan row */
+.plan-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.plan-name{font-size:1.1rem;font-weight:800;}
+.plan-name.is-free{color:var(--sub);}
+.plan-name.is-pro{background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.plan-expiry{font-size:11px;color:var(--muted);margin-top:2px;font-family:'JetBrains Mono',monospace;}
+.btn-gold{background:linear-gradient(135deg,#f5c842,#e0a820);color:#000;border:none;padding:.6rem 1.2rem;border-radius:11px;font-weight:800;font-size:12.5px;text-decoration:none;white-space:nowrap;transition:.2s;}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,200,66,.3);}
+
+/* toggle row (notifications) */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.toggle-row + .toggle-row{margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border);}
+.toggle-label{font-size:13px;font-weight:600;}
+.toggle-hint{font-size:11px;color:var(--muted);margin-top:1px;font-family:'Noto Sans Bengali',sans-serif;}
+.switch{position:relative;width:42px;height:24px;flex-shrink:0;}
+.switch input{opacity:0;width:0;height:0;}
+.switch-track{position:absolute;inset:0;background:rgba(255,255,255,.1);border:1px solid var(--border);border-radius:20px;cursor:pointer;transition:.2s;}
+.switch-track::before{content:'';position:absolute;width:18px;height:18px;left:2px;top:2px;background:var(--sub);border-radius:50%;transition:.2s;}
+.switch input:checked + .switch-track{background:rgba(245,200,66,.25);border-color:rgba(245,200,66,.4);}
+.switch input:checked + .switch-track::before{transform:translateX(18px);background:var(--gold);}
+
+/* form fields (password change) */
+.field{margin-bottom:.85rem;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--sub);margin-bottom:.4rem;letter-spacing:.3px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.field input{width:100%;background:var(--surface3);border:1px solid var(--border);border-radius:11px;padding:.7rem .9rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:13.5px;outline:none;transition:.2s;}
+.field input:focus{border-color:rgba(245,200,66,.4);}
+.btn-outline{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);padding:.65rem 1.2rem;border-radius:11px;font-weight:700;font-size:12.5px;cursor:pointer;transition:.2s;}
+.btn-outline:hover{border-color:rgba(245,200,66,.3);}
+.google-only-note{font-size:11.5px;color:var(--muted);font-family:'Noto Sans Bengali',sans-serif;line-height:1.6;}
+
+.s-msg{font-size:12px;border-radius:10px;padding:.6rem .9rem;margin-top:.8rem;display:none;font-family:'Noto Sans Bengali',sans-serif;}
+.s-msg.show{display:block;}
+.s-msg.ok{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:#34d399;}
+.s-msg.err{background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.25);color:#fb7185;}
+
+/* danger zone */
+.danger-card{border-color:rgba(251,113,133,.18);}
+.btn-danger{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.25);color:var(--rose);padding:.6rem 1.2rem;border-radius:11px;font-weight:700;font-size:12.5px;cursor:pointer;transition:.2s;}
+.btn-danger:hover{background:rgba(251,113,133,.16);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="dashboard.html" class="logo">
+      <div class="logo-icon">🇩🇪</div>
+      <div class="logo-text"><h1>Deutsch Lernen</h1></div>
+    </a>
+    <div class="topbar-right">
+      <a href="dashboard.html" class="back-link" data-i18n="settings.back">← Dashboard</a>
+      <div id="user-menu-container"></div>
+    </div>
+  </div>
+
+  <div class="page-title" data-i18n="settings.title">⚙️ Einstellungen</div>
+  <div class="page-sub" data-i18n="settings.subtitle">আপনার account, ভাষা, subscription এবং security — সব এক জায়গায়।</div>
+
+  <!-- ACCOUNT -->
+  <div class="s-card">
+    <h3>👤 <span data-i18n="settings.account.title">Account</span></h3>
+    <div class="profile-row">
+      <span class="dl-user-avatar" id="s-avatar">?</span>
+      <div>
+        <div class="profile-name" id="s-name">—</div>
+        <div class="profile-email" id="s-email">—</div>
+      </div>
+      <a href="mein-profil.html" class="profile-edit" data-i18n="settings.account.edit">Profile edit করুন →</a>
+    </div>
+  </div>
+
+  <!-- LANGUAGE -->
+  <div class="s-card">
+    <h3>🌐 <span data-i18n="settings.language.title">App Language</span></h3>
+    <div class="s-desc" data-i18n="settings.language.desc">সব ব্যাখ্যা, মেনু ও নির্দেশনা এই ভাষায় দেখানো হবে।</div>
+    <div id="settings-lang-switch"></div>
+  </div>
+
+  <!-- SUBSCRIPTION -->
+  <div class="s-card">
+    <h3>💎 <span data-i18n="settings.plan.title">Subscription</span></h3>
+    <div class="plan-row">
+      <div>
+        <div class="plan-name" id="s-plan-name">FREE</div>
+        <div class="plan-expiry" id="s-plan-expiry"></div>
+      </div>
+      <a href="pricing.html" class="btn-gold" id="s-plan-cta" data-i18n="settings.plan.upgrade">Upgrade করুন</a>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div class="s-card">
+    <h3>🔔 <span data-i18n="settings.notif.title">Notifications</span></h3>
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label" data-i18n="settings.notif.daily_label">Daily reminder</div>
+        <div class="toggle-hint" data-i18n="settings.notif.daily_hint">প্রতিদিন practice করার reminder পাঠান।</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="s-notif-daily">
+        <span class="switch-track"></span>
+      </label>
+    </div>
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label" data-i18n="settings.notif.streak_label">Streak alert</div>
+        <div class="toggle-hint" data-i18n="settings.notif.streak_hint">Streak ভাঙার আগে সতর্ক করুন।</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="s-notif-streak">
+        <span class="switch-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- SECURITY -->
+  <div class="s-card" id="s-security-card">
+    <h3>🔒 <span data-i18n="settings.security.title">Password</span></h3>
+    <div id="s-security-form">
+      <div class="field">
+        <label data-i18n="settings.security.current">Current Password</label>
+        <input type="password" id="s-pw-current" autocomplete="current-password">
+      </div>
+      <div class="field">
+        <label data-i18n="settings.security.new">New Password</label>
+        <input type="password" id="s-pw-new" autocomplete="new-password">
+      </div>
+      <button class="btn-outline" id="s-pw-save" data-i18n="settings.security.save">Password পরিবর্তন করুন</button>
+      <div class="s-msg" id="s-pw-msg"></div>
+    </div>
+    <div class="google-only-note" id="s-google-note" style="display:none;" data-i18n="settings.security.google_note">আপনি Google দিয়ে sign in করেছেন — password এখানে বদলানো যাবে না।</div>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="s-card danger-card">
+    <h3>🚪 <span data-i18n="settings.session.title">Session</span></h3>
+    <div class="s-desc" data-i18n="settings.session.desc">এই device থেকে log out করুন।</div>
+    <button class="btn-danger" id="s-logout" data-i18n="settings.session.logout">Logout</button>
+  </div>
+
+</div>
+
+<script type="module">
+import {
+  auth, db, signOut, requireAuth,
+  doc, getDoc, updateDoc,
+  EmailAuthProvider, reauthenticateWithCredential, updatePassword,
+} from "./js/firebase-config.js";
+import { initI18n, t, getLang, setLang } from "./js/i18n.js";
+import { renderSwitcher } from "./js/lang-switcher.js";
+import { renderUserMenu } from "./js/user-menu.js";
+
+await initI18n();
+
+requireAuth(async user => {
+  const snap = await getDoc(doc(db, "users", user.uid));
+  const d    = snap.exists() ? snap.data() : {};
+
+  const name  = d.displayName || user.displayName || "Lerner";
+  const photo = d.photoURL    || user.photoURL    || "";
+  const plan  = d.plan            || "free";
+
+  renderUserMenu(document.getElementById("user-menu-container"), {
+    name, photo, plan,
+    onLogout: async () => { await signOut(auth); window.location.href = "index.html"; },
+  });
+
+  renderSwitcher(document.getElementById("settings-lang-switch"), {
+    onChanged: lang => updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {}),
+  });
+
+  /* Account card */
+  document.getElementById("s-name").textContent  = name;
+  document.getElementById("s-email").textContent = user.email || "";
+  const av = document.getElementById("s-avatar");
+  if (photo) av.innerHTML = `<img src="${photo}" alt="">`;
+  else av.textContent = name[0]?.toUpperCase() || "?";
+
+  /* Plan card */
+  const isPro = plan === "monthly" || plan === "sixmonths" || plan === "yearly";
+  const planNameEl = document.getElementById("s-plan-name");
+  const ctaEl      = document.getElementById("s-plan-cta");
+  if (isPro) {
+    planNameEl.textContent = plan === "yearly" ? "PRO 👑 Yearly" : plan === "sixmonths" ? "PRO 🚀 6 Months" : "PRO ⚡ Monthly";
+    planNameEl.classList.add("is-pro");
+    ctaEl.textContent = t("settings.plan.manage", "Plan verwalten");
+    if (d.planExpiry) {
+      document.getElementById("s-plan-expiry").textContent =
+        (t("settings.plan.expires", "Expires")) + ": " + d.planExpiry;
+    }
+  } else {
+    planNameEl.textContent = "FREE";
+    planNameEl.classList.add("is-free");
+  }
+
+  /* Notifications — stored in Firestore, default on */
+  const notifDaily  = document.getElementById("s-notif-daily");
+  const notifStreak = document.getElementById("s-notif-streak");
+  notifDaily.checked  = d.notifications?.daily  !== false;
+  notifStreak.checked = d.notifications?.streak !== false;
+  const saveNotif = () => updateDoc(doc(db, "users", user.uid), {
+    notifications: { daily: notifDaily.checked, streak: notifStreak.checked },
+  }).catch(() => {});
+  notifDaily.addEventListener("change", saveNotif);
+  notifStreak.addEventListener("change", saveNotif);
+
+  /* Password change — only for email/password accounts */
+  const isGoogleOnly = user.providerData.every(p => p.providerId === "google.com");
+  if (isGoogleOnly) {
+    document.getElementById("s-security-form").style.display = "none";
+    document.getElementById("s-google-note").style.display   = "block";
+  } else {
+    document.getElementById("s-pw-save").addEventListener("click", async () => {
+      const msg = document.getElementById("s-pw-msg");
+      msg.className = "s-msg";
+      const current = document.getElementById("s-pw-current").value;
+      const next    = document.getElementById("s-pw-new").value;
+      if (!current || !next) {
+        msg.textContent = t("settings.security.fill_both", "দুটি field-ই পূরণ করুন।");
+        msg.classList.add("show", "err");
+        return;
+      }
+      if (next.length < 8) {
+        msg.textContent = t("settings.security.too_short", "নতুন password কমপক্ষে ৮ অক্ষরের হতে হবে।");
+        msg.classList.add("show", "err");
+        return;
+      }
+      try {
+        const cred = EmailAuthProvider.credential(user.email, current);
+        await reauthenticateWithCredential(user, cred);
+        await updatePassword(user, next);
+        msg.textContent = t("settings.security.success", "Password পরিবর্তন হয়েছে।");
+        msg.classList.add("show", "ok");
+        document.getElementById("s-pw-current").value = "";
+        document.getElementById("s-pw-new").value = "";
+      } catch (e) {
+        msg.textContent = t("settings.security.wrong_current", "বর্তমান password ভুল, আবার চেষ্টা করুন।");
+        msg.classList.add("show", "err");
+      }
+    });
+  }
+
+  /* Logout */
+  document.getElementById("s-logout").addEventListener("click", async () => {
+    await signOut(auth);
+    window.location.href = "index.html";
+  });
+});
+</script>
+
+</body>
+</html>

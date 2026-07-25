@@ -75,14 +75,15 @@
     },
     "hero": {
       "greeting": "Hallo,",
-      "subtitle": "Vocabulary quiz, Grammar lessons, Speaking practice এবং community chat — সব এক জায়গায়। আজ একটু German শিখি?",
+      "subtitle": "আজকের practice শুরু করুন — নিচে আপনার progress দেখুন।",
       "level": "Level",
       "xp": "XP",
       "streak": "Streak",
       "words": "Wörter"
     },
     "challenge": {
-      "loading": "আজকের challenge লোড হচ্ছে..."
+      "today_label": "আজকের টাস্ক",
+      "loading": "লোড হচ্ছে..."
     },
     "challenges": {
       "c1": "১০টি নতুন German word শিখুন এবং বাক্যে ব্যবহার করুন",
@@ -105,7 +106,10 @@
       "mastery": "🎉 Meisterschaft erreicht!"
     },
     "features": {
-      "title": "🧭 সব Features"
+      "title": "🧭 আপনার Learning Tools"
+    },
+    "soon": {
+      "title": "🔮 শীঘ্রই আসছে"
     },
     "badge": {
       "new": "New",
@@ -145,7 +149,8 @@
       "all_topics": "alle Themen",
       "top_learners": "Top Lerner",
       "learning_areas": "📚 Lernbereiche",
-      "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2"
+      "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2",
+      "about": "About Us"
     }
   },
   "sprechen": {
@@ -205,5 +210,48 @@
   "lang_picker": {
     "title": "আপনি কোন ভাষা থেকে German শিখতে চান?",
     "subtitle": "সব ব্যাখ্যা, মেনু ও নির্দেশনা এই ভাষায় দেখানো হবে। পরে যেকোনো সময় বদলাতে পারবেন।"
+  },
+  "settings": {
+    "page_title": "Einstellungen — Deutsch Lernen",
+    "back": "← Dashboard",
+    "title": "⚙️ Einstellungen",
+    "subtitle": "আপনার account, ভাষা, subscription এবং security — সব এক জায়গায়।",
+    "account": {
+      "title": "Account",
+      "edit": "Profile edit করুন →"
+    },
+    "language": {
+      "title": "App Language",
+      "desc": "সব ব্যাখ্যা, মেনু ও নির্দেশনা এই ভাষায় দেখানো হবে।"
+    },
+    "plan": {
+      "title": "Subscription",
+      "upgrade": "Upgrade করুন",
+      "manage": "Plan verwalten",
+      "expires": "মেয়াদ শেষ"
+    },
+    "notif": {
+      "title": "Notifications",
+      "daily_label": "Daily reminder",
+      "daily_hint": "প্রতিদিন practice করার reminder পাঠান।",
+      "streak_label": "Streak alert",
+      "streak_hint": "Streak ভাঙার আগে সতর্ক করুন।"
+    },
+    "security": {
+      "title": "Password",
+      "current": "Current Password",
+      "new": "New Password",
+      "save": "Password পরিবর্তন করুন",
+      "google_note": "আপনি Google দিয়ে sign in করেছেন — password এখানে বদলানো যাবে না।",
+      "fill_both": "দুটি field-ই পূরণ করুন।",
+      "too_short": "নতুন password কমপক্ষে ৮ অক্ষরের হতে হবে।",
+      "success": "Password পরিবর্তন হয়েছে।",
+      "wrong_current": "বর্তমান password ভুল, আবার চেষ্টা করুন।"
+    },
+    "session": {
+      "title": "Session",
+      "desc": "এই device থেকে log out করুন।",
+      "logout": "Logout"
+    }
   }
 }
