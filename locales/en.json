@@ -148,6 +148,60 @@
       "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2"
     }
   },
+  "sprechen": {
+    "page_title": "Sprechen — Deutsch Lernen",
+    "hero": {
+      "title": "Learn German <span>Pronunciation</span>",
+      "subtitle": "Learn to speak German with 600+ pronunciation words, shadowing exercises, tongue twisters, and speaking drills."
+    },
+    "tasks_today": "Today's Speaking Tasks",
+    "todays_prompt": "Today's Speaking Prompt",
+    "start": "Start",
+    "new_prompt": "New Prompt",
+    "mic_title": "Speak German, get recorded",
+    "mic_desc": "Say the sentence below. Record it and listen to your own pronunciation.",
+    "listen": "Listen",
+    "stop": "Stop",
+    "click_to_start": "Click to start",
+    "recording": "Recording...",
+    "mic_permission": "Please allow mic access",
+    "your_progress": "Your Speaking Progress",
+    "total_sessions": "Total sessions",
+    "streak_days": "Streak (days)",
+    "xp_earned": "XP earned",
+    "topics_finished": "Topics finished",
+    "card": {
+      "aussprache": "IPA guide for 600+ German words, minimal pairs, and tongue twisters.",
+      "shadowing": "Speak German like a native speaker. Listen to A1→C2 dialogues and repeat.",
+      "zungenbrecher": "Sharpen your pronunciation with German tongue twisters."
+    },
+    "hub_desc": "IPA guide for 600+ words from A1 to C2, with level and category filters.",
+    "start_now": "Start now",
+    "all": "All",
+    "showing": "Showing:",
+    "no_activity": "No activity yet. Start a speaking practice!",
+    "footer_brand_sub": "A German learning platform built for Bengali speakers. A1 to C2.",
+    "talk_about_this": "Talk about this topic in German!",
+    "sets_done": "sets done",
+    "twisters_practiced": "twisters practiced",
+    "tasks_done_today": "tasks done today"
+  },
+  "begruessung": {
+    "page_title": "Greetings — Speaking — Deutsch Lernen",
+    "eyebrow": "🗣️ Speaking Topic",
+    "subtitle": "Formal and informal greetings — from Hallo to Auf Wiedersehen.",
+    "vocab_count": "12 Vocab",
+    "dialog_count": "7 Dialog lines",
+    "vocab_title": "📖 Vokabeln — Vocabulary",
+    "dialogue_title": "💬 Musterdialog — Sample Dialogue",
+    "play_full": "Play the full dialogue",
+    "tasks_title": "✅ Speaking Tasks — practice these",
+    "xp_before": "Complete this topic to earn",
+    "xp_after": ".",
+    "complete_btn": "⭐ Complete (+50 XP)",
+    "completed_now": "✅ Completed!",
+    "already_completed": "✅ Already completed"
+  },
   "lang_picker": {
     "title": "Which language do you want to learn German from?",
     "subtitle": "All explanations, menus, and instructions will show in this language. You can change it anytime later."

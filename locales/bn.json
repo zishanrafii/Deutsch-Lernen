@@ -148,6 +148,60 @@
       "built_for": "Built with <span class=\"footer-heart\">♥</span> for Bengali learners &nbsp;·&nbsp; A1 to C2"
     }
   },
+  "sprechen": {
+    "page_title": "Sprechen — Deutsch Lernen",
+    "hero": {
+      "title": "German <span>উচ্চারণ</span> শিখুন",
+      "subtitle": "600+ pronunciation words, shadowing exercises, tongue twisters ও speaking drills দিয়ে German বলতে শিখুন।"
+    },
+    "tasks_today": "আজকের Speaking Tasks",
+    "todays_prompt": "আজকের Speaking Prompt",
+    "start": "শুরু করুন",
+    "new_prompt": "নতুন Prompt",
+    "mic_title": "German বলুন, record হবে",
+    "mic_desc": "নিচের sentence টি বলুন। Record করুন এবং নিজের উচ্চারণ শুনুন।",
+    "listen": "শুনুন",
+    "stop": "থামুন",
+    "click_to_start": "Click করুন",
+    "recording": "Recording...",
+    "mic_permission": "Mic অনুমতি দিন",
+    "your_progress": "তোমার Speaking Progress",
+    "total_sessions": "মোট Sessions",
+    "streak_days": "Streak (দিন)",
+    "xp_earned": "XP অর্জিত",
+    "topics_finished": "Topics শেষ",
+    "card": {
+      "aussprache": "600+ German words-এর IPA guide, minimal pairs ও tongue twisters।",
+      "shadowing": "Native speaker-দের মতো German বলুন। A1→C2 dialogues শুনে repeat করুন।",
+      "zungenbrecher": "German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন।"
+    },
+    "hub_desc": "A1 থেকে C2 পর্যন্ত 600+ words-এর IPA guide। Level ও category filter সহ।",
+    "start_now": "এখন শুরু করুন",
+    "all": "সব",
+    "showing": "দেখাচ্ছে:",
+    "no_activity": "এখনো কোনো activity নেই। Speaking practice শুরু করুন!",
+    "footer_brand_sub": "বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2।",
+    "talk_about_this": "এই বিষয়ে German-এ কথা বলুন!",
+    "sets_done": "sets সম্পন্ন",
+    "twisters_practiced": "twisters practice",
+    "tasks_done_today": "tasks আজ সম্পন্ন"
+  },
+  "begruessung": {
+    "page_title": "Begrüßung — Sprechen — Deutsch Lernen",
+    "eyebrow": "🗣️ Speaking Topic",
+    "subtitle": "আনুষ্ঠানিক ও অনানুষ্ঠানিক শুভেচ্ছা — Hallo থেকে Auf Wiedersehen পর্যন্ত।",
+    "vocab_count": "12 Vocab",
+    "dialog_count": "7 Dialog lines",
+    "vocab_title": "📖 Vokabeln — Vocabulary",
+    "dialogue_title": "💬 Musterdialog — Sample Dialogue",
+    "play_full": "সম্পূর্ণ dialog play করুন",
+    "tasks_title": "✅ Speaking Tasks — এগুলো practice করুন",
+    "xp_before": "এই topic সম্পন্ন করলে",
+    "xp_after": "পাবে।",
+    "complete_btn": "⭐ Complete (+50 XP)",
+    "completed_now": "✅ সম্পন্ন!",
+    "already_completed": "✅ আগেই সম্পন্ন"
+  },
   "lang_picker": {
     "title": "আপনি কোন ভাষা থেকে German শিখতে চান?",
     "subtitle": "সব ব্যাখ্যা, মেনু ও নির্দেশনা এই ভাষায় দেখানো হবে। পরে যেকোনো সময় বদলাতে পারবেন।"

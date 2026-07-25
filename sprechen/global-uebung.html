@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Globale Herausforderungen — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🌍</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Globale Herausforderungen</h2>
-        <p class="hero-sub">বৈশ্বিক সমস্যা নিয়ে expert-level German।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">C2</span>
           <span class="meta-pill xp">+200 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die geopolitische Lage</div>
-            <button onclick="playText('die geopolitische Lage',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">ভূরাজনৈতিক পরিস্থিতি</div>
-          <div class="vc-ex">Die geopolitische Lage ist komplex.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">multilateral</div>
-            <button onclick="playText('multilateral',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">বহুপাক্ষিক</div>
-          <div class="vc-ex">Multilaterale Lösungen sind nötig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Interdependenz</div>
-            <button onclick="playText('die Interdependenz',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">পারস্পরিক নির্ভরশীলতা</div>
-          <div class="vc-ex">Globale Interdependenz wächst.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Souveränität</div>
-            <button onclick="playText('die Souveränität',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">সার্বভৌমত্ব</div>
-          <div class="vc-ex">Nationale Souveränität wird diskutiert.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die humanitäre Krise</div>
-            <button onclick="playText('die humanitäre Krise',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">মানবিক সংকট</div>
-          <div class="vc-ex">Die humanitäre Krise verschärft sich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Resilienz</div>
-            <button onclick="playText('die Resilienz',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">স্থিতিস্থাপকতা</div>
-          <div class="vc-ex">Resilienz ist wichtig für Gesellschaften.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Paradigmenwechsel</div>
-            <button onclick="playText('der Paradigmenwechsel',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">দৃষ্টিভঙ্গির পরিবর্তন</div>
-          <div class="vc-ex">Wir brauchen einen Paradigmenwechsel.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">unilateral</div>
-            <button onclick="playText('unilateral',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">একতরফা</div>
-          <div class="vc-ex">Unilaterale Entscheidungen sind riskant.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Zivilgesellschaft</div>
-            <button onclick="playText('die Zivilgesellschaft',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">সুশীল সমাজ</div>
-          <div class="vc-ex">Die Zivilgesellschaft muss aktiv sein.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">nachhaltig</div>
-            <button onclick="playText('nachhaltig',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">টেকসই</div>
-          <div class="vc-ex">Nachhaltige Entwicklung ist das Ziel.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">transnational</div>
-            <button onclick="playText('transnational',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">আন্তর্জাতিক সীমা অতিক্রমী</div>
-          <div class="vc-ex">Transnationale Probleme brauchen globale Antworten.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Hegemonie</div>
-            <button onclick="playText('die Hegemonie',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">আধিপত্য</div>
-          <div class="vc-ex">Hegemoniale Strukturen werden hinterfragt.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie bewerten Sie die aktuelle geopolitische Lage?</div>
-            <div class="dl-bn">বর্তমান ভূরাজনৈতিক পরিস্থিতি আপনি কীভাবে মূল্যায়ন করেন?</div>
-            <button onclick="playText('Wie bewerten Sie die aktuelle geopolitische Lage?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Sie ist außerordentlich komplex. Die zunehmende Interdependenz macht unilaterale Lösungen nahezu unmöglich.</div>
-            <div class="dl-bn">এটা অসাধারণভাবে জটিল। ক্রমবর্ধমান পারস্পরিক নির্ভরশীলতা একতরফা সমাধানকে প্রায় অসম্ভব করে তোলে।</div>
-            <button onclick="playText('Sie ist außerordentlich komplex. Die zunehmende Interdependenz macht unilaterale Lösungen nahezu unmöglich.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Welche Rolle sollte die internationale Gemeinschaft bei humanitären Krisen spielen?</div>
-            <div class="dl-bn">মানবিক সংকটে আন্তর্জাতিক সম্প্রদায়ের কী ভূমিকা পালন করা উচিত?</div>
-            <button onclick="playText('Welche Rolle sollte die internationale Gemeinschaft bei humanitären Krisen spielen?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Eine aktive, aber respektvolle. Nationale Souveränität darf nicht als Vorwand dienen, um Menschenrechtsverletzungen zu ignorieren.</div>
-            <div class="dl-bn">সক্রিয় কিন্তু সম্মানজনক। মানবাধিকার লঙ্ঘন উপেক্ষার অজুহাত হিসেবে জাতীয় সার্বভৌমত্ব ব্যবহার করা উচিত নয়।</div>
-            <button onclick="playText('Eine aktive, aber respektvolle. Nationale Souveränität darf nicht als Vorwand dienen, um Menschenrechtsverletzungen zu ignorieren.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Brauchen wir einen Paradigmenwechsel in der Weltpolitik?</div>
-            <div class="dl-bn">বিশ্বরাজনীতিতে কি আমাদের দৃষ্টিভঙ্গির পরিবর্তন দরকার?</div>
-            <button onclick="playText('Brauchen wir einen Paradigmenwechsel in der Weltpolitik?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Dringend. Weg von nationalen Eigeninteressen, hin zu kollektiver Verantwortung für globale Herausforderungen.</div>
-            <div class="dl-bn">জরুরিভাবে। জাতীয় স্বার্থ থেকে সরে এসে বৈশ্বিক চ্যালেঞ্জের সম্মিলিত দায়িত্বের দিকে।</div>
-            <button onclick="playText('Dringend. Weg von nationalen Eigeninteressen, hin zu kollektiver Verantwortung für globale Herausforderungen.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি global challenge নিয়ে expert opinion দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Multilateral solutions কেন প্রয়োজন explain করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>National sovereignty ও global responsibility-র balance নিয়ে argue করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Paradigmenwechsel-এর জন্য concrete proposals দাও।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+200 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+200 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Wie bewerten Sie die aktuelle geopolitische Lage?', 'Sie ist außerordentlich komplex. Die zunehmende Interdependenz macht unilaterale Lösungen nahezu unmöglich.', 'Welche Rolle sollte die internationale Gemeinschaft bei humanitären Krisen spielen?', 'Eine aktive, aber respektvolle. Nationale Souveränität darf nicht als Vorwand dienen, um Menschenrechtsverletzungen zu ignorieren.', 'Brauchen wir einen Paradigmenwechsel in der Weltpolitik?', 'Dringend. Weg von nationalen Eigeninteressen, hin zu kollektiver Verantwortung für globale Herausforderungen.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'বৈশ্বিক সমস্যা নিয়ে expert-level German।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Expert-level German on global challenges.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die geopolitische Lage', bn:'ভূরাজনৈতিক পরিস্থিতি', en:'the geopolitical situation', ex:'Die geopolitische Lage ist komplex.' },
+  { de:'multilateral', bn:'বহুপাক্ষিক', en:'multilateral', ex:'Multilaterale Lösungen sind nötig.' },
+  { de:'die Interdependenz', bn:'পারস্পরিক নির্ভরশীলতা', en:'interdependence', ex:'Globale Interdependenz wächst.' },
+  { de:'die Souveränität', bn:'সার্বভৌমত্ব', en:'sovereignty', ex:'Nationale Souveränität wird diskutiert.' },
+  { de:'die humanitäre Krise', bn:'মানবিক সংকট', en:'humanitarian crisis', ex:'Die humanitäre Krise verschärft sich.' },
+  { de:'die Resilienz', bn:'স্থিতিস্থাপকতা', en:'resilience', ex:'Resilienz ist wichtig für Gesellschaften.' },
+  { de:'der Paradigmenwechsel', bn:'দৃষ্টিভঙ্গির পরিবর্তন', en:'paradigm shift', ex:'Wir brauchen einen Paradigmenwechsel.' },
+  { de:'unilateral', bn:'একতরফা', en:'unilateral', ex:'Unilaterale Entscheidungen sind riskant.' },
+  { de:'die Zivilgesellschaft', bn:'সুশীল সমাজ', en:'civil society', ex:'Die Zivilgesellschaft muss aktiv sein.' },
+  { de:'nachhaltig', bn:'টেকসই', en:'sustainable', ex:'Nachhaltige Entwicklung ist das Ziel.' },
+  { de:'transnational', bn:'আন্তর্জাতিক সীমা অতিক্রমী', en:'transnational', ex:'Transnationale Probleme brauchen globale Antworten.' },
+  { de:'die Hegemonie', bn:'আধিপত্য', en:'hegemony', ex:'Hegemoniale Strukturen werden hinterfragt.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Wie bewerten Sie die aktuelle geopolitische Lage?', bn:'বর্তমান ভূরাজনৈতিক পরিস্থিতি আপনি কীভাবে মূল্যায়ন করেন?', en:'How do you assess the current geopolitical situation?' },
+  { spk:'b', de:'Sie ist außerordentlich komplex. Die zunehmende Interdependenz macht unilaterale Lösungen nahezu unmöglich.', bn:'এটা অসাধারণভাবে জটিল। ক্রমবর্ধমান পারস্পরিক নির্ভরশীলতা একতরফা সমাধানকে প্রায় অসম্ভব করে তোলে।', en:'It\'s extraordinarily complex. Growing interdependence makes unilateral solutions nearly impossible.' },
+  { spk:'a', de:'Welche Rolle sollte die internationale Gemeinschaft bei humanitären Krisen spielen?', bn:'মানবিক সংকটে আন্তর্জাতিক সম্প্রদায়ের কী ভূমিকা পালন করা উচিত?', en:'What role should the international community play in humanitarian crises?' },
+  { spk:'b', de:'Eine aktive, aber respektvolle. Nationale Souveränität darf nicht als Vorwand dienen, um Menschenrechtsverletzungen zu ignorieren.', bn:'সক্রিয় কিন্তু সম্মানজনক। মানবাধিকার লঙ্ঘন উপেক্ষার অজুহাত হিসেবে জাতীয় সার্বভৌমত্ব ব্যবহার করা উচিত নয়।', en:'An active but respectful one. National sovereignty shouldn\'t be used as an excuse to ignore human rights violations.' },
+  { spk:'a', de:'Brauchen wir einen Paradigmenwechsel in der Weltpolitik?', bn:'বিশ্বরাজনীতিতে কি আমাদের দৃষ্টিভঙ্গির পরিবর্তন দরকার?', en:'Do we need a paradigm shift in world politics?' },
+  { spk:'b', de:'Dringend. Weg von nationalen Eigeninteressen, hin zu kollektiver Verantwortung für globale Herausforderungen.', bn:'জরুরিভাবে। জাতীয় স্বার্থ থেকে সরে এসে বৈশ্বিক চ্যালেঞ্জের সম্মিলিত দায়িত্বের দিকে।', en:'Urgently. Away from national self-interest, toward collective responsibility for global challenges.' }
+];
+const TASKS = [
+  { bn:'একটি global challenge নিয়ে expert opinion দাও।', en:'Give an expert opinion on a global challenge.' },
+  { bn:'Multilateral solutions কেন প্রয়োজন explain করো।', en:'Explain why multilateral solutions are needed.' },
+  { bn:'National sovereignty ও global responsibility-র balance নিয়ে argue করো।', en:'Argue the balance between national sovereignty and global responsibility.' },
+  { bn:'Paradigmenwechsel-এর জন্য concrete proposals দাও।', en:'Give concrete proposals for a paradigm shift.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-global"),
-    xp: increment(200),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-global")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sprachkritik — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🖊️</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Sprachkritik</h2>
-        <p class="hero-sub">ভাষার সৌন্দর্য ও সমালোচনা — C2 mastery।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">C2</span>
           <span class="meta-pill xp">+200 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Sprachkritik</div>
-            <button onclick="playText('die Sprachkritik',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">ভাষা সমালোচনা</div>
-          <div class="vc-ex">Sprachkritik ist wichtig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Sprachgefühl</div>
-            <button onclick="playText('das Sprachgefühl',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">ভাষার অনুভূতি</div>
-          <div class="vc-ex">Sie hat ein feines Sprachgefühl.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Sprachgebrauch</div>
-            <button onclick="playText('der Sprachgebrauch',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">ভাষার ব্যবহার</div>
-          <div class="vc-ex">Der Sprachgebrauch verändert sich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Konnotation</div>
-            <button onclick="playText('die Konnotation',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">গৌণ অর্থ</div>
-          <div class="vc-ex">Das Wort hat negative Konnotationen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Denotation</div>
-            <button onclick="playText('die Denotation',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">প্রাথমিক অর্থ</div>
-          <div class="vc-ex">Denotation ist die wörtliche Bedeutung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Anglizismus</div>
-            <button onclick="playText('der Anglizismus',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">ইংরেজি ধার করা শব্দ</div>
-          <div class="vc-ex">Anglizismen prägen die Sprache heute.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Gendern</div>
-            <button onclick="playText('das Gendern',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">লিঙ্গ-সংবেদনশীল ভাষা</div>
-          <div class="vc-ex">Das Gendern ist umstritten.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Sprachentwicklung</div>
-            <button onclick="playText('die Sprachentwicklung',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">ভাষার বিকাশ</div>
-          <div class="vc-ex">Sprache entwickelt sich ständig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">euphemistisch</div>
-            <button onclick="playText('euphemistisch',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">ভদ্র/মৃদু ভাষায়</div>
-          <div class="vc-ex">Das ist eine euphemistische Formulierung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">präzise</div>
-            <button onclick="playText('präzise',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">নির্ভুল/সুনির্দিষ্ট</div>
-          <div class="vc-ex">Bitte drücken Sie sich präziser aus.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Rhetorik</div>
-            <button onclick="playText('die Rhetorik',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">বক্তৃতাশাস্ত্র</div>
-          <div class="vc-ex">Gute Rhetorik überzeugt.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Diskurs</div>
-            <button onclick="playText('der Diskurs',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">আলোচনা/বক্তৃতা</div>
-          <div class="vc-ex">Der öffentliche Diskurs ist wichtig.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie beurteilen Sie den zunehmenden Einfluss von Anglizismen im Deutschen?</div>
-            <div class="dl-bn">German-এ Anglizismus-এর ক্রমবর্ধমান প্রভাব কীভাবে মূল্যায়ন করেন?</div>
-            <button onclick="playText('Wie beurteilen Sie den zunehmenden Einfluss von Anglizismen im Deutschen?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ambivalent. Einerseits bereichern sie die Sprache, andererseits verdrängen sie präzise deutsche Ausdrücke.</div>
-            <div class="dl-bn">দ্বিধাবিভক্ত। একদিকে এগুলো ভাষাকে সমৃদ্ধ করে, অন্যদিকে নির্ভুল German শব্দকে সরিয়ে দেয়।</div>
-            <button onclick="playText('Ambivalent. Einerseits bereichern sie die Sprache, andererseits verdrängen sie präzise deutsche Ausdrücke.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Was halten Sie von der Debatte über gendergerechte Sprache?</div>
-            <div class="dl-bn">লিঙ্গ-সংবেদনশীল ভাষা নিয়ে বিতর্ক সম্পর্কে কী মনে করেন?</div>
-            <button onclick="playText('Was halten Sie von der Debatte über gendergerechte Sprache?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Sie ist notwendig, aber die Umsetzung ist komplex. Sprache soll inklusiv sein, aber auch fließend bleiben.</div>
-            <div class="dl-bn">এটা প্রয়োজনীয়, কিন্তু বাস্তবায়ন জটিল। ভাষা অন্তর্ভুক্তিমূলক হওয়া উচিত, কিন্তু প্রবহমানও থাকা উচিত।</div>
-            <button onclick="playText('Sie ist notwendig, aber die Umsetzung ist komplex. Sprache soll inklusiv sein, aber auch fließend bleiben.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Welche Verantwortung haben Medien und Politik für den öffentlichen Sprachgebrauch?</div>
-            <div class="dl-bn">সার্বজনীন ভাষা ব্যবহারে মিডিয়া ও রাজনীতির কী দায়িত্ব আছে?</div>
-            <button onclick="playText('Welche Verantwortung haben Medien und Politik für den öffentlichen Sprachgebrauch?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Eine erhebliche. Sprache formt Denken, und wer die Sprache kontrolliert, beeinflusst die öffentliche Meinung.</div>
-            <div class="dl-bn">উল্লেখযোগ্য। ভাষা চিন্তাকে গঠন করে, এবং যে ভাষা নিয়ন্ত্রণ করে সে জনমতকে প্রভাবিত করে।</div>
-            <button onclick="playText('Eine erhebliche. Sprache formt Denken, und wer die Sprache kontrolliert, beeinflusst die öffentliche Meinung.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>German-এ Anglizismus-এর একটি উদাহরণ নিয়ে discuss করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Gendersprache নিয়ে তোমার nuanced opinion দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Language ও power-এর সম্পর্ক explain করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার নিজের Sprachgebrauch সম্পর্কে সমালোচনামূলকভাবে বলো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+200 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+200 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Wie beurteilen Sie den zunehmenden Einfluss von Anglizismen im Deutschen?', 'Ambivalent. Einerseits bereichern sie die Sprache, andererseits verdrängen sie präzise deutsche Ausdrücke.', 'Was halten Sie von der Debatte über gendergerechte Sprache?', 'Sie ist notwendig, aber die Umsetzung ist komplex. Sprache soll inklusiv sein, aber auch fließend bleiben.', 'Welche Verantwortung haben Medien und Politik für den öffentlichen Sprachgebrauch?', 'Eine erhebliche. Sprache formt Denken, und wer die Sprache kontrolliert, beeinflusst die öffentliche Meinung.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'ভাষার সৌন্দর্য ও সমালোচনা — C2 mastery।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'The beauty and critique of language — C2 mastery.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die Sprachkritik', bn:'ভাষা সমালোচনা', en:'language criticism', ex:'Sprachkritik ist wichtig.' },
+  { de:'das Sprachgefühl', bn:'ভাষার অনুভূতি', en:'feel for language', ex:'Sie hat ein feines Sprachgefühl.' },
+  { de:'der Sprachgebrauch', bn:'ভাষার ব্যবহার', en:'language use', ex:'Der Sprachgebrauch verändert sich.' },
+  { de:'die Konnotation', bn:'গৌণ অর্থ', en:'connotation', ex:'Das Wort hat negative Konnotationen.' },
+  { de:'die Denotation', bn:'প্রাথমিক অর্থ', en:'denotation', ex:'Denotation ist die wörtliche Bedeutung.' },
+  { de:'der Anglizismus', bn:'ইংরেজি ধার করা শব্দ', en:'anglicism', ex:'Anglizismen prägen die Sprache heute.' },
+  { de:'das Gendern', bn:'লিঙ্গ-সংবেদনশীল ভাষা', en:'gender-inclusive language', ex:'Das Gendern ist umstritten.' },
+  { de:'die Sprachentwicklung', bn:'ভাষার বিকাশ', en:'language evolution', ex:'Sprache entwickelt sich ständig.' },
+  { de:'euphemistisch', bn:'ভদ্র/মৃদু ভাষায়', en:'euphemistic', ex:'Das ist eine euphemistische Formulierung.' },
+  { de:'präzise', bn:'নির্ভুল/সুনির্দিষ্ট', en:'precise', ex:'Bitte drücken Sie sich präziser aus.' },
+  { de:'die Rhetorik', bn:'বক্তৃতাশাস্ত্র', en:'rhetoric', ex:'Gute Rhetorik überzeugt.' },
+  { de:'der Diskurs', bn:'আলোচনা/বক্তৃতা', en:'discourse', ex:'Der öffentliche Diskurs ist wichtig.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Wie beurteilen Sie den zunehmenden Einfluss von Anglizismen im Deutschen?', bn:'German-এ Anglizismus-এর ক্রমবর্ধমান প্রভাব কীভাবে মূল্যায়ন করেন?', en:'How do you assess the growing influence of anglicisms in German?' },
+  { spk:'b', de:'Ambivalent. Einerseits bereichern sie die Sprache, andererseits verdrängen sie präzise deutsche Ausdrücke.', bn:'দ্বিধাবিভক্ত। একদিকে এগুলো ভাষাকে সমৃদ্ধ করে, অন্যদিকে নির্ভুল German শব্দকে সরিয়ে দেয়।', en:'Mixed feelings. On one hand they enrich the language, on the other they displace precise German expressions.' },
+  { spk:'a', de:'Was halten Sie von der Debatte über gendergerechte Sprache?', bn:'লিঙ্গ-সংবেদনশীল ভাষা নিয়ে বিতর্ক সম্পর্কে কী মনে করেন?', en:'What do you think of the debate over gender-inclusive language?' },
+  { spk:'b', de:'Sie ist notwendig, aber die Umsetzung ist komplex. Sprache soll inklusiv sein, aber auch fließend bleiben.', bn:'এটা প্রয়োজনীয়, কিন্তু বাস্তবায়ন জটিল। ভাষা অন্তর্ভুক্তিমূলক হওয়া উচিত, কিন্তু প্রবহমানও থাকা উচিত।', en:'It\'s necessary, but implementation is complex. Language should be inclusive, but also stay fluent.' },
+  { spk:'a', de:'Welche Verantwortung haben Medien und Politik für den öffentlichen Sprachgebrauch?', bn:'সার্বজনীন ভাষা ব্যবহারে মিডিয়া ও রাজনীতির কী দায়িত্ব আছে?', en:'What responsibility do media and politics have for public language use?' },
+  { spk:'b', de:'Eine erhebliche. Sprache formt Denken, und wer die Sprache kontrolliert, beeinflusst die öffentliche Meinung.', bn:'উল্লেখযোগ্য। ভাষা চিন্তাকে গঠন করে, এবং যে ভাষা নিয়ন্ত্রণ করে সে জনমতকে প্রভাবিত করে।', en:'A considerable one. Language shapes thought, and whoever controls language influences public opinion.' }
+];
+const TASKS = [
+  { bn:'German-এ Anglizismus-এর একটি উদাহরণ নিয়ে discuss করো।', en:'Discuss an example of an anglicism in German.' },
+  { bn:'Gendersprache নিয়ে তোমার nuanced opinion দাও।', en:'Give your nuanced opinion on gender-inclusive language.' },
+  { bn:'Language ও power-এর সম্পর্ক explain করো।', en:'Explain the relationship between language and power.' },
+  { bn:'তোমার নিজের Sprachgebrauch সম্পর্কে সমালোচনামূলকভাবে বলো।', en:'Critically reflect on your own language use.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-sprachkritik"),
-    xp: increment(200),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-sprachkritik")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

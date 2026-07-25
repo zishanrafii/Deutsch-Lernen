@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Satzmelodie — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -136,9 +137,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -154,14 +156,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🎶</div>
       <div>
-        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Satzmelodie</h2>
-        <p class="hero-sub">বাক্যের সুর (Intonation) — প্রশ্ন, উত্তর ও আদেশে আলাদা melody। এটাই native-like sound-এর রহস্য।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill accent">Level: B1</span>
           <span class="meta-pill accent">+40 XP</span>
-          <span class="meta-pill">12 Examples</span>
-          <span class="meta-pill">5 Exercises</span>
+          <span class="meta-pill" id="meta-examples"></span>
+          <span class="meta-pill" id="meta-exercises"></span>
         </div>
       </div>
     </div>
@@ -175,79 +177,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- THEORY -->
-  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
-  <div class="theory-box">
-    
-    <p><strong>Aussagesatz (Statement) →</strong> শেষে সুর নামে ↘<br>
-    <em>Ich lerne Deutsch.</em> ↘</p>
-    <p><strong>Entscheidungsfrage (Yes/No Question) →</strong> শেষে সুর ওঠে ↗<br>
-    <em>Lernst du Deutsch?</em> ↗</p>
-    <p><strong>W-Frage (WH-Question) →</strong> শেষে সুর নামে ↘<br>
-    <em>Wo wohnst du?</em> ↘</p>
-    <p><strong>Aufforderung (Command) →</strong> সমান বা নামে →↘<br>
-    <em>Komm her!</em> →</p>
-    <div class="tip-box"><strong>💡 মনে রাখো:</strong> Yes/No প্রশ্ন = সুর ওঠে ↗ | বাকি সব = সুর নামে ↘</div>
-    
-  </div>
+  <div class="section-title" id="theory-title"></div>
+  <div class="theory-box" id="theory-box"></div>
 
+  
   <!-- EXAMPLES -->
-  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="section-title" id="examples-title"></div>
   <div class="examples-grid" id="examples-grid"></div>
 
   <!-- EXERCISES -->
-  <div class="section-title">✏️ Practice Exercises</div>
-  <div class="exercises-wrap">
-    
-        <div class="ex-item" id="ex-0">
-          <div class="ex-q">1. Yes/No প্রশ্নে শেষে সুর কেমন হয়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(0,0,this)">নামে ↘</button><button class="opt-btn" onclick="checkAns(0,1,this)">ওঠে ↗</button><button class="opt-btn" onclick="checkAns(0,2,this)">সমান →</button><button class="opt-btn" onclick="checkAns(0,3,this)">কাঁপে</button>
-          </div>
-          <div class="ex-feedback" id="fb-0"></div>
-        </div>
-        <div class="ex-item" id="ex-1">
-          <div class="ex-q">2. 'Wo wohnst du?'-এ শেষে সুর?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(1,0,this)">ওঠে ↗</button><button class="opt-btn" onclick="checkAns(1,1,this)">নামে ↘</button><button class="opt-btn" onclick="checkAns(1,2,this)">সমান →</button><button class="opt-btn" onclick="checkAns(1,3,this)">দ্রুত</button>
-          </div>
-          <div class="ex-feedback" id="fb-1"></div>
-        </div>
-        <div class="ex-item" id="ex-2">
-          <div class="ex-q">3. Statement-এ শেষ syllable কেমন?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(2,0,this)">উঁচু</button><button class="opt-btn" onclick="checkAns(2,1,this)">নামে</button><button class="opt-btn" onclick="checkAns(2,2,this)">ওঠে</button><button class="opt-btn" onclick="checkAns(2,3,this)">কাঁপে</button>
-          </div>
-          <div class="ex-feedback" id="fb-2"></div>
-        </div>
-        <div class="ex-item" id="ex-3">
-          <div class="ex-q">4. 'Kommst du?' — এটা কোন ধরনের প্রশ্ন?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(3,0,this)">W-Frage</button><button class="opt-btn" onclick="checkAns(3,1,this)">Ja/Nein Frage</button><button class="opt-btn" onclick="checkAns(3,2,this)">Statement</button><button class="opt-btn" onclick="checkAns(3,3,this)">Command</button>
-          </div>
-          <div class="ex-feedback" id="fb-3"></div>
-        </div>
-        <div class="ex-item" id="ex-4">
-          <div class="ex-q">5. Command-এ intonation কেমন?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(4,0,this)">তীব্রভাবে ওঠে</button><button class="opt-btn" onclick="checkAns(4,1,this)">নামে বা সমান</button><button class="opt-btn" onclick="checkAns(4,2,this)">সবসময় ওঠে</button><button class="opt-btn" onclick="checkAns(4,3,this)">কাঁপে</button>
-          </div>
-          <div class="ex-feedback" id="fb-4"></div>
-        </div>
-  </div>
+  <div class="section-title" id="exercises-title"></div>
+  <div class="exercises-wrap" id="exercises-wrap"></div>
 
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      <strong>Satzmelodie</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+40 XP</strong> পাবে।
-      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+40 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <!-- PAGE NAV -->
   <div class="page-nav">
     <a href="wortakzent.html" class="nav-btn">← Wortakzent</a>
-    <a href="konsonanten.html" class="nav-btn gold">পরের Topic: Konsonanten →</a>
+    <a href="konsonanten.html" class="nav-btn gold"><span id="next-topic-label"></span></a>
   </div>
 </div>
 
@@ -255,41 +208,113 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const EXAMPLES = [{'word': 'Aussage ↘', 'ipa': 'statement', 'bn': 'বিবৃতি — শেষে নামে', 'sentence': 'Ich lerne Deutsch.'}, {'word': 'Ja/Nein Frage ↗', 'ipa': 'yes/no ?', 'bn': 'হ্যাঁ/না প্রশ্ন — ওঠে', 'sentence': 'Lernst du Deutsch?'}, {'word': 'W-Frage ↘', 'ipa': 'wh-question', 'bn': 'WH প্রশ্ন — নামে', 'sentence': 'Wo wohnst du?'}, {'word': 'Was machst du? ↗', 'ipa': 'indirect', 'bn': 'কী করো? (প্রশ্ন ↗)', 'sentence': 'Was machst du?'}, {'word': 'Befehl →', 'ipa': 'command', 'bn': 'আদেশ — সমান', 'sentence': 'Setz dich!'}, {'word': 'Wunsch ↘', 'ipa': 'wish', 'bn': 'ইচ্ছা — নামে', 'sentence': 'Ich möchte Kaffee.'}, {'word': 'Überraschung ↗↗', 'ipa': 'surprise', 'bn': 'বিস্ময় — তীব্রভাবে ওঠে', 'sentence': 'Wirklich?!'}, {'word': 'Zweifel ↗↘', 'ipa': 'doubt', 'bn': 'সন্দেহ — ওঠানামা', 'sentence': 'Na ja...'}, {'word': 'Bitte ↘', 'ipa': 'please', 'bn': 'অনুরোধ — নরমভাবে নামে', 'sentence': 'Bitte hilf mir.'}, {'word': 'Danke ↘', 'ipa': 'thanks', 'bn': 'ধন্যবাদ — নামে', 'sentence': 'Danke schön!'}, {'word': 'Kommt er? ↗', 'ipa': 'yes/no', 'bn': 'সে আসছে? (ওঠে ↗)', 'sentence': 'Kommt er heute?'}, {'word': 'Warum? ↘', 'ipa': 'why', 'bn': 'কেন? (WH, নামে ↘)', 'sentence': 'Warum lernst du?'}];
-const ANSWERS  = [1, 1, 1, 1, 1];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
 let _voice = "Deutsch Female";
 let _score = 0;
 let _uid;
 
-window.setVoice = function(v, btn) {
-  _voice = v;
-  document.querySelectorAll(".vbtn").forEach(b => {
-    b.classList.remove("active","male-active");
-    b.style.cssText="";
-  });
-  if(v === "Deutsch Female") {
-    btn.classList.add("active");
-  } else {
-    btn.classList.add("male-active");
-  }
+const CHROME = {
+  bn: {
+    eyebrow: '🔤 Aussprache Guide',
+    theoryTitle: '📖 Theory — কীভাবে উচ্চারণ করবে',
+    examplesTitle: '🔊 Examples — শুনুন ও repeat করুন',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'সম্পন্ন করলে',
+    xpHint: 'সব exercises করার পর Complete বাটন চাপো।',
+    completeBtn: '⭐ Complete করুন',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন হয়েছে',
+    correct: '✅ সঠিক!',
+    wrong: '❌ ভুল। সঠিক উত্তর highlight হয়েছে।',
+    subtitle: 'বাক্যের সুর (Intonation) — প্রশ্ন, উত্তর ও আদেশে আলাদা melody। এটাই native-like sound-এর রহস্য।',
+  },
+  en: {
+    eyebrow: '🔤 Pronunciation Guide',
+    theoryTitle: '📖 Theory — how to pronounce it',
+    examplesTitle: '🔊 Examples — listen and repeat',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'to complete for',
+    xpHint: 'Press Complete after finishing all exercises.',
+    completeBtn: '⭐ Complete',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    correct: '✅ Correct!',
+    wrong: '❌ Wrong. The correct answer is highlighted.',
+    subtitle: 'Sentence melody (intonation) — questions, statements, and commands each have a different melody. This is the secret to sounding native.',
+  },
 };
+const THEORY_BN = '<p><strong>Aussagesatz (Statement) →</strong> শেষে সুর নামে ↘<br><em>Ich lerne Deutsch.</em> ↘</p><p><strong>Entscheidungsfrage (Yes/No Question) →</strong> শেষে সুর ওঠে ↗<br><em>Lernst du Deutsch?</em> ↗</p><p><strong>W-Frage (WH-Question) →</strong> শেষে সুর নামে ↘<br><em>Wo wohnst du?</em> ↘</p><p><strong>Aufforderung (Command) →</strong> সমান বা নামে →↘<br><em>Komm her!</em> →</p><div class="tip-box"><strong>💡 মনে রাখো:</strong> Yes/No প্রশ্ন = সুর ওঠে ↗ | বাকি সব = সুর নামে ↘</div>';
+const THEORY_EN = '<p><strong>Aussagesatz (statement) →</strong> pitch falls at the end ↘<br><em>Ich lerne Deutsch.</em> ↘</p><p><strong>Entscheidungsfrage (yes/no question) →</strong> pitch rises at the end ↗<br><em>Lernst du Deutsch?</em> ↗</p><p><strong>W-Frage (wh-question) →</strong> pitch falls at the end ↘<br><em>Wo wohnst du?</em> ↘</p><p><strong>Aufforderung (command) →</strong> flat or falling →↘<br><em>Komm her!</em> →</p><div class="tip-box"><strong>💡 Remember:</strong> Yes/No questions = pitch rises ↗ | everything else = pitch falls ↘</div>';
+const EXAMPLES = [
+  { word:'Aussage ↘', ipa:'statement', bn:'বিবৃতি — শেষে নামে', en:'statement — falls at the end', sentence:'Ich lerne Deutsch.' },
+  { word:'Ja/Nein Frage ↗', ipa:'yes/no ?', bn:'হ্যাঁ/না প্রশ্ন — ওঠে', en:'yes/no question — rises', sentence:'Lernst du Deutsch?' },
+  { word:'W-Frage ↘', ipa:'wh-question', bn:'WH প্রশ্ন — নামে', en:'wh-question — falls', sentence:'Wo wohnst du?' },
+  { word:'Was machst du? ↗', ipa:'indirect', bn:'কী করো? (প্রশ্ন ↗)', en:'what are you doing? (rises ↗)', sentence:'Was machst du?' },
+  { word:'Befehl →', ipa:'command', bn:'আদেশ — সমান', en:'command — flat', sentence:'Setz dich!' },
+  { word:'Wunsch ↘', ipa:'wish', bn:'ইচ্ছা — নামে', en:'wish — falls', sentence:'Ich möchte Kaffee.' },
+  { word:'Überraschung ↗↗', ipa:'surprise', bn:'বিস্ময় — তীব্রভাবে ওঠে', en:'surprise — sharply rising', sentence:'Wirklich?!' },
+  { word:'Zweifel ↗↘', ipa:'doubt', bn:'সন্দেহ — ওঠানামা', en:'doubt — rise-fall', sentence:'Na ja...' },
+  { word:'Bitte ↘', ipa:'please', bn:'অনুরোধ — নরমভাবে নামে', en:'request — gently falling', sentence:'Bitte hilf mir.' },
+  { word:'Danke ↘', ipa:'thanks', bn:'ধন্যবাদ — নামে', en:'thanks — falls', sentence:'Danke schön!' },
+  { word:'Kommt er? ↗', ipa:'yes/no', bn:'সে আসছে? (ওঠে ↗)', en:'is he coming? (rises ↗)', sentence:'Kommt er heute?' },
+  { word:'Warum? ↘', ipa:'why', bn:'কেন? (WH, নামে ↘)', en:'why? (wh, falls ↘)', sentence:'Warum lernst du?' }
+];
+const EXERCISES = [
+  { qBn:'Yes/No প্রশ্নে শেষে সুর কেমন হয়?', qEn:'What happens to the pitch at the end of a yes/no question?', opts:[{ bn:'নামে ↘', en:'falls ↘' }, { bn:'ওঠে ↗', en:'rises ↗' }, { bn:'সমান →', en:'flat →' }, { bn:'কাঁপে', en:'wavers' }], answer:1 },
+  { qBn:'\'Wo wohnst du?\'-এ শেষে সুর?', qEn:'What\'s the pitch at the end of \'Wo wohnst du?\'?', opts:[{ bn:'ওঠে ↗', en:'rises ↗' }, { bn:'নামে ↘', en:'falls ↘' }, { bn:'সমান →', en:'flat →' }, { bn:'দ্রুত', en:'fast' }], answer:1 },
+  { qBn:'Statement-এ শেষ syllable কেমন?', qEn:'What\'s the last syllable like in a statement?', opts:[{ bn:'উঁচু', en:'high' }, { bn:'নামে', en:'falls' }, { bn:'ওঠে', en:'rises' }, { bn:'কাঁপে', en:'wavers' }], answer:1 },
+  { qBn:'\'Kommst du?\' — এটা কোন ধরনের প্রশ্ন?', qEn:'\'Kommst du?\' — what kind of question is this?', opts:[{ bn:'W-Frage', en:'W-Frage' }, { bn:'Ja/Nein Frage', en:'Ja/Nein Frage' }, { bn:'Statement', en:'Statement' }, { bn:'Command', en:'Command' }], answer:1 },
+  { qBn:'Command-এ intonation কেমন?', qEn:'What\'s the intonation like in a command?', opts:[{ bn:'তীব্রভাবে ওঠে', en:'sharply rises' }, { bn:'নামে বা সমান', en:'falls or flat' }, { bn:'সবসময় ওঠে', en:'always rises' }, { bn:'কাঁপে', en:'wavers' }], answer:1 }
+];
 
-/* Build example cards */
-const grid = document.getElementById("examples-grid");
-EXAMPLES.forEach((ex, i) => {
-  const card = document.createElement("div");
-  card.className = "ex-card";
-  card.innerHTML = `
-    <div class="ex-word">${ex.word}</div>
-    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
-    <div class="ex-bn">${ex.bn}</div>
-    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
-    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
-  grid.appendChild(card);
-});
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+let _answered = new Set();
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent = c.eyebrow;
+  document.getElementById("hero-sub").textContent = c.subtitle;
+  document.getElementById("meta-examples").textContent = `12 ${getLang()==="en"?"Examples":"Examples"}`;
+  document.getElementById("meta-exercises").textContent = `5 ${getLang()==="en"?"Exercises":"Exercises"}`;
+  document.getElementById("theory-title").textContent = c.theoryTitle;
+  document.getElementById("examples-title").textContent = c.examplesTitle;
+  document.getElementById("exercises-title").textContent = c.exercisesTitle;
+  document.getElementById("theory-box").innerHTML = getLang() === "en" ? THEORY_EN : THEORY_BN;
+  document.getElementById("xp-banner-text").innerHTML =
+    `<strong>Satzmelodie</strong> ${c.xpAfter} <strong style="color:var(--gold)">+40 XP</strong>` +
+    `<div style="margin-top:3px;font-size:11.5px;">${c.xpHint}</div>`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn + " (+40 XP)"; }
+  const nextLbl = document.getElementById("next-topic-label");
+  if (nextLbl) nextLbl.textContent = (getLang()==="en" ? "Next topic: " : "পরের Topic: ") + 'Konsonanten' + " →";
+}
+
+function renderExamples() {
+  const grid = document.getElementById("examples-grid");
+  grid.innerHTML = "";
+  EXAMPLES.forEach((ex, i) => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML = `
+      <div class="ex-word">${ex.word}</div>
+      ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+      <div class="ex-bn">${localized(ex)}</div>
+      ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+      <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+    grid.appendChild(card);
+  });
+}
 
 window.playEx = function(i) {
-  const ex  = EXAMPLES[i];
+  const ex = EXAMPLES[i];
   const btn = document.getElementById("pb-"+i);
   btn.textContent = "⏹ Stop"; btn.classList.add("playing");
   responsiveVoice.speak(ex.word, _voice, {
@@ -298,27 +323,54 @@ window.playEx = function(i) {
   });
 };
 
-/* Exercises */
+function renderExercises() {
+  const wrap = document.getElementById("exercises-wrap");
+  wrap.innerHTML = EXERCISES.map((ex, qi) => `
+    <div class="ex-item" id="ex-${qi}">
+      <div class="ex-q">${qi+1}. ${getLang()==="en" ? ex.qEn : ex.qBn}</div>
+      <div class="ex-opts">
+        ${ex.opts.map((o, ai) => `<button class="opt-btn" onclick="checkAns(${qi},${ai},this)">${getLang()==="en" ? (o.en||o.bn) : o.bn}</button>`).join("")}
+      </div>
+      <div class="ex-feedback" id="fb-${qi}"></div>
+    </div>`).join("");
+}
+
 window.checkAns = function(qi, ai, btn) {
-  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
-  const correct = ANSWERS[qi];
+  if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+  const c = chrome();
+  const correct = EXERCISES[qi].answer;
   const fb = document.getElementById("fb-"+qi);
   document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
-  if(ai === correct) {
+  if (ai === correct) {
     btn.classList.add("correct");
-    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    fb.textContent = c.correct; fb.style.color = "#34d399";
     _score++;
   } else {
     btn.classList.add("wrong");
     document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
-    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+    fb.textContent = c.wrong; fb.style.color = "#fb7185";
   }
+  _answered.add(qi);
 };
 
-/* Complete */
+function renderPronPage() {
+  renderChrome(); renderExamples(); renderExercises();
+}
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") { btn.classList.add("active"); }
+  else { btn.classList.add("male-active"); }
+};
+
+
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled = true; btn.textContent = chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("aussprache-satzmelodie"),
     xp: increment(40),
@@ -330,6 +382,18 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderPronPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderPronPage();
+    },
+  });
+
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
@@ -337,8 +401,9 @@ requireAuth(async user => {
   if(photo) av.innerHTML = `<img src="${photo}">`;
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("aussprache-satzmelodie")) {
+    _completed = true;
     const btn = document.getElementById("btn-complete");
-    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+    btn.disabled = true; btn.textContent = chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
 });

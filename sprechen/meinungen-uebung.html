@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meinungen & Argumente — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🤝</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Meinungen & Argumente</h2>
-        <p class="hero-sub">কোনো বিষয়ে মতামত প্রকাশ ও argue করা German-এ।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">B1</span>
           <span class="meta-pill xp">+100 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Ich bin der Meinung, dass...</div>
-            <button onclick="playText('Ich bin der Meinung, dass...',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">আমার মতে...</div>
-          <div class="vc-ex">Ich bin der Meinung, dass Bildung wichtig ist.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Meiner Ansicht nach...</div>
-            <button onclick="playText('Meiner Ansicht nach...',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">আমার দৃষ্টিতে...</div>
-          <div class="vc-ex">Meiner Ansicht nach ist das falsch.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Ich stimme zu/nicht zu.</div>
-            <button onclick="playText('Ich stimme zu/nicht zu.',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">আমি একমত/একমত নই।</div>
-          <div class="vc-ex">Ich stimme dir völlig zu.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Einerseits... andererseits</div>
-            <button onclick="playText('Einerseits... andererseits',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">একদিকে... অন্যদিকে</div>
-          <div class="vc-ex">Einerseits ist es gut, andererseits...</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Vorteil/Nachteil</div>
-            <button onclick="playText('der Vorteil/Nachteil',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">সুবিধা/অসুবিধা</div>
-          <div class="vc-ex">Es gibt Vor- und Nachteile.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">überzeugend</div>
-            <button onclick="playText('überzeugend',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">বিশ্বাসযোগ্য</div>
-          <div class="vc-ex">Das Argument ist überzeugend.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Gegenargument</div>
-            <button onclick="playText('das Gegenargument',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">পাল্টা যুক্তি</div>
-          <div class="vc-ex">Ich habe ein Gegenargument.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">belegen</div>
-            <button onclick="playText('belegen',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">প্রমাণ করা</div>
-          <div class="vc-ex">Können Sie das belegen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">widersprechen</div>
-            <button onclick="playText('widersprechen',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">বিরোধিতা করা</div>
-          <div class="vc-ex">Ich muss Ihnen widersprechen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Zusammenfassend</div>
-            <button onclick="playText('Zusammenfassend',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">সংক্ষেপে</div>
-          <div class="vc-ex">Zusammenfassend kann man sagen...</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Fazit</div>
-            <button onclick="playText('das Fazit',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">উপসংহার</div>
-          <div class="vc-ex">Das Fazit ist klar.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">diskutieren</div>
-            <button onclick="playText('diskutieren',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">আলোচনা করা</div>
-          <div class="vc-ex">Wir diskutieren das Thema.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Was denkst du über Home Office?</div>
-            <div class="dl-bn">Home office সম্পর্কে তোমার কী মনে হয়?</div>
-            <button onclick="playText('Was denkst du über Home Office?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich bin dafür. Man spart Zeit und ist flexibler.</div>
-            <div class="dl-bn">আমি এর পক্ষে। সময় বাঁচে এবং বেশি নমনীয়।</div>
-            <button onclick="playText('Ich bin dafür. Man spart Zeit und ist flexibler.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich sehe das etwas anders. Der direkte Kontakt fehlt.</div>
-            <div class="dl-bn">আমি এটা একটু ভিন্নভাবে দেখি। সরাসরি যোগাযোগ মিস হয়।</div>
-            <button onclick="playText('Ich sehe das etwas anders. Der direkte Kontakt fehlt.',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Das stimmt. Einerseits ist Home Office praktisch, andererseits fehlt das Teamgefühl.</div>
-            <div class="dl-bn">সেটা সত্য। একদিকে home office practical, অন্যদিকে team feeling মিস হয়।</div>
-            <button onclick="playText('Das stimmt. Einerseits ist Home Office praktisch, andererseits fehlt das Teamgefühl.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Genau. Eine Mischung aus beidem wäre ideal.</div>
-            <div class="dl-bn">ঠিক। উভয়ের মিশ্রণ আদর্শ হবে।</div>
-            <button onclick="playText('Genau. Eine Mischung aus beidem wäre ideal.',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Da stimme ich dir zu. Das sogenannte Hybridmodell.</div>
-            <div class="dl-bn">সেটায় আমি একমত। তথাকথিত hybrid model।</div>
-            <button onclick="playText('Da stimme ich dir zu. Das sogenannte Hybridmodell.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি বিষয়ে পক্ষে যুক্তি দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি বিষয়ে বিপক্ষে যুক্তি দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Einerseits...andererseits ব্যবহার করে বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>কারো মতের সাথে বিনয়ের সাথে দ্বিমত পোষণ করো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+100 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+100 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Was denkst du über Home Office?', 'Ich bin dafür. Man spart Zeit und ist flexibler.', 'Ich sehe das etwas anders. Der direkte Kontakt fehlt.', 'Das stimmt. Einerseits ist Home Office praktisch, andererseits fehlt das Teamgefühl.', 'Genau. Eine Mischung aus beidem wäre ideal.', 'Da stimme ich dir zu. Das sogenannte Hybridmodell.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'কোনো বিষয়ে মতামত প্রকাশ ও argue করা।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Expressing opinions and arguing a point.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'Ich bin der Meinung, dass...', bn:'আমার মতে...', en:'I\'m of the opinion that...', ex:'Ich bin der Meinung, dass Bildung wichtig ist.' },
+  { de:'Meiner Ansicht nach...', bn:'আমার দৃষ্টিতে...', en:'In my view...', ex:'Meiner Ansicht nach ist das falsch.' },
+  { de:'Ich stimme zu/nicht zu.', bn:'আমি একমত/একমত নই।', en:'I agree/disagree.', ex:'Ich stimme dir völlig zu.' },
+  { de:'Einerseits... andererseits', bn:'একদিকে... অন্যদিকে', en:'On the one hand... on the other hand', ex:'Einerseits ist es gut, andererseits...' },
+  { de:'der Vorteil/Nachteil', bn:'সুবিধা/অসুবিধা', en:'advantage/disadvantage', ex:'Es gibt Vor- und Nachteile.' },
+  { de:'überzeugend', bn:'বিশ্বাসযোগ্য', en:'convincing', ex:'Das Argument ist überzeugend.' },
+  { de:'das Gegenargument', bn:'পাল্টা যুক্তি', en:'counter-argument', ex:'Ich habe ein Gegenargument.' },
+  { de:'belegen', bn:'প্রমাণ করা', en:'to prove/back up', ex:'Können Sie das belegen?' },
+  { de:'widersprechen', bn:'বিরোধিতা করা', en:'to contradict', ex:'Ich muss Ihnen widersprechen.' },
+  { de:'Zusammenfassend', bn:'সংক্ষেপে', en:'In summary', ex:'Zusammenfassend kann man sagen...' },
+  { de:'das Fazit', bn:'উপসংহার', en:'conclusion', ex:'Das Fazit ist klar.' },
+  { de:'diskutieren', bn:'আলোচনা করা', en:'to discuss', ex:'Wir diskutieren das Thema.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Was denkst du über Home Office?', bn:'Home office সম্পর্কে তোমার কী মনে হয়?', en:'What do you think about working from home?' },
+  { spk:'b', de:'Ich bin dafür. Man spart Zeit und ist flexibler.', bn:'আমি এর পক্ষে। সময় বাঁচে এবং বেশি নমনীয়।', en:'I\'m in favor. You save time and are more flexible.' },
+  { spk:'a', de:'Ich sehe das etwas anders. Der direkte Kontakt fehlt.', bn:'আমি এটা একটু ভিন্নভাবে দেখি। সরাসরি যোগাযোগ মিস হয়।', en:'I see it a bit differently. Direct contact is missing.' },
+  { spk:'b', de:'Das stimmt. Einerseits ist Home Office praktisch, andererseits fehlt das Teamgefühl.', bn:'সেটা সত্য। একদিকে home office practical, অন্যদিকে team feeling মিস হয়।', en:'That\'s true. On one hand working from home is practical, on the other, the team feeling is missing.' },
+  { spk:'a', de:'Genau. Eine Mischung aus beidem wäre ideal.', bn:'ঠিক। উভয়ের মিশ্রণ আদর্শ হবে।', en:'Exactly. A mix of both would be ideal.' },
+  { spk:'b', de:'Da stimme ich dir zu. Das sogenannte Hybridmodell.', bn:'সেটায় আমি একমত। তথাকথিত hybrid model।', en:'I agree with you there. The so-called hybrid model.' }
+];
+const TASKS = [
+  { bn:'একটি বিষয়ে পক্ষে যুক্তি দাও।', en:'Argue in favor of a topic.' },
+  { bn:'একটি বিষয়ে বিপক্ষে যুক্তি দাও।', en:'Argue against a topic.' },
+  { bn:'Einerseits...andererseits ব্যবহার করে বলো।', en:'Speak using \'Einerseits... andererseits\' (on the one hand... on the other).' },
+  { bn:'কারো মতের সাথে বিনয়ের সাথে দ্বিমত পোষণ করো।', en:'Politely disagree with someone\'s opinion.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-meinungen"),
-    xp: increment(100),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-meinungen")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

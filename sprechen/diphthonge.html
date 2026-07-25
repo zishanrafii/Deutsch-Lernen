@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diphthonge — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -136,9 +137,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -154,14 +156,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🔉</div>
       <div>
-        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Diphthonge</h2>
-        <p class="hero-sub">ei, au, eu/äu — German-এর double vowel sounds। প্রতিটি আলাদাভাবে চেনো।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill accent">Level: A1</span>
           <span class="meta-pill accent">+30 XP</span>
-          <span class="meta-pill">12 Examples</span>
-          <span class="meta-pill">5 Exercises</span>
+          <span class="meta-pill" id="meta-examples"></span>
+          <span class="meta-pill" id="meta-exercises"></span>
         </div>
       </div>
     </div>
@@ -175,77 +177,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- THEORY -->
-  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
-  <div class="theory-box">
-    
-    <p><strong>ei / ai = [aɪ̯]</strong> — বাংলা 'আই'-এর মতো।<br>
-    <strong>mein</strong> [maɪ̯n], <strong>Zeit</strong> [tsaɪ̯t], <strong>klein</strong> [klaɪ̯n]</p>
-    <p><strong>au = [aʊ̯]</strong> — বাংলা 'আউ'-এর মতো।<br>
-    <strong>Haus</strong> [haʊ̯s], <strong>kaufen</strong> [ˈkaʊ̯fn̩], <strong>Baum</strong> [baʊ̯m]</p>
-    <p><strong>eu / äu = [ɔɪ̯]</strong> — বাংলায় সহজ সমতুল্য নেই। 'অই'-এর মতো।<br>
-    <strong>heute</strong> [ˈhɔɪ̯tə], <strong>Freund</strong> [fʁɔɪ̯nt], <strong>Häuser</strong> [ˈhɔɪ̯zɐ]</p>
-    <div class="tip-box"><strong>💡 সতর্কতা:</strong> 'ie' = [iː] দীর্ঘ i (diphthong নয়!) — <strong>Liebe</strong> [ˈliːbə]</div>
-    
-  </div>
+  <div class="section-title" id="theory-title"></div>
+  <div class="theory-box" id="theory-box"></div>
 
+  
   <!-- EXAMPLES -->
-  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="section-title" id="examples-title"></div>
   <div class="examples-grid" id="examples-grid"></div>
 
   <!-- EXERCISES -->
-  <div class="section-title">✏️ Practice Exercises</div>
-  <div class="exercises-wrap">
-    
-        <div class="ex-item" id="ex-0">
-          <div class="ex-q">1. 'ei' দিয়ে তৈরি sound কোনটি?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(0,0,this)">[aʊ̯]</button><button class="opt-btn" onclick="checkAns(0,1,this)">[aɪ̯]</button><button class="opt-btn" onclick="checkAns(0,2,this)">[ɔɪ̯]</button><button class="opt-btn" onclick="checkAns(0,3,this)">[iː]</button>
-          </div>
-          <div class="ex-feedback" id="fb-0"></div>
-        </div>
-        <div class="ex-item" id="ex-1">
-          <div class="ex-q">2. 'heute'-এ 'eu'-র উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(1,0,this)">[aɪ̯]</button><button class="opt-btn" onclick="checkAns(1,1,this)">[aʊ̯]</button><button class="opt-btn" onclick="checkAns(1,2,this)">[ɔɪ̯]</button><button class="opt-btn" onclick="checkAns(1,3,this)">[yː]</button>
-          </div>
-          <div class="ex-feedback" id="fb-1"></div>
-        </div>
-        <div class="ex-item" id="ex-2">
-          <div class="ex-q">3. 'Haus'-এ 'au'-র উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(2,0,this)">[aɪ̯]</button><button class="opt-btn" onclick="checkAns(2,1,this)">[aʊ̯]</button><button class="opt-btn" onclick="checkAns(2,2,this)">[ɔɪ̯]</button><button class="opt-btn" onclick="checkAns(2,3,this)">[oː]</button>
-          </div>
-          <div class="ex-feedback" id="fb-2"></div>
-        </div>
-        <div class="ex-item" id="ex-3">
-          <div class="ex-q">4. 'ie' (Liebe) কোন sound?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(3,0,this)">diphthong [aɪ̯]</button><button class="opt-btn" onclick="checkAns(3,1,this)">দীর্ঘ [iː]</button><button class="opt-btn" onclick="checkAns(3,2,this)">[ɪ] হ্রস্ব</button><button class="opt-btn" onclick="checkAns(3,3,this)">[eː]</button>
-          </div>
-          <div class="ex-feedback" id="fb-3"></div>
-        </div>
-        <div class="ex-item" id="ex-4">
-          <div class="ex-q">5. 'Häuser'-এ 'äu'-র উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(4,0,this)">[aɪ̯]</button><button class="opt-btn" onclick="checkAns(4,1,this)">[aʊ̯]</button><button class="opt-btn" onclick="checkAns(4,2,this)">[ɔɪ̯]</button><button class="opt-btn" onclick="checkAns(4,3,this)">[yː]</button>
-          </div>
-          <div class="ex-feedback" id="fb-4"></div>
-        </div>
-  </div>
+  <div class="section-title" id="exercises-title"></div>
+  <div class="exercises-wrap" id="exercises-wrap"></div>
 
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      <strong>Diphthonge</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+30 XP</strong> পাবে।
-      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+30 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <!-- PAGE NAV -->
   <div class="page-nav">
     <a href="konsonanten.html" class="nav-btn">← Konsonanten</a>
-    <a href="endungen.html" class="nav-btn gold">পরের Topic: Endungen →</a>
+    <a href="endungen.html" class="nav-btn gold"><span id="next-topic-label"></span></a>
   </div>
 </div>
 
@@ -253,41 +208,113 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const EXAMPLES = [{'word': 'ei — mein', 'ipa': 'maɪ̯n', 'bn': 'আমার', 'sentence': 'Das ist mein Buch.'}, {'word': 'ei — Zeit', 'ipa': 'tsaɪ̯t', 'bn': 'সময়', 'sentence': 'Ich habe keine Zeit.'}, {'word': 'ei — klein', 'ipa': 'klaɪ̯n', 'bn': 'ছোট', 'sentence': 'Das Zimmer ist klein.'}, {'word': 'ei — nein', 'ipa': 'naɪ̯n', 'bn': 'না', 'sentence': 'Nein, danke.'}, {'word': 'au — Haus', 'ipa': 'haʊ̯s', 'bn': 'বাড়ি', 'sentence': 'Das Haus ist groß.'}, {'word': 'au — kaufen', 'ipa': 'ˈkaʊ̯fn̩', 'bn': 'কেনা', 'sentence': 'Ich kaufe Brot.'}, {'word': 'au — Baum', 'ipa': 'baʊ̯m', 'bn': 'গাছ', 'sentence': 'Der Baum ist hoch.'}, {'word': 'eu — heute', 'ipa': 'ˈhɔɪ̯tə', 'bn': 'আজ', 'sentence': 'Heute lerne ich.'}, {'word': 'eu — Freund', 'ipa': 'fʁɔɪ̯nt', 'bn': 'বন্ধু', 'sentence': 'Mein Freund.'}, {'word': 'eu — deutsch', 'ipa': 'dɔɪ̯tʃ', 'bn': 'জার্মান', 'sentence': 'Ich lerne Deutsch.'}, {'word': 'äu — Häuser', 'ipa': 'ˈhɔɪ̯zɐ', 'bn': 'বাড়িগুলো', 'sentence': 'Die Häuser sind alt.'}, {'word': 'ie — Liebe', 'ipa': 'ˈliːbə', 'bn': 'ভালোবাসা', 'sentence': 'Ich liebe Deutsch!'}];
-const ANSWERS  = [1, 2, 1, 1, 2];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
 let _voice = "Deutsch Female";
 let _score = 0;
 let _uid;
 
-window.setVoice = function(v, btn) {
-  _voice = v;
-  document.querySelectorAll(".vbtn").forEach(b => {
-    b.classList.remove("active","male-active");
-    b.style.cssText="";
-  });
-  if(v === "Deutsch Female") {
-    btn.classList.add("active");
-  } else {
-    btn.classList.add("male-active");
-  }
+const CHROME = {
+  bn: {
+    eyebrow: '🔤 Aussprache Guide',
+    theoryTitle: '📖 Theory — কীভাবে উচ্চারণ করবে',
+    examplesTitle: '🔊 Examples — শুনুন ও repeat করুন',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'সম্পন্ন করলে',
+    xpHint: 'সব exercises করার পর Complete বাটন চাপো।',
+    completeBtn: '⭐ Complete করুন',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন হয়েছে',
+    correct: '✅ সঠিক!',
+    wrong: '❌ ভুল। সঠিক উত্তর highlight হয়েছে।',
+    subtitle: 'ei, au, eu/äu — German-এর double vowel sounds। প্রতিটি আলাদাভাবে চেনো।',
+  },
+  en: {
+    eyebrow: '🔤 Pronunciation Guide',
+    theoryTitle: '📖 Theory — how to pronounce it',
+    examplesTitle: '🔊 Examples — listen and repeat',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'to complete for',
+    xpHint: 'Press Complete after finishing all exercises.',
+    completeBtn: '⭐ Complete',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    correct: '✅ Correct!',
+    wrong: '❌ Wrong. The correct answer is highlighted.',
+    subtitle: 'ei, au, eu/äu — German\'s double-vowel sounds. Learn to recognize each one.',
+  },
 };
+const THEORY_BN = '<p><strong>ei / ai = [aɪ̯]</strong> — বাংলা \'আই\'-এর মতো।<br><strong>mein</strong> [maɪ̯n], <strong>Zeit</strong> [tsaɪ̯t], <strong>klein</strong> [klaɪ̯n]</p><p><strong>au = [aʊ̯]</strong> — বাংলা \'আউ\'-এর মতো।<br><strong>Haus</strong> [haʊ̯s], <strong>kaufen</strong> [ˈkaʊ̯fn̩], <strong>Baum</strong> [baʊ̯m]</p><p><strong>eu / äu = [ɔɪ̯]</strong> — বাংলায় সহজ সমতুল্য নেই। \'অই\'-এর মতো।<br><strong>heute</strong> [ˈhɔɪ̯tə], <strong>Freund</strong> [fʁɔɪ̯nt], <strong>Häuser</strong> [ˈhɔɪ̯zɐ]</p><div class="tip-box"><strong>💡 সতর্কতা:</strong> \'ie\' = [iː] দীর্ঘ i (diphthong নয়!) — <strong>Liebe</strong> [ˈliːbə]</div>';
+const THEORY_EN = '<p><strong>ei / ai = [aɪ̯]</strong> — like \'eye\' in English.<br><strong>mein</strong> [maɪ̯n], <strong>Zeit</strong> [tsaɪ̯t], <strong>klein</strong> [klaɪ̯n]</p><p><strong>au = [aʊ̯]</strong> — like \'ow\' in English \'how\'.<br><strong>Haus</strong> [haʊ̯s], <strong>kaufen</strong> [ˈkaʊ̯fn̩], <strong>Baum</strong> [baʊ̯m]</p><p><strong>eu / äu = [ɔɪ̯]</strong> — no simple equivalent in Bangla. Like \'oy\' in \'boy\'.<br><strong>heute</strong> [ˈhɔɪ̯tə], <strong>Freund</strong> [fʁɔɪ̯nt], <strong>Häuser</strong> [ˈhɔɪ̯zɐ]</p><div class="tip-box"><strong>💡 Watch out:</strong> \'ie\' = [iː], a long i (not a diphthong!) — <strong>Liebe</strong> [ˈliːbə]</div>';
+const EXAMPLES = [
+  { word:'ei — mein', ipa:'maɪ̯n', bn:'আমার', en:'my', sentence:'Das ist mein Buch.' },
+  { word:'ei — Zeit', ipa:'tsaɪ̯t', bn:'সময়', en:'time', sentence:'Ich habe keine Zeit.' },
+  { word:'ei — klein', ipa:'klaɪ̯n', bn:'ছোট', en:'small', sentence:'Das Zimmer ist klein.' },
+  { word:'ei — nein', ipa:'naɪ̯n', bn:'না', en:'no', sentence:'Nein, danke.' },
+  { word:'au — Haus', ipa:'haʊ̯s', bn:'বাড়ি', en:'house', sentence:'Das Haus ist groß.' },
+  { word:'au — kaufen', ipa:'ˈkaʊ̯fn̩', bn:'কেনা', en:'to buy', sentence:'Ich kaufe Brot.' },
+  { word:'au — Baum', ipa:'baʊ̯m', bn:'গাছ', en:'tree', sentence:'Der Baum ist hoch.' },
+  { word:'eu — heute', ipa:'ˈhɔɪ̯tə', bn:'আজ', en:'today', sentence:'Heute lerne ich.' },
+  { word:'eu — Freund', ipa:'fʁɔɪ̯nt', bn:'বন্ধু', en:'friend', sentence:'Mein Freund.' },
+  { word:'eu — deutsch', ipa:'dɔɪ̯tʃ', bn:'জার্মান', en:'German', sentence:'Ich lerne Deutsch.' },
+  { word:'äu — Häuser', ipa:'ˈhɔɪ̯zɐ', bn:'বাড়িগুলো', en:'houses', sentence:'Die Häuser sind alt.' },
+  { word:'ie — Liebe', ipa:'ˈliːbə', bn:'ভালোবাসা', en:'love', sentence:'Ich liebe Deutsch!' }
+];
+const EXERCISES = [
+  { qBn:'\'ei\' দিয়ে তৈরি sound কোনটি?', qEn:'What sound does \'ei\' make?', opts:[{ bn:'[aʊ̯]', en:'[aʊ̯]' }, { bn:'[aɪ̯]', en:'[aɪ̯]' }, { bn:'[ɔɪ̯]', en:'[ɔɪ̯]' }, { bn:'[iː]', en:'[iː]' }], answer:1 },
+  { qBn:'\'heute\'-এ \'eu\'-র উচ্চারণ?', qEn:'How is \'eu\' pronounced in \'heute\'?', opts:[{ bn:'[aɪ̯]', en:'[aɪ̯]' }, { bn:'[aʊ̯]', en:'[aʊ̯]' }, { bn:'[ɔɪ̯]', en:'[ɔɪ̯]' }, { bn:'[yː]', en:'[yː]' }], answer:2 },
+  { qBn:'\'Haus\'-এ \'au\'-র উচ্চারণ?', qEn:'How is \'au\' pronounced in \'Haus\'?', opts:[{ bn:'[aɪ̯]', en:'[aɪ̯]' }, { bn:'[aʊ̯]', en:'[aʊ̯]' }, { bn:'[ɔɪ̯]', en:'[ɔɪ̯]' }, { bn:'[oː]', en:'[oː]' }], answer:1 },
+  { qBn:'\'ie\' (Liebe) কোন sound?', qEn:'What sound is \'ie\' (as in Liebe)?', opts:[{ bn:'diphthong [aɪ̯]', en:'diphthong [aɪ̯]' }, { bn:'দীর্ঘ [iː]', en:'long [iː]' }, { bn:'[ɪ] হ্রস্ব', en:'[ɪ] short' }, { bn:'[eː]', en:'[eː]' }], answer:1 },
+  { qBn:'\'Häuser\'-এ \'äu\'-র উচ্চারণ?', qEn:'How is \'äu\' pronounced in \'Häuser\'?', opts:[{ bn:'[aɪ̯]', en:'[aɪ̯]' }, { bn:'[aʊ̯]', en:'[aʊ̯]' }, { bn:'[ɔɪ̯]', en:'[ɔɪ̯]' }, { bn:'[yː]', en:'[yː]' }], answer:2 }
+];
 
-/* Build example cards */
-const grid = document.getElementById("examples-grid");
-EXAMPLES.forEach((ex, i) => {
-  const card = document.createElement("div");
-  card.className = "ex-card";
-  card.innerHTML = `
-    <div class="ex-word">${ex.word}</div>
-    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
-    <div class="ex-bn">${ex.bn}</div>
-    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
-    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
-  grid.appendChild(card);
-});
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+let _answered = new Set();
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent = c.eyebrow;
+  document.getElementById("hero-sub").textContent = c.subtitle;
+  document.getElementById("meta-examples").textContent = `12 ${getLang()==="en"?"Examples":"Examples"}`;
+  document.getElementById("meta-exercises").textContent = `5 ${getLang()==="en"?"Exercises":"Exercises"}`;
+  document.getElementById("theory-title").textContent = c.theoryTitle;
+  document.getElementById("examples-title").textContent = c.examplesTitle;
+  document.getElementById("exercises-title").textContent = c.exercisesTitle;
+  document.getElementById("theory-box").innerHTML = getLang() === "en" ? THEORY_EN : THEORY_BN;
+  document.getElementById("xp-banner-text").innerHTML =
+    `<strong>Diphthonge</strong> ${c.xpAfter} <strong style="color:var(--gold)">+30 XP</strong>` +
+    `<div style="margin-top:3px;font-size:11.5px;">${c.xpHint}</div>`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn + " (+30 XP)"; }
+  const nextLbl = document.getElementById("next-topic-label");
+  if (nextLbl) nextLbl.textContent = (getLang()==="en" ? "Next topic: " : "পরের Topic: ") + 'Endungen' + " →";
+}
+
+function renderExamples() {
+  const grid = document.getElementById("examples-grid");
+  grid.innerHTML = "";
+  EXAMPLES.forEach((ex, i) => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML = `
+      <div class="ex-word">${ex.word}</div>
+      ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+      <div class="ex-bn">${localized(ex)}</div>
+      ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+      <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+    grid.appendChild(card);
+  });
+}
 
 window.playEx = function(i) {
-  const ex  = EXAMPLES[i];
+  const ex = EXAMPLES[i];
   const btn = document.getElementById("pb-"+i);
   btn.textContent = "⏹ Stop"; btn.classList.add("playing");
   responsiveVoice.speak(ex.word, _voice, {
@@ -296,27 +323,54 @@ window.playEx = function(i) {
   });
 };
 
-/* Exercises */
+function renderExercises() {
+  const wrap = document.getElementById("exercises-wrap");
+  wrap.innerHTML = EXERCISES.map((ex, qi) => `
+    <div class="ex-item" id="ex-${qi}">
+      <div class="ex-q">${qi+1}. ${getLang()==="en" ? ex.qEn : ex.qBn}</div>
+      <div class="ex-opts">
+        ${ex.opts.map((o, ai) => `<button class="opt-btn" onclick="checkAns(${qi},${ai},this)">${getLang()==="en" ? (o.en||o.bn) : o.bn}</button>`).join("")}
+      </div>
+      <div class="ex-feedback" id="fb-${qi}"></div>
+    </div>`).join("");
+}
+
 window.checkAns = function(qi, ai, btn) {
-  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
-  const correct = ANSWERS[qi];
+  if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+  const c = chrome();
+  const correct = EXERCISES[qi].answer;
   const fb = document.getElementById("fb-"+qi);
   document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
-  if(ai === correct) {
+  if (ai === correct) {
     btn.classList.add("correct");
-    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    fb.textContent = c.correct; fb.style.color = "#34d399";
     _score++;
   } else {
     btn.classList.add("wrong");
     document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
-    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+    fb.textContent = c.wrong; fb.style.color = "#fb7185";
   }
+  _answered.add(qi);
 };
 
-/* Complete */
+function renderPronPage() {
+  renderChrome(); renderExamples(); renderExercises();
+}
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") { btn.classList.add("active"); }
+  else { btn.classList.add("male-active"); }
+};
+
+
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled = true; btn.textContent = chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("aussprache-diphthonge"),
     xp: increment(30),
@@ -328,6 +382,18 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderPronPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderPronPage();
+    },
+  });
+
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
@@ -335,8 +401,9 @@ requireAuth(async user => {
   if(photo) av.innerHTML = `<img src="${photo}">`;
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("aussprache-diphthonge")) {
+    _completed = true;
     const btn = document.getElementById("btn-complete");
-    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+    btn.disabled = true; btn.textContent = chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
 });

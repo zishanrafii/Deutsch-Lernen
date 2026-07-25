@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wetter & Jahreszeiten — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🌤️</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Wetter & Jahreszeiten</h2>
-        <p class="hero-sub">আবহাওয়া ও ঋতু নিয়ে German-এ কথা বলুন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A1</span>
           <span class="meta-pill xp">+50 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,27 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Wetter</div>
-            <button onclick="playText('das Wetter',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">আবহাওয়া</div>
-          <div class="vc-ex">Wie ist das Wetter heute?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Sonne / sonnig</div>
-            <button onclick="playText('die Sonne / sonnig',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">সূর্য / রৌদ্রোজ্জ্বল</div>
-          <div class="vc-ex">Die Sonne scheint.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Regen / regnerisch</div>
-            <button onclick="playText('der Regen / regnerisch',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">বৃষ্টি / বৃষ্টিপূর্ণ</div>
-          <div class="vc-ex">Es regnet heute.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Schnee / schneit</div>
-            <button onclick="playText('der Schnee / schneit',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">তুষার / তুষারপাত</div>
-          <div class="vc-ex">Es schneit!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Wind / windig</div>
-            <button onclick="playText('der Wind / windig',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">বাতাস / ঝোড়ো</div>
-          <div class="vc-ex">Es ist sehr windig heute.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">warm / kalt</div>
-            <button onclick="playText('warm / kalt',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">গরম / ঠান্ডা</div>
-          <div class="vc-ex">Im Sommer ist es warm.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Frühling</div>
-            <button onclick="playText('der Frühling',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">বসন্ত</div>
-          <div class="vc-ex">Im Frühling blühen Blumen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Sommer</div>
-            <button onclick="playText('der Sommer',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">গ্রীষ্ম</div>
-          <div class="vc-ex">Im Sommer fahren wir ans Meer.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Herbst</div>
-            <button onclick="playText('der Herbst',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">শরৎ</div>
-          <div class="vc-ex">Im Herbst fallen die Blätter.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Winter</div>
-            <button onclick="playText('der Winter',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">শীত</div>
-          <div class="vc-ex">Im Winter ist es kalt.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Temperatur</div>
-            <button onclick="playText('die Temperatur',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">তাপমাত্রা</div>
-          <div class="vc-ex">Die Temperatur beträgt 25 Grad.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Grad</div>
-            <button onclick="playText('der Grad',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">ডিগ্রি</div>
-          <div class="vc-ex">Es sind 20 Grad.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
-    
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie ist das Wetter heute?</div>
-            <div class="dl-bn">আজ আবহাওয়া কেমন?</div>
-            <button onclick="playText('Wie ist das Wetter heute?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Es ist sonnig und warm. Perfekt für einen Spaziergang!</div>
-            <div class="dl-bn">রৌদ্রোজ্জ্বল ও গরম। হাঁটার জন্য পারফেক্ট!</div>
-            <button onclick="playText('Es ist sonnig und warm. Perfekt für einen Spaziergang!',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie warm ist es?</div>
-            <div class="dl-bn">কত গরম?</div>
-            <button onclick="playText('Wie warm ist es?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ungefähr 25 Grad. Sehr angenehm.</div>
-            <div class="dl-bn">প্রায় ২৫ ডিগ্রি। খুব আরামদায়ক।</div>
-            <button onclick="playText('Ungefähr 25 Grad. Sehr angenehm.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Welche Jahreszeit magst du am liebsten?</div>
-            <div class="dl-bn">তোমার কোন ঋতু সবচেয়ে পছন্দ?</div>
-            <button onclick="playText('Welche Jahreszeit magst du am liebsten?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Den Frühling! Die Blumen blühen und es ist nicht zu heiß.</div>
-            <div class="dl-bn">বসন্ত! ফুল ফোটে আর বেশি গরম নয়।</div>
-            <button onclick="playText('Den Frühling! Die Blumen blühen und es ist nicht zu heiß.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+    <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>আজকের আবহাওয়া German-এ বর্ণনা দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার প্রিয় ঋতু German-এ বলো এবং কারণ দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার দেশের আবহাওয়া সম্পর্কে বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তাপমাত্রা সহ আবহাওয়ার পূর্বাভাস দাও।</span></div>
-
-  </div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+50 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+50 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +214,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Wie ist das Wetter heute?', 'Es ist sonnig und warm. Perfekt für einen Spaziergang!', 'Wie warm ist es?', 'Ungefähr 25 Grad. Sehr angenehm.', 'Welche Jahreszeit magst du am liebsten?', 'Den Frühling! Die Blumen blühen und es ist nicht zu heiß.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: "🗣️ Speaking Topic",
+    subtitle: 'আবহাওয়া ও ঋতু নিয়ে German-এ কথা বলুন।',
+    vocabCount: "12 Vocab",
+    dialogCount: "6 Dialog lines",
+    vocabTitle: "📖 Vokabeln — Vocabulary",
+    dialogueTitle: "💬 Musterdialog — Sample Dialogue",
+    playFull: "সম্পূর্ণ dialog play করুন",
+    tasksTitle: "✅ Speaking Tasks — এগুলো practice করুন",
+    xpBefore: "এই topic সম্পন্ন করলে",
+    xpAfter: "পাবে।",
+    completeBtn: "⭐ Complete (+50 XP)",
+    completedNow: "✅ সম্পন্ন!",
+    alreadyCompleted: "✅ আগেই সম্পন্ন",
+  },
+  en: {
+    eyebrow: "🗣️ Speaking Topic",
+    subtitle: 'Talk about weather and seasons in German.',
+    vocabCount: "12 Vocab",
+    dialogCount: "6 Dialog lines",
+    vocabTitle: "📖 Vokabeln — Vocabulary",
+    dialogueTitle: "💬 Musterdialog — Sample Dialogue",
+    playFull: "Play the full dialogue",
+    tasksTitle: "✅ Speaking Tasks — practice these",
+    xpBefore: "Complete this topic to earn",
+    xpAfter: ".",
+    completeBtn: "⭐ Complete (+50 XP)",
+    completedNow: "✅ Completed!",
+    alreadyCompleted: "✅ Already completed",
+  },
+};
+
+const VOCAB = [
+  { de:'das Wetter', bn:'আবহাওয়া', en:'weather', ex:'Wie ist das Wetter heute?' },
+  { de:'die Sonne / sonnig', bn:'সূর্য / রৌদ্রোজ্জ্বল', en:'sun / sunny', ex:'Die Sonne scheint.' },
+  { de:'der Regen / regnerisch', bn:'বৃষ্টি / বৃষ্টিপূর্ণ', en:'rain / rainy', ex:'Es regnet heute.' },
+  { de:'der Schnee / schneit', bn:'তুষার / তুষারপাত', en:'snow / snowing', ex:'Es schneit!' },
+  { de:'der Wind / windig', bn:'বাতাস / ঝোড়ো', en:'wind / windy', ex:'Es ist sehr windig heute.' },
+  { de:'warm / kalt', bn:'গরম / ঠান্ডা', en:'warm / cold', ex:'Im Sommer ist es warm.' },
+  { de:'der Frühling', bn:'বসন্ত', en:'spring', ex:'Im Frühling blühen Blumen.' },
+  { de:'der Sommer', bn:'গ্রীষ্ম', en:'summer', ex:'Im Sommer fahren wir ans Meer.' },
+  { de:'der Herbst', bn:'শরৎ', en:'autumn', ex:'Im Herbst fallen die Blätter.' },
+  { de:'der Winter', bn:'শীত', en:'winter', ex:'Im Winter ist es kalt.' },
+  { de:'die Temperatur', bn:'তাপমাত্রা', en:'temperature', ex:'Die Temperatur beträgt 25 Grad.' },
+  { de:'der Grad', bn:'ডিগ্রি', en:'degree', ex:'Es sind 20 Grad.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Wie ist das Wetter heute?', bn:'আজ আবহাওয়া কেমন?', en:'How\'s the weather today?' },
+  { spk:'b', de:'Es ist sonnig und warm. Perfekt für einen Spaziergang!', bn:'রৌদ্রোজ্জ্বল ও গরম। হাঁটার জন্য পারফেক্ট!', en:'It\'s sunny and warm. Perfect for a walk!' },
+  { spk:'a', de:'Wie warm ist es?', bn:'কত গরম?', en:'How warm is it?' },
+  { spk:'b', de:'Ungefähr 25 Grad. Sehr angenehm.', bn:'প্রায় ২৫ ডিগ্রি। খুব আরামদায়ক।', en:'About 25 degrees. Very pleasant.' },
+  { spk:'a', de:'Welche Jahreszeit magst du am liebsten?', bn:'তোমার কোন ঋতু সবচেয়ে পছন্দ?', en:'Which season do you like best?' },
+  { spk:'b', de:'Den Frühling! Die Blumen blühen und es ist nicht zu heiß.', bn:'বসন্ত! ফুল ফোটে আর বেশি গরম নয়।', en:'Spring! The flowers bloom and it\'s not too hot.' }
+];
+const TASKS = [
+  { bn:'আজকের আবহাওয়া German-এ বর্ণনা দাও।', en:'Describe today\'s weather in German.' },
+  { bn:'তোমার প্রিয় ঋতু German-এ বলো এবং কারণ দাও।', en:'Say your favorite season in German and give a reason.' },
+  { bn:'তোমার দেশের আবহাওয়া সম্পর্কে বলো।', en:'Talk about the weather in your country.' },
+  { bn:'তাপমাত্রা সহ আবহাওয়ার পূর্বাভাস দাও।', en:'Give a weather forecast including the temperature.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,7 +372,7 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-wetter"),
     xp: increment(50),
@@ -413,6 +384,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +403,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-wetter")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

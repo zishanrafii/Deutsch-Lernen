@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Einkaufen — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🛒</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Einkaufen</h2>
-        <p class="hero-sub">দোকানে German-এ কথা বলুন — দাম, size, exchange সহ।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A2</span>
           <span class="meta-pill xp">+75 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">8 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,197 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Was kostet das?</div>
-            <button onclick="playText('Was kostet das?',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">এটার দাম কত?</div>
-          <div class="vc-ex">Entschuldigung, was kostet das?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Größe</div>
-            <button onclick="playText('die Größe',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">সাইজ</div>
-          <div class="vc-ex">Welche Größe haben Sie?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">anprobieren</div>
-            <button onclick="playText('anprobieren',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">পরে দেখা</div>
-          <div class="vc-ex">Kann ich das anprobieren?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">zu groß/klein</div>
-            <button onclick="playText('zu groß/klein',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">বেশি বড়/ছোট</div>
-          <div class="vc-ex">Das ist zu groß für mich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Kasse</div>
-            <button onclick="playText('die Kasse',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">ক্যাশিয়ার</div>
-          <div class="vc-ex">Bitte zur Kasse kommen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">bezahlen</div>
-            <button onclick="playText('bezahlen',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">পরিশোধ করা</div>
-          <div class="vc-ex">Kann ich mit Karte bezahlen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Rabatt</div>
-            <button onclick="playText('der Rabatt',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">ছাড়/discount</div>
-          <div class="vc-ex">Gibt es einen Rabatt?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">umtauschen</div>
-            <button onclick="playText('umtauschen',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">পরিবর্তন করা</div>
-          <div class="vc-ex">Kann ich das umtauschen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Quittung</div>
-            <button onclick="playText('die Quittung',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">রসিদ</div>
-          <div class="vc-ex">Kann ich eine Quittung haben?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Sonderangebot</div>
-            <button onclick="playText('das Sonderangebot',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">বিশেষ অফার</div>
-          <div class="vc-ex">Das ist ein Sonderangebot.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">günstig/teuer</div>
-            <button onclick="playText('günstig/teuer',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">সস্তা/দামি</div>
-          <div class="vc-ex">Das ist sehr günstig!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Abteilung</div>
-            <button onclick="playText('die Abteilung',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">বিভাগ</div>
-          <div class="vc-ex">In welcher Abteilung ist das?</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Guten Tag! Kann ich Ihnen helfen?</div>
-            <div class="dl-bn">শুভ দিন! আমি কি সাহায্য করতে পারি?</div>
-            <button onclick="playText('Guten Tag! Kann ich Ihnen helfen?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, ich suche eine Jacke für den Winter.</div>
-            <div class="dl-bn">হ্যাঁ, আমি শীতের জন্য একটি জ্যাকেট খুঁজছি।</div>
-            <button onclick="playText('Ja, ich suche eine Jacke für den Winter.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Welche Größe haben Sie?</div>
-            <div class="dl-bn">আপনার সাইজ কত?</div>
-            <button onclick="playText('Welche Größe haben Sie?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich trage Größe M. Was kostet diese hier?</div>
-            <div class="dl-bn">আমি M সাইজ পরি। এটার দাম কত?</div>
-            <button onclick="playText('Ich trage Größe M. Was kostet diese hier?',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Diese kostet 89 Euro. Möchten Sie sie anprobieren?</div>
-            <div class="dl-bn">এটা ৮৯ ইউরো। পরে দেখতে চান?</div>
-            <button onclick="playText('Diese kostet 89 Euro. Möchten Sie sie anprobieren?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja gerne. Gibt es sie auch in Blau?</div>
-            <div class="dl-bn">অবশ্যই। এটা কি নীল রঙেও আছে?</div>
-            <button onclick="playText('Ja gerne. Gibt es sie auch in Blau?',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, hier ist die blaue Version.</div>
-            <div class="dl-bn">হ্যাঁ, এখানে নীল ভার্সন আছে।</div>
-            <button onclick="playText('Ja, hier ist die blaue Version.',999+6)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Perfekt! Ich nehme sie. Kann ich mit Karte zahlen?</div>
-            <div class="dl-bn">পারফেক্ট! এটা নিচ্ছি। কার্ডে পরিশোধ করা যাবে?</div>
-            <button onclick="playText('Perfekt! Ich nehme sie. Kann ich mit Karte zahlen?',999+7)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>দোকানে একটি পোশাক কিনতে গেলে কী বলবে।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>দামের ব্যাপারে জিজ্ঞেস করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>সাইজ বলো ও anprobieren চাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>কার্ডে বা নগদে payment করো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+75 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+75 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -382,7 +217,132 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Guten Tag! Kann ich Ihnen helfen?', 'Ja, ich suche eine Jacke für den Winter.', 'Welche Größe haben Sie?', 'Ich trage Größe M. Was kostet diese hier?', 'Diese kostet 89 Euro. Möchten Sie sie anprobieren?', 'Ja gerne. Gibt es sie auch in Blau?', 'Ja, hier ist die blaue Version.', 'Perfekt! Ich nehme sie. Kann ich mit Karte zahlen?'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'দোকানে German-এ কথা — দাম, size, exchange।',
+    vocabCount: '12 Vocab',
+    dialogCount: '8 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Shop talk in German — prices, sizes, exchanges.',
+    vocabCount: '12 Vocab',
+    dialogCount: '8 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'Was kostet das?', bn:'এটার দাম কত?', en:'How much does this cost?', ex:'Entschuldigung, was kostet das?' },
+  { de:'die Größe', bn:'সাইজ', en:'size', ex:'Welche Größe haben Sie?' },
+  { de:'anprobieren', bn:'পরে দেখা', en:'to try on', ex:'Kann ich das anprobieren?' },
+  { de:'zu groß/klein', bn:'বেশি বড়/ছোট', en:'too big/small', ex:'Das ist zu groß für mich.' },
+  { de:'die Kasse', bn:'ক্যাশিয়ার', en:'the checkout/cashier', ex:'Bitte zur Kasse kommen.' },
+  { de:'bezahlen', bn:'পরিশোধ করা', en:'to pay', ex:'Kann ich mit Karte bezahlen?' },
+  { de:'der Rabatt', bn:'ছাড়/discount', en:'discount', ex:'Gibt es einen Rabatt?' },
+  { de:'umtauschen', bn:'পরিবর্তন করা', en:'to exchange', ex:'Kann ich das umtauschen?' },
+  { de:'die Quittung', bn:'রসিদ', en:'receipt', ex:'Kann ich eine Quittung haben?' },
+  { de:'das Sonderangebot', bn:'বিশেষ অফার', en:'special offer', ex:'Das ist ein Sonderangebot.' },
+  { de:'günstig/teuer', bn:'সস্তা/দামি', en:'cheap/expensive', ex:'Das ist sehr günstig!' },
+  { de:'die Abteilung', bn:'বিভাগ', en:'department/section', ex:'In welcher Abteilung ist das?' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Guten Tag! Kann ich Ihnen helfen?', bn:'শুভ দিন! আমি কি সাহায্য করতে পারি?', en:'Good day! Can I help you?' },
+  { spk:'b', de:'Ja, ich suche eine Jacke für den Winter.', bn:'হ্যাঁ, আমি শীতের জন্য একটি জ্যাকেট খুঁজছি।', en:'Yes, I\'m looking for a winter jacket.' },
+  { spk:'a', de:'Welche Größe haben Sie?', bn:'আপনার সাইজ কত?', en:'What\'s your size?' },
+  { spk:'b', de:'Ich trage Größe M. Was kostet diese hier?', bn:'আমি M সাইজ পরি। এটার দাম কত?', en:'I wear size M. How much is this one?' },
+  { spk:'a', de:'Diese kostet 89 Euro. Möchten Sie sie anprobieren?', bn:'এটা ৮৯ ইউরো। পরে দেখতে চান?', en:'This one costs 89 euros. Would you like to try it on?' },
+  { spk:'b', de:'Ja gerne. Gibt es sie auch in Blau?', bn:'অবশ্যই। এটা কি নীল রঙেও আছে?', en:'Yes, please. Is it also available in blue?' },
+  { spk:'a', de:'Ja, hier ist die blaue Version.', bn:'হ্যাঁ, এখানে নীল ভার্সন আছে।', en:'Yes, here\'s the blue version.' },
+  { spk:'b', de:'Perfekt! Ich nehme sie. Kann ich mit Karte zahlen?', bn:'পারফেক্ট! এটা নিচ্ছি। কার্ডে পরিশোধ করা যাবে?', en:'Perfect! I\'ll take it. Can I pay by card?' }
+];
+const TASKS = [
+  { bn:'দোকানে একটি পোশাক কিনতে গেলে কী বলবে।', en:'Say what you\'d ask when buying clothing at a shop.' },
+  { bn:'দামের ব্যাপারে জিজ্ঞেস করো।', en:'Ask about the price.' },
+  { bn:'সাইজ বলো ও anprobieren চাও।', en:'State your size and ask to try something on.' },
+  { bn:'কার্ডে বা নগদে payment করো।', en:'Say how you\'ll pay — by card or cash.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -417,10 +377,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-einkaufen"),
-    xp: increment(75),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -429,6 +389,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -437,7 +408,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-einkaufen")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

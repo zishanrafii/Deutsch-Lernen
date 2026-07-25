@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tiere beschreiben — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🐶</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Tiere beschreiben</h2>
-        <p class="hero-sub">প্রাণী সম্পর্কে German-এ কথা বলুন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A1</span>
           <span class="meta-pill xp">+50 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Hund</div>
-            <button onclick="playText('der Hund',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">কুকুর</div>
-          <div class="vc-ex">Mein Hund heißt Max.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Katze</div>
-            <button onclick="playText('die Katze',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">বিড়াল</div>
-          <div class="vc-ex">Die Katze schläft gern.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Pferd</div>
-            <button onclick="playText('das Pferd',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">ঘোড়া</div>
-          <div class="vc-ex">Das Pferd läuft schnell.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Vogel</div>
-            <button onclick="playText('der Vogel',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">পাখি</div>
-          <div class="vc-ex">Der Vogel singt schön.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Fisch</div>
-            <button onclick="playText('der Fisch',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">মাছ</div>
-          <div class="vc-ex">Der Fisch schwimmt.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Tier</div>
-            <button onclick="playText('das Tier',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">প্রাণী</div>
-          <div class="vc-ex">Welches Tier magst du?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Haustier</div>
-            <button onclick="playText('das Haustier',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">পোষা প্রাণী</div>
-          <div class="vc-ex">Hast du ein Haustier?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">füttern</div>
-            <button onclick="playText('füttern',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">খাওয়ানো</div>
-          <div class="vc-ex">Ich füttere meinen Hund.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Zoo</div>
-            <button onclick="playText('der Zoo',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">চিড়িয়াখানা</div>
-          <div class="vc-ex">Wir gehen in den Zoo.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">groß/klein</div>
-            <button onclick="playText('groß/klein',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">বড়/ছোট</div>
-          <div class="vc-ex">Ein Elefant ist groß.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Löwe</div>
-            <button onclick="playText('der Löwe',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">সিংহ</div>
-          <div class="vc-ex">Der Löwe ist der König.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Kaninchen</div>
-            <button onclick="playText('das Kaninchen',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">খরগোশ</div>
-          <div class="vc-ex">Das Kaninchen ist süß.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Hast du ein Haustier?</div>
-            <div class="dl-bn">তোমার কি পোষা প্রাণী আছে?</div>
-            <button onclick="playText('Hast du ein Haustier?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja! Ich habe einen Hund. Er heißt Bello.</div>
-            <div class="dl-bn">হ্যাঁ! আমার একটি কুকুর আছে। তার নাম Bello।</div>
-            <button onclick="playText('Ja! Ich habe einen Hund. Er heißt Bello.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie groß ist er?</div>
-            <div class="dl-bn">সে কতটা বড়?</div>
-            <button onclick="playText('Wie groß ist er?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Er ist mittelgroß, braun und sehr freundlich.</div>
-            <div class="dl-bn">মাঝারি আকারের, বাদামী ও খুব বন্ধুত্বপূর্ণ।</div>
-            <button onclick="playText('Er ist mittelgroß, braun und sehr freundlich.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Welches Tier magst du am liebsten?</div>
-            <div class="dl-bn">কোন প্রাণী তোমার সবচেয়ে পছন্দ?</div>
-            <button onclick="playText('Welches Tier magst du am liebsten?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich mag Delfine. Sie sind so intelligent!</div>
-            <div class="dl-bn">আমি ডলফিন পছন্দ করি। তারা এত বুদ্ধিমান!</div>
-            <button onclick="playText('Ich mag Delfine. Sie sind so intelligent!',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার প্রিয় প্রাণী German-এ বর্ণনা দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>পোষা প্রাণী আছে কি না বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>চিড়িয়াখানায় কোন প্রাণী দেখতে চাও বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি প্রাণীর বৈশিষ্ট্য describe করো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+50 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+50 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Hast du ein Haustier?', 'Ja! Ich habe einen Hund. Er heißt Bello.', 'Wie groß ist er?', 'Er ist mittelgroß, braun und sehr freundlich.', 'Welches Tier magst du am liebsten?', 'Ich mag Delfine. Sie sind so intelligent!'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'প্রিয় প্রাণী German-এ বর্ণনা করুন।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Describe your favorite animal in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'der Hund', bn:'কুকুর', en:'dog', ex:'Mein Hund heißt Max.' },
+  { de:'die Katze', bn:'বিড়াল', en:'cat', ex:'Die Katze schläft gern.' },
+  { de:'das Pferd', bn:'ঘোড়া', en:'horse', ex:'Das Pferd läuft schnell.' },
+  { de:'der Vogel', bn:'পাখি', en:'bird', ex:'Der Vogel singt schön.' },
+  { de:'der Fisch', bn:'মাছ', en:'fish', ex:'Der Fisch schwimmt.' },
+  { de:'das Tier', bn:'প্রাণী', en:'animal', ex:'Welches Tier magst du?' },
+  { de:'das Haustier', bn:'পোষা প্রাণী', en:'pet', ex:'Hast du ein Haustier?' },
+  { de:'füttern', bn:'খাওয়ানো', en:'to feed', ex:'Ich füttere meinen Hund.' },
+  { de:'der Zoo', bn:'চিড়িয়াখানা', en:'zoo', ex:'Wir gehen in den Zoo.' },
+  { de:'groß/klein', bn:'বড়/ছোট', en:'big/small', ex:'Ein Elefant ist groß.' },
+  { de:'der Löwe', bn:'সিংহ', en:'lion', ex:'Der Löwe ist der König.' },
+  { de:'das Kaninchen', bn:'খরগোশ', en:'rabbit', ex:'Das Kaninchen ist süß.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Hast du ein Haustier?', bn:'তোমার কি পোষা প্রাণী আছে?', en:'Do you have a pet?' },
+  { spk:'b', de:'Ja! Ich habe einen Hund. Er heißt Bello.', bn:'হ্যাঁ! আমার একটি কুকুর আছে। তার নাম Bello।', en:'Yes! I have a dog. His name is Bello.' },
+  { spk:'a', de:'Wie groß ist er?', bn:'সে কতটা বড়?', en:'How big is he?' },
+  { spk:'b', de:'Er ist mittelgroß, braun und sehr freundlich.', bn:'মাঝারি আকারের, বাদামী ও খুব বন্ধুত্বপূর্ণ।', en:'He\'s medium-sized, brown, and very friendly.' },
+  { spk:'a', de:'Welches Tier magst du am liebsten?', bn:'কোন প্রাণী তোমার সবচেয়ে পছন্দ?', en:'Which animal do you like the most?' },
+  { spk:'b', de:'Ich mag Delfine. Sie sind so intelligent!', bn:'আমি ডলফিন পছন্দ করি। তারা এত বুদ্ধিমান!', en:'I like dolphins. They\'re so intelligent!' }
+];
+const TASKS = [
+  { bn:'তোমার প্রিয় প্রাণী German-এ বর্ণনা দাও।', en:'Describe your favorite animal in German.' },
+  { bn:'পোষা প্রাণী আছে কি না বলো।', en:'Say whether you have a pet.' },
+  { bn:'চিড়িয়াখানায় কোন প্রাণী দেখতে চাও বলো।', en:'Say which animal you\'d like to see at the zoo.' },
+  { bn:'একটি প্রাণীর বৈশিষ্ট্য describe করো।', en:'Describe the characteristics of an animal.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,7 +375,7 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-tiere"),
     xp: increment(50),
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-tiere")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

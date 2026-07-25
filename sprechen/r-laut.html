@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>R-Laut — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -136,9 +137,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -154,14 +156,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🗣️</div>
       <div>
-        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>R-Laut</h2>
-        <p class="hero-sub">German R [ʁ] — গলার পেছন থেকে বলা। বাংলা R-এর চেয়ে সম্পূর্ণ আলাদা।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill accent">Level: A1</span>
           <span class="meta-pill accent">+30 XP</span>
-          <span class="meta-pill">12 Examples</span>
-          <span class="meta-pill">5 Exercises</span>
+          <span class="meta-pill" id="meta-examples"></span>
+          <span class="meta-pill" id="meta-exercises"></span>
         </div>
       </div>
     </div>
@@ -175,77 +177,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- THEORY -->
-  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
-  <div class="theory-box">
-    
-    <p><strong>German R [ʁ]</strong> — Uvular fricative। গলার একেবারে পেছনে, জিভার গোড়ায় কম্পন হয়।<br>
-    ফরাসি R-এর মতো। বাংলা 'ঘ' বলার সময় মুখ যেখানে তৈরি হয় সেখান থেকেই R বের করো।</p>
-    <p><strong>Word-initial R</strong> — শব্দের শুরুতে ঘর্ষণ বেশি।<br>
-    উদাহরণ: <strong>rot</strong>, <strong>Regen</strong>, <strong>richtig</strong></p>
-    <p><strong>Vocalic R [ɐ]</strong> — শব্দের শেষে R প্রায় 'আ'-র মতো শোনায়।<br>
-    উদাহরণ: <strong>Wasser</strong> [ˈvasɐ], <strong>Vater</strong> [ˈfaːtɐ]</p>
-    <div class="tip-box"><strong>💡 Trick:</strong> গার্গল করার মতো শব্দ করো — এটাই German R! 'Rrrrrot' বলে practice শুরু করো।</div>
-    
-  </div>
+  <div class="section-title" id="theory-title"></div>
+  <div class="theory-box" id="theory-box"></div>
 
+  
   <!-- EXAMPLES -->
-  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="section-title" id="examples-title"></div>
   <div class="examples-grid" id="examples-grid"></div>
 
   <!-- EXERCISES -->
-  <div class="section-title">✏️ Practice Exercises</div>
-  <div class="exercises-wrap">
-    
-        <div class="ex-item" id="ex-0">
-          <div class="ex-q">1. German R [ʁ] কোথায় উচ্চারিত হয়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(0,0,this)">জিভের ডগায়</button><button class="opt-btn" onclick="checkAns(0,1,this)">দাঁতের পেছনে</button><button class="opt-btn" onclick="checkAns(0,2,this)">গলার পেছনে (uvular)</button><button class="opt-btn" onclick="checkAns(0,3,this)">ঠোঁটে</button>
-          </div>
-          <div class="ex-feedback" id="fb-0"></div>
-        </div>
-        <div class="ex-item" id="ex-1">
-          <div class="ex-q">2. 'Wasser'-এর শেষে R কেমন শোনায়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(1,0,this)">শক্ত R</button><button class="opt-btn" onclick="checkAns(1,1,this)">প্রায় 'আ' [ɐ]</button><button class="opt-btn" onclick="checkAns(1,2,this)">নিঃশব্দ</button><button class="opt-btn" onclick="checkAns(1,3,this)">'ও'-র মতো</button>
-          </div>
-          <div class="ex-feedback" id="fb-1"></div>
-        </div>
-        <div class="ex-item" id="ex-2">
-          <div class="ex-q">3. কোন শব্দে R সবচেয়ে শক্তিশালী?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(2,0,this)">Wasser</button><button class="opt-btn" onclick="checkAns(2,1,this)">Vater</button><button class="opt-btn" onclick="checkAns(2,2,this)">rot</button><button class="opt-btn" onclick="checkAns(2,3,this)">Mutter</button>
-          </div>
-          <div class="ex-feedback" id="fb-2"></div>
-        </div>
-        <div class="ex-item" id="ex-3">
-          <div class="ex-q">4. 'Straße'-তে কোথায় R আছে?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(3,0,this)">শুরুতে</button><button class="opt-btn" onclick="checkAns(3,1,this)">মাঝে (stR)</button><button class="opt-btn" onclick="checkAns(3,2,this)">শেষে</button><button class="opt-btn" onclick="checkAns(3,3,this)">নেই</button>
-          </div>
-          <div class="ex-feedback" id="fb-3"></div>
-        </div>
-        <div class="ex-item" id="ex-4">
-          <div class="ex-q">5. German R practice-এর সেরা উপায়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(4,0,this)">জিভ কাঁপানো</button><button class="opt-btn" onclick="checkAns(4,1,this)">গার্গল করা</button><button class="opt-btn" onclick="checkAns(4,2,this)">ঠোঁট গোল করা</button><button class="opt-btn" onclick="checkAns(4,3,this)">নাক দিয়ে বলা</button>
-          </div>
-          <div class="ex-feedback" id="fb-4"></div>
-        </div>
-  </div>
+  <div class="section-title" id="exercises-title"></div>
+  <div class="exercises-wrap" id="exercises-wrap"></div>
 
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      <strong>R-Laut</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+30 XP</strong> পাবে।
-      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+30 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <!-- PAGE NAV -->
   <div class="page-nav">
     <a href="ch-laut.html" class="nav-btn">← Ch Laut</a>
-    <a href="sp-st.html" class="nav-btn gold">পরের Topic: Sp St →</a>
+    <a href="sp-st.html" class="nav-btn gold"><span id="next-topic-label"></span></a>
   </div>
 </div>
 
@@ -253,41 +208,113 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const EXAMPLES = [{'word': 'rot', 'ipa': 'ʁoːt', 'bn': 'লাল', 'sentence': 'Das Auto ist rot.'}, {'word': 'Regen', 'ipa': 'ˈʁeːɡn̩', 'bn': 'বৃষ্টি', 'sentence': 'Es regnet.'}, {'word': 'richtig', 'ipa': 'ˈʁɪçtɪç', 'bn': 'সঠিক', 'sentence': 'Das ist richtig.'}, {'word': 'Straße', 'ipa': 'ˈʃtʁaːsə', 'bn': 'রাস্তা', 'sentence': 'Die Straße ist lang.'}, {'word': 'Bruder', 'ipa': 'ˈbʁuːdɐ', 'bn': 'ভাই', 'sentence': 'Mein Bruder ist nett.'}, {'word': 'Wasser', 'ipa': 'ˈvasɐ', 'bn': 'পানি', 'sentence': 'Ich trinke Wasser.'}, {'word': 'Vater', 'ipa': 'ˈfaːtɐ', 'bn': 'বাবা', 'sentence': 'Mein Vater arbeitet.'}, {'word': 'Erde', 'ipa': 'ˈeːɐ̯də', 'bn': 'পৃথিবী', 'sentence': 'Die Erde ist rund.'}, {'word': 'groß', 'ipa': 'ɡʁoːs', 'bn': 'বড়', 'sentence': 'Das Haus ist groß.'}, {'word': 'sprechen', 'ipa': 'ˈʃpʁɛçn̩', 'bn': 'কথা বলা', 'sentence': 'Ich spreche Deutsch.'}, {'word': 'Treppe', 'ipa': 'ˈtʁɛpə', 'bn': 'সিঁড়ি', 'sentence': 'Die Treppe ist steil.'}, {'word': 'Wörter', 'ipa': 'ˈvœʁtɐ', 'bn': 'শব্দসমূহ', 'sentence': 'Ich lerne neue Wörter.'}];
-const ANSWERS  = [2, 1, 2, 1, 1];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
 let _voice = "Deutsch Female";
 let _score = 0;
 let _uid;
 
-window.setVoice = function(v, btn) {
-  _voice = v;
-  document.querySelectorAll(".vbtn").forEach(b => {
-    b.classList.remove("active","male-active");
-    b.style.cssText="";
-  });
-  if(v === "Deutsch Female") {
-    btn.classList.add("active");
-  } else {
-    btn.classList.add("male-active");
-  }
+const CHROME = {
+  bn: {
+    eyebrow: '🔤 Aussprache Guide',
+    theoryTitle: '📖 Theory — কীভাবে উচ্চারণ করবে',
+    examplesTitle: '🔊 Examples — শুনুন ও repeat করুন',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'সম্পন্ন করলে',
+    xpHint: 'সব exercises করার পর Complete বাটন চাপো।',
+    completeBtn: '⭐ Complete করুন',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন হয়েছে',
+    correct: '✅ সঠিক!',
+    wrong: '❌ ভুল। সঠিক উত্তর highlight হয়েছে।',
+    subtitle: 'German R [ʁ] — গলার পেছন থেকে বলা। বাংলা R-এর চেয়ে সম্পূর্ণ আলাদা।',
+  },
+  en: {
+    eyebrow: '🔤 Pronunciation Guide',
+    theoryTitle: '📖 Theory — how to pronounce it',
+    examplesTitle: '🔊 Examples — listen and repeat',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'to complete for',
+    xpHint: 'Press Complete after finishing all exercises.',
+    completeBtn: '⭐ Complete',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    correct: '✅ Correct!',
+    wrong: '❌ Wrong. The correct answer is highlighted.',
+    subtitle: 'German R [ʁ] — spoken from the back of the throat. Completely different from Bangla R.',
+  },
 };
+const THEORY_BN = '<p><strong>German R [ʁ]</strong> — Uvular fricative। গলার একেবারে পেছনে, জিভার গোড়ায় কম্পন হয়।<br>ফরাসি R-এর মতো। বাংলা \'ঘ\' বলার সময় মুখ যেখানে তৈরি হয় সেখান থেকেই R বের করো।</p><p><strong>Word-initial R</strong> — শব্দের শুরুতে ঘর্ষণ বেশি।<br>উদাহরণ: <strong>rot</strong>, <strong>Regen</strong>, <strong>richtig</strong></p><p><strong>Vocalic R [ɐ]</strong> — শব্দের শেষে R প্রায় \'আ\'-র মতো শোনায়।<br>উদাহরণ: <strong>Wasser</strong> [ˈvasɐ], <strong>Vater</strong> [ˈfaːtɐ]</p><div class="tip-box"><strong>💡 Trick:</strong> গার্গল করার মতো শব্দ করো — এটাই German R! \'Rrrrrot\' বলে practice শুরু করো।</div>';
+const THEORY_EN = '<p><strong>German R [ʁ]</strong> — a uvular fricative. It vibrates right at the back of the throat, at the base of the tongue.<br>Like the French R. It comes from the same place in your mouth as Bangla \'ঘ\'.</p><p><strong>Word-initial R</strong> — more friction at the start of a word.<br>Examples: <strong>rot</strong>, <strong>Regen</strong>, <strong>richtig</strong></p><p><strong>Vocalic R [ɐ]</strong> — at the end of a word, R sounds almost like \'ah\'.<br>Examples: <strong>Wasser</strong> [ˈvasɐ], <strong>Vater</strong> [ˈfaːtɐ]</p><div class="tip-box"><strong>💡 Trick:</strong> make a gargling sound — that\'s the German R! Start practicing by saying \'Rrrrrot\'.</div>';
+const EXAMPLES = [
+  { word:'rot', ipa:'ʁoːt', bn:'লাল', en:'red', sentence:'Das Auto ist rot.' },
+  { word:'Regen', ipa:'ˈʁeːɡn̩', bn:'বৃষ্টি', en:'rain', sentence:'Es regnet.' },
+  { word:'richtig', ipa:'ˈʁɪçtɪç', bn:'সঠিক', en:'correct', sentence:'Das ist richtig.' },
+  { word:'Straße', ipa:'ˈʃtʁaːsə', bn:'রাস্তা', en:'street', sentence:'Die Straße ist lang.' },
+  { word:'Bruder', ipa:'ˈbʁuːdɐ', bn:'ভাই', en:'brother', sentence:'Mein Bruder ist nett.' },
+  { word:'Wasser', ipa:'ˈvasɐ', bn:'পানি', en:'water', sentence:'Ich trinke Wasser.' },
+  { word:'Vater', ipa:'ˈfaːtɐ', bn:'বাবা', en:'father', sentence:'Mein Vater arbeitet.' },
+  { word:'Erde', ipa:'ˈeːɐ̯də', bn:'পৃথিবী', en:'earth', sentence:'Die Erde ist rund.' },
+  { word:'groß', ipa:'ɡʁoːs', bn:'বড়', en:'big', sentence:'Das Haus ist groß.' },
+  { word:'sprechen', ipa:'ˈʃpʁɛçn̩', bn:'কথা বলা', en:'to speak', sentence:'Ich spreche Deutsch.' },
+  { word:'Treppe', ipa:'ˈtʁɛpə', bn:'সিঁড়ি', en:'stairs', sentence:'Die Treppe ist steil.' },
+  { word:'Wörter', ipa:'ˈvœʁtɐ', bn:'শব্দসমূহ', en:'words', sentence:'Ich lerne neue Wörter.' }
+];
+const EXERCISES = [
+  { qBn:'German R [ʁ] কোথায় উচ্চারিত হয়?', qEn:'Where is German R [ʁ] pronounced?', opts:[{ bn:'জিভের ডগায়', en:'tip of the tongue' }, { bn:'দাঁতের পেছনে', en:'behind the teeth' }, { bn:'গলার পেছনে (uvular)', en:'back of the throat (uvular)' }, { bn:'ঠোঁটে', en:'on the lips' }], answer:2 },
+  { qBn:'\'Wasser\'-এর শেষে R কেমন শোনায়?', qEn:'What does the R at the end of \'Wasser\' sound like?', opts:[{ bn:'শক্ত R', en:'a hard R' }, { bn:'প্রায় \'আ\' [ɐ]', en:'almost like \'ah\' [ɐ]' }, { bn:'নিঃশব্দ', en:'silent' }, { bn:'\'ও\'-র মতো', en:'like \'o\'' }], answer:1 },
+  { qBn:'কোন শব্দে R সবচেয়ে শক্তিশালী?', qEn:'In which word is the R strongest?', opts:[{ bn:'Wasser', en:'Wasser' }, { bn:'Vater', en:'Vater' }, { bn:'rot', en:'rot' }, { bn:'Mutter', en:'Mutter' }], answer:2 },
+  { qBn:'\'Straße\'-তে কোথায় R আছে?', qEn:'Where is the R in \'Straße\'?', opts:[{ bn:'শুরুতে', en:'at the start' }, { bn:'মাঝে (stR)', en:'in the middle (stR)' }, { bn:'শেষে', en:'at the end' }, { bn:'নেই', en:'not present' }], answer:1 },
+  { qBn:'German R practice-এর সেরা উপায়?', qEn:'What\'s the best way to practice German R?', opts:[{ bn:'জিভ কাঁপানো', en:'trilling the tongue' }, { bn:'গার্গল করা', en:'gargling' }, { bn:'ঠোঁট গোল করা', en:'rounding lips' }, { bn:'নাক দিয়ে বলা', en:'speaking through the nose' }], answer:1 }
+];
 
-/* Build example cards */
-const grid = document.getElementById("examples-grid");
-EXAMPLES.forEach((ex, i) => {
-  const card = document.createElement("div");
-  card.className = "ex-card";
-  card.innerHTML = `
-    <div class="ex-word">${ex.word}</div>
-    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
-    <div class="ex-bn">${ex.bn}</div>
-    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
-    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
-  grid.appendChild(card);
-});
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+let _answered = new Set();
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent = c.eyebrow;
+  document.getElementById("hero-sub").textContent = c.subtitle;
+  document.getElementById("meta-examples").textContent = `12 ${getLang()==="en"?"Examples":"Examples"}`;
+  document.getElementById("meta-exercises").textContent = `5 ${getLang()==="en"?"Exercises":"Exercises"}`;
+  document.getElementById("theory-title").textContent = c.theoryTitle;
+  document.getElementById("examples-title").textContent = c.examplesTitle;
+  document.getElementById("exercises-title").textContent = c.exercisesTitle;
+  document.getElementById("theory-box").innerHTML = getLang() === "en" ? THEORY_EN : THEORY_BN;
+  document.getElementById("xp-banner-text").innerHTML =
+    `<strong>R-Laut</strong> ${c.xpAfter} <strong style="color:var(--gold)">+30 XP</strong>` +
+    `<div style="margin-top:3px;font-size:11.5px;">${c.xpHint}</div>`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn + " (+30 XP)"; }
+  const nextLbl = document.getElementById("next-topic-label");
+  if (nextLbl) nextLbl.textContent = (getLang()==="en" ? "Next topic: " : "পরের Topic: ") + 'SP & ST' + " →";
+}
+
+function renderExamples() {
+  const grid = document.getElementById("examples-grid");
+  grid.innerHTML = "";
+  EXAMPLES.forEach((ex, i) => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML = `
+      <div class="ex-word">${ex.word}</div>
+      ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+      <div class="ex-bn">${localized(ex)}</div>
+      ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+      <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+    grid.appendChild(card);
+  });
+}
 
 window.playEx = function(i) {
-  const ex  = EXAMPLES[i];
+  const ex = EXAMPLES[i];
   const btn = document.getElementById("pb-"+i);
   btn.textContent = "⏹ Stop"; btn.classList.add("playing");
   responsiveVoice.speak(ex.word, _voice, {
@@ -296,27 +323,54 @@ window.playEx = function(i) {
   });
 };
 
-/* Exercises */
+function renderExercises() {
+  const wrap = document.getElementById("exercises-wrap");
+  wrap.innerHTML = EXERCISES.map((ex, qi) => `
+    <div class="ex-item" id="ex-${qi}">
+      <div class="ex-q">${qi+1}. ${getLang()==="en" ? ex.qEn : ex.qBn}</div>
+      <div class="ex-opts">
+        ${ex.opts.map((o, ai) => `<button class="opt-btn" onclick="checkAns(${qi},${ai},this)">${getLang()==="en" ? (o.en||o.bn) : o.bn}</button>`).join("")}
+      </div>
+      <div class="ex-feedback" id="fb-${qi}"></div>
+    </div>`).join("");
+}
+
 window.checkAns = function(qi, ai, btn) {
-  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
-  const correct = ANSWERS[qi];
+  if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+  const c = chrome();
+  const correct = EXERCISES[qi].answer;
   const fb = document.getElementById("fb-"+qi);
   document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
-  if(ai === correct) {
+  if (ai === correct) {
     btn.classList.add("correct");
-    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    fb.textContent = c.correct; fb.style.color = "#34d399";
     _score++;
   } else {
     btn.classList.add("wrong");
     document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
-    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+    fb.textContent = c.wrong; fb.style.color = "#fb7185";
   }
+  _answered.add(qi);
 };
 
-/* Complete */
+function renderPronPage() {
+  renderChrome(); renderExamples(); renderExercises();
+}
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") { btn.classList.add("active"); }
+  else { btn.classList.add("male-active"); }
+};
+
+
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled = true; btn.textContent = chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("aussprache-r-laut"),
     xp: increment(30),
@@ -328,6 +382,18 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderPronPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderPronPage();
+    },
+  });
+
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
@@ -335,8 +401,9 @@ requireAuth(async user => {
   if(photo) av.innerHTML = `<img src="${photo}">`;
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("aussprache-r-laut")) {
+    _completed = true;
     const btn = document.getElementById("btn-complete");
-    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+    btn.disabled = true; btn.textContent = chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
 });

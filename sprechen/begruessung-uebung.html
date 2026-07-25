@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Begrüßung — Sprechen — Deutsch Lernen</title>
+<title data-i18n="begruessung.page_title">Begrüßung — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,15 +143,16 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
   <div class="breadcrumb">
     <a href="../dashboard.html">🏠 Dashboard</a><span>›</span>
-    <a href="../sprechen.html">Sprechen</a><span>›</span>
+    <a href="../sprechen.html" data-i18n="dashboard.nav.sprechen">Sprechen</a><span>›</span>
     <span>Begrüßung</span>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">👋</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" data-i18n="begruessung.eyebrow">🗣️ Speaking Topic</div>
         <h2>Begrüßung</h2>
-        <p class="hero-sub">আনুষ্ঠানিক ও অনানুষ্ঠানিক শুভেচ্ছা — Hallo থেকে Auf Wiedersehen পর্যন্ত।</p>
+        <p class="hero-sub" data-i18n="begruessung.subtitle">আনুষ্ঠানিক ও অনানুষ্ঠানিক শুভেচ্ছা — Hallo থেকে Auf Wiedersehen পর্যন্ত।</p>
         <div class="hero-meta">
           <span class="meta-pill lv">A1</span>
           <span class="meta-pill xp">+50 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">7 Dialog lines</span>
+          <span class="meta-pill" data-i18n="begruessung.vocab_count">12 Vocab</span>
+          <span class="meta-pill" data-i18n="begruessung.dialog_count">7 Dialog lines</span>
         </div>
       </div>
     </div>
@@ -179,190 +181,29 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Hallo</div>
-            <button onclick="playText('Hallo',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">হ্যালো (informal)</div>
-          <div class="vc-ex">Hallo! Wie geht's?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Guten Morgen</div>
-            <button onclick="playText('Guten Morgen',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">শুভ সকাল</div>
-          <div class="vc-ex">Guten Morgen, Herr Müller!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Guten Tag</div>
-            <button onclick="playText('Guten Tag',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">শুভ দিন</div>
-          <div class="vc-ex">Guten Tag! Wie kann ich helfen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Guten Abend</div>
-            <button onclick="playText('Guten Abend',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">শুভ সন্ধ্যা</div>
-          <div class="vc-ex">Guten Abend, alle zusammen!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Auf Wiedersehen</div>
-            <button onclick="playText('Auf Wiedersehen',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">বিদায় (formal)</div>
-          <div class="vc-ex">Auf Wiedersehen und bis bald!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Tschüss</div>
-            <button onclick="playText('Tschüss',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">বিদায় (informal)</div>
-          <div class="vc-ex">Tschüss! Bis morgen!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Wie geht es Ihnen?</div>
-            <button onclick="playText('Wie geht es Ihnen?',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">আপনি কেমন আছেন? (formal)</div>
-          <div class="vc-ex">Wie geht es Ihnen heute?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Wie geht's?</div>
-            <button onclick="playText('Wie geht\'s?',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">কেমন আছ? (informal)</div>
-          <div class="vc-ex">Hey, wie geht's dir?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Danke, gut.</div>
-            <button onclick="playText('Danke, gut.',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">ধন্যবাদ, ভালো।</div>
-          <div class="vc-ex">Danke, gut. Und Ihnen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Freut mich!</div>
-            <button onclick="playText('Freut mich!',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">আনন্দিত হলাম!</div>
-          <div class="vc-ex">Freut mich, Sie kennenzulernen!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Bis später</div>
-            <button onclick="playText('Bis später',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">পরে দেখা হবে</div>
-          <div class="vc-ex">Bis später! Tschüss!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Gute Nacht</div>
-            <button onclick="playText('Gute Nacht',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">শুভ রাত</div>
-          <div class="vc-ex">Gute Nacht! Schlaf gut!</div>
-        </div>
-  </div>
+  <div class="section-title" data-i18n="begruessung.vocab_title">📖 Vokabeln — Vocabulary</div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" data-i18n="begruessung.dialogue_title">💬 Musterdialog — Sample Dialogue</div>
   <div class="dialogue-box">
-    
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Guten Morgen! Wie geht es Ihnen?</div>
-            <div class="dl-bn">শুভ সকাল! আপনি কেমন আছেন?</div>
-            <button onclick="playText('Guten Morgen! Wie geht es Ihnen?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Danke, gut. Und Ihnen?</div>
-            <div class="dl-bn">ধন্যবাদ, ভালো। আপনি?</div>
-            <button onclick="playText('Danke, gut. Und Ihnen?',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Auch gut, danke. Ich bin Ahmad.</div>
-            <div class="dl-bn">আমিও ভালো, ধন্যবাদ। আমি Ahmad।</div>
-            <button onclick="playText('Auch gut, danke. Ich bin Ahmad.',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Angenehm! Ich bin Frau Müller.</div>
-            <div class="dl-bn">আনন্দিত! আমি ফ্রাউ মুলার।</div>
-            <button onclick="playText('Angenehm! Ich bin Frau Müller.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Schön, Sie kennenzulernen!</div>
-            <div class="dl-bn">আপনার সাথে পরিচিত হতে পেরে ভালো লাগলো!</div>
-            <button onclick="playText('Schön, Sie kennenzulernen!',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ganz meinerseits. Auf Wiedersehen!</div>
-            <div class="dl-bn">আমারও। বিদায়!</div>
-            <button onclick="playText('Ganz meinerseits. Auf Wiedersehen!',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Auf Wiedersehen! Einen schönen Tag noch!</div>
-            <div class="dl-bn">বিদায়! আপনার সুন্দর দিন হোক!</div>
-            <button onclick="playText('Auf Wiedersehen! Einen schönen Tag noch!',999+6)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+    <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span data-i18n="begruessung.play_full">সম্পূর্ণ dialog play করুন</span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>সকালে কাউকে German-এ শুভেচ্ছা জানাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>formal ও informal Begrüßung-এর পার্থক্য বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>নিজেকে German-এ পরিচয় দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>'Wie geht es Ihnen?' এর উত্তর দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>বিদায় জানানোর ৩টি উপায় বলো।</span></div>
-
-  </div>
+  <div class="section-title" data-i18n="begruessung.tasks_title">✅ Speaking Tasks — এগুলো practice করুন</div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
   <!-- XP BANNER -->
   <div class="xp-banner">
     <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+50 XP</strong> পাবে।
+      <span data-i18n="begruessung.xp_before">এই topic সম্পন্ন করলে</span> <strong style="color:var(--gold)">+50 XP</strong> <span data-i18n="begruessung.xp_after">পাবে।</span>
     </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+50 XP)</button>
+    <button class="btn-complete" id="btn-complete" data-i18n="begruessung.complete_btn">⭐ Complete (+50 XP)</button>
   </div>
 
   <div class="page-nav">
@@ -374,8 +215,84 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 <script type="module">
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
 
-const DIALOGS = ['Guten Morgen! Wie geht es Ihnen?', 'Danke, gut. Und Ihnen?', 'Auch gut, danke. Ich bin Ahmad.', 'Angenehm! Ich bin Frau Müller.', 'Schön, Sie kennenzulernen!', 'Ganz meinerseits. Auf Wiedersehen!', 'Auf Wiedersehen! Einen schönen Tag noch!'];
+await initI18n();
+renderSwitcher(document.getElementById("lang-switch-container"), {
+  onChanged: lang => _uid && updateDoc(doc(db, "users", _uid), { language: lang }).catch(() => {}),
+});
+
+/* ── Content data: German + Bangla + English ── */
+const VOCAB = [
+  { de:"Hallo",               bn:"হ্যালো (informal)",          en:"Hello (informal)",              ex:"Hallo! Wie geht's?" },
+  { de:"Guten Morgen",        bn:"শুভ সকাল",                    en:"Good morning",                  ex:"Guten Morgen, Herr Müller!" },
+  { de:"Guten Tag",           bn:"শুভ দিন",                      en:"Good day",                      ex:"Guten Tag! Wie kann ich helfen?" },
+  { de:"Guten Abend",         bn:"শুভ সন্ধ্যা",                  en:"Good evening",                  ex:"Guten Abend, alle zusammen!" },
+  { de:"Auf Wiedersehen",     bn:"বিদায় (formal)",              en:"Goodbye (formal)",              ex:"Auf Wiedersehen und bis bald!" },
+  { de:"Tschüss",             bn:"বিদায় (informal)",            en:"Bye (informal)",                ex:"Tschüss! Bis morgen!" },
+  { de:"Wie geht es Ihnen?",  bn:"আপনি কেমন আছেন? (formal)",     en:"How are you? (formal)",         ex:"Wie geht es Ihnen heute?" },
+  { de:"Wie geht's?",         bn:"কেমন আছ? (informal)",          en:"How are you? (informal)",       ex:"Hey, wie geht's dir?" },
+  { de:"Danke, gut.",         bn:"ধন্যবাদ, ভালো।",               en:"Thanks, I'm well.",             ex:"Danke, gut. Und Ihnen?" },
+  { de:"Freut mich!",         bn:"আনন্দিত হলাম!",                en:"Nice to meet you!",             ex:"Freut mich, Sie kennenzulernen!" },
+  { de:"Bis später",          bn:"পরে দেখা হবে",                 en:"See you later",                 ex:"Bis später! Tschüss!" },
+  { de:"Gute Nacht",          bn:"শুভ রাত",                      en:"Good night",                    ex:"Gute Nacht! Schlaf gut!" },
+];
+
+const DIALOGUE = [
+  { spk:"a", de:"Guten Morgen! Wie geht es Ihnen?",                bn:"শুভ সকাল! আপনি কেমন আছেন?",                       en:"Good morning! How are you?" },
+  { spk:"b", de:"Danke, gut. Und Ihnen?",                          bn:"ধন্যবাদ, ভালো। আপনি?",                            en:"Thanks, I'm well. And you?" },
+  { spk:"a", de:"Auch gut, danke. Ich bin Ahmad.",                 bn:"আমিও ভালো, ধন্যবাদ। আমি Ahmad।",                   en:"I'm well too, thanks. I'm Ahmad." },
+  { spk:"b", de:"Angenehm! Ich bin Frau Müller.",                  bn:"আনন্দিত! আমি ফ্রাউ মুলার।",                         en:"Pleased to meet you! I'm Frau Müller." },
+  { spk:"a", de:"Schön, Sie kennenzulernen!",                      bn:"আপনার সাথে পরিচিত হতে পেরে ভালো লাগলো!",             en:"Nice to meet you!" },
+  { spk:"b", de:"Ganz meinerseits. Auf Wiedersehen!",              bn:"আমারও। বিদায়!",                                  en:"Likewise. Goodbye!" },
+  { spk:"a", de:"Auf Wiedersehen! Einen schönen Tag noch!",        bn:"বিদায়! আপনার সুন্দর দিন হোক!",                     en:"Goodbye! Have a nice day!" },
+];
+
+const TASKS = [
+  { bn:"সকালে কাউকে German-এ শুভেচ্ছা জানাও।",                      en:"Greet someone in German in the morning." },
+  { bn:"formal ও informal Begrüßung-এর পার্থক্য বলো।",              en:"Explain the difference between formal and informal greetings." },
+  { bn:"নিজেকে German-এ পরিচয় দাও।",                                en:"Introduce yourself in German." },
+  { bn:"'Wie geht es Ihnen?' এর উত্তর দাও।",                        en:"Answer 'Wie geht es Ihnen?'" },
+  { bn:"বিদায় জানানোর ৩টি উপায় বলো।",                              en:"Say 3 different ways to say goodbye." },
+];
+
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderAll() { renderVocab(); renderDialogue(); renderTasks(); }
+renderAll();
+window.addEventListener("dl-lang-rerender", renderAll); // in case other code wants to trigger a re-render
+
+const DIALOGS = DIALOGUE.map(l => l.de);
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -410,7 +327,7 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  btn.disabled = true; btn.textContent = t("begruessung.completed_now");
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-begruessung"),
     xp: increment(50),
@@ -422,6 +339,12 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+    renderAll();
+  }
+
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -430,7 +353,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-begruessung")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    btn.disabled=true; btn.textContent=t("begruessung.already_completed");
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

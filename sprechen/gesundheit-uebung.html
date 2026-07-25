@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gesundheit & Arzt — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🏥</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Gesundheit & Arzt</h2>
-        <p class="hero-sub">ডাক্তারের কাছে symptoms German-এ বলুন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A2</span>
           <span class="meta-pill xp">+75 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">7 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,189 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Ich bin krank.</div>
-            <button onclick="playText('Ich bin krank.',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">আমি অসুস্থ।</div>
-          <div class="vc-ex">Ich bin krank und brauche Hilfe.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Schmerz</div>
-            <button onclick="playText('der Schmerz',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">ব্যথা</div>
-          <div class="vc-ex">Ich habe Schmerzen im Bauch.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Fieber</div>
-            <button onclick="playText('das Fieber',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">জ্বর</div>
-          <div class="vc-ex">Ich habe 39 Grad Fieber.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Husten</div>
-            <button onclick="playText('der Husten',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">কাশি</div>
-          <div class="vc-ex">Ich habe starken Husten.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Schnupfen</div>
-            <button onclick="playText('der Schnupfen',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">সর্দি</div>
-          <div class="vc-ex">Meine Nase läuft.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Mir ist schlecht.</div>
-            <button onclick="playText('Mir ist schlecht.',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">আমার বমি বমি লাগছে।</div>
-          <div class="vc-ex">Mir ist seit heute schlecht.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Termin</div>
-            <button onclick="playText('der Termin',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">অ্যাপয়েন্টমেন্ট</div>
-          <div class="vc-ex">Ich brauche einen Termin.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Rezept</div>
-            <button onclick="playText('das Rezept',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">প্রেসক্রিপশন</div>
-          <div class="vc-ex">Ich brauche ein Rezept.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Tablette</div>
-            <button onclick="playText('die Tablette',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">ট্যাবলেট</div>
-          <div class="vc-ex">Nehmen Sie zwei Tabletten täglich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">allergisch</div>
-            <button onclick="playText('allergisch',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">অ্যালার্জিক</div>
-          <div class="vc-ex">Ich bin gegen Penicillin allergisch.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">seit wann</div>
-            <button onclick="playText('seit wann',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">কতদিন ধরে</div>
-          <div class="vc-ex">Seit wann haben Sie die Schmerzen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">sich erholen</div>
-            <button onclick="playText('sich erholen',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সুস্থ হওয়া</div>
-          <div class="vc-ex">Ich möchte mich schnell erholen.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Guten Tag. Was fehlt Ihnen?</div>
-            <div class="dl-bn">শুভ দিন। আপনার কী সমস্যা?</div>
-            <button onclick="playText('Guten Tag. Was fehlt Ihnen?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich habe starke Kopfschmerzen und Fieber seit zwei Tagen.</div>
-            <div class="dl-bn">দুই দিন ধরে তীব্র মাথাব্যথা ও জ্বর আছে।</div>
-            <button onclick="playText('Ich habe starke Kopfschmerzen und Fieber seit zwei Tagen.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Haben Sie auch Husten oder Halsschmerzen?</div>
-            <div class="dl-bn">কাশি বা গলাব্যথাও আছে?</div>
-            <button onclick="playText('Haben Sie auch Husten oder Halsschmerzen?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, ein bisschen Husten. Und mir ist manchmal schlecht.</div>
-            <div class="dl-bn">হ্যাঁ, একটু কাশি আছে। আর মাঝে মাঝে বমি বমি লাগে।</div>
-            <button onclick="playText('Ja, ein bisschen Husten. Und mir ist manchmal schlecht.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Sind Sie gegen irgendwelche Medikamente allergisch?</div>
-            <div class="dl-bn">কোনো ওষুধে কি অ্যালার্জি আছে?</div>
-            <button onclick="playText('Sind Sie gegen irgendwelche Medikamente allergisch?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Nein, keine Allergien.</div>
-            <div class="dl-bn">না, কোনো অ্যালার্জি নেই।</div>
-            <button onclick="playText('Nein, keine Allergien.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich schreibe Ihnen ein Rezept. Ruhen Sie sich aus!</div>
-            <div class="dl-bn">আমি আপনাকে একটি প্রেসক্রিপশন লিখছি। বিশ্রাম নিন!</div>
-            <button onclick="playText('Ich schreibe Ihnen ein Rezept. Ruhen Sie sich aus!',999+6)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>ডাক্তারকে তোমার symptoms বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>কতদিন ধরে অসুস্থ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Termin নেওয়ার phrase বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>ওষুধের অ্যালার্জি আছে কি না বলো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+75 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+75 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -374,7 +217,131 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Guten Tag. Was fehlt Ihnen?', 'Ich habe starke Kopfschmerzen und Fieber seit zwei Tagen.', 'Haben Sie auch Husten oder Halsschmerzen?', 'Ja, ein bisschen Husten. Und mir ist manchmal schlecht.', 'Sind Sie gegen irgendwelche Medikamente allergisch?', 'Nein, keine Allergien.', 'Ich schreibe Ihnen ein Rezept. Ruhen Sie sich aus!'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'ডাক্তারের কাছে symptoms German-এ বলুন।',
+    vocabCount: '12 Vocab',
+    dialogCount: '7 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Describe your symptoms to a doctor in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '7 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'Ich bin krank.', bn:'আমি অসুস্থ।', en:'I am sick.', ex:'Ich bin krank und brauche Hilfe.' },
+  { de:'der Schmerz', bn:'ব্যথা', en:'pain', ex:'Ich habe Schmerzen im Bauch.' },
+  { de:'das Fieber', bn:'জ্বর', en:'fever', ex:'Ich habe 39 Grad Fieber.' },
+  { de:'der Husten', bn:'কাশি', en:'cough', ex:'Ich habe starken Husten.' },
+  { de:'der Schnupfen', bn:'সর্দি', en:'runny nose / cold', ex:'Meine Nase läuft.' },
+  { de:'Mir ist schlecht.', bn:'আমার বমি বমি লাগছে।', en:'I feel sick / nauseous.', ex:'Mir ist seit heute schlecht.' },
+  { de:'der Termin', bn:'অ্যাপয়েন্টমেন্ট', en:'appointment', ex:'Ich brauche einen Termin.' },
+  { de:'das Rezept', bn:'প্রেসক্রিপশন', en:'prescription', ex:'Ich brauche ein Rezept.' },
+  { de:'die Tablette', bn:'ট্যাবলেট', en:'tablet/pill', ex:'Nehmen Sie zwei Tabletten täglich.' },
+  { de:'allergisch', bn:'অ্যালার্জিক', en:'allergic', ex:'Ich bin gegen Penicillin allergisch.' },
+  { de:'seit wann', bn:'কতদিন ধরে', en:'since when', ex:'Seit wann haben Sie die Schmerzen?' },
+  { de:'sich erholen', bn:'সুস্থ হওয়া', en:'to recover', ex:'Ich möchte mich schnell erholen.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Guten Tag. Was fehlt Ihnen?', bn:'শুভ দিন। আপনার কী সমস্যা?', en:'Good day. What\'s wrong?' },
+  { spk:'b', de:'Ich habe starke Kopfschmerzen und Fieber seit zwei Tagen.', bn:'দুই দিন ধরে তীব্র মাথাব্যথা ও জ্বর আছে।', en:'I\'ve had a bad headache and fever for two days.' },
+  { spk:'a', de:'Haben Sie auch Husten oder Halsschmerzen?', bn:'কাশি বা গলাব্যথাও আছে?', en:'Do you also have a cough or sore throat?' },
+  { spk:'b', de:'Ja, ein bisschen Husten. Und mir ist manchmal schlecht.', bn:'হ্যাঁ, একটু কাশি আছে। আর মাঝে মাঝে বমি বমি লাগে।', en:'Yes, a bit of a cough. And I sometimes feel nauseous.' },
+  { spk:'a', de:'Sind Sie gegen irgendwelche Medikamente allergisch?', bn:'কোনো ওষুধে কি অ্যালার্জি আছে?', en:'Are you allergic to any medications?' },
+  { spk:'b', de:'Nein, keine Allergien.', bn:'না, কোনো অ্যালার্জি নেই।', en:'No, no allergies.' },
+  { spk:'a', de:'Ich schreibe Ihnen ein Rezept. Ruhen Sie sich aus!', bn:'আমি আপনাকে একটি প্রেসক্রিপশন লিখছি। বিশ্রাম নিন!', en:'I\'ll write you a prescription. Get some rest!' }
+];
+const TASKS = [
+  { bn:'ডাক্তারকে তোমার symptoms বলো।', en:'Tell the doctor your symptoms.' },
+  { bn:'কতদিন ধরে অসুস্থ বলো।', en:'Say how long you\'ve been sick.' },
+  { bn:'Termin নেওয়ার phrase বলো।', en:'Say a phrase for booking an appointment.' },
+  { bn:'ওষুধের অ্যালার্জি আছে কি না বলো।', en:'Say whether you\'re allergic to any medication.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -409,10 +376,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-gesundheit"),
-    xp: increment(75),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -421,6 +388,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -429,7 +407,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-gesundheit")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

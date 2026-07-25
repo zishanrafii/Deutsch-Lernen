@@ -7,6 +7,7 @@
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -171,6 +172,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <nav class="nav-links">
         <a href="../lernreise.html" class="nav-link">Journey</a>
         <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
@@ -181,8 +183,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       </nav>
       <div style="display:flex;align-items:center;gap:10px;">
         <div class="user-avatar" id="nav-avatar">👤</div>
-        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
-        <button class="btn-logout" id="btn-logout">Logout</button>
+        <div class="user-name" id="nav-name" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
       </div>
     </div>
   </div>
@@ -212,7 +214,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div>
         <div class="hero-eyebrow">👅 Tongue Twisters</div>
         <h2>German <span>Zungenbrecher</span></h2>
-        <p class="hero-sub">German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন। Slow থেকে Fast — আস্তে আস্তে speed বাড়ান।</p>
+        <p class="hero-sub" id="zb-hero-sub">German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন। Slow থেকে Fast — আস্তে আস্তে speed বাড়ান।</p>
       </div>
       <div class="hero-counts">
         <div class="hc"><div class="hc-v" id="total-count">0</div><div class="hc-l">Twisters</div></div>
@@ -228,10 +230,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="cb-inner">
       <div class="cb-left">
         <div class="cb-eyebrow">⚡ Daily Challenge</div>
-        <div class="cb-title">আজকের Zungenbrecher</div>
-        <div class="cb-desc" id="daily-tt">লোড হচ্ছে...</div>
+        <div class="cb-title" id="cb-title">আজকের Zungenbrecher</div>
+        <div class="cb-desc" id="daily-tt" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
       </div>
-      <button class="btn-challenge" id="btn-daily">এখন Practice করুন →</button>
+      <button class="btn-challenge" id="btn-daily"><span id="btn-daily-label">এখন Practice করুন →</span></button>
     </div>
   </div>
 
@@ -240,26 +242,26 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <div class="speed-guide">
     <div class="sg-card">
       <div class="sg-title">🐌 Slow Mode</div>
-      <div class="sg-desc">প্রথমে ধীরে ধীরে পড়ুন। প্রতিটি শব্দ স্পষ্টভাবে বলুন। উচ্চারণ নিখুঁত করুন।</div>
+      <div class="sg-desc" id="sg-desc-slow">প্রথমে ধীরে ধীরে পড়ুন। প্রতিটি শব্দ স্পষ্টভাবে বলুন। উচ্চারণ নিখুঁত করুন।</div>
     </div>
     <div class="sg-card">
       <div class="sg-title">▶ Normal Speed</div>
-      <div class="sg-desc">স্বাভাবিক গতিতে বলুন। Real conversation-এর speed।</div>
+      <div class="sg-desc" id="sg-desc-normal">স্বাভাবিক গতিতে বলুন। Real conversation-এর speed।</div>
     </div>
     <div class="sg-card">
       <div class="sg-title">⚡ Fast Mode</div>
-      <div class="sg-desc">দ্রুত বলুন। একটানা ৩ বার করুন। Fluency boost করুন।</div>
+      <div class="sg-desc" id="sg-desc-fast">দ্রুত বলুন। একটানা ৩ বার করুন। Fluency boost করুন।</div>
     </div>
     <div class="sg-card">
       <div class="sg-title">🔄 Repeat x5</div>
-      <div class="sg-desc">একই twister ৫ বার করুন। Muscle memory তৈরি হবে।</div>
+      <div class="sg-desc" id="sg-desc-repeat">একই twister ৫ বার করুন। Muscle memory তৈরি হবে।</div>
     </div>
   </div>
 
   <!-- FILTER -->
-  <div class="section-title">👅 সব Zungenbrecher</div>
+  <div class="section-title"><span id="all-tt-title">👅 সব Zungenbrecher</span></div>
   <div class="filter-row" id="level-filters">
-    <button class="ftab active" data-l="all">সব Level</button>
+    <button class="ftab active" data-l="all" id="ftab-all-tt">সব Level</button>
     <button class="ftab" data-l="A1">A1</button>
     <button class="ftab" data-l="A2">A2</button>
     <button class="ftab" data-l="B1">B1</button>
@@ -269,7 +271,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <div style="font-size:11px;color:var(--muted);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;">
-    দেখাচ্ছে: <span id="shown-count">0</span> tongue twisters
+    <span id="zb-showing-label">দেখাচ্ছে:</span> <span id="shown-count">0</span> tongue twisters
   </div>
   <div class="tt-grid" id="tt-grid"></div>
 
@@ -291,8 +293,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="repeat-count">Repeat: <span id="repeat-num">0</span> / 5</div>
     <div class="modal-progress"><div class="modal-prog-fill" id="modal-fill" style="width:0%"></div></div>
     <div class="modal-actions">
-      <button class="btn-practice" style="flex:1" onclick="countRepeat()">✓ এবার বললাম!</button>
-      <button class="btn-done" id="modal-done-btn" style="flex:1">✅ সম্পন্ন করুন</button>
+      <button class="btn-practice" style="flex:1" onclick="countRepeat()">✓ <span id="said-it-label">এবার বললাম!</span></button>
+      <button class="btn-done" id="modal-done-btn" style="flex:1">✅ <span id="modal-complete-label">সম্পন্ন করুন</span></button>
     </div>
   </div>
 </div>
@@ -316,6 +318,10 @@ window.setVoice = function(btn, voice) {
 
 import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 import { TONGUE_TWISTERS } from "../js/aussprache-data.js";
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
 
 const pillClass = lv=>({A1:"pill-a1",A2:"pill-a2",B1:"pill-b1",B2:"pill-b2",C1:"pill-c1",C2:"pill-c2"}[lv]||"pill-a1");
 const accentMap  = {A1:"#34d399",A2:"#38bdf8",B1:"#818cf8",B2:"#a78bfa",C1:"#fb923c",C2:"#f5c842"};
@@ -331,11 +337,38 @@ document.getElementById("btn-daily").onclick = ()=>openModal(TONGUE_TWISTERS.ind
 /* Hero counts */
 document.getElementById("total-count").textContent = TONGUE_TWISTERS.length;
 
+function renderZBChrome() {
+  const en = getLang() === "en";
+  document.getElementById("zb-hero-sub").textContent = en
+    ? "Sharpen your pronunciation with German tongue twisters. Slow to fast — gradually build up speed."
+    : "German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন। Slow থেকে Fast — আস্তে আস্তে speed বাড়ান।";
+  document.getElementById("cb-title").textContent = en ? "Today's Zungenbrecher" : "আজকের Zungenbrecher";
+  document.getElementById("btn-daily-label").textContent = en ? "Practice now →" : "এখন Practice করুন →";
+  document.getElementById("sg-desc-slow").textContent = en
+    ? "Read slowly at first. Say every word clearly. Perfect the pronunciation."
+    : "প্রথমে ধীরে ধীরে পড়ুন। প্রতিটি শব্দ স্পষ্টভাবে বলুন। উচ্চারণ নিখুঁত করুন।";
+  document.getElementById("sg-desc-normal").textContent = en
+    ? "Speak at a natural pace. The speed of real conversation."
+    : "স্বাভাবিক গতিতে বলুন। Real conversation-এর speed।";
+  document.getElementById("sg-desc-fast").textContent = en
+    ? "Speak quickly. Do it 3 times in a row. Boost your fluency."
+    : "দ্রুত বলুন। একটানা ৩ বার করুন। Fluency boost করুন।";
+  document.getElementById("sg-desc-repeat").textContent = en
+    ? "Do the same twister 5 times. This builds muscle memory."
+    : "একই twister ৫ বার করুন। Muscle memory তৈরি হবে।";
+  document.getElementById("all-tt-title").textContent = en ? "👅 All Zungenbrecher" : "👅 সব Zungenbrecher";
+  document.getElementById("ftab-all-tt").textContent = en ? "All Levels" : "সব Level";
+  document.getElementById("zb-showing-label").textContent = en ? "Showing:" : "দেখাচ্ছে:";
+  document.getElementById("said-it-label").textContent = en ? "Said it!" : "এবার বললাম!";
+  document.getElementById("modal-complete-label").textContent = en ? "Complete" : "সম্পন্ন করুন";
+}
+renderZBChrome();
+
 /* Render */
 function render(){
   const grid=document.getElementById("tt-grid");
   grid.innerHTML="";
-  const shown=TONGUE_TWISTERS.filter(t=>_filter==="all"||t.level===_filter);
+  const shown=TONGUE_TWISTERS.filter(tw=>_filter==="all"||tw.level===_filter);
   document.getElementById("shown-count").textContent=shown.length;
   shown.forEach((tt,i)=>{
     const globalIdx=TONGUE_TWISTERS.indexOf(tt);
@@ -343,17 +376,19 @@ function render(){
     const card=document.createElement("div");
     card.className="tt-card"+(isDone?" done":"");
     card.style.setProperty("--card-accent",accentMap[tt.level]||"#2dd4bf");
+    const focusText = getLang()==="en" ? (tt.en||tt.bn) : tt.bn;
+    const doneLabel = isDone ? "✅ Done" : (getLang()==="en" ? "✓ Done" : "✓ সম্পন্ন");
     card.innerHTML=`
       <div class="tt-top">
         <span class="tt-num">#${globalIdx+1}</span>
         <span class="level-pill ${pillClass(tt.level)}">${tt.level}</span>
       </div>
       <div class="tt-text">${tt.text}</div>
-      <div class="tt-focus">🎯 ${tt.bn}</div>
+      <div class="tt-focus">🎯 ${focusText}</div>
       <div class="tt-actions">
         <button class="btn-practice" id="ttplay-${globalIdx}" onclick="toggleTTPlay(${globalIdx})">🔊 Play</button>
         <button class="btn-practice" onclick="openModal(${globalIdx})">🎤 Practice</button>
-        <button class="btn-done ${isDone?"completed":""}" onclick="markDone(${globalIdx})" id="done-btn-${globalIdx}">${isDone?"✅ Done":"✓ সম্পন্ন"}</button>
+        <button class="btn-done ${isDone?"completed":""}" onclick="markDone(${globalIdx})" id="done-btn-${globalIdx}">${doneLabel}</button>
         <span class="xp-chip">+${xpMap[tt.level]||20} XP</span>
       </div>`;
     grid.appendChild(card);
@@ -372,7 +407,7 @@ window.openModal=function(idx){
   _activeIdx=idx; _repeatCount=0;
   const tt=TONGUE_TWISTERS[idx];
   document.getElementById("modal-text").textContent=tt.text;
-  document.getElementById("modal-bn").textContent=tt.bn;
+  document.getElementById("modal-bn").textContent=getLang()==="en" ? (tt.en||tt.bn) : tt.bn;
   document.getElementById("repeat-num").textContent=0;
   document.getElementById("modal-fill").style.width="0%";
   document.getElementById("overlay").classList.add("open");
@@ -408,7 +443,9 @@ window.toggleTTPlay = function(idx) {
   });
 };
 window.setSpeed=function(s){
-  const msgs={slow:"🐌 Slow — ধীরে ধীরে পড়ুন",normal:"▶ Normal — স্বাভাবিক গতি",fast:"⚡ Fast — দ্রুত বলুন!"};
+  const msgs = getLang()==="en"
+    ? {slow:"🐌 Slow — read slowly", normal:"▶ Normal — natural pace", fast:"⚡ Fast — speak quickly!"}
+    : {slow:"🐌 Slow — ধীরে ধীরে পড়ুন",normal:"▶ Normal — স্বাভাবিক গতি",fast:"⚡ Fast — দ্রুত বলুন!"};
   document.getElementById("modal-bn").textContent=msgs[s];
   const text = document.getElementById("modal-text").textContent;
   if(text) playTT(text, s);
@@ -450,6 +487,17 @@ requireAuth(async user=>{
   _uid=user.uid;
   const snap=await getDoc(doc(db,"users",user.uid));
   const d=snap.exists()?snap.data():{};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+    render(); renderZBChrome();
+  }
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      render(); renderZBChrome();
+    },
+  });
   const name=d.displayName||user.displayName||"Lerner";
   const photo=d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent=name;

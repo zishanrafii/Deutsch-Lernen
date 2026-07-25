@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Künstliche Intelligenz — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🤖</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Künstliche Intelligenz</h2>
-        <p class="hero-sub">AI নিয়ে German-এ pros/cons discuss করুন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">B2</span>
           <span class="meta-pill xp">+125 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die künstliche Intelligenz (KI)</div>
-            <button onclick="playText('die künstliche Intelligenz (KI)',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">কৃত্রিম বুদ্ধিমত্তা</div>
-          <div class="vc-ex">KI verändert unsere Welt.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Chatbot</div>
-            <button onclick="playText('der Chatbot',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">চ্যাটবট</div>
-          <div class="vc-ex">Chatbots werden immer besser.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">automatisieren</div>
-            <button onclick="playText('automatisieren',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">স্বয়ংক্রিয় করা</div>
-          <div class="vc-ex">KI kann viele Jobs automatisieren.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">ersetzen</div>
-            <button onclick="playText('ersetzen',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">প্রতিস্থাপন করা</div>
-          <div class="vc-ex">Werden Roboter Menschen ersetzen?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die ethische Frage</div>
-            <button onclick="playText('die ethische Frage',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">নৈতিক প্রশ্ন</div>
-          <div class="vc-ex">KI wirft ethische Fragen auf.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Algorithmus</div>
-            <button onclick="playText('der Algorithmus',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">অ্যালগরিদম</div>
-          <div class="vc-ex">Der Algorithmus trifft Entscheidungen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Bias</div>
-            <button onclick="playText('die Bias',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">পক্ষপাত</div>
-          <div class="vc-ex">KI-Systeme können Biases haben.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Regulierung</div>
-            <button onclick="playText('die Regulierung',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">নিয়ন্ত্রণ</div>
-          <div class="vc-ex">KI braucht klare Regulierung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">kreativ</div>
-            <button onclick="playText('kreativ',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">সৃজনশীল</div>
-          <div class="vc-ex">Kann KI wirklich kreativ sein?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das maschinelle Lernen</div>
-            <button onclick="playText('das maschinelle Lernen',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">machine learning</div>
-          <div class="vc-ex">Maschinelles Lernen ist die Grundlage.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">transparent</div>
-            <button onclick="playText('transparent',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">স্বচ্ছ</div>
-          <div class="vc-ex">KI-Entscheidungen sollten transparent sein.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Chance</div>
-            <button onclick="playText('die Chance',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সুযোগ</div>
-          <div class="vc-ex">KI bietet große Chancen.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Was hältst du von künstlicher Intelligenz?</div>
-            <div class="dl-bn">কৃত্রিম বুদ্ধিমত্তা সম্পর্কে তোমার কী মনে হয়?</div>
-            <button onclick="playText('Was hältst du von künstlicher Intelligenz?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Es ist faszinierend, aber auch beängstigend. Die Möglichkeiten sind enorm.</div>
-            <div class="dl-bn">এটা আকর্ষণীয়, কিন্তু ভীতিকরও। সম্ভাবনাগুলো বিশাল।</div>
-            <button onclick="playText('Es ist faszinierend, aber auch beängstigend. Die Möglichkeiten sind enorm.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Glaubst du, dass KI Jobs wegnehmen wird?</div>
-            <div class="dl-bn">তুমি কি মনে করো AI চাকরি নিয়ে নেবে?</div>
-            <button onclick="playText('Glaubst du, dass KI Jobs wegnehmen wird?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, einige Routinejobs werden automatisiert. Aber neue Jobs entstehen auch.</div>
-            <div class="dl-bn">হ্যাঁ, কিছু রুটিন চাকরি স্বয়ংক্রিয় হবে। কিন্তু নতুন চাকরিও তৈরি হবে।</div>
-            <button onclick="playText('Ja, einige Routinejobs werden automatisiert. Aber neue Jobs entstehen auch.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Was sind die größten Risiken?</div>
-            <div class="dl-bn">সবচেয়ে বড় ঝুঁকিগুলো কী?</div>
-            <button onclick="playText('Was sind die größten Risiken?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Fehlende Transparenz und mögliche Biases in den Algorithmen.</div>
-            <div class="dl-bn">স্বচ্ছতার অভাব এবং algorithm-এ সম্ভাব্য পক্ষপাত।</div>
-            <button onclick="playText('Fehlende Transparenz und mögliche Biases in den Algorithmen.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>AI-র সুবিধাগুলো German-এ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>AI-র ঝুঁকি নিয়ে আলোচনা করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>AI regulation সম্পর্কে মতামত দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>AI কি সৃজনশীল হতে পারে? German-এ যুক্তি দাও।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+125 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+125 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Was hältst du von künstlicher Intelligenz?', 'Es ist faszinierend, aber auch beängstigend. Die Möglichkeiten sind enorm.', 'Glaubst du, dass KI Jobs wegnehmen wird?', 'Ja, einige Routinejobs werden automatisiert. Aber neue Jobs entstehen auch.', 'Was sind die größten Risiken?', 'Fehlende Transparenz und mögliche Biases in den Algorithmen.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'AI নিয়ে German-এ pros/cons discuss করুন।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Discuss AI pros and cons in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die künstliche Intelligenz (KI)', bn:'কৃত্রিম বুদ্ধিমত্তা', en:'artificial intelligence (AI)', ex:'KI verändert unsere Welt.' },
+  { de:'der Chatbot', bn:'চ্যাটবট', en:'chatbot', ex:'Chatbots werden immer besser.' },
+  { de:'automatisieren', bn:'স্বয়ংক্রিয় করা', en:'to automate', ex:'KI kann viele Jobs automatisieren.' },
+  { de:'ersetzen', bn:'প্রতিস্থাপন করা', en:'to replace', ex:'Werden Roboter Menschen ersetzen?' },
+  { de:'die ethische Frage', bn:'নৈতিক প্রশ্ন', en:'ethical question', ex:'KI wirft ethische Fragen auf.' },
+  { de:'der Algorithmus', bn:'অ্যালগরিদম', en:'algorithm', ex:'Der Algorithmus trifft Entscheidungen.' },
+  { de:'die Bias', bn:'পক্ষপাত', en:'bias', ex:'KI-Systeme können Biases haben.' },
+  { de:'die Regulierung', bn:'নিয়ন্ত্রণ', en:'regulation', ex:'KI braucht klare Regulierung.' },
+  { de:'kreativ', bn:'সৃজনশীল', en:'creative', ex:'Kann KI wirklich kreativ sein?' },
+  { de:'das maschinelle Lernen', bn:'machine learning', en:'machine learning', ex:'Maschinelles Lernen ist die Grundlage.' },
+  { de:'transparent', bn:'স্বচ্ছ', en:'transparent', ex:'KI-Entscheidungen sollten transparent sein.' },
+  { de:'die Chance', bn:'সুযোগ', en:'opportunity', ex:'KI bietet große Chancen.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Was hältst du von künstlicher Intelligenz?', bn:'কৃত্রিম বুদ্ধিমত্তা সম্পর্কে তোমার কী মনে হয়?', en:'What do you think of artificial intelligence?' },
+  { spk:'b', de:'Es ist faszinierend, aber auch beängstigend. Die Möglichkeiten sind enorm.', bn:'এটা আকর্ষণীয়, কিন্তু ভীতিকরও। সম্ভাবনাগুলো বিশাল।', en:'It\'s fascinating, but also scary. The possibilities are enormous.' },
+  { spk:'a', de:'Glaubst du, dass KI Jobs wegnehmen wird?', bn:'তুমি কি মনে করো AI চাকরি নিয়ে নেবে?', en:'Do you think AI will take away jobs?' },
+  { spk:'b', de:'Ja, einige Routinejobs werden automatisiert. Aber neue Jobs entstehen auch.', bn:'হ্যাঁ, কিছু রুটিন চাকরি স্বয়ংক্রিয় হবে। কিন্তু নতুন চাকরিও তৈরি হবে।', en:'Yes, some routine jobs will be automated. But new jobs will emerge too.' },
+  { spk:'a', de:'Was sind die größten Risiken?', bn:'সবচেয়ে বড় ঝুঁকিগুলো কী?', en:'What are the biggest risks?' },
+  { spk:'b', de:'Fehlende Transparenz und mögliche Biases in den Algorithmen.', bn:'স্বচ্ছতার অভাব এবং algorithm-এ সম্ভাব্য পক্ষপাত।', en:'Lack of transparency and possible biases in the algorithms.' }
+];
+const TASKS = [
+  { bn:'AI-র সুবিধাগুলো German-এ বলো।', en:'Talk about the benefits of AI, in German.' },
+  { bn:'AI-র ঝুঁকি নিয়ে আলোচনা করো।', en:'Discuss the risks of AI.' },
+  { bn:'AI regulation সম্পর্কে মতামত দাও।', en:'Give your opinion on AI regulation.' },
+  { bn:'AI কি সৃজনশীল হতে পারে? German-এ যুক্তি দাও।', en:'Can AI be creative? Argue your view in German.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-ki"),
-    xp: increment(125),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-ki")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

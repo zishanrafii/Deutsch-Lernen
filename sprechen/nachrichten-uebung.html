@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nachrichten & Medien — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">📰</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Nachrichten & Medien</h2>
-        <p class="hero-sub">News ও current events নিয়ে German-এ মতামত দিন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">B1</span>
           <span class="meta-pill xp">+100 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Nachrichten</div>
-            <button onclick="playText('die Nachrichten',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">সংবাদ</div>
-          <div class="vc-ex">Ich schaue täglich Nachrichten.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Schlagzeile</div>
-            <button onclick="playText('die Schlagzeile',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">শিরোনাম</div>
-          <div class="vc-ex">Die Schlagzeile ist schockierend.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Bericht</div>
-            <button onclick="playText('der Bericht',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">প্রতিবেদন</div>
-          <div class="vc-ex">Der Bericht ist sehr detailliert.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">aktuell</div>
-            <button onclick="playText('aktuell',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">বর্তমান/চলমান</div>
-          <div class="vc-ex">Das ist ein aktuelles Thema.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Meinung</div>
-            <button onclick="playText('die Meinung',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">মতামত</div>
-          <div class="vc-ex">Was ist Ihre Meinung dazu?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">glaubwürdig</div>
-            <button onclick="playText('glaubwürdig',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">বিশ্বাসযোগ্য</div>
-          <div class="vc-ex">Diese Quelle ist glaubwürdig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Fake News</div>
-            <button onclick="playText('die Fake News',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">ভুয়া সংবাদ</div>
-          <div class="vc-ex">Fake News sind ein Problem.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">recherchieren</div>
-            <button onclick="playText('recherchieren',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">তদন্ত করা/গবেষণা করা</div>
-          <div class="vc-ex">Ich recherchiere gründlich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Quelle</div>
-            <button onclick="playText('die Quelle',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">উৎস</div>
-          <div class="vc-ex">Man sollte die Quelle prüfen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">objektiv</div>
-            <button onclick="playText('objektiv',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">নিরপেক্ষ</div>
-          <div class="vc-ex">Guter Journalismus ist objektiv.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">kommentieren</div>
-            <button onclick="playText('kommentieren',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">মন্তব্য করা</div>
-          <div class="vc-ex">Ich kommentiere selten online.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">verbreiten</div>
-            <button onclick="playText('verbreiten',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">ছড়িয়ে দেওয়া</div>
-          <div class="vc-ex">Falsche Infos verbreiten sich schnell.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Hast du die Nachrichten heute gehört?</div>
-            <div class="dl-bn">আজকের সংবাদ শুনেছ?</div>
-            <button onclick="playText('Hast du die Nachrichten heute gehört?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, es gab einen interessanten Bericht über die Wirtschaft.</div>
-            <div class="dl-bn">হ্যাঁ, অর্থনীতি নিয়ে একটি আকর্ষণীয় প্রতিবেদন ছিল।</div>
-            <button onclick="playText('Ja, es gab einen interessanten Bericht über die Wirtschaft.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wo informierst du dich normalerweise?</div>
-            <div class="dl-bn">তুমি সাধারণত কোথায় তথ্য পাও?</div>
-            <button onclick="playText('Wo informierst du dich normalerweise?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich lese Zeitungen online und schaue die Tagesschau.</div>
-            <div class="dl-bn">আমি অনলাইনে পত্রিকা পড়ি এবং Tagesschau দেখি।</div>
-            <button onclick="playText('Ich lese Zeitungen online und schaue die Tagesschau.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie gehst du mit Fake News um?</div>
-            <div class="dl-bn">তুমি ভুয়া সংবাদ সম্পর্কে কীভাবে সতর্ক থাকো?</div>
-            <button onclick="playText('Wie gehst du mit Fake News um?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich überprüfe immer die Quelle und suche nach anderen Berichten dazu.</div>
-            <div class="dl-bn">আমি সবসময় উৎস যাচাই করি এবং অন্য প্রতিবেদন খুঁজি।</div>
-            <button onclick="playText('Ich überprüfe immer die Quelle und suche nach anderen Berichten dazu.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তুমি কোথায় সংবাদ পাও German-এ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি current event নিয়ে মতামত দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Fake News চেনার উপায় German-এ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Media literacy সম্পর্কে কথা বলো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+100 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+100 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Hast du die Nachrichten heute gehört?', 'Ja, es gab einen interessanten Bericht über die Wirtschaft.', 'Wo informierst du dich normalerweise?', 'Ich lese Zeitungen online und schaue die Tagesschau.', 'Wie gehst du mit Fake News um?', 'Ich überprüfe immer die Quelle und suche nach anderen Berichten dazu.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'News, current events নিয়ে German-এ মতামত দিন।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Share opinions in German about news and current events.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die Nachrichten', bn:'সংবাদ', en:'the news', ex:'Ich schaue täglich Nachrichten.' },
+  { de:'die Schlagzeile', bn:'শিরোনাম', en:'headline', ex:'Die Schlagzeile ist schockierend.' },
+  { de:'der Bericht', bn:'প্রতিবেদন', en:'report', ex:'Der Bericht ist sehr detailliert.' },
+  { de:'aktuell', bn:'বর্তমান/চলমান', en:'current', ex:'Das ist ein aktuelles Thema.' },
+  { de:'die Meinung', bn:'মতামত', en:'opinion', ex:'Was ist Ihre Meinung dazu?' },
+  { de:'glaubwürdig', bn:'বিশ্বাসযোগ্য', en:'credible', ex:'Diese Quelle ist glaubwürdig.' },
+  { de:'die Fake News', bn:'ভুয়া সংবাদ', en:'fake news', ex:'Fake News sind ein Problem.' },
+  { de:'recherchieren', bn:'তদন্ত করা/গবেষণা করা', en:'to research', ex:'Ich recherchiere gründlich.' },
+  { de:'die Quelle', bn:'উৎস', en:'source', ex:'Man sollte die Quelle prüfen.' },
+  { de:'objektiv', bn:'নিরপেক্ষ', en:'objective', ex:'Guter Journalismus ist objektiv.' },
+  { de:'kommentieren', bn:'মন্তব্য করা', en:'to comment', ex:'Ich kommentiere selten online.' },
+  { de:'verbreiten', bn:'ছড়িয়ে দেওয়া', en:'to spread', ex:'Falsche Infos verbreiten sich schnell.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Hast du die Nachrichten heute gehört?', bn:'আজকের সংবাদ শুনেছ?', en:'Did you hear the news today?' },
+  { spk:'b', de:'Ja, es gab einen interessanten Bericht über die Wirtschaft.', bn:'হ্যাঁ, অর্থনীতি নিয়ে একটি আকর্ষণীয় প্রতিবেদন ছিল।', en:'Yes, there was an interesting report about the economy.' },
+  { spk:'a', de:'Wo informierst du dich normalerweise?', bn:'তুমি সাধারণত কোথায় তথ্য পাও?', en:'Where do you usually get your information?' },
+  { spk:'b', de:'Ich lese Zeitungen online und schaue die Tagesschau.', bn:'আমি অনলাইনে পত্রিকা পড়ি এবং Tagesschau দেখি।', en:'I read newspapers online and watch the Tagesschau.' },
+  { spk:'a', de:'Wie gehst du mit Fake News um?', bn:'তুমি ভুয়া সংবাদ সম্পর্কে কীভাবে সতর্ক থাকো?', en:'How do you deal with fake news?' },
+  { spk:'b', de:'Ich überprüfe immer die Quelle und suche nach anderen Berichten dazu.', bn:'আমি সবসময় উৎস যাচাই করি এবং অন্য প্রতিবেদন খুঁজি।', en:'I always check the source and look for other reports on it.' }
+];
+const TASKS = [
+  { bn:'তুমি কোথায় সংবাদ পাও German-এ বলো।', en:'Say where you get your news, in German.' },
+  { bn:'একটি current event নিয়ে মতামত দাও।', en:'Give your opinion on a current event.' },
+  { bn:'Fake News চেনার উপায় German-এ বলো।', en:'Say how to spot fake news, in German.' },
+  { bn:'Media literacy সম্পর্কে কথা বলো।', en:'Talk about media literacy.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-nachrichten"),
-    xp: increment(100),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-nachrichten")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

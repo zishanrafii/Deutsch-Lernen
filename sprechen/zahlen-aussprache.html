@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zahlen Aussprache — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -136,9 +137,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -154,14 +156,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🔢</div>
       <div>
-        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Zahlen Aussprache</h2>
-        <p class="hero-sub">১ থেকে ১,০০০,০০০ পর্যন্ত German সংখ্যার সঠিক উচ্চারণ। Daily life-এ অপরিহার্য।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill accent">Level: A1</span>
           <span class="meta-pill accent">+25 XP</span>
-          <span class="meta-pill">12 Examples</span>
-          <span class="meta-pill">5 Exercises</span>
+          <span class="meta-pill" id="meta-examples"></span>
+          <span class="meta-pill" id="meta-exercises"></span>
         </div>
       </div>
     </div>
@@ -175,72 +177,24 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- THEORY -->
-  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
-  <div class="theory-box">
-    
-    <p><strong>1-12:</strong> eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf</p>
-    <p><strong>13-19:</strong> suffix '-zehn' — dreizehn, vierzehn, fünfzehn...<br>
-    ⚠️ <strong>sechzehn</strong> (nicht sechszehn!), <strong>siebzehn</strong> (nicht siebenzehn!)</p>
-    <p><strong>20, 30...:</strong> zwanzig, dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig<br>
-    ⚠️ <strong>dreißig</strong> [ˈdʁaɪ̯sɪç] — nicht 'dreissig'!</p>
-    <p><strong>21, 22...:</strong> einundzwanzig, zweiundzwanzig (units FIRST, then tens)<br>
-    <strong>100:</strong> hundert | <strong>1000:</strong> tausend | <strong>1.000.000:</strong> eine Million</p>
-    <div class="tip-box"><strong>💡 German-এ বড় number-এ units আগে:</strong> 21 = 'einUNDzwanzig' (one-and-twenty)</div>
-    
-  </div>
+  <div class="section-title" id="theory-title"></div>
+  <div class="theory-box" id="theory-box"></div>
 
+  
   <!-- EXAMPLES -->
-  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="section-title" id="examples-title"></div>
   <div class="examples-grid" id="examples-grid"></div>
 
   <!-- EXERCISES -->
-  <div class="section-title">✏️ Practice Exercises</div>
-  <div class="exercises-wrap">
-    
-        <div class="ex-item" id="ex-0">
-          <div class="ex-q">1. 16 German-এ সঠিক উচ্চারণ কোনটি?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(0,0,this)">sechszehn</button><button class="opt-btn" onclick="checkAns(0,1,this)">sechzehn</button><button class="opt-btn" onclick="checkAns(0,2,this)">sechzehn [ˈzɛçtseːn]</button><button class="opt-btn" onclick="checkAns(0,3,this)">sechzenhn</button>
-          </div>
-          <div class="ex-feedback" id="fb-0"></div>
-        </div>
-        <div class="ex-item" id="ex-1">
-          <div class="ex-q">2. 30 German-এ কোনটি?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(1,0,this)">dreissig</button><button class="opt-btn" onclick="checkAns(1,1,this)">dreißig</button><button class="opt-btn" onclick="checkAns(1,2,this)">dreizig</button><button class="opt-btn" onclick="checkAns(1,3,this)">dreisig</button>
-          </div>
-          <div class="ex-feedback" id="fb-1"></div>
-        </div>
-        <div class="ex-item" id="ex-2">
-          <div class="ex-q">3. 21 German-এ কীভাবে বলে?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(2,0,this)">zwanzigein</button><button class="opt-btn" onclick="checkAns(2,1,this)">zwanzigeins</button><button class="opt-btn" onclick="checkAns(2,2,this)">einundzwanzig</button><button class="opt-btn" onclick="checkAns(2,3,this)">zwanzig-eins</button>
-          </div>
-          <div class="ex-feedback" id="fb-2"></div>
-        </div>
-        <div class="ex-item" id="ex-3">
-          <div class="ex-q">4. 17 German-এ সঠিক কোনটি?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(3,0,this)">siebzehn</button><button class="opt-btn" onclick="checkAns(3,1,this)">siebenzehn</button><button class="opt-btn" onclick="checkAns(3,2,this)">siebenzehn</button><button class="opt-btn" onclick="checkAns(3,3,this)">siebzehnzehn</button>
-          </div>
-          <div class="ex-feedback" id="fb-3"></div>
-        </div>
-        <div class="ex-item" id="ex-4">
-          <div class="ex-q">5. German-এ বড় number-এ কোনটি আগে আসে?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(4,0,this)">tens (zwanzig)</button><button class="opt-btn" onclick="checkAns(4,1,this)">units (ein)</button><button class="opt-btn" onclick="checkAns(4,2,this)">hundreds</button><button class="opt-btn" onclick="checkAns(4,3,this)">সমান</button>
-          </div>
-          <div class="ex-feedback" id="fb-4"></div>
-        </div>
-  </div>
+  <div class="section-title" id="exercises-title"></div>
+  <div class="exercises-wrap" id="exercises-wrap"></div>
 
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      <strong>Zahlen Aussprache</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+25 XP</strong> পাবে।
-      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+25 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <!-- PAGE NAV -->
@@ -254,41 +208,113 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const EXAMPLES = [{'word': 'eins', 'ipa': 'aɪ̯ns', 'bn': 'এক (১)', 'sentence': 'Nummer eins.'}, {'word': 'zwei', 'ipa': 'tsvaɪ̯', 'bn': 'দুই (২)', 'sentence': 'Zwei Kaffee bitte.'}, {'word': 'drei', 'ipa': 'dʁaɪ̯', 'bn': 'তিন (৩)', 'sentence': 'Drei Euro.'}, {'word': 'zwölf', 'ipa': 'tsvœlf', 'bn': 'বারো (১২)', 'sentence': 'Um zwölf Uhr.'}, {'word': 'sechzehn', 'ipa': 'ˈzɛçtseːn', 'bn': 'ষোল (১৬)', 'sentence': '16 Jahre alt.'}, {'word': 'zwanzig', 'ipa': 'ˈtsvantsɪç', 'bn': 'বিশ (২০)', 'sentence': 'Zwanzig Euro.'}, {'word': 'dreißig', 'ipa': 'ˈdʁaɪ̯sɪç', 'bn': 'ত্রিশ (৩০)', 'sentence': 'Dreißig Minuten.'}, {'word': 'einundzwanzig', 'ipa': 'ˈaɪ̯nʊntˈtsvantsɪç', 'bn': 'একুশ (২১)', 'sentence': 'Er ist einundzwanzig.'}, {'word': 'hundert', 'ipa': 'ˈhʊndɐt', 'bn': 'একশো (১০০)', 'sentence': 'Hundert Prozent.'}, {'word': 'tausend', 'ipa': 'ˈtaʊ̯zn̩t', 'bn': 'হাজার (১০০০)', 'sentence': 'Tausend Dank!'}, {'word': 'siebzehn', 'ipa': 'ˈziːptseːn', 'bn': 'সতেরো (১৭)', 'sentence': 'Siebzehn Uhr.'}, {'word': 'eine Million', 'ipa': 'ˈaɪ̯nə mɪˈli̯oːn', 'bn': 'দশ লাখ', 'sentence': 'Eine Million Euro.'}];
-const ANSWERS  = [2, 1, 2, 0, 1];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
 let _voice = "Deutsch Female";
 let _score = 0;
 let _uid;
 
-window.setVoice = function(v, btn) {
-  _voice = v;
-  document.querySelectorAll(".vbtn").forEach(b => {
-    b.classList.remove("active","male-active");
-    b.style.cssText="";
-  });
-  if(v === "Deutsch Female") {
-    btn.classList.add("active");
-  } else {
-    btn.classList.add("male-active");
-  }
+const CHROME = {
+  bn: {
+    eyebrow: '🔤 Aussprache Guide',
+    theoryTitle: '📖 Theory — কীভাবে উচ্চারণ করবে',
+    examplesTitle: '🔊 Examples — শুনুন ও repeat করুন',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'সম্পন্ন করলে',
+    xpHint: 'সব exercises করার পর Complete বাটন চাপো।',
+    completeBtn: '⭐ Complete করুন',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন হয়েছে',
+    correct: '✅ সঠিক!',
+    wrong: '❌ ভুল। সঠিক উত্তর highlight হয়েছে।',
+    subtitle: '১ থেকে ১,০০০,০০০ পর্যন্ত German সংখ্যার সঠিক উচ্চারণ। Daily life-এ অপরিহার্য।',
+  },
+  en: {
+    eyebrow: '🔤 Pronunciation Guide',
+    theoryTitle: '📖 Theory — how to pronounce it',
+    examplesTitle: '🔊 Examples — listen and repeat',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'to complete for',
+    xpHint: 'Press Complete after finishing all exercises.',
+    completeBtn: '⭐ Complete',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    correct: '✅ Correct!',
+    wrong: '❌ Wrong. The correct answer is highlighted.',
+    subtitle: 'Correct pronunciation of German numbers from 1 to 1,000,000. Essential for daily life.',
+  },
 };
+const THEORY_BN = '<p><strong>1-12:</strong> eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf</p><p><strong>13-19:</strong> suffix \'-zehn\' — dreizehn, vierzehn, fünfzehn...<br>⚠️ <strong>sechzehn</strong> (nicht sechszehn!), <strong>siebzehn</strong> (nicht siebenzehn!)</p><p><strong>20, 30...:</strong> zwanzig, dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig<br>⚠️ <strong>dreißig</strong> [ˈdʁaɪ̯sɪç] — nicht \'dreissig\'!</p><p><strong>21, 22...:</strong> einundzwanzig, zweiundzwanzig (units FIRST, then tens)<br><strong>100:</strong> hundert | <strong>1000:</strong> tausend | <strong>1.000.000:</strong> eine Million</p><div class="tip-box"><strong>💡 German-এ বড় number-এ units আগে:</strong> 21 = \'einUNDzwanzig\' (one-and-twenty)</div>';
+const THEORY_EN = '<p><strong>1-12:</strong> eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf</p><p><strong>13-19:</strong> suffix \'-zehn\' — dreizehn, vierzehn, fünfzehn...<br>⚠️ <strong>sechzehn</strong> (not sechszehn!), <strong>siebzehn</strong> (not siebenzehn!)</p><p><strong>20, 30...:</strong> zwanzig, dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig<br>⚠️ <strong>dreißig</strong> [ˈdʁaɪ̯sɪç] — not \'dreissig\'!</p><p><strong>21, 22...:</strong> einundzwanzig, zweiundzwanzig (units come FIRST, then tens)<br><strong>100:</strong> hundert | <strong>1000:</strong> tausend | <strong>1,000,000:</strong> eine Million</p><div class="tip-box"><strong>💡 In German, units come before tens in big numbers:</strong> 21 = \'einUNDzwanzig\' (one-and-twenty)</div>';
+const EXAMPLES = [
+  { word:'eins', ipa:'aɪ̯ns', bn:'এক (১)', en:'one (1)', sentence:'Nummer eins.' },
+  { word:'zwei', ipa:'tsvaɪ̯', bn:'দুই (২)', en:'two (2)', sentence:'Zwei Kaffee bitte.' },
+  { word:'drei', ipa:'dʁaɪ̯', bn:'তিন (৩)', en:'three (3)', sentence:'Drei Euro.' },
+  { word:'zwölf', ipa:'tsvœlf', bn:'বারো (১২)', en:'twelve (12)', sentence:'Um zwölf Uhr.' },
+  { word:'sechzehn', ipa:'ˈzɛçtseːn', bn:'ষোল (১৬)', en:'sixteen (16)', sentence:'16 Jahre alt.' },
+  { word:'zwanzig', ipa:'ˈtsvantsɪç', bn:'বিশ (২০)', en:'twenty (20)', sentence:'Zwanzig Euro.' },
+  { word:'dreißig', ipa:'ˈdʁaɪ̯sɪç', bn:'ত্রিশ (৩০)', en:'thirty (30)', sentence:'Dreißig Minuten.' },
+  { word:'einundzwanzig', ipa:'ˈaɪ̯nʊntˈtsvantsɪç', bn:'একুশ (২১)', en:'twenty-one (21)', sentence:'Er ist einundzwanzig.' },
+  { word:'hundert', ipa:'ˈhʊndɐt', bn:'একশো (১০০)', en:'one hundred (100)', sentence:'Hundert Prozent.' },
+  { word:'tausend', ipa:'ˈtaʊ̯zn̩t', bn:'হাজার (১০০০)', en:'one thousand (1000)', sentence:'Tausend Dank!' },
+  { word:'siebzehn', ipa:'ˈziːptseːn', bn:'সতেরো (১৭)', en:'seventeen (17)', sentence:'Siebzehn Uhr.' },
+  { word:'eine Million', ipa:'ˈaɪ̯nə mɪˈli̯oːn', bn:'দশ লাখ', en:'one million', sentence:'Eine Million Euro.' }
+];
+const EXERCISES = [
+  { qBn:'16 German-এ সঠিক উচ্চারণ কোনটি?', qEn:'What\'s the correct pronunciation of 16 in German?', opts:[{ bn:'sechszehn', en:'sechszehn' }, { bn:'sechzehn', en:'sechzehn' }, { bn:'sechzehn [ˈzɛçtseːn]', en:'sechzehn [ˈzɛçtseːn]' }, { bn:'sechzenhn', en:'sechzenhn' }], answer:2 },
+  { qBn:'30 German-এ কোনটি?', qEn:'What\'s 30 in German?', opts:[{ bn:'dreissig', en:'dreissig' }, { bn:'dreißig', en:'dreißig' }, { bn:'dreizig', en:'dreizig' }, { bn:'dreisig', en:'dreisig' }], answer:1 },
+  { qBn:'21 German-এ কীভাবে বলে?', qEn:'How do you say 21 in German?', opts:[{ bn:'zwanzigein', en:'zwanzigein' }, { bn:'zwanzigeins', en:'zwanzigeins' }, { bn:'einundzwanzig', en:'einundzwanzig' }, { bn:'zwanzig-eins', en:'zwanzig-eins' }], answer:2 },
+  { qBn:'17 German-এ সঠিক কোনটি?', qEn:'What\'s the correct form of 17 in German?', opts:[{ bn:'siebzehn', en:'siebzehn' }, { bn:'siebenzehn', en:'siebenzehn' }, { bn:'siebenzehn ', en:'siebenzehn ' }, { bn:'siebzehnzehn', en:'siebzehnzehn' }], answer:0 },
+  { qBn:'German-এ বড় number-এ কোনটি আগে আসে?', qEn:'In German, which comes first in big numbers?', opts:[{ bn:'tens (zwanzig)', en:'tens (zwanzig)' }, { bn:'units (ein)', en:'units (ein)' }, { bn:'hundreds', en:'hundreds' }, { bn:'সমান', en:'equal' }], answer:1 }
+];
 
-/* Build example cards */
-const grid = document.getElementById("examples-grid");
-EXAMPLES.forEach((ex, i) => {
-  const card = document.createElement("div");
-  card.className = "ex-card";
-  card.innerHTML = `
-    <div class="ex-word">${ex.word}</div>
-    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
-    <div class="ex-bn">${ex.bn}</div>
-    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
-    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
-  grid.appendChild(card);
-});
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+let _answered = new Set();
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent = c.eyebrow;
+  document.getElementById("hero-sub").textContent = c.subtitle;
+  document.getElementById("meta-examples").textContent = `12 ${getLang()==="en"?"Examples":"Examples"}`;
+  document.getElementById("meta-exercises").textContent = `5 ${getLang()==="en"?"Exercises":"Exercises"}`;
+  document.getElementById("theory-title").textContent = c.theoryTitle;
+  document.getElementById("examples-title").textContent = c.examplesTitle;
+  document.getElementById("exercises-title").textContent = c.exercisesTitle;
+  document.getElementById("theory-box").innerHTML = getLang() === "en" ? THEORY_EN : THEORY_BN;
+  document.getElementById("xp-banner-text").innerHTML =
+    `<strong>Zahlen Aussprache</strong> ${c.xpAfter} <strong style="color:var(--gold)">+25 XP</strong>` +
+    `<div style="margin-top:3px;font-size:11.5px;">${c.xpHint}</div>`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn + " (+25 XP)"; }
+  const nextLbl = document.getElementById("next-topic-label");
+  if (nextLbl) nextLbl.textContent = (getLang()==="en" ? "Next topic: " : "পরের Topic: ") + 'Zurück zu Sprechen' + " →";
+}
+
+function renderExamples() {
+  const grid = document.getElementById("examples-grid");
+  grid.innerHTML = "";
+  EXAMPLES.forEach((ex, i) => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML = `
+      <div class="ex-word">${ex.word}</div>
+      ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+      <div class="ex-bn">${localized(ex)}</div>
+      ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+      <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+    grid.appendChild(card);
+  });
+}
 
 window.playEx = function(i) {
-  const ex  = EXAMPLES[i];
+  const ex = EXAMPLES[i];
   const btn = document.getElementById("pb-"+i);
   btn.textContent = "⏹ Stop"; btn.classList.add("playing");
   responsiveVoice.speak(ex.word, _voice, {
@@ -297,29 +323,56 @@ window.playEx = function(i) {
   });
 };
 
-/* Exercises */
+function renderExercises() {
+  const wrap = document.getElementById("exercises-wrap");
+  wrap.innerHTML = EXERCISES.map((ex, qi) => `
+    <div class="ex-item" id="ex-${qi}">
+      <div class="ex-q">${qi+1}. ${getLang()==="en" ? ex.qEn : ex.qBn}</div>
+      <div class="ex-opts">
+        ${ex.opts.map((o, ai) => `<button class="opt-btn" onclick="checkAns(${qi},${ai},this)">${getLang()==="en" ? (o.en||o.bn) : o.bn}</button>`).join("")}
+      </div>
+      <div class="ex-feedback" id="fb-${qi}"></div>
+    </div>`).join("");
+}
+
 window.checkAns = function(qi, ai, btn) {
-  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
-  const correct = ANSWERS[qi];
+  if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+  const c = chrome();
+  const correct = EXERCISES[qi].answer;
   const fb = document.getElementById("fb-"+qi);
   document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
-  if(ai === correct) {
+  if (ai === correct) {
     btn.classList.add("correct");
-    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    fb.textContent = c.correct; fb.style.color = "#34d399";
     _score++;
   } else {
     btn.classList.add("wrong");
     document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
-    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+    fb.textContent = c.wrong; fb.style.color = "#fb7185";
   }
+  _answered.add(qi);
 };
 
-/* Complete */
+function renderPronPage() {
+  renderChrome(); renderExamples(); renderExercises();
+}
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") { btn.classList.add("active"); }
+  else { btn.classList.add("male-active"); }
+};
+
+
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled = true; btn.textContent = chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
-    completedTopics: arrayUnion("aussprache-zahlen-aussprache"),
+    completedTopics: arrayUnion("aussprache-zahlen"),
     xp: increment(25),
     sessions: increment(1),
   }).catch(()=>{});
@@ -329,15 +382,28 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderPronPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderPronPage();
+    },
+  });
+
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
   const av = document.getElementById("nav-avatar");
   if(photo) av.innerHTML = `<img src="${photo}">`;
   else av.textContent = name[0]?.toUpperCase()||"?";
-  if((d.completedTopics||[]).includes("aussprache-zahlen-aussprache")) {
+  if((d.completedTopics||[]).includes("aussprache-zahlen")) {
+    _completed = true;
     const btn = document.getElementById("btn-complete");
-    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+    btn.disabled = true; btn.textContent = chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
 });

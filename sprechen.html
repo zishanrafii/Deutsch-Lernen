@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprechen — Deutsch Lernen</title>
+<title data-i18n="sprechen.page_title">Sprechen — Deutsch Lernen</title>
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -301,17 +302,18 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </div>
     <div class="topbar-right">
       <nav class="nav-links">
-        <a href="lernreise.html"      class="nav-link">Journey</a>
-        <a href="vokabelquiz.html"    class="nav-link">Quiz</a>
-        <a href="grammatik.html"      class="nav-link">Grammatik</a>
-        <a href="sprechen.html"       class="nav-link active">Sprechen</a>
-        <a href="rangliste.html"      class="nav-link">Rangliste</a>
-        <a href="coming-soon.html?feature=chat" class="nav-link">Chat</a>
+        <a href="lernreise.html"      class="nav-link" data-i18n="dashboard.nav.journey">Journey</a>
+        <a href="vokabelquiz.html"    class="nav-link" data-i18n="dashboard.nav.quiz">Quiz</a>
+        <a href="grammatik.html"      class="nav-link" data-i18n="dashboard.nav.grammatik">Grammatik</a>
+        <a href="sprechen.html"       class="nav-link active" data-i18n="dashboard.nav.sprechen">Sprechen</a>
+        <a href="rangliste.html"      class="nav-link" data-i18n="dashboard.nav.rangliste">Rangliste</a>
+        <a href="coming-soon.html?feature=chat" class="nav-link" data-i18n="dashboard.nav.chat">Chat</a>
       </nav>
+      <div id="lang-switch-container" style="margin-right:.4rem;"></div>
       <div class="user-section">
         <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
-        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
-        <button class="btn-logout" id="btn-logout">Logout</button>
+        <div class="user-name" id="nav-name" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
       </div>
     </div>
   </div>
@@ -335,8 +337,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="hero-inner">
       <div>
         <div class="hero-eyebrow">🎤 Sprechen & Aussprache</div>
-        <h2>German <span>উচ্চারণ</span> শিখুন</h2>
-        <p class="hero-sub">600+ pronunciation words, shadowing exercises, tongue twisters ও speaking drills দিয়ে German বলতে শিখুন।</p>
+        <h2 data-i18n-html="sprechen.hero.title">German <span>উচ্চারণ</span> শিখুন</h2>
+        <p class="hero-sub" data-i18n="sprechen.hero.subtitle">600+ pronunciation words, shadowing exercises, tongue twisters ও speaking drills দিয়ে German বলতে শিখুন।</p>
       </div>
       <div class="hero-stats">
         <div class="hstat"><div class="hstat-v" id="h-sessions">0</div><div class="hstat-l">Sessions</div></div>
@@ -351,7 +353,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <div class="section-title">✅ Tägliche Aufgaben</div>
   <div class="daily-strip">
     <div class="ds-head">
-      <div class="ds-title">🎯 আজকের Speaking Tasks <span class="ds-badge" id="tasks-badge">0/5 Done</span></div>
+      <div class="ds-title">🎯 <span data-i18n="sprechen.tasks_today">আজকের Speaking Tasks</span> <span class="ds-badge" id="tasks-badge">0/5 Done</span></div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);" id="tasks-pct">0% complete</div>
     </div>
     <div class="tasks-grid" id="tasks-grid"></div>
@@ -362,14 +364,14 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <div class="prompt-box">
     <div class="prompt-inner">
       <div>
-        <div class="prompt-eyebrow">🎤 আজকের Speaking Prompt</div>
-        <div class="prompt-de" id="prompt-de" style="font-size:1.35rem;font-weight:800;margin-bottom:.4rem;line-height:1.3;">লোড হচ্ছে...</div>
+        <div class="prompt-eyebrow">🎤 <span data-i18n="sprechen.todays_prompt">আজকের Speaking Prompt</span></div>
+        <div class="prompt-de" id="prompt-de" style="font-size:1.35rem;font-weight:800;margin-bottom:.4rem;line-height:1.3;" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
         <div class="prompt-bn" id="prompt-bn"></div>
         <div class="prompt-level" id="prompt-level">A1</div>
       </div>
       <div class="prompt-actions">
-        <button class="btn-primary" id="btn-start-prompt">🎤 শুরু করুন</button>
-        <button class="btn-secondary" id="btn-next-prompt">↻ নতুন Prompt</button>
+        <button class="btn-primary" id="btn-start-prompt">🎤 <span data-i18n="sprechen.start">শুরু করুন</span></button>
+        <button class="btn-secondary" id="btn-next-prompt">↻ <span data-i18n="sprechen.new_prompt">নতুন Prompt</span></button>
       </div>
     </div>
   </div>
@@ -380,20 +382,20 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="mic-inner">
       <div class="mic-left">
         <div class="mic-eyebrow">🔴 Live Recording</div>
-        <div class="mic-title">German বলুন, record হবে</div>
-        <div class="mic-desc">নিচের sentence টি বলুন। Record করুন এবং নিজের উচ্চারণ শুনুন।</div>
+        <div class="mic-title" data-i18n="sprechen.mic_title">German বলুন, record হবে</div>
+        <div class="mic-desc" data-i18n="sprechen.mic_desc">নিচের sentence টি বলুন। Record করুন এবং নিজের উচ্চারণ শুনুন।</div>
         <div class="mic-sentence">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem;">
             <div class="mic-de" id="mic-sentence-de">Guten Morgen! Ich lerne Deutsch.</div>
-            <button onclick="playMicSentence()" id="btn-mic-play" style="background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:#2dd4bf;border-radius:20px;padding:3px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;margin-left:8px;transition:.2s;">🔊 শুনুন</button>
+            <button onclick="playMicSentence()" id="btn-mic-play" style="background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:#2dd4bf;border-radius:20px;padding:3px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;margin-left:8px;transition:.2s;">🔊 <span data-i18n="sprechen.listen">শুনুন</span></button>
           </div>
           <div class="mic-bn" id="mic-sentence-bn">শুভ সকাল! আমি German শিখছি।</div>
         </div>
       </div>
       <div class="mic-right">
         <button class="mic-btn" id="mic-btn">🎤</button>
-        <div class="mic-status" id="mic-status">Click করুন</div>
-        <button class="mic-next btn-secondary" id="mic-next-btn">↻ পরের Sentence</button>
+        <div class="mic-status" id="mic-status" data-i18n="sprechen.click_to_start">Click করুন</div>
+        <button class="mic-next btn-secondary" id="mic-next-btn">↻ <span data-i18n="sprechen.next_sentence">পরের Sentence</span></button>
         <audio id="mic-playback" controls style="display:none;width:180px;"></audio>
       </div>
     </div>
@@ -402,12 +404,12 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <!-- FLUENCY TRACKER -->
   <div class="section-title">📊 Fluency Tracker</div>
   <div class="fluency-box">
-    <div style="font-weight:800;font-size:15px;margin-bottom:.2rem;">🏆 তোমার Speaking Progress</div>
+    <div style="font-weight:800;font-size:15px;margin-bottom:.2rem;">🏆 <span data-i18n="sprechen.your_progress">তোমার Speaking Progress</span></div>
     <div class="fluency-grid">
-      <div class="fl-card"><div class="fl-icon">🎤</div><div class="fl-val" id="fl-sessions">0</div><div class="fl-label">মোট Sessions</div></div>
-      <div class="fl-card"><div class="fl-icon">🔥</div><div class="fl-val" id="fl-streak">0</div><div class="fl-label">Streak (দিন)</div></div>
-      <div class="fl-card"><div class="fl-icon">⭐</div><div class="fl-val" id="fl-xp">0</div><div class="fl-label">XP অর্জিত</div></div>
-      <div class="fl-card"><div class="fl-icon">📖</div><div class="fl-val" id="fl-topics">0</div><div class="fl-label">Topics শেষ</div></div>
+      <div class="fl-card"><div class="fl-icon">🎤</div><div class="fl-val" id="fl-sessions">0</div><div class="fl-label" data-i18n="sprechen.total_sessions">মোট Sessions</div></div>
+      <div class="fl-card"><div class="fl-icon">🔥</div><div class="fl-val" id="fl-streak">0</div><div class="fl-label" data-i18n="sprechen.streak_days">Streak (দিন)</div></div>
+      <div class="fl-card"><div class="fl-icon">⭐</div><div class="fl-val" id="fl-xp">0</div><div class="fl-label" data-i18n="sprechen.xp_earned">XP অর্জিত</div></div>
+      <div class="fl-card"><div class="fl-icon">📖</div><div class="fl-val" id="fl-topics">0</div><div class="fl-label" data-i18n="sprechen.topics_finished">Topics শেষ</div></div>
       <div class="fl-card"><div class="fl-icon">🔄</div><div class="fl-val" id="fl-shadow">0</div><div class="fl-label">Shadowing Sets</div></div>
       <div class="fl-card"><div class="fl-icon">👅</div><div class="fl-val" id="fl-zungenbrecher">0</div><div class="fl-label">Zungenbrecher</div></div>
     </div>
@@ -423,19 +425,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <a href="sprechen/aussprache.html" class="feat-card" style="background:rgba(245,200,66,.06);border-color:rgba(245,200,66,.2);--card-accent:#f5c842;">
       <span class="fc-icon">🔤</span>
       <div class="fc-title">Aussprache Hub</div>
-      <div class="fc-desc">600+ German words-এর IPA guide, minimal pairs ও tongue twisters।</div>
+      <div class="fc-desc" data-i18n="sprechen.card.aussprache">600+ German words-এর IPA guide, minimal pairs ও tongue twisters।</div>
       <div class="fc-meta"><span class="fc-count">600+ words · 60+ pairs</span><span class="fc-arrow">→</span></div>
     </a>
     <a href="sprechen/shadowing.html" class="feat-card" style="background:rgba(45,212,191,.06);border-color:rgba(45,212,191,.2);--card-accent:#2dd4bf;">
       <span class="fc-icon">🔄</span>
       <div class="fc-title">Shadowing</div>
-      <div class="fc-desc">Native speaker-দের মতো German বলুন। A1→C2 dialogues শুনে repeat করুন।</div>
+      <div class="fc-desc" data-i18n="sprechen.card.shadowing">Native speaker-দের মতো German বলুন। A1→C2 dialogues শুনে repeat করুন।</div>
       <div class="fc-meta"><span class="fc-count">35 sets · 280+ sentences</span><span class="fc-arrow">→</span></div>
     </a>
     <a href="sprechen/zungenbrecher.html" class="feat-card" style="background:rgba(45,212,191,.05);border-color:rgba(45,212,191,.18);--card-accent:#2dd4bf;">
       <span class="fc-icon">👅</span>
       <div class="fc-title">Zungenbrecher</div>
-      <div class="fc-desc">German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন।</div>
+      <div class="fc-desc" data-i18n="sprechen.card.zungenbrecher">German tongue twisters দিয়ে উচ্চারণ দ্রুত ও নির্ভুল করুন।</div>
       <div class="fc-meta"><span class="fc-count">12 twisters · A1-C2</span><span class="fc-arrow">→</span></div>
     </a>
   </div>
@@ -446,7 +448,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="hub-left">
       <div class="hub-eyebrow">📖 Complete Pronunciation Guide</div>
       <div class="hub-title">German <span>Aussprache</span></div>
-      <div class="hub-desc">A1 থেকে C2 পর্যন্ত 600+ words-এর IPA guide। Level ও category filter সহ।</div>
+      <div class="hub-desc" data-i18n="sprechen.hub_desc">A1 থেকে C2 পর্যন্ত 600+ words-এর IPA guide। Level ও category filter সহ।</div>
       <div class="hub-features">
         <span class="hub-feat">📊 IPA Phonetics</span>
         <span class="hub-feat">🔀 Minimal Pairs</span>
@@ -463,7 +465,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <span class="hub-lv lv-b1">B1</span><span class="hub-lv lv-b2">B2</span>
         <span class="hub-lv lv-c1">C1</span><span class="hub-lv lv-c2">C2</span>
       </div>
-      <button class="hub-btn">এখন শুরু করুন →</button>
+      <button class="hub-btn"><span data-i18n="sprechen.start_now">এখন শুরু করুন</span> →</button>
     </div>
   </a>
 
@@ -474,7 +476,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <!-- SPEAKING TOPICS -->
   <div class="section-title">🗣️ Speaking Topics</div>
   <div class="filter-tabs" id="topic-filters">
-    <button class="ftab active" data-f="all">সব</button>
+    <button class="ftab active" data-f="all" data-i18n="sprechen.all">সব</button>
     <button class="ftab" data-f="A1">A1</button>
     <button class="ftab" data-f="A2">A2</button>
     <button class="ftab" data-f="B1">B1</button>
@@ -483,14 +485,14 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <button class="ftab" data-f="C2">C2</button>
   </div>
   <div style="font-size:11px;color:var(--muted);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;">
-    দেখাচ্ছে: <span id="topic-count">22</span> topics
+    <span data-i18n="sprechen.showing">দেখাচ্ছে:</span> <span id="topic-count">22</span> topics
   </div>
   <div class="topics-grid" id="topics-grid"></div>
 
   <!-- RECENT ACTIVITY -->
   <div class="section-title">🕐 Recent Activity</div>
   <div class="activity-list" id="activity-list">
-    <div style="text-align:center;padding:2rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;">
+    <div style="text-align:center;padding:2rem;color:var(--muted);font-size:13px;font-family:'Noto Sans Bengali',sans-serif;" data-i18n="sprechen.no_activity">
       এখনো কোনো activity নেই। Speaking practice শুরু করুন!
     </div>
   </div>
@@ -506,16 +508,16 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="brand-name">🇩🇪 Deutsch Lernen</div>
-      <div class="brand-sub">বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2।</div>
-      <div class="copyright-text">© <span id="footer-year"></span> Deutsch Lernen · All rights reserved.</div>
+      <div class="brand-sub" data-i18n="sprechen.footer_brand_sub">বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2।</div>
+      <div class="copyright-text">© <span id="footer-year"></span> Deutsch Lernen · <span data-i18n="dashboard.footer.rights">All rights reserved.</span></div>
     </div>
     <div class="footer-col">
-      <h4>🔗 Quick Links</h4>
+      <h4 data-i18n="dashboard.footer.quick_links">🔗 Quick Links</h4>
       <div class="footer-links">
         <a href="lernreise.html"   class="footer-link"><span>🗺️</span><span>Lernreise</span><span class="fl-handle">A1→C2</span></a>
-        <a href="grammatik.html"   class="footer-link"><span>📘</span><span>Grammatik</span><span class="fl-handle">alle Themen</span></a>
+        <a href="grammatik.html"   class="footer-link"><span>📘</span><span>Grammatik</span><span class="fl-handle" data-i18n="dashboard.footer.all_topics">alle Themen</span></a>
         <a href="woerterbuch.html" class="footer-link"><span>📚</span><span>Wörterbuch</span><span class="fl-handle">A1–C2</span></a>
-        <a href="rangliste.html"   class="footer-link"><span>🏆</span><span>Rangliste</span><span class="fl-handle">Top Lerner</span></a>
+        <a href="rangliste.html"   class="footer-link"><span>🏆</span><span>Rangliste</span><span class="fl-handle" data-i18n="dashboard.footer.top_learners">Top Lerner</span></a>
       </div>
     </div>
     <div class="footer-col">
@@ -530,7 +532,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   </div>
   <div class="footer-bottom">
     <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform</div>
-    <div>Built with <span class="footer-heart">♥</span> for Bengali learners · A1 to C2</div>
+    <div data-i18n-html="dashboard.footer.built_for">Built with <span class="footer-heart">♥</span> for Bengali learners · A1 to C2</div>
   </div>
 </footer>
 
@@ -555,6 +557,11 @@ import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "./js/firebase-config.js";
 import { DAILY_TASKS, PROMPTS, PRONUN_CARDS, SPEAKING_TOPICS, CHALLENGES }
   from "./js/sprechen-data.js";
+import { initI18n, t, getLang, setLang } from "./js/i18n.js";
+import { renderSwitcher } from "./js/lang-switcher.js";
+
+await initI18n();
+renderSwitcher(document.getElementById("lang-switch-container"));
 
 const y = new Date().getFullYear();
 document.getElementById("footer-year").textContent  = y;
@@ -574,21 +581,23 @@ let _uid, _done = [];
 function renderTasks() {
   const grid = document.getElementById("tasks-grid");
   grid.innerHTML = "";
-  DAILY_TASKS.forEach(t => {
-    const isDone = _done.includes(t.id);
+  DAILY_TASKS.forEach(task => {
+    const isDone = _done.includes(task.id);
     const card   = document.createElement("div");
     card.className = "task-card" + (isDone ? " done" : "");
+    const name = getLang() === "en" ? (task.nameEn || task.name) : task.name;
+    const sub  = getLang() === "en" ? (task.subEn  || task.sub)  : task.sub;
     card.innerHTML = `
       <div class="task-check">${isDone ? "✓" : ""}</div>
       <div>
-        <div class="task-name">${t.name}</div>
-        <div class="task-sub">${t.sub}</div>
-        <div class="task-xp">+${t.xp} XP</div>
+        <div class="task-name">${name}</div>
+        <div class="task-sub">${sub}</div>
+        <div class="task-xp">+${task.xp} XP</div>
       </div>`;
-    if(!isDone) card.onclick = () => markTask(t.id, t.xp);
+    if(!isDone) card.onclick = () => markTask(task.id, task.xp);
     grid.appendChild(card);
   });
-  const n = _done.filter(id => DAILY_TASKS.some(t => t.id === id)).length;
+  const n = _done.filter(id => DAILY_TASKS.some(task => task.id === id)).length;
   document.getElementById("tasks-badge").textContent = `${n}/${DAILY_TASKS.length} Done`;
   document.getElementById("tasks-pct").textContent   = `${Math.round(n/DAILY_TASKS.length*100)}% complete`;
 }
@@ -608,27 +617,27 @@ let _pi = new Date().getDay() % PROMPTS.length;
 function renderPrompt() {
   const p = PROMPTS[_pi];
   document.getElementById("prompt-de").textContent    = p.de;
-  document.getElementById("prompt-bn").textContent    = p.bn;
+  document.getElementById("prompt-bn").textContent    = getLang() === "en" ? (p.en||p.bn) : p.bn;
   document.getElementById("prompt-level").textContent = p.level;
 }
 document.getElementById("btn-next-prompt").onclick = () => { _pi = (_pi+1)%PROMPTS.length; renderPrompt(); };
 document.getElementById("btn-start-prompt").onclick = () => {
   const p = PROMPTS[_pi];
-  alert(`🎤 আজকের Prompt:\n\n"${p.de}"\n\n${p.bn}\n\nএই বিষয়ে German-এ কথা বলুন!`);
+  alert(`🎤 ${t("sprechen.todays_prompt")}:\n\n"${p.de}"\n\n${getLang()==="en" ? (p.en||p.bn) : p.bn}\n\n${t("sprechen.talk_about_this")}`);
 };
 
 /* ── Microphone ── */
 const MIC_SENTENCES = [
-  { de:"Guten Morgen! Ich lerne Deutsch.",          bn:"শুভ সকাল! আমি German শিখছি।" },
-  { de:"Wie geht es Ihnen? Mir geht es gut.",        bn:"আপনি কেমন আছেন? আমি ভালো আছি।" },
-  { de:"Ich wohne in Bangladesch.",                  bn:"আমি বাংলাদেশে বাস করি।" },
-  { de:"Das ist ein schönes Buch.",                  bn:"এটি একটি সুন্দর বই।" },
-  { de:"Können Sie mir bitte helfen?",               bn:"আপনি কি আমাকে সাহায্য করতে পারবেন?" },
-  { de:"Ich spreche ein bisschen Deutsch.",          bn:"আমি একটু German বলতে পারি।" },
-  { de:"Wo ist der Bahnhof, bitte?",                bn:"স্টেশন কোথায়, দয়া করে?" },
-  { de:"Das Wetter ist heute sehr schön.",           bn:"আজকের আবহাওয়া খুব সুন্দর।" },
-  { de:"Ich hätte gern eine Tasse Kaffee.",          bn:"আমি এক কাপ কফি নিতে চাই।" },
-  { de:"Auf Wiedersehen! Bis morgen!",               bn:"বিদায়! কাল দেখা হবে!" },
+  { de:"Guten Morgen! Ich lerne Deutsch.",          bn:"শুভ সকাল! আমি German শিখছি।",              en:"Good morning! I'm learning German." },
+  { de:"Wie geht es Ihnen? Mir geht es gut.",        bn:"আপনি কেমন আছেন? আমি ভালো আছি।",             en:"How are you? I'm doing well." },
+  { de:"Ich wohne in Bangladesch.",                  bn:"আমি বাংলাদেশে বাস করি।",                    en:"I live in Bangladesh." },
+  { de:"Das ist ein schönes Buch.",                  bn:"এটি একটি সুন্দর বই।",                       en:"That is a beautiful book." },
+  { de:"Können Sie mir bitte helfen?",               bn:"আপনি কি আমাকে সাহায্য করতে পারবেন?",          en:"Could you please help me?" },
+  { de:"Ich spreche ein bisschen Deutsch.",          bn:"আমি একটু German বলতে পারি।",                en:"I speak a little German." },
+  { de:"Wo ist der Bahnhof, bitte?",                bn:"স্টেশন কোথায়, দয়া করে?",                    en:"Where is the train station, please?" },
+  { de:"Das Wetter ist heute sehr schön.",           bn:"আজকের আবহাওয়া খুব সুন্দর।",                 en:"The weather is very nice today." },
+  { de:"Ich hätte gern eine Tasse Kaffee.",          bn:"আমি এক কাপ কফি নিতে চাই।",                  en:"I would like a cup of coffee." },
+  { de:"Auf Wiedersehen! Bis morgen!",               bn:"বিদায়! কাল দেখা হবে!",                      en:"Goodbye! See you tomorrow!" },
 ];
 let _micIdx = 0, _mediaRecorder = null, _audioChunks = [];
 
@@ -640,7 +649,7 @@ window.playMicSentence = function() {
   if(_micPlaying) {
     responsiveVoice.cancel();
     _micPlaying = false;
-    btn.textContent = "🔊 শুনুন";
+    btn.textContent = "🔊 " + t("sprechen.listen");
     btn.style.background = "rgba(45,212,191,.1)";
     btn.style.color = "#2dd4bf";
     return;
@@ -648,7 +657,7 @@ window.playMicSentence = function() {
 
   responsiveVoice.cancel();
   _micPlaying = true;
-  btn.textContent = "⏹ থামুন";
+  btn.textContent = "⏹ " + t("sprechen.stop");
   btn.style.background = "rgba(251,113,133,.12)";
   btn.style.color = "#fb7185";
 
@@ -656,7 +665,7 @@ window.playMicSentence = function() {
     rate: 0.85,
     onend: () => {
       _micPlaying = false;
-      btn.textContent = "🔊 শুনুন";
+      btn.textContent = "🔊 " + t("sprechen.listen");
       btn.style.background = "rgba(45,212,191,.1)";
       btn.style.color = "#2dd4bf";
     }
@@ -665,13 +674,13 @@ window.playMicSentence = function() {
 function updateMicSentence() {
   const s = MIC_SENTENCES[_micIdx % MIC_SENTENCES.length];
   document.getElementById("mic-sentence-de").textContent = s.de;
-  document.getElementById("mic-sentence-bn").textContent = s.bn;
+  document.getElementById("mic-sentence-bn").textContent = getLang() === "en" ? s.en : s.bn;
 }
 document.getElementById("mic-next-btn").onclick = () => {
   responsiveVoice.cancel();
   _micPlaying = false;
   const btn = document.getElementById("btn-mic-play");
-  if(btn){ btn.textContent="🔊 শুনুন"; btn.style.background="rgba(45,212,191,.1)"; btn.style.color="#2dd4bf"; }
+  if(btn){ btn.textContent="🔊 " + t("sprechen.listen"); btn.style.background="rgba(45,212,191,.1)"; btn.style.color="#2dd4bf"; }
   _micIdx++; updateMicSentence();
 };
 
@@ -691,7 +700,7 @@ micBtn.onclick = async () => {
         const blob = new Blob(_audioChunks, { type:"audio/webm" });
         micAudio.src = URL.createObjectURL(blob);
         micAudio.style.display = "block";
-        micStatus.textContent  = "✅ শুনুন →";
+        micStatus.textContent  = "✅ " + t("sprechen.listen") + " →";
         micBtn.classList.remove("recording");
         _recording = false;
         micBtn.textContent = "🎤";
@@ -700,9 +709,9 @@ micBtn.onclick = async () => {
       _recording = true;
       micBtn.classList.add("recording");
       micBtn.textContent = "⏹";
-      micStatus.textContent = "Recording...";
+      micStatus.textContent = t("sprechen.recording");
     } catch(e) {
-      micStatus.textContent = "Mic অনুমতি দিন";
+      micStatus.textContent = t("sprechen.mic_permission");
     }
   } else {
     _mediaRecorder?.stop();
@@ -717,11 +726,12 @@ function renderPronCards() {
     const a = document.createElement("a");
     a.href = c.href; a.className = "pron-card";
     a.style.cssText = `background:${c.color};border-color:${c.border};--card-accent:${c.accent}`;
+    const desc = getLang() === "en" ? (c.descEn || c.desc) : c.desc;
     a.innerHTML = `
       <span class="pron-icon">${c.icon}</span>
       <div class="pron-title">${c.title}</div>
       <div class="pron-subtitle">${c.subtitle}</div>
-      <div class="pron-desc">${c.desc}</div>
+      <div class="pron-desc">${desc}</div>
       <div class="pron-footer">
         <span class="level-pill ${pillClass(c.level)}">${c.level}</span>
         <span class="xp-chip">+${c.xp} XP</span>
@@ -735,18 +745,19 @@ let _activeFilter = "all";
 function renderTopics() {
   const grid  = document.getElementById("topics-grid");
   grid.innerHTML = "";
-  const shown = SPEAKING_TOPICS.filter(t => _activeFilter === "all" || t.level === _activeFilter);
+  const shown = SPEAKING_TOPICS.filter(topic => _activeFilter === "all" || topic.level === _activeFilter);
   document.getElementById("topic-count").textContent = shown.length;
-  shown.forEach(t => {
+  shown.forEach(topic => {
     const a = document.createElement("a");
-    a.href = t.href; a.className = "topic-card";
-    a.style.cssText = `background:${t.color};border-color:${t.border};--card-accent:#f5c842`;
+    a.href = topic.href; a.className = "topic-card";
+    a.style.cssText = `background:${topic.color};border-color:${topic.border};--card-accent:#f5c842`;
+    const desc = getLang() === "en" ? (topic.descEn || topic.desc) : topic.desc;
     a.innerHTML = `
-      <span class="topic-icon">${t.icon}</span>
-      <div class="topic-title">${t.title}</div>
-      <div class="topic-desc">${t.desc}</div>
+      <span class="topic-icon">${topic.icon}</span>
+      <div class="topic-title">${topic.title}</div>
+      <div class="topic-desc">${desc}</div>
       <div class="topic-footer">
-        <span class="level-pill ${pillClass(t.level)}">${t.level} · +${t.xp} XP</span>
+        <span class="level-pill ${pillClass(topic.level)}">${topic.level} · +${topic.xp} XP</span>
         <span class="topic-arrow">→</span>
       </div>`;
     grid.appendChild(a);
@@ -767,11 +778,12 @@ function renderChallenges() {
   CHALLENGES.forEach(c => {
     const div = document.createElement("div");
     div.className = "challenge-card";
+    const desc = getLang() === "en" ? (c.descEn || c.desc) : c.desc;
     div.innerHTML = `
       <div class="ch-icon">${c.icon}</div>
       <div>
         <div class="ch-title">${c.title}</div>
-        <div class="ch-desc">${c.desc}</div>
+        <div class="ch-desc">${desc}</div>
         <div class="ch-xp">+${c.xp} XP</div>
       </div>`;
     row.appendChild(div);
@@ -800,9 +812,9 @@ function updateFluency(d) {
 /* ── Recent Activity ── */
 function renderActivity(d) {
   const acts = [];
-  if((d.shadowingDone||[]).length)    acts.push({ icon:"🔄", name:"Shadowing", sub:`${d.shadowingDone.length} sets সম্পন্ন`, xp:d.shadowingDone.length*60 });
-  if((d.zungenbrecherDone||[]).length) acts.push({ icon:"👅", name:"Zungenbrecher", sub:`${d.zungenbrecherDone.length} twisters practice`, xp:d.zungenbrecherDone.length*25 });
-  if((d.speakingTasksDone||[]).length) acts.push({ icon:"✅", name:"Daily Tasks", sub:`${d.speakingTasksDone.length} tasks আজ সম্পন্ন`, xp:d.speakingTasksDone.length*12 });
+  if((d.shadowingDone||[]).length)    acts.push({ icon:"🔄", name:"Shadowing", sub:`${d.shadowingDone.length} ${t("sprechen.sets_done")}`, xp:d.shadowingDone.length*60 });
+  if((d.zungenbrecherDone||[]).length) acts.push({ icon:"👅", name:"Zungenbrecher", sub:`${d.zungenbrecherDone.length} ${t("sprechen.twisters_practiced")}`, xp:d.zungenbrecherDone.length*25 });
+  if((d.speakingTasksDone||[]).length) acts.push({ icon:"✅", name:"Daily Tasks", sub:`${d.speakingTasksDone.length} ${t("sprechen.tasks_done_today")}`, xp:d.speakingTasksDone.length*12 });
   const list = document.getElementById("activity-list");
   if(acts.length === 0) return;
   list.innerHTML = "";
@@ -822,6 +834,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d    = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+    renderDynamicContent();
+  }
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderDynamicContent();
+    },
+  });
 
   const name  = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL    || user.photoURL    || "";
@@ -847,12 +870,15 @@ requireAuth(async user => {
     _done = d.speakingTasksDone || [];
   }
 
-  renderTasks();
-  renderPrompt();
-  updateMicSentence();
-  renderPronCards();
-  renderTopics();
-  renderChallenges();
+  function renderDynamicContent() {
+    renderTasks();
+    renderPrompt();
+    updateMicSentence();
+    renderPronCards();
+    renderTopics();
+    renderChallenges();
+  }
+  renderDynamicContent();
   updateFluency(d);
   renderActivity(d);
 

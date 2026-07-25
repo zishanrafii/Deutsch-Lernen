@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rhetorische Meisterschaft — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">💎</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Rhetorische Meisterschaft</h2>
-        <p class="hero-sub">Advanced argumentation ও rhetoric German-এ।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">C2</span>
           <span class="meta-pill xp">+200 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Rhetorik</div>
-            <button onclick="playText('die Rhetorik',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">বক্তৃতাশাস্ত্র</div>
-          <div class="vc-ex">Seine Rhetorik war beeindruckend.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Metapher</div>
-            <button onclick="playText('die Metapher',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">রূপক</div>
-          <div class="vc-ex">Er verwendet treffende Metaphern.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Ironie</div>
-            <button onclick="playText('die Ironie',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">বিদ্রূপ</div>
-          <div class="vc-ex">Das war eine subtile Ironie.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Pathos</div>
-            <button onclick="playText('das Pathos',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">আবেগ</div>
-          <div class="vc-ex">Die Rede war voller Pathos.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Ethos</div>
-            <button onclick="playText('der Ethos',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">নৈতিক বিশ্বাসযোগ্যতা</div>
-          <div class="vc-ex">Ethos ist wichtig für Glaubwürdigkeit.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Logos</div>
-            <button onclick="playText('der Logos',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">যুক্তি</div>
-          <div class="vc-ex">Logos überzeugt durch Vernunft.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Anapher</div>
-            <button onclick="playText('die Anapher',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">anaphora (পুনরাবৃত্তি)</div>
-          <div class="vc-ex">Die Anapher verstärkt die Wirkung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Hyperbel</div>
-            <button onclick="playText('die Hyperbel',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">অতিশয়োক্তি</div>
-          <div class="vc-ex">Das ist eine Hyperbel.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Antithese</div>
-            <button onclick="playText('die Antithese',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">বিরোধ</div>
-          <div class="vc-ex">Die Antithese schafft Spannung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">überwältigend</div>
-            <button onclick="playText('überwältigend',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">অভিভূত করা</div>
-          <div class="vc-ex">Die Argumentation war überwältigend.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">nuanciert</div>
-            <button onclick="playText('nuanciert',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">সূক্ষ্মভাবে পার্থক্যযুক্ত</div>
-          <div class="vc-ex">Eine nuancierte Analyse ist nötig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">eloquent</div>
-            <button onclick="playText('eloquent',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সুবক্তা</div>
-          <div class="vc-ex">Sie ist eine eloquente Rednerin.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie nutzen Sie rhetorische Mittel, um Ihr Publikum zu überzeugen?</div>
-            <div class="dl-bn">দর্শকদের বোঝাতে আপনি কীভাবে rhetorical devices ব্যবহার করেন?</div>
-            <button onclick="playText('Wie nutzen Sie rhetorische Mittel, um Ihr Publikum zu überzeugen?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich kombiniere Ethos, Pathos und Logos. Glaubwürdigkeit, emotionale Resonanz und logische Argumentation.</div>
-            <div class="dl-bn">আমি Ethos, Pathos ও Logos একত্রিত করি। বিশ্বাসযোগ্যতা, আবেগীয় অনুরণন এবং যৌক্তিক যুক্তি।</div>
-            <button onclick="playText('Ich kombiniere Ethos, Pathos und Logos. Glaubwürdigkeit, emotionale Resonanz und logische Argumentation.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Können Sie ein Beispiel für eine wirkungsvolle Metapher geben?</div>
-            <div class="dl-bn">একটি কার্যকর রূপকের উদাহরণ দিতে পারবেন?</div>
-            <button onclick="playText('Können Sie ein Beispiel für eine wirkungsvolle Metapher geben?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Natürlich. Statt zu sagen 'Die Wirtschaft wächst', sage ich: 'Die Wirtschaft blüht auf.' Das ist lebendiger.</div>
-            <div class="dl-bn">অবশ্যই। 'অর্থনীতি বাড়ছে' বলার বদলে বলি: 'অর্থনীতি প্রস্ফুটিত হচ্ছে।' এটা আরো জীবন্ত।</div>
-            <button onclick="playText('Natürlich. Statt zu sagen \'Die Wirtschaft wächst\', sage ich: \'Die Wirtschaft blüht auf.\' Das ist lebendiger.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie vermeiden Sie Sophismen in Ihrer Argumentation?</div>
-            <div class="dl-bn">আপনি কীভাবে আপনার যুক্তিতে sophism এড়ান?</div>
-            <button onclick="playText('Wie vermeiden Sie Sophismen in Ihrer Argumentation?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Durch sorgfältige logische Prüfung jeder Prämisse und durch Offenheit für Gegenargumente.</div>
-            <div class="dl-bn">প্রতিটি premise-এর যত্নশীল যৌক্তিক পরীক্ষা এবং counter-arguments-এর প্রতি উন্মুক্ততার মাধ্যমে।</div>
-            <button onclick="playText('Durch sorgfältige logische Prüfung jeder Prämisse und durch Offenheit für Gegenargumente.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Ethos, Pathos, Logos ব্যবহার করে একটি short speech দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি compelling metaphor তৈরি করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Anapher ব্যবহার করে emphasis তৈরি করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি nuanced argument present করো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+200 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+200 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Wie nutzen Sie rhetorische Mittel, um Ihr Publikum zu überzeugen?', 'Ich kombiniere Ethos, Pathos und Logos. Glaubwürdigkeit, emotionale Resonanz und logische Argumentation.', 'Können Sie ein Beispiel für eine wirkungsvolle Metapher geben?', "Natürlich. Statt zu sagen 'Die Wirtschaft wächst', sage ich: 'Die Wirtschaft blüht auf.' Das ist lebendiger.", 'Wie vermeiden Sie Sophismen in Ihrer Argumentation?', 'Durch sorgfältige logische Prüfung jeder Prämisse und durch Offenheit für Gegenargumente.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'Advanced argumentation ও rhetoric German-এ।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Advanced argumentation and rhetoric in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die Rhetorik', bn:'বক্তৃতাশাস্ত্র', en:'rhetoric', ex:'Seine Rhetorik war beeindruckend.' },
+  { de:'die Metapher', bn:'রূপক', en:'metaphor', ex:'Er verwendet treffende Metaphern.' },
+  { de:'die Ironie', bn:'বিদ্রূপ', en:'irony', ex:'Das war eine subtile Ironie.' },
+  { de:'das Pathos', bn:'আবেগ', en:'pathos', ex:'Die Rede war voller Pathos.' },
+  { de:'der Ethos', bn:'নৈতিক বিশ্বাসযোগ্যতা', en:'ethos', ex:'Ethos ist wichtig für Glaubwürdigkeit.' },
+  { de:'der Logos', bn:'যুক্তি', en:'logos', ex:'Logos überzeugt durch Vernunft.' },
+  { de:'die Anapher', bn:'anaphora (পুনরাবৃত্তি)', en:'anaphora', ex:'Die Anapher verstärkt die Wirkung.' },
+  { de:'die Hyperbel', bn:'অতিশয়োক্তি', en:'hyperbole', ex:'Das ist eine Hyperbel.' },
+  { de:'die Antithese', bn:'বিরোধ', en:'antithesis', ex:'Die Antithese schafft Spannung.' },
+  { de:'überwältigend', bn:'অভিভূত করা', en:'overwhelming', ex:'Die Argumentation war überwältigend.' },
+  { de:'nuanciert', bn:'সূক্ষ্মভাবে পার্থক্যযুক্ত', en:'nuanced', ex:'Eine nuancierte Analyse ist nötig.' },
+  { de:'eloquent', bn:'সুবক্তা', en:'eloquent', ex:'Sie ist eine eloquente Rednerin.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Wie nutzen Sie rhetorische Mittel, um Ihr Publikum zu überzeugen?', bn:'দর্শকদের বোঝাতে আপনি কীভাবে rhetorical devices ব্যবহার করেন?', en:'How do you use rhetorical devices to convince your audience?' },
+  { spk:'b', de:'Ich kombiniere Ethos, Pathos und Logos. Glaubwürdigkeit, emotionale Resonanz und logische Argumentation.', bn:'আমি Ethos, Pathos ও Logos একত্রিত করি। বিশ্বাসযোগ্যতা, আবেগীয় অনুরণন এবং যৌক্তিক যুক্তি।', en:'I combine ethos, pathos, and logos. Credibility, emotional resonance, and logical argumentation.' },
+  { spk:'a', de:'Können Sie ein Beispiel für eine wirkungsvolle Metapher geben?', bn:'একটি কার্যকর রূপকের উদাহরণ দিতে পারবেন?', en:'Can you give an example of an effective metaphor?' },
+  { spk:'b', de:'Natürlich. Statt zu sagen \'Die Wirtschaft wächst\', sage ich: \'Die Wirtschaft blüht auf.\' Das ist lebendiger.', bn:'অবশ্যই। \'অর্থনীতি বাড়ছে\' বলার বদলে বলি: \'অর্থনীতি প্রস্ফুটিত হচ্ছে।\' এটা আরো জীবন্ত।', en:'Of course. Instead of saying \'the economy is growing,\' I say \'the economy is blossoming.\' That\'s more vivid.' },
+  { spk:'a', de:'Wie vermeiden Sie Sophismen in Ihrer Argumentation?', bn:'আপনি কীভাবে আপনার যুক্তিতে sophism এড়ান?', en:'How do you avoid sophistry in your argumentation?' },
+  { spk:'b', de:'Durch sorgfältige logische Prüfung jeder Prämisse und durch Offenheit für Gegenargumente.', bn:'প্রতিটি premise-এর যত্নশীল যৌক্তিক পরীক্ষা এবং counter-arguments-এর প্রতি উন্মুক্ততার মাধ্যমে।', en:'Through careful logical examination of every premise, and openness to counter-arguments.' }
+];
+const TASKS = [
+  { bn:'Ethos, Pathos, Logos ব্যবহার করে একটি short speech দাও।', en:'Give a short speech using ethos, pathos, and logos.' },
+  { bn:'একটি compelling metaphor তৈরি করো।', en:'Create a compelling metaphor.' },
+  { bn:'Anapher ব্যবহার করে emphasis তৈরি করো।', en:'Create emphasis using anaphora.' },
+  { bn:'একটি nuanced argument present করো।', en:'Present a nuanced argument.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-rhetorik"),
-    xp: increment(200),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-rhetorik")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stadt & Orientierung — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🏙️</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Stadt & Orientierung</h2>
-        <p class="hero-sub">শহরে পথ চেনা ও direction দেওয়া German-এ।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A2</span>
           <span class="meta-pill xp">+75 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Straße</div>
-            <button onclick="playText('die Straße',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">রাস্তা</div>
-          <div class="vc-ex">Gehen Sie die Straße entlang.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Kreuzung</div>
-            <button onclick="playText('die Kreuzung',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">মোড়</div>
-          <div class="vc-ex">An der Kreuzung links abbiegen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">geradeaus</div>
-            <button onclick="playText('geradeaus',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">সোজা</div>
-          <div class="vc-ex">Gehen Sie geradeaus.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">links/rechts</div>
-            <button onclick="playText('links/rechts',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">বাঁদিকে/ডানদিকে</div>
-          <div class="vc-ex">Biegen Sie links ab.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Bahnhof</div>
-            <button onclick="playText('der Bahnhof',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">রেলস্টেশন</div>
-          <div class="vc-ex">Der Bahnhof ist in der Nähe.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Rathaus</div>
-            <button onclick="playText('das Rathaus',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">পৌরসভা</div>
-          <div class="vc-ex">Das Rathaus ist im Zentrum.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Apotheke</div>
-            <button onclick="playText('die Apotheke',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">ওষুধের দোকান</div>
-          <div class="vc-ex">Die Apotheke ist geöffnet.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Supermarkt</div>
-            <button onclick="playText('der Supermarkt',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">সুপারমার্কেট</div>
-          <div class="vc-ex">Der Supermarkt ist gleich hier.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">wie weit</div>
-            <button onclick="playText('wie weit',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">কতটুকু দূর</div>
-          <div class="vc-ex">Wie weit ist es zum Bahnhof?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">zu Fuß</div>
-            <button onclick="playText('zu Fuß',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">পায়ে হেঁটে</div>
-          <div class="vc-ex">Zu Fuß sind es fünf Minuten.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Zentrum</div>
-            <button onclick="playText('das Zentrum',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">কেন্দ্র/মাঝখান</div>
-          <div class="vc-ex">Das Hotel ist im Zentrum.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">gegenüber</div>
-            <button onclick="playText('gegenüber',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সামনে/বিপরীতে</div>
-          <div class="vc-ex">Die Bank ist gegenüber.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Entschuldigung, wie komme ich zum Bahnhof?</div>
-            <div class="dl-bn">মাফ করবেন, স্টেশনে কীভাবে যাব?</div>
-            <button onclick="playText('Entschuldigung, wie komme ich zum Bahnhof?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Gehen Sie geradeaus und dann an der Kreuzung links.</div>
-            <div class="dl-bn">সোজা যান তারপর মোড়ে বাঁদিকে।</div>
-            <button onclick="playText('Gehen Sie geradeaus und dann an der Kreuzung links.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie weit ist das?</div>
-            <div class="dl-bn">কতটুকু দূর?</div>
-            <button onclick="playText('Wie weit ist das?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ungefähr zehn Minuten zu Fuß.</div>
-            <div class="dl-bn">পায়ে হেঁটে প্রায় দশ মিনিট।</div>
-            <button onclick="playText('Ungefähr zehn Minuten zu Fuß.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Gibt es dort auch eine Apotheke?</div>
-            <div class="dl-bn">সেখানে কি ওষুধের দোকানও আছে?</div>
-            <button onclick="playText('Gibt es dort auch eine Apotheke?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, die Apotheke ist gleich neben dem Bahnhof.</div>
-            <div class="dl-bn">হ্যাঁ, ওষুধের দোকান স্টেশনের পাশেই আছে।</div>
-            <button onclick="playText('Ja, die Apotheke ist gleich neben dem Bahnhof.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>কাউকে স্টেশনের পথ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>শহরের গুরুত্বপূর্ণ জায়গাগুলো বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Direction দেওয়ার phrases practice করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার পাড়ায় কী কী আছে বলো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+75 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+75 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Entschuldigung, wie komme ich zum Bahnhof?', 'Gehen Sie geradeaus und dann an der Kreuzung links.', 'Wie weit ist das?', 'Ungefähr zehn Minuten zu Fuß.', 'Gibt es dort auch eine Apotheke?', 'Ja, die Apotheke ist gleich neben dem Bahnhof.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'পথ চেনা, direction দেওয়া, শহর বর্ণনা।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Finding your way, giving directions, describing a city.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die Straße', bn:'রাস্তা', en:'street', ex:'Gehen Sie die Straße entlang.' },
+  { de:'die Kreuzung', bn:'মোড়', en:'intersection', ex:'An der Kreuzung links abbiegen.' },
+  { de:'geradeaus', bn:'সোজা', en:'straight ahead', ex:'Gehen Sie geradeaus.' },
+  { de:'links/rechts', bn:'বাঁদিকে/ডানদিকে', en:'left/right', ex:'Biegen Sie links ab.' },
+  { de:'der Bahnhof', bn:'রেলস্টেশন', en:'train station', ex:'Der Bahnhof ist in der Nähe.' },
+  { de:'das Rathaus', bn:'পৌরসভা', en:'town hall', ex:'Das Rathaus ist im Zentrum.' },
+  { de:'die Apotheke', bn:'ওষুধের দোকান', en:'pharmacy', ex:'Die Apotheke ist geöffnet.' },
+  { de:'der Supermarkt', bn:'সুপারমার্কেট', en:'supermarket', ex:'Der Supermarkt ist gleich hier.' },
+  { de:'wie weit', bn:'কতটুকু দূর', en:'how far', ex:'Wie weit ist es zum Bahnhof?' },
+  { de:'zu Fuß', bn:'পায়ে হেঁটে', en:'on foot', ex:'Zu Fuß sind es fünf Minuten.' },
+  { de:'das Zentrum', bn:'কেন্দ্র/মাঝখান', en:'the center', ex:'Das Hotel ist im Zentrum.' },
+  { de:'gegenüber', bn:'সামনে/বিপরীতে', en:'across from/opposite', ex:'Die Bank ist gegenüber.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Entschuldigung, wie komme ich zum Bahnhof?', bn:'মাফ করবেন, স্টেশনে কীভাবে যাব?', en:'Excuse me, how do I get to the train station?' },
+  { spk:'b', de:'Gehen Sie geradeaus und dann an der Kreuzung links.', bn:'সোজা যান তারপর মোড়ে বাঁদিকে।', en:'Go straight, then turn left at the intersection.' },
+  { spk:'a', de:'Wie weit ist das?', bn:'কতটুকু দূর?', en:'How far is that?' },
+  { spk:'b', de:'Ungefähr zehn Minuten zu Fuß.', bn:'পায়ে হেঁটে প্রায় দশ মিনিট।', en:'About ten minutes on foot.' },
+  { spk:'a', de:'Gibt es dort auch eine Apotheke?', bn:'সেখানে কি ওষুধের দোকানও আছে?', en:'Is there a pharmacy there too?' },
+  { spk:'b', de:'Ja, die Apotheke ist gleich neben dem Bahnhof.', bn:'হ্যাঁ, ওষুধের দোকান স্টেশনের পাশেই আছে।', en:'Yes, the pharmacy is right next to the station.' }
+];
+const TASKS = [
+  { bn:'কাউকে স্টেশনের পথ বলো।', en:'Give someone directions to the station.' },
+  { bn:'শহরের গুরুত্বপূর্ণ জায়গাগুলো বলো।', en:'Name the important places in a city.' },
+  { bn:'Direction দেওয়ার phrases practice করো।', en:'Practice phrases for giving directions.' },
+  { bn:'তোমার পাড়ায় কী কী আছে বলো।', en:'Say what\'s in your neighborhood.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-stadt"),
-    xp: increment(75),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-stadt")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rede & Präsentation — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🎤</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Rede & Präsentation</h2>
-        <p class="hero-sub">Formal speech ও presentation German-এ।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">C1</span>
           <span class="meta-pill xp">+150 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">meine Damen und Herren</div>
-            <button onclick="playText('meine Damen und Herren',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">ভদ্রমহিলা ও ভদ্রলোকগণ</div>
-          <div class="vc-ex">Meine Damen und Herren, willkommen!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">gestatten Sie mir</div>
-            <button onclick="playText('gestatten Sie mir',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">আমাকে অনুমতি দিন</div>
-          <div class="vc-ex">Gestatten Sie mir, mich vorzustellen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">im Folgenden</div>
-            <button onclick="playText('im Folgenden',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">নিম্নলিখিতভাবে</div>
-          <div class="vc-ex">Im Folgenden werde ich erläutern...</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">wie ich eingangs erwähnte</div>
-            <button onclick="playText('wie ich eingangs erwähnte',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">যেমন আমি শুরুতে বলেছিলাম</div>
-          <div class="vc-ex">Wie ich eingangs erwähnte...</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">auf den Punkt kommen</div>
-            <button onclick="playText('auf den Punkt kommen',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">মূল বিষয়ে আসা</div>
-          <div class="vc-ex">Ich möchte auf den Punkt kommen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Kernanliegen</div>
-            <button onclick="playText('das Kernanliegen',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">মূল উদ্বেগ</div>
-          <div class="vc-ex">Das Kernanliegen ist folgendes.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">appellieren</div>
-            <button onclick="playText('appellieren',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">আহ্বান জানানো</div>
-          <div class="vc-ex">Ich appelliere an Ihre Vernunft.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">überzeugend darlegen</div>
-            <button onclick="playText('überzeugend darlegen',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">বিশ্বাসযোগ্যভাবে উপস্থাপন করা</div>
-          <div class="vc-ex">Ich möchte überzeugend darlegen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">abschließend</div>
-            <button onclick="playText('abschließend',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">পরিশেষে</div>
-          <div class="vc-ex">Abschließend möchte ich sagen...</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">resümieren</div>
-            <button onclick="playText('resümieren',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">সারসংক্ষেপ করা</div>
-          <div class="vc-ex">Lassen Sie mich resümieren.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Applaus</div>
-            <button onclick="playText('der Applaus',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">করতালি</div>
-          <div class="vc-ex">Vielen Dank für den Applaus!</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Redezeit</div>
-            <button onclick="playText('die Redezeit',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">বক্তৃতার সময়</div>
-          <div class="vc-ex">Ich halte meine Redezeit ein.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Meine sehr geehrten Damen und Herren, ich freue mich, heute hier zu sein.</div>
-            <div class="dl-bn">সম্মানিত ভদ্রমহিলা ও ভদ্রলোকগণ, আজ এখানে থাকতে পেরে আনন্দিত।</div>
-            <button onclick="playText('Meine sehr geehrten Damen und Herren, ich freue mich, heute hier zu sein.',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Im Folgenden werde ich Ihnen drei zentrale Argumente vorstellen.</div>
-            <div class="dl-bn">নিম্নলিখিতভাবে আমি আপনাদের তিনটি মূল যুক্তি উপস্থাপন করব।</div>
-            <button onclick="playText('Im Folgenden werde ich Ihnen drei zentrale Argumente vorstellen.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Das Kernanliegen meines Vortrags ist die Frage der nachhaltigen Entwicklung.</div>
-            <div class="dl-bn">আমার বক্তৃতার মূল বিষয় হলো টেকসই উন্নয়নের প্রশ্ন।</div>
-            <button onclick="playText('Das Kernanliegen meines Vortrags ist die Frage der nachhaltigen Entwicklung.',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie ich eingangs erwähnte, stehen wir vor enormen Herausforderungen.</div>
-            <div class="dl-bn">যেমন আমি শুরুতে বলেছিলাম, আমরা বিশাল চ্যালেঞ্জের সামনে দাঁড়িয়ে আছি।</div>
-            <button onclick="playText('Wie ich eingangs erwähnte, stehen wir vor enormen Herausforderungen.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Abschließend appelliere ich an Sie alle, aktiv zu werden.</div>
-            <div class="dl-bn">পরিশেষে আমি আপনাদের সবাইকে সক্রিয় হওয়ার আহ্বান জানাই।</div>
-            <button onclick="playText('Abschließend appelliere ich an Sie alle, aktiv zu werden.',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ich danke Ihnen für Ihre Aufmerksamkeit und freue mich auf Ihre Fragen.</div>
-            <div class="dl-bn">আপনাদের মনোযোগের জন্য ধন্যবাদ এবং আপনাদের প্রশ্নের অপেক্ষায় আছি।</div>
-            <button onclick="playText('Ich danke Ihnen für Ihre Aufmerksamkeit und freue mich auf Ihre Fragen.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি formal speech-এর opening German-এ দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তিনটি মূল বিষয়ে transition করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি compelling closing statement বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Q&A-তে একটি challenging প্রশ্নের eloquent উত্তর দাও।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+150 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+150 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Meine sehr geehrten Damen und Herren, ich freue mich, heute hier zu sein.', 'Im Folgenden werde ich Ihnen drei zentrale Argumente vorstellen.', 'Das Kernanliegen meines Vortrags ist die Frage der nachhaltigen Entwicklung.', 'Wie ich eingangs erwähnte, stehen wir vor enormen Herausforderungen.', 'Abschließend appelliere ich an Sie alle, aktiv zu werden.', 'Ich danke Ihnen für Ihre Aufmerksamkeit und freue mich auf Ihre Fragen.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'Formal speech ও presentation German-এ।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Formal speeches and presentations, in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'meine Damen und Herren', bn:'ভদ্রমহিলা ও ভদ্রলোকগণ', en:'ladies and gentlemen', ex:'Meine Damen und Herren, willkommen!' },
+  { de:'gestatten Sie mir', bn:'আমাকে অনুমতি দিন', en:'allow me', ex:'Gestatten Sie mir, mich vorzustellen.' },
+  { de:'im Folgenden', bn:'নিম্নলিখিতভাবে', en:'in what follows', ex:'Im Folgenden werde ich erläutern...' },
+  { de:'wie ich eingangs erwähnte', bn:'যেমন আমি শুরুতে বলেছিলাম', en:'as I mentioned at the outset', ex:'Wie ich eingangs erwähnte...' },
+  { de:'auf den Punkt kommen', bn:'মূল বিষয়ে আসা', en:'to get to the point', ex:'Ich möchte auf den Punkt kommen.' },
+  { de:'das Kernanliegen', bn:'মূল উদ্বেগ', en:'the core concern', ex:'Das Kernanliegen ist folgendes.' },
+  { de:'appellieren', bn:'আহ্বান জানানো', en:'to appeal', ex:'Ich appelliere an Ihre Vernunft.' },
+  { de:'überzeugend darlegen', bn:'বিশ্বাসযোগ্যভাবে উপস্থাপন করা', en:'to lay out convincingly', ex:'Ich möchte überzeugend darlegen.' },
+  { de:'abschließend', bn:'পরিশেষে', en:'in closing', ex:'Abschließend möchte ich sagen...' },
+  { de:'resümieren', bn:'সারসংক্ষেপ করা', en:'to summarize', ex:'Lassen Sie mich resümieren.' },
+  { de:'der Applaus', bn:'করতালি', en:'applause', ex:'Vielen Dank für den Applaus!' },
+  { de:'die Redezeit', bn:'বক্তৃতার সময়', en:'speaking time', ex:'Ich halte meine Redezeit ein.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Meine sehr geehrten Damen und Herren, ich freue mich, heute hier zu sein.', bn:'সম্মানিত ভদ্রমহিলা ও ভদ্রলোকগণ, আজ এখানে থাকতে পেরে আনন্দিত।', en:'Distinguished ladies and gentlemen, I\'m delighted to be here today.' },
+  { spk:'b', de:'Im Folgenden werde ich Ihnen drei zentrale Argumente vorstellen.', bn:'নিম্নলিখিতভাবে আমি আপনাদের তিনটি মূল যুক্তি উপস্থাপন করব।', en:'In what follows, I will present three central arguments to you.' },
+  { spk:'a', de:'Das Kernanliegen meines Vortrags ist die Frage der nachhaltigen Entwicklung.', bn:'আমার বক্তৃতার মূল বিষয় হলো টেকসই উন্নয়নের প্রশ্ন।', en:'The core concern of my talk is the question of sustainable development.' },
+  { spk:'b', de:'Wie ich eingangs erwähnte, stehen wir vor enormen Herausforderungen.', bn:'যেমন আমি শুরুতে বলেছিলাম, আমরা বিশাল চ্যালেঞ্জের সামনে দাঁড়িয়ে আছি।', en:'As I mentioned at the outset, we face enormous challenges.' },
+  { spk:'a', de:'Abschließend appelliere ich an Sie alle, aktiv zu werden.', bn:'পরিশেষে আমি আপনাদের সবাইকে সক্রিয় হওয়ার আহ্বান জানাই।', en:'In closing, I appeal to all of you to become active.' },
+  { spk:'b', de:'Ich danke Ihnen für Ihre Aufmerksamkeit und freue mich auf Ihre Fragen.', bn:'আপনাদের মনোযোগের জন্য ধন্যবাদ এবং আপনাদের প্রশ্নের অপেক্ষায় আছি।', en:'Thank you for your attention, and I look forward to your questions.' }
+];
+const TASKS = [
+  { bn:'একটি formal speech-এর opening German-এ দাও।', en:'Give the opening of a formal speech, in German.' },
+  { bn:'তিনটি মূল বিষয়ে transition করো।', en:'Transition between three main points.' },
+  { bn:'একটি compelling closing statement বলো।', en:'Deliver a compelling closing statement.' },
+  { bn:'Q&A-তে একটি challenging প্রশ্নের eloquent উত্তর দাও।', en:'Give an eloquent answer to a challenging question in Q&A.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-rede"),
-    xp: increment(150),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-rede")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

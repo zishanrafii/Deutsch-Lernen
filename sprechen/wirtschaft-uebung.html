@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wirtschaft & Finanzen — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">💰</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Wirtschaft & Finanzen</h2>
-        <p class="hero-sub">Economy, bank, money — B2 level German।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">B2</span>
           <span class="meta-pill xp">+125 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Inflation</div>
-            <button onclick="playText('die Inflation',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">মুদ্রাস্ফীতি</div>
-          <div class="vc-ex">Die Inflation steigt stark.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Investition</div>
-            <button onclick="playText('die Investition',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">বিনিয়োগ</div>
-          <div class="vc-ex">Die Investition hat sich gelohnt.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Rezession</div>
-            <button onclick="playText('die Rezession',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">মন্দা</div>
-          <div class="vc-ex">Wir befinden uns in einer Rezession.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Bruttoinlandsprodukt</div>
-            <button onclick="playText('das Bruttoinlandsprodukt',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">মোট দেশজ উৎপাদন</div>
-          <div class="vc-ex">Das BIP wächst langsam.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Arbeitslosigkeit</div>
-            <button onclick="playText('die Arbeitslosigkeit',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">বেকারত্ব</div>
-          <div class="vc-ex">Die Arbeitslosigkeit ist gestiegen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Aktienmarkt</div>
-            <button onclick="playText('der Aktienmarkt',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">শেয়ার বাজার</div>
-          <div class="vc-ex">Der Aktienmarkt ist volatil.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Haushaltsdefizit</div>
-            <button onclick="playText('das Haushaltsdefizit',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">বাজেট ঘাটতি</div>
-          <div class="vc-ex">Das Haushaltsdefizit ist problematisch.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Steuerpolitik</div>
-            <button onclick="playText('die Steuerpolitik',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">কর নীতি</div>
-          <div class="vc-ex">Die Steuerpolitik muss reformiert werden.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Globalisierung</div>
-            <button onclick="playText('die Globalisierung',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">বিশ্বায়ন</div>
-          <div class="vc-ex">Globalisierung hat Vor- und Nachteile.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Mittelstand</div>
-            <button onclick="playText('der Mittelstand',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">মধ্যবিত্ত উদ্যোক্তা</div>
-          <div class="vc-ex">Der Mittelstand ist wichtig für Deutschland.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Wettbewerbsfähigkeit</div>
-            <button onclick="playText('die Wettbewerbsfähigkeit',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">প্রতিযোগিতামূলকতা</div>
-          <div class="vc-ex">Die Wettbewerbsfähigkeit muss gesteigert werden.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Wohlstand</div>
-            <button onclick="playText('der Wohlstand',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সমৃদ্ধি</div>
-          <div class="vc-ex">Der Wohlstand ist ungleich verteilt.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Was halten Sie von der aktuellen Wirtschaftslage?</div>
-            <div class="dl-bn">বর্তমান অর্থনৈতিক পরিস্থিতি সম্পর্কে আপনার মতামত কী?</div>
-            <button onclick="playText('Was halten Sie von der aktuellen Wirtschaftslage?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Die Inflation bereitet mir Sorgen. Viele Menschen können sich das Leben kaum noch leisten.</div>
-            <div class="dl-bn">মুদ্রাস্ফীতি আমাকে চিন্তিত করে। অনেক মানুষ আর জীবন চালাতে পারছেন না।</div>
-            <button onclick="playText('Die Inflation bereitet mir Sorgen. Viele Menschen können sich das Leben kaum noch leisten.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Welche wirtschaftspolitischen Maßnahmen befürworten Sie?</div>
-            <div class="dl-bn">আপনি কোন অর্থনৈতিক নীতিমালা সমর্থন করেন?</div>
-            <button onclick="playText('Welche wirtschaftspolitischen Maßnahmen befürworten Sie?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Gezielte Investitionen in erneuerbare Energien und Bildung würden langfristig helfen.</div>
-            <div class="dl-bn">নবায়নযোগ্য শক্তি ও শিক্ষায় লক্ষ্যমাত্রা বিনিয়োগ দীর্ঘমেয়াদে সাহায্য করবে।</div>
-            <button onclick="playText('Gezielte Investitionen in erneuerbare Energien und Bildung würden langfristig helfen.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie beurteilen Sie die Auswirkungen der Globalisierung?</div>
-            <div class="dl-bn">বিশ্বায়নের প্রভাব কীভাবে মূল্যায়ন করেন?</div>
-            <button onclick="playText('Wie beurteilen Sie die Auswirkungen der Globalisierung?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ambivalent. Sie schafft Wohlstand, aber verstärkt auch Ungleichheiten.</div>
-            <div class="dl-bn">দ্বিধাবিভক্ত। এটা সমৃদ্ধি তৈরি করে, কিন্তু বৈষম্যও বাড়ায়।</div>
-            <button onclick="playText('Ambivalent. Sie schafft Wohlstand, aber verstärkt auch Ungleichheiten.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>বর্তমান অর্থনৈতিক পরিস্থিতি German-এ analyze করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Inflation-এর কারণ ও প্রভাব বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি economic policy propose করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Personal finance সম্পর্কে কথা বলো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+125 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+125 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Was halten Sie von der aktuellen Wirtschaftslage?', 'Die Inflation bereitet mir Sorgen. Viele Menschen können sich das Leben kaum noch leisten.', 'Welche wirtschaftspolitischen Maßnahmen befürworten Sie?', 'Gezielte Investitionen in erneuerbare Energien und Bildung würden langfristig helfen.', 'Wie beurteilen Sie die Auswirkungen der Globalisierung?', 'Ambivalent. Sie schafft Wohlstand, aber verstärkt auch Ungleichheiten.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'Economy, bank, money — B2 level German।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Economy, banking, money — B2-level German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'die Inflation', bn:'মুদ্রাস্ফীতি', en:'inflation', ex:'Die Inflation steigt stark.' },
+  { de:'die Investition', bn:'বিনিয়োগ', en:'investment', ex:'Die Investition hat sich gelohnt.' },
+  { de:'die Rezession', bn:'মন্দা', en:'recession', ex:'Wir befinden uns in einer Rezession.' },
+  { de:'das Bruttoinlandsprodukt', bn:'মোট দেশজ উৎপাদন', en:'gross domestic product (GDP)', ex:'Das BIP wächst langsam.' },
+  { de:'die Arbeitslosigkeit', bn:'বেকারত্ব', en:'unemployment', ex:'Die Arbeitslosigkeit ist gestiegen.' },
+  { de:'der Aktienmarkt', bn:'শেয়ার বাজার', en:'stock market', ex:'Der Aktienmarkt ist volatil.' },
+  { de:'das Haushaltsdefizit', bn:'বাজেট ঘাটতি', en:'budget deficit', ex:'Das Haushaltsdefizit ist problematisch.' },
+  { de:'die Steuerpolitik', bn:'কর নীতি', en:'tax policy', ex:'Die Steuerpolitik muss reformiert werden.' },
+  { de:'die Globalisierung', bn:'বিশ্বায়ন', en:'globalization', ex:'Globalisierung hat Vor- und Nachteile.' },
+  { de:'der Mittelstand', bn:'মধ্যবিত্ত উদ্যোক্তা', en:'small/medium businesses', ex:'Der Mittelstand ist wichtig für Deutschland.' },
+  { de:'die Wettbewerbsfähigkeit', bn:'প্রতিযোগিতামূলকতা', en:'competitiveness', ex:'Die Wettbewerbsfähigkeit muss gesteigert werden.' },
+  { de:'der Wohlstand', bn:'সমৃদ্ধি', en:'prosperity', ex:'Der Wohlstand ist ungleich verteilt.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Was halten Sie von der aktuellen Wirtschaftslage?', bn:'বর্তমান অর্থনৈতিক পরিস্থিতি সম্পর্কে আপনার মতামত কী?', en:'What do you think of the current economic situation?' },
+  { spk:'b', de:'Die Inflation bereitet mir Sorgen. Viele Menschen können sich das Leben kaum noch leisten.', bn:'মুদ্রাস্ফীতি আমাকে চিন্তিত করে। অনেক মানুষ আর জীবন চালাতে পারছেন না।', en:'Inflation worries me. Many people can barely afford to live anymore.' },
+  { spk:'a', de:'Welche wirtschaftspolitischen Maßnahmen befürworten Sie?', bn:'আপনি কোন অর্থনৈতিক নীতিমালা সমর্থন করেন?', en:'What economic policy measures do you support?' },
+  { spk:'b', de:'Gezielte Investitionen in erneuerbare Energien und Bildung würden langfristig helfen.', bn:'নবায়নযোগ্য শক্তি ও শিক্ষায় লক্ষ্যমাত্রা বিনিয়োগ দীর্ঘমেয়াদে সাহায্য করবে।', en:'Targeted investments in renewable energy and education would help in the long run.' },
+  { spk:'a', de:'Wie beurteilen Sie die Auswirkungen der Globalisierung?', bn:'বিশ্বায়নের প্রভাব কীভাবে মূল্যায়ন করেন?', en:'How do you assess the effects of globalization?' },
+  { spk:'b', de:'Ambivalent. Sie schafft Wohlstand, aber verstärkt auch Ungleichheiten.', bn:'দ্বিধাবিভক্ত। এটা সমৃদ্ধি তৈরি করে, কিন্তু বৈষম্যও বাড়ায়।', en:'Mixed. It creates prosperity but also increases inequality.' }
+];
+const TASKS = [
+  { bn:'বর্তমান অর্থনৈতিক পরিস্থিতি German-এ analyze করো।', en:'Analyze the current economic situation in German.' },
+  { bn:'Inflation-এর কারণ ও প্রভাব বলো।', en:'Talk about the causes and effects of inflation.' },
+  { bn:'একটি economic policy propose করো।', en:'Propose an economic policy.' },
+  { bn:'Personal finance সম্পর্কে কথা বলো।', en:'Talk about personal finance.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-wirtschaft"),
-    xp: increment(125),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-wirtschaft")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

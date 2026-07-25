@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mein Zuhause — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">📍</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Mein Zuhause</h2>
-        <p class="hero-sub">বাড়ি ও পাড়া German-এ বর্ণনা করুন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A1</span>
           <span class="meta-pill xp">+50 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Wohnzimmer</div>
-            <button onclick="playText('das Wohnzimmer',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">বসার ঘর</div>
-          <div class="vc-ex">Das Wohnzimmer ist gemütlich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Schlafzimmer</div>
-            <button onclick="playText('das Schlafzimmer',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">শোয়ার ঘর</div>
-          <div class="vc-ex">Mein Schlafzimmer ist ruhig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Badezimmer</div>
-            <button onclick="playText('das Badezimmer',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">বাথরুম</div>
-          <div class="vc-ex">Das Badezimmer hat eine Badewanne.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Garten</div>
-            <button onclick="playText('der Garten',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">বাগান</div>
-          <div class="vc-ex">Wir haben einen kleinen Garten.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Balkon</div>
-            <button onclick="playText('der Balkon',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">বারান্দা</div>
-          <div class="vc-ex">Ich sitze gern auf dem Balkon.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Treppe</div>
-            <button onclick="playText('die Treppe',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">সিঁড়ি</div>
-          <div class="vc-ex">Die Treppe führt nach oben.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Möbel</div>
-            <button onclick="playText('das Möbel',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">আসবাবপত্র</div>
-          <div class="vc-ex">Die Möbel sind modern.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Nachbarschaft</div>
-            <button onclick="playText('die Nachbarschaft',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">প্রতিবেশী এলাকা</div>
-          <div class="vc-ex">Die Nachbarschaft ist ruhig.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">in der Nähe</div>
-            <button onclick="playText('in der Nähe',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">কাছে</div>
-          <div class="vc-ex">Der Park ist in der Nähe.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Stockwerk</div>
-            <button onclick="playText('das Stockwerk',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">তলা</div>
-          <div class="vc-ex">Ich wohne im dritten Stockwerk.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">gemütlich</div>
-            <button onclick="playText('gemütlich',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">আরামদায়ক</div>
-          <div class="vc-ex">Meine Wohnung ist gemütlich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">hell/dunkel</div>
-            <button onclick="playText('hell/dunkel',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">আলোকিত/অন্ধকার</div>
-          <div class="vc-ex">Das Zimmer ist sehr hell.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie ist deine Wohnung?</div>
-            <div class="dl-bn">তোমার অ্যাপার্টমেন্ট কেমন?</div>
-            <button onclick="playText('Wie ist deine Wohnung?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Sie ist nicht sehr groß, aber sehr gemütlich.</div>
-            <div class="dl-bn">এটা খুব বড় নয়, কিন্তু খুব আরামদায়ক।</div>
-            <button onclick="playText('Sie ist nicht sehr groß, aber sehr gemütlich.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wie viele Zimmer hast du?</div>
-            <div class="dl-bn">তোমার কতটি ঘর আছে?</div>
-            <button onclick="playText('Wie viele Zimmer hast du?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Drei Zimmer: ein Wohnzimmer, ein Schlafzimmer und eine Küche.</div>
-            <div class="dl-bn">তিনটি ঘর: একটি বসার ঘর, একটি শোয়ার ঘর ও একটি রান্নাঘর।</div>
-            <button onclick="playText('Drei Zimmer: ein Wohnzimmer, ein Schlafzimmer und eine Küche.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Hast du einen Balkon oder Garten?</div>
-            <div class="dl-bn">তোমার বারান্দা বা বাগান আছে?</div>
-            <button onclick="playText('Hast du einen Balkon oder Garten?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Ja, ich habe einen kleinen Balkon mit Blumen.</div>
-            <div class="dl-bn">হ্যাঁ, ফুল সহ একটি ছোট বারান্দা আছে।</div>
-            <button onclick="playText('Ja, ich habe einen kleinen Balkon mit Blumen.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার বাড়ি German-এ বর্ণনা দাও।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার ঘরের আসবাবপত্র বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>বাড়ির কাছে কী আছে বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার প্রিয় ঘর কোনটি এবং কেন।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+50 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+50 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Wie ist deine Wohnung?', 'Sie ist nicht sehr groß, aber sehr gemütlich.', 'Wie viele Zimmer hast du?', 'Drei Zimmer: ein Wohnzimmer, ein Schlafzimmer und eine Küche.', 'Hast du einen Balkon oder Garten?', 'Ja, ich habe einen kleinen Balkon mit Blumen.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'বাড়ি ও পাড়া German-এ বর্ণনা করুন।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Describe your home and neighborhood in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'das Wohnzimmer', bn:'বসার ঘর', en:'living room', ex:'Das Wohnzimmer ist gemütlich.' },
+  { de:'das Schlafzimmer', bn:'শোয়ার ঘর', en:'bedroom', ex:'Mein Schlafzimmer ist ruhig.' },
+  { de:'das Badezimmer', bn:'বাথরুম', en:'bathroom', ex:'Das Badezimmer hat eine Badewanne.' },
+  { de:'der Garten', bn:'বাগান', en:'garden', ex:'Wir haben einen kleinen Garten.' },
+  { de:'der Balkon', bn:'বারান্দা', en:'balcony', ex:'Ich sitze gern auf dem Balkon.' },
+  { de:'die Treppe', bn:'সিঁড়ি', en:'stairs', ex:'Die Treppe führt nach oben.' },
+  { de:'das Möbel', bn:'আসবাবপত্র', en:'furniture', ex:'Die Möbel sind modern.' },
+  { de:'die Nachbarschaft', bn:'প্রতিবেশী এলাকা', en:'neighborhood', ex:'Die Nachbarschaft ist ruhig.' },
+  { de:'in der Nähe', bn:'কাছে', en:'nearby', ex:'Der Park ist in der Nähe.' },
+  { de:'das Stockwerk', bn:'তলা', en:'floor/story', ex:'Ich wohne im dritten Stockwerk.' },
+  { de:'gemütlich', bn:'আরামদায়ক', en:'cozy', ex:'Meine Wohnung ist gemütlich.' },
+  { de:'hell/dunkel', bn:'আলোকিত/অন্ধকার', en:'bright/dark', ex:'Das Zimmer ist sehr hell.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Wie ist deine Wohnung?', bn:'তোমার অ্যাপার্টমেন্ট কেমন?', en:'What\'s your apartment like?' },
+  { spk:'b', de:'Sie ist nicht sehr groß, aber sehr gemütlich.', bn:'এটা খুব বড় নয়, কিন্তু খুব আরামদায়ক।', en:'It\'s not very big, but it\'s very cozy.' },
+  { spk:'a', de:'Wie viele Zimmer hast du?', bn:'তোমার কতটি ঘর আছে?', en:'How many rooms do you have?' },
+  { spk:'b', de:'Drei Zimmer: ein Wohnzimmer, ein Schlafzimmer und eine Küche.', bn:'তিনটি ঘর: একটি বসার ঘর, একটি শোয়ার ঘর ও একটি রান্নাঘর।', en:'Three rooms: a living room, a bedroom, and a kitchen.' },
+  { spk:'a', de:'Hast du einen Balkon oder Garten?', bn:'তোমার বারান্দা বা বাগান আছে?', en:'Do you have a balcony or garden?' },
+  { spk:'b', de:'Ja, ich habe einen kleinen Balkon mit Blumen.', bn:'হ্যাঁ, ফুল সহ একটি ছোট বারান্দা আছে।', en:'Yes, I have a small balcony with flowers.' }
+];
+const TASKS = [
+  { bn:'তোমার বাড়ি German-এ বর্ণনা দাও।', en:'Describe your home in German.' },
+  { bn:'তোমার ঘরের আসবাবপত্র বলো।', en:'Talk about the furniture in your room.' },
+  { bn:'বাড়ির কাছে কী আছে বলো।', en:'Say what\'s near your home.' },
+  { bn:'তোমার প্রিয় ঘর কোনটি এবং কেন।', en:'Say which room is your favorite, and why.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,7 +375,7 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-zuhause"),
     xp: increment(50),
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-zuhause")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

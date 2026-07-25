@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lange & kurze Vokale — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -136,9 +137,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -154,14 +156,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">📏</div>
       <div>
-        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Lange & kurze Vokale</h2>
-        <p class="hero-sub">দীর্ঘ ও হ্রস্ব স্বর — German-এ vowel length অর্থ বদলে দেয়। Bieten vs bitten!</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill accent">Level: A2</span>
           <span class="meta-pill accent">+35 XP</span>
-          <span class="meta-pill">12 Examples</span>
-          <span class="meta-pill">5 Exercises</span>
+          <span class="meta-pill" id="meta-examples"></span>
+          <span class="meta-pill" id="meta-exercises"></span>
         </div>
       </div>
     </div>
@@ -175,78 +177,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- THEORY -->
-  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
-  <div class="theory-box">
-    
-    <p><strong>Lange Vokale (দীর্ঘ স্বর)</strong> — দ্বিগুণ সময় ধরে বলো।<br>
-    চেনার উপায়: vowel-এর পরে <strong>h</strong> (Zahl), double vowel (Staat, Teer), বা একটি consonant (Weg)।</p>
-    <p><strong>Kurze Vokale (হ্রস্ব স্বর)</strong> — দ্রুত, স্পষ্ট।<br>
-    চেনার উপায়: vowel-এর পরে দুটি consonant (Mutter, bitte, offen)।</p>
-    <p><strong>গুরুত্বপূর্ণ জোড়া:</strong><br>
-    <strong>bieten</strong> [ˈbiːtən] (offer) vs <strong>bitten</strong> [ˈbɪtən] (ask) — ie vs i<br>
-    <strong>Staat</strong> [ʃtaːt] (state) vs <strong>Stadt</strong> [ʃtat] (city) — aa vs a</p>
-    <div class="tip-box"><strong>💡 নিয়ম:</strong> VV বা Vh = দীর্ঘ | VCC = হ্রস্ব (V=vowel, C=consonant)</div>
-    
-  </div>
+  <div class="section-title" id="theory-title"></div>
+  <div class="theory-box" id="theory-box"></div>
 
+  
   <!-- EXAMPLES -->
-  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="section-title" id="examples-title"></div>
   <div class="examples-grid" id="examples-grid"></div>
 
   <!-- EXERCISES -->
-  <div class="section-title">✏️ Practice Exercises</div>
-  <div class="exercises-wrap">
-    
-        <div class="ex-item" id="ex-0">
-          <div class="ex-q">1. 'bieten' ও 'bitten'-এর পার্থক্য কী?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(0,0,this)">consonant</button><button class="opt-btn" onclick="checkAns(0,1,this)">vowel length</button><button class="opt-btn" onclick="checkAns(0,2,this)">meaning same</button><button class="opt-btn" onclick="checkAns(0,3,this)">তফাৎ নেই</button>
-          </div>
-          <div class="ex-feedback" id="fb-0"></div>
-        </div>
-        <div class="ex-item" id="ex-1">
-          <div class="ex-q">2. 'Staat'-এ 'aa' কীভাবে উচ্চারিত হয়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(1,0,this)">[a] হ্রস্ব</button><button class="opt-btn" onclick="checkAns(1,1,this)">[aː] দীর্ঘ</button><button class="opt-btn" onclick="checkAns(1,2,this)">[æ]</button><button class="opt-btn" onclick="checkAns(1,3,this)">[ɛ]</button>
-          </div>
-          <div class="ex-feedback" id="fb-1"></div>
-        </div>
-        <div class="ex-item" id="ex-2">
-          <div class="ex-q">3. কোন শব্দে vowel দীর্ঘ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(2,0,this)">Mutter</button><button class="opt-btn" onclick="checkAns(2,1,this)">bitten</button><button class="opt-btn" onclick="checkAns(2,2,this)">Zahl</button><button class="opt-btn" onclick="checkAns(2,3,this)">offen</button>
-          </div>
-          <div class="ex-feedback" id="fb-2"></div>
-        </div>
-        <div class="ex-item" id="ex-3">
-          <div class="ex-q">4. 'Ofen' vs 'offen' — পার্থক্য কোথায়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(3,0,this)">vowel length</button><button class="opt-btn" onclick="checkAns(3,1,this)">consonant</button><button class="opt-btn" onclick="checkAns(3,2,this)">meaning same</button><button class="opt-btn" onclick="checkAns(3,3,this)">কোনোটাই না</button>
-          </div>
-          <div class="ex-feedback" id="fb-3"></div>
-        </div>
-        <div class="ex-item" id="ex-4">
-          <div class="ex-q">5. double consonant (VCC) মানে vowel কেমন?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(4,0,this)">দীর্ঘ</button><button class="opt-btn" onclick="checkAns(4,1,this)">হ্রস্ব</button><button class="opt-btn" onclick="checkAns(4,2,this)">silent</button><button class="opt-btn" onclick="checkAns(4,3,this)">পরিবর্তিত</button>
-          </div>
-          <div class="ex-feedback" id="fb-4"></div>
-        </div>
-  </div>
+  <div class="section-title" id="exercises-title"></div>
+  <div class="exercises-wrap" id="exercises-wrap"></div>
 
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      <strong>Lange & kurze Vokale</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+35 XP</strong> পাবে।
-      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+35 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <!-- PAGE NAV -->
   <div class="page-nav">
     <a href="sp-st.html" class="nav-btn">← Sp St</a>
-    <a href="w-v-f.html" class="nav-btn gold">পরের Topic: W V F →</a>
+    <a href="w-v-f.html" class="nav-btn gold"><span id="next-topic-label"></span></a>
   </div>
 </div>
 
@@ -254,41 +208,113 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const EXAMPLES = [{'word': 'bieten [iː]', 'ipa': 'ˈbiːtən', 'bn': 'offer করা', 'sentence': 'Ich biete Hilfe an.'}, {'word': 'bitten [ɪ]', 'ipa': 'ˈbɪtən', 'bn': 'অনুরোধ করা', 'sentence': 'Ich bitte dich.'}, {'word': 'Staat [aː]', 'ipa': 'ʃtaːt', 'bn': 'রাষ্ট্র', 'sentence': 'Der Staat hilft.'}, {'word': 'Stadt [a]', 'ipa': 'ʃtat', 'bn': 'শহর', 'sentence': 'Die Stadt ist groß.'}, {'word': 'Zahl [aː]', 'ipa': 'tsaːl', 'bn': 'সংখ্যা', 'sentence': 'Die Zahl ist groß.'}, {'word': 'Saal [aː]', 'ipa': 'zaːl', 'bn': 'হলরুম', 'sentence': 'Der Saal ist voll.'}, {'word': 'offen [ɔ]', 'ipa': 'ˈɔfən', 'bn': 'খোলা', 'sentence': 'Die Tür ist offen.'}, {'word': 'Ofen [oː]', 'ipa': 'ˈoːfn̩', 'bn': 'চুলা', 'sentence': 'Der Ofen ist heiß.'}, {'word': 'Miete [iː]', 'ipa': 'ˈmiːtə', 'bn': 'ভাড়া', 'sentence': 'Die Miete ist hoch.'}, {'word': 'Mitte [ɪ]', 'ipa': 'ˈmɪtə', 'bn': 'মাঝখান', 'sentence': 'In der Mitte.'}, {'word': 'Hüte [yː]', 'ipa': 'ˈhyːtə', 'bn': 'টুপি (pl)', 'sentence': 'Die Hüte sind schön.'}, {'word': 'Hütte [ʏ]', 'ipa': 'ˈhʏtə', 'bn': 'কুটির', 'sentence': 'Eine kleine Hütte.'}];
-const ANSWERS  = [1, 1, 2, 0, 1];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
 let _voice = "Deutsch Female";
 let _score = 0;
 let _uid;
 
-window.setVoice = function(v, btn) {
-  _voice = v;
-  document.querySelectorAll(".vbtn").forEach(b => {
-    b.classList.remove("active","male-active");
-    b.style.cssText="";
-  });
-  if(v === "Deutsch Female") {
-    btn.classList.add("active");
-  } else {
-    btn.classList.add("male-active");
-  }
+const CHROME = {
+  bn: {
+    eyebrow: '🔤 Aussprache Guide',
+    theoryTitle: '📖 Theory — কীভাবে উচ্চারণ করবে',
+    examplesTitle: '🔊 Examples — শুনুন ও repeat করুন',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'সম্পন্ন করলে',
+    xpHint: 'সব exercises করার পর Complete বাটন চাপো।',
+    completeBtn: '⭐ Complete করুন',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন হয়েছে',
+    correct: '✅ সঠিক!',
+    wrong: '❌ ভুল। সঠিক উত্তর highlight হয়েছে।',
+    subtitle: 'দীর্ঘ ও হ্রস্ব স্বর — German-এ vowel length অর্থ বদলে দেয়। Bieten vs bitten!',
+  },
+  en: {
+    eyebrow: '🔤 Pronunciation Guide',
+    theoryTitle: '📖 Theory — how to pronounce it',
+    examplesTitle: '🔊 Examples — listen and repeat',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'to complete for',
+    xpHint: 'Press Complete after finishing all exercises.',
+    completeBtn: '⭐ Complete',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    correct: '✅ Correct!',
+    wrong: '❌ Wrong. The correct answer is highlighted.',
+    subtitle: 'Long and short vowels — vowel length changes meaning in German. Bieten vs. bitten!',
+  },
 };
+const THEORY_BN = '<p><strong>Lange Vokale (দীর্ঘ স্বর)</strong> — দ্বিগুণ সময় ধরে বলো।<br>চেনার উপায়: vowel-এর পরে <strong>h</strong> (Zahl), double vowel (Staat, Teer), বা একটি consonant (Weg)।</p><p><strong>Kurze Vokale (হ্রস্ব স্বর)</strong> — দ্রুত, স্পষ্ট।<br>চেনার উপায়: vowel-এর পরে দুটি consonant (Mutter, bitte, offen)।</p><p><strong>গুরুত্বপূর্ণ জোড়া:</strong><br><strong>bieten</strong> [ˈbiːtən] (offer) vs <strong>bitten</strong> [ˈbɪtən] (ask) — ie vs i<br><strong>Staat</strong> [ʃtaːt] (state) vs <strong>Stadt</strong> [ʃtat] (city) — aa vs a</p><div class="tip-box"><strong>💡 নিয়ম:</strong> VV বা Vh = দীর্ঘ | VCC = হ্রস্ব (V=vowel, C=consonant)</div>';
+const THEORY_EN = '<p><strong>Lange Vokale (long vowels)</strong> — held for roughly double the length.<br>How to spot them: an <strong>h</strong> after the vowel (Zahl), a double vowel (Staat, Teer), or a single consonant (Weg).</p><p><strong>Kurze Vokale (short vowels)</strong> — quick and crisp.<br>How to spot them: two consonants after the vowel (Mutter, bitte, offen).</p><p><strong>Important pairs:</strong><br><strong>bieten</strong> [ˈbiːtən] (to offer) vs <strong>bitten</strong> [ˈbɪtən] (to ask) — ie vs i<br><strong>Staat</strong> [ʃtaːt] (state) vs <strong>Stadt</strong> [ʃtat] (city) — aa vs a</p><div class="tip-box"><strong>💡 Rule of thumb:</strong> VV or Vh = long | VCC = short (V=vowel, C=consonant)</div>';
+const EXAMPLES = [
+  { word:'bieten [iː]', ipa:'ˈbiːtən', bn:'offer করা', en:'to offer', sentence:'Ich biete Hilfe an.' },
+  { word:'bitten [ɪ]', ipa:'ˈbɪtən', bn:'অনুরোধ করা', en:'to ask/request', sentence:'Ich bitte dich.' },
+  { word:'Staat [aː]', ipa:'ʃtaːt', bn:'রাষ্ট্র', en:'state', sentence:'Der Staat hilft.' },
+  { word:'Stadt [a]', ipa:'ʃtat', bn:'শহর', en:'city', sentence:'Die Stadt ist groß.' },
+  { word:'Zahl [aː]', ipa:'tsaːl', bn:'সংখ্যা', en:'number', sentence:'Die Zahl ist groß.' },
+  { word:'Saal [aː]', ipa:'zaːl', bn:'হলরুম', en:'hall', sentence:'Der Saal ist voll.' },
+  { word:'offen [ɔ]', ipa:'ˈɔfən', bn:'খোলা', en:'open', sentence:'Die Tür ist offen.' },
+  { word:'Ofen [oː]', ipa:'ˈoːfn̩', bn:'চুলা', en:'oven/stove', sentence:'Der Ofen ist heiß.' },
+  { word:'Miete [iː]', ipa:'ˈmiːtə', bn:'ভাড়া', en:'rent', sentence:'Die Miete ist hoch.' },
+  { word:'Mitte [ɪ]', ipa:'ˈmɪtə', bn:'মাঝখান', en:'middle/center', sentence:'In der Mitte.' },
+  { word:'Hüte [yː]', ipa:'ˈhyːtə', bn:'টুপি (pl)', en:'hats', sentence:'Die Hüte sind schön.' },
+  { word:'Hütte [ʏ]', ipa:'ˈhʏtə', bn:'কুটির', en:'hut/cabin', sentence:'Eine kleine Hütte.' }
+];
+const EXERCISES = [
+  { qBn:'\'bieten\' ও \'bitten\'-এর পার্থক্য কী?', qEn:'What\'s the difference between \'bieten\' and \'bitten\'?', opts:[{ bn:'consonant', en:'consonant' }, { bn:'vowel length', en:'vowel length' }, { bn:'meaning same', en:'same meaning' }, { bn:'তফাৎ নেই', en:'no difference' }], answer:1 },
+  { qBn:'\'Staat\'-এ \'aa\' কীভাবে উচ্চারিত হয়?', qEn:'How is \'aa\' pronounced in \'Staat\'?', opts:[{ bn:'[a] হ্রস্ব', en:'[a] short' }, { bn:'[aː] দীর্ঘ', en:'[aː] long' }, { bn:'[æ]', en:'[æ]' }, { bn:'[ɛ]', en:'[ɛ]' }], answer:1 },
+  { qBn:'কোন শব্দে vowel দীর্ঘ?', qEn:'In which word is the vowel long?', opts:[{ bn:'Mutter', en:'Mutter' }, { bn:'bitten', en:'bitten' }, { bn:'Zahl', en:'Zahl' }, { bn:'offen', en:'offen' }], answer:2 },
+  { qBn:'\'Ofen\' vs \'offen\' — পার্থক্য কোথায়?', qEn:'\'Ofen\' vs \'offen\' — what\'s the difference?', opts:[{ bn:'vowel length', en:'vowel length' }, { bn:'consonant', en:'consonant' }, { bn:'meaning same', en:'same meaning' }, { bn:'কোনোটাই না', en:'neither' }], answer:0 },
+  { qBn:'double consonant (VCC) মানে vowel কেমন?', qEn:'A double consonant (VCC) means the vowel is what?', opts:[{ bn:'দীর্ঘ', en:'long' }, { bn:'হ্রস্ব', en:'short' }, { bn:'silent', en:'silent' }, { bn:'পরিবর্তিত', en:'changed' }], answer:1 }
+];
 
-/* Build example cards */
-const grid = document.getElementById("examples-grid");
-EXAMPLES.forEach((ex, i) => {
-  const card = document.createElement("div");
-  card.className = "ex-card";
-  card.innerHTML = `
-    <div class="ex-word">${ex.word}</div>
-    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
-    <div class="ex-bn">${ex.bn}</div>
-    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
-    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
-  grid.appendChild(card);
-});
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+let _answered = new Set();
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent = c.eyebrow;
+  document.getElementById("hero-sub").textContent = c.subtitle;
+  document.getElementById("meta-examples").textContent = `12 ${getLang()==="en"?"Examples":"Examples"}`;
+  document.getElementById("meta-exercises").textContent = `5 ${getLang()==="en"?"Exercises":"Exercises"}`;
+  document.getElementById("theory-title").textContent = c.theoryTitle;
+  document.getElementById("examples-title").textContent = c.examplesTitle;
+  document.getElementById("exercises-title").textContent = c.exercisesTitle;
+  document.getElementById("theory-box").innerHTML = getLang() === "en" ? THEORY_EN : THEORY_BN;
+  document.getElementById("xp-banner-text").innerHTML =
+    `<strong>Lange & kurze Vokale</strong> ${c.xpAfter} <strong style="color:var(--gold)">+35 XP</strong>` +
+    `<div style="margin-top:3px;font-size:11.5px;">${c.xpHint}</div>`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn + " (+35 XP)"; }
+  const nextLbl = document.getElementById("next-topic-label");
+  if (nextLbl) nextLbl.textContent = (getLang()==="en" ? "Next topic: " : "পরের Topic: ") + 'W, V und F' + " →";
+}
+
+function renderExamples() {
+  const grid = document.getElementById("examples-grid");
+  grid.innerHTML = "";
+  EXAMPLES.forEach((ex, i) => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML = `
+      <div class="ex-word">${ex.word}</div>
+      ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+      <div class="ex-bn">${localized(ex)}</div>
+      ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+      <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+    grid.appendChild(card);
+  });
+}
 
 window.playEx = function(i) {
-  const ex  = EXAMPLES[i];
+  const ex = EXAMPLES[i];
   const btn = document.getElementById("pb-"+i);
   btn.textContent = "⏹ Stop"; btn.classList.add("playing");
   responsiveVoice.speak(ex.word, _voice, {
@@ -297,27 +323,54 @@ window.playEx = function(i) {
   });
 };
 
-/* Exercises */
+function renderExercises() {
+  const wrap = document.getElementById("exercises-wrap");
+  wrap.innerHTML = EXERCISES.map((ex, qi) => `
+    <div class="ex-item" id="ex-${qi}">
+      <div class="ex-q">${qi+1}. ${getLang()==="en" ? ex.qEn : ex.qBn}</div>
+      <div class="ex-opts">
+        ${ex.opts.map((o, ai) => `<button class="opt-btn" onclick="checkAns(${qi},${ai},this)">${getLang()==="en" ? (o.en||o.bn) : o.bn}</button>`).join("")}
+      </div>
+      <div class="ex-feedback" id="fb-${qi}"></div>
+    </div>`).join("");
+}
+
 window.checkAns = function(qi, ai, btn) {
-  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
-  const correct = ANSWERS[qi];
+  if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+  const c = chrome();
+  const correct = EXERCISES[qi].answer;
   const fb = document.getElementById("fb-"+qi);
   document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
-  if(ai === correct) {
+  if (ai === correct) {
     btn.classList.add("correct");
-    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    fb.textContent = c.correct; fb.style.color = "#34d399";
     _score++;
   } else {
     btn.classList.add("wrong");
     document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
-    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+    fb.textContent = c.wrong; fb.style.color = "#fb7185";
   }
+  _answered.add(qi);
 };
 
-/* Complete */
+function renderPronPage() {
+  renderChrome(); renderExamples(); renderExercises();
+}
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") { btn.classList.add("active"); }
+  else { btn.classList.add("male-active"); }
+};
+
+
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled = true; btn.textContent = chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("aussprache-vokale"),
     xp: increment(35),
@@ -329,6 +382,18 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderPronPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderPronPage();
+    },
+  });
+
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
@@ -336,8 +401,9 @@ requireAuth(async user => {
   if(photo) av.innerHTML = `<img src="${photo}">`;
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("aussprache-vokale")) {
+    _completed = true;
     const btn = document.getElementById("btn-complete");
-    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+    btn.disabled = true; btn.textContent = chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
 });

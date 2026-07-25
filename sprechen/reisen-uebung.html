@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reisen & Verkehr — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🚉</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Reisen & Verkehr</h2>
-        <p class="hero-sub">Train, Bus, Flughafen — travel German phrases।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A2</span>
           <span class="meta-pill xp">+75 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Ticket</div>
-            <button onclick="playText('das Ticket',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">টিকিট</div>
-          <div class="vc-ex">Ich brauche ein Ticket.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Bahnsteig</div>
-            <button onclick="playText('der Bahnsteig',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">প্ল্যাটফর্ম</div>
-          <div class="vc-ex">Der Zug fährt von Bahnsteig 5.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">abfahren/ankommen</div>
-            <button onclick="playText('abfahren/ankommen',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">ছাড়া/পৌঁছানো</div>
-          <div class="vc-ex">Der Zug fährt um 10 Uhr ab.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">umsteigen</div>
-            <button onclick="playText('umsteigen',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">ট্রেন বদলানো</div>
-          <div class="vc-ex">Sie müssen in Köln umsteigen.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Verspätung</div>
-            <button onclick="playText('die Verspätung',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">দেরি</div>
-          <div class="vc-ex">Der Zug hat 20 Minuten Verspätung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Flug</div>
-            <button onclick="playText('der Flug',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">ফ্লাইট</div>
-          <div class="vc-ex">Mein Flug ist um 14 Uhr.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">einchecken</div>
-            <button onclick="playText('einchecken',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">চেক-ইন করা</div>
-          <div class="vc-ex">Wo kann ich einchecken?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Gepäck</div>
-            <button onclick="playText('das Gepäck',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">মালপত্র</div>
-          <div class="vc-ex">Mein Gepäck ist zu schwer.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">die Reservierung</div>
-            <button onclick="playText('die Reservierung',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">রিজার্ভেশন</div>
-          <div class="vc-ex">Ich habe eine Reservierung.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">hin und zurück</div>
-            <button onclick="playText('hin und zurück',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">আসা-যাওয়া</div>
-          <div class="vc-ex">Einmal hin und zurück bitte.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Ausgang</div>
-            <button onclick="playText('der Ausgang',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">বের হওয়ার পথ</div>
-          <div class="vc-ex">Wo ist der Ausgang?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">pünktlich</div>
-            <button onclick="playText('pünktlich',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সময়মতো</div>
-          <div class="vc-ex">Der Zug ist pünktlich.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Einmal nach Berlin, bitte. Hin und zurück.</div>
-            <div class="dl-bn">একবার বার্লিন পর্যন্ত, দয়া করে। আসা-যাওয়া।</div>
-            <button onclick="playText('Einmal nach Berlin, bitte. Hin und zurück.',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Wann möchten Sie fahren?</div>
-            <div class="dl-bn">কখন যেতে চান?</div>
-            <button onclick="playText('Wann möchten Sie fahren?',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Morgen früh, so gegen 8 Uhr.</div>
-            <div class="dl-bn">আগামীকাল সকালে, প্রায় ৮টায়।</div>
-            <button onclick="playText('Morgen früh, so gegen 8 Uhr.',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Es gibt einen Zug um 8:15 Uhr. Der kostet 45 Euro.</div>
-            <div class="dl-bn">৮:১৫ টায় একটি ট্রেন আছে। এটা ৪৫ ইউরো।</div>
-            <button onclick="playText('Es gibt einen Zug um 8:15 Uhr. Der kostet 45 Euro.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Muss ich umsteigen?</div>
-            <div class="dl-bn">আমাকে কি ট্রেন বদলাতে হবে?</div>
-            <button onclick="playText('Muss ich umsteigen?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Nein, es ist ein Direktzug. Von Bahnsteig 3.</div>
-            <div class="dl-bn">না, এটা সরাসরি ট্রেন। প্ল্যাটফর্ম ৩ থেকে।</div>
-            <button onclick="playText('Nein, es ist ein Direktzug. Von Bahnsteig 3.',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>টিকিট কিনতে গেলে কী বলবে।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>ট্রেনের সময়সূচি জিজ্ঞেস করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Verspätung সম্পর্কে জিজ্ঞেস করো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>Flughafen-এ check-in করার phrases বলো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+75 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+75 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Einmal nach Berlin, bitte. Hin und zurück.', 'Wann möchten Sie fahren?', 'Morgen früh, so gegen 8 Uhr.', 'Es gibt einen Zug um 8:15 Uhr. Der kostet 45 Euro.', 'Muss ich umsteigen?', 'Nein, es ist ein Direktzug. Von Bahnsteig 3.'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'Train, Bus, Flughafen — travel German phrases।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Train, bus, airport — travel German phrases.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'das Ticket', bn:'টিকিট', en:'ticket', ex:'Ich brauche ein Ticket.' },
+  { de:'der Bahnsteig', bn:'প্ল্যাটফর্ম', en:'platform', ex:'Der Zug fährt von Bahnsteig 5.' },
+  { de:'abfahren/ankommen', bn:'ছাড়া/পৌঁছানো', en:'to depart/to arrive', ex:'Der Zug fährt um 10 Uhr ab.' },
+  { de:'umsteigen', bn:'ট্রেন বদলানো', en:'to change trains', ex:'Sie müssen in Köln umsteigen.' },
+  { de:'die Verspätung', bn:'দেরি', en:'delay', ex:'Der Zug hat 20 Minuten Verspätung.' },
+  { de:'der Flug', bn:'ফ্লাইট', en:'flight', ex:'Mein Flug ist um 14 Uhr.' },
+  { de:'einchecken', bn:'চেক-ইন করা', en:'to check in', ex:'Wo kann ich einchecken?' },
+  { de:'das Gepäck', bn:'মালপত্র', en:'luggage', ex:'Mein Gepäck ist zu schwer.' },
+  { de:'die Reservierung', bn:'রিজার্ভেশন', en:'reservation', ex:'Ich habe eine Reservierung.' },
+  { de:'hin und zurück', bn:'আসা-যাওয়া', en:'round trip', ex:'Einmal hin und zurück bitte.' },
+  { de:'der Ausgang', bn:'বের হওয়ার পথ', en:'exit', ex:'Wo ist der Ausgang?' },
+  { de:'pünktlich', bn:'সময়মতো', en:'on time', ex:'Der Zug ist pünktlich.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Einmal nach Berlin, bitte. Hin und zurück.', bn:'একবার বার্লিন পর্যন্ত, দয়া করে। আসা-যাওয়া।', en:'One ticket to Berlin, please. Round trip.' },
+  { spk:'b', de:'Wann möchten Sie fahren?', bn:'কখন যেতে চান?', en:'When would you like to travel?' },
+  { spk:'a', de:'Morgen früh, so gegen 8 Uhr.', bn:'আগামীকাল সকালে, প্রায় ৮টায়।', en:'Tomorrow morning, around 8 o\'clock.' },
+  { spk:'b', de:'Es gibt einen Zug um 8:15 Uhr. Der kostet 45 Euro.', bn:'৮:১৫ টায় একটি ট্রেন আছে। এটা ৪৫ ইউরো।', en:'There\'s a train at 8:15. It costs 45 euros.' },
+  { spk:'a', de:'Muss ich umsteigen?', bn:'আমাকে কি ট্রেন বদলাতে হবে?', en:'Do I have to change trains?' },
+  { spk:'b', de:'Nein, es ist ein Direktzug. Von Bahnsteig 3.', bn:'না, এটা সরাসরি ট্রেন। প্ল্যাটফর্ম ৩ থেকে।', en:'No, it\'s a direct train. From platform 3.' }
+];
+const TASKS = [
+  { bn:'টিকিট কিনতে গেলে কী বলবে।', en:'Say what you\'d ask when buying a ticket.' },
+  { bn:'ট্রেনের সময়সূচি জিজ্ঞেস করো।', en:'Ask about the train schedule.' },
+  { bn:'Verspätung সম্পর্কে জিজ্ঞেস করো।', en:'Ask about a delay.' },
+  { bn:'Flughafen-এ check-in করার phrases বলো।', en:'Say phrases for checking in at the airport.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,10 +375,10 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-reisen"),
-    xp: increment(75),
+    xp: increment(50),
     sessions: increment(1),
   }).catch(()=>{});
 };
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-reisen")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

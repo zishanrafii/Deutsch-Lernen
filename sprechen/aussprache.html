@@ -7,6 +7,7 @@
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -135,6 +136,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <nav class="nav-links">
         <a href="../lernreise.html" class="nav-link">Journey</a>
         <a href="../vokabelquiz.html" class="nav-link">Quiz</a>
@@ -145,8 +147,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       </nav>
       <div style="display:flex;align-items:center;gap:10px;">
         <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
-        <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
-        <button class="btn-logout" id="btn-logout">Logout</button>
+        <div class="user-name" id="nav-name" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</div>
+        <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
       </div>
     </div>
   </div>
@@ -176,7 +178,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div>
         <div class="hero-eyebrow">🔤 Complete Pronunciation Guide</div>
         <h2>German <span>Aussprache</span></h2>
-        <p class="hero-sub">A1 থেকে C2 পর্যন্ত 600+ German words-এর IPA উচ্চারণ guide। Minimal pairs, tongue twisters ও category filter সহ।</p>
+        <p class="hero-sub" id="hero-sub">A1 থেকে C2 পর্যন্ত 600+ German words-এর IPA উচ্চারণ guide। Minimal pairs, tongue twisters ও category filter সহ।</p>
       </div>
       <div class="hero-counts">
         <div class="hc"><div class="hc-v" id="total-count">600+</div><div class="hc-l">Words</div></div>
@@ -193,7 +195,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <input type="text" id="search-input" placeholder="German word খুঁজুন... যেমন: können, Straße">
     </div>
     <div class="filter-group" id="level-filters">
-      <button class="ftab active" data-l="all">সব</button>
+      <button class="ftab active" data-l="all" id="ftab-all">সব</button>
       <button class="ftab" data-l="A1">A1</button>
       <button class="ftab" data-l="A2">A2</button>
       <button class="ftab" data-l="B1">B1</button>
@@ -205,13 +207,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <div class="cat-tabs" id="cat-tabs"></div>
   <div class="results-info" id="results-info"></div>
 
-  <div class="section-title">📖 Wörter & Aussprache</div>
+  <div class="section-title" id="vocab-section-title-aussprache">📖 Wörter & Aussprache</div>
   <div class="word-grid" id="word-grid"></div>
 
-  <div class="section-title">👅 Zungenbrecher — Tongue Twisters</div>
+  <div class="section-title" id="tt-section-title">👅 Zungenbrecher — Tongue Twisters</div>
   <div class="tt-grid" id="tt-grid"></div>
 
-  <div class="section-title">🔀 Minimale Paare — Minimal Pairs</div>
+  <div class="section-title" id="mp-section-title">🔀 Minimale Paare — Minimal Pairs</div>
   <div class="mp-grid" id="mp-grid"></div>
 </div>
 
@@ -232,12 +234,27 @@ window.setVoice = function(btn, voice) {
   btn.style.color       = isFemale ? "#f472b6"               : "#38bdf8";
 };
 
-import { auth, db, signOut, requireAuth, doc, getDoc } from "../js/firebase-config.js";
+import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc } from "../js/firebase-config.js";
 import { AUSSPRACHE_WORDS, TONGUE_TWISTERS, MINIMAL_PAIRS } from "../js/aussprache-data.js";
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
 
 requireAuth(async user => {
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+    render(); renderTwisters(); renderPairs(); renderAusspracheChrome();
+  }
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      render(); renderTwisters(); renderPairs(); renderAusspracheChrome();
+    },
+  });
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
@@ -268,7 +285,7 @@ window.playWord = function(word) {
 cats.forEach(c => {
   const btn = document.createElement("button");
   btn.className = "ctab" + (c==="all"?" active":"");
-  btn.textContent = c==="all" ? "সব Category" : c;
+  btn.textContent = c==="all" ? (getLang()==="en" ? "All Categories" : "সব Category") : c;
   btn.onclick = () => {
     document.querySelectorAll(".ctab").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active"); _cat=c; render();
@@ -293,11 +310,11 @@ function render() {
   const filtered = AUSSPRACHE_WORDS.filter(w => {
     const ml = _level==="all" || w.level===_level;
     const mc = _cat==="all"   || w.category===_cat;
-    const mq = !_query || w.german.toLowerCase().includes(_query)||w.ipa.includes(_query)||w.bn.includes(_query);
+    const mq = !_query || w.german.toLowerCase().includes(_query)||w.ipa.includes(_query)||w.bn.includes(_query)||(w.en||"").toLowerCase().includes(_query);
     return ml && mc && mq;
   });
   document.getElementById("results-info").textContent =
-    `দেখাচ্ছে ${filtered.length} / ${AUSSPRACHE_WORDS.length} words` +
+    `${getLang()==="en"?"Showing":"দেখাচ্ছে"} ${filtered.length} / ${AUSSPRACHE_WORDS.length} words` +
     (_level!=="all" ? ` · ${_level}` : "") + (_cat!=="all" ? ` · ${_cat}` : "") +
     (_query ? ` · "${_query}"` : "");
 
@@ -312,7 +329,7 @@ function render() {
         <span class="wc-level ${pillClass(w.level)}">${w.level}</span>
       </div>
       <div class="wc-ipa">/${w.ipa}/</div>
-      <div class="wc-bn">${w.bn}</div>
+      <div class="wc-bn">${getLang()==="en" ? (w.en||w.bn) : w.bn}</div>
       ${w.example?`<div class="wc-example">${w.example}</div>`:""}
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;">
         <div class="wc-cat">· ${w.category}</div>
@@ -328,31 +345,60 @@ function render() {
 }
 
 /* Tongue Twisters */
-const ttGrid = document.getElementById("tt-grid");
-TONGUE_TWISTERS.forEach(tt=>{
-  const card=document.createElement("div"); card.className="tt-card";
-  card.innerHTML=`<span class="tt-level ${pillClass(tt.level)}">${tt.level}</span>
-    <div class="tt-text">${tt.text}</div><div class="tt-bn">${tt.bn}</div>`;
-  ttGrid.appendChild(card);
-});
+function renderTwisters() {
+  const ttGrid = document.getElementById("tt-grid");
+  ttGrid.innerHTML = "";
+  TONGUE_TWISTERS.forEach(tt=>{
+    const card=document.createElement("div"); card.className="tt-card";
+    card.innerHTML=`<span class="tt-level ${pillClass(tt.level)}">${tt.level}</span>
+      <div class="tt-text">${tt.text}</div><div class="tt-bn">${getLang()==="en" ? (tt.en||tt.bn) : tt.bn}</div>`;
+    ttGrid.appendChild(card);
+  });
+}
 
 /* Minimal Pairs */
-const mpGrid=document.getElementById("mp-grid");
-MINIMAL_PAIRS.forEach(mp=>{
-  const card=document.createElement("div"); card.className="mp-card";
-  card.innerHTML=`
-    <div class="mp-pair">
-      <div class="mp-word">${mp.w1}</div>
-      <div class="mp-vs">vs</div>
-      <div class="mp-word">${mp.w2}</div>
-    </div>
-    <div class="mp-ipa">/${mp.ipa1}/ vs /${mp.ipa2}/</div>
-    <div class="mp-bn">${mp.bn1} · ${mp.bn2}</div>
-    ${mp.tip?`<div class="mp-tip">💡 ${mp.tip}</div>`:""}`;
-  mpGrid.appendChild(card);
-});
+function renderPairs() {
+  const mpGrid=document.getElementById("mp-grid");
+  mpGrid.innerHTML = "";
+  MINIMAL_PAIRS.forEach(mp=>{
+    const card=document.createElement("div"); card.className="mp-card";
+    const bn1 = getLang()==="en" ? (mp.en1||mp.bn1) : mp.bn1;
+    const bn2 = getLang()==="en" ? (mp.en2||mp.bn2) : mp.bn2;
+    const tip = getLang()==="en" ? (mp.tipEn||mp.tip) : mp.tip;
+    card.innerHTML=`
+      <div class="mp-pair">
+        <div class="mp-word">${mp.w1}</div>
+        <div class="mp-vs">vs</div>
+        <div class="mp-word">${mp.w2}</div>
+      </div>
+      <div class="mp-ipa">/${mp.ipa1}/ vs /${mp.ipa2}/</div>
+      <div class="mp-bn">${bn1} · ${bn2}</div>
+      ${tip?`<div class="mp-tip">💡 ${tip}</div>`:""}`;
+    mpGrid.appendChild(card);
+  });
+}
+
+function renderAusspracheChrome() {
+  const en = getLang() === "en";
+  document.getElementById("hero-sub").textContent = en
+    ? "IPA pronunciation guide for 600+ German words, from A1 to C2 — with minimal pairs, tongue twisters, and category filters."
+    : "A1 থেকে C2 পর্যন্ত 600+ German words-এর IPA উচ্চারণ guide। Minimal pairs, tongue twisters ও category filter সহ।";
+  document.getElementById("search-input").placeholder = en
+    ? "Search a German word... e.g. können, Straße"
+    : "German word খুঁজুন... যেমন: können, Straße";
+  document.getElementById("ftab-all").textContent = en ? "All" : "সব";
+  const vt = document.getElementById("vocab-section-title-aussprache");
+  if (vt) vt.textContent = en ? "📖 Words & Pronunciation" : "📖 Wörter & Aussprache";
+  const tt = document.getElementById("tt-section-title");
+  if (tt) tt.textContent = en ? "👅 Tongue Twisters" : "👅 Zungenbrecher — Tongue Twisters";
+  const mt = document.getElementById("mp-section-title");
+  if (mt) mt.textContent = en ? "🔀 Minimal Pairs" : "🔀 Minimale Paare — Minimal Pairs";
+}
 
 render();
+renderTwisters();
+renderPairs();
+renderAusspracheChrome();
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zahlen & Zeit — Sprechen — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -142,9 +143,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -158,14 +160,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">🔢</div>
       <div>
-        <div class="hero-eyebrow">🗣️ Speaking Topic</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>Zahlen & Zeit</h2>
-        <p class="hero-sub">সংখ্যা, সময় ও তারিখ German-এ বলার practice করুন।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill lv">A1</span>
           <span class="meta-pill xp">+50 XP</span>
-          <span class="meta-pill">12 Vocab</span>
-          <span class="meta-pill">6 Dialog lines</span>
+          <span class="meta-pill" id="meta-vocab-count"></span>
+          <span class="meta-pill" id="meta-dialog-count"></span>
         </div>
       </div>
     </div>
@@ -179,181 +181,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- VOCABULARY -->
-  <div class="section-title">📖 Vokabeln — Vocabulary</div>
-  <div class="vocab-grid">
-    
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Wie viel Uhr ist es?</div>
-            <button onclick="playText('Wie viel Uhr ist es?',0)" class="play-btn" id="vplay-0">🔊</button>
-          </div>
-          <div class="vc-bn">কটা বাজে?</div>
-          <div class="vc-ex">Wie viel Uhr ist es bitte?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Es ist ... Uhr.</div>
-            <button onclick="playText('Es ist ... Uhr.',1)" class="play-btn" id="vplay-1">🔊</button>
-          </div>
-          <div class="vc-bn">... টা বাজে।</div>
-          <div class="vc-ex">Es ist drei Uhr.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">halb</div>
-            <button onclick="playText('halb',2)" class="play-btn" id="vplay-2">🔊</button>
-          </div>
-          <div class="vc-bn">সাড়ে (half past)</div>
-          <div class="vc-ex">Es ist halb vier. (3:30)</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">Viertel nach/vor</div>
-            <button onclick="playText('Viertel nach/vor',3)" class="play-btn" id="vplay-3">🔊</button>
-          </div>
-          <div class="vc-bn">পনেরো মিনিট পর/আগে</div>
-          <div class="vc-ex">Viertel nach zwei. (2:15)</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Montag</div>
-            <button onclick="playText('der Montag',4)" class="play-btn" id="vplay-4">🔊</button>
-          </div>
-          <div class="vc-bn">সোমবার</div>
-          <div class="vc-ex">Am Montag habe ich Schule.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Dienstag</div>
-            <button onclick="playText('der Dienstag',5)" class="play-btn" id="vplay-5">🔊</button>
-          </div>
-          <div class="vc-bn">মঙ্গলবার</div>
-          <div class="vc-ex">Dienstag ist mein Lieblingstag.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Datum</div>
-            <button onclick="playText('das Datum',6)" class="play-btn" id="vplay-6">🔊</button>
-          </div>
-          <div class="vc-bn">তারিখ</div>
-          <div class="vc-ex">Was ist heute das Datum?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Monat</div>
-            <button onclick="playText('der Monat',7)" class="play-btn" id="vplay-7">🔊</button>
-          </div>
-          <div class="vc-bn">মাস</div>
-          <div class="vc-ex">Im Monat Januar ist es kalt.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">das Jahr</div>
-            <button onclick="playText('das Jahr',8)" class="play-btn" id="vplay-8">🔊</button>
-          </div>
-          <div class="vc-bn">বছর</div>
-          <div class="vc-ex">In welchem Jahr bist du geboren?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">der Geburtstag</div>
-            <button onclick="playText('der Geburtstag',9)" class="play-btn" id="vplay-9">🔊</button>
-          </div>
-          <div class="vc-bn">জন্মদিন</div>
-          <div class="vc-ex">Wann ist dein Geburtstag?</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">pünktlich</div>
-            <button onclick="playText('pünktlich',10)" class="play-btn" id="vplay-10">🔊</button>
-          </div>
-          <div class="vc-bn">সময়মতো</div>
-          <div class="vc-ex">Ich bin immer pünktlich.</div>
-        </div>
-        <div class="vocab-card">
-          <div class="vc-top">
-            <div class="vc-de">früh/spät</div>
-            <button onclick="playText('früh/spät',11)" class="play-btn" id="vplay-11">🔊</button>
-          </div>
-          <div class="vc-bn">সকালে/দেরিতে</div>
-          <div class="vc-ex">Ich stehe früh auf.</div>
-        </div>
-  </div>
+  <div class="section-title" id="vocab-section-title"></div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
+  
   <!-- DIALOGUE -->
-  <div class="section-title">💬 Musterdialog — Sample Dialogue</div>
+  <div class="section-title" id="dialogue-section-title"></div>
   <div class="dialogue-box">
     
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Entschuldigung, wie spät ist es?</div>
-            <div class="dl-bn">মাফ করবেন, এখন কটা বাজে?</div>
-            <button onclick="playText('Entschuldigung, wie spät ist es?',999+0)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Es ist Viertel nach drei.</div>
-            <div class="dl-bn">তিনটা পনেরো।</div>
-            <button onclick="playText('Es ist Viertel nach drei.',999+1)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Danke! Wann beginnt der Unterricht?</div>
-            <div class="dl-bn">ধন্যবাদ! ক্লাস কখন শুরু হয়?</div>
-            <button onclick="playText('Danke! Wann beginnt der Unterricht?',999+2)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Um halb vier, also in einer Viertelstunde.</div>
-            <div class="dl-bn">সাড়ে তিনটায়, মানে পনেরো মিনিট পরে।</div>
-            <button onclick="playText('Um halb vier, also in einer Viertelstunde.',999+3)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-a">
-          <div class="dl-speaker">🧑 A</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Und wann ist dein Geburtstag?</div>
-            <div class="dl-bn">আর তোমার জন্মদিন কবে?</div>
-            <button onclick="playText('Und wann ist dein Geburtstag?',999+4)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
-        <div class="dialog-line line-b">
-          <div class="dl-speaker">👤 B</div>
-          <div class="dl-bubble">
-            <div class="dl-de">Am fünfzehnten März. Und deiner?</div>
-            <div class="dl-bn">পনেরই মার্চ। আর তোমার?</div>
-            <button onclick="playText('Am fünfzehnten März. Und deiner?',999+5)" class="play-btn-sm">🔊</button>
-          </div>
-        </div>
+        <div id="dialogue-lines"></div>
     <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
-      <button class="btn-play-prompt" onclick="playAllDialog()">▶ সম্পূর্ণ dialog play করুন</button>
+      <button class="btn-play-prompt" onclick="playAllDialog()">▶ <span id="play-full-label"></span></button>
       <button class="btn-play-prompt" onclick="responsiveVoice.cancel()" style="margin-left:8px;background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.25);color:var(--rose);">⏹ Stop</button>
     </div>
   </div>
 
   <!-- SPEAKING TASKS -->
-  <div class="section-title">✅ Speaking Tasks — এগুলো practice করুন</div>
-  <div class="tasks-wrap" id="tasks-wrap">
-    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>এখন কটা বাজে — German-এ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>সপ্তাহের সব দিনের নাম বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>তোমার জন্মতারিখ German-এ বলো।</span></div>
-<div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>একটি appointment দেওয়ার সময় নির্ধারণ করো।</span></div>
+  <div class="section-title" id="tasks-section-title"></div>
+  <div class="tasks-wrap" id="tasks-wrap"></div>
 
-  </div>
-
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      এই topic সম্পন্ন করলে <strong style="color:var(--gold)">+50 XP</strong> পাবে।
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete (+50 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <div class="page-nav">
@@ -366,7 +217,130 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const DIALOGS = ['Entschuldigung, wie spät ist es?', 'Es ist Viertel nach drei.', 'Danke! Wann beginnt der Unterricht?', 'Um halb vier, also in einer Viertelstunde.', 'Und wann ist dein Geburtstag?', 'Am fünfzehnten März. Und deiner?'];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
+const CHROME = {
+  bn: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'সম্পূর্ণ dialog play করুন',
+    tasksTitle: '✅ Speaking Tasks — এগুলো practice করুন',
+    xpBefore: 'এই topic সম্পন্ন করলে',
+    xpAfter: 'পাবে।',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন',
+    subtitle: 'সংখ্যা, সময় ও তারিখ German-এ বলুন।',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+  en: {
+    eyebrow: '🗣️ Speaking Topic',
+    vocabTitle: '📖 Vokabeln — Vocabulary',
+    dialogueTitle: '💬 Musterdialog — Sample Dialogue',
+    playFull: 'Play the full dialogue',
+    tasksTitle: '✅ Speaking Tasks — practice these',
+    xpBefore: 'Complete this topic to earn',
+    xpAfter: '.',
+    completeBtn: '⭐ Complete (+50 XP)',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    subtitle: 'Say numbers, time, and dates in German.',
+    vocabCount: '12 Vocab',
+    dialogCount: '6 Dialog lines',
+  },
+};
+
+const VOCAB = [
+  { de:'Wie viel Uhr ist es?', bn:'কটা বাজে?', en:'What time is it?', ex:'Wie viel Uhr ist es bitte?' },
+  { de:'Es ist ... Uhr.', bn:'... টা বাজে।', en:'It is ... o\'clock.', ex:'Es ist drei Uhr.' },
+  { de:'halb', bn:'সাড়ে (half past)', en:'half past', ex:'Es ist halb vier. (3:30)' },
+  { de:'Viertel nach/vor', bn:'পনেরো মিনিট পর/আগে', en:'quarter past/to', ex:'Viertel nach zwei. (2:15)' },
+  { de:'der Montag', bn:'সোমবার', en:'Monday', ex:'Am Montag habe ich Schule.' },
+  { de:'der Dienstag', bn:'মঙ্গলবার', en:'Tuesday', ex:'Dienstag ist mein Lieblingstag.' },
+  { de:'das Datum', bn:'তারিখ', en:'date', ex:'Was ist heute das Datum?' },
+  { de:'der Monat', bn:'মাস', en:'month', ex:'Im Monat Januar ist es kalt.' },
+  { de:'das Jahr', bn:'বছর', en:'year', ex:'In welchem Jahr bist du geboren?' },
+  { de:'der Geburtstag', bn:'জন্মদিন', en:'birthday', ex:'Wann ist dein Geburtstag?' },
+  { de:'pünktlich', bn:'সময়মতো', en:'on time/punctual', ex:'Ich bin immer pünktlich.' },
+  { de:'früh/spät', bn:'সকালে/দেরিতে', en:'early/late', ex:'Ich stehe früh auf.' }
+];
+const DIALOGUE = [
+  { spk:'a', de:'Entschuldigung, wie spät ist es?', bn:'মাফ করবেন, এখন কটা বাজে?', en:'Excuse me, what time is it?' },
+  { spk:'b', de:'Es ist Viertel nach drei.', bn:'তিনটা পনেরো।', en:'It\'s a quarter past three.' },
+  { spk:'a', de:'Danke! Wann beginnt der Unterricht?', bn:'ধন্যবাদ! ক্লাস কখন শুরু হয়?', en:'Thanks! When does class start?' },
+  { spk:'b', de:'Um halb vier, also in einer Viertelstunde.', bn:'সাড়ে তিনটায়, মানে পনেরো মিনিট পরে।', en:'At half past three, so in fifteen minutes.' },
+  { spk:'a', de:'Und wann ist dein Geburtstag?', bn:'আর তোমার জন্মদিন কবে?', en:'And when is your birthday?' },
+  { spk:'b', de:'Am fünfzehnten März. Und deiner?', bn:'পনেরই মার্চ। আর তোমার?', en:'On the fifteenth of March. And yours?' }
+];
+const TASKS = [
+  { bn:'এখন কটা বাজে — German-এ বলো।', en:'Say what time it is now, in German.' },
+  { bn:'সপ্তাহের সব দিনের নাম বলো।', en:'Name all the days of the week.' },
+  { bn:'তোমার জন্মতারিখ German-এ বলো।', en:'Say your date of birth in German.' },
+  { bn:'একটি appointment দেওয়ার সময় নির্ধারণ করো।', en:'Set a time for an appointment.' }
+];
+
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent      = c.eyebrow;
+  document.getElementById("hero-sub").textContent          = c.subtitle;
+  document.getElementById("meta-vocab-count").textContent  = c.vocabCount;
+  document.getElementById("meta-dialog-count").textContent = c.dialogCount;
+  document.getElementById("vocab-section-title").textContent    = c.vocabTitle;
+  document.getElementById("dialogue-section-title").textContent = c.dialogueTitle;
+  document.getElementById("play-full-label").textContent        = c.playFull;
+  document.getElementById("tasks-section-title").textContent    = c.tasksTitle;
+  document.getElementById("xp-banner-text").innerHTML =
+    `${c.xpBefore} <strong style="color:var(--gold)">+50 XP</strong> ${c.xpAfter}`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn; }
+}
+
+function renderVocab() {
+  document.getElementById("vocab-grid").innerHTML = VOCAB.map((v, i) => `
+    <div class="vocab-card">
+      <div class="vc-top">
+        <div class="vc-de">${v.de}</div>
+        <button onclick="playText('${v.de.replace(/'/g, "\\'")}',${i})" class="play-btn" id="vplay-${i}">🔊</button>
+      </div>
+      <div class="vc-bn">${localized(v)}</div>
+      <div class="vc-ex">${v.ex}</div>
+    </div>`).join("");
+}
+
+function renderDialogue() {
+  document.getElementById("dialogue-lines").innerHTML = DIALOGUE.map((l, i) => `
+    <div class="dialog-line line-${l.spk}">
+      <div class="dl-speaker">${l.spk === "a" ? "🧑 A" : "👤 B"}</div>
+      <div class="dl-bubble">
+        <div class="dl-de">${l.de}</div>
+        <div class="dl-bn">${localized(l)}</div>
+        <button onclick="playText('${l.de.replace(/'/g, "\\'")}',${999 + i})" class="play-btn-sm">🔊</button>
+      </div>
+    </div>`).join("");
+}
+
+function renderTasks() {
+  document.getElementById("tasks-wrap").innerHTML = TASKS.map(task => `
+    <div class="task-item" onclick="toggleTask(this)"><span class="task-cb">○</span> <span>${localized(task)}</span></div>`).join("");
+}
+
+function renderTopicPage() {
+  renderChrome(); renderVocab(); renderDialogue(); renderTasks();
+}
+
+const DIALOGS = DIALOGUE.map(l => l.de);
+
 let _voice = "Deutsch Female";
 let _uid;
 
@@ -401,7 +375,7 @@ window.toggleTask = function(el) {
 
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled=true; btn.textContent=chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("topic-zahlen"),
     xp: increment(50),
@@ -413,6 +387,17 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderTopicPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderTopicPage();
+    },
+  });
   const name = d.displayName||user.displayName||"Lerner";
   const photo = d.photoURL||user.photoURL||"";
   document.getElementById("nav-name").textContent = name;
@@ -421,7 +406,7 @@ requireAuth(async user => {
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("topic-zahlen")) {
     const btn = document.getElementById("btn-complete");
-    btn.disabled=true; btn.textContent="✅ আগেই সম্পন্ন";
+    _completed = true; btn.disabled=true; btn.textContent=chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });

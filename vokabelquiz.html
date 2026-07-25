@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vokabelquiz — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -259,6 +260,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </div>
   </div>
   <div class="topbar-right">
+    <div id="lang-switch-container"></div>
     <nav class="nav-links">
       <a href="dashboard.html"      class="nav-link">Home</a>
       <a href="lernreise.html"      class="nav-link">Journey</a>
@@ -269,8 +271,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </nav>
     <div class="user-section">
       <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
-      <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <span class="user-name" id="nav-name" data-i18n="dashboard.nav.loading">লোড হচ্ছে...</span>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 </div>
@@ -280,8 +282,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <!-- HERO -->
   <div class="hero">
     <div class="hero-tag">📝 Vokabelquiz · A1 → C2</div>
-    <h2>তোমার <span class="g">Level</span> বেছে নাও</h2>
-    <p class="hero-sub">
+    <h2 id="vq-hero-title">তোমার <span class="g">Level</span> বেছে নাও</h2>
+    <p class="hero-sub" id="vq-hero-sub">
       <span style="color:var(--emerald)">A1</span> Anfänger থেকে শুরু করে
       <span style="color:var(--sky)">A2</span>,
       <span style="color:var(--indigo)">B1</span>,
@@ -305,7 +307,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="level-badge">A1</span>
         </div>
         <div class="card-title">Anfänger</div>
-        <div class="card-subtitle">Basic German — greetings, numbers, colors, family ও everyday words দিয়ে শুরু করো।</div>
+        <div class="card-subtitle i18n-subtitle" data-level="a1">Basic German — greetings, numbers, colors, family ও everyday words দিয়ে শুরু করো।</div>
         <div class="pills">
           <span class="pill">Begrüßung</span>
           <span class="pill">Zahlen</span>
@@ -315,25 +317,25 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="pill">Tiere</span>
         </div>
         <div class="prog-label">
-          <span>অগ্রগতি</span>
+          <span class="i18n-progress">অগ্রগতি</span>
           <span id="a1-pct">0%</span>
         </div>
         <div class="prog-track"><div class="prog-fill" id="a1-bar"></div></div>
         <div class="meta-row">
           <div class="meta-item">
-            <span class="meta-val meta-val-main">200+</span>
-            <span class="meta-lbl">শব্দ</span>
+            <span class="meta-val meta-val-main">440+</span>
+            <span class="meta-lbl i18n-words">শব্দ</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:var(--emerald)" id="a1-correct">0</span>
-            <span class="meta-lbl">সঠিক</span>
+            <span class="meta-lbl i18n-correct">সঠিক</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:#fbbf24" id="a1-sessions">0</span>
-            <span class="meta-lbl">সেশন</span>
+            <span class="meta-lbl i18n-sessions">সেশন</span>
           </div>
         </div>
-        <div class="card-btn">Quiz শুরু করো <span class="arrow">→</span></div>
+        <div class="card-btn"><span class="i18n-start-quiz">Quiz শুরু করো</span> <span class="arrow">→</span></div>
       </div>
     </a>
 
@@ -347,7 +349,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="level-badge">A2</span>
         </div>
         <div class="card-title">Grundstufe</div>
-        <div class="card-subtitle">Daily life, shopping, body parts, weather ও simple sentences নিয়ে practice করো।</div>
+        <div class="card-subtitle i18n-subtitle" data-level="a2">Daily life, shopping, body parts, weather ও simple sentences নিয়ে practice করো।</div>
         <div class="pills">
           <span class="pill">Einkaufen</span>
           <span class="pill">Körper</span>
@@ -356,30 +358,30 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="pill">Verkehr</span>
         </div>
         <div class="prog-label">
-          <span>অগ্রগতি</span>
+          <span class="i18n-progress">অগ্রগতি</span>
           <span id="a2-pct">0%</span>
         </div>
         <div class="prog-track"><div class="prog-fill" id="a2-bar"></div></div>
         <div class="meta-row">
           <div class="meta-item">
-            <span class="meta-val meta-val-main">250+</span>
-            <span class="meta-lbl">শব্দ</span>
+            <span class="meta-val meta-val-main">330+</span>
+            <span class="meta-lbl i18n-words">শব্দ</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:var(--emerald)" id="a2-correct">0</span>
-            <span class="meta-lbl">সঠিক</span>
+            <span class="meta-lbl i18n-correct">সঠিক</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:#fbbf24" id="a2-sessions">0</span>
-            <span class="meta-lbl">সেশন</span>
+            <span class="meta-lbl i18n-sessions">সেশন</span>
           </div>
         </div>
-        <div class="card-btn">Quiz শুরু করো <span class="arrow">→</span></div>
+        <div class="card-btn"><span class="i18n-start-quiz">Quiz শুরু করো</span> <span class="arrow">→</span></div>
       </div>
       <div class="locked-overlay" id="a2-lock">
         <div class="lock-icon">🔒</div>
         <div class="lock-text">A2 Locked</div>
-        <div class="lock-req">A1-এ কমপক্ষে ১টি session শেষ করো</div>
+        <div class="lock-req i18n-lockreq" data-level="A1">A1-এ কমপক্ষে ১টি session শেষ করো</div>
       </div>
     </a>
 
@@ -393,7 +395,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="level-badge">B1</span>
         </div>
         <div class="card-title">Mittelstufe</div>
-        <div class="card-subtitle">Verben conjugation, Artikel (der/die/das), Kasus ও complex vocabulary শিখো।</div>
+        <div class="card-subtitle i18n-subtitle" data-level="b1">Verben conjugation, Artikel (der/die/das), Kasus ও complex vocabulary শিখো।</div>
         <div class="pills">
           <span class="pill">Verben</span>
           <span class="pill">Artikel</span>
@@ -402,30 +404,30 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="pill">Präposition</span>
         </div>
         <div class="prog-label">
-          <span>অগ্রগতি</span>
+          <span class="i18n-progress">অগ্রগতি</span>
           <span id="b1-pct">0%</span>
         </div>
         <div class="prog-track"><div class="prog-fill" id="b1-bar"></div></div>
         <div class="meta-row">
           <div class="meta-item">
-            <span class="meta-val meta-val-main">400+</span>
-            <span class="meta-lbl">শব্দ</span>
+            <span class="meta-val meta-val-main">270+</span>
+            <span class="meta-lbl i18n-words">শব্দ</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:var(--emerald)" id="b1-correct">0</span>
-            <span class="meta-lbl">সঠিক</span>
+            <span class="meta-lbl i18n-correct">সঠিক</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:#fbbf24" id="b1-sessions">0</span>
-            <span class="meta-lbl">সেশন</span>
+            <span class="meta-lbl i18n-sessions">সেশন</span>
           </div>
         </div>
-        <div class="card-btn">Quiz শুরু করো <span class="arrow">→</span></div>
+        <div class="card-btn"><span class="i18n-start-quiz">Quiz শুরু করো</span> <span class="arrow">→</span></div>
       </div>
       <div class="locked-overlay" id="b1-lock">
         <div class="lock-icon">🔒</div>
         <div class="lock-text">B1 Locked</div>
-        <div class="lock-req">A2-এ কমপক্ষে ১টি session শেষ করো</div>
+        <div class="lock-req i18n-lockreq" data-level="A2">A2-এ কমপক্ষে ১টি session শেষ করো</div>
       </div>
     </a>
 
@@ -439,7 +441,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="level-badge">B2</span>
         </div>
         <div class="card-title">Oberstufe</div>
-        <div class="card-subtitle">Abstract vocabulary, Konjunktiv, Passiv ও academic German expressions শিখো।</div>
+        <div class="card-subtitle i18n-subtitle" data-level="b2">Abstract vocabulary, Konjunktiv, Passiv ও academic German expressions শিখো।</div>
         <div class="pills">
           <span class="pill">Konjunktiv</span>
           <span class="pill">Passiv</span>
@@ -447,30 +449,30 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="pill">Idiome</span>
         </div>
         <div class="prog-label">
-          <span>অগ্রগতি</span>
+          <span class="i18n-progress">অগ্রগতি</span>
           <span id="b2-pct">0%</span>
         </div>
         <div class="prog-track"><div class="prog-fill" id="b2-bar"></div></div>
         <div class="meta-row">
           <div class="meta-item">
-            <span class="meta-val meta-val-main">500+</span>
-            <span class="meta-lbl">শব্দ</span>
+            <span class="meta-val meta-val-main">200+</span>
+            <span class="meta-lbl i18n-words">শব্দ</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:var(--emerald)" id="b2-correct">0</span>
-            <span class="meta-lbl">সঠিক</span>
+            <span class="meta-lbl i18n-correct">সঠিক</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:#fbbf24" id="b2-sessions">0</span>
-            <span class="meta-lbl">সেশন</span>
+            <span class="meta-lbl i18n-sessions">সেশন</span>
           </div>
         </div>
-        <div class="card-btn">Quiz শুরু করো <span class="arrow">→</span></div>
+        <div class="card-btn"><span class="i18n-start-quiz">Quiz শুরু করো</span> <span class="arrow">→</span></div>
       </div>
       <div class="locked-overlay" id="b2-lock">
         <div class="lock-icon">🔒</div>
         <div class="lock-text">B2 Locked</div>
-        <div class="lock-req">B1-এ কমপক্ষে ১টি session শেষ করো</div>
+        <div class="lock-req i18n-lockreq" data-level="B1">B1-এ কমপক্ষে ১টি session শেষ করো</div>
       </div>
     </a>
 
@@ -484,7 +486,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="level-badge">C1</span>
         </div>
         <div class="card-title">Fortgeschritten</div>
-        <div class="card-subtitle">Complex sentence structures, nuanced expressions ও professional German mastery করো।</div>
+        <div class="card-subtitle i18n-subtitle" data-level="c1">Complex sentence structures, nuanced expressions ও professional German mastery করো।</div>
         <div class="pills">
           <span class="pill">Fachsprache</span>
           <span class="pill">Redewendung</span>
@@ -492,30 +494,30 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="pill">Wissenschaft</span>
         </div>
         <div class="prog-label">
-          <span>অগ্রগতি</span>
+          <span class="i18n-progress">অগ্রগতি</span>
           <span id="c1-pct">0%</span>
         </div>
         <div class="prog-track"><div class="prog-fill" id="c1-bar"></div></div>
         <div class="meta-row">
           <div class="meta-item">
-            <span class="meta-val meta-val-main">600+</span>
-            <span class="meta-lbl">শব্দ</span>
+            <span class="meta-val meta-val-main">160+</span>
+            <span class="meta-lbl i18n-words">শব্দ</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:var(--emerald)" id="c1-correct">0</span>
-            <span class="meta-lbl">সঠিক</span>
+            <span class="meta-lbl i18n-correct">সঠিক</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:#fbbf24" id="c1-sessions">0</span>
-            <span class="meta-lbl">সেশন</span>
+            <span class="meta-lbl i18n-sessions">সেশন</span>
           </div>
         </div>
-        <div class="card-btn">Quiz শুরু করো <span class="arrow">→</span></div>
+        <div class="card-btn"><span class="i18n-start-quiz">Quiz শুরু করো</span> <span class="arrow">→</span></div>
       </div>
       <div class="locked-overlay" id="c1-lock">
         <div class="lock-icon">🔒</div>
         <div class="lock-text">C1 Locked</div>
-        <div class="lock-req">B2-এ কমপক্ষে ১টি session শেষ করো</div>
+        <div class="lock-req i18n-lockreq" data-level="B2">B2-এ কমপক্ষে ১টি session শেষ করো</div>
       </div>
     </a>
 
@@ -529,7 +531,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="level-badge">C2</span>
         </div>
         <div class="card-title">Meisterschaft</div>
-        <div class="card-subtitle">Native-level German — literature, philosophy, advanced rhetoric ও mastery test করো।</div>
+        <div class="card-subtitle i18n-subtitle" data-level="c2">Native-level German — literature, philosophy, advanced rhetoric ও mastery test করো।</div>
         <div class="pills">
           <span class="pill">Literatur</span>
           <span class="pill">Philosophie</span>
@@ -537,30 +539,30 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <span class="pill">Examen</span>
         </div>
         <div class="prog-label">
-          <span>অগ্রগতি</span>
+          <span class="i18n-progress">অগ্রগতি</span>
           <span id="c2-pct">0%</span>
         </div>
         <div class="prog-track"><div class="prog-fill" id="c2-bar"></div></div>
         <div class="meta-row">
           <div class="meta-item">
-            <span class="meta-val meta-val-main">700+</span>
-            <span class="meta-lbl">শব্দ</span>
+            <span class="meta-val meta-val-main">170+</span>
+            <span class="meta-lbl i18n-words">শব্দ</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:var(--emerald)" id="c2-correct">0</span>
-            <span class="meta-lbl">সঠিক</span>
+            <span class="meta-lbl i18n-correct">সঠিক</span>
           </div>
           <div class="meta-item">
             <span class="meta-val" style="color:#fbbf24" id="c2-sessions">0</span>
-            <span class="meta-lbl">সেশন</span>
+            <span class="meta-lbl i18n-sessions">সেশন</span>
           </div>
         </div>
-        <div class="card-btn">Quiz শুরু করো <span class="arrow">→</span></div>
+        <div class="card-btn"><span class="i18n-start-quiz">Quiz শুরু করো</span> <span class="arrow">→</span></div>
       </div>
       <div class="locked-overlay" id="c2-lock">
         <div class="lock-icon">🔒</div>
         <div class="lock-text">C2 Locked</div>
-        <div class="lock-req">C1-এ কমপক্ষে ১টি session শেষ করো</div>
+        <div class="lock-req i18n-lockreq" data-level="C1">C1-এ কমপক্ষে ১টি session শেষ করো</div>
       </div>
     </a>
 
@@ -572,28 +574,28 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="bstat-icon">✅</div>
       <div>
         <div class="bstat-v" style="color:var(--emerald)" id="total-correct">0</div>
-        <div class="bstat-l">মোট সঠিক উত্তর</div>
+        <div class="bstat-l" id="bstat-l-correct">মোট সঠিক উত্তর</div>
       </div>
     </div>
     <div class="bstat">
       <div class="bstat-icon">📋</div>
       <div>
         <div class="bstat-v" style="color:var(--teal)" id="total-sessions">0</div>
-        <div class="bstat-l">মোট সেশন</div>
+        <div class="bstat-l" id="bstat-l-sessions">মোট সেশন</div>
       </div>
     </div>
     <div class="bstat">
       <div class="bstat-icon">⚡</div>
       <div>
         <div class="bstat-v" style="color:var(--indigo)" id="total-xp">0</div>
-        <div class="bstat-l">মোট XP</div>
+        <div class="bstat-l" id="bstat-l-xp">মোট XP</div>
       </div>
     </div>
     <div class="bstat">
       <div class="bstat-icon">🏆</div>
       <div>
         <div class="bstat-v" style="color:var(--gold)" id="best-score">0%</div>
-        <div class="bstat-l">সেরা স্কোর</div>
+        <div class="bstat-l" id="bstat-l-best">সেরা স্কোর</div>
       </div>
     </div>
   </div>
@@ -639,9 +641,14 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 <script type="module">
 import {
   auth, db, signOut, requireAuth,
-  doc, getDoc,
+  doc, getDoc, updateDoc,
   collection, query, orderBy, limit, getDocs, where
 } from "./js/firebase-config.js";
+
+import { initI18n, t, getLang, setLang } from "./js/i18n.js";
+import { renderSwitcher } from "./js/lang-switcher.js";
+
+await initI18n();
 import { requirePlan } from "./js/plan-gate.js";
 
 const yr = new Date().getFullYear();
@@ -664,11 +671,77 @@ function lockCard(cardId, overlayId) {
   }
 }
 
+const SUBTITLES_EN = {
+  a1: "Basic German — start with greetings, numbers, colors, family, and everyday words.",
+  a2: "Practice daily life, shopping, body parts, weather, and simple sentences.",
+  b1: "Learn verb conjugation, articles (der/die/das), cases, and more complex vocabulary.",
+  b2: "Learn abstract vocabulary, Konjunktiv, Passiv, and academic German expressions.",
+  c1: "Master complex sentence structures, nuanced expressions, and professional German.",
+  c2: "Native-level German — literature, philosophy, advanced rhetoric, and mastery tests.",
+};
+
+function renderVQChrome() {
+  const en = getLang() === "en";
+  const el = id => document.getElementById(id);
+  if (el("vq-hero-title")) el("vq-hero-title").innerHTML = en
+    ? 'Choose your <span class="g">Level</span>'
+    : 'তোমার <span class="g">Level</span> বেছে নাও';
+  if (el("vq-hero-sub")) el("vq-hero-sub").innerHTML = en
+    ? '<span style="color:var(--emerald)">A1</span> Anfänger onward through '
+      + '<span style="color:var(--sky)">A2</span>, <span style="color:var(--indigo)">B1</span>, '
+      + '<span style="color:var(--violet)">B2</span>, <span style="color:var(--orange)">C1</span>, all the way to '
+      + '<span style="color:var(--gold)">C2</span> Meisterschaft — take a German vocabulary quiz at every level.'
+    : '<span style="color:var(--emerald)">A1</span> Anfänger থেকে শুরু করে '
+      + '<span style="color:var(--sky)">A2</span>, <span style="color:var(--indigo)">B1</span>, '
+      + '<span style="color:var(--violet)">B2</span>, <span style="color:var(--orange)">C1</span> পার করে '
+      + '<span style="color:var(--gold)">C2</span> Meisterschaft পর্যন্ত — প্রতিটি level-এ German vocabulary quiz দাও।';
+
+  document.querySelectorAll(".i18n-progress").forEach(x => x.textContent = en ? "Progress" : "অগ্রগতি");
+  document.querySelectorAll(".i18n-words").forEach(x => x.textContent = en ? "Words" : "শব্দ");
+  document.querySelectorAll(".i18n-correct").forEach(x => x.textContent = en ? "Correct" : "সঠিক");
+  document.querySelectorAll(".i18n-sessions").forEach(x => x.textContent = en ? "Sessions" : "সেশন");
+  document.querySelectorAll(".i18n-start-quiz").forEach(x => x.textContent = en ? "Start Quiz" : "Quiz শুরু করো");
+  document.querySelectorAll(".i18n-lockreq").forEach(x => {
+    const lvl = x.dataset.level;
+    x.textContent = en ? `Complete at least 1 session in ${lvl}` : `${lvl}-এ কমপক্ষে ১টি session শেষ করো`;
+  });
+  document.querySelectorAll(".i18n-subtitle").forEach(x => {
+    const lvl = x.dataset.level;
+    x.textContent = en ? SUBTITLES_EN[lvl] : {
+      a1: "Basic German — greetings, numbers, colors, family ও everyday words দিয়ে শুরু করো।",
+      a2: "Daily life, shopping, body parts, weather ও simple sentences নিয়ে practice করো।",
+      b1: "Verben conjugation, Artikel (der/die/das), Kasus ও complex vocabulary শিখো।",
+      b2: "Abstract vocabulary, Konjunktiv, Passiv ও academic German expressions শিখো।",
+      c1: "Complex sentence structures, nuanced expressions ও professional German mastery করো।",
+      c2: "Native-level German — literature, philosophy, advanced rhetoric ও mastery test করো।",
+    }[lvl];
+  });
+
+  if (el("bstat-l-correct"))  el("bstat-l-correct").textContent  = en ? "Total correct answers" : "মোট সঠিক উত্তর";
+  if (el("bstat-l-sessions")) el("bstat-l-sessions").textContent = en ? "Total sessions" : "মোট সেশন";
+  if (el("bstat-l-xp"))       el("bstat-l-xp").textContent       = en ? "Total XP" : "মোট XP";
+  if (el("bstat-l-best"))     el("bstat-l-best").textContent     = en ? "Best score" : "সেরা স্কোর";
+  if (el("footer-brand-sub")) el("footer-brand-sub").textContent = en
+    ? "A German learning platform built for Bengali speakers. Vocabulary, grammar, speaking, and live classes from A1 to C2."
+    : "একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।";
+}
+
 requireAuth(async user => {
   /* ── Nav user info ── */
   const uSnap = await getDoc(doc(db, "users", user.uid));
   const d     = uSnap.exists() ? uSnap.data() : {};
   if (!requirePlan(d)) return;
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderVQChrome();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderVQChrome();
+    },
+  });
 
   const name  = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL    || user.photoURL    || "";

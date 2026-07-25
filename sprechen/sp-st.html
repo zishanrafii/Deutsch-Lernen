@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SP & ST — Deutsch Lernen</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="/css/lang-switcher.css" rel="stylesheet">
 <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
 <script>responsiveVoice.init({"apiKey":"MNQSRVYn"});</script>
 <style>
@@ -136,9 +137,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="lang-switch-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;"></span>
-      <button class="btn-logout" id="btn-logout">Logout</button>
+      <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
     </div>
   </div>
 
@@ -154,14 +156,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="hero-inner">
       <div class="hero-icon">💬</div>
       <div>
-        <div class="hero-eyebrow">🔤 Aussprache Guide</div>
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
         <h2>SP & ST</h2>
-        <p class="hero-sub">শব্দের শুরুতে SP = [ʃp] এবং ST = [ʃt]। বাংলায় 'শপ্' ও 'শট্'-এর মতো।</p>
+        <p class="hero-sub" id="hero-sub"></p>
         <div class="hero-meta">
           <span class="meta-pill accent">Level: A1</span>
           <span class="meta-pill accent">+25 XP</span>
-          <span class="meta-pill">12 Examples</span>
-          <span class="meta-pill">5 Exercises</span>
+          <span class="meta-pill" id="meta-examples"></span>
+          <span class="meta-pill" id="meta-exercises"></span>
         </div>
       </div>
     </div>
@@ -175,78 +177,30 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </div>
 
   <!-- THEORY -->
-  <div class="section-title">📖 Theory — কীভাবে উচ্চারণ করবে</div>
-  <div class="theory-box">
-    
-    <p><strong>SP শব্দের শুরুতে = [ʃp]</strong><br>
-    <strong>Sprechen</strong> = 'শপ্রেখেন' (SP → Sch+P)<br>
-    <strong>Spiel</strong> = 'শপিল' | <strong>Sport</strong> = 'শপোর্ট'</p>
-    <p><strong>ST শব্দের শুরুতে = [ʃt]</strong><br>
-    <strong>Stadt</strong> = 'শটাট' (ST → Sch+T)<br>
-    <strong>stehen</strong> = 'শটেহেন' | <strong>Strand</strong> = 'শট্রান্ট'</p>
-    <p><strong>গুরুত্বপূর্ণ:</strong> এই নিয়ম শুধু শব্দের <strong>শুরুতে</strong>। মাঝে বা শেষে SP/ST আলাদাভাবে উচ্চারিত হয়।</p>
-    <div class="tip-box"><strong>💡 উদাহরণ:</strong> 'kosten' → K-O-S-TEN (মাঝে, তাই [st]); কিন্তু 'stehen' → [ʃt] কারণ শুরুতে।</div>
-    
-  </div>
+  <div class="section-title" id="theory-title"></div>
+  <div class="theory-box" id="theory-box"></div>
 
+  
   <!-- EXAMPLES -->
-  <div class="section-title">🔊 Examples — শুনুন ও repeat করুন</div>
+  <div class="section-title" id="examples-title"></div>
   <div class="examples-grid" id="examples-grid"></div>
 
   <!-- EXERCISES -->
-  <div class="section-title">✏️ Practice Exercises</div>
-  <div class="exercises-wrap">
-    
-        <div class="ex-item" id="ex-0">
-          <div class="ex-q">1. শব্দের শুরুতে SP কীভাবে উচ্চারিত হয়?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(0,0,this)">[sp]</button><button class="opt-btn" onclick="checkAns(0,1,this)">[ʃp]</button><button class="opt-btn" onclick="checkAns(0,2,this)">[zp]</button><button class="opt-btn" onclick="checkAns(0,3,this)">[fp]</button>
-          </div>
-          <div class="ex-feedback" id="fb-0"></div>
-        </div>
-        <div class="ex-item" id="ex-1">
-          <div class="ex-q">2. 'Stadt' শব্দের শুরুর উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(1,0,this)">[st]</button><button class="opt-btn" onclick="checkAns(1,1,this)">[ʃt]</button><button class="opt-btn" onclick="checkAns(1,2,this)">[sdt]</button><button class="opt-btn" onclick="checkAns(1,3,this)">[zt]</button>
-          </div>
-          <div class="ex-feedback" id="fb-1"></div>
-        </div>
-        <div class="ex-item" id="ex-2">
-          <div class="ex-q">3. কোন শব্দে SP শুরুতে নেই তাই [sp] উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(2,0,this)">sprechen</button><button class="opt-btn" onclick="checkAns(2,1,this)">Spiel</button><button class="opt-btn" onclick="checkAns(2,2,this)">kosten</button><button class="opt-btn" onclick="checkAns(2,3,this)">Sport</button>
-          </div>
-          <div class="ex-feedback" id="fb-2"></div>
-        </div>
-        <div class="ex-item" id="ex-3">
-          <div class="ex-q">4. 'Sprache'-তে SP-এর উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(3,0,this)">[sp]</button><button class="opt-btn" onclick="checkAns(3,1,this)">[ʃp]</button><button class="opt-btn" onclick="checkAns(3,2,this)">[zp]</button><button class="opt-btn" onclick="checkAns(3,3,this)">[ʃt]</button>
-          </div>
-          <div class="ex-feedback" id="fb-3"></div>
-        </div>
-        <div class="ex-item" id="ex-4">
-          <div class="ex-q">5. 'Stunde'-তে ST-এর উচ্চারণ?</div>
-          <div class="ex-opts">
-            <button class="opt-btn" onclick="checkAns(4,0,this)">[st]</button><button class="opt-btn" onclick="checkAns(4,1,this)">[ʃp]</button><button class="opt-btn" onclick="checkAns(4,2,this)">[ʃt]</button><button class="opt-btn" onclick="checkAns(4,3,this)">[zt]</button>
-          </div>
-          <div class="ex-feedback" id="fb-4"></div>
-        </div>
-  </div>
+  <div class="section-title" id="exercises-title"></div>
+  <div class="exercises-wrap" id="exercises-wrap"></div>
 
+  
   <!-- XP BANNER -->
   <div class="xp-banner">
-    <div class="xp-left">
-      <strong>SP & ST</strong> সম্পন্ন করলে <strong style="color:var(--gold)">+25 XP</strong> পাবে।
-      <div style="margin-top:3px;font-size:11.5px;">সব exercises করার পর Complete বাটন চাপো।</div>
-    </div>
-    <button class="btn-complete" id="btn-complete">⭐ Complete করুন (+25 XP)</button>
+    <div class="xp-left" id="xp-banner-text"></div>
+    
+    <button class="btn-complete" id="btn-complete"></button>
   </div>
 
   <!-- PAGE NAV -->
   <div class="page-nav">
     <a href="r-laut.html" class="nav-btn">← R Laut</a>
-    <a href="vokale.html" class="nav-btn gold">পরের Topic: Vokale →</a>
+    <a href="vokale.html" class="nav-btn gold"><span id="next-topic-label"></span></a>
   </div>
 </div>
 
@@ -254,41 +208,113 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 import { auth, db, signOut, requireAuth,
   doc, getDoc, updateDoc, increment, arrayUnion } from "../js/firebase-config.js";
 
-const EXAMPLES = [{'word': 'sprechen', 'ipa': 'ˈʃpʁɛçn̩', 'bn': 'কথা বলা', 'sentence': 'Ich spreche Deutsch.'}, {'word': 'Spiel', 'ipa': 'ʃpiːl', 'bn': 'খেলা', 'sentence': 'Das Spiel macht Spaß.'}, {'word': 'Sport', 'ipa': 'ʃpɔʁt', 'bn': 'খেলাধুলা', 'sentence': 'Sport ist gesund.'}, {'word': 'spät', 'ipa': 'ʃpɛːt', 'bn': 'দেরি', 'sentence': 'Es ist spät.'}, {'word': 'Sprache', 'ipa': 'ˈʃpʁaːxə', 'bn': 'ভাষা', 'sentence': 'Deutsche Sprache.'}, {'word': 'Stadt', 'ipa': 'ʃtat', 'bn': 'শহর', 'sentence': 'Ich wohne in der Stadt.'}, {'word': 'stehen', 'ipa': 'ˈʃteːən', 'bn': 'দাঁড়ানো', 'sentence': 'Ich stehe auf.'}, {'word': 'stark', 'ipa': 'ʃtaʁk', 'bn': 'শক্তিশালী', 'sentence': 'Er ist stark.'}, {'word': 'Stunde', 'ipa': 'ˈʃtʊndə', 'bn': 'ঘণ্টা', 'sentence': 'Eine Stunde.'}, {'word': 'Strand', 'ipa': 'ʃtʁant', 'bn': 'সৈকত', 'sentence': 'Wir sind am Strand.'}, {'word': 'spazieren', 'ipa': 'ʃpaˈtsiːʁən', 'bn': 'হাঁটা', 'sentence': 'Ich gehe spazieren.'}, {'word': 'Straße', 'ipa': 'ˈʃtʁaːsə', 'bn': 'রাস্তা', 'sentence': 'Die Straße ist breit.'}];
-const ANSWERS  = [1, 1, 2, 1, 2];
+import { initI18n, t, getLang, setLang } from "../js/i18n.js";
+import { renderSwitcher } from "../js/lang-switcher.js";
+
+await initI18n();
+
 let _voice = "Deutsch Female";
 let _score = 0;
 let _uid;
 
-window.setVoice = function(v, btn) {
-  _voice = v;
-  document.querySelectorAll(".vbtn").forEach(b => {
-    b.classList.remove("active","male-active");
-    b.style.cssText="";
-  });
-  if(v === "Deutsch Female") {
-    btn.classList.add("active");
-  } else {
-    btn.classList.add("male-active");
-  }
+const CHROME = {
+  bn: {
+    eyebrow: '🔤 Aussprache Guide',
+    theoryTitle: '📖 Theory — কীভাবে উচ্চারণ করবে',
+    examplesTitle: '🔊 Examples — শুনুন ও repeat করুন',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'সম্পন্ন করলে',
+    xpHint: 'সব exercises করার পর Complete বাটন চাপো।',
+    completeBtn: '⭐ Complete করুন',
+    completedNow: '✅ সম্পন্ন!',
+    alreadyCompleted: '✅ আগেই সম্পন্ন হয়েছে',
+    correct: '✅ সঠিক!',
+    wrong: '❌ ভুল। সঠিক উত্তর highlight হয়েছে।',
+    subtitle: 'শব্দের শুরুতে SP = [ʃp] এবং ST = [ʃt]। বাংলায় \'শপ্\' ও \'শট্\'-এর মতো।',
+  },
+  en: {
+    eyebrow: '🔤 Pronunciation Guide',
+    theoryTitle: '📖 Theory — how to pronounce it',
+    examplesTitle: '🔊 Examples — listen and repeat',
+    exercisesTitle: '✏️ Practice Exercises',
+    xpAfter: 'to complete for',
+    xpHint: 'Press Complete after finishing all exercises.',
+    completeBtn: '⭐ Complete',
+    completedNow: '✅ Completed!',
+    alreadyCompleted: '✅ Already completed',
+    correct: '✅ Correct!',
+    wrong: '❌ Wrong. The correct answer is highlighted.',
+    subtitle: 'At the start of a word, SP = [ʃp] and ST = [ʃt]. Like Bangla \'শপ্\' and \'শট্\'.',
+  },
 };
+const THEORY_BN = '<p><strong>SP শব্দের শুরুতে = [ʃp]</strong><br><strong>Sprechen</strong> = \'শপ্রেখেন\' (SP → Sch+P)<br><strong>Spiel</strong> = \'শপিল\' | <strong>Sport</strong> = \'শপোর্ট\'</p><p><strong>ST শব্দের শুরুতে = [ʃt]</strong><br><strong>Stadt</strong> = \'শটাট\' (ST → Sch+T)<br><strong>stehen</strong> = \'শটেহেন\' | <strong>Strand</strong> = \'শট্রান্ট\'</p><p><strong>গুরুত্বপূর্ণ:</strong> এই নিয়ম শুধু শব্দের <strong>শুরুতে</strong>। মাঝে বা শেষে SP/ST আলাদাভাবে উচ্চারিত হয়।</p><div class="tip-box"><strong>💡 উদাহরণ:</strong> \'kosten\' → K-O-S-TEN (মাঝে, তাই [st]); কিন্তু \'stehen\' → [ʃt] কারণ শুরুতে।</div>';
+const THEORY_EN = '<p><strong>SP at the start of a word = [ʃp]</strong><br><strong>Sprechen</strong> = \'shprechen\' (SP → sch+p)<br><strong>Spiel</strong> = \'shpeel\' | <strong>Sport</strong> = \'shport\'</p><p><strong>ST at the start of a word = [ʃt]</strong><br><strong>Stadt</strong> = \'shtat\' (ST → sch+t)<br><strong>stehen</strong> = \'shtehen\' | <strong>Strand</strong> = \'shtrand\'</p><p><strong>Important:</strong> this rule only applies at the <strong>start</strong> of a word. In the middle or at the end, SP/ST are pronounced normally.</p><div class="tip-box"><strong>💡 Example:</strong> \'kosten\' → K-O-S-TEN (in the middle, so [st]); but \'stehen\' → [ʃt] because it\'s at the start.</div>';
+const EXAMPLES = [
+  { word:'sprechen', ipa:'ˈʃpʁɛçn̩', bn:'কথা বলা', en:'to speak', sentence:'Ich spreche Deutsch.' },
+  { word:'Spiel', ipa:'ʃpiːl', bn:'খেলা', en:'game', sentence:'Das Spiel macht Spaß.' },
+  { word:'Sport', ipa:'ʃpɔʁt', bn:'খেলাধুলা', en:'sports', sentence:'Sport ist gesund.' },
+  { word:'spät', ipa:'ʃpɛːt', bn:'দেরি', en:'late', sentence:'Es ist spät.' },
+  { word:'Sprache', ipa:'ˈʃpʁaːxə', bn:'ভাষা', en:'language', sentence:'Deutsche Sprache.' },
+  { word:'Stadt', ipa:'ʃtat', bn:'শহর', en:'city', sentence:'Ich wohne in der Stadt.' },
+  { word:'stehen', ipa:'ˈʃteːən', bn:'দাঁড়ানো', en:'to stand', sentence:'Ich stehe auf.' },
+  { word:'stark', ipa:'ʃtaʁk', bn:'শক্তিশালী', en:'strong', sentence:'Er ist stark.' },
+  { word:'Stunde', ipa:'ˈʃtʊndə', bn:'ঘণ্টা', en:'hour', sentence:'Eine Stunde.' },
+  { word:'Strand', ipa:'ʃtʁant', bn:'সৈকত', en:'beach', sentence:'Wir sind am Strand.' },
+  { word:'spazieren', ipa:'ʃpaˈtsiːʁən', bn:'হাঁটা', en:'to stroll', sentence:'Ich gehe spazieren.' },
+  { word:'Straße', ipa:'ˈʃtʁaːsə', bn:'রাস্তা', en:'street', sentence:'Die Straße ist breit.' }
+];
+const EXERCISES = [
+  { qBn:'শব্দের শুরুতে SP কীভাবে উচ্চারিত হয়?', qEn:'How is SP pronounced at the start of a word?', opts:[{ bn:'[sp]', en:'[sp]' }, { bn:'[ʃp]', en:'[ʃp]' }, { bn:'[zp]', en:'[zp]' }, { bn:'[fp]', en:'[fp]' }], answer:1 },
+  { qBn:'\'Stadt\' শব্দের শুরুর উচ্চারণ?', qEn:'How is the start of \'Stadt\' pronounced?', opts:[{ bn:'[st]', en:'[st]' }, { bn:'[ʃt]', en:'[ʃt]' }, { bn:'[sdt]', en:'[sdt]' }, { bn:'[zt]', en:'[zt]' }], answer:1 },
+  { qBn:'কোন শব্দে SP শুরুতে নেই তাই [sp] উচ্চারণ?', qEn:'In which word is SP not at the start, so it\'s pronounced [sp]?', opts:[{ bn:'sprechen', en:'sprechen' }, { bn:'Spiel', en:'Spiel' }, { bn:'kosten', en:'kosten' }, { bn:'Sport', en:'Sport' }], answer:2 },
+  { qBn:'\'Sprache\'-তে SP-এর উচ্চারণ?', qEn:'How is SP pronounced in \'Sprache\'?', opts:[{ bn:'[sp]', en:'[sp]' }, { bn:'[ʃp]', en:'[ʃp]' }, { bn:'[zp]', en:'[zp]' }, { bn:'[ʃt]', en:'[ʃt]' }], answer:1 },
+  { qBn:'\'Stunde\'-তে ST-এর উচ্চারণ?', qEn:'How is ST pronounced in \'Stunde\'?', opts:[{ bn:'[st]', en:'[st]' }, { bn:'[ʃp]', en:'[ʃp]' }, { bn:'[ʃt]', en:'[ʃt]' }, { bn:'[zt]', en:'[zt]' }], answer:2 }
+];
 
-/* Build example cards */
-const grid = document.getElementById("examples-grid");
-EXAMPLES.forEach((ex, i) => {
-  const card = document.createElement("div");
-  card.className = "ex-card";
-  card.innerHTML = `
-    <div class="ex-word">${ex.word}</div>
-    ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
-    <div class="ex-bn">${ex.bn}</div>
-    ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
-    <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
-  grid.appendChild(card);
-});
+function chrome() { return getLang() === "en" ? CHROME.en : CHROME.bn; }
+function localized(item) { return getLang() === "en" ? (item.en || item.bn) : item.bn; }
+
+let _completed = false;
+let _answered = new Set();
+
+function renderChrome() {
+  const c = chrome();
+  document.getElementById("hero-eyebrow").textContent = c.eyebrow;
+  document.getElementById("hero-sub").textContent = c.subtitle;
+  document.getElementById("meta-examples").textContent = `12 ${getLang()==="en"?"Examples":"Examples"}`;
+  document.getElementById("meta-exercises").textContent = `5 ${getLang()==="en"?"Exercises":"Exercises"}`;
+  document.getElementById("theory-title").textContent = c.theoryTitle;
+  document.getElementById("examples-title").textContent = c.examplesTitle;
+  document.getElementById("exercises-title").textContent = c.exercisesTitle;
+  document.getElementById("theory-box").innerHTML = getLang() === "en" ? THEORY_EN : THEORY_BN;
+  document.getElementById("xp-banner-text").innerHTML =
+    `<strong>SP & ST</strong> ${c.xpAfter} <strong style="color:var(--gold)">+25 XP</strong>` +
+    `<div style="margin-top:3px;font-size:11.5px;">${c.xpHint}</div>`;
+  const btn = document.getElementById("btn-complete");
+  if (_completed) { btn.disabled = true; btn.textContent = c.alreadyCompleted; }
+  else { btn.textContent = c.completeBtn + " (+25 XP)"; }
+  const nextLbl = document.getElementById("next-topic-label");
+  if (nextLbl) nextLbl.textContent = (getLang()==="en" ? "Next topic: " : "পরের Topic: ") + 'Lange & kurze Vokale' + " →";
+}
+
+function renderExamples() {
+  const grid = document.getElementById("examples-grid");
+  grid.innerHTML = "";
+  EXAMPLES.forEach((ex, i) => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.innerHTML = `
+      <div class="ex-word">${ex.word}</div>
+      ${ex.ipa ? `<div class="ex-ipa">/${ex.ipa}/</div>` : ""}
+      <div class="ex-bn">${localized(ex)}</div>
+      ${ex.sentence ? `<div class="ex-sentence">${ex.sentence}</div>` : ""}
+      <button class="play-btn" id="pb-${i}" onclick="playEx(${i})">🔊 Play</button>`;
+    grid.appendChild(card);
+  });
+}
 
 window.playEx = function(i) {
-  const ex  = EXAMPLES[i];
+  const ex = EXAMPLES[i];
   const btn = document.getElementById("pb-"+i);
   btn.textContent = "⏹ Stop"; btn.classList.add("playing");
   responsiveVoice.speak(ex.word, _voice, {
@@ -297,27 +323,54 @@ window.playEx = function(i) {
   });
 };
 
-/* Exercises */
+function renderExercises() {
+  const wrap = document.getElementById("exercises-wrap");
+  wrap.innerHTML = EXERCISES.map((ex, qi) => `
+    <div class="ex-item" id="ex-${qi}">
+      <div class="ex-q">${qi+1}. ${getLang()==="en" ? ex.qEn : ex.qBn}</div>
+      <div class="ex-opts">
+        ${ex.opts.map((o, ai) => `<button class="opt-btn" onclick="checkAns(${qi},${ai},this)">${getLang()==="en" ? (o.en||o.bn) : o.bn}</button>`).join("")}
+      </div>
+      <div class="ex-feedback" id="fb-${qi}"></div>
+    </div>`).join("");
+}
+
 window.checkAns = function(qi, ai, btn) {
-  if(btn.classList.contains("correct")||btn.classList.contains("wrong")) return;
-  const correct = ANSWERS[qi];
+  if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+  const c = chrome();
+  const correct = EXERCISES[qi].answer;
   const fb = document.getElementById("fb-"+qi);
   document.querySelectorAll(`#ex-${qi} .opt-btn`).forEach(b => b.disabled = true);
-  if(ai === correct) {
+  if (ai === correct) {
     btn.classList.add("correct");
-    fb.textContent = "✅ সঠিক!"; fb.style.color = "#34d399";
+    fb.textContent = c.correct; fb.style.color = "#34d399";
     _score++;
   } else {
     btn.classList.add("wrong");
     document.querySelectorAll(`#ex-${qi} .opt-btn`)[correct].classList.add("correct");
-    fb.textContent = "❌ ভুল। সঠিক উত্তর highlight হয়েছে।"; fb.style.color = "#fb7185";
+    fb.textContent = c.wrong; fb.style.color = "#fb7185";
   }
+  _answered.add(qi);
 };
 
-/* Complete */
+function renderPronPage() {
+  renderChrome(); renderExamples(); renderExercises();
+}
+
+window.setVoice = function(v, btn) {
+  _voice = v;
+  document.querySelectorAll(".vbtn").forEach(b => {
+    b.classList.remove("active","male-active");
+    b.style.cssText="";
+  });
+  if(v === "Deutsch Female") { btn.classList.add("active"); }
+  else { btn.classList.add("male-active"); }
+};
+
+
 document.getElementById("btn-complete").onclick = async () => {
   const btn = document.getElementById("btn-complete");
-  btn.disabled = true; btn.textContent = "✅ সম্পন্ন!";
+  _completed = true; btn.disabled = true; btn.textContent = chrome().completedNow;
   await updateDoc(doc(db,"users",_uid), {
     completedTopics: arrayUnion("aussprache-sp-st"),
     xp: increment(25),
@@ -329,6 +382,18 @@ requireAuth(async user => {
   _uid = user.uid;
   const snap = await getDoc(doc(db,"users",user.uid));
   const d = snap.exists() ? snap.data() : {};
+
+  if (d.language && d.language !== getLang()) {
+    await setLang(d.language);
+  }
+  renderPronPage();
+  renderSwitcher(document.getElementById("lang-switch-container"), {
+    onChanged: lang => {
+      updateDoc(doc(db, "users", user.uid), { language: lang }).catch(() => {});
+      renderPronPage();
+    },
+  });
+
   const name = d.displayName || user.displayName || "Lerner";
   const photo = d.photoURL || user.photoURL || "";
   document.getElementById("nav-name").textContent = name;
@@ -336,8 +401,9 @@ requireAuth(async user => {
   if(photo) av.innerHTML = `<img src="${photo}">`;
   else av.textContent = name[0]?.toUpperCase()||"?";
   if((d.completedTopics||[]).includes("aussprache-sp-st")) {
+    _completed = true;
     const btn = document.getElementById("btn-complete");
-    btn.disabled = true; btn.textContent = "✅ আগেই সম্পন্ন হয়েছে";
+    btn.disabled = true; btn.textContent = chrome().alreadyCompleted;
   }
   document.getElementById("btn-logout").onclick = async () => { await signOut(auth); location.href="../index.html"; };
 });
