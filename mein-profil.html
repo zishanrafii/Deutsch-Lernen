@@ -281,7 +281,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 footer{margin-top:3rem;border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
-.footer-inner{max-width:1000px;margin:auto;padding:2.2rem 1.4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;}
+.footer-inner{max-width:1000px;margin:auto;padding:2.2rem 1.4rem;}
 .footer-brand .brand-name{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
 .footer-brand .brand-sub{font-size:12.5px;color:var(--sub);line-height:1.7;max-width:280px;font-family:'Noto Sans Bengali',sans-serif;}
@@ -334,6 +334,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   color:var(--gold);font-family:'Outfit',sans-serif;transition:.2s;text-decoration:none;display:inline-block;}
 .btn-upgrade-sub:hover{background:rgba(245,200,66,.15);}
 </style>
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>.user-section,#nav-avatar,#nav-name,#btn-logout,#btn-logout-top{display:none!important}</style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 
@@ -358,7 +361,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
         <a href="mein-profil.html" class="nav-link active">Profil</a>
       </nav>
       <div class="user-section">
-        <div class="user-avatar" id="nav-avatar">👤</div>
+        <div id="user-menu-container"></div>
+      <div class="user-avatar" id="nav-avatar">👤</div>
         <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
         <button class="btn-logout" id="btn-logout-top">Logout</button>
       </div>
@@ -621,25 +625,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
       <div class="brand-sub">একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live chat সুবিধা।</div>
       <div class="copyright-text">© <span id="footer-year"></span> Deutsch Lernen<br><span>All rights reserved.</span></div>
     </div>
-    <div class="footer-col">
-      <h4>🔗 Quick Links</h4>
-      <div class="social-links-f">
-        <a href="lernreise.html" class="social-link-f"><span class="sl-icon">🗺️</span><span class="sl-label">Lernreise</span><span class="sl-handle">A1→C2</span></a>
-        <a href="grammatik.html" class="social-link-f"><span class="sl-icon">📘</span><span class="sl-label">Grammatik</span><span class="sl-handle">alle Themen</span></a>
-        <a href="woerterbuch.html" class="social-link-f"><span class="sl-icon">📚</span><span class="sl-label">Wörterbuch</span><span class="sl-handle">A1–C2</span></a>
-        <a href="rangliste.html" class="social-link-f"><span class="sl-icon">🏆</span><span class="sl-label">Rangliste</span><span class="sl-handle">Top Lerner</span></a>
-      </div>
     </div>
-    <div class="footer-col">
-      <h4>📚 Lernen</h4>
-      <div class="social-links-f">
-        <a href="vokabelquiz.html" class="social-link-f"><span class="sl-icon">📝</span><span class="sl-label">Quiz</span><span class="sl-handle">A1–C2</span></a>
-        <a href="sprechen.html" class="social-link-f"><span class="sl-icon">🎤</span><span class="sl-label">Sprechen</span><span class="sl-handle">Aussprache</span></a>
-        <a href="coming-soon.html?feature=hoeren" class="social-link-f"><span class="sl-icon">👂</span><span class="sl-label">Hören</span><span class="sl-handle">Audio</span></a>
-        <a href="schreiben.html" class="social-link-f"><span class="sl-icon">✍️</span><span class="sl-label">Schreiben</span><span class="sl-handle">AI Check</span></a>
-      </div>
-    </div>
-  </div>
   <div class="footer-bottom">
     <div>© <span id="footer-year2"></span> Deutsch Lernen</div>
     <div>Built with <span class="footer-heart">♥</span> for Bengali learners</div>
@@ -1291,5 +1277,31 @@ requireAuth(async user => {
 });
 </script>
 
+
+<script type="module">
+import { renderUserMenu } from "/js/user-menu.js";
+function dlMirrorUserMenu(){
+  const nameEl = document.getElementById("nav-name");
+  const container = document.getElementById("user-menu-container");
+  const oldLogout = document.getElementById("btn-logout") || document.getElementById("btn-logout-top");
+  if(!nameEl || !container) return;
+  const name = (nameEl.textContent||"").trim();
+  if(!name || /\.\.\.|loading|\u09B2\u09CB\u09A1/i.test(name)) return;
+  const av = document.getElementById("nav-avatar");
+  const img = av ? av.querySelector("img") : null;
+  const photo = img ? img.getAttribute("src") : "";
+  renderUserMenu(container, {
+    name, photo, plan: "free",
+    onLogout: () => oldLogout && oldLogout.click(),
+  });
+}
+let dlTries = 0;
+const dlIv = setInterval(() => { dlMirrorUserMenu(); if(++dlTries > 30) clearInterval(dlIv); }, 250);
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
+</script>
 </body>
 </html>

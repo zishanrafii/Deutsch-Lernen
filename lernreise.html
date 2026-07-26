@@ -176,7 +176,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 /* FOOTER */
 footer{margin-top:3rem;border-top:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,200,66,.35),rgba(45,212,191,.35),transparent);}
-.footer-inner{max-width:1160px;margin:auto;padding:2.2rem 1.4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;}
+.footer-inner{max-width:1160px;margin:auto;padding:2.2rem 1.4rem;}
 .footer-brand .brand-name{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#f5c842,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
 .footer-brand .brand-sub{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.9rem;font-family:'Noto Sans Bengali',sans-serif;}
 .copyright-text{font-size:11px;color:#2a3545;font-family:'JetBrains Mono',monospace;}
@@ -196,6 +196,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 @media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start;}.hero h2{font-size:1.6rem;}.topics-grid{grid-template-columns:1fr 1fr;}.wrap{padding:1rem .9rem 0;}.lh-mini-bar,.lh-pct{display:none;}}
 @media(max-width:420px){.topics-grid{grid-template-columns:1fr;}.ach-grid{grid-template-columns:repeat(3,1fr);}}
 </style>
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>.user-section,#nav-avatar,#nav-name,#btn-logout,#btn-logout-top{display:none!important}</style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrap">
@@ -219,7 +222,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <a href="rangliste.html"      class="nav-link">Rangliste</a>
       </nav>
       <div class="user-section">
-        <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
+        <div id="user-menu-container"></div>
+      <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
         <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
         <button class="btn-logout" id="btn-logout">Logout</button>
       </div>
@@ -297,25 +301,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="brand-sub">একটি বাংলা-মাধ্যম German ভাষা শেখার প্ল্যাটফর্ম। A1 থেকে C2 পর্যন্ত vocabulary, grammar, speaking এবং live class সুবিধা।</div>
       <div class="copyright-text">© <span id="footer-year"></span> Deutsch Lernen · All rights reserved.</div>
     </div>
-    <div class="footer-col">
-      <h4>🔗 Quick Links</h4>
-      <div class="footer-links">
-        <a href="dashboard.html"   class="footer-link"><span>🏠</span><span>Dashboard</span><span class="fl-handle">Home</span></a>
-        <a href="vokabelquiz.html" class="footer-link"><span>📝</span><span>Quiz</span><span class="fl-handle">A1–C2</span></a>
-        <a href="grammatik.html"   class="footer-link"><span>📘</span><span>Grammatik</span><span class="fl-handle">alle Themen</span></a>
-        <a href="rangliste.html"   class="footer-link"><span>🏆</span><span>Rangliste</span><span class="fl-handle">Top Lerner</span></a>
-      </div>
     </div>
-    <div class="footer-col">
-      <h4>📚 Lernbereiche</h4>
-      <div class="footer-links">
-        <a href="sprechen.html"    class="footer-link"><span>🎤</span><span>Sprechen</span><span class="fl-handle">Aussprache</span></a>
-        <a href="coming-soon.html?feature=hoeren"      class="footer-link"><span>👂</span><span>Hören</span><span class="fl-handle">Audio</span></a>
-        <a href="schreiben.html"   class="footer-link"><span>✍️</span><span>Schreiben</span><span class="fl-handle">AI Check</span></a>
-        <a href="woerterbuch.html" class="footer-link"><span>📚</span><span>Wörterbuch</span><span class="fl-handle">Flashcards</span></a>
-      </div>
-    </div>
-  </div>
   <div class="footer-bottom">
     <div>© <span id="footer-year2"></span> Deutsch Lernen · German Learning Platform</div>
     <div>Built with <span class="footer-heart">♥</span> for Bengali learners · A1 to C2</div>
@@ -804,6 +790,32 @@ requireAuth(async user=>{
     await signOut(auth); location.href="index.html";
   };
 });
+</script>
+
+<script type="module">
+import { renderUserMenu } from "/js/user-menu.js";
+function dlMirrorUserMenu(){
+  const nameEl = document.getElementById("nav-name");
+  const container = document.getElementById("user-menu-container");
+  const oldLogout = document.getElementById("btn-logout") || document.getElementById("btn-logout-top");
+  if(!nameEl || !container) return;
+  const name = (nameEl.textContent||"").trim();
+  if(!name || /\.\.\.|loading|\u09B2\u09CB\u09A1/i.test(name)) return;
+  const av = document.getElementById("nav-avatar");
+  const img = av ? av.querySelector("img") : null;
+  const photo = img ? img.getAttribute("src") : "";
+  renderUserMenu(container, {
+    name, photo, plan: "free",
+    onLogout: () => oldLogout && oldLogout.click(),
+  });
+}
+let dlTries = 0;
+const dlIv = setInterval(() => { dlMirrorUserMenu(); if(++dlTries > 30) clearInterval(dlIv); }, 250);
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
 </script>
 </body>
 </html>

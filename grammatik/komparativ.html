@@ -122,6 +122,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);}
 @media(max-width:700px){.examples-grid{grid-template-columns:1fr;}.nav-links{display:none;}.wrap{padding:1.8rem 1rem 4rem;}}
 @media(max-width:480px){.topbar{flex-direction:column;align-items:flex-start;}.topic-nav{flex-direction:column;}}
 </style>
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>.user-section,#nav-avatar,#nav-name,#btn-logout,#btn-logout-top{display:none!important}</style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 <div class="topbar">
@@ -137,6 +140,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);}
       <a href="../woerterbuch.html" class="nav-link">Wörterbuch</a>
     </nav>
     <div class="user-section">
+      <div id="user-menu-container"></div>
       <div class="user-avatar" id="nav-avatar">👤</div>
       <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
       <button class="btn-logout" id="btn-logout">Logout</button>
@@ -301,6 +305,32 @@ function showResult(){
 }
 document.getElementById("btn-retry").addEventListener("click",()=>{current=0;score=0;answered=false;xpSaved=false;document.getElementById("result-panel").classList.remove("show");initDots();renderQ();});
 requireAuth(async user=>{window.__uid=user.uid;const snap=await getDoc(doc(db,"users",user.uid));const d=snap.exists()?snap.data():{};document.getElementById("nav-name").textContent=d.displayName||user.displayName||"Lerner";const av=document.getElementById("nav-avatar");const photo=d.photoURL||user.photoURL||"";if(photo)av.innerHTML=`<img src="${photo}" alt="">`;else av.textContent=(d.displayName||"L")[0].toUpperCase();initDots();renderQ();});
+</script>
+
+<script type="module">
+import { renderUserMenu } from "/js/user-menu.js";
+function dlMirrorUserMenu(){
+  const nameEl = document.getElementById("nav-name");
+  const container = document.getElementById("user-menu-container");
+  const oldLogout = document.getElementById("btn-logout") || document.getElementById("btn-logout-top");
+  if(!nameEl || !container) return;
+  const name = (nameEl.textContent||"").trim();
+  if(!name || /\.\.\.|loading|\u09B2\u09CB\u09A1/i.test(name)) return;
+  const av = document.getElementById("nav-avatar");
+  const img = av ? av.querySelector("img") : null;
+  const photo = img ? img.getAttribute("src") : "";
+  renderUserMenu(container, {
+    name, photo, plan: "free",
+    onLogout: () => oldLogout && oldLogout.click(),
+  });
+}
+let dlTries = 0;
+const dlIv = setInterval(() => { dlMirrorUserMenu(); if(++dlTries > 30) clearInterval(dlIv); }, 250);
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
 </script>
 </body>
 </html>

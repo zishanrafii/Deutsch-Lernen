@@ -85,6 +85,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .btn-danger{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.25);color:var(--rose);padding:.6rem 1.2rem;border-radius:11px;font-weight:700;font-size:12.5px;cursor:pointer;transition:.2s;}
 .btn-danger:hover{background:rgba(251,113,133,.16);}
 </style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 
@@ -296,5 +297,10 @@ requireAuth(async user => {
 });
 </script>
 
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
+</script>
 </body>
 </html>

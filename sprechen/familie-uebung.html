@@ -134,6 +134,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .nav-btn.gold:hover{background:rgba(245,200,66,.18);}
 @media(max-width:600px){.wrap{padding:1rem .9rem 3rem;}.hero h2{font-size:1.5rem;}.topbar{flex-direction:column;align-items:flex-start;}}
 </style>
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>.user-section,#nav-avatar,#nav-name,#btn-logout,#btn-logout-top{display:none!important}</style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrap">
@@ -144,6 +147,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     </div>
     <div class="topbar-right">
       <div id="lang-switch-container"></div>
+      <div id="user-menu-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='../mein-profil.html'">👤</div>
       <span id="nav-name" style="font-size:13px;font-weight:600;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
       <button class="btn-logout" id="btn-logout" data-i18n="dashboard.nav.logout">Logout</button>
@@ -408,6 +412,32 @@ requireAuth(async user => {
   }
   document.getElementById("btn-logout").onclick = async()=>{ await signOut(auth); location.href="../index.html"; };
 });
+</script>
+
+<script type="module">
+import { renderUserMenu } from "/js/user-menu.js";
+function dlMirrorUserMenu(){
+  const nameEl = document.getElementById("nav-name");
+  const container = document.getElementById("user-menu-container");
+  const oldLogout = document.getElementById("btn-logout") || document.getElementById("btn-logout-top");
+  if(!nameEl || !container) return;
+  const name = (nameEl.textContent||"").trim();
+  if(!name || /\.\.\.|loading|\u09B2\u09CB\u09A1/i.test(name)) return;
+  const av = document.getElementById("nav-avatar");
+  const img = av ? av.querySelector("img") : null;
+  const photo = img ? img.getAttribute("src") : "";
+  renderUserMenu(container, {
+    name, photo, plan: "free",
+    onLogout: () => oldLogout && oldLogout.click(),
+  });
+}
+let dlTries = 0;
+const dlIv = setInterval(() => { dlMirrorUserMenu(); if(++dlTries > 30) clearInterval(dlIv); }, 250);
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
 </script>
 </body>
 </html>

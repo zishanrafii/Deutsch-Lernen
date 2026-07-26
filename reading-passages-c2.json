@@ -1,0 +1,69 @@
+[
+  {
+    "slug": "ki-ethik",
+    "level": "C2",
+    "xp": 25,
+    "words": 230,
+    "time": 7,
+    "titleDe": "Künstliche Intelligenz und Ethik",
+    "titleBn": "কৃত্রিম বুদ্ধিমত্তা ও নৈতিকতা",
+    "icon": "🤖",
+    "textDe": "<p>Die rasante Entwicklung künstlicher Intelligenz wirft fundamentale ethische Fragen auf, die weit über rein technische Aspekte hinausreichen. Insbesondere die Frage der <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বচ্ছতা\">Transparenz</span> algorithmischer Entscheidungsprozesse stellt Gesellschaften vor erhebliche Herausforderungen.</p>\n    <p>Wenn Systeme, deren interne Funktionsweise selbst für Experten kaum vollständig nachvollziehbar ist, zunehmend Entscheidungen mit weitreichenden Konsequenzen treffen, stellt sich unweigerlich die Frage nach Verantwortlichkeit. Philosophisch betrachtet erfordert die zunehmende <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বায়ত্তশাসন\">Autonomie</span> solcher Systeme eine Neuverhandlung tradierter Konzepte von moralischer Handlungsfähigkeit.</p>\n    <p>Gleichzeitig warnen Kritiker davor, dass eine übermäßige Anthropomorphisierung von KI-Systemen den Blick auf die eigentlichen, von Menschen getroffenen Designentscheidungen verschleiern könnte. Eine verantwortungsvolle KI-Governance müsste daher sowohl technische Erklärbarkeit als auch klare institutionelle Verantwortungsstrukturen miteinander verbinden.</p>",
+    "textBn": "কৃত্রিম বুদ্ধিমত্তার দ্রুত বিকাশ এমন মৌলিক নৈতিক প্রশ্ন তোলে, যা নিছক প্রযুক্তিগত দিকের চেয়ে অনেক বেশি বিস্তৃত। বিশেষত অ্যালগরিদমিক সিদ্ধান্ত প্রক্রিয়ার স্বচ্ছতার প্রশ্ন সমাজের জন্য উল্লেখযোগ্য চ্যালেঞ্জ তৈরি করে।<br><br>যখন এমন সিস্টেম, যার অভ্যন্তরীণ কার্যপ্রণালী বিশেষজ্ঞদের কাছেও পুরোপুরি বোধগম্য নয়, ক্রমবর্ধমানভাবে সুদূরপ্রসারী ফলাফলযুক্ত সিদ্ধান্ত নিচ্ছে, তখন দায়বদ্ধতার প্রশ্ন অনিবার্যভাবে সামনে আসে। দার্শনিক দৃষ্টিকোণ থেকে বলা যায়, এমন সিস্টেমের ক্রমবর্ধমান স্বায়ত্তশাসন নৈতিক কর্মক্ষমতার প্রচলিত ধারণার পুনর্বিন্যাস দাবি করে।<br><br>একই সাথে সমালোচকরা সতর্ক করেন যে, এআই সিস্টেমকে অতিরিক্ত মানবিক বৈশিষ্ট্য আরোপ করলে তা মানুষের নেওয়া নকশা-সিদ্ধান্তগুলোকে আড়াল করে দিতে পারে। তাই একটি দায়িত্বশীল এআই-গভর্ন্যান্সে প্রযুক্তিগত ব্যাখ্যাযোগ্যতা এবং স্পষ্ট প্রাতিষ্ঠানিক দায়বদ্ধতা — উভয়কেই একত্রিত করতে হবে।",
+    "questions": [
+      {
+        "q": "Welches Hauptproblem wird bezüglich algorithmischer Entscheidungsprozesse genannt?",
+        "opts": [
+          "Sie sind zu langsam",
+          "Mangelnde Transparenz und Nachvollziehbarkeit",
+          "Sie sind zu teuer",
+          "Sie funktionieren nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "In welchen Bereichen werden laut Text KI-Entscheidungen mit weitreichenden Konsequenzen relevant?",
+        "opts": [
+          "Nur in der Unterhaltungsindustrie",
+          "Bereiche wie Kreditvergabe oder medizinische Diagnostik",
+          "Nur im Sport",
+          "Nur in der Werbung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fordert die zunehmende Autonomie von KI-Systemen laut Text?",
+        "opts": [
+          "Eine Abschaffung der KI",
+          "Eine Neuverhandlung ethischer Konzepte",
+          "Mehr Werbung für KI",
+          "Weniger Forschung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Kritiker im Zusammenhang mit Anthropomorphisierung?",
+        "opts": [
+          "Dass KI zu menschlich wirkt und so Verantwortung verschleiert wird",
+          "Dass KI zu billig wird",
+          "Dass KI keine Gefühle hat",
+          "Dass Menschen KI nicht nutzen"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was fordert der Text für eine verantwortungsvolle KI-Governance?",
+        "opts": [
+          "Nur technische Lösungen",
+          "Nur institutionelle Regeln",
+          "Technische Erklärbarkeit und institutionelle Verantwortung zusammen",
+          "Ein vollständiges Verbot von KI"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Wissenschaft",
+    "color": "violet",
+    "descBn": "AI ও নৈতিকতা নিয়ে একটি abstract, academic passage — C2-level vocabulary ও জটিল syntax।"
+  }
+]

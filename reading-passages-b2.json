@@ -1,0 +1,3754 @@
+[
+  {
+    "slug": "klima",
+    "level": "B2",
+    "xp": 25,
+    "words": 180,
+    "time": 5,
+    "titleDe": "Klimawandel und Alltag",
+    "titleBn": "জলবায়ু পরিবর্তন ও দৈনন্দিন জীবন",
+    "icon": "🌍",
+    "textDe": "<p>Der Klimawandel gehört mittlerweile zu den größten <span class=\"voc\" tabindex=\"0\" data-bn=\"চ্যালেঞ্জ\">Herausforderungen</span> unserer Zeit, und immer mehr Menschen fragen sich, wie sie in ihrem Alltag etwas dagegen tun können.</p>\n    <p>Während manche glauben, dass nur große politische Entscheidungen wirklich etwas verändern können, sind andere der Meinung, dass auch individuelle Maßnahmen einen wichtigen Beitrag leisten. So könnte beispielsweise der bewusste Verzicht auf Plastikverpackungen oder die Nutzung öffentlicher Verkehrsmittel den persönlichen <span class=\"voc\" tabindex=\"0\" data-bn=\"কার্বন নিঃসরণ\">CO2-Fußabdruck</span> erheblich verringern.</p>\n    <p>Kritiker wenden allerdings ein, dass solche individuellen Veränderungen ohne strukturelle Reformen kaum ausreichen werden, um die Klimaziele zu erreichen. Trotzdem sind sich die meisten Experten einig, dass ein Umdenken auf beiden Ebenen notwendig ist, um die Erderwärmung wirksam zu bremsen.</p>",
+    "textBn": "জলবায়ু পরিবর্তন এখন আমাদের সময়ের সবচেয়ে বড় চ্যালেঞ্জগুলোর একটি, এবং ক্রমবর্ধমান মানুষ ভাবছে দৈনন্দিন জীবনে এর বিরুদ্ধে তারা কী করতে পারে।<br><br>কেউ কেউ মনে করেন শুধু বড় রাজনৈতিক সিদ্ধান্তই প্রকৃত পরিবর্তন আনতে পারে, আবার অন্যরা মনে করেন ব্যক্তিগত পদক্ষেপও গুরুত্বপূর্ণ অবদান রাখে। যেমন, প্লাস্টিক প্যাকেজিং সচেতনভাবে এড়িয়ে চলা বা গণপরিবহন ব্যবহার করলে ব্যক্তিগত কার্বন নিঃসরণ উল্লেখযোগ্যভাবে কমতে পারে।<br><br>তবে সমালোচকরা বলেন, কাঠামোগত সংস্কার ছাড়া শুধু ব্যক্তিগত পরিবর্তন জলবায়ু লক্ষ্য অর্জনের জন্য যথেষ্ট হবে না। তবুও অধিকাংশ বিশেষজ্ঞ একমত যে, বিশ্ব উষ্ণায়ন কার্যকরভাবে রোধ করতে উভয় পর্যায়েই চিন্তাধারা পরিবর্তন প্রয়োজন।",
+    "questions": [
+      {
+        "q": "Worüber sind sich die Menschen im Text uneinig?",
+        "opts": [
+          "Ob der Klimawandel existiert",
+          "Ob individuelle Maßnahmen wichtig sind oder nur Politik zählt",
+          "Ob man Auto fahren sollte",
+          "Ob Plastik schädlich ist"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welches Beispiel wird für individuelle Maßnahmen genannt?",
+        "opts": [
+          "Häuser bauen",
+          "Verzicht auf Plastik und öffentliche Verkehrsmittel",
+          "Mehr fliegen",
+          "Mehr Auto fahren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sagen Kritiker über individuelle Veränderungen?",
+        "opts": [
+          "Sie reichen allein nicht aus ohne strukturelle Reformen",
+          "Sie sind völlig nutzlos",
+          "Sie sind die einzige Lösung",
+          "Sie schaden der Wirtschaft"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Worüber sind sich die meisten Experten einig?",
+        "opts": [
+          "Nur Politik muss handeln",
+          "Nur Privatpersonen müssen handeln",
+          "Beide Ebenen müssen umdenken",
+          "Niemand muss etwas tun"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was beschreibt der \"CO2-Fußabdruck\" im Text?",
+        "opts": [
+          "Die Größe eines Hauses",
+          "Die persönliche Menge an verursachten Emissionen",
+          "Die Anzahl der Autos",
+          "Die Klimapolitik eines Landes"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Umwelt",
+    "color": "orange",
+    "descBn": "জলবায়ু পরিবর্তন নিয়ে দুই পক্ষের যুক্তি — argumentative German ও complex sentence structure।"
+  },
+  {
+    "slug": "homeoffice-vorteile-nachteile",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "teal",
+    "icon": "🏠",
+    "xp": 25,
+    "words": 96,
+    "time": 5,
+    "titleDe": "Homeoffice: Freiheit oder Isolation?",
+    "titleBn": "হোম অফিস: স্বাধীনতা নাকি বিচ্ছিন্নতা?",
+    "descBn": "হোম অফিসের সুবিধা ও অসুবিধা নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Seit einigen Jahren arbeiten immer mehr Menschen im <span class=\"voc\" tabindex=\"0\" data-bn=\"হোম অফিস\">Homeoffice</span>, statt jeden Tag ins Büro zu fahren. Viele schätzen die Zeitersparnis, weil der lange Arbeitsweg wegfällt.</p><p>Befürworter sagen außerdem, dass sie zu Hause konzentrierter arbeiten können, weil es keine ständigen <span class=\"voc\" tabindex=\"0\" data-bn=\"বিঘ্ন\">Ablenkungen</span> durch Kollegen gibt. Kritiker hingegen bemängeln, dass der persönliche Kontakt zum Team fehlt und wichtige Gespräche oft nur \"zwischen Tür und Angel\" im Büro entstehen.</p><p>Viele Firmen setzen deshalb auf ein Mischmodell: einige Tage im Büro, andere zu Hause. So sollen die Vorteile beider Arbeitsweisen genutzt werden, ohne die sozialen Kontakte völlig zu <span class=\"voc\" tabindex=\"0\" data-bn=\"ত্যাগ করা\">opfern</span>.</p>",
+    "textBn": "গত কয়েক বছর ধরে ক্রমশ বেশি মানুষ প্রতিদিন অফিসে না গিয়ে হোম অফিসে কাজ করছেন। অনেকে সময় বাঁচানোর কথা প্রশংসা করেন, কারণ দীর্ঘ যাতায়াত বাদ পড়ে যায়।<br><br>সমর্থকরা আরও বলেন যে তারা বাড়িতে আরও মনোযোগ দিয়ে কাজ করতে পারেন, কারণ সহকর্মীদের কারণে ক্রমাগত বিঘ্ন হয় না। সমালোচকরা অন্যদিকে বলেন যে দলের সাথে ব্যক্তিগত যোগাযোগের অভাব হয় এবং গুরুত্বপূর্ণ কথোপকথন প্রায়ই অফিসে আকস্মিকভাবেই ঘটে।<br><br>তাই অনেক কোম্পানি একটি মিশ্র মডেলে নির্ভর করে: কিছু দিন অফিসে, কিছু দিন বাড়িতে। এভাবে উভয় কাজের পদ্ধতির সুবিধা ব্যবহার করা যায়, সামাজিক যোগাযোগ সম্পূর্ণ ত্যাগ না করে।",
+    "questions": [
+      {
+        "q": "Was schätzen viele Menschen am Homeoffice?",
+        "opts": [
+          "Den langen Arbeitsweg",
+          "Die Zeitersparnis durch wegfallenden Arbeitsweg",
+          "Mehr Meetings",
+          "Höhere Kosten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sagen Befürworter über die Konzentration?",
+        "opts": [
+          "Sie ist schlechter zu Hause",
+          "Sie ist besser wegen weniger Ablenkung",
+          "Sie spielt keine Rolle",
+          "Sie ist unmöglich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bemängeln Kritiker?",
+        "opts": [
+          "Zu viel Kontakt zum Team",
+          "Den fehlenden persönlichen Kontakt zum Team",
+          "Zu wenig Arbeit",
+          "Zu hohe Kosten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was setzen viele Firmen deshalb ein?",
+        "opts": [
+          "Nur Büroarbeit",
+          "Nur Homeoffice",
+          "Ein Mischmodell aus Büro- und Homeoffice-Tagen",
+          "Kürzere Arbeitszeiten"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was soll das Mischmodell erreichen?",
+        "opts": [
+          "Nur Kosten sparen",
+          "Vorteile beider Arbeitsweisen nutzen",
+          "Mehr Kontrolle über Mitarbeiter",
+          "Weniger Arbeit für alle"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "handyverbot-schulen",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "orange",
+    "icon": "📵",
+    "xp": 25,
+    "words": 89,
+    "time": 5,
+    "titleDe": "Handyverbot an Schulen: Sinnvoll oder übertrieben?",
+    "titleBn": "স্কুলে মোবাইল নিষেধাজ্ঞা: যুক্তিসঙ্গত নাকি অতিরিক্ত?",
+    "descBn": "স্কুলে মোবাইল নিষেধাজ্ঞা নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>In vielen Schulen wird diskutiert, ob <span class=\"voc\" tabindex=\"0\" data-bn=\"স্মার্টফোন\">Smartphones</span> während des Unterrichts komplett verboten werden sollten. Befürworter argumentieren, dass Handys die Schüler stark ablenken und die Konzentration verringern.</p><p>Zudem berichten Lehrer, dass es in den Pausen weniger echte Gespräche gibt, weil viele Jugendliche nur auf ihr <span class=\"voc\" tabindex=\"0\" data-bn=\"ডিসপ্লে\">Display</span> schauen. Gegner des Verbots meinen jedoch, dass Schüler lernen müssen, verantwortungsvoll mit digitalen Geräten umzugehen, statt sie komplett zu verbieten.</p><p>Ein Kompromiss, den manche Schulen bereits umsetzen, ist die Erlaubnis von Handys nur in den Pausen, aber ein striktes Verbot während des <span class=\"voc\" tabindex=\"0\" data-bn=\"পাঠদান\">Unterrichts</span>.</p>",
+    "textBn": "অনেক স্কুলে আলোচনা হয় যে ক্লাসের সময় স্মার্টফোন সম্পূর্ণভাবে নিষিদ্ধ করা উচিত কিনা। সমর্থকরা যুক্তি দেন যে মোবাইল ফোন শিক্ষার্থীদের ব্যাপকভাবে বিঘ্নিত করে এবং মনোযোগ কমিয়ে দেয়।<br><br>এছাড়াও শিক্ষকরা রিপোর্ট করেন যে বিরতির সময় প্রকৃত কথোপকথন কম হয়, কারণ অনেক কিশোর কেবল তাদের ডিসপ্লের দিকে তাকিয়ে থাকে। নিষেধাজ্ঞার বিরোধীরা তবে মনে করেন যে শিক্ষার্থীদের ডিজিটাল যন্ত্রের সাথে দায়িত্বশীলভাবে আচরণ করতে শেখা উচিত, সম্পূর্ণভাবে নিষিদ্ধ করার পরিবর্তে।<br><br>একটি সমঝোতা, যা কিছু স্কুল ইতিমধ্যে বাস্তবায়ন করেছে, তা হলো বিরতিতে মোবাইলের অনুমতি, তবে ক্লাসের সময় কঠোর নিষেধাজ্ঞা।",
+    "questions": [
+      {
+        "q": "Was argumentieren Befürworter des Verbots?",
+        "opts": [
+          "Handys helfen beim Lernen",
+          "Handys lenken stark ab und verringern die Konzentration",
+          "Handys sind zu teuer",
+          "Handys sind unwichtig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was berichten Lehrer über die Pausen?",
+        "opts": [
+          "Mehr echte Gespräche",
+          "Weniger echte Gespräche wegen Handys",
+          "Keine Veränderung",
+          "Mehr Streit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen Gegner des Verbots?",
+        "opts": [
+          "Handys sollten überall verboten sein",
+          "Schüler müssen verantwortungsvollen Umgang lernen",
+          "Handys sind nutzlos",
+          "Lehrer sollten Handys nutzen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welchen Kompromiss setzen manche Schulen um?",
+        "opts": [
+          "Vollständiges Verbot überall",
+          "Handys erlaubt in Pausen, verboten im Unterricht",
+          "Keine Regeln",
+          "Handys nur für Lehrer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worüber wird in vielen Schulen diskutiert?",
+        "opts": [
+          "Über neue Fächer",
+          "Über ein Handyverbot im Unterricht",
+          "Über Ferien",
+          "Über Schuluniformen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "vegetarismus-debatte",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "emerald",
+    "icon": "🥗",
+    "xp": 25,
+    "words": 79,
+    "time": 5,
+    "titleDe": "Vegetarisch essen: Trend oder Notwendigkeit?",
+    "titleBn": "নিরামিষ খাওয়া: ট্রেন্ড নাকি প্রয়োজন?",
+    "descBn": "নিরামিষভোজন নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Menschen entscheiden sich für eine <span class=\"voc\" tabindex=\"0\" data-bn=\"নিরামিষ খাদ্য\">vegetarische Ernährung</span>. Viele nennen den Klimaschutz als Hauptgrund, da die Tierhaltung viel Wasser und Fläche benötigt.</p><p>Andere argumentieren mit dem Tierwohl und wollen keine Produkte aus <span class=\"voc\" tabindex=\"0\" data-bn=\"বৃহৎ পরিসরের পশুপালন\">Massentierhaltung</span> mehr konsumieren. Kritiker der veganen oder vegetarischen Lebensweise weisen jedoch darauf hin, dass eine ausgewogene Ernährung ohne Fleisch mehr Planung erfordert, um alle wichtigen Nährstoffe zu bekommen.</p><p>Ernährungsexperten betonen, dass sowohl vegetarische als auch fleischhaltige Ernährung gesund sein kann, wenn man auf <span class=\"voc\" tabindex=\"0\" data-bn=\"ভারসাম্য\">Ausgewogenheit</span> achtet.</p>",
+    "textBn": "ক্রমশ বেশি মানুষ নিরামিষ খাদ্যের সিদ্ধান্ত নিচ্ছেন। অনেকে জলবায়ু সুরক্ষাকে প্রধান কারণ হিসেবে উল্লেখ করেন, কারণ পশুপালনে অনেক পানি ও জমি প্রয়োজন।<br><br>অন্যরা পশু কল্যাণের যুক্তি দেন এবং বৃহৎ পরিসরের পশুপালন থেকে আসা পণ্য আর খেতে চান না। ভেগান বা নিরামিষ জীবনধারার সমালোচকরা তবে ইঙ্গিত করেন যে মাংস ছাড়া একটি ভারসাম্যপূর্ণ খাদ্যের জন্য সকল গুরুত্বপূর্ণ পুষ্টি পেতে আরও পরিকল্পনা প্রয়োজন।<br><br>পুষ্টি বিশেষজ্ঞরা জোর দেন যে নিরামিষ এবং মাংসযুক্ত উভয় খাদ্যই স্বাস্থ্যকর হতে পারে, যদি ভারসাম্যের প্রতি মনোযোগ দেওয়া হয়।",
+    "questions": [
+      {
+        "q": "Was nennen viele als Hauptgrund für vegetarische Ernährung?",
+        "opts": [
+          "Den Geschmack",
+          "Den Klimaschutz",
+          "Die Kosten",
+          "Die Mode"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit argumentieren andere zusätzlich?",
+        "opts": [
+          "Mit dem Preis",
+          "Mit dem Tierwohl",
+          "Mit der Bequemlichkeit",
+          "Mit der Tradition"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was weisen Kritiker hin?",
+        "opts": [
+          "Vegetarische Ernährung ist immer ungesund",
+          "Eine ausgewogene fleischlose Ernährung erfordert mehr Planung",
+          "Fleisch ist immer ungesund",
+          "Es gibt keine Nachteile"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Ernährungsexperten?",
+        "opts": [
+          "Nur vegetarische Ernährung ist gesund",
+          "Beide Ernährungsformen können gesund sein bei Ausgewogenheit",
+          "Nur Fleisch ist gesund",
+          "Ernährung spielt keine Rolle"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was benötigt die Tierhaltung laut Text viel?",
+        "opts": [
+          "Nur Geld",
+          "Wasser und Fläche",
+          "Nur Zeit",
+          "Nur Arbeitskräfte"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "stadt-oder-land-leben",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "gold",
+    "icon": "🏘️",
+    "xp": 25,
+    "words": 85,
+    "time": 5,
+    "titleDe": "Stadt oder Land: Wo lebt es sich besser?",
+    "titleBn": "শহর নাকি গ্রাম: কোথায় ভালো থাকা যায়?",
+    "descBn": "শহর ও গ্রামে বসবাসের সুবিধা-অসুবিধা নিয়ে একটি passage।",
+    "textDe": "<p>Viele junge Menschen ziehen für Studium oder Arbeit in die <span class=\"voc\" tabindex=\"0\" data-bn=\"বড় শহর\">Großstadt</span>. Dort gibt es mehr Jobangebote, kulturelle Veranstaltungen und eine bessere Infrastruktur.</p><p>Allerdings sind die Mieten in Städten oft sehr hoch, und viele klagen über <span class=\"voc\" tabindex=\"0\" data-bn=\"ব্যস্ততা\">Stress</span> und Lärm im Alltag. Auf dem Land dagegen ist es meist ruhiger und günstiger, aber die Wege zur Arbeit oder zum Einkaufen sind oft länger.</p><p>Manche Menschen entscheiden sich deshalb für einen <span class=\"voc\" tabindex=\"0\" data-bn=\"সমঝোতা\">Kompromiss</span> und ziehen in kleinere Städte in der Nähe einer Großstadt, um beide Vorteile zu genießen.</p>",
+    "textBn": "অনেক তরুণ পড়াশোনা বা কাজের জন্য বড় শহরে চলে যায়। সেখানে বেশি চাকরির সুযোগ, সাংস্কৃতিক অনুষ্ঠান এবং ভালো অবকাঠামো রয়েছে।<br><br>তবে শহরে ভাড়া প্রায়ই খুব বেশি, এবং অনেকে দৈনন্দিন জীবনে চাপ ও শব্দ নিয়ে অভিযোগ করেন। অন্যদিকে গ্রামে সাধারণত শান্ত ও সাশ্রয়ী, কিন্তু কাজ বা কেনাকাটার পথ প্রায়ই লম্বা হয়।<br><br>তাই কিছু মানুষ একটি সমঝোতা বেছে নেয় এবং বড় শহরের কাছাকাছি ছোট শহরে চলে যায়, উভয় সুবিধা উপভোগ করতে।",
+    "questions": [
+      {
+        "q": "Warum ziehen viele junge Menschen in die Großstadt?",
+        "opts": [
+          "Wegen der Ruhe",
+          "Wegen Jobangeboten und Infrastruktur",
+          "Wegen niedrigerer Mieten",
+          "Wegen des Wetters"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worüber klagen viele Stadtbewohner?",
+        "opts": [
+          "Zu wenig Angebote",
+          "Stress und Lärm",
+          "Zu niedrige Mieten",
+          "Zu wenig Arbeit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist das Leben auf dem Land meist?",
+        "opts": [
+          "Teurer und lauter",
+          "Ruhiger und günstiger",
+          "Genauso wie in der Stadt",
+          "Ohne Vorteile"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sind auf dem Land oft länger?",
+        "opts": [
+          "Die Ferien",
+          "Die Wege zur Arbeit oder zum Einkaufen",
+          "Die Arbeitszeiten",
+          "Die Wochenenden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wofür entscheiden sich manche als Kompromiss?",
+        "opts": [
+          "Nur Stadtleben",
+          "Nur Landleben",
+          "Kleinere Städte nahe einer Großstadt",
+          "Umzug ins Ausland"
+        ],
+        "correct": 2
+      }
+    ]
+  },
+  {
+    "slug": "online-shopping-einzelhandel",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "violet",
+    "icon": "📦",
+    "xp": 25,
+    "words": 70,
+    "time": 5,
+    "titleDe": "Online-Shopping: Bequemlichkeit auf Kosten der Innenstädte?",
+    "titleBn": "অনলাইন শপিং: শহরকেন্দ্রের বিনিময়ে সুবিধা?",
+    "descBn": "অনলাইন কেনাকাটা ও স্থানীয় দোকানের উপর প্রভাব নিয়ে একটি passage।",
+    "textDe": "<p>Online-Shopping wird immer beliebter, weil es bequem und meist <span class=\"voc\" tabindex=\"0\" data-bn=\"সাশ্রয়ী\">günstiger</span> ist. Man kann rund um die Uhr bestellen und die Ware wird direkt nach Hause geliefert.</p><p>Diese Entwicklung hat jedoch auch Nachteile: Viele kleine Geschäfte in den <span class=\"voc\" tabindex=\"0\" data-bn=\"শহরকেন্দ্র\">Innenstädten</span> müssen schließen, weil sie mit den niedrigen Preisen großer Onlineshops nicht mithalten können.</p><p>Städte versuchen deshalb, die Innenstädte attraktiver zu machen, zum Beispiel durch mehr <span class=\"voc\" tabindex=\"0\" data-bn=\"ইভেন্ট\">Veranstaltungen</span> und schönere Fußgängerzonen, um Kunden zurückzugewinnen.</p>",
+    "textBn": "অনলাইন শপিং ক্রমশ জনপ্রিয় হচ্ছে, কারণ এটি সুবিধাজনক এবং সাধারণত সাশ্রয়ী। যে কেউ সারাদিন অর্ডার করতে পারে এবং পণ্য সরাসরি বাড়িতে পৌঁছে যায়।<br><br>তবে এই বিকাশের অসুবিধাও আছে: শহরকেন্দ্রে অনেক ছোট দোকান বন্ধ করতে হচ্ছে, কারণ তারা বড় অনলাইন দোকানের কম দামের সাথে প্রতিযোগিতা করতে পারছে না।<br><br>তাই শহরগুলো শহরকেন্দ্র আরও আকর্ষণীয় করার চেষ্টা করছে, যেমন আরও ইভেন্ট এবং সুন্দর পথচারী এলাকার মাধ্যমে, গ্রাহকদের ফিরিয়ে আনতে।",
+    "questions": [
+      {
+        "q": "Warum wird Online-Shopping immer beliebter?",
+        "opts": [
+          "Weil es teurer ist",
+          "Weil es bequem und günstiger ist",
+          "Weil es langsam ist",
+          "Weil es kompliziert ist"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was passiert mit vielen kleinen Geschäften?",
+        "opts": [
+          "Sie wachsen",
+          "Sie müssen schließen",
+          "Sie werden billiger",
+          "Nichts ändert sich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum können kleine Geschäfte oft nicht mithalten?",
+        "opts": [
+          "Wegen der niedrigen Preise großer Onlineshops",
+          "Wegen schlechter Ware",
+          "Wegen zu vieler Kunden",
+          "Wegen zu hoher Steuern"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was versuchen Städte zu tun?",
+        "opts": [
+          "Alle Geschäfte schließen",
+          "Die Innenstädte attraktiver machen",
+          "Online-Shopping verbieten",
+          "Nichts unternehmen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie versuchen Städte, Kunden zurückzugewinnen?",
+        "opts": [
+          "Mit höheren Preisen",
+          "Mit mehr Veranstaltungen und schöneren Fußgängerzonen",
+          "Mit weniger Geschäften",
+          "Mit strengeren Regeln"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "hausaufgaben-sinnvoll",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "sky",
+    "icon": "📓",
+    "xp": 25,
+    "words": 76,
+    "time": 5,
+    "titleDe": "Hausaufgaben: Sinnvolle Übung oder unnötiger Stress?",
+    "titleBn": "হোমওয়ার্ক: কার্যকর অনুশীলন নাকি অপ্রয়োজনীয় চাপ?",
+    "descBn": "হোমওয়ার্কের প্রয়োজনীয়তা নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>In vielen Ländern bekommen Schüler jeden Tag <span class=\"voc\" tabindex=\"0\" data-bn=\"হোমওয়ার্ক\">Hausaufgaben</span>. Befürworter argumentieren, dass Üben zu Hause hilft, den Unterrichtsstoff besser zu verstehen und zu festigen.</p><p>Kritiker hingegen bemängeln, dass Hausaufgaben oft zu viel Zeit in Anspruch nehmen und Schülern kaum noch Zeit für <span class=\"voc\" tabindex=\"0\" data-bn=\"শখ\">Hobbys</span> oder Erholung bleibt. Manche Studien zeigen zudem, dass zu viele Hausaufgaben nicht unbedingt zu besseren Noten führen.</p><p>Einige Schulen experimentieren daher mit weniger, dafür aber gezielteren Hausaufgaben, die direkt im <span class=\"voc\" tabindex=\"0\" data-bn=\"পাঠ\">Unterricht</span> besprochen werden.</p>",
+    "textBn": "অনেক দেশে শিক্ষার্থীরা প্রতিদিন হোমওয়ার্ক পায়। সমর্থকরা যুক্তি দেন যে বাড়িতে অনুশীলন পাঠ্যক্রমের বিষয় আরও ভালোভাবে বুঝতে ও দৃঢ় করতে সাহায্য করে।<br><br>সমালোচকরা অন্যদিকে বলেন যে হোমওয়ার্ক প্রায়ই অনেক বেশি সময় নেয় এবং শিক্ষার্থীদের শখ বা বিশ্রামের জন্য কোনো সময় থাকে না। কিছু গবেষণা আরও দেখায় যে অতিরিক্ত হোমওয়ার্ক অগত্যা ভালো নম্বরের দিকে নিয়ে যায় না।<br><br>তাই কিছু স্কুল কম, তবে আরও লক্ষ্যযুক্ত হোমওয়ার্ক নিয়ে পরীক্ষা করছে, যা সরাসরি ক্লাসে আলোচনা করা হয়।",
+    "questions": [
+      {
+        "q": "Was argumentieren Befürworter von Hausaufgaben?",
+        "opts": [
+          "Sie sind zeitverschwendend",
+          "Sie helfen, den Unterrichtsstoff zu festigen",
+          "Sie sind unnötig",
+          "Sie schaden den Noten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bemängeln Kritiker?",
+        "opts": [
+          "Zu wenig Hausaufgaben",
+          "Zu viel Zeit und kaum Zeit für Hobbys",
+          "Zu einfache Aufgaben",
+          "Zu viele Ferien"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen manche Studien?",
+        "opts": [
+          "Mehr Hausaufgaben führen immer zu besseren Noten",
+          "Zu viele Hausaufgaben führen nicht unbedingt zu besseren Noten",
+          "Hausaufgaben sind immer schädlich",
+          "Hausaufgaben sind immer nützlich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit experimentieren einige Schulen?",
+        "opts": [
+          "Mit mehr Hausaufgaben",
+          "Mit weniger, gezielteren Hausaufgaben",
+          "Mit keinen Hausaufgaben mehr",
+          "Mit längeren Schultagen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo werden die gezielteren Hausaufgaben besprochen?",
+        "opts": [
+          "Zu Hause allein",
+          "Direkt im Unterricht",
+          "Nirgends",
+          "Nur in Prüfungen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "auslandsjahr-schueler",
+    "level": "B2",
+    "category": "Reise",
+    "color": "rose",
+    "icon": "🌍",
+    "xp": 25,
+    "words": 72,
+    "time": 5,
+    "titleDe": "Ein Auslandsjahr: Bereicherung oder Risiko?",
+    "titleBn": "বিদেশে এক বছর: সমৃদ্ধি নাকি ঝুঁকি?",
+    "descBn": "বিদেশে ছাত্র বিনিময় বর্ষ নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Viele Jugendliche verbringen ein Schuljahr im <span class=\"voc\" tabindex=\"0\" data-bn=\"বিদেশ\">Ausland</span>, um eine neue Sprache und Kultur kennenzulernen. Befürworter betonen, dass diese Erfahrung die Selbstständigkeit und das Selbstvertrauen stärkt.</p><p>Zudem verbessern sich die <span class=\"voc\" tabindex=\"0\" data-bn=\"ভাষা দক্ষতা\">Sprachkenntnisse</span> deutlich schneller als im normalen Schulunterricht. Gegner warnen jedoch, dass ein Jahr im Ausland auch mit Heimweh und schulischen Schwierigkeiten nach der Rückkehr verbunden sein kann.</p><p>Eine gute <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রস্তুতি\">Vorbereitung</span> und die Unterstützung der Gastfamilie sind daher entscheidend für einen erfolgreichen Auslandsaufenthalt.</p>",
+    "textBn": "অনেক কিশোর একটি নতুন ভাষা ও সংস্কৃতি জানতে বিদেশে একটি স্কুল বছর কাটায়। সমর্থকরা জোর দেন যে এই অভিজ্ঞতা স্বাধীনতা ও আত্মবিশ্বাস শক্তিশালী করে।<br><br>এছাড়াও, সাধারণ স্কুল পাঠদানের চেয়ে ভাষা দক্ষতা অনেক দ্রুত উন্নত হয়। বিরোধীরা তবে সতর্ক করেন যে বিদেশে এক বছর হোমসিকনেস এবং ফিরে আসার পর স্কুলে অসুবিধার সাথেও যুক্ত হতে পারে।<br><br>তাই একটি ভালো প্রস্তুতি এবং হোস্ট পরিবারের সহায়তা একটি সফল বিদেশ সফরের জন্য সিদ্ধান্তকারী।",
+    "questions": [
+      {
+        "q": "Was betonen Befürworter eines Auslandsjahres?",
+        "opts": [
+          "Es ist immer einfach",
+          "Es stärkt Selbstständigkeit und Selbstvertrauen",
+          "Es ist nutzlos",
+          "Es kostet nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was verbessert sich schneller im Ausland?",
+        "opts": [
+          "Die Mathematiknoten",
+          "Die Sprachkenntnisse",
+          "Die Sportleistung",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Gegner?",
+        "opts": [
+          "Vor zu viel Spaß",
+          "Vor Heimweh und schulischen Schwierigkeiten nach der Rückkehr",
+          "Vor zu hohen Kosten allein",
+          "Vor zu wenig Lernen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist entscheidend für einen erfolgreichen Aufenthalt?",
+        "opts": [
+          "Nur gutes Wetter",
+          "Gute Vorbereitung und Unterstützung der Gastfamilie",
+          "Nur gute Noten vorher",
+          "Viel Geld"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie lange verbringen viele Jugendliche im Ausland?",
+        "opts": [
+          "Eine Woche",
+          "Ein Schuljahr",
+          "Einen Monat",
+          "Nur die Ferien"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "social-media-jugendliche",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "indigo",
+    "icon": "📱",
+    "xp": 25,
+    "words": 69,
+    "time": 5,
+    "titleDe": "Soziale Medien: Chance oder Gefahr für Jugendliche?",
+    "titleBn": "সামাজিক মাধ্যম: কিশোরদের জন্য সুযোগ নাকি বিপদ?",
+    "descBn": "কিশোরদের উপর সামাজিক মাধ্যমের প্রভাব নিয়ে একটি passage।",
+    "textDe": "<p>Jugendliche verbringen heute viel Zeit auf <span class=\"voc\" tabindex=\"0\" data-bn=\"সামাজিক মাধ্যম\">sozialen Medien</span>. Befürworter sehen darin eine Möglichkeit, mit Freunden in Kontakt zu bleiben und sich kreativ auszudrücken.</p><p>Kritiker warnen jedoch vor negativen Auswirkungen auf das <span class=\"voc\" tabindex=\"0\" data-bn=\"আত্মমর্যাদা\">Selbstwertgefühl</span>, da viele Jugendliche sich ständig mit anderen vergleichen. Auch das Suchtpotenzial der Apps wird oft als Problem genannt.</p><p>Experten empfehlen deshalb klare Regeln für die Bildschirmzeit sowie <span class=\"voc\" tabindex=\"0\" data-bn=\"শিক্ষা\">Aufklärung</span> über einen bewussten Umgang mit sozialen Medien.</p>",
+    "textBn": "আজকাল কিশোররা সামাজিক মাধ্যমে অনেক সময় কাটায়। সমর্থকরা এতে বন্ধুদের সাথে যোগাযোগ রাখার এবং সৃজনশীলভাবে নিজেকে প্রকাশ করার একটি সুযোগ দেখেন।<br><br>সমালোচকরা তবে আত্মমর্যাদার উপর নেতিবাচক প্রভাব সম্পর্কে সতর্ক করেন, কারণ অনেক কিশোর ক্রমাগত অন্যদের সাথে নিজেদের তুলনা করে। অ্যাপগুলোর আসক্তির সম্ভাবনাও প্রায়ই একটি সমস্যা হিসেবে উল্লেখিত হয়।<br><br>তাই বিশেষজ্ঞরা স্ক্রিন সময়ের জন্য স্পষ্ট নিয়ম এবং সামাজিক মাধ্যমের সাথে সচেতন আচরণ সম্পর্কে শিক্ষার সুপারিশ করেন।",
+    "questions": [
+      {
+        "q": "Was sehen Befürworter in sozialen Medien?",
+        "opts": [
+          "Nur Gefahren",
+          "Eine Möglichkeit zum Kontakt und kreativen Ausdruck",
+          "Zeitverschwendung",
+          "Nichts Positives"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Kritiker?",
+        "opts": [
+          "Vor zu wenig Nutzung",
+          "Vor negativen Auswirkungen auf das Selbstwertgefühl",
+          "Vor zu viel Bewegung",
+          "Vor zu wenig Werbung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was wird oft als Problem genannt?",
+        "opts": [
+          "Zu niedrige Kosten",
+          "Das Suchtpotenzial der Apps",
+          "Zu wenig Funktionen",
+          "Zu langsame Apps"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Experten?",
+        "opts": [
+          "Komplettes Verbot",
+          "Klare Regeln für Bildschirmzeit und Aufklärung",
+          "Unbegrenzte Nutzung",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit vergleichen sich viele Jugendliche ständig?",
+        "opts": [
+          "Mit ihren Eltern",
+          "Mit anderen auf sozialen Medien",
+          "Mit Lehrern",
+          "Mit niemandem"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "elektroautos-zukunft",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "emerald",
+    "icon": "🔋",
+    "xp": 25,
+    "words": 71,
+    "time": 5,
+    "titleDe": "Elektroautos: Die Zukunft der Mobilität?",
+    "titleBn": "ইলেকট্রিক গাড়ি: চলাচলের ভবিষ্যৎ?",
+    "descBn": "ইলেকট্রিক গাড়ির সুবিধা ও চ্যালেঞ্জ নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Autohersteller setzen auf <span class=\"voc\" tabindex=\"0\" data-bn=\"ইলেকট্রিক গাড়ি\">Elektroautos</span>, um die CO2-Emissionen im Verkehr zu senken. Befürworter loben die geringeren Betriebskosten und den leisen, sauberen Antrieb.</p><p>Kritiker weisen jedoch auf die noch begrenzte <span class=\"voc\" tabindex=\"0\" data-bn=\"চার্জিং অবকাঠামো\">Ladeinfrastruktur</span> hin, besonders in ländlichen Gebieten. Auch die Herstellung der Batterien erfordert seltene Rohstoffe, deren Abbau oft umweltschädlich ist.</p><p>Experten sind sich dennoch einig, dass Elektroautos eine wichtige Rolle beim Klimaschutz spielen werden, wenn gleichzeitig die <span class=\"voc\" tabindex=\"0\" data-bn=\"নবায়নযোগ্য শক্তি\">erneuerbare Energieerzeugung</span> ausgebaut wird.</p>",
+    "textBn": "ক্রমশ বেশি গাড়ি নির্মাতা ইলেকট্রিক গাড়ির উপর নির্ভর করছে, যানবাহনে কার্বন নিঃসরণ কমাতে। সমর্থকরা কম পরিচালন খরচ এবং শান্ত, পরিষ্কার শক্তি ব্যবস্থার প্রশংসা করেন।<br><br>সমালোচকরা তবে এখনও সীমিত চার্জিং অবকাঠামোর দিকে ইঙ্গিত করেন, বিশেষত গ্রামীণ এলাকায়। ব্যাটারি তৈরিতে বিরল কাঁচামালও প্রয়োজন, যাদের উত্তোলন প্রায়ই পরিবেশের ক্ষতিকর।<br><br>তবুও বিশেষজ্ঞরা একমত যে জলবায়ু সুরক্ষায় ইলেকট্রিক গাড়ি একটি গুরুত্বপূর্ণ ভূমিকা পালন করবে, যদি একই সাথে নবায়নযোগ্য শক্তি উৎপাদন সম্প্রসারিত করা হয়।",
+    "questions": [
+      {
+        "q": "Warum setzen viele Hersteller auf Elektroautos?",
+        "opts": [
+          "Um mehr Geld zu verdienen",
+          "Um CO2-Emissionen zu senken",
+          "Weil es Pflicht ist",
+          "Aus Tradition"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was loben Befürworter?",
+        "opts": [
+          "Hohe Kosten",
+          "Geringere Betriebskosten und leisen Antrieb",
+          "Langsame Geschwindigkeit",
+          "Große Größe"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf weisen Kritiker hin?",
+        "opts": [
+          "Zu viel Ladeinfrastruktur",
+          "Die noch begrenzte Ladeinfrastruktur",
+          "Zu niedrige Preise",
+          "Zu wenig Nachfrage"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was erfordert die Batterieherstellung?",
+        "opts": [
+          "Nur Wasser",
+          "Seltene Rohstoffe mit umweltschädlichem Abbau",
+          "Keine besonderen Materialien",
+          "Nur Plastik"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was muss laut Experten gleichzeitig ausgebaut werden?",
+        "opts": [
+          "Nur Straßen",
+          "Erneuerbare Energieerzeugung",
+          "Nur Parkplätze",
+          "Nur Werbung"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "vier-tage-woche-b2",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "gold",
+    "icon": "📅",
+    "xp": 25,
+    "words": 72,
+    "time": 5,
+    "titleDe": "Die Vier-Tage-Woche: Realistisches Modell für alle?",
+    "titleBn": "চার দিনের সপ্তাহ: সবার জন্য বাস্তবসম্মত মডেল?",
+    "descBn": "চার দিনের কর্মসপ্তাহ নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Die Idee der <span class=\"voc\" tabindex=\"0\" data-bn=\"চার দিনের সপ্তাহ\">Vier-Tage-Woche</span> wird in vielen Ländern diskutiert. Befürworter argumentieren, dass Mitarbeiter mit mehr freier Zeit motivierter und produktiver arbeiten.</p><p>Erste Studien aus Testprojekten zeigen tatsächlich positive Ergebnisse für die <span class=\"voc\" tabindex=\"0\" data-bn=\"কর্মচারী সন্তুষ্টি\">Mitarbeiterzufriedenheit</span>. Kritiker geben jedoch zu bedenken, dass dieses Modell nicht in jeder Branche funktioniert, besonders nicht im Gesundheitswesen oder im Einzelhandel.</p><p>Deshalb fordern manche Experten flexible Lösungen, die auf die jeweilige <span class=\"voc\" tabindex=\"0\" data-bn=\"শিল্প\">Branche</span> zugeschnitten sind, statt einer einheitlichen Regelung für alle.</p>",
+    "textBn": "চার দিনের কর্মসপ্তাহের ধারণা অনেক দেশে আলোচিত হচ্ছে। সমর্থকরা যুক্তি দেন যে বেশি অবসর সময়সহ কর্মচারীরা আরও উৎসাহিত ও উৎপাদনশীলভাবে কাজ করে।<br><br>পরীক্ষামূলক প্রকল্প থেকে প্রাথমিক গবেষণা প্রকৃতপক্ষে কর্মচারী সন্তুষ্টির জন্য ইতিবাচক ফলাফল দেখায়। সমালোচকরা তবে বিবেচনা করতে বলেন যে এই মডেল প্রতিটি শিল্পক্ষেত্রে কাজ করে না, বিশেষত স্বাস্থ্যসেবা বা খুচরা বিক্রয়ে নয়।<br><br>তাই কিছু বিশেষজ্ঞ সকলের জন্য একটি অভিন্ন নিয়মের পরিবর্তে সংশ্লিষ্ট শিল্পের জন্য উপযুক্ত নমনীয় সমাধানের দাবি জানান।",
+    "questions": [
+      {
+        "q": "Was argumentieren Befürworter der Vier-Tage-Woche?",
+        "opts": [
+          "Mitarbeiter arbeiten weniger motiviert",
+          "Mitarbeiter arbeiten motivierter und produktiver",
+          "Es gibt keine Vorteile",
+          "Es kostet mehr Geld ohne Nutzen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen erste Studien?",
+        "opts": [
+          "Negative Ergebnisse",
+          "Positive Ergebnisse für die Mitarbeiterzufriedenheit",
+          "Keine Veränderung",
+          "Nur negative Effekte auf Produktivität"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo funktioniert das Modell laut Kritikern nicht gut?",
+        "opts": [
+          "Überall gleich gut",
+          "Im Gesundheitswesen oder Einzelhandel",
+          "Nur in Büros",
+          "In der IT-Branche"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fordern manche Experten stattdessen?",
+        "opts": [
+          "Eine einheitliche Regelung für alle",
+          "Flexible, branchenspezifische Lösungen",
+          "Die Abschaffung der Idee",
+          "Längere Arbeitszeiten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist die Vier-Tage-Woche?",
+        "opts": [
+          "Eine längere Arbeitswoche",
+          "Ein Modell mit weniger Arbeitstagen",
+          "Eine Urlaubsregelung",
+          "Ein Rentenmodell"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "plastiktueten-verbot",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "teal",
+    "icon": "🛍️",
+    "xp": 25,
+    "words": 69,
+    "time": 5,
+    "titleDe": "Plastiktüten-Verbot: Effektiver Umweltschutz oder Symbolpolitik?",
+    "titleBn": "প্লাস্টিক ব্যাগ নিষেধাজ্ঞা: কার্যকর পরিবেশ সুরক্ষা নাকি প্রতীকী নীতি?",
+    "descBn": "প্লাস্টিক ব্যাগ নিষেধাজ্ঞার প্রভাব নিয়ে একটি passage।",
+    "textDe": "<p>In vielen Ländern wurden <span class=\"voc\" tabindex=\"0\" data-bn=\"প্লাস্টিক ব্যাগ\">Plastiktüten</span> in Supermärkten verboten oder kostenpflichtig gemacht. Befürworter argumentieren, dass dadurch der Plastikmüll spürbar reduziert wird.</p><p>Tatsächlich zeigen Zahlen aus mehreren Ländern einen deutlichen Rückgang des Verbrauchs von <span class=\"voc\" tabindex=\"0\" data-bn=\"একবার ব্যবহারযোগ্য\">Einwegplastik</span>. Kritiker wenden jedoch ein, dass Plastiktüten nur einen kleinen Teil des gesamten Plastikmülls ausmachen und größere Probleme wie Verpackungsmüll dadurch nicht gelöst werden.</p><p>Umweltschützer fordern deshalb weitergehende Maßnahmen, die auch <span class=\"voc\" tabindex=\"0\" data-bn=\"উৎপাদন\">Produktion</span> und Verpackung insgesamt betreffen.</p>",
+    "textBn": "অনেক দেশে সুপারমার্কেটে প্লাস্টিক ব্যাগ নিষিদ্ধ বা মূল্যযুক্ত করা হয়েছে। সমর্থকরা যুক্তি দেন যে এর ফলে প্লাস্টিক বর্জ্য উল্লেখযোগ্যভাবে কমে যায়।<br><br>প্রকৃতপক্ষে বিভিন্ন দেশের পরিসংখ্যান একবার ব্যবহারযোগ্য প্লাস্টিকের ব্যবহারে স্পষ্ট হ্রাস দেখায়। সমালোচকরা তবে আপত্তি করেন যে প্লাস্টিক ব্যাগ মোট প্লাস্টিক বর্জ্যের কেবল একটি ছোট অংশ গঠন করে এবং প্যাকেজিং বর্জ্যের মতো বড় সমস্যা এর মাধ্যমে সমাধান হয় না।<br><br>তাই পরিবেশবাদীরা আরও ব্যাপক ব্যবস্থার দাবি জানান, যা উৎপাদন ও প্যাকেজিং সামগ্রিকভাবে সম্পর্কিত করে।",
+    "questions": [
+      {
+        "q": "Was wurde in vielen Ländern gemacht?",
+        "opts": [
+          "Plastiktüten wurden gefördert",
+          "Plastiktüten wurden verboten oder kostenpflichtig",
+          "Plastiktüten wurden kostenlos verteilt",
+          "Nichts geändert"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Zahlen aus mehreren Ländern?",
+        "opts": [
+          "Mehr Plastikverbrauch",
+          "Einen deutlichen Rückgang des Einwegplastikverbrauchs",
+          "Keine Veränderung",
+          "Weniger Umweltschutz"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was wenden Kritiker ein?",
+        "opts": [
+          "Plastiktüten sind das größte Problem",
+          "Plastiktüten machen nur einen kleinen Teil des Plastikmülls aus",
+          "Es gibt kein Plastikmüll-Problem",
+          "Das Verbot ist zu streng"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fordern Umweltschützer zusätzlich?",
+        "opts": [
+          "Weniger Maßnahmen",
+          "Weitergehende Maßnahmen bei Produktion und Verpackung",
+          "Abschaffung des Verbots",
+          "Mehr Plastikverbrauch"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist Einwegplastik?",
+        "opts": [
+          "Wiederverwendbares Plastik",
+          "Plastik, das nur einmal benutzt wird",
+          "Recyceltes Plastik",
+          "Biologisch abbaubares Material"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "noten-schule-sinnvoll",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "orange",
+    "icon": "📝",
+    "xp": 25,
+    "words": 59,
+    "time": 5,
+    "titleDe": "Schulnoten: Motivation oder Druck?",
+    "titleBn": "স্কুলের নম্বর: প্রেরণা নাকি চাপ?",
+    "descBn": "স্কুলে নম্বর প্রদান পদ্ধতি নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>In den meisten Schulsystemen bekommen Schüler regelmäßig <span class=\"voc\" tabindex=\"0\" data-bn=\"নম্বর\">Noten</span> für ihre Leistungen. Befürworter meinen, dass Noten eine klare Rückmeldung geben und zum Lernen motivieren.</p><p>Kritiker argumentieren jedoch, dass Noten oft mehr <span class=\"voc\" tabindex=\"0\" data-bn=\"চাপ\">Druck</span> als Motivation erzeugen und den Fokus auf das Auswendiglernen statt auf echtes Verständnis lenken.</p><p>Manche Schulen experimentieren deshalb mit alternativen <span class=\"voc\" tabindex=\"0\" data-bn=\"মূল্যায়ন\">Bewertungsmethoden</span>, wie ausführlichem schriftlichem Feedback statt Zahlen.</p>",
+    "textBn": "বেশিরভাগ স্কুল ব্যবস্থায় শিক্ষার্থীরা নিয়মিতভাবে তাদের কার্যক্ষমতার জন্য নম্বর পায়। সমর্থকরা মনে করেন যে নম্বর একটি স্পষ্ট প্রতিক্রিয়া দেয় এবং শেখার জন্য উৎসাহিত করে।<br><br>সমালোচকরা তবে যুক্তি দেন যে নম্বর প্রায়ই প্রেরণার চেয়ে বেশি চাপ তৈরি করে এবং প্রকৃত বোঝাপড়ার পরিবর্তে মুখস্থ করার দিকে মনোযোগ পরিচালিত করে।<br><br>তাই কিছু স্কুল বিকল্প মূল্যায়ন পদ্ধতি নিয়ে পরীক্ষা করছে, যেমন সংখ্যার পরিবর্তে বিস্তারিত লিখিত প্রতিক্রিয়া।",
+    "questions": [
+      {
+        "q": "Was meinen Befürworter von Noten?",
+        "opts": [
+          "Sie sind nutzlos",
+          "Sie geben klare Rückmeldung und motivieren",
+          "Sie schaden nur",
+          "Sie sind unwichtig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Kritiker?",
+        "opts": [
+          "Noten erzeugen nur Motivation",
+          "Noten erzeugen oft mehr Druck als Motivation",
+          "Noten sind perfekt",
+          "Noten sind zu einfach"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf lenken Noten laut Kritikern den Fokus?",
+        "opts": [
+          "Auf echtes Verständnis",
+          "Auf das Auswendiglernen statt echtes Verständnis",
+          "Auf Kreativität",
+          "Auf Teamarbeit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit experimentieren manche Schulen?",
+        "opts": [
+          "Mit noch mehr Noten",
+          "Mit alternativen Bewertungsmethoden wie schriftlichem Feedback",
+          "Mit weniger Unterricht",
+          "Mit längeren Prüfungen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bekommen Schüler in den meisten Schulsystemen regelmäßig?",
+        "opts": [
+          "Geschenke",
+          "Noten für ihre Leistungen",
+          "Ferien",
+          "Keine Bewertung"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "streaming-kino",
+    "level": "B2",
+    "category": "Kultur",
+    "color": "violet",
+    "icon": "🎬",
+    "xp": 25,
+    "words": 73,
+    "time": 5,
+    "titleDe": "Streaming versus Kino: Wie schauen wir in Zukunft Filme?",
+    "titleBn": "স্ট্রিমিং বনাম সিনেমা: ভবিষ্যতে আমরা কীভাবে চলচ্চিত্র দেখব?",
+    "descBn": "স্ট্রিমিং সার্ভিস ও সিনেমা হলের ভবিষ্যৎ নিয়ে একটি passage।",
+    "textDe": "<p>Seit der Verbreitung von <span class=\"voc\" tabindex=\"0\" data-bn=\"স্ট্রিমিং সার্ভিস\">Streamingdiensten</span> schauen viele Menschen Filme lieber zu Hause als im Kino. Das liegt vor allem an der Bequemlichkeit und den niedrigeren Kosten.</p><p>Kinos kämpfen deshalb mit sinkenden Besucherzahlen, besonders seit der Pandemie. Befürworter des Kinoerlebnisses betonen jedoch, dass die große Leinwand und der <span class=\"voc\" tabindex=\"0\" data-bn=\"শব্দ\">Sound</span> ein einzigartiges Erlebnis bieten, das man zu Hause nicht bekommt.</p><p>Manche Kinos reagieren mit besonderen Angeboten wie <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রিমিয়াম\">Premium</span>-Sitzen oder speziellen Events, um Zuschauer zurückzugewinnen.</p>",
+    "textBn": "স্ট্রিমিং সার্ভিসের বিস্তারের পর থেকে, অনেক মানুষ সিনেমা হলের চেয়ে বাড়িতে চলচ্চিত্র দেখতে পছন্দ করেন। এটি প্রধানত সুবিধা ও কম খরচের কারণে।<br><br>সিনেমা হলগুলো তাই হ্রাসপ্রাপ্ত দর্শক সংখ্যার সাথে লড়াই করছে, বিশেষত মহামারীর পর থেকে। সিনেমা অভিজ্ঞতার সমর্থকরা তবে জোর দেন যে বড় পর্দা ও শব্দ একটি অনন্য অভিজ্ঞতা প্রদান করে যা বাড়িতে পাওয়া যায় না।<br><br>কিছু সিনেমা হল প্রিমিয়াম আসন বা বিশেষ ইভেন্টের মতো বিশেষ অফার দিয়ে প্রতিক্রিয়া জানাচ্ছে, দর্শক ফিরিয়ে আনতে।",
+    "questions": [
+      {
+        "q": "Warum schauen viele Menschen lieber zu Hause Filme?",
+        "opts": [
+          "Wegen der schlechten Qualität im Kino",
+          "Wegen Bequemlichkeit und niedrigerer Kosten",
+          "Weil Kinos geschlossen sind",
+          "Weil es Pflicht ist"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit kämpfen Kinos?",
+        "opts": [
+          "Mit steigenden Besucherzahlen",
+          "Mit sinkenden Besucherzahlen",
+          "Mit zu hohen Gewinnen",
+          "Mit zu vielen Filmen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter des Kinoerlebnisses?",
+        "opts": [
+          "Die niedrigen Preise",
+          "Die große Leinwand und den besonderen Sound",
+          "Die Bequemlichkeit zu Hause",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit reagieren manche Kinos?",
+        "opts": [
+          "Mit höheren Preisen ohne Änderung",
+          "Mit Premium-Sitzen und speziellen Events",
+          "Mit Schließung",
+          "Mit weniger Filmen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Seit wann kämpfen Kinos besonders mit sinkenden Zahlen?",
+        "opts": [
+          "Seit den 1990er Jahren",
+          "Seit der Pandemie",
+          "Seit letztem Monat",
+          "Sie kämpfen nicht"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "fast-fashion-kritik",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "rose",
+    "icon": "👕",
+    "xp": 25,
+    "words": 67,
+    "time": 5,
+    "titleDe": "Fast Fashion: Günstige Mode mit hohen Kosten für die Umwelt",
+    "titleBn": "ফাস্ট ফ্যাশন: পরিবেশের জন্য উচ্চ মূল্যসহ সাশ্রয়ী ফ্যাশন",
+    "descBn": "ফাস্ট ফ্যাশন শিল্পের সমালোচনা নিয়ে একটি passage।",
+    "textDe": "<p><span class=\"voc\" tabindex=\"0\" data-bn=\"ফাস্ট ফ্যাশন\">Fast Fashion</span> bezeichnet die schnelle Produktion günstiger Kleidung nach aktuellen Modetrends. Für Verbraucher ist das attraktiv, weil sie sich häufig neue Kleidung leisten können.</p><p>Umweltschützer kritisieren jedoch den hohen Wasserverbrauch und die Umweltbelastung durch die <span class=\"voc\" tabindex=\"0\" data-bn=\"টেক্সটাইল উৎপাদন\">Textilproduktion</span>. Zudem landet viel der schnell produzierten Kleidung bereits nach kurzer Zeit im Müll.</p><p>Als Alternative wird oft <span class=\"voc\" tabindex=\"0\" data-bn=\"টেকসই ফ্যাশন\">nachhaltige Mode</span> empfohlen, die zwar teurer ist, aber langlebiger und umweltfreundlicher produziert wird.</p>",
+    "textBn": "ফাস্ট ফ্যাশন বর্তমান ফ্যাশন প্রবণতা অনুযায়ী সাশ্রয়ী পোশাকের দ্রুত উৎপাদন বোঝায়। ভোক্তাদের জন্য এটি আকর্ষণীয়, কারণ তারা প্রায়ই নতুন পোশাক কিনতে পারে।<br><br>পরিবেশবাদীরা তবে টেক্সটাইল উৎপাদনের কারণে উচ্চ পানি খরচ ও পরিবেশগত বোঝার সমালোচনা করেন। এছাড়াও দ্রুত উৎপাদিত অনেক পোশাক অল্প সময়ের মধ্যেই বর্জ্যে পরিণত হয়।<br><br>বিকল্প হিসেবে প্রায়ই টেকসই ফ্যাশনের সুপারিশ করা হয়, যা ব্যয়বহুল হলেও দীর্ঘস্থায়ী ও পরিবেশবান্ধবভাবে উৎপাদিত হয়।",
+    "questions": [
+      {
+        "q": "Was bezeichnet Fast Fashion?",
+        "opts": [
+          "Langsame, teure Produktion",
+          "Die schnelle Produktion günstiger Kleidung nach Trends",
+          "Nur handgemachte Kleidung",
+          "Recycelte Kleidung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum ist Fast Fashion für Verbraucher attraktiv?",
+        "opts": [
+          "Sie ist immer hochwertig",
+          "Sie ist günstig und ermöglicht häufig neue Kleidung",
+          "Sie ist umweltfreundlich",
+          "Sie ist langlebig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kritisieren Umweltschützer?",
+        "opts": [
+          "Zu hohe Preise",
+          "Hohen Wasserverbrauch und Umweltbelastung",
+          "Zu wenig Auswahl",
+          "Zu langsame Produktion"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was passiert mit viel schnell produzierter Kleidung?",
+        "opts": [
+          "Sie wird jahrelang getragen",
+          "Sie landet schnell im Müll",
+          "Sie wird immer recycelt",
+          "Sie wird gespendet"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was wird als Alternative empfohlen?",
+        "opts": [
+          "Noch mehr Fast Fashion",
+          "Nachhaltige Mode",
+          "Keine Kleidung zu kaufen",
+          "Nur gebrauchte Kleidung"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "eltern-taschengeld",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "gold",
+    "icon": "💰",
+    "xp": 25,
+    "words": 80,
+    "time": 5,
+    "titleDe": "Taschengeld: Wie viel ist angemessen?",
+    "titleBn": "হাতখরচ: কতটা যথাযথ?",
+    "descBn": "শিশুদের হাতখরচ নিয়ে অভিভাবকদের বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Viele Eltern geben ihren Kindern regelmäßig <span class=\"voc\" tabindex=\"0\" data-bn=\"হাতখরচ\">Taschengeld</span>, damit sie lernen, mit Geld umzugehen. Die Höhe des Taschengeldes ist jedoch oft ein Streitthema zwischen Eltern.</p><p>Manche Eltern meinen, dass Kinder das Geld für kleine Aufgaben im Haushalt <span class=\"voc\" tabindex=\"0\" data-bn=\"উপার্জন করা\">verdienen</span> sollten, um Verantwortung zu lernen. Andere argumentieren, dass Taschengeld unabhängig von Aufgaben gegeben werden sollte, damit Kinder ein Grundverständnis für den Umgang mit Geld entwickeln.</p><p>Experten empfehlen, die Höhe des Taschengeldes an das <span class=\"voc\" tabindex=\"0\" data-bn=\"বয়স\">Alter</span> des Kindes anzupassen und regelmäßig darüber zu sprechen.</p>",
+    "textBn": "অনেক অভিভাবক তাদের সন্তানদের নিয়মিতভাবে হাতখরচ দেন, যাতে তারা টাকার সাথে আচরণ শিখতে পারে। তবে হাতখরচের পরিমাণ প্রায়ই অভিভাবকদের মধ্যে একটি বিতর্কের বিষয়।<br><br>কিছু অভিভাবক মনে করেন যে শিশুদের বাড়ির ছোট কাজের জন্য টাকা উপার্জন করা উচিত, দায়িত্ব শিখতে। অন্যরা যুক্তি দেন যে হাতখরচ কাজ নির্বিশেষে দেওয়া উচিত, যাতে শিশুরা টাকার সাথে আচরণের একটি মৌলিক বোঝাপড়া গড়ে তুলতে পারে।<br><br>বিশেষজ্ঞরা সুপারিশ করেন যে হাতখরচের পরিমাণ শিশুর বয়স অনুযায়ী সমন্বয় করা উচিত এবং এ নিয়ে নিয়মিত কথা বলা উচিত।",
+    "questions": [
+      {
+        "q": "Warum geben viele Eltern Taschengeld?",
+        "opts": [
+          "Aus Zwang",
+          "Damit Kinder lernen, mit Geld umzugehen",
+          "Weil es Gesetz ist",
+          "Aus Langeweile"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen manche Eltern über Taschengeld?",
+        "opts": [
+          "Es sollte unbegrenzt sein",
+          "Kinder sollten es für Aufgaben verdienen",
+          "Es sollte abgeschafft werden",
+          "Es ist unwichtig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren andere Eltern?",
+        "opts": [
+          "Taschengeld sollte nur für gute Noten sein",
+          "Taschengeld sollte unabhängig von Aufgaben gegeben werden",
+          "Kinder brauchen kein Geld",
+          "Taschengeld ist schädlich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Experten?",
+        "opts": [
+          "Immer die gleiche Summe für alle Altersgruppen",
+          "Die Höhe an das Alter anzupassen und darüber zu sprechen",
+          "Kein Taschengeld zu geben",
+          "Nur einmal im Jahr Geld zu geben"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist oft ein Streitthema zwischen Eltern?",
+        "opts": [
+          "Die Schulwahl",
+          "Die Höhe des Taschengeldes",
+          "Die Urlaubsplanung",
+          "Die Kleidung der Kinder"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "sport-schulpflicht",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "emerald",
+    "icon": "⚽",
+    "xp": 25,
+    "words": 69,
+    "time": 5,
+    "titleDe": "Mehr Sport in der Schule: Notwendig oder übertrieben?",
+    "titleBn": "স্কুলে বেশি খেলাধুলা: প্রয়োজনীয় নাকি অতিরিক্ত?",
+    "descBn": "স্কুলে বাধ্যতামূলক খেলাধুলার সময় বৃদ্ধি নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Angesichts zunehmender Bewegungsmangel bei Kindern fordern viele Experten mehr <span class=\"voc\" tabindex=\"0\" data-bn=\"খেলাধুলা পাঠ\">Sportstunden</span> in der Schule. Sie argumentieren, dass regelmäßige Bewegung die Konzentration und Gesundheit der Schüler verbessert.</p><p>Schulen mit begrenzten Ressourcen weisen jedoch darauf hin, dass mehr Sportstunden weniger Zeit für andere <span class=\"voc\" tabindex=\"0\" data-bn=\"বিষয়\">Fächer</span> bedeuten würde. Zudem fehlen oft die nötigen Sporthallen und ausgebildeten Lehrkräfte.</p><p>Ein möglicher Kompromiss wäre die Einbindung von <span class=\"voc\" tabindex=\"0\" data-bn=\"সক্রিয় বিরতি\">Bewegungspausen</span> während des regulären Unterrichts, ohne den Stundenplan komplett umzustellen.</p>",
+    "textBn": "শিশুদের মধ্যে ক্রমবর্ধমান শারীরিক নিষ্ক্রিয়তার পরিপ্রেক্ষিতে, অনেক বিশেষজ্ঞ স্কুলে আরও বেশি খেলাধুলা পাঠের দাবি জানান। তারা যুক্তি দেন যে নিয়মিত শারীরিক কার্যকলাপ শিক্ষার্থীদের মনোযোগ ও স্বাস্থ্য উন্নত করে।<br><br>সীমিত সম্পদসহ স্কুলগুলো তবে ইঙ্গিত করে যে বেশি খেলাধুলা পাঠ মানে অন্যান্য বিষয়ের জন্য কম সময়। এছাড়াও প্রায়ই প্রয়োজনীয় জিমনেসিয়াম ও প্রশিক্ষিত শিক্ষকের অভাব থাকে।<br><br>একটি সম্ভাব্য সমঝোতা হতে পারে নিয়মিত পাঠদানের সময় সক্রিয় বিরতি অন্তর্ভুক্ত করা, সম্পূর্ণ সময়সূচী পরিবর্তন না করে।",
+    "questions": [
+      {
+        "q": "Was fordern viele Experten?",
+        "opts": [
+          "Weniger Sportstunden",
+          "Mehr Sportstunden in der Schule",
+          "Keine Schulpflicht",
+          "Mehr Hausaufgaben"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was verbessert regelmäßige Bewegung laut Experten?",
+        "opts": [
+          "Nur die Sportleistung",
+          "Konzentration und Gesundheit",
+          "Nur die Noten in Mathematik",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf weisen Schulen mit begrenzten Ressourcen hin?",
+        "opts": [
+          "Zu viel Geld für Sport",
+          "Weniger Zeit für andere Fächer und fehlende Ressourcen",
+          "Zu viele Sporthallen",
+          "Zu viele Lehrkräfte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fehlt oft an Schulen?",
+        "opts": [
+          "Genug Bücher",
+          "Sporthallen und ausgebildete Lehrkräfte",
+          "Zu viele Schüler",
+          "Zu viel Zeit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist ein möglicher Kompromiss?",
+        "opts": [
+          "Kein Sport mehr",
+          "Bewegungspausen während des regulären Unterrichts",
+          "Nur noch Sport unterrichten",
+          "Sport komplett streichen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "handystrahlung-sorge",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "sky",
+    "icon": "📶",
+    "xp": 25,
+    "words": 69,
+    "time": 5,
+    "titleDe": "Handystrahlung: Berechtigte Sorge oder unbegründete Angst?",
+    "titleBn": "মোবাইল রেডিয়েশন: যুক্তিসঙ্গত উদ্বেগ নাকি ভিত্তিহীন ভয়?",
+    "descBn": "মোবাইল ফোনের রেডিয়েশন নিয়ে উদ্বেগ ও বৈজ্ঞানিক গবেষণা নিয়ে একটি passage।",
+    "textDe": "<p>Viele Menschen sorgen sich über mögliche gesundheitliche Risiken durch <span class=\"voc\" tabindex=\"0\" data-bn=\"রেডিয়েশন\">Handystrahlung</span>. Sie befürchten Zusammenhänge mit Kopfschmerzen oder sogar Krebs.</p><p>Die meisten wissenschaftlichen <span class=\"voc\" tabindex=\"0\" data-bn=\"গবেষণা\">Studien</span> konnten jedoch bisher keinen klaren Zusammenhang zwischen normaler Handynutzung und ernsthaften Gesundheitsschäden nachweisen. Gesundheitsbehörden betonen, dass die Strahlung von Handys deutlich unter den festgelegten Grenzwerten liegt.</p><p>Trotzdem empfehlen manche Experten aus Vorsicht, längere Telefonate über <span class=\"voc\" tabindex=\"0\" data-bn=\"হেডফোন\">Kopfhörer</span> zu führen, um den direkten Kontakt zum Kopf zu reduzieren.</p>",
+    "textBn": "অনেক মানুষ মোবাইল রেডিয়েশনের মাধ্যমে সম্ভাব্য স্বাস্থ্য ঝুঁকি নিয়ে উদ্বিগ্ন। তারা মাথাব্যথা বা এমনকি ক্যান্সারের সাথে সম্পর্ক আশঙ্কা করেন।<br><br>তবে বেশিরভাগ বৈজ্ঞানিক গবেষণা এখন পর্যন্ত স্বাভাবিক মোবাইল ব্যবহার ও গুরুতর স্বাস্থ্য ক্ষতির মধ্যে কোনো স্পষ্ট সম্পর্ক প্রমাণ করতে পারেনি। স্বাস্থ্য কর্তৃপক্ষ জোর দেয় যে মোবাইলের রেডিয়েশন নির্ধারিত সীমার অনেক নিচে থাকে।<br><br>তবুও কিছু বিশেষজ্ঞ সতর্কতা হিসেবে হেডফোনের মাধ্যমে দীর্ঘ কথোপকথন করার সুপারিশ করেন, মাথার সাথে সরাসরি সংস্পর্শ কমাতে।",
+    "questions": [
+      {
+        "q": "Worüber sorgen sich viele Menschen?",
+        "opts": [
+          "Über die Kosten von Handys",
+          "Über gesundheitliche Risiken durch Handystrahlung",
+          "Über die Batterielebensdauer",
+          "Über das Design"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was konnten die meisten Studien nicht nachweisen?",
+        "opts": [
+          "Einen klaren Zusammenhang zwischen normaler Nutzung und ernsthaften Schäden",
+          "Dass Handys funktionieren",
+          "Dass Strahlung existiert",
+          "Dass Handys teuer sind"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was betonen Gesundheitsbehörden?",
+        "opts": [
+          "Die Strahlung überschreitet Grenzwerte stark",
+          "Die Strahlung liegt deutlich unter den Grenzwerten",
+          "Handys sind komplett sicher ohne Zweifel",
+          "Es gibt keine Grenzwerte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen manche Experten aus Vorsicht?",
+        "opts": [
+          "Handys komplett zu verbieten",
+          "Längere Telefonate über Kopfhörer zu führen",
+          "Nie zu telefonieren",
+          "Nur SMS zu schreiben"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchten manche Menschen im Zusammenhang mit Handystrahlung?",
+        "opts": [
+          "Nur höhere Kosten",
+          "Kopfschmerzen oder sogar Krebs",
+          "Schnelleren Akkuverbrauch",
+          "Langsames Internet"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "mindestlohn-b2",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "gold",
+    "icon": "💶",
+    "xp": 25,
+    "words": 64,
+    "time": 5,
+    "titleDe": "Mindestlohn: Wer profitiert wirklich?",
+    "titleBn": "ন্যূনতম মজুরি: প্রকৃতপক্ষে কে উপকৃত হয়?",
+    "descBn": "ন্যূনতম মজুরির প্রভাব নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Der gesetzliche <span class=\"voc\" tabindex=\"0\" data-bn=\"ন্যূনতম মজুরি\">Mindestlohn</span> soll sicherstellen, dass Arbeitnehmer für ihre Arbeit fair bezahlt werden. Befürworter argumentieren, dass er besonders Geringverdienern hilft, ihren Lebensunterhalt zu sichern.</p><p>Arbeitgeberverbände warnen jedoch, dass ein zu hoher Mindestlohn kleine Unternehmen finanziell <span class=\"voc\" tabindex=\"0\" data-bn=\"ভারাক্রান্ত করা\">belasten</span> und möglicherweise zu weniger Arbeitsplätzen führen könnte.</p><p>Ökonomen sind sich über die tatsächlichen Auswirkungen nicht vollständig einig, da Studien je nach <span class=\"voc\" tabindex=\"0\" data-bn=\"অঞ্চল\">Region</span> und Branche zu unterschiedlichen Ergebnissen kommen.</p>",
+    "textBn": "আইনি ন্যূনতম মজুরি নিশ্চিত করার কথা যে শ্রমিকরা তাদের কাজের জন্য ন্যায্য পারিশ্রমিক পান। সমর্থকরা যুক্তি দেন যে এটি বিশেষত স্বল্প আয়কারীদের তাদের জীবিকা নিশ্চিত করতে সাহায্য করে।<br><br>নিয়োগকর্তা সংস্থাগুলো তবে সতর্ক করে যে অতিরিক্ত উচ্চ ন্যূনতম মজুরি ছোট কোম্পানিগুলোকে আর্থিকভাবে ভারাক্রান্ত করতে পারে এবং সম্ভবত কম কাজের জায়গার দিকে নিয়ে যেতে পারে।<br><br>অর্থনীতিবিদরা প্রকৃত প্রভাব নিয়ে সম্পূর্ণভাবে একমত নন, কারণ গবেষণা অঞ্চল ও শিল্পক্ষেত্র অনুযায়ী ভিন্ন ফলাফলে পৌঁছায়।",
+    "questions": [
+      {
+        "q": "Was soll der Mindestlohn sicherstellen?",
+        "opts": [
+          "Höhere Gewinne für Unternehmen",
+          "Faire Bezahlung für Arbeitnehmer",
+          "Weniger Arbeitsplätze",
+          "Höhere Steuern"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wem hilft der Mindestlohn laut Befürwortern besonders?",
+        "opts": [
+          "Großunternehmen",
+          "Geringverdienern",
+          "Nur Managern",
+          "Niemandem"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Arbeitgeberverbände?",
+        "opts": [
+          "Vor zu niedrigem Mindestlohn",
+          "Vor finanzieller Belastung kleiner Unternehmen und weniger Arbeitsplätzen",
+          "Vor zu viel Gewinn",
+          "Vor zu wenig Arbeit für alle"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Sind sich Ökonomen über die Auswirkungen einig?",
+        "opts": [
+          "Ja, vollständig",
+          "Nein, nicht vollständig",
+          "Ja, aber nur teilweise falsch",
+          "Es gibt keine Studien dazu"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovon hängen die Studienergebnisse ab?",
+        "opts": [
+          "Von nichts Bestimmtem",
+          "Von Region und Branche",
+          "Nur vom Zufall",
+          "Nur von der Jahreszeit"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "tierversuche-debatte",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "rose",
+    "icon": "🐁",
+    "xp": 25,
+    "words": 71,
+    "time": 5,
+    "titleDe": "Tierversuche: Notwendig für die Forschung?",
+    "titleBn": "প্রাণী পরীক্ষা: গবেষণার জন্য প্রয়োজনীয়?",
+    "descBn": "প্রাণী পরীক্ষার নৈতিক ও বৈজ্ঞানিক বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p><span class=\"voc\" tabindex=\"0\" data-bn=\"প্রাণী পরীক্ষা\">Tierversuche</span> werden in der medizinischen Forschung eingesetzt, um neue Medikamente zu testen, bevor sie am Menschen angewendet werden. Befürworter argumentieren, dass sie viele Leben gerettet haben.</p><p>Tierschützer kritisieren jedoch das <span class=\"voc\" tabindex=\"0\" data-bn=\"দুর্ভোগ\">Leiden</span> der Tiere und fordern alternative Testmethoden, wie Computersimulationen oder Zellkulturen. Diese Alternativen sind zwar vielversprechend, können aber noch nicht alle Tierversuche vollständig ersetzen.</p><p>Die Forschung an alternativen <span class=\"voc\" tabindex=\"0\" data-bn=\"পদ্ধতি\">Methoden</span> wird daher zunehmend gefördert, um langfristig ganz auf Tierversuche verzichten zu können.</p>",
+    "textBn": "চিকিৎসা গবেষণায় প্রাণী পরীক্ষা ব্যবহৃত হয়, নতুন ওষুধ মানুষে প্রয়োগের আগে পরীক্ষা করতে। সমর্থকরা যুক্তি দেন যে তারা অনেক জীবন রক্ষা করেছে।<br><br>পশু অধিকার কর্মীরা তবে প্রাণীদের দুর্ভোগের সমালোচনা করেন এবং কম্পিউটার সিমুলেশন বা কোষ সংস্কৃতির মতো বিকল্প পরীক্ষা পদ্ধতির দাবি জানান। এই বিকল্পগুলো প্রতিশ্রুতিশীল হলেও, এখনও সমস্ত প্রাণী পরীক্ষা সম্পূর্ণভাবে প্রতিস্থাপন করতে পারে না।<br><br>তাই বিকল্প পদ্ধতির গবেষণা ক্রমশ উৎসাহিত করা হচ্ছে, দীর্ঘমেয়াদে প্রাণী পরীক্ষা সম্পূর্ণভাবে বর্জন করতে সক্ষম হতে।",
+    "questions": [
+      {
+        "q": "Wozu werden Tierversuche eingesetzt?",
+        "opts": [
+          "Nur für Kosmetik",
+          "Um neue Medikamente vor der Anwendung am Menschen zu testen",
+          "Für Unterhaltung",
+          "Ohne besonderen Zweck"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter?",
+        "opts": [
+          "Tierversuche sind nutzlos",
+          "Tierversuche haben viele Leben gerettet",
+          "Tierversuche sind illegal",
+          "Tierversuche sind unnötig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kritisieren Tierschützer?",
+        "opts": [
+          "Zu wenig Forschung",
+          "Das Leiden der Tiere",
+          "Zu hohe Kosten",
+          "Zu schnelle Forschung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welche Alternativen werden gefordert?",
+        "opts": [
+          "Mehr Tierversuche",
+          "Computersimulationen oder Zellkulturen",
+          "Keine Forschung mehr",
+          "Nur Tests am Menschen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Können Alternativen Tierversuche schon vollständig ersetzen?",
+        "opts": [
+          "Ja, vollständig",
+          "Noch nicht vollständig",
+          "Sie wurden nie getestet",
+          "Sie sind schädlicher"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "urlaub-fliegen-klima",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "sky",
+    "icon": "✈️",
+    "xp": 25,
+    "words": 76,
+    "time": 5,
+    "titleDe": "Fliegen im Urlaub: Bequem, aber klimaschädlich?",
+    "titleBn": "ছুটিতে বিমান ভ্রমণ: সুবিধাজনক, কিন্তু জলবায়ুর জন্য ক্ষতিকর?",
+    "descBn": "বিমান ভ্রমণের জলবায়ু প্রভাব নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Fliegen ist für viele Menschen die bequemste Art, in den Urlaub zu reisen. Kritiker weisen jedoch darauf hin, dass Flugzeuge einen erheblichen Anteil an den globalen <span class=\"voc\" tabindex=\"0\" data-bn=\"কার্বন নিঃসরণ\">CO2-Emissionen</span> haben.</p><p>Manche Reisende versuchen deshalb, auf klimafreundlichere Alternativen wie den Zug umzusteigen, auch wenn diese oft länger dauern und teurer sind. Fluggesellschaften argumentieren, dass moderne Flugzeuge immer <span class=\"voc\" tabindex=\"0\" data-bn=\"জ্বালানি সাশ্রয়ী\">effizienter</span> werden und weniger Treibstoff verbrauchen.</p><p>Trotzdem bleibt Fliegen eine der klimaschädlichsten Arten zu reisen, weshalb manche für eine bewusstere <span class=\"voc\" tabindex=\"0\" data-bn=\"ভ্রমণ পছন্দ\">Reiseplanung</span> plädieren.</p>",
+    "textBn": "অনেক মানুষের জন্য ছুটিতে ভ্রমণের সবচেয়ে সুবিধাজনক উপায় হলো বিমান। সমালোচকরা তবে ইঙ্গিত করেন যে বিমান বৈশ্বিক কার্বন নিঃসরণের একটি উল্লেখযোগ্য অংশের জন্য দায়ী।<br><br>তাই কিছু ভ্রমণকারী ট্রেনের মতো জলবায়ু-বান্ধব বিকল্পে স্থানান্তরিত হওয়ার চেষ্টা করেন, এমনকি যদি এগুলো প্রায়ই বেশি সময় নেয় এবং ব্যয়বহুল হয়। বিমান সংস্থাগুলো যুক্তি দেয় যে আধুনিক বিমান ক্রমশ আরও জ্বালানি সাশ্রয়ী হচ্ছে এবং কম জ্বালানি ব্যবহার করে।<br><br>তবুও বিমান ভ্রমণ ভ্রমণের সবচেয়ে জলবায়ু-ক্ষতিকর উপায়গুলোর একটি থেকে যায়, যে কারণে কিছু মানুষ আরও সচেতন ভ্রমণ পরিকল্পনার পক্ষে যুক্তি দেন।",
+    "questions": [
+      {
+        "q": "Was ist Fliegen für viele Menschen?",
+        "opts": [
+          "Die unbequemste Art zu reisen",
+          "Die bequemste Art, in den Urlaub zu reisen",
+          "Immer die günstigste Option",
+          "Illegal"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf weisen Kritiker hin?",
+        "opts": [
+          "Flugzeuge sind klimafreundlich",
+          "Flugzeuge haben einen erheblichen Anteil an CO2-Emissionen",
+          "Flugzeuge sind billig",
+          "Flugzeuge sind langsam"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf steigen manche Reisende um?",
+        "opts": [
+          "Auf noch mehr Flüge",
+          "Auf klimafreundlichere Alternativen wie den Zug",
+          "Auf das Auto ausschließlich",
+          "Auf gar keine Reisen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Fluggesellschaften?",
+        "opts": [
+          "Flugzeuge werden immer ineffizienter",
+          "Moderne Flugzeuge werden immer effizienter",
+          "Flugzeuge verbrauchen mehr Treibstoff als früher",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wofür plädieren manche als Reaktion?",
+        "opts": [
+          "Für mehr Flüge",
+          "Für eine bewusstere Reiseplanung",
+          "Für die Abschaffung des Reisens",
+          "Für weniger Züge"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "deutschland-tempolimit",
+    "level": "B2",
+    "category": "Politik",
+    "color": "orange",
+    "icon": "🚗",
+    "xp": 25,
+    "words": 80,
+    "time": 5,
+    "titleDe": "Tempolimit auf der Autobahn: Notwendig oder überflüssig?",
+    "titleBn": "মহাসড়কে গতিসীমা: প্রয়োজনীয় নাকি অপ্রয়োজনীয়?",
+    "descBn": "জার্মান মহাসড়কে গতিসীমা নিয়ে দীর্ঘদিনের বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Deutschland ist eines der wenigen Länder ohne generelles <span class=\"voc\" tabindex=\"0\" data-bn=\"গতিসীমা\">Tempolimit</span> auf der Autobahn. Befürworter eines Tempolimits argumentieren, dass es die Zahl schwerer Unfälle reduzieren und CO2-Emissionen senken würde.</p><p>Gegner eines Tempolimits betonen hingegen die persönliche <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বাধীনতা\">Freiheit</span> der Autofahrer und verweisen darauf, dass moderne Autos ohnehin sicherer geworden sind. Zudem argumentieren sie, dass ein Tempolimit allein das Klimaproblem nicht lösen würde.</p><p>Die Debatte über ein Tempolimit wird seit Jahrzehnten geführt, ohne dass sich eine klare <span class=\"voc\" tabindex=\"0\" data-bn=\"সংখ্যাগরিষ্ঠতা\">Mehrheit</span> im Parlament dafür oder dagegen findet.</p>",
+    "textBn": "জার্মানি হলো সেই কয়েকটি দেশের একটি যেখানে মহাসড়কে সাধারণ গতিসীমা নেই। গতিসীমার সমর্থকরা যুক্তি দেন যে এটি গুরুতর দুর্ঘটনার সংখ্যা কমাবে এবং কার্বন নিঃসরণ হ্রাস করবে।<br><br>গতিসীমার বিরোধীরা অন্যদিকে গাড়িচালকদের ব্যক্তিগত স্বাধীনতার উপর জোর দেন এবং ইঙ্গিত করেন যে আধুনিক গাড়ি এমনিতেই নিরাপদ হয়ে উঠেছে। এছাড়াও তারা যুক্তি দেন যে শুধু একটি গতিসীমা জলবায়ু সমস্যা সমাধান করবে না।<br><br>গতিসীমা নিয়ে বিতর্ক দশকের পর দশক ধরে চলছে, পার্লামেন্টে এর পক্ষে বা বিপক্ষে কোনো স্পষ্ট সংখ্যাগরিষ্ঠতা ছাড়াই।",
+    "questions": [
+      {
+        "q": "Was hat Deutschland im Gegensatz zu vielen Ländern nicht?",
+        "opts": [
+          "Autobahnen",
+          "Ein generelles Tempolimit auf der Autobahn",
+          "Autos",
+          "Verkehrsregeln"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter eines Tempolimits?",
+        "opts": [
+          "Es würde mehr Unfälle verursachen",
+          "Es würde Unfälle reduzieren und CO2-Emissionen senken",
+          "Es hätte keine Wirkung",
+          "Es würde die Wirtschaft zerstören"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Gegner eines Tempolimits?",
+        "opts": [
+          "Die Notwendigkeit strenger Regeln",
+          "Die persönliche Freiheit der Autofahrer",
+          "Dass moderne Autos gefährlicher sind",
+          "Dass es keine Alternative gibt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Gegner zusätzlich?",
+        "opts": [
+          "Ein Tempolimit würde alles lösen",
+          "Ein Tempolimit allein würde das Klimaproblem nicht lösen",
+          "Es gibt kein Klimaproblem",
+          "Autos sind unwichtig für das Klima"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie lange wird die Debatte schon geführt?",
+        "opts": [
+          "Seit einem Jahr",
+          "Seit Jahrzehnten",
+          "Seit einem Monat",
+          "Sie beginnt gerade erst"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "kinder-smartphone-alter",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "violet",
+    "icon": "📱",
+    "xp": 25,
+    "words": 79,
+    "time": 5,
+    "titleDe": "Ab welchem Alter ein eigenes Smartphone?",
+    "titleBn": "কোন বয়স থেকে নিজের স্মার্টফোন?",
+    "descBn": "শিশুদের স্মার্টফোন পাওয়ার উপযুক্ত বয়স নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Immer jüngere Kinder besitzen ein eigenes <span class=\"voc\" tabindex=\"0\" data-bn=\"স্মার্টফোন\">Smartphone</span>. Manche Eltern meinen, dass ein Handy schon in der Grundschule sinnvoll ist, um im Notfall erreichbar zu sein.</p><p>Andere Eltern warten lieber bis zur weiterführenden Schule, weil sie befürchten, dass zu früher Zugang zu <span class=\"voc\" tabindex=\"0\" data-bn=\"ইন্টারনেট বিষয়বস্তু\">Internetinhalten</span> negative Auswirkungen haben könnte. Kinderärzte empfehlen häufig, das passende Alter individuell je nach Reife des Kindes zu bestimmen.</p><p>Wichtig sei außerdem, dass Eltern klare <span class=\"voc\" tabindex=\"0\" data-bn=\"নিয়ম\">Regeln</span> zur Nutzung festlegen, unabhängig vom genauen Alter des ersten eigenen Handys.</p>",
+    "textBn": "ক্রমশ ছোট শিশুরা নিজস্ব স্মার্টফোন রাখছে। কিছু অভিভাবক মনে করেন যে প্রাথমিক স্কুলেই একটি মোবাইল ফোন যুক্তিসঙ্গত, জরুরি অবস্থায় যোগাযোগযোগ্য থাকতে।<br><br>অন্য অভিভাবকরা বরং মাধ্যমিক স্কুল পর্যন্ত অপেক্ষা করেন, কারণ তারা আশঙ্কা করেন যে খুব তাড়াতাড়ি ইন্টারনেট বিষয়বস্তুতে প্রবেশাধিকার নেতিবাচক প্রভাব ফেলতে পারে। শিশু বিশেষজ্ঞরা প্রায়ই শিশুর পরিপক্কতা অনুযায়ী উপযুক্ত বয়স পৃথকভাবে নির্ধারণের সুপারিশ করেন।<br><br>এছাড়াও গুরুত্বপূর্ণ হলো যে অভিভাবকরা ব্যবহারের জন্য স্পষ্ট নিয়ম নির্ধারণ করবেন, প্রথম নিজস্ব মোবাইলের সঠিক বয়স নির্বিশেষে।",
+    "questions": [
+      {
+        "q": "Was meinen manche Eltern über ein Handy in der Grundschule?",
+        "opts": [
+          "Es ist unnötig",
+          "Es ist sinnvoll, um im Notfall erreichbar zu sein",
+          "Es sollte verboten sein",
+          "Es ist nur zum Spielen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum warten andere Eltern lieber?",
+        "opts": [
+          "Wegen der Kosten",
+          "Wegen möglicher negativer Auswirkungen von Internetinhalten",
+          "Weil Handys zu schwer sind",
+          "Aus keinem besonderen Grund"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Kinderärzte häufig?",
+        "opts": [
+          "Ein festes Alter für alle Kinder",
+          "Das passende Alter individuell nach Reife zu bestimmen",
+          "Nie ein Handy zu geben",
+          "Sofort ein Handy ab der Geburt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist laut Text zusätzlich wichtig?",
+        "opts": [
+          "Nur das genaue Alter",
+          "Klare Regeln zur Nutzung",
+          "Das teuerste Handy zu kaufen",
+          "Keine Regeln zu haben"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was besitzen immer jüngere Kinder?",
+        "opts": [
+          "Fahrräder",
+          "Ein eigenes Smartphone",
+          "Bücher",
+          "Haustiere"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "work-life-balance",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "teal",
+    "icon": "⚖️",
+    "xp": 25,
+    "words": 69,
+    "time": 5,
+    "titleDe": "Work-Life-Balance: Realistisches Ziel oder Illusion?",
+    "titleBn": "ওয়ার্ক-লাইফ ব্যালেন্স: বাস্তবসম্মত লক্ষ্য নাকি বিভ্রম?",
+    "descBn": "কর্ম-জীবন ভারসাম্য নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Der Begriff <span class=\"voc\" tabindex=\"0\" data-bn=\"কর্ম-জীবন ভারসাম্য\">Work-Life-Balance</span> beschreibt das Gleichgewicht zwischen Berufsleben und Privatleben. Viele Arbeitnehmer wünschen sich mehr Zeit für Familie, Hobbys und Erholung.</p><p>Kritiker des Konzepts meinen jedoch, dass eine klare <span class=\"voc\" tabindex=\"0\" data-bn=\"বিভাজন\">Trennung</span> zwischen Arbeit und Privatleben in der modernen, digital vernetzten Arbeitswelt kaum noch möglich ist. E-Mails und Nachrichten erreichen viele Menschen auch nach Feierabend.</p><p>Unternehmen, die auf flexible Arbeitszeiten und klare <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রত্যাশা\">Erwartungen</span> setzen, berichten oft von zufriedeneren und produktiveren Mitarbeitern.</p>",
+    "textBn": "'ওয়ার্ক-লাইফ ব্যালেন্স' শব্দটি পেশাগত জীবন ও ব্যক্তিগত জীবনের মধ্যে ভারসাম্য বর্ণনা করে। অনেক কর্মচারী পরিবার, শখ ও বিশ্রামের জন্য বেশি সময় চান।<br><br>এই ধারণার সমালোচকরা তবে মনে করেন যে আধুনিক, ডিজিটালভাবে সংযুক্ত কর্মজগতে কাজ ও ব্যক্তিগত জীবনের মধ্যে স্পষ্ট বিভাজন প্রায় অসম্ভব। ইমেইল ও বার্তা অনেক মানুষের কাছে কাজের পরও পৌঁছায়।<br><br>যেসব কোম্পানি নমনীয় কর্মঘণ্টা ও স্পষ্ট প্রত্যাশার উপর নির্ভর করে, তারা প্রায়ই আরও সন্তুষ্ট ও উৎপাদনশীল কর্মচারীদের কথা জানায়।",
+    "questions": [
+      {
+        "q": "Was beschreibt Work-Life-Balance?",
+        "opts": [
+          "Nur die Arbeitszeit",
+          "Das Gleichgewicht zwischen Berufsleben und Privatleben",
+          "Nur das Gehalt",
+          "Nur Urlaubstage"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was wünschen sich viele Arbeitnehmer?",
+        "opts": [
+          "Mehr Arbeit",
+          "Mehr Zeit für Familie, Hobbys und Erholung",
+          "Weniger Gehalt",
+          "Mehr Überstunden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen Kritiker des Konzepts?",
+        "opts": [
+          "Eine klare Trennung ist einfach",
+          "Eine klare Trennung ist in der digitalen Arbeitswelt kaum möglich",
+          "Work-Life-Balance ist unwichtig",
+          "Niemand arbeitet nach Feierabend"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wodurch werden viele Menschen auch nach Feierabend erreicht?",
+        "opts": [
+          "Durch Anrufe von Freunden",
+          "Durch E-Mails und Nachrichten",
+          "Durch Zeitungen",
+          "Durch nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was berichten Unternehmen mit flexiblen Arbeitszeiten?",
+        "opts": [
+          "Unzufriedenere Mitarbeiter",
+          "Zufriedenere und produktivere Mitarbeiter",
+          "Keine Veränderung",
+          "Mehr Kündigungen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "gendern-sprache-debatte",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "indigo",
+    "icon": "🔤",
+    "xp": 25,
+    "words": 72,
+    "time": 5,
+    "titleDe": "Gendergerechte Sprache: Notwendige Anpassung oder unnötige Komplikation?",
+    "titleBn": "লিঙ্গ-সংবেদনশীল ভাষা: প্রয়োজনীয় অভিযোজন নাকি অপ্রয়োজনীয় জটিলতা?",
+    "descBn": "লিঙ্গ-সংবেদনশীল ভাষা নিয়ে জার্মান ভাষাভাষী দেশে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>In den deutschsprachigen Ländern wird seit einigen Jahren intensiv über <span class=\"voc\" tabindex=\"0\" data-bn=\"লিঙ্গ-সংবেদনশীল ভাষা\">gendergerechte Sprache</span> diskutiert. Befürworter argumentieren, dass eine geschlechtergerechte Sprache alle Menschen sichtbar macht und niemanden ausschließt.</p><p>Kritiker hingegen empfinden manche Formen als umständlich und meinen, dass die Sprache dadurch schwerer <span class=\"voc\" tabindex=\"0\" data-bn=\"পড়ার যোগ্যতা\">lesbar</span> wird. Manche Institutionen und Unternehmen haben sich für bestimmte Varianten entschieden, während andere bei der traditionellen Form bleiben.</p><p>Diese Debatte zeigt, wie stark Sprache mit gesellschaftlichen <span class=\"voc\" tabindex=\"0\" data-bn=\"মূল্যবোধ\">Werten</span> und Identitätsfragen verbunden ist.</p>",
+    "textBn": "জার্মানভাষী দেশগুলোতে কয়েক বছর ধরে লিঙ্গ-সংবেদনশীল ভাষা নিয়ে নিবিড়ভাবে আলোচনা হচ্ছে। সমর্থকরা যুক্তি দেন যে একটি লিঙ্গ-সংবেদনশীল ভাষা সকল মানুষকে দৃশ্যমান করে এবং কাউকে বাদ দেয় না।<br><br>সমালোচকরা অন্যদিকে কিছু রূপকে জটিল মনে করেন এবং মনে করেন যে এর ফলে ভাষা পড়া কঠিন হয়ে যায়। কিছু প্রতিষ্ঠান ও কোম্পানি নির্দিষ্ট রূপের পক্ষে সিদ্ধান্ত নিয়েছে, যখন অন্যরা ঐতিহ্যবাহী রূপেই থাকে।<br><br>এই বিতর্ক দেখায় যে ভাষা কতটা সামাজিক মূল্যবোধ ও পরিচয়ের প্রশ্নের সাথে ঘনিষ্ঠভাবে সম্পর্কিত।",
+    "questions": [
+      {
+        "q": "Worüber wird seit einigen Jahren diskutiert?",
+        "opts": [
+          "Über neue Grammatikregeln",
+          "Über gendergerechte Sprache",
+          "Über Rechtschreibreformen",
+          "Über Dialekte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter?",
+        "opts": [
+          "Sprache sollte unverändert bleiben",
+          "Gendergerechte Sprache macht alle sichtbar und schließt niemanden aus",
+          "Sprache ist unwichtig",
+          "Nur Männer sollten angesprochen werden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfinden Kritiker?",
+        "opts": [
+          "Die Formen sind einfach",
+          "Manche Formen als umständlich und schwerer lesbar",
+          "Die Sprache wird einfacher",
+          "Es gibt keine Probleme"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie reagieren Institutionen und Unternehmen?",
+        "opts": [
+          "Alle entscheiden sich gleich",
+          "Unterschiedlich, manche für neue Varianten, andere bleiben traditionell",
+          "Niemand ändert etwas",
+          "Alle lehnen es ab"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit ist diese Debatte laut Text verbunden?",
+        "opts": [
+          "Nur mit Grammatik",
+          "Mit gesellschaftlichen Werten und Identitätsfragen",
+          "Nur mit Kosten",
+          "Mit nichts Wichtigem"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "tablets-im-unterricht",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "sky",
+    "icon": "💻",
+    "xp": 25,
+    "words": 75,
+    "time": 5,
+    "titleDe": "Tablets im Unterricht: Digitale Zukunft oder Ablenkung?",
+    "titleBn": "ক্লাসে ট্যাবলেট: ডিজিটাল ভবিষ্যৎ নাকি বিঘ্ন?",
+    "descBn": "স্কুলে ট্যাবলেট ব্যবহার নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Viele Schulen setzen mittlerweile <span class=\"voc\" tabindex=\"0\" data-bn=\"ট্যাবলেট\">Tablets</span> im Unterricht ein, um digitale Kompetenzen frühzeitig zu fördern. Befürworter betonen, dass Schüler so lernen, verantwortungsvoll mit digitalen Medien umzugehen.</p><p>Zudem ermöglichen Tablets interaktive Lerninhalte, die den Unterricht abwechslungsreicher machen können. Kritiker warnen jedoch vor zusätzlicher <span class=\"voc\" tabindex=\"0\" data-bn=\"বিঘ্ন\">Ablenkung</span> und bezweifeln, dass digitale Geräte traditionelle Lernmethoden wie das Schreiben mit der Hand vollständig ersetzen sollten.</p><p>Lehrer berichten von gemischten Erfahrungen: Der Erfolg hängt stark von der <span class=\"voc\" tabindex=\"0\" data-bn=\"বাস্তবায়ন\">Umsetzung</span> und der pädagogischen Begleitung ab.</p>",
+    "textBn": "অনেক স্কুল এখন ক্লাসে ট্যাবলেট ব্যবহার করছে, ডিজিটাল দক্ষতা প্রাথমিকভাবে উৎসাহিত করতে। সমর্থকরা জোর দেন যে শিক্ষার্থীরা এভাবে ডিজিটাল মাধ্যমের সাথে দায়িত্বশীল আচরণ শেখে।<br><br>এছাড়াও ট্যাবলেট ইন্টারঅ্যাকটিভ শিক্ষা বিষয়বস্তু সম্ভব করে, যা ক্লাসকে আরও বৈচিত্র্যময় করতে পারে। সমালোচকরা তবে অতিরিক্ত বিঘ্ন সম্পর্কে সতর্ক করেন এবং সন্দেহ করেন যে ডিজিটাল যন্ত্র হাতে লেখার মতো ঐতিহ্যবাহী শেখার পদ্ধতি সম্পূর্ণভাবে প্রতিস্থাপন করা উচিত কিনা।<br><br>শিক্ষকরা মিশ্র অভিজ্ঞতার কথা জানান: সাফল্য মূলত বাস্তবায়ন ও শিক্ষাগত সহায়তার উপর নির্ভর করে।",
+    "questions": [
+      {
+        "q": "Warum setzen viele Schulen Tablets ein?",
+        "opts": [
+          "Um digitale Kompetenzen zu fördern",
+          "Um Geld zu sparen",
+          "Weil es Pflicht ist",
+          "Aus Zufall"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was ermöglichen Tablets zusätzlich?",
+        "opts": [
+          "Nur langweiligeren Unterricht",
+          "Interaktive Lerninhalte",
+          "Weniger Lernmöglichkeiten",
+          "Nichts Neues"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Kritiker?",
+        "opts": [
+          "Vor zu wenig Technologie",
+          "Vor zusätzlicher Ablenkung",
+          "Vor zu viel Handschrift",
+          "Vor zu wenig digitalen Geräten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bezweifeln Kritiker?",
+        "opts": [
+          "Dass Tablets nützlich sein können",
+          "Dass digitale Geräte traditionelle Methoden vollständig ersetzen sollten",
+          "Dass Schüler lernen können",
+          "Dass Lehrer wichtig sind"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovon hängt der Erfolg laut Lehrern ab?",
+        "opts": [
+          "Nur vom Gerät selbst",
+          "Von der Umsetzung und pädagogischen Begleitung",
+          "Von nichts Bestimmtem",
+          "Nur vom Preis der Tablets"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "zoos-tierschutz-debatte",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "emerald",
+    "icon": "🦁",
+    "xp": 25,
+    "words": 71,
+    "time": 5,
+    "titleDe": "Zoos: Bildung und Artenschutz oder Tierquälerei?",
+    "titleBn": "চিড়িয়াখানা: শিক্ষা ও প্রজাতি সংরক্ষণ নাকি প্রাণী নির্যাতন?",
+    "descBn": "চিড়িয়াখানার নৈতিক দ্বিধা নিয়ে একটি passage।",
+    "textDe": "<p>Zoos ermöglichen es Millionen Besuchern jährlich, exotische <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রাণী\">Tiere</span> aus der Nähe zu erleben. Befürworter betonen die Bildungsfunktion und die Rolle vieler Zoos bei Zuchtprogrammen für bedrohte Arten.</p><p>Tierschützer kritisieren jedoch, dass viele Gehege zu klein sind und wilde Tiere in <span class=\"voc\" tabindex=\"0\" data-bn=\"বন্দিত্ব\">Gefangenschaft</span> nicht artgerecht leben können. Studien zeigen zudem, dass manche Tiere in Zoos Verhaltensstörungen entwickeln.</p><p>Moderne Zoos reagieren mit größeren, naturnahen <span class=\"voc\" tabindex=\"0\" data-bn=\"আবাসস্থল\">Gehegen</span> und investieren verstärkt in Artenschutzprojekte in der freien Wildbahn.</p>",
+    "textBn": "বছরে লক্ষ লক্ষ দর্শনার্থীকে চিড়িয়াখানা বিদেশি প্রাণী কাছ থেকে দেখার সুযোগ দেয়। সমর্থকরা শিক্ষামূলক কার্যকারিতা এবং বিপন্ন প্রজাতির জন্য প্রজনন কর্মসূচিতে অনেক চিড়িয়াখানার ভূমিকার উপর জোর দেন।<br><br>পশু অধিকার কর্মীরা তবে সমালোচনা করেন যে অনেক খাঁচা খুব ছোট এবং বন্য প্রাণী বন্দিত্বে প্রজাতি-উপযুক্তভাবে বাঁচতে পারে না। গবেষণা আরও দেখায় যে চিড়িয়াখানায় কিছু প্রাণী আচরণগত সমস্যা তৈরি করে।<br><br>আধুনিক চিড়িয়াখানা বড়, প্রাকৃতিক আবাসস্থলের কাছাকাছি খাঁচার মাধ্যমে প্রতিক্রিয়া জানায় এবং বন্য প্রকৃতিতে প্রজাতি সংরক্ষণ প্রকল্পে আরও বিনিয়োগ করে।",
+    "questions": [
+      {
+        "q": "Was betonen Befürworter von Zoos?",
+        "opts": [
+          "Nur die Unterhaltung",
+          "Die Bildungsfunktion und Zuchtprogramme für bedrohte Arten",
+          "Die niedrigen Kosten",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kritisieren Tierschützer?",
+        "opts": [
+          "Zu große Gehege",
+          "Zu kleine Gehege ohne artgerechtes Leben",
+          "Zu viele Besucher",
+          "Zu wenig Tiere"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Studien über manche Zootiere?",
+        "opts": [
+          "Sie sind immer gesund",
+          "Sie entwickeln Verhaltensstörungen",
+          "Sie sind glücklicher als in der Wildnis",
+          "Nichts Auffälliges"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie reagieren moderne Zoos?",
+        "opts": [
+          "Mit kleineren Gehegen",
+          "Mit größeren, naturnahen Gehegen",
+          "Mit Schließung",
+          "Mit mehr Tieren pro Käfig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wohin investieren moderne Zoos verstärkt?",
+        "opts": [
+          "Nur in Unterhaltung",
+          "In Artenschutzprojekte in der freien Wildbahn",
+          "In mehr Werbung",
+          "In nichts Neues"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "erbschaftssteuer-b2",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "gold",
+    "icon": "💰",
+    "xp": 25,
+    "words": 72,
+    "time": 5,
+    "titleDe": "Erbschaftssteuer: Gerecht oder ungerecht?",
+    "titleBn": "উত্তরাধিকার কর: ন্যায্য নাকি অন্যায্য?",
+    "descBn": "উত্তরাধিকার করের ন্যায্যতা নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Die <span class=\"voc\" tabindex=\"0\" data-bn=\"উত্তরাধিকার কর\">Erbschaftssteuer</span> wird fällig, wenn Vermögen nach dem Tod einer Person auf die Erben übergeht. Befürworter argumentieren, dass diese Steuer zu mehr Chancengleichheit beiträgt.</p><p>Kritiker meinen hingegen, dass Menschen bereits während ihres Lebens Steuern auf ihr <span class=\"voc\" tabindex=\"0\" data-bn=\"সম্পদ\">Vermögen</span> gezahlt haben und eine zusätzliche Besteuerung beim Erben ungerecht sei. Besonders bei Familienunternehmen wird oft befürchtet, dass hohe Erbschaftssteuern Firmen finanziell schwächen könnten.</p><p>Viele Länder haben deshalb Ausnahmeregelungen für <span class=\"voc\" tabindex=\"0\" data-bn=\"পারিবারিক ব্যবসা\">Familienunternehmen</span> eingeführt, um Arbeitsplätze zu schützen.</p>",
+    "textBn": "উত্তরাধিকার কর তখন প্রযোজ্য হয় যখন একজন ব্যক্তির মৃত্যুর পর সম্পদ উত্তরাধিকারীদের কাছে চলে যায়। সমর্থকরা যুক্তি দেন যে এই কর সুযোগের সমতায় অবদান রাখে।<br><br>সমালোচকরা অন্যদিকে মনে করেন যে মানুষ জীবদ্দশায় তাদের সম্পদের উপর ইতিমধ্যে কর দিয়েছে এবং উত্তরাধিকারে অতিরিক্ত করারোপ অন্যায্য। বিশেষত পারিবারিক ব্যবসার ক্ষেত্রে প্রায়ই আশঙ্কা করা হয় যে উচ্চ উত্তরাধিকার কর কোম্পানিগুলোকে আর্থিকভাবে দুর্বল করতে পারে।<br><br>তাই অনেক দেশ পারিবারিক ব্যবসার জন্য ব্যতিক্রম নিয়ম চালু করেছে, কাজের জায়গা রক্ষা করতে।",
+    "questions": [
+      {
+        "q": "Wann wird die Erbschaftssteuer fällig?",
+        "opts": [
+          "Bei jedem Kauf",
+          "Wenn Vermögen nach dem Tod auf Erben übergeht",
+          "Bei jeder Gehaltszahlung",
+          "Nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter?",
+        "opts": [
+          "Sie schadet der Gesellschaft",
+          "Sie trägt zu mehr Chancengleichheit bei",
+          "Sie ist unnötig",
+          "Sie hilft nur Reichen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen Kritiker?",
+        "opts": [
+          "Die Steuer ist zu niedrig",
+          "Menschen haben schon Steuern gezahlt, zusätzliche Besteuerung sei ungerecht",
+          "Es gibt keine Kritik",
+          "Die Steuer sollte höher sein"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchtet man bei Familienunternehmen?",
+        "opts": [
+          "Zu wenig Steuern",
+          "Dass hohe Erbschaftssteuern Firmen finanziell schwächen könnten",
+          "Zu viel Gewinn",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben viele Länder deshalb eingeführt?",
+        "opts": [
+          "Höhere Steuern für alle",
+          "Ausnahmeregelungen für Familienunternehmen",
+          "Verbot der Erbschaftssteuer",
+          "Keine Regelungen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "kuenstliche-intelligenz-arbeitsplaetze",
+    "level": "B2",
+    "category": "Technologie",
+    "color": "indigo",
+    "icon": "🤖",
+    "xp": 25,
+    "words": 71,
+    "time": 5,
+    "titleDe": "KI am Arbeitsplatz: Bedrohung oder Chance?",
+    "titleBn": "কর্মক্ষেত্রে এআই: হুমকি নাকি সুযোগ?",
+    "descBn": "কর্মক্ষেত্রে কৃত্রিম বুদ্ধিমত্তার প্রভাব নিয়ে একটি passage।",
+    "textDe": "<p>Künstliche Intelligenz verändert zunehmend die Arbeitswelt. Viele Menschen sorgen sich, dass <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বয়ংক্রিয়করণ\">Automatisierung</span> ihre Arbeitsplätze überflüssig machen könnte, besonders in Bereichen mit repetitiven Aufgaben.</p><p>Andere sehen in KI vor allem eine Chance: Sie könnte lästige Routineaufgaben übernehmen und Mitarbeitern mehr Zeit für <span class=\"voc\" tabindex=\"0\" data-bn=\"সৃজনশীল কাজ\">kreative Arbeit</span> geben. Experten betonen, dass historisch gesehen technologischer Wandel oft neue Berufsfelder geschaffen hat.</p><p>Entscheidend wird sein, wie gut Arbeitnehmer sich durch <span class=\"voc\" tabindex=\"0\" data-bn=\"পুনর্প্রশিক্ষণ\">Weiterbildung</span> an die neuen Anforderungen anpassen können.</p>",
+    "textBn": "কৃত্রিম বুদ্ধিমত্তা ক্রমশ কর্মজগৎকে পরিবর্তন করছে। অনেক মানুষ উদ্বিগ্ন যে স্বয়ংক্রিয়করণ তাদের কাজের জায়গা অপ্রয়োজনীয় করে তুলতে পারে, বিশেষত পুনরাবৃত্তিমূলক কাজের ক্ষেত্রে।<br><br>অন্যরা এআই-তে প্রধানত একটি সুযোগ দেখেন: এটি বিরক্তিকর রুটিন কাজ গ্রহণ করতে পারে এবং কর্মচারীদের সৃজনশীল কাজের জন্য বেশি সময় দিতে পারে। বিশেষজ্ঞরা জোর দেন যে ঐতিহাসিকভাবে প্রযুক্তিগত পরিবর্তন প্রায়ই নতুন পেশাগত ক্ষেত্র তৈরি করেছে।<br><br>সিদ্ধান্তকারী হবে কর্মচারীরা পুনর্প্রশিক্ষণের মাধ্যমে নতুন চাহিদার সাথে কতটা ভালোভাবে খাপ খাইয়ে নিতে পারে।",
+    "questions": [
+      {
+        "q": "Worüber sorgen sich viele Menschen?",
+        "opts": [
+          "Dass KI zu langsam ist",
+          "Dass Automatisierung ihre Arbeitsplätze überflüssig machen könnte",
+          "Dass KI zu teuer ist",
+          "Dass KI nicht existiert"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sehen andere in KI?",
+        "opts": [
+          "Nur Gefahren",
+          "Eine Chance, Routineaufgaben zu übernehmen",
+          "Keinen Nutzen",
+          "Nur höhere Kosten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Experten historisch?",
+        "opts": [
+          "Technologischer Wandel zerstört immer nur Jobs",
+          "Technologischer Wandel hat oft neue Berufsfelder geschaffen",
+          "Es gab nie technologischen Wandel",
+          "Wandel ist immer negativ"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was wird laut Text entscheidend sein?",
+        "opts": [
+          "Nur der Zufall",
+          "Wie gut Arbeitnehmer sich durch Weiterbildung anpassen können",
+          "Nur die Regierung",
+          "Nichts Bestimmtes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Besonders welche Aufgaben sind laut Text gefährdet?",
+        "opts": [
+          "Kreative Aufgaben",
+          "Repetitive Aufgaben",
+          "Führungsaufgaben",
+          "Keine Aufgaben"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "freiwilligendienst-sinnvoll",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "rose",
+    "icon": "🤲",
+    "xp": 25,
+    "words": 79,
+    "time": 5,
+    "titleDe": "Ein freiwilliges Jahr: Zeitverschwendung oder wertvolle Erfahrung?",
+    "titleBn": "একটি স্বেচ্ছাসেবী বছর: সময়ের অপচয় নাকি মূল্যবান অভিজ্ঞতা?",
+    "descBn": "স্কুল শেষে স্বেচ্ছাসেবী বছর নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>Nach der Schule entscheiden sich manche junge Menschen für ein <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বেচ্ছাসেবী বছর\">freiwilliges soziales Jahr</span>, zum Beispiel im Krankenhaus oder in der Jugendarbeit. Befürworter betonen, dass diese Erfahrung wichtige soziale Kompetenzen vermittelt.</p><p>Kritiker sehen darin manchmal eine Verzögerung des Studiums oder der Ausbildung und fragen, ob die Zeit nicht <span class=\"voc\" tabindex=\"0\" data-bn=\"উৎপাদনশীলভাবে\">produktiver</span> genutzt werden könnte. Studien zeigen jedoch, dass viele Teilnehmer später von der Erfahrung im Berufsleben profitieren.</p><p>Arbeitgeber schätzen häufig die durch ein freiwilliges Jahr gewonnene <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিপক্কতা\">Reife</span> und Lebenserfahrung der Bewerber.</p>",
+    "textBn": "স্কুলের পর কিছু তরুণ একটি স্বেচ্ছাসেবী সামাজিক বছর বেছে নেয়, উদাহরণস্বরূপ হাসপাতালে বা যুব কাজে। সমর্থকরা জোর দেন যে এই অভিজ্ঞতা গুরুত্বপূর্ণ সামাজিক দক্ষতা প্রদান করে।<br><br>সমালোচকরা কখনো কখনো এতে পড়াশোনা বা প্রশিক্ষণের বিলম্ব দেখেন এবং জিজ্ঞাসা করেন সময়টা আরও উৎপাদনশীলভাবে ব্যবহার করা যেত কিনা। তবে গবেষণা দেখায় যে অনেক অংশগ্রহণকারী পরবর্তী কর্মজীবনে এই অভিজ্ঞতা থেকে উপকৃত হয়।<br><br>নিয়োগকর্তারা প্রায়ই স্বেচ্ছাসেবী বছরের মাধ্যমে অর্জিত পরিপক্কতা ও জীবন অভিজ্ঞতার প্রশংসা করেন।",
+    "questions": [
+      {
+        "q": "Was machen manche junge Menschen nach der Schule?",
+        "opts": [
+          "Sofort studieren",
+          "Ein freiwilliges soziales Jahr",
+          "Nichts",
+          "Sofort heiraten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter?",
+        "opts": [
+          "Es ist Zeitverschwendung",
+          "Es vermittelt wichtige soziale Kompetenzen",
+          "Es ist zu teuer",
+          "Es ist unnötig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sehen Kritiker manchmal darin?",
+        "opts": [
+          "Eine gute Investition",
+          "Eine Verzögerung des Studiums",
+          "Eine Pflicht",
+          "Keine Bedeutung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Studien?",
+        "opts": [
+          "Teilnehmer profitieren später im Berufsleben",
+          "Teilnehmer verlieren immer Zeit",
+          "Es gibt keine Vorteile",
+          "Nur Nachteile"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was schätzen Arbeitgeber oft?",
+        "opts": [
+          "Nur die Noten",
+          "Die gewonnene Reife und Lebenserfahrung",
+          "Nur das Alter",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "saisonale-ernaehrung",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "orange",
+    "icon": "🍓",
+    "xp": 25,
+    "words": 76,
+    "time": 5,
+    "titleDe": "Saisonal essen: Sinnvoller Trend oder unnötige Einschränkung?",
+    "titleBn": "মৌসুমি খাদ্য: যুক্তিসঙ্গত প্রবণতা নাকি অপ্রয়োজনীয় সীমাবদ্ধতা?",
+    "descBn": "মৌসুমি খাদ্যের সুবিধা ও সীমাবদ্ধতা নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Menschen achten darauf, nur <span class=\"voc\" tabindex=\"0\" data-bn=\"মৌসুমি\">saisonales</span> Obst und Gemüse zu essen. Befürworter argumentieren, dass regionale, saisonale Produkte umweltfreundlicher sind, weil lange Transportwege wegfallen.</p><p>Zudem schmecken saisonale Früchte oft besser, weil sie nicht unreif geerntet und über weite Strecken <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিবহন\">transportiert</span> werden müssen. Kritiker dieser Ernährungsweise weisen jedoch darauf hin, dass ein komplett saisonaler Speiseplan im Winter sehr eingeschränkt wäre.</p><p>Ernährungsexperten empfehlen deshalb einen <span class=\"voc\" tabindex=\"0\" data-bn=\"মধ্যপন্থা\">Mittelweg</span>: möglichst saisonal essen, aber ohne komplett auf importierte Produkte zu verzichten.</p>",
+    "textBn": "ক্রমশ বেশি মানুষ শুধুমাত্র মৌসুমি ফল ও সবজি খাওয়ার দিকে মনোযোগ দেয়। সমর্থকরা যুক্তি দেন যে আঞ্চলিক, মৌসুমি পণ্য পরিবেশবান্ধব, কারণ দীর্ঘ পরিবহন পথ বাদ পড়ে যায়।<br><br>এছাড়াও মৌসুমি ফল প্রায়ই ভালো স্বাদের হয়, কারণ এগুলো অপরিপক্ক অবস্থায় তোলা হয় না এবং দীর্ঘ দূরত্ব পরিবহন করতে হয় না। এই খাদ্যাভ্যাসের সমালোচকরা তবে ইঙ্গিত করেন যে শীতকালে সম্পূর্ণভাবে মৌসুমি খাদ্য তালিকা খুবই সীমিত হবে।<br><br>তাই পুষ্টি বিশেষজ্ঞরা একটি মধ্যপন্থার সুপারিশ করেন: যতটা সম্ভব মৌসুমি খাওয়া, তবে আমদানিকৃত পণ্য সম্পূর্ণভাবে বর্জন না করে।",
+    "questions": [
+      {
+        "q": "Was achten immer mehr Menschen zu essen?",
+        "opts": [
+          "Nur importiertes Obst",
+          "Saisonales Obst und Gemüse",
+          "Nur Fertiggerichte",
+          "Nur Fleisch"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum sind saisonale Produkte laut Befürwortern umweltfreundlicher?",
+        "opts": [
+          "Sie sind teurer",
+          "Lange Transportwege fallen weg",
+          "Sie schmecken schlechter",
+          "Sie sind schwerer verfügbar"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum schmecken saisonale Früchte oft besser?",
+        "opts": [
+          "Weil sie länger gelagert werden",
+          "Weil sie nicht unreif geerntet und weit transportiert werden",
+          "Weil sie teurer sind",
+          "Aus keinem besonderen Grund"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kritisieren Gegner dieser Ernährungsweise?",
+        "opts": [
+          "Zu viel Auswahl im Winter",
+          "Ein komplett saisonaler Speiseplan wäre im Winter eingeschränkt",
+          "Zu niedrige Preise",
+          "Zu viel Transport"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Ernährungsexperten?",
+        "opts": [
+          "Nur importierte Produkte",
+          "Einen Mittelweg zwischen saisonal und importiert",
+          "Nur saisonale Produkte ohne Ausnahme",
+          "Keine Regel zu befolgen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "urbanisierung-landflucht",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "sky",
+    "icon": "🏙️",
+    "xp": 25,
+    "words": 76,
+    "time": 5,
+    "titleDe": "Landflucht: Warum ziehen so viele Menschen in die Stadt?",
+    "titleBn": "গ্রাম থেকে পলায়ন: কেন এত মানুষ শহরে চলে যায়?",
+    "descBn": "গ্রাম থেকে শহরে অভিবাসনের কারণ ও পরিণতি নিয়ে একটি passage।",
+    "textDe": "<p>In vielen Ländern ziehen immer mehr Menschen vom Land in die Stadt, ein Phänomen, das als <span class=\"voc\" tabindex=\"0\" data-bn=\"গ্রাম থেকে পলায়ন\">Landflucht</span> bezeichnet wird. Hauptgründe sind bessere Jobchancen und ein größeres Bildungsangebot in Städten.</p><p>Diese Entwicklung führt jedoch dazu, dass viele ländliche Regionen mit sinkenden Einwohnerzahlen und schließenden <span class=\"voc\" tabindex=\"0\" data-bn=\"অবকাঠামো\">Infrastrukturen</span> wie Schulen oder Geschäften kämpfen. Gleichzeitig werden Städte oft überlastet, was zu höheren Mieten und mehr Verkehr führt.</p><p>Manche Regionen versuchen daher, mit gezielten <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রণোদনা\">Förderprogrammen</span> junge Familien und Unternehmen aufs Land zurückzuholen.</p>",
+    "textBn": "অনেক দেশে ক্রমশ বেশি মানুষ গ্রাম থেকে শহরে চলে যাচ্ছে, একটি ঘটনা যাকে 'গ্রাম থেকে পলায়ন' বলা হয়। প্রধান কারণ হলো শহরে ভালো চাকরির সুযোগ ও বৃহত্তর শিক্ষার সুযোগ।<br><br>তবে এই বিকাশের ফলে অনেক গ্রামীণ অঞ্চল হ্রাসপ্রাপ্ত জনসংখ্যা এবং স্কুল বা দোকানের মতো বন্ধ হয়ে যাওয়া অবকাঠামোর সাথে লড়াই করছে। একই সাথে, শহরগুলো প্রায়ই অতিরিক্ত ভারাক্রান্ত হয়, যা উচ্চতর ভাড়া ও বেশি যানজটের দিকে নিয়ে যায়।<br><br>তাই কিছু অঞ্চল লক্ষ্যযুক্ত প্রণোদনা কর্মসূচির মাধ্যমে তরুণ পরিবার ও কোম্পানিকে গ্রামে ফিরিয়ে আনার চেষ্টা করছে।",
+    "questions": [
+      {
+        "q": "Was ist Landflucht?",
+        "opts": [
+          "Umzug von der Stadt aufs Land",
+          "Umzug vom Land in die Stadt",
+          "Auswanderung ins Ausland",
+          "Ein Naturphänomen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sind Hauptgründe für Landflucht?",
+        "opts": [
+          "Bessere Jobchancen und Bildungsangebot in Städten",
+          "Niedrigere Mieten auf dem Land",
+          "Weniger Verkehr in Städten",
+          "Bessere Luft in Städten"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Womit kämpfen ländliche Regionen?",
+        "opts": [
+          "Mit steigenden Einwohnerzahlen",
+          "Mit sinkenden Einwohnerzahlen und schließenden Infrastrukturen",
+          "Mit zu viel Infrastruktur",
+          "Mit zu wenig Landwirtschaft"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was passiert oft mit Städten?",
+        "opts": [
+          "Sie werden leerer",
+          "Sie werden überlastet mit höheren Mieten",
+          "Sie schrumpfen",
+          "Nichts ändert sich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was versuchen manche Regionen?",
+        "opts": [
+          "Noch mehr Menschen in Städte zu locken",
+          "Junge Familien und Unternehmen mit Förderprogrammen zurückzuholen",
+          "Alle Schulen zu schließen",
+          "Nichts zu unternehmen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "influencer-werbung-kinder",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "violet",
+    "icon": "📲",
+    "xp": 25,
+    "words": 65,
+    "time": 5,
+    "titleDe": "Influencer-Werbung: Ein Problem für junge Zuschauer?",
+    "titleBn": "ইনফ্লুয়েন্সার বিজ্ঞাপন: তরুণ দর্শকদের জন্য একটি সমস্যা?",
+    "descBn": "শিশু ও কিশোরদের উপর ইনফ্লুয়েন্সার বিজ্ঞাপনের প্রভাব নিয়ে একটি passage।",
+    "textDe": "<p>Viele Kinder und Jugendliche folgen <span class=\"voc\" tabindex=\"0\" data-bn=\"ইনফ্লুয়েন্সার\">Influencern</span> auf sozialen Medien, die häufig Produkte bewerben. Kritiker warnen, dass junge Zuschauer oft nicht erkennen können, wann es sich um bezahlte Werbung handelt.</p><p>Diese versteckte <span class=\"voc\" tabindex=\"0\" data-bn=\"বিজ্ঞাপন\">Werbung</span> kann besonders bei jungen Kindern zu unrealistischen Konsumwünschen führen. Befürworter von Regulierungen fordern deshalb strengere Kennzeichnungspflichten für gesponserte Inhalte.</p><p>Manche Plattformen haben bereits Regeln eingeführt, die Influencer zur klaren <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বচ্ছতা\">Transparenz</span> bei Werbepartnerschaften verpflichten.</p>",
+    "textBn": "অনেক শিশু ও কিশোর সামাজিক মাধ্যমে ইনফ্লুয়েন্সারদের অনুসরণ করে, যারা প্রায়ই পণ্যের প্রচার করে। সমালোচকরা সতর্ক করেন যে তরুণ দর্শকরা প্রায়ই বুঝতে পারে না কখন এটি অর্থপ্রদত্ত বিজ্ঞাপন।<br><br>এই লুকানো বিজ্ঞাপন বিশেষত ছোট শিশুদের মধ্যে অবাস্তব ভোগ আকাঙ্ক্ষার দিকে নিয়ে যেতে পারে। নিয়ন্ত্রণের সমর্থকরা তাই স্পন্সরকৃত বিষয়বস্তুর জন্য কঠোর চিহ্নিতকরণ বাধ্যবাধকতার দাবি জানান।<br><br>কিছু প্ল্যাটফর্ম ইতিমধ্যে এমন নিয়ম চালু করেছে যা ইনফ্লুয়েন্সারদের বিজ্ঞাপন অংশীদারিত্বে স্পষ্ট স্বচ্ছতার জন্য বাধ্য করে।",
+    "questions": [
+      {
+        "q": "Wem folgen viele Kinder und Jugendliche?",
+        "opts": [
+          "Nur Lehrern",
+          "Influencern auf sozialen Medien",
+          "Nur Familienmitgliedern",
+          "Niemandem online"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was können junge Zuschauer laut Kritikern oft nicht erkennen?",
+        "opts": [
+          "Die Sprache der Influencer",
+          "Wann es sich um bezahlte Werbung handelt",
+          "Die Namen der Influencer",
+          "Das Alter der Influencer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wozu kann versteckte Werbung führen?",
+        "opts": [
+          "Zu weniger Konsumwünschen",
+          "Zu unrealistischen Konsumwünschen bei jungen Kindern",
+          "Zu besserem Sparen",
+          "Zu keiner besonderen Wirkung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fordern Befürworter von Regulierungen?",
+        "opts": [
+          "Weniger Kennzeichnungspflichten",
+          "Strengere Kennzeichnungspflichten für gesponserte Inhalte",
+          "Verbot aller Influencer",
+          "Keine Regeln"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was haben manche Plattformen eingeführt?",
+        "opts": [
+          "Keine Regeln",
+          "Regeln zur klaren Transparenz bei Werbepartnerschaften",
+          "Verbot von Werbung komplett",
+          "Mehr versteckte Werbung"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "ehrenamt-gesellschaft",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "teal",
+    "icon": "🤝",
+    "xp": 25,
+    "words": 67,
+    "time": 5,
+    "titleDe": "Ehrenamtliches Engagement: Warum es wichtig für die Gesellschaft ist",
+    "titleBn": "স্বেচ্ছাসেবী কাজ: কেন এটি সমাজের জন্য গুরুত্বপূর্ণ",
+    "descBn": "স্বেচ্ছাসেবী কাজের সামাজিক গুরুত্ব ও চ্যালেঞ্জ নিয়ে একটি passage।",
+    "textDe": "<p>Millionen Menschen engagieren sich <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বেচ্ছাসেবী\">ehrenamtlich</span>, zum Beispiel in Sportvereinen, bei der Feuerwehr oder in sozialen Einrichtungen. Diese unbezahlte Arbeit ist für viele gesellschaftliche Bereiche unverzichtbar.</p><p>Studien zeigen, dass ehrenamtliches Engagement nicht nur der Gesellschaft nützt, sondern auch den Freiwilligen selbst: Sie berichten von mehr <span class=\"voc\" tabindex=\"0\" data-bn=\"জীবনের অর্থ\">Lebenssinn</span> und sozialen Kontakten.</p><p>Allerdings sinkt die Zahl der Ehrenamtlichen in manchen Bereichen, weshalb Vereine zunehmend Schwierigkeiten haben, genug <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বেচ্ছাসেবক\">Freiwillige</span> zu finden.</p>",
+    "textBn": "লক্ষ লক্ষ মানুষ স্বেচ্ছাসেবী হিসেবে কাজ করেন, উদাহরণস্বরূপ ক্রীড়া ক্লাব, দমকল বাহিনী বা সামাজিক প্রতিষ্ঠানে। এই অবৈতনিক কাজ অনেক সামাজিক ক্ষেত্রের জন্য অপরিহার্য।<br><br>গবেষণা দেখায় যে স্বেচ্ছাসেবী কাজ কেবল সমাজের জন্য উপকারী নয়, বরং স্বেচ্ছাসেবকদের নিজেদের জন্যও: তারা জীবনের অর্থ ও সামাজিক যোগাযোগ বৃদ্ধির কথা জানান।<br><br>তবে কিছু ক্ষেত্রে স্বেচ্ছাসেবকদের সংখ্যা কমছে, যে কারণে ক্লাবগুলো ক্রমশ যথেষ্ট স্বেচ্ছাসেবক খুঁজে পেতে সমস্যায় পড়ছে।",
+    "questions": [
+      {
+        "q": "Wo engagieren sich Millionen Menschen ehrenamtlich?",
+        "opts": [
+          "Nur bei der Arbeit",
+          "In Sportvereinen, bei der Feuerwehr oder sozialen Einrichtungen",
+          "Nur zu Hause",
+          "Nirgends"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie wichtig ist diese Arbeit für die Gesellschaft?",
+        "opts": [
+          "Unwichtig",
+          "Für viele Bereiche unverzichtbar",
+          "Nur symbolisch wichtig",
+          "Schädlich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was berichten Freiwillige laut Studien?",
+        "opts": [
+          "Weniger Lebenssinn",
+          "Mehr Lebenssinn und soziale Kontakte",
+          "Mehr Stress ohne Nutzen",
+          "Keine besonderen Effekte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sinkt in manchen Bereichen?",
+        "opts": [
+          "Die Anzahl der Vereine",
+          "Die Zahl der Ehrenamtlichen",
+          "Die Anzahl der Sportarten",
+          "Nichts sinkt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit haben Vereine deshalb zunehmend Schwierigkeiten?",
+        "opts": [
+          "Mit zu vielen Freiwilligen",
+          "Genug Freiwillige zu finden",
+          "Mit zu viel Geld",
+          "Mit zu wenig Mitgliedern"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "digitale-waehrungen-b2",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "gold",
+    "icon": "₿",
+    "xp": 25,
+    "words": 73,
+    "time": 5,
+    "titleDe": "Digitale Währungen: Zukunft des Geldes oder riskante Spekulation?",
+    "titleBn": "ডিজিটাল মুদ্রা: অর্থের ভবিষ্যৎ নাকি ঝুঁকিপূর্ণ ফটকাবাজি?",
+    "descBn": "ক্রিপ্টোকারেন্সির সম্ভাবনা ও ঝুঁকি নিয়ে একটি passage।",
+    "textDe": "<p>Digitale Währungen wie Bitcoin haben in den letzten Jahren viel Aufmerksamkeit bekommen. Befürworter sehen in ihnen eine <span class=\"voc\" tabindex=\"0\" data-bn=\"বিকল্প\">Alternative</span> zu traditionellen Banken, unabhängig von staatlicher Kontrolle.</p><p>Kritiker warnen jedoch vor der hohen <span class=\"voc\" tabindex=\"0\" data-bn=\"মূল্য অস্থিরতা\">Preisvolatilität</span> und dem Risiko, viel Geld zu verlieren. Zudem wird häufig kritisiert, dass digitale Währungen für illegale Aktivitäten missbraucht werden können.</p><p>Trotz dieser Bedenken experimentieren einige Zentralbanken selbst mit digitalen Versionen ihrer <span class=\"voc\" tabindex=\"0\" data-bn=\"জাতীয় মুদ্রা\">Landeswährung</span>, um von den Vorteilen der Technologie zu profitieren.</p>",
+    "textBn": "বিটকয়েনের মতো ডিজিটাল মুদ্রা গত কয়েক বছরে অনেক মনোযোগ পেয়েছে। সমর্থকরা এগুলোতে ঐতিহ্যবাহী ব্যাংকের একটি বিকল্প দেখেন, রাষ্ট্রীয় নিয়ন্ত্রণ থেকে স্বাধীন।<br><br>সমালোচকরা তবে উচ্চ মূল্য অস্থিরতা এবং অনেক টাকা হারানোর ঝুঁকি সম্পর্কে সতর্ক করেন। এছাড়াও প্রায়ই সমালোচনা করা হয় যে ডিজিটাল মুদ্রা অবৈধ কার্যকলাপের জন্য অপব্যবহার হতে পারে।<br><br>এই উদ্বেগ সত্ত্বেও, কিছু কেন্দ্রীয় ব্যাংক নিজেরাই তাদের জাতীয় মুদ্রার ডিজিটাল সংস্করণ নিয়ে পরীক্ষা করছে, প্রযুক্তির সুবিধা থেকে উপকৃত হতে।",
+    "questions": [
+      {
+        "q": "Was sehen Befürworter in digitalen Währungen?",
+        "opts": [
+          "Nur Risiken",
+          "Eine Alternative zu traditionellen Banken",
+          "Keinen Nutzen",
+          "Nur Betrug"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovor warnen Kritiker?",
+        "opts": [
+          "Vor zu stabilen Preisen",
+          "Vor hoher Preisvolatilität und Verlustrisiko",
+          "Vor zu wenig Interesse",
+          "Vor zu viel Sicherheit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was wird häufig kritisiert?",
+        "opts": [
+          "Zu viel staatliche Kontrolle",
+          "Möglicher Missbrauch für illegale Aktivitäten",
+          "Zu hohe Transparenz",
+          "Zu einfache Nutzung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was tun einige Zentralbanken?",
+        "opts": [
+          "Sie verbieten digitale Währungen komplett",
+          "Sie experimentieren mit digitalen Versionen ihrer Landeswährung",
+          "Sie ignorieren die Entwicklung",
+          "Sie verlieren ihre Macht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovon unabhängig sollen digitale Währungen laut Befürwortern sein?",
+        "opts": [
+          "Von der Technologie",
+          "Von staatlicher Kontrolle",
+          "Vom Internet",
+          "Von den Nutzern"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "studium-oder-ausbildung",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "sky",
+    "icon": "🎓",
+    "xp": 25,
+    "words": 82,
+    "time": 5,
+    "titleDe": "Studium oder Ausbildung: Welcher Weg lohnt sich mehr?",
+    "titleBn": "পড়াশোনা নাকি প্রশিক্ষণ: কোন পথ বেশি লাভজনক?",
+    "descBn": "বিশ্ববিদ্যালয় শিক্ষা বনাম পেশাগত প্রশিক্ষণ নিয়ে একটি passage।",
+    "textDe": "<p>Nach dem Schulabschluss stehen viele junge Menschen vor der Entscheidung: ein <span class=\"voc\" tabindex=\"0\" data-bn=\"বিশ্ববিদ্যালয় পড়াশোনা\">Studium</span> beginnen oder eine praktische Ausbildung machen? Befürworter des Studiums verweisen auf oft höhere Gehälter im späteren Berufsleben.</p><p>Befürworter der Ausbildung betonen hingegen, dass man schneller eigenes Geld verdient und wertvolle <span class=\"voc\" tabindex=\"0\" data-bn=\"ব্যবহারিক অভিজ্ঞতা\">praktische Erfahrung</span> sammelt, ohne sich zu verschulden. Zudem gibt es in vielen Handwerksberufen einen großen Fachkräftemangel mit guten Zukunftsaussichten.</p><p>Experten empfehlen, die Entscheidung von den individuellen <span class=\"voc\" tabindex=\"0\" data-bn=\"আগ্রহ\">Interessen</span> und Stärken abhängig zu machen, statt sich nur nach dem Gehalt zu richten.</p>",
+    "textBn": "স্কুল শেষ করার পর অনেক তরুণ একটি সিদ্ধান্তের মুখোমুখি হয়: বিশ্ববিদ্যালয়ে পড়াশোনা শুরু করা নাকি ব্যবহারিক প্রশিক্ষণ নেওয়া? পড়াশোনার সমর্থকরা পরবর্তী কর্মজীবনে প্রায়ই বেশি বেতনের দিকে ইঙ্গিত করেন।<br><br>প্রশিক্ষণের সমর্থকরা অন্যদিকে জোর দেন যে দ্রুত নিজের টাকা উপার্জন করা যায় এবং ঋণগ্রস্ত না হয়ে মূল্যবান ব্যবহারিক অভিজ্ঞতা অর্জন করা যায়। এছাড়াও অনেক কারিগরি পেশায় ভালো ভবিষ্যৎ সম্ভাবনাসহ একটি বড় দক্ষ কর্মীর অভাব রয়েছে।<br><br>বিশেষজ্ঞরা সুপারিশ করেন যে সিদ্ধান্তটি কেবল বেতনের উপর নির্ভর না করে ব্যক্তিগত আগ্রহ ও শক্তির উপর নির্ভর করা উচিত।",
+    "questions": [
+      {
+        "q": "Vor welcher Entscheidung stehen viele junge Menschen?",
+        "opts": [
+          "Studium oder Ausbildung",
+          "Heirat oder Karriere",
+          "Stadt oder Land",
+          "Urlaub oder Arbeit"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Worauf verweisen Befürworter des Studiums?",
+        "opts": [
+          "Auf schnelleres Geld verdienen",
+          "Auf oft höhere Gehälter im späteren Berufsleben",
+          "Auf weniger Lernaufwand",
+          "Auf keine Vorteile"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter der Ausbildung?",
+        "opts": [
+          "Man verschuldet sich stärker",
+          "Man verdient schneller eigenes Geld ohne Schulden",
+          "Man lernt nichts Praktisches",
+          "Es gibt keine Zukunftsaussichten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was gibt es in vielen Handwerksberufen?",
+        "opts": [
+          "Zu viele Bewerber",
+          "Einen großen Fachkräftemangel mit guten Aussichten",
+          "Keine Arbeitsplätze",
+          "Sinkende Nachfrage"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Experten?",
+        "opts": [
+          "Nur nach dem Gehalt zu entscheiden",
+          "Die Entscheidung von individuellen Interessen und Stärken abhängig zu machen",
+          "Immer zu studieren",
+          "Nie eine Ausbildung zu machen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "kreuzfahrten-umwelt",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "sky",
+    "icon": "🚢",
+    "xp": 25,
+    "words": 74,
+    "time": 5,
+    "titleDe": "Kreuzfahrten: Traumurlaub mit hohem Preis für die Umwelt?",
+    "titleBn": "ক্রুজ: পরিবেশের জন্য উচ্চ মূল্যসহ স্বপ্নের ছুটি?",
+    "descBn": "ক্রুজ পর্যটনের জনপ্রিয়তা ও পরিবেশগত সমালোচনা নিয়ে একটি passage।",
+    "textDe": "<p>Kreuzfahrten werden bei Touristen immer beliebter, da man auf einem Schiff mehrere Länder besuchen kann, ohne ständig das <span class=\"voc\" tabindex=\"0\" data-bn=\"হোটেল\">Hotel</span> zu wechseln. Die großen Schiffe bieten zudem Restaurants, Pools und Unterhaltung an Bord.</p><p>Umweltschützer kritisieren jedoch den enormen <span class=\"voc\" tabindex=\"0\" data-bn=\"জ্বালানি ব্যবহার\">Treibstoffverbrauch</span> großer Kreuzfahrtschiffe und die damit verbundenen Emissionen. Zudem belasten viele Besucher gleichzeitig kleine Hafenstädte, was zu Problemen mit Overtourism führen kann.</p><p>Als Reaktion entwickeln einige Reedereien Schiffe mit alternativen <span class=\"voc\" tabindex=\"0\" data-bn=\"জ্বালানি\">Antriebsarten</span>, um die Umweltbelastung zu reduzieren.</p>",
+    "textBn": "পর্যটকদের কাছে ক্রুজ ক্রমশ জনপ্রিয় হচ্ছে, কারণ একটি জাহাজে একাধিক দেশ পরিদর্শন করা যায়, ক্রমাগত হোটেল পরিবর্তন না করে। বড় জাহাজগুলো এছাড়াও জাহাজে রেস্তোরাঁ, পুল ও বিনোদন প্রদান করে।<br><br>পরিবেশবাদীরা তবে বড় ক্রুজ জাহাজের বিশাল জ্বালানি ব্যবহার এবং সংশ্লিষ্ট নিঃসরণের সমালোচনা করেন। এছাড়াও অনেক দর্শনার্থী একসাথে ছোট বন্দর শহরগুলোকে ভারাক্রান্ত করে, যা অতিরিক্ত পর্যটনের সমস্যার দিকে নিয়ে যেতে পারে।<br><br>প্রতিক্রিয়া হিসেবে, কিছু জাহাজ কোম্পানি বিকল্প জ্বালানি ব্যবস্থাসহ জাহাজ তৈরি করছে, পরিবেশগত বোঝা কমাতে।",
+    "questions": [
+      {
+        "q": "Warum werden Kreuzfahrten immer beliebter?",
+        "opts": [
+          "Weil sie sehr günstig sind",
+          "Man kann mehrere Länder besuchen ohne Hotelwechsel",
+          "Weil sie sehr kurz sind",
+          "Weil es keine Alternative gibt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kritisieren Umweltschützer?",
+        "opts": [
+          "Zu wenig Unterhaltung an Bord",
+          "Den enormen Treibstoffverbrauch und die Emissionen",
+          "Zu niedrige Preise",
+          "Zu kleine Schiffe"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was kann durch viele Besucher gleichzeitig entstehen?",
+        "opts": [
+          "Weniger Tourismus",
+          "Probleme mit Overtourism in Hafenstädten",
+          "Mehr Ruhe in den Städten",
+          "Keine besonderen Probleme"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was entwickeln einige Reedereien als Reaktion?",
+        "opts": [
+          "Noch größere Schiffe",
+          "Schiffe mit alternativen Antriebsarten",
+          "Weniger Schiffe insgesamt",
+          "Teurere Tickets ohne Änderung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bieten die großen Schiffe an Bord?",
+        "opts": [
+          "Nur Kabinen",
+          "Restaurants, Pools und Unterhaltung",
+          "Nur Restaurants",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "stadtradeln-foerderung",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "emerald",
+    "icon": "🚲",
+    "xp": 25,
+    "words": 78,
+    "time": 5,
+    "titleDe": "Radverkehr fördern: Wie Städte umdenken",
+    "titleBn": "সাইকেল যান চলাচল উৎসাহিতকরণ: কীভাবে শহর নতুন করে ভাবছে",
+    "descBn": "শহরে সাইকেল ব্যবহার প্রচারের প্রচেষ্টা নিয়ে একটি passage।",
+    "textDe": "<p>Viele Städte investieren zunehmend in den Ausbau von <span class=\"voc\" tabindex=\"0\" data-bn=\"সাইকেল লেন\">Radwegen</span>, um den Autoverkehr zu reduzieren und die Luftqualität zu verbessern. Befürworter argumentieren, dass sicherere Radwege mehr Menschen zum Umstieg motivieren.</p><p>Kritiker weisen jedoch darauf hin, dass der Bau neuer Radwege oft mit dem Wegfall von <span class=\"voc\" tabindex=\"0\" data-bn=\"পার্কিং জায়গা\">Parkplätzen</span> einhergeht, was bei Autofahrern und Geschäftsinhabern für Unmut sorgt.</p><p>Erfahrungen aus Städten mit gut ausgebauter <span class=\"voc\" tabindex=\"0\" data-bn=\"অবকাঠামো\">Fahrradinfrastruktur</span> zeigen jedoch, dass sich sowohl die Lebensqualität als auch der lokale Einzelhandel oft langfristig positiv entwickeln.</p>",
+    "textBn": "অনেক শহর ক্রমশ সাইকেল লেন সম্প্রসারণে বিনিয়োগ করছে, গাড়ি চলাচল কমাতে ও বায়ুর মান উন্নত করতে। সমর্থকরা যুক্তি দেন যে নিরাপদ সাইকেল লেন বেশি মানুষকে পরিবর্তনে উৎসাহিত করে।<br><br>সমালোচকরা তবে ইঙ্গিত করেন যে নতুন সাইকেল লেন নির্মাণ প্রায়ই পার্কিং জায়গা হারানোর সাথে যুক্ত, যা গাড়িচালক ও দোকান মালিকদের মধ্যে অসন্তোষ তৈরি করে।<br><br>ভালোভাবে গড়ে তোলা সাইকেল অবকাঠামোসহ শহরের অভিজ্ঞতা তবে দেখায় যে জীবনযাত্রার মান ও স্থানীয় খুচরা বিক্রয় উভয়ই প্রায়ই দীর্ঘমেয়াদে ইতিবাচকভাবে বিকশিত হয়।",
+    "questions": [
+      {
+        "q": "Warum investieren Städte in Radwege?",
+        "opts": [
+          "Um Autoverkehr zu reduzieren und Luft zu verbessern",
+          "Um mehr Autos anzulocken",
+          "Um Parkplätze zu vermehren",
+          "Aus keinem besonderen Grund"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was argumentieren Befürworter sicherer Radwege?",
+        "opts": [
+          "Sie motivieren niemanden",
+          "Sie motivieren mehr Menschen zum Umstieg",
+          "Sie sind zu teuer",
+          "Sie sind unnötig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit geht der Bau neuer Radwege oft einher?",
+        "opts": [
+          "Mit mehr Parkplätzen",
+          "Mit dem Wegfall von Parkplätzen",
+          "Mit weniger Straßen",
+          "Mit höheren Steuern"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Erfahrungen aus Städten mit guter Radinfrastruktur?",
+        "opts": [
+          "Negative Entwicklung für den Einzelhandel",
+          "Positive Entwicklung für Lebensqualität und Einzelhandel",
+          "Keine Veränderung",
+          "Nur negative Effekte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wer ist manchmal unzufrieden mit neuen Radwegen?",
+        "opts": [
+          "Nur Radfahrer",
+          "Autofahrer und Geschäftsinhaber wegen Parkplatzverlust",
+          "Nur Fußgänger",
+          "Niemand"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "fleischsteuer-debatte",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "rose",
+    "icon": "🥩",
+    "xp": 25,
+    "words": 73,
+    "time": 5,
+    "titleDe": "Fleischsteuer: Klimaschutz oder ungerechte Belastung?",
+    "titleBn": "মাংস কর: জলবায়ু সুরক্ষা নাকি অন্যায্য বোঝা?",
+    "descBn": "মাংসের উপর অতিরিক্ত কর নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Einige Politiker schlagen eine höhere <span class=\"voc\" tabindex=\"0\" data-bn=\"কর\">Steuer</span> auf Fleischprodukte vor, um den Konsum zu senken und das Klima zu schützen. Sie argumentieren, dass die Tierhaltung erheblich zu den Treibhausgasemissionen beiträgt.</p><p>Gegner einer Fleischsteuer meinen jedoch, dass eine solche Steuer besonders <span class=\"voc\" tabindex=\"0\" data-bn=\"নিম্ন আয়\">einkommensschwache</span> Haushalte unverhältnismäßig belasten würde, da diese oft einen größeren Anteil ihres Einkommens für Lebensmittel ausgeben.</p><p>Als Alternative schlagen manche Experten vor, stattdessen <span class=\"voc\" tabindex=\"0\" data-bn=\"ভর্তুকি\">Subventionen</span> für nachhaltigere Lebensmittel zu erhöhen, statt Fleisch zusätzlich zu besteuern.</p>",
+    "textBn": "কিছু রাজনীতিবিদ মাংস পণ্যের উপর উচ্চতর কর প্রস্তাব করেন, ভোগ কমাতে ও জলবায়ু রক্ষা করতে। তারা যুক্তি দেন যে পশুপালন গ্রিনহাউস গ্যাস নিঃসরণে উল্লেখযোগ্যভাবে অবদান রাখে।<br><br>মাংস করের বিরোধীরা তবে মনে করেন যে এই ধরনের কর বিশেষত নিম্ন আয়ের পরিবারকে অসামঞ্জস্যভাবে ভারাক্রান্ত করবে, কারণ তারা প্রায়ই খাদ্যের জন্য তাদের আয়ের বৃহত্তর অংশ ব্যয় করে।<br><br>বিকল্প হিসেবে, কিছু বিশেষজ্ঞ মাংসের উপর অতিরিক্ত কর আরোপের পরিবর্তে টেকসই খাদ্যের জন্য ভর্তুকি বাড়ানোর প্রস্তাব দেন।",
+    "questions": [
+      {
+        "q": "Was schlagen einige Politiker vor?",
+        "opts": [
+          "Weniger Steuern auf Fleisch",
+          "Eine höhere Steuer auf Fleischprodukte",
+          "Mehr Subventionen für Fleisch",
+          "Verbot von Fleisch"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit begründen sie diesen Vorschlag?",
+        "opts": [
+          "Fleisch ist zu billig",
+          "Die Tierhaltung trägt erheblich zu Treibhausgasemissionen bei",
+          "Fleisch schmeckt schlecht",
+          "Es gibt zu viel Fleisch"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen Gegner einer Fleischsteuer?",
+        "opts": [
+          "Sie würde reiche Haushalte belasten",
+          "Sie würde einkommensschwache Haushalte unverhältnismäßig belasten",
+          "Sie hätte keine Auswirkungen",
+          "Sie wäre zu niedrig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum sind einkommensschwache Haushalte besonders betroffen?",
+        "opts": [
+          "Sie essen kein Fleisch",
+          "Sie geben einen größeren Anteil ihres Einkommens für Lebensmittel aus",
+          "Sie kaufen nur importierte Waren",
+          "Sie haben keine Küche"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was schlagen manche Experten alternativ vor?",
+        "opts": [
+          "Nur höhere Steuern überall",
+          "Mehr Subventionen für nachhaltigere Lebensmittel",
+          "Abschaffung aller Steuern",
+          "Weniger Lebensmittelkontrollen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "soziales-jahr-schulabgaenger",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "gold",
+    "icon": "🎒",
+    "xp": 25,
+    "words": 81,
+    "time": 5,
+    "titleDe": "Ein Jahr Pause nach der Schule: Sinnvolle Auszeit oder verlorene Zeit?",
+    "titleBn": "স্কুলের পর এক বছর বিরতি: যুক্তিসঙ্গত অবকাশ নাকি হারানো সময়?",
+    "descBn": "স্কুলের পর গ্যাপ ইয়ার নেওয়া নিয়ে একটি passage।",
+    "textDe": "<p>Manche Schulabgänger entscheiden sich für ein <span class=\"voc\" tabindex=\"0\" data-bn=\"গ্যাপ ইয়ার\">Gap Year</span> zwischen Schule und Studium, um zu reisen oder Praktika zu machen. Befürworter argumentieren, dass diese Pause hilft, klarer über die eigene Zukunft nachzudenken.</p><p>Kritiker befürchten jedoch, dass ein Jahr Pause den <span class=\"voc\" tabindex=\"0\" data-bn=\"শেখার প্রেরণা\">Lernrhythmus</span> unterbrechen und den späteren Einstieg ins Studium erschweren könnte. Studien zeigen allerdings gemischte Ergebnisse zu diesem Thema.</p><p>Wichtig ist laut Experten vor allem, dass die Zeit sinnvoll genutzt wird, etwa durch <span class=\"voc\" tabindex=\"0\" data-bn=\"ইন্টার্নশিপ\">Praktika</span> oder gezielte Weiterbildung, statt sie ungeplant verstreichen zu lassen.</p>",
+    "textBn": "কিছু স্কুল পাস করা ছাত্র স্কুল ও বিশ্ববিদ্যালয়ের মধ্যে একটি গ্যাপ ইয়ার বেছে নেয়, ভ্রমণ বা ইন্টার্নশিপ করতে। সমর্থকরা যুক্তি দেন যে এই বিরতি নিজের ভবিষ্যৎ সম্পর্কে আরও স্পষ্টভাবে চিন্তা করতে সাহায্য করে।<br><br>সমালোচকরা তবে আশঙ্কা করেন যে এক বছরের বিরতি শেখার ছন্দ ব্যাহত করতে পারে এবং পরে পড়াশোনা শুরু করা কঠিন করে তুলতে পারে। তবে গবেষণা এই বিষয়ে মিশ্র ফলাফল দেখায়।<br><br>বিশেষজ্ঞদের মতে গুরুত্বপূর্ণ হলো সময়টা অর্থপূর্ণভাবে ব্যবহার করা, যেমন ইন্টার্নশিপ বা লক্ষ্যযুক্ত পুনর্প্রশিক্ষণের মাধ্যমে, পরিকল্পনাহীনভাবে চলে যেতে না দিয়ে।",
+    "questions": [
+      {
+        "q": "Was ist ein Gap Year?",
+        "opts": [
+          "Ein zusätzliches Schuljahr",
+          "Eine Pause zwischen Schule und Studium",
+          "Ein Auslandsstudium",
+          "Eine Prüfung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter?",
+        "opts": [
+          "Es ist reine Zeitverschwendung",
+          "Es hilft, klarer über die eigene Zukunft nachzudenken",
+          "Es schadet immer",
+          "Es ist verboten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchten Kritiker?",
+        "opts": [
+          "Zu viel Lernen",
+          "Dass es den Lernrhythmus unterbricht und den Studienstart erschwert",
+          "Zu wenig Reisen",
+          "Zu hohe Kosten allein"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Studien zu diesem Thema?",
+        "opts": [
+          "Eindeutig nur positive Ergebnisse",
+          "Gemischte Ergebnisse",
+          "Eindeutig nur negative Ergebnisse",
+          "Keine Studien existieren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist laut Experten wichtig?",
+        "opts": [
+          "Die Zeit ungeplant verstreichen zu lassen",
+          "Die Zeit sinnvoll durch Praktika oder Weiterbildung zu nutzen",
+          "Nur zu Hause zu bleiben",
+          "Sofort zu arbeiten"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "tempo30-innenstaedte",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "orange",
+    "icon": "🚦",
+    "xp": 25,
+    "words": 69,
+    "time": 5,
+    "titleDe": "Tempo 30 in Innenstädten: Mehr Sicherheit oder unnötige Bremse?",
+    "titleBn": "শহরকেন্দ্রে ৩০ কিমি গতিসীমা: বেশি নিরাপত্তা নাকি অপ্রয়োজনীয় বাধা?",
+    "descBn": "শহরকেন্দ্রে গতিসীমা হ্রাস নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Städte führen ein generelles <span class=\"voc\" tabindex=\"0\" data-bn=\"গতিসীমা\">Tempolimit</span> von 30 km/h in Innenstädten ein. Befürworter argumentieren, dass langsamerer Verkehr die Zahl schwerer Unfälle deutlich reduziert, besonders für Fußgänger und Radfahrer.</p><p>Zudem sinkt bei niedrigerer Geschwindigkeit der <span class=\"voc\" tabindex=\"0\" data-bn=\"শব্দ দূষণ\">Lärmpegel</span> spürbar. Kritiker befürchten jedoch längere Fahrzeiten und mehr Staus, besonders für Berufspendler und Lieferverkehr.</p><p>Untersuchungen aus Städten mit Tempo 30 zeigen jedoch, dass sich die tatsächlichen <span class=\"voc\" tabindex=\"0\" data-bn=\"ভ্রমণ সময়\">Fahrzeitverluste</span> im Alltag meist nur minimal auswirken.</p>",
+    "textBn": "ক্রমশ বেশি শহর শহরকেন্দ্রে ৩০ কিমি/ঘণ্টা সাধারণ গতিসীমা চালু করছে। সমর্থকরা যুক্তি দেন যে ধীরগতির যানবাহন গুরুতর দুর্ঘটনার সংখ্যা উল্লেখযোগ্যভাবে হ্রাস করে, বিশেষত পথচারী ও সাইক্লিস্টদের জন্য।<br><br>এছাড়াও কম গতিতে শব্দ দূষণের মাত্রা লক্ষণীয়ভাবে কমে যায়। সমালোচকরা তবে বিশেষত অফিসযাত্রী ও সরবরাহ যানবাহনের জন্য দীর্ঘ ভ্রমণ সময় ও বেশি যানজটের আশঙ্কা করেন।<br><br>৩০ কিমি গতিসীমাযুক্ত শহরের গবেষণা তবে দেখায় যে দৈনন্দিন জীবনে প্রকৃত ভ্রমণ সময়ের ক্ষতি সাধারণত ন্যূনতম প্রভাব ফেলে।",
+    "questions": [
+      {
+        "q": "Was führen immer mehr Städte ein?",
+        "opts": [
+          "Höhere Tempolimits",
+          "Ein Tempolimit von 30 km/h in Innenstädten",
+          "Keine Tempolimits",
+          "Autoverbot"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter?",
+        "opts": [
+          "Langsamerer Verkehr reduziert schwere Unfälle deutlich",
+          "Es gibt keine Sicherheitsvorteile",
+          "Es erhöht die Unfallzahl",
+          "Es hat keine Wirkung"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was sinkt zusätzlich bei niedrigerer Geschwindigkeit?",
+        "opts": [
+          "Die Sicherheit",
+          "Der Lärmpegel",
+          "Die Anzahl der Autos",
+          "Nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchten Kritiker?",
+        "opts": [
+          "Zu wenig Verkehr",
+          "Längere Fahrzeiten und mehr Staus",
+          "Zu viel Sicherheit",
+          "Zu niedrige Kosten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Untersuchungen aus Tempo-30-Städten?",
+        "opts": [
+          "Enorme Fahrzeitverluste",
+          "Meist nur minimale Fahrzeitverluste im Alltag",
+          "Keine Daten verfügbar",
+          "Nur negative Effekte"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "wahlpflicht-debatte",
+    "level": "B2",
+    "category": "Politik",
+    "color": "indigo",
+    "icon": "🗳️",
+    "xp": 25,
+    "words": 87,
+    "time": 5,
+    "titleDe": "Wahlpflicht: Stärkung der Demokratie oder Zwang?",
+    "titleBn": "ভোটদান বাধ্যতামূলক করা: গণতন্ত্র শক্তিশালীকরণ নাকি জবরদস্তি?",
+    "descBn": "বাধ্যতামূলক ভোটদান নিয়ে দুই পক্ষের যুক্তি নিয়ে একটি passage।",
+    "textDe": "<p>In einigen Ländern besteht eine <span class=\"voc\" tabindex=\"0\" data-bn=\"ভোটদান বাধ্যবাধকতা\">Wahlpflicht</span>, bei der Bürger gesetzlich zur Teilnahme an Wahlen verpflichtet sind. Befürworter argumentieren, dass dies zu einer höheren Wahlbeteiligung und damit zu einer repräsentativeren Demokratie führt.</p><p>Gegner sehen darin jedoch einen Eingriff in die persönliche <span class=\"voc\" tabindex=\"0\" data-bn=\"স্বাধীনতা\">Freiheit</span>, da auch das Recht, nicht zu wählen, als demokratisches Grundrecht betrachtet werden könnte. Zudem befürchten sie, dass gezwungene Wähler oft unüberlegt oder zufällig ihre Stimme abgeben.</p><p>Länder ohne Wahlpflicht setzen stattdessen häufig auf Kampagnen, die die <span class=\"voc\" tabindex=\"0\" data-bn=\"সচেতনতা\">Bewusstsein</span> für die Bedeutung des Wählens erhöhen sollen.</p>",
+    "textBn": "কিছু দেশে ভোটদান বাধ্যবাধকতা রয়েছে, যেখানে নাগরিকরা আইনিভাবে নির্বাচনে অংশগ্রহণে বাধ্য। সমর্থকরা যুক্তি দেন যে এটি উচ্চতর ভোটার উপস্থিতি এবং তাই একটি আরও প্রতিনিধিত্বশীল গণতন্ত্রের দিকে নিয়ে যায়।<br><br>বিরোধীরা তবে এতে ব্যক্তিগত স্বাধীনতায় হস্তক্ষেপ দেখেন, কারণ ভোট না দেওয়ার অধিকারকেও একটি গণতান্ত্রিক মৌলিক অধিকার হিসেবে বিবেচনা করা যেতে পারে। এছাড়াও তারা আশঙ্কা করেন যে বাধ্যতামূলক ভোটাররা প্রায়ই চিন্তাহীনভাবে বা এলোমেলোভাবে তাদের ভোট দেন।<br><br>ভোটদান বাধ্যবাধকতা ছাড়া দেশগুলো পরিবর্তে প্রায়ই প্রচারণার উপর নির্ভর করে, যা ভোটদানের গুরুত্ব সম্পর্কে সচেতনতা বাড়ানোর কথা।",
+    "questions": [
+      {
+        "q": "Was besteht in einigen Ländern?",
+        "opts": [
+          "Ein Verbot des Wählens",
+          "Eine Wahlpflicht",
+          "Keine Wahlen überhaupt",
+          "Nur freiwillige Wahlen für Beamte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter der Wahlpflicht?",
+        "opts": [
+          "Sie führt zu weniger Wahlbeteiligung",
+          "Sie führt zu höherer Wahlbeteiligung und repräsentativerer Demokratie",
+          "Sie ist unnötig",
+          "Sie schadet der Demokratie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sehen Gegner darin?",
+        "opts": [
+          "Eine gute Idee ohne Nachteile",
+          "Einen Eingriff in die persönliche Freiheit",
+          "Keine besonderen Probleme",
+          "Eine Stärkung der Freiheit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchten Gegner zusätzlich?",
+        "opts": [
+          "Zu durchdachte Stimmabgabe",
+          "Dass gezwungene Wähler unüberlegt wählen",
+          "Zu wenig Wähler",
+          "Zu viel Diskussion"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf setzen Länder ohne Wahlpflicht stattdessen?",
+        "opts": [
+          "Auf Zwang",
+          "Auf Kampagnen zur Bewusstseinsbildung",
+          "Auf Verbote",
+          "Auf höhere Strafen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "elterngeld-vaeter",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "rose",
+    "icon": "👨‍🍼",
+    "xp": 25,
+    "words": 80,
+    "time": 5,
+    "titleDe": "Väter in Elternzeit: Fortschritt oder noch die Ausnahme?",
+    "titleBn": "পিতৃত্বকালীন ছুটিতে বাবারা: অগ্রগতি নাকি এখনও ব্যতিক্রম?",
+    "descBn": "পিতৃত্বকালীন ছুটি নেওয়া বাবাদের প্রবণতা নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Väter nehmen <span class=\"voc\" tabindex=\"0\" data-bn=\"পিতৃত্বকালীন ছুটি\">Elternzeit</span>, um sich intensiv um ihre Kinder zu kümmern. Befürworter dieser Entwicklung betonen, dass dadurch die Erziehungsarbeit gerechter zwischen den Elternteilen aufgeteilt wird.</p><p>Trotz gesetzlicher Regelungen, die Väter zur Elternzeit ermutigen sollen, nehmen jedoch immer noch deutlich weniger Väter als Mütter die volle <span class=\"voc\" tabindex=\"0\" data-bn=\"সময়কাল\">Dauer</span> in Anspruch. Kritiker sehen darin nach wie vor tief verwurzelte gesellschaftliche Erwartungen an traditionelle Geschlechterrollen.</p><p>Manche Unternehmen fördern deshalb aktiv eine Kultur, in der Väter ohne <span class=\"voc\" tabindex=\"0\" data-bn=\"পেশাগত অসুবিধা\">berufliche Nachteile</span> Elternzeit nehmen können.</p>",
+    "textBn": "ক্রমশ বেশি বাবা তাদের সন্তানদের নিবিড়ভাবে যত্ন নিতে পিতৃত্বকালীন ছুটি নিচ্ছেন। এই বিকাশের সমর্থকরা জোর দেন যে এর ফলে সন্তান লালনপালনের কাজ পিতামাতার মধ্যে আরও ন্যায্যভাবে ভাগ হয়।<br><br>বাবাদের পিতৃত্বকালীন ছুটি নিতে উৎসাহিত করার আইনি নিয়ম সত্ত্বেও, তবুও মায়েদের তুলনায় উল্লেখযোগ্যভাবে কম বাবা পূর্ণ সময়কাল ব্যবহার করেন। সমালোচকরা এতে এখনও গভীরভাবে প্রোথিত সামাজিক প্রথাগত লিঙ্গ ভূমিকা সম্পর্কে প্রত্যাশা দেখেন।<br><br>তাই কিছু কোম্পানি সক্রিয়ভাবে এমন একটি সংস্কৃতি প্রচার করে যেখানে বাবারা পেশাগত অসুবিধা ছাড়াই পিতৃত্বকালীন ছুটি নিতে পারেন।",
+    "questions": [
+      {
+        "q": "Was nehmen immer mehr Väter?",
+        "opts": [
+          "Mehr Urlaub allein",
+          "Elternzeit für ihre Kinder",
+          "Weniger Arbeit dauerhaft",
+          "Keine Verantwortung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter dieser Entwicklung?",
+        "opts": [
+          "Gerechtere Aufteilung der Erziehungsarbeit",
+          "Weniger Gleichberechtigung",
+          "Höhere Kosten für Familien",
+          "Nichts Positives"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Wie viele Väter nehmen die volle Elternzeit in Anspruch?",
+        "opts": [
+          "Mehr als Mütter",
+          "Deutlich weniger als Mütter",
+          "Genau gleich viele wie Mütter",
+          "Niemand"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sehen Kritiker als Ursache?",
+        "opts": [
+          "Zu hohe Löhne für Väter",
+          "Tief verwurzelte gesellschaftliche Erwartungen an Geschlechterrollen",
+          "Zu wenig gesetzliche Regelungen",
+          "Kein besonderer Grund"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fördern manche Unternehmen aktiv?",
+        "opts": [
+          "Weniger Elternzeit für alle",
+          "Eine Kultur ohne berufliche Nachteile für Väter in Elternzeit",
+          "Nur Elternzeit für Mütter",
+          "Mehr Überstunden"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "uebernachtungssteuer-tourismus",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "gold",
+    "icon": "🏨",
+    "xp": 25,
+    "words": 84,
+    "time": 5,
+    "titleDe": "Tourismussteuer: Gerechte Finanzierung oder Belastung für Reisende?",
+    "titleBn": "পর্যটন কর: ন্যায্য অর্থায়ন নাকি ভ্রমণকারীদের জন্য বোঝা?",
+    "descBn": "পর্যটন করের যুক্তি ও সমালোচনা নিয়ে একটি passage।",
+    "textDe": "<p>Viele beliebte Reiseziele erheben mittlerweile eine <span class=\"voc\" tabindex=\"0\" data-bn=\"পর্যটন কর\">Tourismussteuer</span> oder Kurtaxe pro Übernachtung. Städte argumentieren, dass diese Einnahmen zur Finanzierung von Infrastruktur genutzt werden, die durch den Tourismus stark <span class=\"voc\" tabindex=\"0\" data-bn=\"ভারাক্রান্ত\">belastet</span> wird.</p><p>Kritiker der Tourismussteuer meinen jedoch, dass zusätzliche Kosten Reisende abschrecken könnten, besonders preisbewusste Familien. Befürworter entgegnen, dass die zusätzlichen Kosten meist gering sind und Reisende bereit sind, für sauberere und besser erhaltene <span class=\"voc\" tabindex=\"0\" data-bn=\"পর্যটন স্থান\">Reiseziele</span> zu zahlen.</p><p>Die Debatte zeigt, wie Städte versuchen, den Nutzen des Tourismus mit dessen Belastungen für die Einheimischen in Einklang zu bringen.</p>",
+    "textBn": "অনেক জনপ্রিয় ভ্রমণ গন্তব্য এখন প্রতি রাত থাকার জন্য একটি পর্যটন কর বা কুরটাক্স আরোপ করে। শহরগুলো যুক্তি দেয় যে এই আয় সেই অবকাঠামো অর্থায়নে ব্যবহৃত হয় যা পর্যটনের কারণে ব্যাপকভাবে ভারাক্রান্ত হয়।<br><br>পর্যটন করের সমালোচকরা তবে মনে করেন যে অতিরিক্ত খরচ ভ্রমণকারীদের নিরুৎসাহিত করতে পারে, বিশেষত মূল্য-সচেতন পরিবারদের। সমর্থকরা পাল্টা বলেন যে অতিরিক্ত খরচ সাধারণত কম এবং ভ্রমণকারীরা পরিষ্কার ও ভালোভাবে সংরক্ষিত গন্তব্যের জন্য অর্থ দিতে ইচ্ছুক।<br><br>এই বিতর্ক দেখায় যে শহরগুলো কীভাবে পর্যটনের সুবিধাকে স্থানীয়দের উপর এর বোঝার সাথে সামঞ্জস্য করার চেষ্টা করছে।",
+    "questions": [
+      {
+        "q": "Was erheben viele beliebte Reiseziele?",
+        "opts": [
+          "Höhere Löhne",
+          "Eine Tourismussteuer oder Kurtaxe",
+          "Kein Geld",
+          "Nur Trinkgeld"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wozu wird diese Einnahme laut Städten genutzt?",
+        "opts": [
+          "Für private Gewinne",
+          "Zur Finanzierung von belasteter Infrastruktur",
+          "Für nichts Bestimmtes",
+          "Nur für Beamte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchten Kritiker der Tourismussteuer?",
+        "opts": [
+          "Zu viele Touristen",
+          "Dass zusätzliche Kosten Reisende abschrecken könnten",
+          "Zu wenig Einnahmen",
+          "Keine Sorgen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was entgegnen Befürworter?",
+        "opts": [
+          "Die Kosten sind meist hoch",
+          "Die zusätzlichen Kosten sind meist gering",
+          "Niemand zahlt gerne",
+          "Tourismus sollte verboten werden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigt diese Debatte laut Text?",
+        "opts": [
+          "Städte ignorieren Tourismus komplett",
+          "Wie Städte Nutzen und Belastungen des Tourismus in Einklang bringen wollen",
+          "Tourismus ist immer negativ",
+          "Es gibt keine Debatte"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "handynutzung-familie",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "teal",
+    "icon": "📱",
+    "xp": 25,
+    "words": 78,
+    "time": 5,
+    "titleDe": "Handynutzung am Familientisch: Höflichkeitsfrage oder überzogene Sorge?",
+    "titleBn": "পারিবারিক টেবিলে মোবাইল ব্যবহার: ভদ্রতার প্রশ্ন নাকি অতিরিক্ত উদ্বেগ?",
+    "descBn": "পারিবারিক খাবার টেবিলে মোবাইল ব্যবহার নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Viele Familien diskutieren, ob <span class=\"voc\" tabindex=\"0\" data-bn=\"স্মার্টফোন\">Smartphones</span> am Esstisch erlaubt sein sollten. Befürworter eines Handyverbots während der Mahlzeiten argumentieren, dass gemeinsame Gespräche wichtig für den familiären Zusammenhalt sind.</p><p>Manche Jugendliche empfinden strikte Regeln jedoch als überzogen und meinen, dass ein kurzer Blick aufs Handy keine <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্ষতি\">Schaden</span> anrichtet. Familientherapeuten empfehlen einen Mittelweg: klare, aber flexible Regeln, die von der ganzen Familie gemeinsam besprochen werden.</p><p>Wichtig sei vor allem, dass Eltern selbst mit gutem <span class=\"voc\" tabindex=\"0\" data-bn=\"উদাহরণ\">Beispiel</span> vorangehen, statt nur Regeln für Kinder aufzustellen.</p>",
+    "textBn": "অনেক পরিবার আলোচনা করে যে খাবার টেবিলে স্মার্টফোনের অনুমতি দেওয়া উচিত কিনা। খাবারের সময় মোবাইল নিষেধাজ্ঞার সমর্থকরা যুক্তি দেন যে সম্মিলিত কথোপকথন পারিবারিক সংহতির জন্য গুরুত্বপূর্ণ।<br><br>কিছু কিশোর তবে কঠোর নিয়মকে অতিরিক্ত মনে করে এবং মনে করে যে মোবাইলের দিকে একবার তাকানো কোনো ক্ষতি করে না। পারিবারিক থেরাপিস্টরা একটি মধ্যপন্থার সুপারিশ করেন: স্পষ্ট, কিন্তু নমনীয় নিয়ম, যা পুরো পরিবার একসাথে আলোচনা করে।<br><br>বিশেষভাবে গুরুত্বপূর্ণ হলো যে অভিভাবকরা নিজেরাই একটি ভালো উদাহরণ স্থাপন করেন, কেবল শিশুদের জন্য নিয়ম তৈরি না করে।",
+    "questions": [
+      {
+        "q": "Worüber diskutieren viele Familien?",
+        "opts": [
+          "Über Hausaufgaben",
+          "Ob Smartphones am Esstisch erlaubt sein sollten",
+          "Über Urlaubspläne",
+          "Über Taschengeld"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter eines Handyverbots?",
+        "opts": [
+          "Gespräche sind unwichtig",
+          "Gemeinsame Gespräche sind wichtig für den familiären Zusammenhalt",
+          "Handys sind gefährlich",
+          "Handys sollten überall verboten sein"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Familientherapeuten?",
+        "opts": [
+          "Strenge Verbote ohne Diskussion",
+          "Klare, aber flexible, gemeinsam besprochene Regeln",
+          "Keine Regeln",
+          "Nur Verbote für Kinder"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist laut Text besonders wichtig?",
+        "opts": [
+          "Nur Kinder sollen Regeln befolgen",
+          "Eltern sollen mit gutem Beispiel vorangehen",
+          "Nur Verbote durchzusetzen",
+          "Regeln zu ignorieren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie empfinden manche Jugendliche strikte Regeln?",
+        "opts": [
+          "Als sehr sinnvoll",
+          "Als überzogen",
+          "Als zu locker",
+          "Als unwichtig für sie"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "fairtrade-produkte-kaufen",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "emerald",
+    "icon": "☕",
+    "xp": 25,
+    "words": 72,
+    "time": 5,
+    "titleDe": "Fairtrade-Produkte kaufen: Wirklich hilfreich oder nur ein gutes Gefühl?",
+    "titleBn": "ফেয়ারট্রেড পণ্য কেনা: সত্যিই সহায়ক নাকি শুধু ভালো অনুভূতি?",
+    "descBn": "ফেয়ারট্রেড পণ্য কেনার প্রকৃত প্রভাব নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Verbraucher kaufen bewusst <span class=\"voc\" tabindex=\"0\" data-bn=\"ফেয়ারট্রেড\">Fairtrade</span>-zertifizierte Produkte wie Kaffee oder Schokolade. Sie hoffen damit, Bauern in Entwicklungsländern faire Löhne und bessere Arbeitsbedingungen zu ermöglichen.</p><p>Manche Wirtschaftswissenschaftler bezweifeln jedoch, dass Fairtrade-Zertifizierungen die versprochenen <span class=\"voc\" tabindex=\"0\" data-bn=\"সুবিধা\">Vorteile</span> immer tatsächlich bei den Produzenten ankommen lassen, da ein Teil der Mehrkosten für Zertifizierung und Verwaltung verloren geht.</p><p>Trotz dieser Kritik betonen Befürworter, dass Fairtrade zumindest das Bewusstsein für globale <span class=\"voc\" tabindex=\"0\" data-bn=\"বাণিজ্য ন্যায্যতা\">Handelsgerechtigkeit</span> stärkt und Verbrauchern eine bewusstere Kaufentscheidung ermöglicht.</p>",
+    "textBn": "ক্রমশ বেশি ভোক্তা সচেতনভাবে ফেয়ারট্রেড সার্টিফাইড পণ্য যেমন কফি বা চকলেট কিনছেন। তারা এর মাধ্যমে উন্নয়নশীল দেশের কৃষকদের ন্যায্য মজুরি ও ভালো কাজের পরিস্থিতি সম্ভব করার আশা করেন।<br><br>কিছু অর্থনীতিবিদ তবে সন্দেহ করেন যে ফেয়ারট্রেড সার্টিফিকেশন প্রকৃতপক্ষে প্রতিশ্রুত সুবিধা সবসময় উৎপাদকদের কাছে পৌঁছায় কিনা, কারণ সার্টিফিকেশন ও প্রশাসনের জন্য অতিরিক্ত খরচের একটি অংশ হারিয়ে যায়।<br><br>এই সমালোচনা সত্ত্বেও, সমর্থকরা জোর দেন যে ফেয়ারট্রেড অন্তত বৈশ্বিক বাণিজ্য ন্যায্যতার সচেতনতা শক্তিশালী করে এবং ভোক্তাদের আরও সচেতন ক্রয় সিদ্ধান্ত সম্ভব করে।",
+    "questions": [
+      {
+        "q": "Was kaufen immer mehr Verbraucher bewusst?",
+        "opts": [
+          "Nur billige Produkte",
+          "Fairtrade-zertifizierte Produkte",
+          "Nur lokale Produkte",
+          "Keine besonderen Produkte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hoffen sie damit zu ermöglichen?",
+        "opts": [
+          "Höhere Gewinne für Konzerne",
+          "Faire Löhne und bessere Arbeitsbedingungen für Bauern",
+          "Niedrigere Preise für sich selbst",
+          "Weniger Handel"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bezweifeln manche Wirtschaftswissenschaftler?",
+        "opts": [
+          "Dass Fairtrade existiert",
+          "Dass die Vorteile immer vollständig bei Produzenten ankommen",
+          "Dass Verbraucher Fairtrade kaufen",
+          "Dass Kaffee wichtig ist"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wofür geht ein Teil der Mehrkosten laut Kritikern verloren?",
+        "opts": [
+          "Für Werbung",
+          "Für Zertifizierung und Verwaltung",
+          "Für den Transport allein",
+          "Für nichts Bestimmtes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter trotz der Kritik?",
+        "opts": [
+          "Fairtrade ist nutzlos",
+          "Fairtrade stärkt zumindest das Bewusstsein für Handelsgerechtigkeit",
+          "Fairtrade sollte abgeschafft werden",
+          "Es gibt keine Vorteile"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "regionale-produkte-kaufen",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "orange",
+    "icon": "🍅",
+    "xp": 25,
+    "words": 76,
+    "time": 5,
+    "titleDe": "Regionale Produkte kaufen: Immer die bessere Wahl?",
+    "titleBn": "আঞ্চলিক পণ্য কেনা: সবসময় ভালো পছন্দ?",
+    "descBn": "আঞ্চলিক পণ্য কেনার সুবিধা ও সীমাবদ্ধতা নিয়ে একটি passage।",
+    "textDe": "<p>Viele Verbraucher entscheiden sich bewusst für <span class=\"voc\" tabindex=\"0\" data-bn=\"আঞ্চলিক পণ্য\">regionale Produkte</span>, um lange Transportwege zu vermeiden und lokale Landwirte zu unterstützen. Diese Entscheidung wird oft mit besserem Klimaschutz begründet.</p><p>Überraschenderweise zeigen manche Studien jedoch, dass importierte Produkte aus Ländern mit günstigerem Klima manchmal eine bessere <span class=\"voc\" tabindex=\"0\" data-bn=\"জলবায়ু ভারসাম্য\">Klimabilanz</span> haben können als lokal in beheizten Gewächshäusern angebaute Ware.</p><p>Experten empfehlen deshalb, neben der <span class=\"voc\" tabindex=\"0\" data-bn=\"উৎপত্তি\">Herkunft</span> auch die Anbaumethode und Saisonalität eines Produkts zu berücksichtigen, statt sich allein auf die Regionalität zu verlassen.</p>",
+    "textBn": "অনেক ভোক্তা সচেতনভাবে আঞ্চলিক পণ্য বেছে নেন, দীর্ঘ পরিবহন পথ এড়াতে এবং স্থানীয় কৃষকদের সমর্থন করতে। এই সিদ্ধান্ত প্রায়ই ভালো জলবায়ু সুরক্ষার যুক্তিতে করা হয়।<br><br>আশ্চর্যজনকভাবে, কিছু গবেষণা তবে দেখায় যে অনুকূল জলবায়ুর দেশ থেকে আমদানিকৃত পণ্য কখনো কখনো উত্তপ্ত গ্রিনহাউসে স্থানীয়ভাবে উৎপাদিত পণ্যের চেয়ে ভালো জলবায়ু ভারসাম্য রাখতে পারে।<br><br>তাই বিশেষজ্ঞরা সুপারিশ করেন যে উৎপত্তির পাশাপাশি একটি পণ্যের চাষ পদ্ধতি ও মৌসুমীতাও বিবেচনা করা উচিত, শুধুমাত্র আঞ্চলিকতার উপর নির্ভর না করে।",
+    "questions": [
+      {
+        "q": "Warum entscheiden sich viele Verbraucher für regionale Produkte?",
+        "opts": [
+          "Wegen des Geschmacks allein",
+          "Um lange Transportwege zu vermeiden und Landwirte zu unterstützen",
+          "Wegen niedrigerer Preise immer",
+          "Aus reiner Gewohnheit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen manche Studien überraschenderweise?",
+        "opts": [
+          "Regionale Produkte sind immer besser",
+          "Importierte Produkte können manchmal eine bessere Klimabilanz haben",
+          "Import ist immer schädlicher",
+          "Es gibt keinen Unterschied"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo entsteht dieser Effekt besonders?",
+        "opts": [
+          "Bei Freilandanbau im Ausland",
+          "Bei lokal in beheizten Gewächshäusern angebauter Ware",
+          "Bei importiertem Fleisch",
+          "Bei keinem Produkt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Experten zu berücksichtigen?",
+        "opts": [
+          "Nur die Herkunft",
+          "Auch die Anbaumethode und Saisonalität",
+          "Nur den Preis",
+          "Nur die Verpackung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf sollte man sich laut Experten nicht allein verlassen?",
+        "opts": [
+          "Auf den Geschmack",
+          "Auf die Regionalität allein",
+          "Auf den Preis",
+          "Auf die Verpackungsgröße"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "klassenfahrten-sinn",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "sky",
+    "icon": "🚌",
+    "xp": 25,
+    "words": 66,
+    "time": 5,
+    "titleDe": "Klassenfahrten: Wichtige Erfahrung oder teure Ablenkung?",
+    "titleBn": "শ্রেণী ভ্রমণ: গুরুত্বপূর্ণ অভিজ্ঞতা নাকি ব্যয়বহুল বিঘ্ন?",
+    "descBn": "স্কুলের শ্রেণী ভ্রমণের গুরুত্ব নিয়ে একটি passage।",
+    "textDe": "<p>Viele Schulen organisieren regelmäßig mehrtägige <span class=\"voc\" tabindex=\"0\" data-bn=\"শ্রেণী ভ্রমণ\">Klassenfahrten</span>. Befürworter betonen, dass solche Fahrten den Zusammenhalt der Klasse stärken und Schüler außerhalb des Klassenzimmers voneinander lernen lässt.</p><p>Kritiker weisen jedoch auf die oft hohen <span class=\"voc\" tabindex=\"0\" data-bn=\"খরচ\">Kosten</span> hin, die für manche Familien eine finanzielle Belastung darstellen können. Zudem geht durch die Reisetage regulärer Unterrichtsstoff verloren.</p><p>Viele Schulen versuchen deshalb, durch Fördervereine oder <span class=\"voc\" tabindex=\"0\" data-bn=\"তহবিল সংগ্রহ\">Spendenaktionen</span> die finanzielle Belastung für Familien zu verringern.</p>",
+    "textBn": "অনেক স্কুল নিয়মিতভাবে বহু-দিনের শ্রেণী ভ্রমণ আয়োজন করে। সমর্থকরা জোর দেন যে এই ধরনের ভ্রমণ ক্লাসের সংহতি শক্তিশালী করে এবং শিক্ষার্থীদের শ্রেণিকক্ষের বাইরে একে অপরের কাছ থেকে শিখতে দেয়।<br><br>সমালোচকরা তবে প্রায়ই উচ্চ খরচের দিকে ইঙ্গিত করেন, যা কিছু পরিবারের জন্য একটি আর্থিক বোঝা হতে পারে। এছাড়াও ভ্রমণের দিনগুলোতে নিয়মিত পাঠ্যক্রমের সময় হারিয়ে যায়।<br><br>তাই অনেক স্কুল সহায়তা সমিতি বা তহবিল সংগ্রহ কার্যক্রমের মাধ্যমে পরিবারগুলোর জন্য আর্থিক বোঝা কমানোর চেষ্টা করে।",
+    "questions": [
+      {
+        "q": "Was organisieren viele Schulen regelmäßig?",
+        "opts": [
+          "Nur Prüfungen",
+          "Mehrtägige Klassenfahrten",
+          "Zusätzlichen Unterricht",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter von Klassenfahrten?",
+        "opts": [
+          "Sie stärken den Zusammenhalt der Klasse",
+          "Sie sind reine Zeitverschwendung",
+          "Sie schaden dem Lernen",
+          "Sie sind unwichtig"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Worauf weisen Kritiker hin?",
+        "opts": [
+          "Zu niedrige Kosten",
+          "Die oft hohen Kosten für manche Familien",
+          "Zu viel Lernen während der Fahrt",
+          "Zu wenig Aktivitäten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was geht durch die Reisetage verloren?",
+        "opts": [
+          "Nichts",
+          "Regulärer Unterrichtsstoff",
+          "Nur Pausenzeit",
+          "Ferienzeit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie versuchen Schulen, Familien finanziell zu entlasten?",
+        "opts": [
+          "Durch höhere Kosten",
+          "Durch Fördervereine oder Spendenaktionen",
+          "Durch Streichung der Fahrten generell",
+          "Durch weniger Aktivitäten"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "pruefungsangst-schueler",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "violet",
+    "icon": "😰",
+    "xp": 25,
+    "words": 74,
+    "time": 5,
+    "titleDe": "Prüfungsangst: Ernstzunehmendes Problem oder übertriebene Sorge?",
+    "titleBn": "পরীক্ষার ভয়: গুরুত্বসহকারে নেওয়ার সমস্যা নাকি অতিরিক্ত উদ্বেগ?",
+    "descBn": "শিক্ষার্থীদের পরীক্ষার ভয় নিয়ে একটি passage।",
+    "textDe": "<p>Viele Schüler und Studierende leiden unter erheblicher <span class=\"voc\" tabindex=\"0\" data-bn=\"পরীক্ষার ভয়\">Prüfungsangst</span>, die ihre tatsächliche Leistung negativ beeinflussen kann. Experten betonen, dass diese Angst ein ernstzunehmendes psychologisches Phänomen ist, keine bloße Ausrede.</p><p>Manche Kritiker meinen jedoch, dass ein gewisses Maß an <span class=\"voc\" tabindex=\"0\" data-bn=\"চাপ\">Nervosität</span> vor Prüfungen normal und sogar leistungssteigernd sein kann. Entscheidend sei der Unterschied zwischen gesunder Anspannung und lähmender Angst.</p><p>Schulen bieten deshalb zunehmend Kurse zur <span class=\"voc\" tabindex=\"0\" data-bn=\"মানসিক চাপ ব্যবস্থাপনা\">Stressbewältigung</span> an, um Schülern konkrete Strategien gegen übermäßige Prüfungsangst zu vermitteln.</p>",
+    "textBn": "অনেক শিক্ষার্থী উল্লেখযোগ্য পরীক্ষার ভয়ে ভোগেন, যা তাদের প্রকৃত কার্যক্ষমতাকে নেতিবাচকভাবে প্রভাবিত করতে পারে। বিশেষজ্ঞরা জোর দেন যে এই ভয় একটি গুরুত্বসহকারে নেওয়ার মনস্তাত্ত্বিক ঘটনা, নিছক অজুহাত নয়।<br><br>কিছু সমালোচক তবে মনে করেন যে পরীক্ষার আগে একটি নির্দিষ্ট মাত্রার নার্ভাসনেস স্বাভাবিক এবং এমনকি কার্যক্ষমতা বাড়াতে পারে। সিদ্ধান্তকারী হলো স্বাস্থ্যকর উত্তেজনা এবং পঙ্গুকারী ভয়ের মধ্যে পার্থক্য।<br><br>তাই স্কুলগুলো ক্রমশ মানসিক চাপ ব্যবস্থাপনার কোর্স প্রদান করছে, শিক্ষার্থীদের অতিরিক্ত পরীক্ষার ভয়ের বিরুদ্ধে সুনির্দিষ্ট কৌশল প্রদান করতে।",
+    "questions": [
+      {
+        "q": "Woran leiden viele Schüler und Studierende?",
+        "opts": [
+          "An zu wenig Prüfungen",
+          "An erheblicher Prüfungsangst",
+          "An zu einfachen Aufgaben",
+          "An Langeweile"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Experten über Prüfungsangst?",
+        "opts": [
+          "Sie ist nur eine Ausrede",
+          "Sie ist ein ernstzunehmendes psychologisches Phänomen",
+          "Sie existiert nicht wirklich",
+          "Sie ist unwichtig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen manche Kritiker über Nervosität?",
+        "opts": [
+          "Sie ist immer schädlich",
+          "Ein gewisses Maß kann normal und leistungssteigernd sein",
+          "Sie sollte komplett vermieden werden",
+          "Sie ist nutzlos"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist laut Text entscheidend?",
+        "opts": [
+          "Keine Nervosität zu haben",
+          "Der Unterschied zwischen gesunder Anspannung und lähmender Angst",
+          "Immer sehr nervös zu sein",
+          "Prüfungen abzuschaffen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bieten Schulen zunehmend an?",
+        "opts": [
+          "Mehr Prüfungen",
+          "Kurse zur Stressbewältigung",
+          "Weniger Unterricht",
+          "Keine Hilfe"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "jugendkriminalitaet-ursachen",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "gold",
+    "icon": "⚖️",
+    "xp": 25,
+    "words": 74,
+    "time": 5,
+    "titleDe": "Jugendkriminalität: Welche Ursachen stecken dahinter?",
+    "titleBn": "কিশোর অপরাধ: এর পেছনে কোন কারণ রয়েছে?",
+    "descBn": "কিশোর অপরাধের কারণ ও প্রতিরোধ নিয়ে একটি passage।",
+    "textDe": "<p>Jugendkriminalität wird in der Öffentlichkeit oft diskutiert, wobei die <span class=\"voc\" tabindex=\"0\" data-bn=\"কারণ\">Ursachen</span> vielfältig und komplex sind. Sozialwissenschaftler verweisen häufig auf schwierige familiäre Verhältnisse und mangelnde Perspektiven als wichtige Faktoren.</p><p>Andere Experten betonen den Einfluss von <span class=\"voc\" tabindex=\"0\" data-bn=\"সহকর্মী চাপ\">Gruppendruck</span> unter Jugendlichen, der junge Menschen zu Handlungen verleiten kann, die sie allein nicht begehen würden. Wirtschaftliche Faktoren wie Armut spielen ebenfalls eine Rolle.</p><p>Präventionsprogramme setzen deshalb häufig auf frühzeitige <span class=\"voc\" tabindex=\"0\" data-bn=\"সহায়তা\">Unterstützung</span> von gefährdeten Jugendlichen, statt nur auf Bestrafung nach begangenen Straftaten.</p>",
+    "textBn": "কিশোর অপরাধ প্রায়ই জনসাধারণে আলোচিত হয়, যেখানে কারণগুলো বহুমুখী ও জটিল। সমাজবিজ্ঞানীরা প্রায়ই কঠিন পারিবারিক পরিস্থিতি ও সুযোগের অভাবের দিকে গুরুত্বপূর্ণ কারণ হিসেবে ইঙ্গিত করেন।<br><br>অন্যান্য বিশেষজ্ঞরা কিশোরদের মধ্যে সহকর্মী চাপের প্রভাবের উপর জোর দেন, যা তরুণদের এমন কাজে প্ররোচিত করতে পারে যা তারা একা করত না। দারিদ্র্যের মতো অর্থনৈতিক উপাদানও একটি ভূমিকা পালন করে।<br><br>তাই প্রতিরোধ কর্মসূচি প্রায়ই ঝুঁকিপূর্ণ কিশোরদের প্রাথমিক সহায়তার উপর নির্ভর করে, অপরাধ সংঘটিত হওয়ার পর শুধুমাত্র শাস্তির পরিবর্তে।",
+    "questions": [
+      {
+        "q": "Wie werden die Ursachen von Jugendkriminalität beschrieben?",
+        "opts": [
+          "Als einfach und eindeutig",
+          "Als vielfältig und komplex",
+          "Als nicht existent",
+          "Als rein zufällig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf verweisen Sozialwissenschaftler häufig?",
+        "opts": [
+          "Nur auf Zufall",
+          "Auf schwierige familiäre Verhältnisse und mangelnde Perspektiven",
+          "Auf gutes Wetter",
+          "Auf zu viel Bildung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen andere Experten?",
+        "opts": [
+          "Den Einfluss von Gruppendruck",
+          "Nur individuelle Entscheidungen",
+          "Reinen Zufall",
+          "Keine besonderen Faktoren"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Welche Rolle spielen wirtschaftliche Faktoren?",
+        "opts": [
+          "Keine Rolle",
+          "Armut spielt ebenfalls eine Rolle",
+          "Nur eine geringe Rolle immer",
+          "Eine positive Rolle"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf setzen Präventionsprogramme häufig?",
+        "opts": [
+          "Nur auf Bestrafung",
+          "Auf frühzeitige Unterstützung gefährdeter Jugendlicher",
+          "Auf Ignorieren des Problems",
+          "Auf höhere Strafen allein"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "nachbarschaftshilfe-staedte",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "emerald",
+    "icon": "🏘️",
+    "xp": 25,
+    "words": 76,
+    "time": 5,
+    "titleDe": "Nachbarschaftshilfe: Wiederbelebung einer alten Tradition?",
+    "titleBn": "প্রতিবেশী সহায়তা: একটি পুরনো ঐতিহ্যের পুনরুজ্জীবন?",
+    "descBn": "আধুনিক শহরে প্রতিবেশী সহায়তার পুনরুজ্জীবন নিয়ে একটি passage।",
+    "textDe": "<p>In vielen Städten entstehen wieder Initiativen zur <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রতিবেশী সহায়তা\">Nachbarschaftshilfe</span>, bei denen sich Anwohner gegenseitig unterstützen, etwa beim Einkaufen oder bei kleinen Reparaturen. Befürworter sehen darin eine wichtige Antwort auf zunehmende soziale Isolation.</p><p>Digitale Plattformen erleichtern die Organisation solcher Hilfsangebote erheblich, indem sie Nachbarn schnell und unkompliziert <span class=\"voc\" tabindex=\"0\" data-bn=\"সংযুক্ত করা\">vernetzen</span>. Kritiker geben jedoch zu bedenken, dass informelle Nachbarschaftshilfe professionelle soziale Dienste nicht ersetzen kann.</p><p>Dennoch berichten viele Teilnehmer von einem gestärkten Gemeinschaftsgefühl und mehr <span class=\"voc\" tabindex=\"0\" data-bn=\"আস্থা\">Vertrauen</span> innerhalb ihrer Nachbarschaft.</p>",
+    "textBn": "অনেক শহরে প্রতিবেশী সহায়তার উদ্যোগ আবার গড়ে উঠছে, যেখানে বাসিন্দারা একে অপরকে সহায়তা করে, উদাহরণস্বরূপ কেনাকাটায় বা ছোট মেরামতে। সমর্থকরা এতে ক্রমবর্ধমান সামাজিক বিচ্ছিন্নতার একটি গুরুত্বপূর্ণ উত্তর দেখেন।<br><br>ডিজিটাল প্ল্যাটফর্ম এই ধরনের সহায়তা প্রস্তাব সংগঠনকে উল্লেখযোগ্যভাবে সহজ করে, প্রতিবেশীদের দ্রুত ও সহজভাবে সংযুক্ত করে। সমালোচকরা তবে বিবেচনা করতে বলেন যে অনানুষ্ঠানিক প্রতিবেশী সহায়তা পেশাদার সামাজিক সেবা প্রতিস্থাপন করতে পারে না।<br><br>তবুও অনেক অংশগ্রহণকারী তাদের প্রতিবেশীর মধ্যে একটি শক্তিশালী সম্প্রদায় বোধ ও আরও আস্থার কথা জানান।",
+    "questions": [
+      {
+        "q": "Was entsteht wieder in vielen Städten?",
+        "opts": [
+          "Weniger soziale Kontakte",
+          "Initiativen zur Nachbarschaftshilfe",
+          "Mehr Isolation",
+          "Neue Gesetze"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was sehen Befürworter darin?",
+        "opts": [
+          "Keine besondere Bedeutung",
+          "Eine wichtige Antwort auf zunehmende soziale Isolation",
+          "Ein unnötiges Konzept",
+          "Nur eine Belastung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was erleichtern digitale Plattformen?",
+        "opts": [
+          "Nichts Besonderes",
+          "Die Organisation von Hilfsangeboten und Vernetzung von Nachbarn",
+          "Nur den Einkauf",
+          "Reparaturen allein"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was geben Kritiker zu bedenken?",
+        "opts": [
+          "Nachbarschaftshilfe ist perfekt",
+          "Sie kann professionelle soziale Dienste nicht ersetzen",
+          "Sie ist überflüssig",
+          "Sie funktioniert nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovon berichten viele Teilnehmer?",
+        "opts": [
+          "Von weniger Vertrauen",
+          "Von einem gestärkten Gemeinschaftsgefühl und mehr Vertrauen",
+          "Von mehr Isolation",
+          "Von negativen Erfahrungen"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "ferienjob-schueler",
+    "level": "B2",
+    "category": "Wirtschaft",
+    "color": "gold",
+    "icon": "💼",
+    "xp": 25,
+    "words": 79,
+    "time": 5,
+    "titleDe": "Ferienjobs für Schüler: Sinnvolle Erfahrung oder verlorene Ferien?",
+    "titleBn": "ছাত্রদের জন্য ছুটির কাজ: যুক্তিসঙ্গত অভিজ্ঞতা নাকি হারানো ছুটি?",
+    "descBn": "স্কুল ছুটিতে খণ্ডকালীন কাজের সুবিধা ও অসুবিধা নিয়ে একটি passage।",
+    "textDe": "<p>Viele Schüler nutzen die Sommerferien für einen <span class=\"voc\" tabindex=\"0\" data-bn=\"ছুটির কাজ\">Ferienjob</span>, um eigenes Geld zu verdienen. Befürworter betonen, dass diese Arbeit wichtige Erfahrungen für das spätere Berufsleben vermittelt.</p><p>Kritiker meinen jedoch, dass Ferien in erster Linie der <span class=\"voc\" tabindex=\"0\" data-bn=\"বিশ্রাম\">Erholung</span> dienen sollten und Schüler sich nicht schon während der Schulzeit dem Arbeitsdruck aussetzen müssen. Zudem gibt es gesetzliche Beschränkungen, wie viele Stunden Jugendliche arbeiten dürfen.</p><p>Experten empfehlen, dass Schüler selbst entscheiden sollten, ob sie die Ferien zum <span class=\"voc\" tabindex=\"0\" data-bn=\"উপার্জন\">Geldverdienen</span> oder zur Erholung nutzen möchten.</p>",
+    "textBn": "অনেক শিক্ষার্থী গ্রীষ্মকালীন ছুটি নিজের টাকা উপার্জনের জন্য একটি ছুটির কাজে ব্যবহার করে। সমর্থকরা জোর দেন যে এই কাজ পরবর্তী কর্মজীবনের জন্য গুরুত্বপূর্ণ অভিজ্ঞতা প্রদান করে।<br><br>সমালোচকরা তবে মনে করেন যে ছুটি প্রথমত বিশ্রামের জন্য হওয়া উচিত এবং শিক্ষার্থীদের স্কুলের সময়েই কাজের চাপের সম্মুখীন হতে হবে না। এছাড়াও কিশোররা কত ঘণ্টা কাজ করতে পারে তার আইনি সীমাবদ্ধতা রয়েছে।<br><br>বিশেষজ্ঞরা সুপারিশ করেন যে শিক্ষার্থীদের নিজেদেরই সিদ্ধান্ত নেওয়া উচিত তারা ছুটি টাকা উপার্জনের জন্য নাকি বিশ্রামের জন্য ব্যবহার করতে চায়।",
+    "questions": [
+      {
+        "q": "Wofür nutzen viele Schüler die Sommerferien?",
+        "opts": [
+          "Nur zum Schlafen",
+          "Für einen Ferienjob, um Geld zu verdienen",
+          "Nur für Hausaufgaben",
+          "Für nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Befürworter von Ferienjobs?",
+        "opts": [
+          "Sie sind Zeitverschwendung",
+          "Sie vermitteln wichtige Erfahrungen für das Berufsleben",
+          "Sie sind verboten",
+          "Sie sind unwichtig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was meinen Kritiker über Ferien?",
+        "opts": [
+          "Sie sollten primär der Erholung dienen",
+          "Sie sollten nur für Arbeit genutzt werden",
+          "Ferien sind unnötig",
+          "Kritiker haben keine Meinung"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was gibt es zusätzlich zu beachten?",
+        "opts": [
+          "Keine Regeln",
+          "Gesetzliche Beschränkungen der Arbeitsstunden für Jugendliche",
+          "Nur freiwillige Regeln",
+          "Unbegrenzte Arbeitszeit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was empfehlen Experten?",
+        "opts": [
+          "Immer arbeiten zu müssen",
+          "Dass Schüler selbst entscheiden sollten",
+          "Nie zu arbeiten",
+          "Nur Erholung ohne Wahl"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "stadtplanung-verkehrsberuhigung",
+    "level": "B2",
+    "category": "Umwelt",
+    "color": "sky",
+    "icon": "🚧",
+    "xp": 25,
+    "words": 85,
+    "time": 5,
+    "titleDe": "Verkehrsberuhigung: Wie Städte lebenswerter werden sollen",
+    "titleBn": "যানবাহন প্রশমন: কীভাবে শহর বাসযোগ্য হয়ে ওঠার কথা",
+    "descBn": "শহরে যানবাহন প্রশমন ব্যবস্থা নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Städte setzen auf <span class=\"voc\" tabindex=\"0\" data-bn=\"যানবাহন প্রশমন\">verkehrsberuhigte</span> Zonen, in denen Autos nur mit Schrittgeschwindigkeit fahren dürfen oder ganz ausgeschlossen sind. Befürworter argumentieren, dass solche Zonen mehr Platz für Fußgänger und ein sichereres <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিবেশ\">Umfeld</span> für Kinder schaffen.</p><p>Geschäftsinhaber befürchten jedoch manchmal weniger Kundschaft, wenn Autos nicht mehr direkt vor ihren Läden parken können. Studien aus bereits umgesetzten Projekten zeigen jedoch häufig, dass die Kundenzahl langfristig stabil bleibt oder sogar steigt.</p><p>Städteplaner betonen, dass eine gute Anbindung an den <span class=\"voc\" tabindex=\"0\" data-bn=\"গণপরিবহন\">öffentlichen Nahverkehr</span> entscheidend für den Erfolg solcher Zonen ist.</p>",
+    "textBn": "ক্রমশ বেশি শহর যানবাহন প্রশমন এলাকার উপর নির্ভর করছে, যেখানে গাড়ি শুধুমাত্র হাঁটার গতিতে চলতে পারে বা সম্পূর্ণভাবে বাদ। সমর্থকরা যুক্তি দেন যে এই ধরনের এলাকা পথচারীদের জন্য বেশি জায়গা এবং শিশুদের জন্য একটি নিরাপদ পরিবেশ তৈরি করে।<br><br>দোকান মালিকরা তবে মাঝে মাঝে কম গ্রাহকের আশঙ্কা করেন, যদি গাড়ি আর সরাসরি তাদের দোকানের সামনে পার্ক করতে না পারে। ইতিমধ্যে বাস্তবায়িত প্রকল্পের গবেষণা তবে প্রায়ই দেখায় যে গ্রাহক সংখ্যা দীর্ঘমেয়াদে স্থিতিশীল থাকে বা এমনকি বৃদ্ধি পায়।<br><br>শহর পরিকল্পনাকারীরা জোর দেন যে গণপরিবহনের সাথে ভালো সংযোগ এই ধরনের এলাকার সাফল্যের জন্য সিদ্ধান্তকারী।",
+    "questions": [
+      {
+        "q": "Was setzen immer mehr Städte ein?",
+        "opts": [
+          "Mehr Autobahnen",
+          "Verkehrsberuhigte Zonen",
+          "Weniger Fußgängerwege",
+          "Mehr Parkplätze"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was argumentieren Befürworter?",
+        "opts": [
+          "Solche Zonen sind gefährlicher",
+          "Sie schaffen mehr Platz und Sicherheit für Fußgänger und Kinder",
+          "Sie schaden dem Verkehr",
+          "Sie sind unnötig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was befürchten manche Geschäftsinhaber?",
+        "opts": [
+          "Zu viele Kunden",
+          "Weniger Kundschaft ohne direktes Parken",
+          "Zu viel Ruhe",
+          "Keine besonderen Sorgen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was zeigen Studien aus umgesetzten Projekten oft?",
+        "opts": [
+          "Kundenzahl sinkt stark",
+          "Kundenzahl bleibt stabil oder steigt",
+          "Geschäfte schließen sofort",
+          "Keine Daten verfügbar"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Städteplaner als entscheidend?",
+        "opts": [
+          "Mehr Parkplätze",
+          "Eine gute Anbindung an den öffentlichen Nahverkehr",
+          "Weniger Regeln",
+          "Höhere Steuern"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "uebergewicht-kinder-ursachen",
+    "level": "B2",
+    "category": "Gesundheit",
+    "color": "rose",
+    "icon": "🍔",
+    "xp": 25,
+    "words": 78,
+    "time": 5,
+    "titleDe": "Übergewicht bei Kindern: Wer trägt die Verantwortung?",
+    "titleBn": "শিশুদের অতিরিক্ত ওজন: দায়িত্ব কার?",
+    "descBn": "শিশুদের স্থূলতার কারণ ও দায়িত্ব নিয়ে বিতর্ক নিয়ে একটি passage।",
+    "textDe": "<p>Die Zahl übergewichtiger Kinder steigt in vielen Ländern kontinuierlich an, was Gesundheitsexperten große Sorgen bereitet. Manche sehen die Hauptverantwortung bei <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিবার\">Familien</span>, die ungesunde Essgewohnheiten und mangelnde Bewegung fördern.</p><p>Andere argumentieren, dass die Lebensmittelindustrie durch aggressive <span class=\"voc\" tabindex=\"0\" data-bn=\"বিজ্ঞাপন\">Werbung</span> für ungesunde Produkte, besonders an Kinder gerichtet, erheblich zum Problem beiträgt. Auch strukturelle Faktoren wie weniger Bewegung in Schulen werden häufig genannt.</p><p>Viele Gesundheitsexperten fordern deshalb ein Zusammenspiel verschiedener Maßnahmen, von <span class=\"voc\" tabindex=\"0\" data-bn=\"শিক্ষা\">Aufklärung</span> in Schulen bis hin zu strengerer Regulierung der Werbung.</p>",
+    "textBn": "অনেক দেশে অতিরিক্ত ওজনের শিশুর সংখ্যা ক্রমাগত বাড়ছে, যা স্বাস্থ্য বিশেষজ্ঞদের বড় উদ্বেগের কারণ হয়েছে। কিছু মনে করেন প্রধান দায়িত্ব পরিবারের, যারা অস্বাস্থ্যকর খাদ্যাভ্যাস ও কম শারীরিক কার্যকলাপ উৎসাহিত করে।<br><br>অন্যরা যুক্তি দেন যে খাদ্য শিল্প অস্বাস্থ্যকর পণ্যের আক্রমণাত্মক বিজ্ঞাপনের মাধ্যমে, বিশেষত শিশুদের লক্ষ্য করে, সমস্যায় উল্লেখযোগ্যভাবে অবদান রাখে। স্কুলে কম শারীরিক কার্যকলাপের মতো কাঠামোগত উপাদানও প্রায়ই উল্লেখ করা হয়।<br><br>তাই অনেক স্বাস্থ্য বিশেষজ্ঞ বিভিন্ন ব্যবস্থার সমন্বয়ের দাবি জানান, স্কুলে শিক্ষা থেকে শুরু করে বিজ্ঞাপনের কঠোর নিয়ন্ত্রণ পর্যন্ত।",
+    "questions": [
+      {
+        "q": "Was steigt in vielen Ländern kontinuierlich an?",
+        "opts": [
+          "Die Anzahl der Schulen",
+          "Die Zahl übergewichtiger Kinder",
+          "Die sportliche Aktivität",
+          "Nichts Besonderes"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo sehen manche die Hauptverantwortung?",
+        "opts": [
+          "Bei den Kindern selbst allein",
+          "Bei Familien mit ungesunden Gewohnheiten",
+          "Beim Wetter",
+          "Bei den Ärzten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was tragen andere zum Problem bei?",
+        "opts": [
+          "Zu wenig Werbung",
+          "Aggressive Werbung der Lebensmittelindustrie für Kinder",
+          "Zu viel Sport in Schulen",
+          "Zu strenge Regeln"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welcher strukturelle Faktor wird genannt?",
+        "opts": [
+          "Zu viel Bewegung in Schulen",
+          "Weniger Bewegung in Schulen",
+          "Zu viele Sportstunden",
+          "Keine Faktoren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was fordern viele Gesundheitsexperten?",
+        "opts": [
+          "Keine Maßnahmen",
+          "Ein Zusammenspiel aus Aufklärung und Werberegulierung",
+          "Nur Verbote für Kinder",
+          "Nur mehr Werbung"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "geschenke-weihnachten-konsum",
+    "level": "B2",
+    "category": "Kultur",
+    "color": "gold",
+    "icon": "🎁",
+    "xp": 25,
+    "words": 78,
+    "time": 5,
+    "titleDe": "Weihnachtsgeschenke: Zwischen Tradition und Konsumdruck",
+    "titleBn": "ক্রিসমাসের উপহার: ঐতিহ্য ও ভোগ চাপের মধ্যে",
+    "descBn": "ক্রিসমাসের উপহার প্রথা ও ভোগবাদী সমালোচনা নিয়ে একটি passage।",
+    "textDe": "<p>Weihnachten ist für viele Familien untrennbar mit dem Austausch von <span class=\"voc\" tabindex=\"0\" data-bn=\"উপহার\">Geschenken</span> verbunden. Kritiker bemängeln jedoch, dass der eigentliche Sinn des Festes hinter dem zunehmenden Konsumdruck oft verloren geht.</p><p>Viele Menschen berichten von <span class=\"voc\" tabindex=\"0\" data-bn=\"মানসিক চাপ\">Stress</span>, weil sie das Gefühl haben, passende Geschenke für alle Familienmitglieder finden zu müssen. Manche Familien setzen deshalb auf Alternativen wie selbstgemachte Geschenke oder eine Obergrenze für den Geschenkwert.</p><p>Diese bewussteren Ansätze sollen den Fokus wieder mehr auf gemeinsame Zeit statt auf materiellen <span class=\"voc\" tabindex=\"0\" data-bn=\"বিলাসিতা\">Überfluss</span> lenken.</p>",
+    "textBn": "অনেক পরিবারের জন্য ক্রিসমাস উপহার বিনিময়ের সাথে অবিচ্ছেদ্যভাবে যুক্ত। সমালোচকরা তবে বলেন যে উৎসবের প্রকৃত অর্থ প্রায়ই ক্রমবর্ধমান ভোগ চাপের পিছনে হারিয়ে যায়।<br><br>অনেক মানুষ চাপের কথা জানান, কারণ তারা মনে করেন সব পরিবারের সদস্যের জন্য উপযুক্ত উপহার খুঁজে বের করতে হবে। তাই কিছু পরিবার ঘরে তৈরি উপহার বা উপহারের মূল্যের একটি ঊর্ধ্বসীমার মতো বিকল্পের উপর নির্ভর করে।<br><br>এই আরও সচেতন পদ্ধতিগুলো বস্তুগত বিলাসিতার পরিবর্তে সম্মিলিত সময়ের দিকে মনোযোগ আবার পরিচালিত করার কথা।",
+    "questions": [
+      {
+        "q": "Womit ist Weihnachten für viele Familien verbunden?",
+        "opts": [
+          "Nur mit Essen",
+          "Mit dem Austausch von Geschenken",
+          "Nur mit Reisen",
+          "Mit nichts Besonderem"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bemängeln Kritiker?",
+        "opts": [
+          "Zu wenig Geschenke",
+          "Dass der eigentliche Sinn hinter Konsumdruck verloren geht",
+          "Zu viel Familienzeit",
+          "Zu wenig Konsum"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wovon berichten viele Menschen?",
+        "opts": [
+          "Von zu wenig Stress",
+          "Von Stress wegen der Geschenkesuche",
+          "Von Langeweile",
+          "Von zu viel Freizeit"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welche Alternative setzen manche Familien ein?",
+        "opts": [
+          "Noch teurere Geschenke",
+          "Selbstgemachte Geschenke oder eine Wertobergrenze",
+          "Keine Geschenke jemals",
+          "Mehr Konsum"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Worauf soll der Fokus wieder gelenkt werden?",
+        "opts": [
+          "Auf materiellen Überfluss",
+          "Auf gemeinsame Zeit statt materiellen Überfluss",
+          "Auf mehr Geschenke",
+          "Auf höhere Kosten"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "patchwork-familien-gesellschaft",
+    "level": "B2",
+    "category": "Gesellschaft",
+    "color": "violet",
+    "icon": "👪",
+    "xp": 25,
+    "words": 78,
+    "time": 5,
+    "titleDe": "Patchworkfamilien: Neue Normalität in der Gesellschaft",
+    "titleBn": "প্যাচওয়ার্ক পরিবার: সমাজে নতুন স্বাভাবিকতা",
+    "descBn": "প্যাচওয়ার্ক পরিবারের বৃদ্ধি ও চ্যালেঞ্জ নিয়ে একটি passage।",
+    "textDe": "<p>Immer mehr Kinder wachsen in <span class=\"voc\" tabindex=\"0\" data-bn=\"মিশ্র পরিবার\">Patchworkfamilien</span> auf, in denen Elternteile aus früheren Beziehungen mit ihren jeweiligen Kindern eine neue Familie bilden. Diese Familienform ist heute deutlich akzeptierter als noch vor einigen Jahrzehnten.</p><p>Familientherapeuten weisen jedoch darauf hin, dass Patchworkfamilien besondere Herausforderungen mit sich bringen, etwa die Entwicklung von <span class=\"voc\" tabindex=\"0\" data-bn=\"আস্থা\">Vertrauen</span> zwischen Stiefgeschwistern oder die Klärung neuer Rollen zwischen Kindern und Stiefeltern.</p><p>Experten betonen, dass offene <span class=\"voc\" tabindex=\"0\" data-bn=\"যোগাযোগ\">Kommunikation</span> und Geduld entscheidend sind, damit sich alle Familienmitglieder in der neuen Konstellation wohlfühlen.</p>",
+    "textBn": "ক্রমশ বেশি শিশু প্যাচওয়ার্ক পরিবারে বড় হচ্ছে, যেখানে পূর্ববর্তী সম্পর্ক থেকে পিতামাতা তাদের নিজ নিজ সন্তানসহ একটি নতুন পরিবার গঠন করেন। এই পারিবারিক রূপ আজ কয়েক দশক আগের তুলনায় উল্লেখযোগ্যভাবে বেশি গৃহীত।<br><br>পারিবারিক থেরাপিস্টরা তবে ইঙ্গিত করেন যে প্যাচওয়ার্ক পরিবার বিশেষ চ্যালেঞ্জ নিয়ে আসে, যেমন সৎ ভাইবোনদের মধ্যে আস্থা গড়ে তোলা বা শিশু ও সৎ পিতামাতার মধ্যে নতুন ভূমিকা স্পষ্ট করা।<br><br>বিশেষজ্ঞরা জোর দেন যে খোলা যোগাযোগ ও ধৈর্য সিদ্ধান্তকারী, যাতে সকল পারিবারিক সদস্য নতুন গঠনে স্বাচ্ছন্দ্য বোধ করেন।",
+    "questions": [
+      {
+        "q": "Was ist eine Patchworkfamilie?",
+        "opts": [
+          "Eine traditionelle Familie ohne Veränderung",
+          "Eine Familie aus Elternteilen mit Kindern aus früheren Beziehungen",
+          "Eine Familie ohne Kinder",
+          "Eine Familie nur mit Großeltern"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie akzeptiert ist diese Familienform heute?",
+        "opts": [
+          "Weniger akzeptiert als früher",
+          "Deutlich akzeptierter als vor Jahrzehnten",
+          "Genauso akzeptiert wie immer",
+          "Komplett abgelehnt"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Welche Herausforderung nennen Familientherapeuten?",
+        "opts": [
+          "Keine besonderen Herausforderungen",
+          "Vertrauensentwicklung zwischen Stiefgeschwistern",
+          "Nur finanzielle Fragen",
+          "Nur rechtliche Fragen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was muss zwischen Kindern und Stiefeltern geklärt werden?",
+        "opts": [
+          "Nichts",
+          "Neue Rollen",
+          "Nur der Wohnort",
+          "Nur die Finanzen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was betonen Experten als entscheidend?",
+        "opts": [
+          "Strenge Regeln",
+          "Offene Kommunikation und Geduld",
+          "Schnelle Entscheidungen",
+          "Keine Gespräche"
+        ],
+        "correct": 1
+      }
+    ]
+  }
+]

@@ -11,6 +11,9 @@
   --accent1:#818cf8;--accent2:#6366f1;--accent-glow:rgba(129,140,248,.22);
 }
 </style>
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>.user-section,#nav-avatar,#nav-name,#btn-logout,#btn-logout-top{display:none!important}</style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 
@@ -21,7 +24,8 @@
   </div>
   <div class="user-section">
     <a href="woerterbuch.html" class="btn-back">← Levels</a>
-    <div class="user-avatar" id="nav-avatar">👤</div>
+    <div id="user-menu-container"></div>
+      <div class="user-avatar" id="nav-avatar">👤</div>
     <span class="user-name" id="nav-name">লোড হচ্ছে...</span>
     <button class="btn-logout" id="btn-logout">Logout</button>
   </div>
@@ -271,5 +275,31 @@ initAuthOptional(async (user) => {
 });
 </script>
 
+
+<script type="module">
+import { renderUserMenu } from "/js/user-menu.js";
+function dlMirrorUserMenu(){
+  const nameEl = document.getElementById("nav-name");
+  const container = document.getElementById("user-menu-container");
+  const oldLogout = document.getElementById("btn-logout") || document.getElementById("btn-logout-top");
+  if(!nameEl || !container) return;
+  const name = (nameEl.textContent||"").trim();
+  if(!name || /\.\.\.|loading|\u09B2\u09CB\u09A1/i.test(name)) return;
+  const av = document.getElementById("nav-avatar");
+  const img = av ? av.querySelector("img") : null;
+  const photo = img ? img.getAttribute("src") : "";
+  renderUserMenu(container, {
+    name, photo, plan: "free",
+    onLogout: () => oldLogout && oldLogout.click(),
+  });
+}
+let dlTries = 0;
+const dlIv = setInterval(() => { dlMirrorUserMenu(); if(++dlTries > 30) clearInterval(dlIv); }, 250);
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
+</script>
 </body>
 </html>

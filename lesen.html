@@ -427,9 +427,10 @@ import { auth, db, signOut, requireAuth, doc, getDoc, updateDoc, arrayUnion, inc
   to firebase-config.js.
 
   Passages now live in Firestore (collection "reading_passages", doc id = slug) instead of being
-  hardcoded here. Use import-passages.html once to bulk-load seed-data/reading-passages.json into
-  Firestore. If Firestore has no passages yet (collection empty / import not run), this page falls
-  back to reading seed-data/reading-passages.json directly so it still works out of the box.
+  hardcoded here. Use import-passages.html once to bulk-load seed-data/reading-passages-{level}.json
+  (one file per CEFR level: a1, a2, b1, b2, c1, c2) into Firestore. If Firestore has no passages yet
+  (collection empty / import not run), this page falls back to reading those seed JSON files directly
+  so it still works out of the box.
 */
 
 document.getElementById("footer-year").textContent  = new Date().getFullYear();
@@ -461,10 +462,23 @@ async function loadPassages() {
     console.error("Firestore reading_passages fetch failed, falling back to seed JSON:", e);
   }
   // Fallback so the page works even before import-passages.html has been run
+  // Passages are now split into one JSON file per CEFR level for smaller,
+  // more manageable files. We fetch all six and merge them.
+  const LEVEL_FILES = ["a1", "a2", "b1", "b2", "c1", "c2"];
   try {
-    const res = await fetch("./seed-data/reading-passages.json");
-    const arr = await res.json();
-    arr.forEach(p => { const { slug, ...rest } = p; PASSAGES[slug] = rest; });
+    const results = await Promise.all(
+      LEVEL_FILES.map(async (lv) => {
+        try {
+          const res = await fetch(`./seed-data/reading-passages-${lv}.json`);
+          if (!res.ok) return [];
+          return await res.json();
+        } catch (e) {
+          console.error(`Seed JSON fetch failed for level ${lv}:`, e);
+          return [];
+        }
+      })
+    );
+    results.flat().forEach(p => { const { slug, ...rest } = p; PASSAGES[slug] = rest; });
   } catch (e) {
     console.error("Seed JSON fallback also failed:", e);
   }

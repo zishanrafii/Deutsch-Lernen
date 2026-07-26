@@ -43,6 +43,7 @@ h2{font-size:1.8rem;font-weight:900;margin-bottom:.5rem;
   transition:.2s;border:none;cursor:pointer;font-family:'Outfit',sans-serif;}
 .btn-go:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,200,66,.35);}
 </style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 <div class="card">
@@ -133,6 +134,11 @@ requireAuth(async user => {
 
   document.getElementById("btn-go").style.display = "inline-block";
 });
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
 </script>
 </body>
 </html>

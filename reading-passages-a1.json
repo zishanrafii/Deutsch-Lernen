@@ -1,0 +1,1342 @@
+[
+  {
+    "slug": "familie",
+    "level": "A1",
+    "xp": 25,
+    "words": 95,
+    "time": 2,
+    "titleDe": "Meine Familie",
+    "titleBn": "আমার পরিবার",
+    "icon": "👪",
+    "textDe": "<p>Hallo! Ich heiße Lara und ich bin Studentin. Ich komme aus einer kleinen Stadt in der Nähe von München. Meine Familie ist nicht groß: meine Eltern, mein <span class=\"voc\" tabindex=\"0\" data-bn=\"ছোট ভাই\">kleiner Bruder</span> Tom und ich.</p>\n    <p>Mein Vater arbeitet als <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রকৌশলী\">Ingenieur</span>, und meine Mutter ist <span class=\"voc\" tabindex=\"0\" data-bn=\"শিক্ষিকা\">Lehrerin</span> an einer Grundschule. Wir wohnen in einem gemütlichen Haus mit einem kleinen <span class=\"voc\" tabindex=\"0\" data-bn=\"বাগান\">Garten</span>.</p>\n    <p>Am Wochenende kochen wir oft zusammen und spielen Karten. Ich liebe meine Familie sehr, weil wir immer füreinander da sind.</p>",
+    "textBn": "হ্যালো! আমার নাম লারা এবং আমি একজন ছাত্রী। আমি মিউনিখের কাছে একটি ছোট শহর থেকে এসেছি। আমার পরিবার খুব বড় না: আমার মা-বাবা, আমার ছোট ভাই টম, এবং আমি।<br><br>আমার বাবা একজন প্রকৌশলী, আর আমার মা একটি প্রাথমিক স্কুলে শিক্ষিকা। আমরা একটি ছোট বাগানসহ আরামদায়ক বাড়িতে থাকি।<br><br>সপ্তাহান্তে আমরা প্রায়ই একসাথে রান্না করি এবং তাস খেলি। আমি আমার পরিবারকে খুব ভালোবাসি, কারণ আমরা সবসময় একে অপরের পাশে থাকি।",
+    "questions": [
+      {
+        "q": "Woher kommt Lara?",
+        "opts": [
+          "Aus Berlin",
+          "Aus einer kleinen Stadt bei München",
+          "Aus Hamburg",
+          "Aus Österreich"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist Laras Vater von Beruf?",
+        "opts": [
+          "Lehrer",
+          "Arzt",
+          "Ingenieur",
+          "Student"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was macht die Familie am Wochenende?",
+        "opts": [
+          "Sie reisen viel",
+          "Sie kochen zusammen und spielen Karten",
+          "Sie schauen Filme",
+          "Sie arbeiten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viele Geschwister hat Lara?",
+        "opts": [
+          "Keine",
+          "Einen Bruder",
+          "Eine Schwester",
+          "Zwei Brüder"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Warum liebt Lara ihre Familie?",
+        "opts": [
+          "Weil sie reich sind",
+          "Weil sie immer füreinander da sind",
+          "Weil sie in München wohnen",
+          "Weil ihr Vater Ingenieur ist"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Alltag",
+    "color": "indigo",
+    "descBn": "লারার পরিবার নিয়ে একটি সহজ পরিচিতিমূলক passage — basic vocabulary অনুশীলনের জন্য আদর্শ।"
+  },
+  {
+    "slug": "cafe",
+    "level": "A1",
+    "xp": 25,
+    "words": 90,
+    "time": 2,
+    "titleDe": "Im Café",
+    "titleBn": "ক্যাফেতে",
+    "icon": "☕",
+    "textDe": "<p>Es ist Samstagmorgen. Tim geht in ein <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যাফে\">Café</span> in der Stadt. Er setzt sich an einen Tisch am Fenster.</p>\n    <p>Die <span class=\"voc\" tabindex=\"0\" data-bn=\"পরিচারিকা\">Kellnerin</span> kommt und fragt: \"Was möchten Sie trinken?\" Tim bestellt einen Kaffee mit Milch und ein Stück Kuchen. Das Café ist sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"আরামদায়ক\">gemütlich</span>, und draußen scheint die Sonne.</p>\n    <p>Tim liest eine Zeitung und hört leise Musik. Nach einer Stunde bezahlt er und geht nach Hause. Er findet diesen Café-Besuch sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"শান্তিদায়ক\">entspannend</span>.</p>",
+    "textBn": "আজ শনিবার সকাল। টিম শহরের একটি ক্যাফেতে যায়। সে জানালার পাশে একটি টেবিলে বসে।<br><br>পরিচারিকা এসে জিজ্ঞেস করে, \"আপনি কী পান করতে চান?\" টিম দুধ দিয়ে কফি ও এক টুকরা কেক অর্ডার করে। ক্যাফেটি খুবই আরামদায়ক, এবং বাইরে রোদ উঠেছে।<br><br>টিম একটি পত্রিকা পড়ে এবং আস্তে গান শোনে। এক ঘণ্টা পরে সে বিল দিয়ে বাড়ি চলে যায়। সে এই ক্যাফে ভ্রমণটি খুব শান্তিদায়ক মনে করে।",
+    "questions": [
+      {
+        "q": "Wann geht Tim ins Café?",
+        "opts": [
+          "Freitagabend",
+          "Samstagmorgen",
+          "Sonntagnachmittag",
+          "Montagmorgen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo setzt sich Tim hin?",
+        "opts": [
+          "An die Theke",
+          "An einen Tisch am Fenster",
+          "Draußen",
+          "Neben die Tür"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bestellt Tim?",
+        "opts": [
+          "Tee und Brot",
+          "Kaffee mit Milch und Kuchen",
+          "Nur Wasser",
+          "Saft und Kekse"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist das Wetter?",
+        "opts": [
+          "Es regnet",
+          "Es schneit",
+          "Die Sonne scheint",
+          "Es ist windig"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Wie findet Tim den Café-Besuch?",
+        "opts": [
+          "Langweilig",
+          "Stressig",
+          "Entspannend",
+          "Teuer"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "gold",
+    "descBn": "টিমের এক শনিবার সকালের ক্যাফে ভ্রমণ — দৈনন্দিন জীবনের সহজ German।"
+  },
+  {
+    "slug": "tag",
+    "level": "A1",
+    "xp": 25,
+    "words": 100,
+    "time": 2,
+    "titleDe": "Mein Tag",
+    "titleBn": "আমার দিন",
+    "icon": "⏰",
+    "textDe": "<p>Ich heiße Sara und ich erzähle dir von meinem Tag. Ich stehe jeden Morgen um sieben Uhr auf. Zuerst dusche ich, dann frühstücke ich mit meiner Familie.</p>\n    <p>Um acht Uhr gehe ich zur <span class=\"voc\" tabindex=\"0\" data-bn=\"বিশ্ববিদ্যালয়\">Universität</span>. Ich habe drei Stunden Unterricht. Mittags esse ich mit meinen Freunden in der <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যান্টিন\">Mensa</span>.</p>\n    <p>Am Nachmittag lerne ich in der Bibliothek. Abends koche ich zu Hause und sehe ein bisschen fern. Um zehn Uhr gehe ich ins Bett, weil ich früh schlafen möchte.</p>",
+    "textBn": "আমার নাম সারা এবং আমি তোমাকে আমার দিনের কথা বলছি। আমি প্রতিদিন সকাল সাতটায় ঘুম থেকে উঠি। প্রথমে আমি গোসল করি, তারপর পরিবারের সাথে নাশতা করি।<br><br>সকাল আটটায় আমি বিশ্ববিদ্যালয়ে যাই। আমার তিন ঘণ্টা ক্লাস থাকে। দুপুরে আমি বন্ধুদের সাথে ক্যান্টিনে খাই।<br><br>বিকেলে আমি লাইব্রেরিতে পড়াশোনা করি। সন্ধ্যায় আমি বাসায় রান্না করি এবং একটু টিভি দেখি। রাত দশটায় আমি ঘুমাতে যাই, কারণ আমি তাড়াতাড়ি ঘুমাতে চাই।",
+    "questions": [
+      {
+        "q": "Um wie viel Uhr steht Sara auf?",
+        "opts": [
+          "Sechs Uhr",
+          "Sieben Uhr",
+          "Acht Uhr",
+          "Neun Uhr"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo isst Sara mittags?",
+        "opts": [
+          "Zu Hause",
+          "In der Mensa",
+          "Im Café",
+          "Im Restaurant"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht Sara am Nachmittag?",
+        "opts": [
+          "Sie schläft",
+          "Sie lernt in der Bibliothek",
+          "Sie arbeitet",
+          "Sie kocht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht Sara am Abend?",
+        "opts": [
+          "Sie kocht und sieht fern",
+          "Sie geht ins Kino",
+          "Sie trifft Freunde",
+          "Sie reist"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Wann geht Sara ins Bett?",
+        "opts": [
+          "Acht Uhr",
+          "Neun Uhr",
+          "Zehn Uhr",
+          "Elf Uhr"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "teal",
+    "descBn": "সারার একটি সাধারণ দিনের রুটিন — সময়, daily activities ও Präsens vocabulary।"
+  },
+  {
+    "slug": "supermarkt",
+    "level": "A1",
+    "xp": 25,
+    "words": 95,
+    "time": 2,
+    "titleDe": "Im Supermarkt",
+    "titleBn": "সুপারমার্কেটে",
+    "icon": "🛒",
+    "textDe": "<p>Am Freitag gehe ich in den Supermarkt, weil der Kühlschrank leer ist. Ich brauche Brot, Milch, Eier und <span class=\"voc\" tabindex=\"0\" data-bn=\"পনির\">Käse</span>.</p>\n    <p>Im Supermarkt gibt es auch frisches Obst und Gemüse. Ich kaufe Äpfel, Bananen und Tomaten. An der <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যাশ কাউন্টার\">Kasse</span> bezahle ich mit Karte. Die Verkäuferin ist sehr freundlich.</p>\n    <p>Insgesamt kostet mein Einkauf zwanzig Euro. Ich packe alles in meine <span class=\"voc\" tabindex=\"0\" data-bn=\"ব্যাগ\">Tasche</span> und gehe zu Fuß nach Hause. Einkaufen macht mir Spaß, besonders wenn es nicht zu voll ist.</p>",
+    "textBn": "শুক্রবার আমি সুপারমার্কেটে যাই, কারণ ফ্রিজ খালি। আমার রুটি, দুধ, ডিম ও পনির দরকার।<br><br>সুপারমার্কেটে তাজা ফল ও সবজিও আছে। আমি আপেল, কলা ও টমেটো কিনি। ক্যাশ কাউন্টারে আমি কার্ড দিয়ে বিল দিই। বিক্রয়কর্মী খুবই বন্ধুত্বপূর্ণ।<br><br>মোট বাজার খরচ হয় বিশ ইউরো। আমি সবকিছু ব্যাগে ভরে হেঁটে বাসায় ফিরি। কেনাকাটা করতে আমার ভালো লাগে, বিশেষ করে যখন বেশি ভিড় থাকে না।",
+    "questions": [
+      {
+        "q": "Warum geht die Person in den Supermarkt?",
+        "opts": [
+          "Der Kühlschrank ist leer",
+          "Sie hat Geburtstag",
+          "Sie trifft Freunde",
+          "Es ist Sonntag"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was kauft die Person außer Brot und Milch noch?",
+        "opts": [
+          "Nur Fleisch",
+          "Eier und Käse",
+          "Nur Süßigkeiten",
+          "Kleidung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit bezahlt die Person?",
+        "opts": [
+          "Bar",
+          "Mit Karte",
+          "Mit einem Gutschein",
+          "Sie bezahlt nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viel kostet der Einkauf?",
+        "opts": [
+          "Zehn Euro",
+          "Zwanzig Euro",
+          "Dreißig Euro",
+          "Fünfzig Euro"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie geht die Person nach Hause?",
+        "opts": [
+          "Mit dem Bus",
+          "Mit dem Auto",
+          "Zu Fuß",
+          "Mit dem Fahrrad"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "emerald",
+    "descBn": "সুপারমার্কেটে এক সাধারণ কেনাকাটার গল্প — খাবারের vocabulary ও দৈনন্দিন expressions।"
+  },
+  {
+    "slug": "wetter",
+    "level": "A1",
+    "xp": 25,
+    "words": 105,
+    "time": 2,
+    "titleDe": "Das Wetter heute",
+    "titleBn": "আজকের আবহাওয়া",
+    "icon": "☀️",
+    "textDe": "<p>Heute ist ein schöner Tag. Die Sonne scheint, und der Himmel ist blau. Es ist nicht zu heiß und nicht zu kalt – die <span class=\"voc\" tabindex=\"0\" data-bn=\"তাপমাত্রা\">Temperatur</span> ist perfekt für einen Spaziergang.</p>\n    <p>Gestern war das Wetter anders: es hat den ganzen Tag geregnet, und der Himmel war grau. Im Winter ist es hier oft sehr kalt, und manchmal schneit es.</p>\n    <p>Im Sommer dagegen ist es warm, und viele Menschen gehen ins Schwimmbad. Mein Lieblingswetter ist der <span class=\"voc\" tabindex=\"0\" data-bn=\"বসন্ত\">Frühling</span>, weil dann die Blumen blühen und es weder zu heiß noch zu kalt ist.</p>",
+    "textBn": "আজ একটি সুন্দর দিন। সূর্য উঠেছে, এবং আকাশ নীল। এটা খুব গরমও না, খুব ঠান্ডাও না – তাপমাত্রা হাঁটাহাঁটির জন্য একদম উপযুক্ত।<br><br>গতকাল আবহাওয়া অন্যরকম ছিল: সারাদিন বৃষ্টি হয়েছে, এবং আকাশ ধূসর ছিল। শীতকালে এখানে প্রায়ই খুব ঠান্ডা থাকে, এবং কখনো কখনো তুষারপাত হয়।<br><br>অন্যদিকে গ্রীষ্মে গরম থাকে, এবং অনেক মানুষ সুইমিংপুলে যায়। আমার প্রিয় আবহাওয়া হলো বসন্তকাল, কারণ তখন ফুল ফোটে এবং না বেশি গরম, না বেশি ঠান্ডা থাকে।",
+    "questions": [
+      {
+        "q": "Wie ist das Wetter heute?",
+        "opts": [
+          "Es regnet",
+          "Die Sonne scheint",
+          "Es schneit",
+          "Es ist windig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war das Wetter gestern?",
+        "opts": [
+          "Sonnig",
+          "Es hat geregnet",
+          "Es war heiß",
+          "Es war windig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was machen viele Menschen im Sommer?",
+        "opts": [
+          "Sie bleiben zu Hause",
+          "Sie gehen ins Schwimmbad",
+          "Sie fahren Ski",
+          "Sie lesen viel"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist das Wetter im Winter oft?",
+        "opts": [
+          "Sehr warm",
+          "Sehr kalt",
+          "Windig und trocken",
+          "Wie im Sommer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist das Lieblingswetter der Person?",
+        "opts": [
+          "Sommer",
+          "Winter",
+          "Frühling",
+          "Herbst"
+        ],
+        "correct": 2
+      }
+    ],
+    "category": "Alltag",
+    "color": "sky",
+    "descBn": "আবহাওয়া নিয়ে একটি ছোট passage — ঋতু ও weather vocabulary শেখার জন্য।"
+  },
+  {
+    "slug": "zimmer",
+    "level": "A1",
+    "xp": 25,
+    "words": 100,
+    "time": 2,
+    "titleDe": "Mein Zimmer",
+    "titleBn": "আমার ঘর",
+    "icon": "🛏️",
+    "textDe": "<p>Ich möchte dir mein Zimmer beschreiben. Mein Zimmer ist klein, aber gemütlich. Es gibt ein Bett, einen <span class=\"voc\" tabindex=\"0\" data-bn=\"ডেস্ক\">Schreibtisch</span> und einen Schrank für meine Kleidung.</p>\n    <p>An der Wand hängen viele Fotos von meiner Familie und meinen Freunden. Auf dem Schreibtisch stehen mein Laptop und ein paar Bücher. Neben dem Bett steht eine kleine <span class=\"voc\" tabindex=\"0\" data-bn=\"ল্যাম্প\">Lampe</span>.</p>\n    <p>Ich habe auch eine Pflanze am Fenster – sie heißt \"Max\". Mein Zimmer ist nicht sehr ordentlich, aber ich finde immer alles, was ich brauche. Hier verbringe ich gern meine Freizeit.</p>",
+    "textBn": "আমি তোমাকে আমার ঘরের বর্ণনা দিতে চাই। আমার ঘরটা ছোট, কিন্তু আরামদায়ক। এখানে একটা বিছানা, একটা ডেস্ক এবং কাপড়ের জন্য একটা আলমারি আছে।<br><br>দেয়ালে আমার পরিবার ও বন্ধুদের অনেক ছবি ঝুলানো আছে। ডেস্কের উপর আমার ল্যাপটপ ও কিছু বই আছে। বিছানার পাশে একটা ছোট ল্যাম্প আছে।<br><br>জানালার পাশে আমার একটা গাছও আছে – তার নাম \"ম্যাক্স\"। আমার ঘর খুব গোছানো না, কিন্তু আমি সবসময় যা দরকার তা খুঁজে পাই। এখানে আমি আমার অবসর সময় কাটাতে পছন্দ করি।",
+    "questions": [
+      {
+        "q": "Wie ist das Zimmer laut Text?",
+        "opts": [
+          "Groß und leer",
+          "Klein, aber gemütlich",
+          "Sehr unordentlich und kalt",
+          "Neu renoviert"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was steht auf dem Schreibtisch?",
+        "opts": [
+          "Ein Fernseher",
+          "Laptop und Bücher",
+          "Essen",
+          "Kleidung"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was steht neben dem Bett?",
+        "opts": [
+          "Ein Schrank",
+          "Eine Lampe",
+          "Ein Spiegel",
+          "Ein Stuhl"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie heißt die Pflanze der Person?",
+        "opts": [
+          "Tom",
+          "Max",
+          "Lisa",
+          "Sie hat keinen Namen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie findet die Person ihr Zimmer?",
+        "opts": [
+          "Sie hasst es",
+          "Sie verbringt dort gern ihre Freizeit",
+          "Sie ist nie dort",
+          "Sie möchte umziehen"
+        ],
+        "correct": 1
+      }
+    ],
+    "category": "Alltag",
+    "color": "violet",
+    "descBn": "নিজের ঘর বর্ণনা করার একটি সহজ passage — furniture vocabulary ও \"es gibt\" structure।"
+  },
+  {
+    "slug": "mein-haustier",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "orange",
+    "icon": "🐶",
+    "xp": 25,
+    "words": 50,
+    "time": 2,
+    "titleDe": "Mein Haustier",
+    "titleBn": "আমার পোষা প্রাণী",
+    "descBn": "একটি পোষা প্রাণী নিয়ে একটি খুব সহজ পরিচিতিমূলক passage।",
+    "textDe": "<p>Ich habe einen <span class=\"voc\" tabindex=\"0\" data-bn=\"কুকুর\">Hund</span>. Er heißt Max und ist drei Jahre alt. Max ist braun und sehr klein.</p><p>Jeden Morgen gehe ich mit Max <span class=\"voc\" tabindex=\"0\" data-bn=\"হাঁটতে\">spazieren</span>. Er liebt es, im Park zu laufen und mit anderen Hunden zu spielen.</p><p>Max ist mein bester <span class=\"voc\" tabindex=\"0\" data-bn=\"বন্ধু\">Freund</span>. Ich liebe ihn sehr.</p>",
+    "textBn": "আমার একটি কুকুর আছে। তার নাম ম্যাক্স এবং সে তিন বছর বয়সী। ম্যাক্স বাদামী এবং খুব ছোট।<br><br>প্রতিদিন সকালে আমি ম্যাক্সের সাথে হাঁটতে যাই। সে পার্কে দৌড়াতে এবং অন্য কুকুরদের সাথে খেলতে পছন্দ করে।<br><br>ম্যাক্স আমার সবচেয়ে ভালো বন্ধু। আমি তাকে খুব ভালোবাসি।",
+    "questions": [
+      {
+        "q": "Was für ein Tier ist Max?",
+        "opts": [
+          "Eine Katze",
+          "Ein Hund",
+          "Ein Vogel",
+          "Ein Fisch"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie alt ist Max?",
+        "opts": [
+          "Ein Jahr",
+          "Zwei Jahre",
+          "Drei Jahre",
+          "Fünf Jahre"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Welche Farbe hat Max?",
+        "opts": [
+          "Schwarz",
+          "Weiß",
+          "Braun",
+          "Grau"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Was macht die Person jeden Morgen?",
+        "opts": [
+          "Sie schläft",
+          "Sie geht mit Max spazieren",
+          "Sie arbeitet",
+          "Sie kocht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was liebt Max?",
+        "opts": [
+          "Schlafen",
+          "Im Park laufen und spielen",
+          "Essen",
+          "Baden"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "meine-schule",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "sky",
+    "icon": "🏫",
+    "xp": 25,
+    "words": 48,
+    "time": 2,
+    "titleDe": "Meine Schule",
+    "titleBn": "আমার স্কুল",
+    "descBn": "একটি স্কুল নিয়ে একটি সহজ পরিচিতিমূলক passage।",
+    "textDe": "<p>Ich gehe in die <span class=\"voc\" tabindex=\"0\" data-bn=\"স্কুল\">Schule</span> in meiner Stadt. Die Schule ist groß und hat viele Klassenzimmer.</p><p>Meine <span class=\"voc\" tabindex=\"0\" data-bn=\"শিক্ষক\">Lehrerin</span> heißt Frau Klein. Sie ist sehr nett und erklärt alles gut. Mein Lieblingsfach ist Mathematik.</p><p>In der <span class=\"voc\" tabindex=\"0\" data-bn=\"বিরতি\">Pause</span> spiele ich mit meinen Freunden im Schulhof. Die Schule macht mir Spaß.</p>",
+    "textBn": "আমি আমার শহরের স্কুলে যাই। স্কুলটি বড় এবং এতে অনেক শ্রেণিকক্ষ আছে।<br><br>আমার শিক্ষিকার নাম ফ্রাউ ক্লাইন। তিনি খুব বন্ধুত্বপূর্ণ এবং সবকিছু ভালোভাবে ব্যাখ্যা করেন। আমার প্রিয় বিষয় গণিত।<br><br>বিরতিতে আমি স্কুল মাঠে আমার বন্ধুদের সাথে খেলি। স্কুল আমার কাছে মজার।",
+    "questions": [
+      {
+        "q": "Wie ist die Schule?",
+        "opts": [
+          "Klein",
+          "Groß",
+          "Alt",
+          "Neu"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie heißt die Lehrerin?",
+        "opts": [
+          "Frau Meyer",
+          "Frau Klein",
+          "Frau Schmidt",
+          "Frau Wagner"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist das Lieblingsfach?",
+        "opts": [
+          "Deutsch",
+          "Mathematik",
+          "Sport",
+          "Kunst"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Person in der Pause?",
+        "opts": [
+          "Sie schläft",
+          "Sie spielt mit Freunden",
+          "Sie lernt allein",
+          "Sie isst zu Hause"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie findet die Person die Schule?",
+        "opts": [
+          "Langweilig",
+          "Macht Spaß",
+          "Sehr schwer",
+          "Zu lang"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "mein-hobby",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "emerald",
+    "icon": "🎨",
+    "xp": 25,
+    "words": 41,
+    "time": 2,
+    "titleDe": "Mein Hobby",
+    "titleBn": "আমার শখ",
+    "descBn": "একটি ব্যক্তিগত শখ নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Mein <span class=\"voc\" tabindex=\"0\" data-bn=\"শখ\">Hobby</span> ist Malen. Ich male jeden Tag ein bisschen, meistens am Abend.</p><p>Ich male gerne Blumen und <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রাণী\">Tiere</span>. Meine Mutter hat mir viele Farben und Pinsel gekauft.</p><p>Manchmal male ich mit meiner besten Freundin. Malen macht mich <span class=\"voc\" tabindex=\"0\" data-bn=\"খুশি\">glücklich</span>.</p>",
+    "textBn": "আমার শখ হলো ছবি আঁকা। আমি প্রতিদিন একটু আঁকি, বেশিরভাগ সন্ধ্যায়।<br><br>আমি ফুল ও প্রাণী আঁকতে পছন্দ করি। আমার মা আমাকে অনেক রঙ ও তুলি কিনে দিয়েছেন।<br><br>মাঝে মাঝে আমি আমার সবচেয়ে ভালো বান্ধবীর সাথে আঁকি। আঁকা আমাকে খুশি করে।",
+    "questions": [
+      {
+        "q": "Was ist das Hobby?",
+        "opts": [
+          "Singen",
+          "Malen",
+          "Tanzen",
+          "Kochen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wann malt die Person meistens?",
+        "opts": [
+          "Am Morgen",
+          "Am Abend",
+          "In der Nacht",
+          "Nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was malt die Person gerne?",
+        "opts": [
+          "Autos",
+          "Blumen und Tiere",
+          "Häuser",
+          "Menschen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wer hat Farben und Pinsel gekauft?",
+        "opts": [
+          "Der Vater",
+          "Die Mutter",
+          "Die Lehrerin",
+          "Niemand"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie fühlt sich die Person beim Malen?",
+        "opts": [
+          "Traurig",
+          "Glücklich",
+          "Müde",
+          "Gelangweilt"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "meine-stadt",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "gold",
+    "icon": "🏙️",
+    "xp": 25,
+    "words": 49,
+    "time": 2,
+    "titleDe": "Meine Stadt",
+    "titleBn": "আমার শহর",
+    "descBn": "নিজের শহর নিয়ে একটি সহজ পরিচিতিমূলক passage।",
+    "textDe": "<p>Ich wohne in einer kleinen <span class=\"voc\" tabindex=\"0\" data-bn=\"শহর\">Stadt</span>. Die Stadt hat einen schönen Marktplatz und viele alte Häuser.</p><p>Es gibt hier einen großen <span class=\"voc\" tabindex=\"0\" data-bn=\"পার্ক\">Park</span> mit einem See. Im Sommer gehe ich oft dorthin und esse ein Eis.</p><p>Meine Stadt ist nicht groß, aber sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"সুন্দর\">schön</span>. Ich lebe gerne hier.</p>",
+    "textBn": "আমি একটি ছোট শহরে থাকি। শহরে একটি সুন্দর বাজার চত্বর এবং অনেক পুরনো বাড়ি আছে।<br><br>এখানে একটি হ্রদসহ একটি বড় পার্ক আছে। গ্রীষ্মে আমি প্রায়ই সেখানে যাই এবং আইসক্রিম খাই।<br><br>আমার শহর বড় নয়, কিন্তু খুব সুন্দর। আমি এখানে থাকতে পছন্দ করি।",
+    "questions": [
+      {
+        "q": "Wie ist die Stadt?",
+        "opts": [
+          "Sehr groß",
+          "Klein",
+          "Sehr neu",
+          "Ohne Häuser"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat die Stadt?",
+        "opts": [
+          "Nur Häuser",
+          "Einen Marktplatz und alte Häuser",
+          "Ein Meer",
+          "Berge"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was gibt es im Park?",
+        "opts": [
+          "Einen See",
+          "Ein Stadion",
+          "Ein Kino",
+          "Nichts"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was macht die Person im Sommer?",
+        "opts": [
+          "Sie schwimmt im Meer",
+          "Sie geht in den Park und isst Eis",
+          "Sie fährt weg",
+          "Sie bleibt zu Hause"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie findet die Person ihre Stadt?",
+        "opts": [
+          "Langweilig",
+          "Sehr schön",
+          "Zu laut",
+          "Zu klein zum Leben"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "mein-freund",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "rose",
+    "icon": "👬",
+    "xp": 25,
+    "words": 40,
+    "time": 2,
+    "titleDe": "Mein Freund",
+    "titleBn": "আমার বন্ধু",
+    "descBn": "একটি বন্ধু নিয়ে একটি সহজ পরিচিতিমূলক passage।",
+    "textDe": "<p>Mein bester <span class=\"voc\" tabindex=\"0\" data-bn=\"বন্ধু\">Freund</span> heißt Ali. Wir kennen uns seit der Grundschule.</p><p>Ali ist sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"মজার\">lustig</span> und hilft mir immer. Wir spielen zusammen Fußball und schauen Filme.</p><p>Jeden Samstag treffen wir uns im <span class=\"voc\" tabindex=\"0\" data-bn=\"ক্যাফে\">Café</span>. Eine gute Freundschaft ist sehr wichtig.</p>",
+    "textBn": "আমার সবচেয়ে ভালো বন্ধুর নাম আলী। আমরা প্রাথমিক স্কুল থেকে একে অপরকে চিনি।<br><br>আলী খুব মজার এবং সবসময় আমাকে সাহায্য করে। আমরা একসাথে ফুটবল খেলি এবং সিনেমা দেখি।<br><br>প্রতি শনিবার আমরা ক্যাফেতে দেখা করি। একটি ভালো বন্ধুত্ব খুব গুরুত্বপূর্ণ।",
+    "questions": [
+      {
+        "q": "Wie heißt der beste Freund?",
+        "opts": [
+          "Tom",
+          "Ali",
+          "Max",
+          "Peter"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Seit wann kennen sie sich?",
+        "opts": [
+          "Seit letztem Jahr",
+          "Seit der Grundschule",
+          "Seit einer Woche",
+          "Seit gestern"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist Ali?",
+        "opts": [
+          "Sehr traurig",
+          "Sehr lustig",
+          "Sehr still",
+          "Sehr streng"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was machen sie zusammen?",
+        "opts": [
+          "Sie schlafen",
+          "Fußball spielen und Filme schauen",
+          "Sie kochen",
+          "Sie arbeiten"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo treffen sie sich am Samstag?",
+        "opts": [
+          "Im Kino",
+          "Im Café",
+          "In der Schule",
+          "Im Park"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "das-fruehstueck",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "violet",
+    "icon": "🍳",
+    "xp": 25,
+    "words": 43,
+    "time": 2,
+    "titleDe": "Das Frühstück",
+    "titleBn": "সকালের নাস্তা",
+    "descBn": "সকালের নাস্তা নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Jeden Morgen esse ich <span class=\"voc\" tabindex=\"0\" data-bn=\"নাস্তা\">Frühstück</span> mit meiner Familie. Wir essen um sieben Uhr.</p><p>Ich esse gerne Brot mit <span class=\"voc\" tabindex=\"0\" data-bn=\"মাখন\">Butter</span> und trinke einen Kaffee. Meine Schwester isst lieber Joghurt mit Obst.</p><p>Das Frühstück ist die wichtigste <span class=\"voc\" tabindex=\"0\" data-bn=\"খাবার\">Mahlzeit</span> des Tages. Danach gehe ich zur Arbeit.</p>",
+    "textBn": "প্রতিদিন সকালে আমি আমার পরিবারের সাথে নাস্তা খাই। আমরা সাতটায় খাই।<br><br>আমি মাখন দিয়ে রুটি খেতে পছন্দ করি এবং কফি পান করি। আমার বোন বরং দই ও ফল খেতে পছন্দ করে।<br><br>নাস্তা দিনের সবচেয়ে গুরুত্বপূর্ণ খাবার। এরপর আমি কাজে যাই।",
+    "questions": [
+      {
+        "q": "Um wie viel Uhr essen sie Frühstück?",
+        "opts": [
+          "Um sechs Uhr",
+          "Um sieben Uhr",
+          "Um acht Uhr",
+          "Um neun Uhr"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was isst die Person gerne?",
+        "opts": [
+          "Nur Obst",
+          "Brot mit Butter",
+          "Reis",
+          "Suppe"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was trinkt die Person?",
+        "opts": [
+          "Tee",
+          "Kaffee",
+          "Wasser",
+          "Saft"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was isst die Schwester lieber?",
+        "opts": [
+          "Brot",
+          "Joghurt mit Obst",
+          "Eier",
+          "Nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Person nach dem Frühstück?",
+        "opts": [
+          "Sie schläft weiter",
+          "Sie geht zur Arbeit",
+          "Sie geht einkaufen",
+          "Sie liest"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "die-jahreszeiten",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "teal",
+    "icon": "🍂",
+    "xp": 25,
+    "words": 42,
+    "time": 2,
+    "titleDe": "Die Jahreszeiten",
+    "titleBn": "ঋতুসমূহ",
+    "descBn": "বছরের চারটি ঋতু নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Ein Jahr hat vier <span class=\"voc\" tabindex=\"0\" data-bn=\"ঋতু\">Jahreszeiten</span>: Frühling, Sommer, Herbst und Winter.</p><p>Im Sommer ist es <span class=\"voc\" tabindex=\"0\" data-bn=\"উষ্ণ\">warm</span> und die Sonne scheint viel. Im Winter ist es kalt und manchmal schneit es.</p><p>Meine <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রিয়\">Lieblingsjahreszeit</span> ist der Herbst, weil die Blätter so schön bunt sind.</p>",
+    "textBn": "একটি বছরে চারটি ঋতু থাকে: বসন্ত, গ্রীষ্ম, শরৎ ও শীত।<br><br>গ্রীষ্মে উষ্ণ থাকে এবং সূর্য অনেক আলো দেয়। শীতে ঠান্ডা থাকে এবং মাঝে মাঝে তুষারপাত হয়।<br><br>আমার প্রিয় ঋতু শরৎ, কারণ পাতাগুলো খুব সুন্দর রঙিন হয়।",
+    "questions": [
+      {
+        "q": "Wie viele Jahreszeiten hat ein Jahr?",
+        "opts": [
+          "Zwei",
+          "Drei",
+          "Vier",
+          "Fünf"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Wie ist das Wetter im Sommer?",
+        "opts": [
+          "Kalt",
+          "Warm",
+          "Es schneit",
+          "Windig"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was passiert im Winter manchmal?",
+        "opts": [
+          "Es schneit",
+          "Es ist sehr heiß",
+          "Blumen blühen",
+          "Nichts"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Was ist die Lieblingsjahreszeit der Person?",
+        "opts": [
+          "Frühling",
+          "Sommer",
+          "Herbst",
+          "Winter"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Warum mag sie den Herbst?",
+        "opts": [
+          "Wegen der Ferien",
+          "Weil die Blätter bunt sind",
+          "Weil es warm ist",
+          "Weil sie Geburtstag hat"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "mein-beruf",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "indigo",
+    "icon": "👩‍⚕️",
+    "xp": 25,
+    "words": 44,
+    "time": 2,
+    "titleDe": "Mein Beruf",
+    "titleBn": "আমার পেশা",
+    "descBn": "একজনের পেশা নিয়ে একটি সহজ পরিচিতিমূলক passage।",
+    "textDe": "<p>Ich arbeite als <span class=\"voc\" tabindex=\"0\" data-bn=\"সেবিকা\">Krankenschwester</span> in einem Krankenhaus. Meine Arbeit beginnt um sechs Uhr morgens.</p><p>Ich helfe kranken <span class=\"voc\" tabindex=\"0\" data-bn=\"রোগী\">Patienten</span> und arbeite mit netten Kollegen. Die Arbeit ist manchmal schwer, aber ich liebe sie.</p><p>Am Ende des Tages bin ich müde, aber <span class=\"voc\" tabindex=\"0\" data-bn=\"গর্বিত\">stolz</span> auf meine Arbeit.</p>",
+    "textBn": "আমি একটি হাসপাতালে সেবিকা হিসেবে কাজ করি। আমার কাজ সকাল ছয়টায় শুরু হয়।<br><br>আমি অসুস্থ রোগীদের সাহায্য করি এবং বন্ধুত্বপূর্ণ সহকর্মীদের সাথে কাজ করি। কাজটি মাঝে মাঝে কঠিন, কিন্তু আমি এটি ভালোবাসি।<br><br>দিনের শেষে আমি ক্লান্ত থাকি, কিন্তু আমার কাজের জন্য গর্বিত।",
+    "questions": [
+      {
+        "q": "Was ist der Beruf der Person?",
+        "opts": [
+          "Lehrerin",
+          "Krankenschwester",
+          "Ärztin",
+          "Köchin"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wann beginnt die Arbeit?",
+        "opts": [
+          "Um sechs Uhr morgens",
+          "Um zehn Uhr",
+          "Um Mitternacht",
+          "Am Nachmittag"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Wem hilft die Person?",
+        "opts": [
+          "Kindern",
+          "Kranken Patienten",
+          "Touristen",
+          "Tieren"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist die Arbeit manchmal?",
+        "opts": [
+          "Sehr leicht",
+          "Schwer",
+          "Langweilig",
+          "Kurz"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie fühlt sich die Person am Ende des Tages?",
+        "opts": [
+          "Traurig",
+          "Müde, aber stolz",
+          "Wütend",
+          "Gelangweilt"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "im-park",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "emerald",
+    "icon": "🌳",
+    "xp": 25,
+    "words": 53,
+    "time": 2,
+    "titleDe": "Im Park",
+    "titleBn": "পার্কে",
+    "descBn": "পার্কে একটি বিকেল কাটানো নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Am Sonntag gehe ich gerne in den <span class=\"voc\" tabindex=\"0\" data-bn=\"পার্ক\">Park</span>. Der Park ist grün und hat viele Bäume.</p><p>Dort sehe ich Kinder, die <span class=\"voc\" tabindex=\"0\" data-bn=\"খেলা\">spielen</span>, und Menschen, die spazieren gehen. Ich setze mich auf eine Bank und lese ein Buch.</p><p>Manchmal bringe ich <span class=\"voc\" tabindex=\"0\" data-bn=\"রুটি\">Brot</span> für die Vögel mit. Der Park ist ein ruhiger Ort.</p>",
+    "textBn": "রবিবার আমি পার্কে যেতে পছন্দ করি। পার্কটি সবুজ এবং এতে অনেক গাছ আছে।<br><br>সেখানে আমি শিশুদের খেলতে দেখি এবং মানুষদের হাঁটতে দেখি। আমি একটি বেঞ্চে বসি এবং একটি বই পড়ি।<br><br>মাঝে মাঝে আমি পাখিদের জন্য রুটি নিয়ে আসি। পার্কটি একটি শান্ত জায়গা।",
+    "questions": [
+      {
+        "q": "Wann geht die Person in den Park?",
+        "opts": [
+          "Am Montag",
+          "Am Sonntag",
+          "Jeden Tag",
+          "Nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist der Park?",
+        "opts": [
+          "Grau und klein",
+          "Grün mit vielen Bäumen",
+          "Ohne Bäume",
+          "Sehr laut"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Person im Park?",
+        "opts": [
+          "Sie arbeitet",
+          "Sie liest ein Buch",
+          "Sie schläft",
+          "Sie kocht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bringt sie manchmal mit?",
+        "opts": [
+          "Wasser",
+          "Brot für die Vögel",
+          "Ein Spielzeug",
+          "Blumen"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie ist der Park laut der Person?",
+        "opts": [
+          "Sehr laut",
+          "Ein ruhiger Ort",
+          "Gefährlich",
+          "Langweilig"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "im-restaurant",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "orange",
+    "icon": "🍽️",
+    "xp": 25,
+    "words": 41,
+    "time": 2,
+    "titleDe": "Im Restaurant",
+    "titleBn": "রেস্তোরাঁয়",
+    "descBn": "একটি রেস্তোরাঁয় খাওয়ার অভিজ্ঞতা নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Am Freitagabend gehen wir oft in ein <span class=\"voc\" tabindex=\"0\" data-bn=\"রেস্তোরাঁ\">Restaurant</span>. Der Kellner bringt uns die Speisekarte.</p><p>Ich bestelle meistens <span class=\"voc\" tabindex=\"0\" data-bn=\"পাস্তা\">Nudeln</span> mit Tomatensoße. Mein Mann isst gerne Fisch.</p><p>Das Essen schmeckt immer sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"সুস্বাদু\">lecker</span>. Nach dem Essen trinken wir noch einen Kaffee.</p>",
+    "textBn": "শুক্রবার সন্ধ্যায় আমরা প্রায়ই একটি রেস্তোরাঁয় যাই। ওয়েটার আমাদের মেনু নিয়ে আসেন।<br><br>আমি সাধারণত টমেটো সসসহ নুডলস অর্ডার করি। আমার স্বামী মাছ খেতে পছন্দ করেন।<br><br>খাবার সবসময় খুব সুস্বাদু হয়। খাওয়ার পর আমরা আরেকটি কফি পান করি।",
+    "questions": [
+      {
+        "q": "Wann gehen sie oft ins Restaurant?",
+        "opts": [
+          "Am Montag",
+          "Am Freitagabend",
+          "Am Morgen",
+          "Nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wer bringt die Speisekarte?",
+        "opts": [
+          "Der Koch",
+          "Der Kellner",
+          "Die Kinder",
+          "Niemand"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was bestellt die Person meistens?",
+        "opts": [
+          "Fisch",
+          "Nudeln mit Tomatensoße",
+          "Suppe",
+          "Salat"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was isst der Mann gerne?",
+        "opts": [
+          "Nudeln",
+          "Fisch",
+          "Fleisch",
+          "Reis"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was trinken sie nach dem Essen?",
+        "opts": [
+          "Wasser",
+          "Kaffee",
+          "Tee",
+          "Saft"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "deutsch-lernen",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "sky",
+    "icon": "📖",
+    "xp": 25,
+    "words": 49,
+    "time": 2,
+    "titleDe": "Ich lerne Deutsch",
+    "titleBn": "আমি জার্মান শিখছি",
+    "descBn": "জার্মান ভাষা শেখার অভিজ্ঞতা নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Seit drei Monaten lerne ich <span class=\"voc\" tabindex=\"0\" data-bn=\"জার্মান\">Deutsch</span>. Ich habe jeden Dienstag und Donnerstag Unterricht.</p><p>Am Anfang war es sehr <span class=\"voc\" tabindex=\"0\" data-bn=\"কঠিন\">schwer</span>, aber jetzt verstehe ich schon viele Wörter. Ich übe auch zu Hause mit einer App.</p><p>Mein Ziel ist es, gut <span class=\"voc\" tabindex=\"0\" data-bn=\"কথা বলা\">zu sprechen</span>. Deutsch lernen macht mir Spaß.</p>",
+    "textBn": "তিন মাস ধরে আমি জার্মান শিখছি। আমার প্রতি মঙ্গল ও বৃহস্পতিবার ক্লাস আছে।<br><br>শুরুতে এটি খুব কঠিন ছিল, কিন্তু এখন আমি অনেক শব্দ বুঝি। আমি বাড়িতেও একটি অ্যাপ দিয়ে অনুশীলন করি।<br><br>আমার লক্ষ্য ভালোভাবে কথা বলা। জার্মান শেখা আমার কাছে মজার।",
+    "questions": [
+      {
+        "q": "Wie lange lernt die Person schon Deutsch?",
+        "opts": [
+          "Seit einer Woche",
+          "Seit drei Monaten",
+          "Seit einem Jahr",
+          "Seit heute"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "An welchen Tagen hat sie Unterricht?",
+        "opts": [
+          "Montag und Mittwoch",
+          "Dienstag und Donnerstag",
+          "Nur am Wochenende",
+          "Jeden Tag"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie war es am Anfang?",
+        "opts": [
+          "Sehr einfach",
+          "Sehr schwer",
+          "Langweilig",
+          "Gar nicht schwer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Womit übt sie zu Hause?",
+        "opts": [
+          "Mit einem Buch",
+          "Mit einer App",
+          "Mit dem Fernsehen",
+          "Gar nicht"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist ihr Ziel?",
+        "opts": [
+          "Nur zu lesen",
+          "Gut zu sprechen",
+          "Deutsch zu vergessen",
+          "Zu schreiben"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "der-bus",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "gold",
+    "icon": "🚌",
+    "xp": 25,
+    "words": 42,
+    "time": 2,
+    "titleDe": "Mit dem Bus fahren",
+    "titleBn": "বাসে ভ্রমণ",
+    "descBn": "বাসে করে ভ্রমণ নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Jeden Morgen fahre ich mit dem <span class=\"voc\" tabindex=\"0\" data-bn=\"বাস\">Bus</span> zur Arbeit. Die Bushaltestelle ist nah bei meinem Haus.</p><p>Der Bus kommt normalerweise <span class=\"voc\" tabindex=\"0\" data-bn=\"সময়মতো\">pünktlich</span>. Die Fahrt dauert zwanzig Minuten.</p><p>Im Bus lese ich gerne oder höre <span class=\"voc\" tabindex=\"0\" data-bn=\"সঙ্গীত\">Musik</span>. Der Bus ist bequem und günstig.</p>",
+    "textBn": "প্রতিদিন সকালে আমি বাসে করে কাজে যাই। বাস স্টপ আমার বাড়ির কাছে।<br><br>বাস সাধারণত সময়মতো আসে। যাত্রা বিশ মিনিট সময় নেয়।<br><br>বাসে আমি পড়তে বা সঙ্গীত শুনতে পছন্দ করি। বাসটি আরামদায়ক ও সাশ্রয়ী।",
+    "questions": [
+      {
+        "q": "Womit fährt die Person zur Arbeit?",
+        "opts": [
+          "Mit dem Auto",
+          "Mit dem Bus",
+          "Mit dem Fahrrad",
+          "Zu Fuß"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wo ist die Bushaltestelle?",
+        "opts": [
+          "Weit weg",
+          "Nah bei ihrem Haus",
+          "In einer anderen Stadt",
+          "Es gibt keine"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie kommt der Bus normalerweise?",
+        "opts": [
+          "Zu spät",
+          "Pünktlich",
+          "Gar nicht",
+          "Sehr früh"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie lange dauert die Fahrt?",
+        "opts": [
+          "Fünf Minuten",
+          "Zwanzig Minuten",
+          "Eine Stunde",
+          "Zwei Stunden"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Person im Bus?",
+        "opts": [
+          "Sie schläft nur",
+          "Sie liest oder hört Musik",
+          "Sie isst",
+          "Sie telefoniert laut"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "meine-wohnung",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "violet",
+    "icon": "🏠",
+    "xp": 25,
+    "words": 49,
+    "time": 2,
+    "titleDe": "Meine Wohnung",
+    "titleBn": "আমার ফ্ল্যাট",
+    "descBn": "নিজের ফ্ল্যাট নিয়ে একটি সহজ পরিচিতিমূলক passage।",
+    "textDe": "<p>Ich wohne in einer kleinen <span class=\"voc\" tabindex=\"0\" data-bn=\"ফ্ল্যাট\">Wohnung</span> in der Stadt. Sie hat zwei Zimmer, eine Küche und ein Bad.</p><p>Mein <span class=\"voc\" tabindex=\"0\" data-bn=\"প্রিয়\">Lieblingszimmer</span> ist das Wohnzimmer, weil es hell und gemütlich ist. Ich habe dort viele Bücher und Pflanzen.</p><p>Die Wohnung ist nicht groß, aber ich fühle mich hier <span class=\"voc\" tabindex=\"0\" data-bn=\"ঘরোয়া\">zu Hause</span>.</p>",
+    "textBn": "আমি শহরে একটি ছোট ফ্ল্যাটে থাকি। এতে দুটি কক্ষ, একটি রান্নাঘর এবং একটি বাথরুম আছে।<br><br>আমার প্রিয় ঘর হলো বসার ঘর, কারণ এটি উজ্জ্বল এবং আরামদায়ক। সেখানে আমার অনেক বই ও গাছ আছে।<br><br>ফ্ল্যাটটি বড় নয়, কিন্তু আমি এখানে ঘরোয়া অনুভব করি।",
+    "questions": [
+      {
+        "q": "Wo wohnt die Person?",
+        "opts": [
+          "Auf dem Land",
+          "In der Stadt",
+          "Am Meer",
+          "Im Wald"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie viele Zimmer hat die Wohnung?",
+        "opts": [
+          "Ein Zimmer",
+          "Zwei Zimmer",
+          "Vier Zimmer",
+          "Fünf Zimmer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was ist das Lieblingszimmer?",
+        "opts": [
+          "Die Küche",
+          "Das Wohnzimmer",
+          "Das Bad",
+          "Das Schlafzimmer"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was hat sie im Wohnzimmer?",
+        "opts": [
+          "Nur einen Fernseher",
+          "Bücher und Pflanzen",
+          "Ein Bett",
+          "Nichts"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wie fühlt sich die Person in der Wohnung?",
+        "opts": [
+          "Fremd",
+          "Zu Hause",
+          "Traurig",
+          "Gelangweilt"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  {
+    "slug": "meine-woche",
+    "level": "A1",
+    "category": "Alltag",
+    "color": "teal",
+    "icon": "📅",
+    "xp": 25,
+    "words": 47,
+    "time": 2,
+    "titleDe": "Meine Woche",
+    "titleBn": "আমার সপ্তাহ",
+    "descBn": "একটি সাপ্তাহিক রুটিন নিয়ে একটি সহজ passage।",
+    "textDe": "<p>Von Montag bis Freitag arbeite ich. Am <span class=\"voc\" tabindex=\"0\" data-bn=\"সোমবার\">Montag</span> beginnt meine Woche immer sehr früh.</p><p>Am Mittwoch gehe ich zum Sport, und am Freitagabend treffe ich <span class=\"voc\" tabindex=\"0\" data-bn=\"বন্ধু\">Freunde</span>. Am Wochenende schlafe ich lange.</p><p>Sonntags koche ich mit meiner Familie und wir <span class=\"voc\" tabindex=\"0\" data-bn=\"আরাম করা\">entspannen</span> uns zusammen. Ich liebe meine Woche.</p>",
+    "textBn": "সোমবার থেকে শুক্রবার আমি কাজ করি। সোমবারে আমার সপ্তাহ সবসময় খুব সকালে শুরু হয়।<br><br>বুধবারে আমি খেলাধুলা করতে যাই, এবং শুক্রবার সন্ধ্যায় আমি বন্ধুদের সাথে দেখা করি। সপ্তাহান্তে আমি অনেকক্ষণ ঘুমাই।<br><br>রবিবার আমি আমার পরিবারের সাথে রান্না করি এবং আমরা একসাথে আরাম করি। আমি আমার সপ্তাহকে ভালোবাসি।",
+    "questions": [
+      {
+        "q": "Wann arbeitet die Person?",
+        "opts": [
+          "Nur am Wochenende",
+          "Von Montag bis Freitag",
+          "Nur am Montag",
+          "Nie"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht sie am Mittwoch?",
+        "opts": [
+          "Sie schläft",
+          "Sie geht zum Sport",
+          "Sie kocht",
+          "Sie reist"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Wen trifft sie am Freitagabend?",
+        "opts": [
+          "Niemanden",
+          "Freunde",
+          "Ihre Chefin",
+          "Ärzte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht sie am Wochenende?",
+        "opts": [
+          "Sie arbeitet",
+          "Sie schläft lange",
+          "Sie fährt weg",
+          "Sie ist krank"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Was macht die Familie am Sonntag?",
+        "opts": [
+          "Sie streiten",
+          "Sie kochen und entspannen sich",
+          "Sie arbeiten",
+          "Sie reisen"
+        ],
+        "correct": 1
+      }
+    ]
+  }
+]

@@ -144,6 +144,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 @media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start;}.hero h2{font-size:1.5rem;}.wrap{padding:1rem .9rem 0;}.link-row{flex-direction:column;align-items:stretch;}.link-input{white-space:normal;word-break:break-all;}}
 </style>
+<link href="/css/user-menu.css" rel="stylesheet">
+<style>.user-section,#nav-avatar,#nav-name,#btn-logout,#btn-logout-top{display:none!important}</style>
+<link href="/css/bottom-nav.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrap">
@@ -155,6 +158,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       <div class="logo-text"><h1>Deutsch Lernen</h1><p>GERMAN LEARNING PLATFORM · A1 TO C2</p></div>
     </div>
     <div class="topbar-right">
+      <div id="user-menu-container"></div>
       <div class="user-avatar" id="nav-avatar" onclick="location.href='mein-profil.html'">👤</div>
       <div class="user-name" id="nav-name">লোড হচ্ছে...</div>
       <button class="btn-logout" id="btn-logout">Logout</button>
@@ -392,6 +396,32 @@ requireAuth(async user => {
     window.location.href = "index.html";
   };
 });
+</script>
+
+<script type="module">
+import { renderUserMenu } from "/js/user-menu.js";
+function dlMirrorUserMenu(){
+  const nameEl = document.getElementById("nav-name");
+  const container = document.getElementById("user-menu-container");
+  const oldLogout = document.getElementById("btn-logout") || document.getElementById("btn-logout-top");
+  if(!nameEl || !container) return;
+  const name = (nameEl.textContent||"").trim();
+  if(!name || /\.\.\.|loading|\u09B2\u09CB\u09A1/i.test(name)) return;
+  const av = document.getElementById("nav-avatar");
+  const img = av ? av.querySelector("img") : null;
+  const photo = img ? img.getAttribute("src") : "";
+  renderUserMenu(container, {
+    name, photo, plan: "free",
+    onLogout: () => oldLogout && oldLogout.click(),
+  });
+}
+let dlTries = 0;
+const dlIv = setInterval(() => { dlMirrorUserMenu(); if(++dlTries > 30) clearInterval(dlIv); }, 250);
+</script>
+
+<script type="module">
+import { renderBottomNav } from "/js/bottom-nav.js";
+renderBottomNav();
 </script>
 </body>
 </html>
